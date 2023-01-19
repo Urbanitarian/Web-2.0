@@ -85,13 +85,13 @@ return [
      // ------
  
      // Menu logo. You can replace this with an <img> tag if you have a logo.
-     'project_logo'    => '<img class="w-24 h-auto mr-2" src="../../../img/logo.png">',
+     'project_logo'    => '<img class="w-8 h-auto mr-2" src="../../../img/logo0.png"><h5 class="pt-2"><b>Urbanitarian</b></h5>',
  
      // Show / hide breadcrumbs on admin panel pages.
      'breadcrumbs' => false,
  
      // Horizontal navbar classes. Helps make the admin panel look similar to your project's design.
-     'header_class' => 'app-header bg-dark border-0 navbar navbar-dark',
+     'header_class' => 'app-header bg-white border-0 navbar navbar-light',
      // For background colors use: bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success, bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan, bg-white
      // For links to be visible on different background colors use: "navbar-dark", "navbar-light", "navbar-color"
  
@@ -100,11 +100,11 @@ return [
      // ----
  
      // Body element classes.
-     'body_class' => 'app aside-menu-fixed sidebar-lg-show bg-dark',
+     'body_class' => 'app aside-menu-fixed sidebar-lg-show bg-white',
      // Try sidebar-hidden, sidebar-fixed, sidebar-compact, sidebar-lg-show
  
      // Sidebar element classes.
-     'sidebar_class' => 'sidebar',
+     'sidebar_class' => 'sidebar bg-white',
      // Remove "sidebar-transparent" for standard sidebar look
      // Try "sidebar-light" or "sidebar-dark" for dark/light links
      // You can also add a background class like bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success, bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan
@@ -113,7 +113,7 @@ return [
      // ------
 
     // Footer element classes.
-    'footer_class' => 'app-footer d-print-none bg-dark',
+    'footer_class' => 'app-footer d-print-none bg-white',
     // hide it with d-none
     // change background color with bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success, bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan, bg-white
 

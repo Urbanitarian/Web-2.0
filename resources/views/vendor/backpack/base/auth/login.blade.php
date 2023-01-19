@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <form class="pt-0 col-md-12" role="form" method="POST" action="{{ route('backpack.auth.login') }}">
                         {!! csrf_field() !!}
-                        <div class="form-group mb-2">
+                        <div class="mb-2 form-group">
                             <div>
                             <a href="{{ route('socialite.redirect', 'google') }}" class="border btn btn-block">
                                     <div class="flex justify-center">
@@ -52,7 +52,7 @@
                         #show:checked~#content{display:block;}
                         </style>
                         <input type=checkbox id="show">
-                        <label for="show"class="border btn btn-block" style="cursor:pointer;"><i class="fa fa-user"></i> &nbsp;&nbsp; Connexion Classique</label>
+                        <label for="show"class="border btn btn-block" style="cursor:pointer;"><i class="fa fa-user"></i> &nbsp;&nbsp; Login</label>
                         <span id="content">
 
 

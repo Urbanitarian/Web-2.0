@@ -31,7 +31,7 @@ class UserCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\User::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/user');
-        CRUD::setEntityNameStrings('utilisateur', 'utilisateurs');
+        CRUD::setEntityNameStrings('user', 'users');
     }
 
     /**
@@ -45,8 +45,8 @@ class UserCrudController extends CrudController
         CRUD::column('name');
         CRUD::column('email');
         CRUD::column('role')->type('select_from_array')->options([
-            'admin' => 'Administrateur',
-            'user' => 'Utilisateur',
+            'admin' => 'Administrator',
+            'user' => 'User',
         ]);
         $this->crud->enableExportButtons();
        

@@ -25,36 +25,6 @@
             </div>
         </div>
 
-        <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-        <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
-            class="absolute inset-x-0 z-50 w-screen px-6 py-4 mt-12 transition-all duration-300 ease-in-out bg-blue-100 shadow-md lg:bg-transparent lg:shadow-none lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
-            <div class="flex flex-col pb-4 space-y-4 align-baseline lg:mt-0 lg:flex-row lg:space-y-0 md:pb-0">
-                <a class="text-sm font-bold text-gray-400 lg:mx-4 hover:text-blue-600" href="/"
-                    @click="isOpen = false"><i class="fa-solid fa-house"></i>&nbsp; Accueil</a>
-                @if (backpack_auth()->check())
-                @else
-                    <a class="text-sm font-bold text-gray-400 lg:mx-4 hover:text-blue-600 prevent"
-                        href="/admin/register" @click="isOpen = false"><i class="fa-solid fa-user"></i>&nbsp;
-                        Inscription</a>
-                @endif
-                <a class="text-sm font-bold text-gray-400 lg:mx-4 hover:text-blue-600" href="allgames"
-                    @click="isOpen = false"><i class="fa-solid fa-gamepad"></i>&nbsp; Nos Jeux</a>
-                <a class="text-sm font-bold text-gray-400 lg:mx-4 hover:text-blue-600" href="winner"
-                    @click="isOpen = false"><i class="fa-solid fa-trophy"></i>&nbsp; Concours</a>
-                <a class="text-sm font-bold text-gray-400 lg:mx-4 hover:text-blue-600" href="store"
-                        @click="isOpen = false"><i class="fa-solid fa-gift"></i>&nbsp; Cadeaux</a>
-                @if (backpack_auth()->check())
-                    <a class="text-sm font-bold text-gray-400 lg:mx-4 hover:text-blue-600" href="pack"
-                        @click="isOpen = false" data-barba-prevent="self"><i class="fa-regular fa-gem"></i>&nbsp;
-                        Pack</a>
-                    <a class="text-sm font-bold text-gray-400 lg:mx-4 hover:text-blue-600 lg:pr-4" href="profil"
-                        @click="isOpen = false"><i class="fa-solid fa-user"></i>&nbsp; Profil</a>
-                @endif
-
-            </div>
-
-
-
             @if (backpack_auth()->check())
                 <div :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
                     class="absolute inset-x-0 z-50 w-full px-6 transition-all duration-300 ease-in-out bg-blue-100 border-t border-b shadow-md opacity-0 md:border-0 lg:bg-transparent lg:shadow-none lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0">
@@ -86,11 +56,11 @@
                                         <a href="admin"
                                             class="block px-4 py-3 text-sm font-bold text-gray-300 capitalize transition-colors duration-300 transform hover:bg-gray-700 hover:text-white"
                                             target="_blank">
-                                            Administration</a>
+                                            Dashboard</a>
                                     @endif
                                     <a href="/admin/logout"
                                         class="block px-4 py-3 text-sm font-bold text-gray-300 capitalize transition-colors duration-300 transform hover:bg-gray-700 hover:text-white prevent">
-                                        Déconnexion </a>
+                                       Logout </a>
                                 </div>
 
                             </div>
@@ -100,40 +70,9 @@
             @else
                 <a href="admin/login"
                     class="relative flex justify-center w-24 px-5 py-1 my-2 mt-2 font-medium text-white shadow-lg prevent lg:ml-8 group">
-                    <span
-                        class="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform translate-x-0 -skew-x-12 bg-blue-500 group-hover:bg-blue-700 group-hover:skew-x-12"></span>
-                    <span
-                        class="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform skew-x-12 bg-blue-700 group-hover:bg-blue-500 group-active:bg-blue-600 group-hover:-skew-x-12"></span>
-                    <span
-                        class="absolute bottom-0 left-0 hidden w-10 h-20 transition-all duration-100 ease-out transform -translate-x-8 translate-y-10 bg-blue-600 -rotate-12"></span>
-                    <span
-                        class="absolute bottom-0 right-0 hidden w-10 h-20 transition-all duration-100 ease-out transform translate-x-10 translate-y-8 bg-blue-400 -rotate-12"></span>
-                    <span class="relative">Connexion</span>
+                    <span class="px-8 bg-blue-600 rounded">Login</span>
                 </a>
             @endif
         </div>
     </nav>
 </header>
-@if (backpack_auth()->check())
-    <div class="py-2 mx-8 mb-4 bg-gray-800 rounded-lg lg:mx-8 xl:mx-auto bg-opacity-40 max-w-7xl">
-        <div class="flex flex-wrap items-center justify-center py-2 mx-auto md:justify-between max-w-7xl">
-            <p class="pb-2 ml-4 mr-2 font-bold text-gray-200 capitalize lg:ml-8 md:pb-0">
-                Bienvenue {{ backpack_auth()->user()->name }}</p>
-            <div class="flex items-center pr-4 mt-1">
-                <div class="flex px-2">
-                    <img src="img/diamond5.png" class="w-8 h-6">
-                    <p class="pt-1 text-white">&nbsp; x {{ backpack_auth()->user()->trophee1 }}</p>
-                </div>
-                <div class="flex px-2">
-                        <img src="img/gem10.png" class="w-8 h-6">
-                    <p class="pt-1 text-white">&nbsp; x {{ backpack_auth()->user()->trophee2 }}</p>
-                </div>
-                <div class="flex px-2">
-                    <img src="img/coin10.png" class="w-8 h-6">
-                    <p class="pt-1 text-white">&nbsp; x {{ backpack_auth()->user()->trophee3 }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-@else
-@endif

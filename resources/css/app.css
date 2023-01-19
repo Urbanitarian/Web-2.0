@@ -11,7 +11,7 @@
 
 body{
   font-family: 'Fredoka', sans-serif;
-  background: linear-gradient(360deg, #0a0a0a 0%, #01163a 100%);
+
 }
 
 
@@ -42,7 +42,7 @@ img{
 }
 
 .page-link {
-  color: rgb(94, 94, 94) !important;
+  color: rgb(42, 42, 42) !important;
 }
 
 .reverted{

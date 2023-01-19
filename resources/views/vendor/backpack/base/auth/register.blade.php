@@ -4,7 +4,7 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-4">
-             <a href="/"><img class="pb-2 mx-auto w-[240px]" src="/img/logo.png"></a>
+             <a href="/"><img class="pb-2 mx-auto w-[80px]" src="/img/logo.png"></a>
             <div class="card">
                 <div class="card-body">
                     <form class="col-md-12" role="form" method="POST" action="{{ route('backpack.auth.register') }}">
@@ -52,7 +52,7 @@
                         #show:checked~#content{display:block;}
                         </style>
                         <input type=checkbox id="show">
-                        <label for="show"class="border btn btn-block mt-2" style="cursor:pointer;"><i class="fa fa-user mr-2"></i> Inscription Classique</label>
+                        <label for="show"class="mt-2 border btn btn-block" style="cursor:pointer;"><i class="mr-2 fa fa-user"></i> Register</label>
                         <span id="content">
                         <div class="form-group">
                             <label class="control-label" for="name">{{ trans('backpack::base.name') }}</label>

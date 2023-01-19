@@ -39,9 +39,9 @@ class CheckIfAdmin
             $mailcontent = [
                 'email' => env('MAIL_USERNAME'),
                 'message' =>
-                    'Bienvenue ' .
+                    'welcome ' .
                     $user->name .
-                    ' Votre Compte à été crée avec succés',
+                    ' account successfully created, you can now login to your account',
             ];
             Mail::to($user->email)->queue(new AboMail($mailcontent));
             $user->role = 'user';
@@ -52,8 +52,8 @@ class CheckIfAdmin
             $admin->notify(
                 new DatabaseNotification(
                     ($type = 'info'), // info / success / warning / error
-                    ($message = 'Nouvelle Inscription'),
-                    ($messageLong = 'Nouvelle Inscription: ' . $user->email)
+                    ($message = 'New user registered'),
+                    ($messageLong = 'New user registered: ' . $user->email)
                        // rand(1, 99999)), // optional
                     // ($href = '/some-custom-url'), // optional, e.g. backpack_url('/example')
                    // ($hrefText = 'Go to custom URL') // optional
