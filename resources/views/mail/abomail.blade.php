@@ -140,7 +140,7 @@
                                                                 style="width:100%;padding-right:0px;padding-left:0px;">
                                                                 <div align="center" class="alignment"
                                                                     style="line-height:10px"><img alt="Image"
-                                                                        src="https://xbmod.fr/gokdo/img/logo.png"
+                                                                        src="https://xbmod.fr/urbanitarian/img/logo.png"
                                                                         style="display: block; height: auto; border: 0; width: 125px; max-width: 100%;"
                                                                         title="Image" width="125" /></div>
                                                             </td>
