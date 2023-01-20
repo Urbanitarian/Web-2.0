@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cadeaux;
-use App\Models\Commandes;
-use App\Models\Concours;
-use App\Models\Infosperso;
 use App\Models\User;
-use App\Models\Games;
-use App\Models\Pages;
-use App\Models\Packs;
+use App\Models\Tag;
+use App\Models\Dictionary;
+
 use Carbon\Carbon;
-use App\Models\Paiements;
-use App\Models\Scores;
+
 use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,8 +23,12 @@ class GlobalController extends Controller
      */
     public function getAll()
     {
+        $dictionary = Dictionary::where('id', '!=', null)->limit(10)
+        ->inRandomOrder()
+        ->get();
+        $tags = Tag::all();
         
-        return view('index');
+        return view('index', compact('dictionary', 'tags'));
     }
 
   

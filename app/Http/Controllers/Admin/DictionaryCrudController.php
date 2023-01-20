@@ -129,8 +129,8 @@ class DictionaryCrudController extends CrudController
             'label'       => "Type",
             'type'        => 'select_from_array',
             'options'     => [
-                '1' => '1',
-                '2' => '2',
+                'Dictionary' => 'Dictionary',
+                'Dictionary' => 'Dictionary',
                 '3' => '3',
             ],
             'allows_null' => false,
