@@ -25,17 +25,14 @@ class SettingCrudController extends CrudController
         // columns to show in the table view
         CRUD::setColumns([
             [
-                'name'  => 'name',
-                'label' => trans('backpack::settings.name'),
+                'name'  => 'description',
+                'label' => trans('backpack::settings.description'),
             ],
             [
                 'name'  => 'value',
                 'label' => trans('backpack::settings.value'),
             ],
-            [
-                'name'  => 'description',
-                'label' => trans('backpack::settings.description'),
-            ],
+            
         ]);
     }
 
@@ -44,7 +41,7 @@ class SettingCrudController extends CrudController
         CRUD::addField([   // CustomHTML
             'name'  => 'separator',
             'type'  => 'custom_html',
-            'value' => '<h3 class="text-gray-800 text-sm">Attention la modification de ce paramétre redemarre le serveur patienter 1mn aprés la sauvegarde</h3>',
+            'value' => '<h3 class="text-sm text-gray-800">Attention la modification de ce paramétre redemarre le serveur patienter 1mn aprés la sauvegarde</h3>',
         ],);
         CRUD::addField([
             'name'       => 'key',

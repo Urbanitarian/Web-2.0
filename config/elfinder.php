@@ -10,7 +10,7 @@ return [
     | The dir where to store the images (relative from public).
     |
     */
-    'dir' => ['/games'],
+    'dir' => ['/storage'],
 
     /*
     |--------------------------------------------------------------------------

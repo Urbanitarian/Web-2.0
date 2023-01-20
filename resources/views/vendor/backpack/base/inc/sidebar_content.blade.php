@@ -2,6 +2,8 @@
 @include('backpack-database-notifications::sidebarMenuItem')
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="la la-home nav-icon"></i>{{ trans('backpack::base.dashboard') }}</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('tag') }}"><i class="nav-icon la la-th-list"></i> Tags</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('dictionary') }}"><i class="nav-icon la la-book"></i> Dictionaries</a></li>
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('user') }}"><i class="nav-icon la la-user"></i><span>Users</span></a></li>
 

@@ -669,7 +669,7 @@
               <a href="">
                 <img class="object-cover w-auto h-full" src="./img/apiary-1-1170x401.jpg" alt="content">
                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">Lorem ipsum</p>
-                <p class="pb-2 text-xs text-center text-gray-800">dictonary</p>
+                <p class="pb-2 text-xs text-center text-gray-800">Dictionary</p>
               </a>
             </div>
           </div>
@@ -679,7 +679,7 @@
               <a href="">
                 <img class="object-cover h-32 " src="./img/bioswales-1-1170x401.jpg" alt="content">
                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">Lorem ipsum</p>
-                <p class="pb-2 text-xs text-center text-gray-800">dictonary</p>
+                <p class="pb-2 text-xs text-center text-gray-800">Dictionary</p>
               </a>
             </div>
           </div>
@@ -689,7 +689,7 @@
               <a href="">
                 <img class="object-cover w-auto h-full" src="./img/gable-1170x401.jpg" alt="content">
                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">Lorem ipsum</p>
-                <p class="pb-2 text-xs text-center text-gray-800">dictonary</p>
+                <p class="pb-2 text-xs text-center text-gray-800">Dictionary</p>
               </a>
             </div>
           </div>
@@ -699,7 +699,7 @@
               <a href="">
                 <img class="object-cover h-32 " src="./img/hempcrete-1170x401.jpg" alt="content">
                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t ">Lorem ipsum</p>
-                <p class="pb-2 text-xs text-center text-gray-800">dictonary</p>
+                <p class="pb-2 text-xs text-center text-gray-800">Dictionary</p>
               </a>
             </div>
           </div>
@@ -709,7 +709,7 @@
               <a href="">
                 <img class="object-cover h-32 " src="./img/parking-in-curtilage-1170x401.jpg" alt="content">
                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">Lorem ipsum</p>
-                <p class="pb-2 text-xs text-center text-gray-800">dictonary</p>
+                <p class="pb-2 text-xs text-center text-gray-800">Dictionary</p>
               </a>
             </div>
           </div>
@@ -719,7 +719,7 @@
               <a href="">
                 <img class="object-cover w-auto h-full" src="./img/pollytunnel-1170x401.jpg" alt="content">
                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">Lorem ipsum</p>
-                <p class="pb-2 text-xs text-center text-gray-800">dictonary</p>
+                <p class="pb-2 text-xs text-center text-gray-800">Dictionary</p>
               </a>
             </div>
           </div>
@@ -729,7 +729,7 @@
               <a href="">
                 <img class="object-cover h-32 " src="./img/tessellated-street-pavement-1170x401.jpg" alt="content">
                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">Lorem ipsum</p>
-                <p class="pb-2 text-xs text-center text-gray-800">dictonary</p>
+                <p class="pb-2 text-xs text-center text-gray-800">Dictionary</p>
               </a>
             </div>
           </div>
@@ -739,7 +739,7 @@
               <a href="">
                 <img class="object-cover h-32 " src="./img/tessellated-street-pavement1-1170x401.jpg" alt="content">
                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">Lorem ipsum</p>
-                <p class="pb-2 text-xs text-center text-gray-800">dictonary</p>
+                <p class="pb-2 text-xs text-center text-gray-800">Dictionary</p>
               </a>
             </div>
           </div>
@@ -749,7 +749,7 @@
               <a href="">
                 <img class="object-cover h-32 " src="./img/tree-pit-1-1170x401.jpg" alt="content">
                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">Lorem ipsum</p>
-                <p class="pb-2 text-xs text-center text-gray-800">dictonary</p>
+                <p class="pb-2 text-xs text-center text-gray-800">Dictionary</p>
               </a>
             </div>
           </div>
@@ -759,7 +759,7 @@
               <a href="">
                 <img class="object-cover h-32 " src="./img/pavement-1170x401.jpg" alt="content">
                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">Lorem ipsum</p>
-                <p class="pb-2 text-xs text-center text-gray-800">dictonary</p>
+                <p class="pb-2 text-xs text-center text-gray-800">Dictionary</p>
               </a>
             </div>
           </div>
@@ -772,7 +772,7 @@
     <button
       class="flex px-8 py-2 mx-auto mt-8 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800"><a
         href="./dictionary.html">See
-        All dictonary</a></button>
+        All Dictionary</a></button>
   </section>
 
 

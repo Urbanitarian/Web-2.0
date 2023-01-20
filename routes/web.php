@@ -27,6 +27,7 @@ Route::get('contact', 'contact');
 Route::get('about', 'about');
 Route::post('contactus', 'contactus');
 Route::get('neighbourhoods', 'neighbourhoods');
+Route::get('dictionaries', 'dictionaries');
 Route::post('neighbour_post/{id}', 'neighbourhoods');
 Route::get('streetscapes', 'streetscapes');
 Route::post('streetscapes_post/{id}', 'streetscapes');
