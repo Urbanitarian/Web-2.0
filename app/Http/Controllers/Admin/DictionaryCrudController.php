@@ -77,6 +77,7 @@ class DictionaryCrudController extends CrudController
 
         CRUD::field('name');
         CRUD::field('description');
+        CRUD::field('copyright');
         $this->crud->addField([   // select_from_array
             'name'        => 'type',
             'label'       => "Type",
@@ -124,6 +125,7 @@ class DictionaryCrudController extends CrudController
     {
         CRUD::field('name');
         CRUD::field('description');
+        CRUD::field('copyright');
         $this->crud->addField([   // select_from_array
             'name'        => 'type',
             'label'       => "Type",

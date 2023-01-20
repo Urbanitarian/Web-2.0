@@ -26,7 +26,7 @@ class DictionaryRequest extends FormRequest
     {
         return [
             // 'name' => 'required|min:5|max:255'
-            'name' => 'required|min:5|max:255|unique:dictionaries,name'
+            'name' => 'required|min:3|max:255|unique:dictionaries,name'
         ];
     }
 
