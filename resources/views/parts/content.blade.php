@@ -380,7 +380,7 @@
                 </a>
             </div>
         </div>
-        <a href="./streetscapes.html">
+        <a href="./streetscapes">
             <button
                 class="flex px-8 py-2 mx-auto mt-16 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800">See
                 All</button>
@@ -540,7 +540,7 @@
 
     <button
         class="flex px-8 py-2 mx-auto mt-8 mb-20 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800"><a
-            href="./masterplans.html">
+            href="./masterplans">
             See all Masterplans</a></button>
 </section>
 
@@ -669,7 +669,7 @@
 
         <button
             class="flex px-8 py-2 mx-auto mt-16 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800">
-            <a href="./neighbourhoods.html"></a>See
+            <a href="./neighbourhoods"></a>See
             All</a></button>
 
     </div>
@@ -737,7 +737,7 @@
 
     <button
         class="flex px-8 py-2 mx-auto mt-8 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800"><a
-            href="./dictionary.html">See
+            href="./dictionaries">See
             All Dictionary</a></button>
 </section>
 
@@ -819,7 +819,7 @@
         </div>
         <button
             class="flex px-8 py-2 mx-auto mt-8 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800">
-            <a href="./masterplans.html"></a>See
+            <a href="./masterplans"></a>See
             All to Read </a></button>
 
     </div>
