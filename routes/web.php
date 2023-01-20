@@ -24,7 +24,16 @@ Route::get('index', 'getAll')->name('getAll');
 Route::get('logout', 'logout');
 Route::get('help', 'help');
 Route::get('contact', 'contact');
+Route::get('about', 'about');
 Route::post('contactus', 'contactus');
+Route::get('neighbourhoods', 'neighbourhoods');
+Route::post('neighbour_post/{id}', 'neighbourhoods');
+Route::get('streetscapes', 'streetscapes');
+Route::post('streetscapes_post/{id}', 'streetscapes');
+Route::get('masterplans', 'masterplans');
+Route::post('masterplans_post/{id}', 'masterplans');
+
+
 
 });
 
@@ -33,12 +42,15 @@ Route::post('contactus', 'contactus');
 Route::get('legal' , [GlobalController::class, 'getLegal']);
 Route::get('confidentialite' , [GlobalController::class, 'getConf']);
 
+
+
 Route::post('deleteuser/{id}', [GlobalController::class, 'deleteUser'])->name('deleteUser');
 
 Route::post('contactmail' , [MailController::class, 'sendMessage']);
 
+
+
 // La redirection vers le provider
 Route::get("redirect/{provider}",[SocialiteController::class, 'redirect'])->name('socialite.redirect');
-
 // Le callback du provider
 Route::get("callback/{provider}",[SocialiteController::class, 'callback'])->name('socialite.callback');

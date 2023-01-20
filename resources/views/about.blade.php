@@ -2,7 +2,6 @@
 
 @section('main')
 <div data-barba="mycontainer">
-    @include('parts.header')
-    @include('parts.content')
+    @include('parts.team')
 </div>
 @endsection

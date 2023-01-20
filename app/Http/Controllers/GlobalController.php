@@ -45,6 +45,11 @@ class GlobalController extends Controller
         return view('help');
     }
 
+    public function about()
+    {
+        return view('about');
+    }
+
     public function contact()
     {
         return view('contact');
@@ -54,6 +59,23 @@ class GlobalController extends Controller
     {
         return view('contactus');
     }
+
+    public function neighbourhoods()
+    {
+        return view('neighbourhoods');
+    }
+
+    public function streetscapes()
+    {
+        return view('streetscapes');
+    }
+
+    public function masterplans()
+    {
+        return view('masterplans');
+    }
+
+    
 
    
     static function version()

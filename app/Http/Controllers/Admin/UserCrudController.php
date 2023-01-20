@@ -78,8 +78,8 @@ class UserCrudController extends CrudController
             'label'       => "role",
             'type'        => 'select_from_array',
             'options'     => [
-                'admin' => 'administrateur',
-                'user' => 'utilisateur',
+                'admin' => 'admin',
+                'user' => 'user',
             ]]);
                 CRUD::field('email')->on('saving', function ($entry) {
                     $mailcontent = array(
@@ -117,8 +117,8 @@ class UserCrudController extends CrudController
             'label'       => "role",
             'type'        => 'select_from_array',
             'options'     => [
-                'admin' => 'administrateur',
-                'user' => 'utilisateur',
+                'admin' => 'admin',
+                'user' => 'user',
             ]]);
     }
 }

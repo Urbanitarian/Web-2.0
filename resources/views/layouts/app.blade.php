@@ -5,10 +5,9 @@
     @include('parts.head')
 </head>
 
-<body class="overflow-x-hidden pattern" data-barba="wrapper">
-    <navbar>
+<body class="" data-barba="wrapper">
+   
         @include('parts.navbar')
-    </navbar>
     <main>
         @yield('main')
     </main>
@@ -18,7 +17,7 @@
     
     @vite('resources/js/app.js')
 
-    <script></script>
+    
 </body>
 
 </html>
