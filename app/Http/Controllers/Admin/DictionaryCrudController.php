@@ -82,7 +82,7 @@ class DictionaryCrudController extends CrudController
             'label'       => "Type",
             'type'        => 'select_from_array',
             'options'     => [
-                '1' => '1',
+                'Dictionary' => 'Dictionary',
                 '2' => '2',
                 '3' => '3',
             ],
