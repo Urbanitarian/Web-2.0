@@ -26,13 +26,14 @@ Route::get('help', 'help');
 Route::get('contact', 'contact');
 Route::get('about', 'about');
 Route::post('contactus', 'contactus');
-Route::get('neighbourhoods', 'neighbourhoods');
 Route::get('dictionaries', 'dictionaries');
-Route::post('neighbour_post/{id}', 'neighbourhoods');
+Route::get('read', 'read');
+Route::get('neighbourhoods', 'neighbourhoods');
+Route::get('neighbourhoods_post/', 'neighbourhoods_post');
 Route::get('streetscapes', 'streetscapes');
-Route::post('streetscapes_post/{id}', 'streetscapes');
+Route::get('streetscapes_post/', 'streetscapes_post');
 Route::get('masterplans', 'masterplans');
-Route::post('masterplans_post/{id}', 'masterplans');
+Route::get('masterplans_post/', 'masterplans_post');
 
 
 
@@ -46,7 +47,6 @@ Route::get('confidentialite' , [GlobalController::class, 'getConf']);
 
 
 Route::post('deleteuser/{id}', [GlobalController::class, 'deleteUser'])->name('deleteUser');
-
 Route::post('contactmail' , [MailController::class, 'sendMessage']);
 
 

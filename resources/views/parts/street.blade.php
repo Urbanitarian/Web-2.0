@@ -94,7 +94,7 @@
                             <p class="py-8 mt-2 text-center text-gray-600"> &nbsp; London | </p>
                             <p class="py-8 mt-2 text-center text-gray-600"> &nbsp;UK </p>
                             </div>
-                            <a href="./streetscapes_post.html">
+                            <a href="./streetscapes_post">
                                 <button
                                   class="flex px-8 py-2 mx-auto mt-16 mb-4 text-base font-bold text-white uppercase bg-black border-0 rounded focus:outline-none hover:bg-gray-800">See project</button>
                               </a>
@@ -124,7 +124,7 @@
                                 <p class="py-8 mt-2 text-center text-gray-600"> &nbsp; Barcelona | </p>
                                 <p class="py-8 mt-2 text-center text-gray-600"> &nbsp;Spain </p>
                                 </div>
-                                <a href="./streetscapes_post.html">
+                                <a href="./streetscapes_post">
                                     <button
                                       class="flex px-8 py-2 mx-auto mt-16 mb-4 text-base font-bold text-white uppercase bg-black border-0 rounded focus:outline-none hover:bg-gray-800">Go to the project</button>
                                   </a>
@@ -153,7 +153,7 @@
                                 <p class="py-8 mt-2 text-center text-gray-600"> &nbsp; Cambridge | </p>
                                 <p class="py-8 mt-2 text-center text-gray-600"> &nbsp;UK </p>
                                 </div>
-                                <a href="./streetscapes_post.html">
+                                <a href="./streetscapes_post">
                                     <button
                                       class="flex px-8 py-2 mx-auto mt-16 mb-4 text-base font-bold text-white uppercase bg-black border-0 rounded focus:outline-none hover:bg-gray-800">Go to the project</button>
                                   </a>
@@ -182,7 +182,7 @@
                                 <p class="py-8 mt-2 text-center text-gray-600"> &nbsp; Copenhagen | </p>
                                 <p class="py-8 mt-2 text-center text-gray-600"> &nbsp;Denmark </p>
                                 </div>
-                                <a href="./streetscapes_post.html">
+                                <a href="./streetscapes_post">
                                     <button
                                       class="flex px-8 py-2 mx-auto mt-16 mb-4 text-base font-bold text-white uppercase bg-black border-0 rounded focus:outline-none hover:bg-gray-800">Go to the project</button>
                                   </a>

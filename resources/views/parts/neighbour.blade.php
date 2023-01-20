@@ -130,7 +130,7 @@
                 <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
                     <ul class="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-4">
                         <li>
-                            <a href="./neighbourhoods_post.html" class="block overflow-hidden group">
+                            <a href="./neighbourhoods_post" class="block overflow-hidden group">
                                 <img src="./img/banner.jpeg"
                                     alt=""
                                     class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
@@ -146,7 +146,7 @@
                         </li>
 
                         <li>
-                            <a href="./neighbourhoods_post.html" class="block overflow-hidden group">
+                            <a href="./neighbourhoods_post" class="block overflow-hidden group">
                                 <img src="./img/banner2.jpg"
                                     alt=""
                                     class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
@@ -164,7 +164,7 @@
                         </li>
 
                         <li>
-                            <a href="./neighbourhoods_post.html" class="block overflow-hidden group">
+                            <a href="./neighbourhoods_post" class="block overflow-hidden group">
                                 <img src="./img/banner3.jpg"
                                     alt=""
                                     class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
@@ -183,7 +183,7 @@
                         </li>
 
                         <li>
-                            <a href="./neighbourhoods_post.html" class="block overflow-hidden group">
+                            <a href="./neighbourhoods_post" class="block overflow-hidden group">
                                 <img src="./img/image1.jpg"
                                     alt=""
                                     class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />

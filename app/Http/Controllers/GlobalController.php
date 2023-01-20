@@ -64,9 +64,19 @@ class GlobalController extends Controller
         return view('neighbourhoods');
     }
 
+    public function neighbourhoods_post()
+    {
+        return view('neighbourhoods_post');
+    }
+
     public function streetscapes()
     {
         return view('streetscapes');
+    }
+
+    public function streetscapes_post()
+    {
+        return view('streetscapes_post');
     }
 
     public function masterplans()
@@ -74,6 +84,25 @@ class GlobalController extends Controller
         return view('masterplans');
     }
 
+    public function masterplans_post()
+    {
+        return view('masterplans_post');
+    }
+
+    public function dictionaries()
+    {
+        return view('dictionaries');
+    }
+
+    public function dictionaries_post()
+    {
+        return view('dictionaries_post');
+    }
+
+    public function read()
+    {
+        return view('read');
+    }
     
 
    

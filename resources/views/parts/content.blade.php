@@ -669,7 +669,7 @@
 
         <button
             class="flex px-8 py-2 mx-auto mt-16 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800">
-            <a href="./neighbourhoods"></a>See
+            <a href="./neighbourhoods">See
             All</a></button>
 
     </div>
@@ -819,8 +819,7 @@
         </div>
         <button
             class="flex px-8 py-2 mx-auto mt-8 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800">
-            <a href="./masterplans"></a>See
-            All to Read </a></button>
+            <a href="/read">See All to Read </a></button>
 
     </div>
 </section>

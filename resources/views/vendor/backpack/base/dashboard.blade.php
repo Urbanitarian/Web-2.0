@@ -7,15 +7,16 @@
 
                   <div class="flex w-full px-3">
                     <div class="w-1/3 h-32 p-3 m-2 bg-white border shadow">
-                        <h1 class="text-2xl font-bold text-gray-900">Stats</h1>
+                        <h1 class="text-base font-bold text-gray-900">Stats</h1>
                     </div>
 
                      <div class="w-1/3 h-32 p-3 m-2 bg-white border shadow">
-                      <h1 class="text-2xl font-bold text-gray-900">Data0</h1>
+                      <h1 class="text-base font-bold text-gray-900">Data0</h1>
                     </div>
 
                     <div class="w-1/3 h-32 p-3 m-2 bg-white border shadow">
-                      <h1 class="text-2xl font-bold text-gray-900">Data1</h1>
+                      <h1 class="text-base font-bold text-gray-900">Data1:</h1>
+                    
                     </div>
                         </div>
                     <div class="flex md:mx-4">
