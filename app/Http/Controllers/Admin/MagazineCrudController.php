@@ -58,13 +58,13 @@ class MagazineCrudController extends CrudController
         $this->crud->addColumn([
             'name'    => 'type',
             'label'   => 'Type',
-            'type'    => 'Array',
+            'type'    => 'select_from_array',
             'wrapper' => [
                 'element' => 'span',
                 'class' => function ($crud, $column, $entry, $related_key) {
-                            return 'ml-4 badge badge-dark';
+                            return 'badge badge-dark';
                         }
-            ],
+                    ],
         ]);
         CRUD::column('link');
 
