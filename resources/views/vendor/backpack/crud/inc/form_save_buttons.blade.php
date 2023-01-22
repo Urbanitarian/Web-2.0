@@ -8,7 +8,7 @@
 
         <button type="submit" class="btn btn-danger">
             <span class="la la-save" role="presentation" aria-hidden="true"></span> &nbsp;
-            <span data-value="{{ $saveAction['active']['value'] }}">Enregistrer</span>
+            <span data-value="{{ $saveAction['active']['value'] }}">{{ trans('backpack::crud.save') }}</span>
         </button>
 
        

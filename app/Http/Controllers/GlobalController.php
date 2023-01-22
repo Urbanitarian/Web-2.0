@@ -99,6 +99,23 @@ class GlobalController extends Controller
         return view('dictionaries_post');
     }
 
+    public function import(Request $request)
+    {
+        // $request->validate([
+        //     'file' => 'required|mimes:xls,xlsx'
+        // ]);
+        // $file = $request->file('file');
+        // Excel::import(new DictionaryImport, $file);
+        dd('okok');
+        return back()->with('success', 'All good!');
+    }
+
+
+    public function dictionary()
+    {
+        return view('dictionaries_post');
+    }
+
     public function read()
     {
         $magazines = Magazine::all();

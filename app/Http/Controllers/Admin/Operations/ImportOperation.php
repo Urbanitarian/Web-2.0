@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
-trait ExportOperation
+trait ImportOperation
 {
     /**
      * Define which routes are needed for this operation.
@@ -15,29 +15,29 @@ trait ExportOperation
      * @param string $routeName  Prefix of the route name.
      * @param string $controller Name of the current CrudController.
      */
-    protected function setupExportRoutes($segment, $routeName, $controller)
+    protected function setupImportRoutes($segment, $routeName, $controller)
     {
-        Route::get($segment . '/export', [
-            'as' => $routeName . '.export',
-            'uses' => $controller . '@export',
-            'operation' => 'export',
+        Route::get($segment . '/import', [
+            'as' => $routeName . '.import',
+            'uses' => $controller . '@import',
+            'operation' => 'import',
         ]);
     }
 
     /**
      * Add the default settings, buttons, etc that this operation needs.
      */
-    protected function setupExportDefaults()
+    protected function setupImportDefaults()
     {
-        CRUD::allowAccess('export');
+        CRUD::allowAccess('import');
 
-        CRUD::operation('export', function () {
+        CRUD::operation('import', function () {
             CRUD::loadDefaultOperationSettingsFromConfig();
         });
 
         CRUD::operation('list', function () {
-            CRUD::addButton('top', 'export', 'view', 'crud::buttons.export');
-            // CRUD::addButton('line', 'export', 'view', 'crud::buttons.export');
+            CRUD::addButton('top', 'import', 'view', 'crud::buttons.import');
+            // CRUD::addButton('line', 'Import', 'view', 'crud::buttons.Import');
         });
     }
 
@@ -47,17 +47,15 @@ trait ExportOperation
      * @return Response
      */
    
-    public function export()
+    public function Import()
     {
-        $data = User::all()->toArray();
+        CRUD::hasAccessOrFail('import');
 
-        $handle = fopen('users.csv', 'w');
+        // prepare the fields you need to show
+        $this->data['crud'] = $this->crud;
+   
 
-        collect($data)->each(fn($row) => fputcsv($handle, $row));
-
-        fclose($handle);
-
-        return response()->download('users.csv');
-        return redirect()->back();
+        // load the view
+        return view('crud::operations.import_form', $this->data);
     }
 }
