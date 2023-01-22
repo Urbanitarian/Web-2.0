@@ -31,8 +31,15 @@ class GlobalController extends Controller
         $dictionary = Dictionary::where('id', '!=', null)->limit(10)->inRandomOrder()->get();
         $tags = Tag::all();
         $insta = Setting::get('curator_link');
+
+        $instagram_link = Setting::get('instagram_link');
+        $facebook_link = Setting::get('facebook_link');
+        $flickr_link = Setting::get('flickr_link');
+        $linkedin_link = Setting::get('linkedin_link');
+        $pinterest_link = Setting::get('pinterest_link');
+
         
-        return view('index', compact('dictionary', 'tags', 'magazines', 'webresources', 'insta'));
+        return view('index', compact('dictionary', 'tags', 'magazines', 'webresources', 'insta', 'instagram_link', 'facebook_link', 'flickr_link', 'linkedin_link', 'pinterest_link'));
     }
 
   

@@ -50,7 +50,7 @@
 
       <ul class="flex justify-center gap-6 mt-12 md:gap-8">
         <li>
-          <a href="https://www.flickr.com/photos/honorata_grzesikowska/albums/" rel="noreferrer" target="_blank"
+          <a href="{{ $flickr_link }}" rel="noreferrer" target="_blank"
             class="text-gray-700 transition hover:text-gray-700/75">
             <span class="sr-only">Flickr</span>
            <i class="fa-brands fa-flickr"></i>
@@ -58,7 +58,7 @@
         </li>
 
         <li>
-          <a href="https://www.instagram.com/urbanitarian/" rel="noreferrer" target="_blank"
+          <a href="{{ $instagram_link }}" rel="noreferrer" target="_blank"
             class="text-gray-700 transition hover:text-gray-700/75">
             <span class="sr-only">Instagram</span>
         <i class="fa-brands fa-instagram"></i>
@@ -66,7 +66,7 @@
         </li>
 
         <li>
-          <a href="https://es.pinterest.com/urbanitarian/" rel="noreferrer" target="_blank"
+          <a href="{{ $pinterest_link }}" rel="noreferrer" target="_blank"
             class="text-gray-700 transition hover:text-gray-700/75">
             <span class="sr-only">Pinterest</span>
           <i class="fa-brands fa-square-pinterest"></i>
@@ -74,7 +74,7 @@
         </li>
 
         <li>
-          <a href="https://www.facebook.com/urbanitarian/" rel="noreferrer" target="_blank"
+          <a href="{{ $facebook_link }}" rel="noreferrer" target="_blank"
             class="text-gray-700 transition hover:text-gray-700/75">
             <span class="sr-only">Facebook</span>
         <i class="fa-brands fa-square-facebook"></i>
@@ -82,7 +82,7 @@
         </li>
 
         <li>
-          <a href="https://www.linkedin.com/profile/preview?locale=en_US&trk=prof-0-sb-preview-primary-button" rel="noreferrer" target="_blank"
+          <a href="{{ $linkedin_link }}" rel="noreferrer" target="_blank"
             class="text-gray-700 transition hover:text-gray-700/75">
             <span class="sr-only">Linkedin</span>
        <i class="fa-brands fa-linkedin"></i>
