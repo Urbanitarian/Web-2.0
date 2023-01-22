@@ -89,8 +89,8 @@ class MagazineCrudController extends CrudController
             'label'       => "Type",
             'type'        => 'select_from_array',
             'options'     => [
-                'magazine' => 'magazine',
-                'polish magazine' => 'polish_magazine',
+                'magazines' => 'magazines',
+                'polish magazines' => 'polish_magazines',
             ],
             'allows_null' => false,
             'default'     => '1',

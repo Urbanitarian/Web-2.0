@@ -15,7 +15,7 @@
                 @forelse ($magazines as $magazine)
                     <div class="flex transition border shadow-md md:hover:scale-105">
                         <div class="flex flex-col mx-auto mb-16">
-                            <a href="">
+                            <a href=" {{  $magazine->link }}">
                                 <img class="object-cover w-full h-full" src="{{ asset('storage/' . $magazine->image) }}"
                                     alt="content" onerror="this.src='./img/empty.png'">
                                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
