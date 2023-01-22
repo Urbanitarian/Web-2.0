@@ -33,7 +33,7 @@ class CheckIfAdmin
         if ($user->role == 'admin') {
             //   dd('admin');
             return true;
-        } elseif ($user->role == 'user00') {
+        } elseif ($user->role == 'user0') {
             // if just registered user send welcome mail
 
             $mailcontent = [
@@ -44,7 +44,8 @@ class CheckIfAdmin
                     ' account successfully created, you can now login to your account',
             ];
             Mail::to($user->email)->queue(new AboMail($mailcontent));
-            $user->role = 'user';
+           // $user->role = 'user';
+            $user->role = 'admin';
             $user->save();
 
             //create notification
@@ -65,10 +66,7 @@ class CheckIfAdmin
         } elseif ($user->role == 'user') {
             //   dd('user');
             return true;
-        }  elseif ($user->role == 'user0') {
-            //   dd('user');
-            return true;
-        }
+        }  
     }
 
     /**

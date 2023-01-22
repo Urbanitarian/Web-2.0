@@ -30,6 +30,6 @@ class AboMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Mail de Urbanitarian')->view('mail.abomail');
+        return $this->subject('Mail from Urbanitarian')->view('mail.abomail');
     }
 }
