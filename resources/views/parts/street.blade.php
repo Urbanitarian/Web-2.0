@@ -106,8 +106,8 @@
                 <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
                     <div class="lg:w-3/4 md:px-6">
                         <div class="juxtapose">
-                            <img class="object-cover object-center w-full h-80 xl:h-[28rem]" src="./img/MOLE-streetscape-1.jpg" alt="">
-                            <img class="object-cover object-center w-full h-80 xl:h-[28rem]" src="./img/MOLE-streetscape-2.jpg" alt="">
+                            <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="./img/MOLE-streetscape-1.jpg" alt="">
+                            <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="./img/MOLE-streetscape-2.jpg" alt="">
                         </div>
                     </div>
 
@@ -136,8 +136,8 @@
                 <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
                     <div class="lg:w-3/4 md:px-6">
                         <div class="w-full juxtapose">
-                            <img class="object-cover object-center w-full h-80 xl:h-[28rem]" src="./img/Superblock-del-rio-bani-1c.jpg" alt="">
-                            <img class="object-cover object-center w-full h-80 xl:h-[28rem]" src="./img/Superblock-del-rio-bani-2c.jpg" alt="">
+                            <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="./img/Superblock-del-rio-bani-1c.jpg" alt="">
+                            <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="./img/Superblock-del-rio-bani-2c.jpg" alt="">
                         </div>
                     </div>
 
@@ -165,8 +165,8 @@
                 <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
                     <div class="lg:w-3/4 md:px-6">
                         <div class="juxtapose md:r-4">
-                            <img class="object-cover object-center w-full h-80 xl:h-[28rem]" src="./img/Scandiagade1new.jpg" alt="">
-                            <img class="object-cover object-center w-full h-80 xl:h-[28rem]" src="./img/Scandiagade2new.jpg" alt="">
+                            <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="./img/Scandiagade1new.jpg" alt="">
+                            <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="./img/Scandiagade2new.jpg" alt="">
                         </div>
                     </div>
 
