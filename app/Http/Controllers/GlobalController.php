@@ -12,9 +12,12 @@ use Backpack\Settings\app\Models\Setting;
 use Carbon\Carbon;
 
 use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification;
+use Illuminate\Contracts\Pagination\Paginator;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+
 
 class GlobalController extends Controller
 {
@@ -31,10 +34,6 @@ class GlobalController extends Controller
         $dictionary = Dictionary::where('id', '!=', null)->limit(10)->inRandomOrder()->get();
         $tags = Tag::all();
         $insta = Setting::get('curator_link');
-
-
-
-        
         return view('index', compact('dictionary', 'tags', 'magazines', 'webresources', 'insta'));
     }
 
@@ -94,12 +93,15 @@ class GlobalController extends Controller
 
     public function alldictionary()
     {
-        return view('dictionaries');
+        $dictionary = Dictionary::paginate(10);
+
+        return view('dictionaries', compact('dictionary'));
     }
 
     public function allwebresources()
     {
-        return view('webresources');
+        $webresources = Webresource::paginate(10);
+        return view('webresources', compact('webresources'));
     }
 
 
@@ -125,10 +127,13 @@ class GlobalController extends Controller
         return view('dictionaries_post');
     }
 
-    public function read()
+    public function read(Request $request)
     {
-        $magazines = Magazine::all();
-        return view('read', compact('magazines'));
+        $magazines = Magazine::where('id', '!=', null);
+
+        return view('read', [
+            'magazines' => $magazines->paginate(15),
+        ]);
     }
     
 

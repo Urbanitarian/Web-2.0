@@ -38,11 +38,9 @@
                         </div>
                     </div>
                 @endforelse
-
-
-
-
+  
             </div>
+           
         </div>
         <button
             class="flex px-8 py-2 mx-auto mt-8 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800">

@@ -242,34 +242,6 @@
                 </div>
 
             </div>
-            <nav role="Page navigation" aria-label="{{ __('Pagination Navigation') }}"
-                class="flex items-center justify-center ">
-                <div class="justify-center pt-16 sm:flex-1 sm:flex sm:items-center">
-                    <div>
-                        <span class="relative z-0 inline-flex justify-center space-x-1 text-white rounded-md shadow-sm">
-
-                            <button
-                                class="flex items-center justify-center w-10 h-10 duration-150 bg-black rounded-md shadow-md hover:bg-gray-600 focus:shadow-outline">
-                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                    <path
-                                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                        clip-rule="evenodd" fill-rule="evenodd"></path>
-                                </svg>
-                            </button>
-
-
-                            <button
-                                class="flex items-center justify-center w-10 h-10 duration-150 bg-black rounded-md shadow-md hover:bg-gray-600 focus:shadow-outline">
-                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                    <path
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd" fill-rule="evenodd"></path>
-                                </svg>
-                            </button>
-
-                        </span>
-                    </div>
-                </div>
-            </nav>
+                     {{-- {{ $locations->appends(Request::all())->links('pagination::tailwind') }} --}}
         </section>
     </div>
