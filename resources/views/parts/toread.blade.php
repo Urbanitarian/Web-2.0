@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="py-8">
-            <div class="grid grid-cols-1 gap-5 row-gap-5 lg:grid-cols-4 xl:grid-cols-5 md:grid-cols-2">
+            <div class="grid grid-cols-2 gap-2 row-gap-5 md:gap-5 lg:grid-cols-4 xl:grid-cols-5 md:grid-cols-3">
                 @forelse ($magazines as $magazine)
                     <div class="flex transition border shadow-md md:hover:scale-105">
                         <div class="flex flex-col mx-auto mb-16">

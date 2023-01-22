@@ -5,7 +5,7 @@
     $urlsurface = null;
 @endphp
 <section class="pt-4 pb-8 mx-2 bg-white md:mx-16">
-    <div class="flex flex-wrap justify-between py-4">
+    <div class="flex flex-wrap justify-between py-4 mx-4 md:mx-0">
         <div class="pb-4 md:pb-0">
             <select name="type"
                 class=" px-4 h-[40px] text-sm bg-white border-gray-200 rounded-md transition border focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
@@ -63,7 +63,7 @@
         </fieldset>
 
         <div class="flex flex-col">
-            <div class="hidden py-4 md:flex md:py-0">
+            <div class="hidden py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
                 <i class="mx-2 text-gray-200 transition fa-solid fa-list fa-2x hover:text-gray-400"></i>
                 <i class="mr-2 text-gray-200 transition fa-solid fa-border-all fa-2x hover:text-gray-400"></i>
                 <i class="text-gray-200 transition fa-solid fa-map fa-2x hover:text-gray-400"></i>
