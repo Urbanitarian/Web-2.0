@@ -101,7 +101,8 @@ class GlobalController extends Controller
 
     public function read()
     {
-        return view('read');
+        $magazines = Magazine::all();
+        return view('read', compact('magazines'));
     }
     
 
