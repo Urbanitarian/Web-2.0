@@ -33,7 +33,7 @@ class CheckIfAdmin
         if ($user->role == 'admin') {
             //   dd('admin');
             return true;
-        } elseif ($user->role == 'user0') {
+        } elseif ($user->role == 'user00') {
             // if just registered user send welcome mail
 
             $mailcontent = [
@@ -63,6 +63,9 @@ class CheckIfAdmin
             
             return true;
         } elseif ($user->role == 'user') {
+            //   dd('user');
+            return true;
+        }  elseif ($user->role == 'user0') {
             //   dd('user');
             return true;
         }

@@ -32,6 +32,9 @@ class Magazine extends Model
         'updated_at',
     ];
 
+    protected $casts = [
+        'type' => 'array'
+    ];
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS

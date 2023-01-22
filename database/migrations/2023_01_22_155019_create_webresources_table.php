@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dictionaries', function (Blueprint $table) {
+        Schema::create('webresources', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->text('description');
-            $table->string('type')->default('dictionary')
-            $table->string('image');
-            $table->text('tag_id')->nullable();
+            $table->string('name');
+            $table->string('image')->nullable();
+            $table->string('type')->nullable();
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Dictionaries');
+        Schema::dropIfExists('webresources');
     }
 };

@@ -5,6 +5,7 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('tag') }}"><i class="nav-icon la la-th-list"></i> Tags</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dictionary') }}"><i class="nav-icon la la-atlas"></i> Dictionaries</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('magazine') }}"><i class="nav-icon la la-book"></i> Magazines</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('webresource') }}"><i class="nav-icon la la-globe"></i> Webresources</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}"><i class="nav-icon la la-files-o"></i> <span>Files</span></a></li>
 
 

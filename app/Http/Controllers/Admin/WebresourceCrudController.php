@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\DictionaryRequest;
+use App\Http\Requests\WebresourceRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use App\Models\Tag;
+
 /**
- * Class DictionaryCrudController
+ * Class WebresourceCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class DictionaryCrudController extends CrudController
+class WebresourceCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -19,7 +19,6 @@ class DictionaryCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
    // use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
    use \App\Http\Controllers\Admin\Operations\ImportOperation;
-
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -27,16 +26,16 @@ class DictionaryCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Dictionary::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/dictionary');
-        CRUD::setEntityNameStrings('dictionary', 'dictionaries');
+        CRUD::setModel(\App\Models\Webresource::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/webresource');
+        CRUD::setEntityNameStrings('webresource', 'webresources');
     }
 
-    function getFieldsData()
+     function getFieldsData()
     {
         $this->crud->addColumn([
             'name' => 'image',
-            'label' => 'Image',
+            'label' => 'Miniature',
             'type' => 'image',
             'prefix' => 'storage/',
             'height' => '80px',
@@ -53,11 +52,11 @@ class DictionaryCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('name');
-        CRUD::column('description');
-        CRUD::column('type');
         $this->getFieldsData();
-        CRUD::column('tag_id')->label('Tags');
-     
+        CRUD::column('type');
+        CRUD::column('link');
+
+
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -73,29 +72,34 @@ class DictionaryCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(DictionaryRequest::class);
-        
+        CRUD::setValidation(WebresourceRequest::class);
 
         CRUD::field('name');
-        CRUD::field('description');
-        CRUD::field('copyright');
-       
-        CRUD::addField([ // Photo
+          CRUD::addField([ // Photo
             'name'      => 'image',
             'key' => 'image_up',
-            'label'     => 'Image',
+            'label'     => 'Miniature',
             'type'      => 'upload',
             'prefix' => 'storage/',
             'upload'    => true,
             'temporary' => 10,
         ]);
-        CRUD::addField([   // SelectMultiple = n-n relationship (with pivot table)
-            'label'     => "Tags",
-            'type'      => 'select_multiple',
-            'name'      => 'tag', // the method that defines the relationship in your Model
-            'entity'    => 'tag', // the method that defines the relationship in your Model
+        $this->crud->addField([   // select_from_array
+            'name'        => 'type',
+            'label'       => "Type",
+            'type'        => 'select_from_array',
+            'options'     => [
+                'websites' => 'websites',
+                'organisations' => 'organisations',
+                'design awards' => 'design awards',
+                'case studies' => 'case studies',
+                'psd materials' => 'psd materials',
+            ],
+            'allows_null' => false,
+            'default'     => '1',
+            'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
-      
+        CRUD::field('link');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -112,24 +116,6 @@ class DictionaryCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        CRUD::field('name');
-        CRUD::field('description');
-        CRUD::field('copyright');
-       
-        CRUD::addField([ // Photo
-            'name'      => 'image',
-            'key' => 'image_up',
-            'label'     => 'Miniature',
-            'type'      => 'upload',
-            'prefix' => 'storage/',
-            'upload'    => true,
-            'temporary' => 10,
-        ]);
-        CRUD::addField([   // SelectMultiple = n-n relationship (with pivot table)
-            'label'     => "Tags",
-            'type'      => 'select_multiple',
-            'name'      => 'tag', // the method that defines the relationship in your Model
-            'entity'    => 'tag', // the method that defines the relationship in your Model
-        ]);
+        $this->setupCreateOperation();
     }
 }

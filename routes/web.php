@@ -27,6 +27,7 @@ Route::get('contact', 'contact');
 Route::get('about', 'about');
 Route::post('contactus', 'contactus');
 Route::get('alldictionary', 'alldictionary');
+Route::get('allwebresources', 'allwebresources');
 Route::get('read', 'read');
 Route::get('neighbourhoods', 'neighbourhoods');
 Route::get('neighbourhoods_post/', 'neighbourhoods_post');

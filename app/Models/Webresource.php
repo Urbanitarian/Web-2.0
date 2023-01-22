@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Tag;
 
-class Dictionary extends Model
+class Webresource extends Model
 {
     use CrudTrait;
+    use HasFactory;
 
     /*
     |--------------------------------------------------------------------------
@@ -16,23 +17,16 @@ class Dictionary extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'dictionaries';
+    protected $table = 'webresources';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];
-    protected $fillable = [
-        'name',
-        'description',
-        'type',
-        'image',
-        'tags',
-        'created_at',
-        'updated_at',
+    // protected $dates = [];
+    protected $casts = [
+        'type' => 'array'
     ];
-    
-
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
@@ -43,7 +37,7 @@ class Dictionary extends Model
     
         $attribute_name = "image";
         $disk = "public";
-        $destination_path = "/uploads/dictionaries";
+        $destination_path = "/uploads/webresources";
 
         $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
 
@@ -54,10 +48,6 @@ class Dictionary extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function tag()
-    {
-        return $this->belongsTo(Tag::class);
-    }
 
     /*
     |--------------------------------------------------------------------------
