@@ -140,7 +140,7 @@
                                                                 style="width:100%;padding-right:0px;padding-left:0px;">
                                                                 <div align="center" class="alignment"
                                                                     style="line-height:10px"><img alt="Image"
-                                                                        src="https://xbmod.fr/urbanitarian/img/logo.png"
+                                                                        src="https://urbanitarian.xbmod.fr/img/logo.png"
                                                                         style="display: block; height: auto; border: 0; width: 125px; max-width: 100%;"
                                                                         title="Image" width="125" /></div>
                                                             </td>
@@ -182,7 +182,7 @@
                                                                             style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 75px;">
                                                                             <span style="font-size:50px;"><strong><span
                                                                                         style="font-size:50px;"><span
-                                                                                            style="font-size:38px;">Bonjour</span></span></strong></span>
+                                                                                            style="font-size:38px;">Welcome</span></span></strong></span>
                                                                         </p>
                                                                     </div>
                                                                 </div>
@@ -216,8 +216,7 @@
                                                                         target="_blank"><span
                                                                             style="padding-left:40px;padding-right:40px;font-size:16px;display:inline-block;letter-spacing:normal;"><span
                                                                                 dir="ltr"
-                                                                                style="word-break: break-word; line-height: 32px;"><strong>Démarrer
-                                                                                    maintenant</strong></span></span></a>
+                                                                                style="word-break: break-word; line-height: 32px;"><strong>Login</strong></span></span></a>
                                                                     <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
                                                                 </div>
                                                             </td>

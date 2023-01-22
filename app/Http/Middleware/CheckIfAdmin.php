@@ -39,7 +39,6 @@ class CheckIfAdmin
             $mailcontent = [
                 'email' => env('MAIL_USERNAME'),
                 'message' =>
-                    'welcome ' .
                     $user->name .
                     ' account successfully created, you can now login to your account',
             ];
