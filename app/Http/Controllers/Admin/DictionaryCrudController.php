@@ -54,7 +54,17 @@ class DictionaryCrudController extends CrudController
     {
         CRUD::column('name');
         CRUD::column('description');
-        CRUD::column('type');
+        $this->crud->addColumn([
+            'name'    => 'type',
+            'label'   => 'Type',
+            'type'    => 'text',
+            'wrapper' => [
+                'element' => 'span',
+                'class' => function ($crud, $column, $entry, $related_key) {
+                            return 'ml-4 badge badge-dark';
+                        }
+            ],
+        ]);
         $this->getFieldsData();
         CRUD::column('tag_id')->label('Tags');
      

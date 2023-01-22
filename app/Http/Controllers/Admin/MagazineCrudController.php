@@ -55,7 +55,17 @@ class MagazineCrudController extends CrudController
     {
         CRUD::column('name');
         $this->getFieldsData();
-        CRUD::column('type');
+        $this->crud->addColumn([
+            'name'    => 'type',
+            'label'   => 'Type',
+            'type'    => 'Array',
+            'wrapper' => [
+                'element' => 'span',
+                'class' => function ($crud, $column, $entry, $related_key) {
+                            return 'ml-4 badge badge-dark';
+                        }
+            ],
+        ]);
         CRUD::column('link');
 
         /**
@@ -91,11 +101,11 @@ class MagazineCrudController extends CrudController
             'type'        => 'select_from_array',
             'options'     => [
                 'magazines' => 'magazines',
-                'polish magazines' => 'polish_magazines',
+                'polish magazines' => 'polish magazines',
             ],
             'allows_null' => false,
             'default'     => '1',
-            // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
+             'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
         CRUD::field('link');
 

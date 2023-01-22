@@ -53,7 +53,17 @@ class WebresourceCrudController extends CrudController
     {
         CRUD::column('name');
         $this->getFieldsData();
-        CRUD::column('type');
+        $this->crud->addColumn([
+            'name'    => 'type',
+            'label'   => 'Type',
+            'type'    => 'Array',
+            'wrapper' => [
+                'element' => 'span',
+                'class' => function ($crud, $column, $entry, $related_key) {
+                            return 'ml-4 badge badge-dark';
+                        }
+            ],
+        ]);
         CRUD::column('link');
 
 
