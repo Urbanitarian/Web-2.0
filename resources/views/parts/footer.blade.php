@@ -11,13 +11,13 @@
       <nav aria-label="Footer Nav" class="mt-12">
         <ul class="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
           <li>
-            <a class="text-gray-700 transition hover:text-gray-700/75" href="/about">
+            <a class="text-gray-700 transition hover:text-gray-700/75" href="about">
               About
             </a>
           </li>
 
           <li>
-            <a class="text-gray-700 transition hover:text-gray-700/75" href="/contact">
+            <a class="text-gray-700 transition hover:text-gray-700/75" href="contact">
               Contact
             </a>
           </li>
@@ -29,19 +29,19 @@
           </li>
 
           <li>
-            <a class="text-gray-700 transition hover:text-gray-700/75" href="">
+            <a class="text-gray-700 transition hover:text-gray-700/75" href="legal">
               Terms of use
             </a>
           </li>
 
           <li>
-            <a class="text-gray-700 transition hover:text-gray-700/75" href="">
+            <a class="text-gray-700 transition hover:text-gray-700/75" href="confidentialite">
               Privacy policy
             </a>
           </li>
 
           <li>
-            <a class="text-gray-700 transition hover:text-gray-700/75" href="">
+            <a class="text-gray-700 transition hover:text-gray-700/75" href="cookies">
               Cookie policy
             </a>
           </li>

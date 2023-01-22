@@ -341,7 +341,7 @@
 @include('parts.webresources')
 
 @include('parts.toread')
-
+@include('parts.instagram')
 
 <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
     integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>

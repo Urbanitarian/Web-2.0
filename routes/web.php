@@ -22,7 +22,6 @@ Route::controller(GlobalController::class)->group(function(){
 Route::get('/', 'getAll')->name('getAll');
 Route::get('index', 'getAll')->name('getAll');
 Route::get('logout', 'logout');
-Route::get('help', 'help');
 Route::get('contact', 'contact');
 Route::get('about', 'about');
 Route::post('contactus', 'contactus');
@@ -45,7 +44,7 @@ Route::post('import', 'import');
 
 Route::get('legal' , [GlobalController::class, 'getLegal']);
 Route::get('confidentialite' , [GlobalController::class, 'getConf']);
-
+Route::get('cookies' , [GlobalController::class, 'cookies']);
 
 
 Route::post('deleteuser/{id}', [GlobalController::class, 'deleteUser'])->name('deleteUser');

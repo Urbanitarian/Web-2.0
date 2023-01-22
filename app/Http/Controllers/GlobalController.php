@@ -6,8 +6,9 @@ use App\Models\User;
 use App\Models\Tag;
 use App\Models\Dictionary;
 use App\Models\Magazine;
+use App\Models\Pages;
 use App\Models\Webresource;
-
+use Backpack\Settings\app\Models\Setting;
 use Carbon\Carbon;
 
 use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification;
@@ -29,8 +30,9 @@ class GlobalController extends Controller
         $magazines = Magazine::where('id', '!=', null)->limit(5)->inRandomOrder()->get();
         $dictionary = Dictionary::where('id', '!=', null)->limit(10)->inRandomOrder()->get();
         $tags = Tag::all();
+        $insta = Setting::get('curator_link');
         
-        return view('index', compact('dictionary', 'tags', 'magazines', 'webresources'));
+        return view('index', compact('dictionary', 'tags', 'magazines', 'webresources', 'insta'));
     }
 
   
@@ -184,5 +186,9 @@ class GlobalController extends Controller
         return view('confidentialite');
     }
 
+    static function cookies()
+    {
+        return view('cookies');
+    }
    
 }
