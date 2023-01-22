@@ -21,7 +21,7 @@
                                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
                                   {{  $magazine->name }}
                                 </p>
-                                <p class="pb-2 text-xs text-center text-gray-800">  {{$magazine->type[0] ?? null; }}, {{   $magazine->type[1] ?? null }}</p>
+                                <p class="pb-2 text-xs text-center text-gray-500">  {{$magazine->type[0] ?? null; }}, {{   $magazine->type[1] ?? null }}</p>
                             </a>
                         </div>
                     </div>
