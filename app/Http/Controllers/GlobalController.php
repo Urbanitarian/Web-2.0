@@ -190,5 +190,10 @@ class GlobalController extends Controller
     {
         return view('cookies');
     }
+
+    static function work()
+    {
+        return view('work');
+    }
    
 }
