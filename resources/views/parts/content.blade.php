@@ -152,10 +152,8 @@
     <div class="grid grid-cols-2 gap-5 lg:grid-cols-4 xl:grid-cols-5">
 
         <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-            <a href="#" class="block">
-                <div class="">
-                    <img alt="Art" src="./img/OCEANIX-BIG.jpg" class="object-cover w-full h-full" />
-                </div>
+            <a href="#" class="flex flex-col h-full">
+                <img alt="Art" src="./img/OCEANIX-BIG.jpg" class="object-cover h-full max-h-[480px]" />
                 <div class="p-2">
                     <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
                     <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
@@ -165,12 +163,9 @@
             </a>
         </div>
 
-        <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105"> <a href="#"
-                class="block">
-                <div class="">
-                    <img alt="Art" src="./img/M_DOUBLE-DUTCH_Stadstuin-1-1-scaled.jpg"
-                        class="object-cover w-full h-full" />
-                </div>
+       <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+            <a href="#" class="flex flex-col h-full">
+                <img alt="Art" src="./img/M_DOUBLE-DUTCH_Stadstuin-1-1-scaled.jpg" class="object-cover h-full max-h-[480px]" />
                 <div class="p-2">
                     <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
                     <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
@@ -180,27 +175,9 @@
             </a>
         </div>
 
-        <div class="col-span-2 bg-gray-50 hover:bg-gray-100 transition md:hover:scale-[102%] shadow-md"> <a
-                href="#"class="block">
-                <div class="">
-                    <img alt="Art" src="./img/LIME-STREET2.jpg" class="object-cover w-full h-full " />
-                </div>
-                <div class="p-2">
-                    <div class="flex justify-between">
-                        <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    </div>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
-
-        <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105"> <a href="#"
-                class="block">
-                <div class="">
-                    <img alt="Art" src="./img/az.jpg" class="object-cover w-full h-full" />
-                </div>
+        <div class="col-span-2 bg-gray-50 hover:bg-gray-100 transition md:hover:scale-[102%] shadow-md"> 
+         <a href="#" class="flex flex-col h-full">
+                <img alt="Art" src="./img/LIME-STREET2.jpg" class="object-cover h-full max-h-[480px] " />
                 <div class="p-2">
                     <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
                     <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
@@ -210,11 +187,53 @@
             </a>
         </div>
 
-        <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105"> <a href="#"
-                class="block">
-                <div class="">
-                    <img alt="Art" src="./img/OMA-UNICORN.jpg" class="object-cover w-full" />
+       <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+            <a href="#" class="flex flex-col h-full">
+                <img alt="Art" src="./img/az.jpg" class="object-cover h-full max-h-[480px]" />
+                <div class="p-2">
+                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
+                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
+                        Lorem ipsum dolor sit
+                    </p>
                 </div>
+            </a>
+        </div>
+         <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+            <a href="#" class="flex flex-col h-full">
+                <img alt="Art" src="./img/OMA-UNICORN.jpg" class="object-cover h-full max-h-[480px]" />
+                <div class="p-2">
+                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
+                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
+                        Lorem ipsum dolor sit
+                    </p>
+                </div>
+            </a>
+        </div>
+         <div class="col-span-2 transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+            <a href="#" class="flex flex-col h-full">
+                <img alt="Art" src="./img/z.jpg" class="object-cover h-full max-h-[480px]" />
+                <div class="p-2">
+                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
+                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
+                        Lorem ipsum dolor sit
+                    </p>
+                </div>
+            </a>
+        </div>
+         <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+            <a href="#" class="flex flex-col h-full">
+                <img alt="Art" src="./img/zz.jpg" class="object-cover h-full max-h-[480px]" />
+                <div class="p-2">
+                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
+                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
+                        Lorem ipsum dolor sit
+                    </p>
+                </div>
+            </a>
+        </div>
+         <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+            <a href="#" class="flex flex-col h-full">
+                <img alt="Art" src="./img/za.jpg" class="object-cover h-full max-h-[480px]" />
                 <div class="p-2">
                     <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
                     <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
@@ -224,11 +243,20 @@
             </a>
         </div>
 
-        <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105"> <a href="#"
-                class="block">
-                <div class="">
-                    <img alt="Art" src="./img/z.jpg" class="object-cover w-full" />
+             <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+            <a href="#" class="flex flex-col h-full">
+                <img alt="Art" src="./img/zz.jpg" class="object-cover h-full max-h-[480px]" />
+                <div class="p-2">
+                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
+                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
+                        Lorem ipsum dolor sit
+                    </p>
                 </div>
+            </a>
+        </div>
+         <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+            <a href="#" class="flex flex-col h-full">
+                <img alt="Art" src="./img/M_DOUBLE-DUTCH_Stadstuin-1-1-scaled.jpg" class="object-cover h-full max-h-[480px]" />
                 <div class="p-2">
                     <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
                     <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
@@ -238,11 +266,20 @@
             </a>
         </div>
 
-        <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105"> <a href="#"
-                class="block">
-                <div class="">
-                    <img alt="Art" src="./img/zz.jpg" class="object-cover w-full" />
+           <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+            <a href="#" class="flex flex-col h-full">
+                <img alt="Art" src="./img/zz.jpg" class="object-cover h-full max-h-[480px]" />
+                <div class="p-2">
+                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
+                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
+                        Lorem ipsum dolor sit
+                    </p>
                 </div>
+            </a>
+        </div>
+         <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+            <a href="#" class="flex flex-col h-full">
+                <img alt="Art" src="./img/za.jpg" class="object-cover h-full max-h-[480px]" />
                 <div class="p-2">
                     <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
                     <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
@@ -252,47 +289,8 @@
             </a>
         </div>
 
-        <div class="col-span-2 bg-gray-50 hover:bg-gray-100 shadow-md transition md:hover:scale-[102%]"> <a
-                href="#" class="block">
-                <div class="">
-                    <img alt="Art" src="./img/za.jpg" class="object-cover w-full" />
-                </div>
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
 
-        <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105"> <a href="#"
-                class="block">
-                <div class="">
-                    <img alt="Art" src="./img/banner.jpeg" class="object-cover w-full" />
-                </div>
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
 
-        <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105"> <a href="#"
-                class="block">
-                <div class="">
-                    <img alt="Art" src="./img/house3.jpeg" class="object-cover w-full" />
-                </div>
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
     </div>
 
     <div class="flex flex-row items-center justify-center pt-12 mx-auto">
