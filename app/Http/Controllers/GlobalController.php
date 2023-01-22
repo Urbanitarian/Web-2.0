@@ -32,14 +32,10 @@ class GlobalController extends Controller
         $tags = Tag::all();
         $insta = Setting::get('curator_link');
 
-        $instagram_link = Setting::get('instagram_link');
-        $facebook_link = Setting::get('facebook_link');
-        $flickr_link = Setting::get('flickr_link');
-        $linkedin_link = Setting::get('linkedin_link');
-        $pinterest_link = Setting::get('pinterest_link');
+
 
         
-        return view('index', compact('dictionary', 'tags', 'magazines', 'webresources', 'insta', 'instagram_link', 'facebook_link', 'flickr_link', 'linkedin_link', 'pinterest_link'));
+        return view('index', compact('dictionary', 'tags', 'magazines', 'webresources', 'insta'));
     }
 
   
@@ -50,10 +46,6 @@ class GlobalController extends Controller
         return $pages;
     }
 
-    public function help()
-    {
-        return view('help');
-    }
 
     public function about()
     {
