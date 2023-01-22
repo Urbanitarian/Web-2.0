@@ -69,6 +69,6 @@
         L.marker([47.97618, 7.82580]).addTo(mymap);
         L.marker([44.97618, 9.82580]).addTo(mymap);
         mymap.touchZoom.enable();
-        mymap.scrollWheelZoom.disable();
+    
     </script>
 @endsection

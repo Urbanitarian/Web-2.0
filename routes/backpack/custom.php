@@ -22,4 +22,5 @@ Route::group([
 
     Route::crud('tag', 'TagCrudController');
     Route::crud('dictionary', 'DictionaryCrudController');
+    Route::crud('magazine', 'MagazineCrudController');
 }); // this should be the absolute last line of this file

@@ -2,6 +2,6 @@
 
 @section('main')
 <div data-barba="mycontainer">
-    @include('parts.dictionary')
+    @include('parts.alldictionary')
 </div>
 @endsection

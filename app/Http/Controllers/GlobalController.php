@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Tag;
 use App\Models\Dictionary;
+use App\Models\Magazine;
 
 use Carbon\Carbon;
 
@@ -23,12 +24,11 @@ class GlobalController extends Controller
      */
     public function getAll()
     {
-        $dictionary = Dictionary::where('id', '!=', null)->limit(10)
-        ->inRandomOrder()
-        ->get();
+        $magazines = Magazine::where('id', '!=', null)->limit(5)->inRandomOrder()->get();
+        $dictionary = Dictionary::where('id', '!=', null)->limit(10)->inRandomOrder()->get();
         $tags = Tag::all();
         
-        return view('index', compact('dictionary', 'tags'));
+        return view('index', compact('dictionary', 'tags', 'magazines'));
     }
 
   
@@ -89,7 +89,7 @@ class GlobalController extends Controller
         return view('masterplans_post');
     }
 
-    public function dictionaries()
+    public function alldictionary()
     {
         return view('dictionaries');
     }
