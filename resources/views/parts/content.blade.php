@@ -177,7 +177,7 @@
 
         <div class="col-span-2 bg-gray-50 hover:bg-gray-100 transition md:hover:scale-[102%] shadow-md"> 
          <a href="#" class="flex flex-col h-full">
-                <img alt="Art" src="./img/LIME-STREET2.jpg" class="object-cover h-full max-h-[480px] " />
+                <img alt="Art" src="./img/LIME-STREET2.jpg" class="object-cover h-full max-h-[480px]" />
                 <div class="p-2">
                     <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
                     <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
@@ -209,9 +209,9 @@
                 </div>
             </a>
         </div>
-         <div class="col-span-2 transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+         <div class="col-span-2 transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-[102%]">
             <a href="#" class="flex flex-col h-full">
-                <img alt="Art" src="./img/z.jpg" class="object-cover h-full max-h-[480px]" />
+                <img alt="Art" src="./img/Kings-Crescent_Streetscape_1.jpg" class="object-cover h-full max-h-[480px]" />
                 <div class="p-2">
                     <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
                     <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
