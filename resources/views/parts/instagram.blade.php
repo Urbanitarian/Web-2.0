@@ -19,7 +19,5 @@
 
 
 @php
-     echo  '<script type="text/javascript">';
     echo $insta;
-    echo '</script>';
 @endphp
