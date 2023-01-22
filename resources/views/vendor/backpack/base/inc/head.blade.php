@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://kit.fontawesome.com/59ecaaffaa.js" crossorigin="anonymous"></script>
+ 
 
     @if (config('backpack.base.meta_robots_content'))<meta name="robots" content="{{ config('backpack.base.meta_robots_content', 'noindex, nofollow') }}"> @endif
     <link rel="shortcut icon" href=".././img/favicon.png" type="image/x-icon" />
