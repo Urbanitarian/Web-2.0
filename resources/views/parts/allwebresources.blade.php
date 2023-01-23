@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="py-8">
-            <div class="grid grid-cols-1 gap-5 row-gap-5 lg:grid-cols-4 xl:grid-cols-5 md:grid-cols-2">
+            <div class="grid grid-cols-2 gap-5 row-gap-5 lg:grid-cols-3 xl:grid-cols-5 md:grid-cols-2">
                    @forelse ($webresources as $item)
                     <div class="flex transition border shadow-md md:hover:scale-110">
                         <div class="flex flex-col mx-auto">
@@ -20,7 +20,7 @@
                                     alt="content" onerror="this.src='./img/empty.png'">
                                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
                                   {{ $item->name }}</p>
-                                <p class="pb-2 text-xs text-center text-gray-500">{{$item->type[0] ?? null; }}, {{   $item->type[1] ?? null }}, {{   $item->type[2] ?? null}}</p>
+                                <p class="pb-2 text-xs text-center text-gray-500">{{$item->type[0] ?? null; }}  {{   $item->type[1] ?? null }}  {{   $item->type[2] ?? null}}</p>
                             </a>
                         </div>
                     </div>

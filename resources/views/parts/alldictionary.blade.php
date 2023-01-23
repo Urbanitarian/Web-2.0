@@ -11,7 +11,7 @@
 
   <div class="mx-4">
         <div class="max-w-screen-xl pt-8 pb-4 mx-4 md:py-8 md:mx-auto ">
-            <div class="grid grid-cols-2 gap-5 row-gap-5 lg:grid-cols-5">
+            <div class="grid grid-cols-2 gap-5 row-gap-5 md:grid-cols-3 lg:grid-cols-5">
 
                 @forelse ($dictionary as $item)
                     <div class="flex transition border shadow-md md:hover:scale-110">

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TagRequest extends FormRequest
+class StreetscapeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,6 @@ class TagRequest extends FormRequest
     {
         return [
             // 'name' => 'required|min:5|max:255'
-          'name' => 'required|min:3|max:255|unique:tags,name'
         ];
     }
 

@@ -24,6 +24,13 @@ class Webresource extends Model
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
+    protected $fillable = [
+        'name',
+        'type',
+        'image',
+        'link',
+     ];
+
     protected $casts = [
         'type' => 'array'
     ];

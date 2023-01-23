@@ -99,14 +99,7 @@ class DictionaryCrudController extends CrudController
             'upload'    => true,
             'temporary' => 10,
         ]);
-        CRUD::addField([   // SelectMultiple = n-n relationship (with pivot table)
-            'label'     => "Tags",
-            'type'      => 'select_multiple',
-            'name'      => 'tag', // the method that defines the relationship in your Model
-            'entity'    => 'tag', // the method that defines the relationship in your Model
-        ]);
       
-
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
@@ -135,11 +128,18 @@ class DictionaryCrudController extends CrudController
             'upload'    => true,
             'temporary' => 10,
         ]);
-        CRUD::addField([   // SelectMultiple = n-n relationship (with pivot table)
-            'label'     => "Tags",
-            'type'      => 'select_multiple',
-            'name'      => 'tag', // the method that defines the relationship in your Model
-            'entity'    => 'tag', // the method that defines the relationship in your Model
+        $this->crud->addField([   // select_from_array
+            'name'        => 'tags',
+            'label'       => "Tags",
+            'type'        => 'select_from_array',
+            'options'     => [
+                'magazines' => 'magazines',
+                'polish magazines' => 'polish magazines',
+            ],
+            'allows_null' => false,
+            'default'     => '1',
+             'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
+       
     }
 }

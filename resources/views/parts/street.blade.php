@@ -73,124 +73,45 @@
     <section class="mx-4 border-t">
         <div class="container px-6 py-10 mx-auto">
             <div class="flex flex-col">
+
+                @forelse ($streetscapes as $streetscape)
                 <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
                     <div class="lg:w-3/4 md:px-6">
                         <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="./img/Kings-Crescent_Streetscape_1.jpg" alt="">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="./img/Kings-Crescent_Streetscape_2.jpg" alt="">
+                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="{{ asset('storage/' . $streetscape->image[0]) }}"alt="00"  onerror="this.src='./img/empty.png'"/>
+                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="{{ asset('storage/' . $streetscape->image[1]) }}"alt="00"  onerror="this.src='./img/empty.png'"/>
                     </div>
 
                     </div>
 
                     <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
                         <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">Playable street</h3>
+                            <h3 class="mt-4 font-semibold text-center text-black uppercase">  {{ $streetscape->tags[0] }}</h3>
 
                             <a  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
-                               ARCHITECTURE / ART
+                              {{ $streetscape->title }}
                             </a>
                             <div class="flex flex-wrap justify-center mx-4 text-xs">
-                            <p class="mt-2 text-center text-gray-600 ">king's Cresent | </p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; London | </p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp;UK </p>
+                            <p class="mt-2 text-center text-gray-600 "> {{ $streetscape->address }} |</p>
+                            <p class="mt-2 text-center text-gray-600 "> &nbsp; {{ $streetscape->city }} |</p>
+                            <p class="mt-2 text-center text-gray-600 "> &nbsp; {{ $streetscape->country }} </p>
                             </div>
-                            <a href="./streetscapes_post">
+                            <a href="{{ $streetscape->creatorlink }}">
                                 <button
-                                  class="flex px-8 py-2 mx-auto mb-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800">See project</button>
+                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800">See project</button>
                               </a>
                         </div>
 
                     </div>
                 </div>
-
-                <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
-                            <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="./img/MOLE-streetscape-1.jpg" alt="">
-                            <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="./img/MOLE-streetscape-2.jpg" alt="">
-                        </div>
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">ADAPTIVE SPACE</h3>
-
-                            <a  class="block mt-8 text-xl font-bold text-center text-gray-900 uppercase">
-                              LEKU STUDIO
-                            </a>
-
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                                <p class="mt-2 text-center text-gray-600 ">Superblock | </p>
-                                <p class="mt-2 text-center text-gray-600 "> &nbsp; Barcelona | </p>
-                                <p class="mt-2 text-center text-gray-600 "> &nbsp;Spain </p>
-                                </div>
-                                <a href="./streetscapes_post">
-                                    <button
-                                      class="flex px-8 py-2 mx-auto mb-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800">See project</button>
-                                  </a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="w-full juxtapose">
-                            <img class="object-cover object-center w-full h-80 xl:h-96 md:mr-4" src="./img/Superblock-del-rio-bani-1c.jpg" alt="">
-                            <img class="object-cover object-center w-full h-80 xl:h-96 md:mr-4" src="./img/Superblock-del-rio-bani-2c.jpg" alt="">
-                        </div>
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">CHILD-FRIENDLY STREET</h3>
-
-                            <a class="block mt-8 text-xl font-bold text-center text-gray-900 uppercase">
-                               MOLE ARCHITECTS
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                                <p class="mt-2 text-center text-gray-600 ">Marmalade lane | </p>
-                                <p class="mt-2 text-center text-gray-600 "> &nbsp; Cambridge | </p>
-                                <p class="mt-2 text-center text-gray-600 "> &nbsp;UK </p>
-                                </div>
-                                <a href="./streetscapes_post">
-                                    <button
-                                      class="flex px-8 py-2 mx-auto mb-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800">See project</button>
-                                  </a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose md:r-4">
-                            <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="./img/Scandiagade1new.jpg" alt="">
-                            <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="./img/Scandiagade2new.jpg" alt="">
-                        </div>
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">Climate proofed street</h3>
-
-                            <a  class="block mt-8 text-xl font-bold text-center text-gray-900 uppercase">
-                             1TIL1 LANDSKAB
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                                <p class="mt-2 text-center text-gray-600 ">Scandiagade | </p>
-                                <p class="mt-2 text-center text-gray-600 "> &nbsp; Copenhagen | </p>
-                                <p class="mt-2 text-center text-gray-600 "> &nbsp;Denmark </p>
-                                </div>
-                                <a href="./streetscapes_post">
-                                    <button
-                                      class="flex px-8 py-2 mx-auto mb-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800">See project</button>
-                                  </a>
-                        </div>
-
-                    </div>
-                </div>
+                @empty
+                <p class="text-center">No posts yet. Please check back later.</p>
+                @endforelse
+               
             </div>
+              <div class="flex justify-center pt-8">
+  {{ $streetscapes->appends(Request::all())->links('pagination::tailwind') }}
+      </div>
         </div>
     </section>
 

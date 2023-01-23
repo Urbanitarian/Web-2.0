@@ -2,7 +2,7 @@
 @include('backpack-database-notifications::sidebarMenuItem')
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="la la-home nav-icon"></i>{{ trans('backpack::base.dashboard') }}</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('tag') }}"><i class="nav-icon la la-th-list"></i> Tags</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('streetscape') }}"><i class="nav-icon la la-street-view"></i> Streetscapes</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dictionary') }}"><i class="nav-icon la la-atlas"></i> Dictionaries</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('magazine') }}"><i class="nav-icon la la-book"></i> Magazines</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('webresource') }}"><i class="nav-icon la la-globe"></i> Webresources</a></li>

@@ -26,6 +26,7 @@ class Magazine extends Model
     protected $fillable = [
         'name',
         'type',
+        'tags',
         'image',
         'link',
         'created_at',

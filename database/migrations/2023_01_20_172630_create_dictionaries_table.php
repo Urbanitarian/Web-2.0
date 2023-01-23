@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->text('description');
-            $table->string('type')->default('dictionary')
+            $table->string('type');
             $table->string('image');
-            $table->text('tag_id')->nullable();
+            $table->text('tags')->nullable();
             $table->timestamps();
         });
     }

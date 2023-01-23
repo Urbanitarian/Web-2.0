@@ -9,64 +9,46 @@
             </p>
         </div>
         <div class="grid gap-6 row-gap-5 lg:grid-cols-3">
-            <div>
-              
+
+           @forelse ($streetscapes as $streetscape)
+               <div>
                  <div class="juxtapose">
-                    <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="./img/Kings-Crescent_Streetscape_1.jpg"alt="" />
-                     <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="./img/Kings-Crescent_Streetscape_2.jpg"alt="" />
-                    </div>
-                     <a href="">
-                    <h5 class="mb-2 text-xl font-bold leading-none sm:text-2xl">
-                        A slice of heaven
+                    <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="{{ asset('storage/' . $streetscape->image[0]) }}"alt="00"  onerror="this.src='./img/empty.png'"/>
+                     <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="{{ asset('storage/' . $streetscape->image[1]) }}"alt="00"  onerror="this.src='./img/empty.png'"/>
+                </div>
+                    <a href="streetscapes_post?id={{ $streetscape->id }}">
+                    <h5 class="pt-1 mb-2 text-xl font-bold leading-none sm:text-2xl">
+                       {{ $streetscape->title }}
                     </h5>
                     <p class="text-sm text-gray-700">
-                        O for awesome, this chocka full cuzzie is as rip-off as a cracker. Meanwhile, in behind the
-                        bicycle shed,
-                        Hercules Morse.
+                      {{ $streetscape->address }} | {{ $streetscape->city }}
                     </p>
                 </a>
             </div>
-            <div>
-       
-                      <div class="juxtapose">
-                    <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-80 xl:h-96" src="./img/MOLE-streetscape-1.jpg"alt="" />
-                     <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-80 xl:h-96" src="./img/MOLE-streetscape-2.jpg"alt="" />
+           @empty
+               <div>
+                 <div class="juxtapose">
+                    <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="./img/empty.png"alt=""  onerror="this.src='./img/empty.png'"/>
+                     <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="./img/empty.png"alt=""  onerror="this.src='./img/empty.png'"/>
                     </div>
                      <a href="">
                     <h5 class="mb-2 text-xl font-bold leading-none sm:text-2xl">
-                        Disrupt inspire
+                        Dummy title
                     </h5>
                     <p class="text-sm text-gray-700">
-                        I'll be sure to note that in my log. Smooth as an android's bottom, eh, Data? When has justice
-                        ever been
-                        as
-                        simple as a rule book?
+                       empty
                     </p>
                 </a>
             </div>
-            <div>
-               
-                     <div class="juxtapose">
-                    <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-80 xl:h-96" src="./img/Superblock-del-rio-bani-1c.jpg"alt="" />
-                     <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-80 xl:h-96" src="./img/Superblock-del-rio-bani-2c.jpg"alt="" />
-                    </div>
-                     <a href="">
-                    <h5 class="mb-2 text-xl font-bold leading-none sm:text-2xl">
-                        Storage shed
-                    </h5>
-                    <p class="text-sm text-gray-700">
-                        Yolo ipsum dolor sit amet, consectetur adipiscing elit. Ut ac suscipit leo. Carpe diem vulputate
-                        est nec
-                        commodo rutrum.
-                    </p>
-                </a>
-            </div>
+           @endforelse
+            
+
+            
         </div>
-        <a href="./streetscapes">
+       
             <button
-                class="flex px-8 py-2 mx-auto mt-16 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800">See
-                All</button>
-        </a>
+                class="flex px-8 py-2 mx-auto mt-16 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800"> <a href="./streetscapes">See All</a></button>
+        
     </div>
 </section>
     <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>

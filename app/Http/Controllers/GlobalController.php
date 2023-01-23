@@ -7,6 +7,7 @@ use App\Models\Tag;
 use App\Models\Dictionary;
 use App\Models\Magazine;
 use App\Models\Pages;
+use App\Models\Streetscape;
 use App\Models\Webresource;
 use Backpack\Settings\app\Models\Setting;
 use Carbon\Carbon;
@@ -29,12 +30,13 @@ class GlobalController extends Controller
      */
     public function getAll()
     {
+        $streetscapes = Streetscape::where('id', '!=', null)->limit(3)->inRandomOrder()->get();
         $webresources = Webresource::where('id', '!=', null)->limit(5)->inRandomOrder()->get();
         $magazines = Magazine::where('id', '!=', null)->limit(5)->inRandomOrder()->get();
         $dictionary = Dictionary::where('id', '!=', null)->limit(10)->inRandomOrder()->get();
-        $tags = Tag::all();
+    
         $insta = Setting::get('curator_link');
-        return view('index', compact('dictionary', 'tags', 'magazines', 'webresources', 'insta'));
+        return view('index', compact('dictionary', 'magazines', 'webresources', 'insta', 'streetscapes'));
     }
 
   
@@ -73,12 +75,8 @@ class GlobalController extends Controller
 
     public function streetscapes()
     {
-        return view('streetscapes');
-    }
-
-    public function streetscapes_post()
-    {
-        return view('streetscapes_post');
+        $streetscapes = Streetscape::where('id', '!=', null)->paginate(5);
+        return view('streetscapes', compact('streetscapes'));
     }
 
     public function masterplans()
