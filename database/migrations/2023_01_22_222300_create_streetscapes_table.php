@@ -15,16 +15,36 @@ return new class extends Migration
     {
         Schema::create('streetscapes', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->unique();
-            $table->string('type')->default('Streetscapes');
-            $table->string('size')->nullable();
-            $table->string('tags')->nullable();
             $table->string('image')->nullable();
-            $table->text('address')->nullable();
+            $table->string('title')->unique();
+            $table->string('author')->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();
+            $table->string('program')->nullable();
+            $table->integer('year')->nullable();
+            $table->integer('area')->nullable();
+            $table->integer('gfa')->nullable();
+            $table->integer('density')->nullable();
+            $table->integer('popdensity')->nullable();
+            $table->integer('homeunit')->nullable();
+            $table->integer('jobs')->nullable();
+            $table->integer('streetroad')->nullable();
+            $table->integer('buildup')->nullable();
+            $table->integer('nonbuildup')->nullable();
+            
+            $table->integer('residential')->nullable();
+            $table->integer('business')->nullable();
+            $table->integer('commercial')->nullable();
+            $table->integer('civic')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('credits')->nullable();
             $table->string('location')->nullable();
-            $table->text('creatorlink')->nullable();
+            $table->string('status')->nullable();
+            $table->string('size')->nullable();
+            $table->string('tags')->nullable();
+            $table->text('link')->nullable();
+            $table->string('category')->default('Streetscapes');
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }

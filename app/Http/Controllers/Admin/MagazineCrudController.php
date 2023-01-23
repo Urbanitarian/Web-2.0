@@ -107,7 +107,11 @@ class MagazineCrudController extends CrudController
             'default'     => '1',
              'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
-        CRUD::field('link');
+        CRUD::addField([   // URL
+            'name'  => 'link',
+            'label' => 'Link',
+            'type'  => 'url'
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

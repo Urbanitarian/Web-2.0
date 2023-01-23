@@ -66,7 +66,7 @@ class DictionaryCrudController extends CrudController
             ],
         ]);
         $this->getFieldsData();
-        CRUD::column('tag_id')->label('Tags');
+        CRUD::column('tags')->label('Tags');
      
         /**
          * Columns can be defined using the fluent syntax or array syntax:

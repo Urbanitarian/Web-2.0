@@ -68,15 +68,12 @@ class StreetscapeCrudController extends CrudController
         CRUD::column('city');
         CRUD::column('country');
 
-
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
          * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
          */
     }
-
-
 
     /**
      * Define what happens when the Create operation is loaded.
@@ -88,7 +85,28 @@ class StreetscapeCrudController extends CrudController
     {
         CRUD::setValidation(StreetscapeRequest::class);
 
-        CRUD::field('title');
+        CRUD::addField([ // Text
+            'name'  => 'title',
+            'label' => 'Title',
+            'type'  => 'text',
+            'tab'             => 'Main',
+            'wrapper' => [ 'class' => 'form-group1 col-md pl-3'],
+        ]);
+        CRUD::addField([ // Text
+            'name'  => 'author',
+            'label' => 'Author',
+            'type'  => 'text',
+            'tab'             => 'Main',
+            'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
+        ]);
+        CRUD::addField([ // Text
+            'name'  => 'program',
+            'label' => 'Program',
+            'type'  => 'text',
+            'tab'             => 'Main',
+            'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
+        ]);
+
         CRUD::addField([ // Photo
             'name'      => 'image',
             'key' => 'image_up',
@@ -97,23 +115,16 @@ class StreetscapeCrudController extends CrudController
             'prefix' => 'storage/',
             'upload'    => true,
             'temporary' => 10,
-            
-            
+            'tab'             => 'Main',
         ]);
-        $this->crud->addField([   // select_from_array
-            'name'        => 'size',
-            'label'       => "Size",
-            'type'        => 'select_from_array',
-            'options'     => [
-                'Large'        => 'Large',
-                'Medium'        => 'Medium',
-                'Small'        => 'Small',
-                'Xs'        => 'Xs',
-            ],
-            'allows_null' => false,
-            'default'     => '1',
-             'allows_multiple' => false, // OPTIONAL; needs you to cast this to array in your model;
+
+        CRUD::addField([
+            'name'  => 'description',
+            'label' => 'Description',
+            'type'  => 'textarea',
+            'tab'             => 'Main',
         ]);
+      
         $this->crud->addField([   // select_from_array
             'name'        => 'tags',
             'label'       => "Tags",
@@ -154,15 +165,197 @@ class StreetscapeCrudController extends CrudController
                 'WSUD'        => 'WSUD', 
                 'Placemaking'        => 'Placemaking',
             ],
+            'wrapper' => [ 'class' => 'form-group col-md pl-3'],
             'allows_null' => false,
             'default'     => '1',
              'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
+             'tab'             => 'Main',
         ]);
-        CRUD::field('address');
-        CRUD::addField(['name' => 'city', 'type' => 'text', 'label' => 'City', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],]);
-        CRUD::addField(['name' => 'country', 'type' => 'text', 'label' => 'Country', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],]);
-        CRUD::addField(['name' => 'location', 'type' => 'text', 'label' => 'gps coordinates', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],]);
-        CRUD::field('creatorlink')->label('Creator link');
+
+        $this->crud->addField([   // select_from_array
+            'name' => 'status',
+            'label' => "Status",
+            'type' => 'select_from_array',
+            'options' => [
+                'built' => 'built',
+                'future' => 'future',
+                'under development' => 'under development',
+                'regeneration' => 'regeneration',
+            ],
+            'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+            'allows_null' => false,
+            'default'     => '1',
+             'allows_multiple' => false, // OPTIONAL; needs you to cast this to array in your model;
+             'tab'             => 'Main',
+        ]);
+
+        $this->crud->addField([   // select_from_array
+            'name'        => 'size',
+            'label'       => "Size",
+            'type'        => 'select_from_array',
+            'options'     => [
+                'Large'        => 'Large',
+                'Medium'        => 'Medium',
+                'Small'        => 'Small',
+                'Xs'        => 'Xs',
+            ],
+            'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+            'allows_null' => false,
+            'default'     => '1',
+             'allows_multiple' => false, // OPTIONAL; needs you to cast this to array in your model;
+             'tab'             => 'Main',
+        ]);
+
+        $this->crud->addField([   // CustomHTML
+            'name'  => 'separator0',
+            'type'  => 'custom_html',
+            'value' => '<hr>',
+            'tab' => 'Main',
+        ]);
+        CRUD::addField([
+            'name'  => 'link',
+             'label' => 'Link',
+             'type'  => 'url',
+             'tab' => 'Main',
+             'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+            ]);
+            CRUD::addField([
+                'name'  => 'credits',
+                 'label' => 'Credits',
+                 'type'  => 'text',
+                 'tab' => 'Main',
+                 'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+                ]);
+
+
+
+        CRUD::addField(['name' => 'address','type' => 'text','label' => 'Address','tab' => 'Location',]);
+        CRUD::addField(['name' => 'city','type' => 'text','label' => 'City', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
+        CRUD::addField(['name' => 'country', 'type' => 'text', 'label' => 'Country', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
+        CRUD::addField(['name' => 'location', 'type' => 'text', 'label' => 'gps coordinates', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
+
+
+        $this->crud->addField([
+            'name' => 'year', 'type' => 'number',
+            'label' => 'Year',
+            'tab' => 'Details',
+            'wrapper' => [ 'class' => 'group1 col-md pl-3'],
+            
+        ]);
+        $this->crud->addField([
+            'name' => 'area', 'type' => 'number',
+            'label' => 'Area (sqm)',
+            'tab' => 'Details',
+            'wrapper' => [ 'class' => 'group1 col-md pl-3'],
+            
+        ]);
+        $this->crud->addField([
+            'name' => 'gfa', 'type' => 'number',
+            'label' => 'Gfa (sqm)',
+            'tab' => 'Details',
+            'wrapper' => [ 'class' => 'group1 col-md pl-3'],
+            
+        ]);
+        $this->crud->addField([
+            'name' => 'density', 'type' => 'number',
+            'label' => 'Density',
+            'tab' => 'Details',
+            'wrapper' => [ 'class' => 'group1 col-md pl-3'],
+            
+        ]);
+
+        $this->crud->addField([
+            'name' => 'popdensity', 'type' => 'number',
+            'label' => 'Pop density (inh/ha)',
+            'tab' => 'Details',
+            'wrapper' => [ 'class' => 'group1 col-md pl-3'],
+            
+        ]);
+
+        $this->crud->addField([   // CustomHTML
+            'name'  => 'separator',
+            'type'  => 'custom_html',
+            'value' => '<hr>',
+            'tab' => 'Details',
+        ]);
+
+        $this->crud->addField([
+            'name' => 'homeunit', 'type' => 'number',
+            'label' => 'Home units',
+            'tab' => 'Details',
+            'wrapper' => [ 'class' => 'group1 col-md pl-3'],
+            
+        ]);
+        $this->crud->addField([
+            'name' => 'jobs', 'type' => 'number',
+            'label' => 'Jobs',
+            'tab' => 'Details',
+            'wrapper' => [ 'class' => 'group1 col-md pl-3'],
+            
+        ]);
+        $this->crud->addField([
+            'name' => 'streetroad', 'type' => 'number',
+            'label' => 'Streetroad %',
+            'tab' => 'Details',
+            'wrapper' => [ 'class' => 'group1 col-md pl-3'],
+            
+        ]);
+        $this->crud->addField([
+            'name' => 'buildup', 'type' => 'number',
+            'label' => 'Buildup %',
+            'tab' => 'Details',
+            'wrapper' => [ 'class' => 'group1 col-md pl-3'],
+            
+        ]);
+
+        $this->crud->addField([
+            'name' => 'nonbuildup', 'type' => 'number',
+            'label' => 'Non buildup %',
+            'tab' => 'Details',
+            'wrapper' => [ 'class' => 'group1 col-md pl-3'],
+            
+        ]);
+
+        $this->crud->addField([   // CustomHTML
+            'name'  => 'separator2',
+            'type'  => 'custom_html',
+            'value' => '<hr>',
+            'tab' => 'Details',
+        ]);
+
+        $this->crud->addField([
+            'name' => 'residential', 'type' => 'number',
+            'label' => 'Residential',
+            'tab' => 'Details',
+            'wrapper' => [ 'class' => 'group1 col-md pl-3'],
+            
+        ]);
+        $this->crud->addField([
+            'name' => 'business', 'type' => 'number',
+            'label' => 'Business',
+            'tab' => 'Details',
+            'wrapper' => [ 'class' => 'group1 col-md pl-3'],
+            
+        ]);
+        $this->crud->addField([
+            'name' => 'commercial', 'type' => 'number',
+            'label' => 'Commercial',
+            'tab' => 'Details',
+            'wrapper' => [ 'class' => 'group1 col-md pl-3'],
+            
+        ]);
+        $this->crud->addField([
+            'name' => 'civic', 'type' => 'number',
+            'label' => 'Civic',
+            'tab' => 'Details',
+            'wrapper' => [ 'class' => 'group1 col-md pl-3'],
+            
+        ]);
+
+
+
+
+
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
