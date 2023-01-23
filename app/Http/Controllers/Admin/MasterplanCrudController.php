@@ -2,24 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\StreetscapeRequest;
+use App\Http\Requests\MasterplanRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class StreetscapeCrudController
+ * Class MasterplanCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class StreetscapeCrudController extends CrudController
+class MasterplanCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    //use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+   // use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \App\Http\Controllers\Admin\Operations\ImportOperation;
-
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -27,9 +26,9 @@ class StreetscapeCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Streetscape::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/streetscape');
-        CRUD::setEntityNameStrings('streetscape', 'streetscapes');
+        CRUD::setModel(\App\Models\Masterplan::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/masterplan');
+        CRUD::setEntityNameStrings('masterplan', 'masterplans');
     }
 
     function getFieldsData()
@@ -83,7 +82,7 @@ class StreetscapeCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(StreetscapeRequest::class);
+        CRUD::setValidation(MasterplanRequest::class);
 
         CRUD::addField([ // Text
             'name'  => 'title',
