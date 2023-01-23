@@ -43,7 +43,7 @@
 	        @include('crud::fields.inc.attributes', ['default_class' =>  isset($field['value']) && $field['value']!=null?'file_input backstrap-file-input':'file_input backstrap-file-input'])
 	        multiple
 	    >
-        <label class="backstrap-file-label" for="customFile"></label>
+        <label class="backstrap-file-label" for="customFile"><i class="las la-camera"></i></label>
     </div>
 
     {{-- HINT --}}

@@ -228,10 +228,17 @@ class MasterplanCrudController extends CrudController
 
 
 
-        CRUD::addField(['name' => 'address','type' => 'text','label' => 'Address','tab' => 'Location',]);
-        CRUD::addField(['name' => 'city','type' => 'text','label' => 'City', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
-        CRUD::addField(['name' => 'country', 'type' => 'text', 'label' => 'Country', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
-        CRUD::addField(['name' => 'location', 'type' => 'text', 'label' => 'gps coordinates', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
+        CRUD::addField(['prefix' => '<i class="las la-map"></i>','name' => 'address','type' => 'text','label' => 'Address','tab' => 'Location',]);
+        CRUD::addField(['prefix' => '<i class="las la-city"></i>','name' => 'city','type' => 'text','label' => 'City', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
+        CRUD::addField(['prefix' => '<i class="las la-flag"></i>','name' => 'country', 'type' => 'text', 'label' => 'Country', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
+        CRUD::addField([
+            'prefix' => '<i class="las la-map-marker"></i>',
+            'name' => 'location',
+             'type' => 'text',
+              'label' => 'gps coordinates',
+               'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+               'tab' => 'Location',
+            ]);
 
 
         $this->crud->addField([
