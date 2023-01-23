@@ -21,7 +21,7 @@
                        {{ $streetscape->title }}
                     </h5>
                     <p class="text-sm text-gray-700">
-                      {{ $streetscape->address }} | {{ $streetscape->city }}
+                      {{ $streetscape->address }} | {{ $streetscape->city }} | {{ $streetscape->country }}
                     </p>
                 </a>
             </div>

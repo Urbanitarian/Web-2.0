@@ -28,6 +28,7 @@ class Streetscape extends Model
         'title',
         'type',
         'tags',
+        'size',
         'image',
         'address',
         'city',

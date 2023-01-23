@@ -79,6 +79,12 @@ class GlobalController extends Controller
         return view('streetscapes', compact('streetscapes'));
     }
 
+    public function streetscapes_post(Request $request)
+    {   $id = $request->id;
+        $streetscapes = Streetscape::where('id', '=', $id)->get();
+        return view('streetscapes_post', compact('streetscapes'));
+    }
+
     public function masterplans()
     {
         return view('masterplans');

@@ -88,7 +88,7 @@
                         <div>
                             <h3 class="mt-4 font-semibold text-center text-black uppercase">  {{ $streetscape->tags[0] }}</h3>
 
-                            <a  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
+                            <a href="streetscapes_post?id={{ $streetscape->id }}"  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
                               {{ $streetscape->title }}
                             </a>
                             <div class="flex flex-wrap justify-center mx-4 text-xs">
@@ -96,10 +96,10 @@
                             <p class="mt-2 text-center text-gray-600 "> &nbsp; {{ $streetscape->city }} |</p>
                             <p class="mt-2 text-center text-gray-600 "> &nbsp; {{ $streetscape->country }} </p>
                             </div>
-                            <a href="{{ $streetscape->creatorlink }}">
+                           
                                 <button
-                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800">See project</button>
-                              </a>
+                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800"> <a href="{{ $streetscape->creatorlink }}">See project </a></button>
+                             
                         </div>
 
                     </div>

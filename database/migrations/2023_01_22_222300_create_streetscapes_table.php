@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title')->unique();
             $table->string('type')->default('Streetscapes');
+            $table->string('size')->nullable();
             $table->string('tags')->nullable();
             $table->string('image')->nullable();
             $table->text('address')->nullable();
