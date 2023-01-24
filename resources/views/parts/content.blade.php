@@ -68,10 +68,7 @@
                 <i class="mr-2 text-gray-200 transition fa-solid fa-border-all fa-2x hover:text-gray-400"></i>
                 <i class="text-gray-200 transition fa-solid fa-map fa-2x hover:text-gray-400"></i>
             </div>
-            <fieldset class="items-center hidden max-w-xs pt-4 space-x-2 md:flex flex-nowrap">
-                <input id="slider" type="range" value="75"
-                    class="w-full h-2 rounded-lg cursor-pointer slide accent-gray-200 hover:accent-gray-200">
-            </fieldset>
+          
         </div>
 
     </div>
@@ -168,7 +165,7 @@
 
             @if ($data['category'] == 'Streetscapes')
                 <div class="relative col-span-2 transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-                    <a href="#" class="flex flex-col h-full">
+                    <a href="streetscapes_post?id={{ $data['id_street'] }}" class="flex flex-col h-full">
                         <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
                             onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                         <div class="p-2">
@@ -185,7 +182,7 @@
                 </div>
             @elseif ($data['category'] == 'Neighbourhoods')
                 <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-                    <a href="#" class="flex flex-col h-full">
+                    <a href="neighbourhoods_post?id={{ $data['id_neighb'] }}" class="flex flex-col h-full">
                         <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
                             onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                         <div class="p-2">
@@ -202,7 +199,7 @@
                 </div>
             @else
                <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-                    <a href="#" class="flex flex-col h-full">
+                    <a href="masterplans_post?id={{ $data['id_master'] }}" class="flex flex-col h-full">
                         <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
                             onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                         <div class="p-2">
