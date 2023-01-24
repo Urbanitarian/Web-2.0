@@ -18,9 +18,9 @@
         </div>
 
         <div class="flex pt-1 md:hidden md:py-0">
-            <i class="mx-2 text-gray-200 fa-solid fa-list fa-2x hover:text-gray-400"></i>
-            <i class="mr-2 text-gray-200 fa-solid fa-border-all fa-2x hover:text-gray-400"></i>
-            <i class="text-gray-200 fa-solid fa-map fa-2x hover:text-gray-400"></i>
+            <button  id="change-layouts" > <i class="mx-2 text-gray-200 fa-solid fa-list fa-2x hover:text-gray-400"></i></button>
+            <button  id="change-layouts2" > <i class="mr-2 text-gray-200 fa-solid fa-border-all fa-2x hover:text-gray-400"></i></button>
+             <button  id="change-layouts3" ><i class="text-gray-200 fa-solid fa-map fa-2x hover:text-gray-400"></i></button>
         </div>
 
 
@@ -64,11 +64,11 @@
 
         <div class="flex flex-col">
             <div class="hidden py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
-                <i class="mx-2 text-gray-200 transition fa-solid fa-list fa-2x hover:text-gray-400"></i>
-                <i class="mr-2 text-gray-200 transition fa-solid fa-border-all fa-2x hover:text-gray-400"></i>
-                <i class="text-gray-200 transition fa-solid fa-map fa-2x hover:text-gray-400"></i>
+              <button  id="change-layout" >  <i class="mx-2 text-gray-200 transition fa-solid fa-list fa-2x hover:text-gray-400"></i></button>
+              <button  id="change-layout2" >   <i class="mr-2 text-gray-200 transition fa-solid fa-border-all fa-2x hover:text-gray-400"></i></button>
+              <button  id="change-layout3" >  <i class="text-gray-200 transition fa-solid fa-map fa-2x hover:text-gray-400"></i></button>
             </div>
-          
+
         </div>
 
     </div>
@@ -156,27 +156,30 @@
     </div>
 </section>
 
-<section class="block pb-16 mx-4 md:mx-16">
-    <div class="grid grid-cols-2 gap-5 lg:grid-cols-4 xl:grid-cols-5 ">
+<section class="block pb-16 mx-4 md:mx-16 tabset">
+
+    <div class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5 ">
 
         {{-- @dd($all_data); --}}
 
         @forelse ($units as $data)
 
             @if ($data['category'] == 'Streetscapes')
-                <div class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                <div
+                    class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                     <a href="streetscapes_post?id={{ $data['id_street'] }}" class="flex flex-col h-full">
                         <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
                             onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                         <div class="p-2">
-                            <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">{{ $data['title'] }} | {{ $data['author'] }} | {{ $data['city'] }}</h3>
+                            <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">
+                                {{ $data['title'] }} | {{ $data['author'] }} | {{ $data['city'] }}</h3>
                             <p class="pb-2 mt-2 text-xs text-center text-gray-700 md:text-sm">
-                             {{ $data['category'] }} &nbsp;
+                                {{ $data['category'] }} &nbsp;
                                 @foreach ($data['tags'] as $tag)
                                     {{ $tag }} &nbsp;
                                 @endforeach
                             </p>
-                  
+
                         </div>
                     </a>
                 </div>
@@ -186,38 +189,36 @@
                         <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
                             onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                         <div class="p-2">
-                            <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">{{ $data['title'] }} | {{ $data['city'] }}</h3>
+                            <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">
+                                {{ $data['title'] }} | {{ $data['city'] }}</h3>
                             <p class="max-w-sm pb-2 mt-2 text-xs text-center text-gray-700 md:text-sm">
-                              {{ $data['category'] }} &nbsp;
+                                {{ $data['category'] }} &nbsp;
                                 @foreach ($data['tags'] as $tag)
                                     {{ $tag }} &nbsp;
                                 @endforeach
                             </p>
-                          
+
                         </div>
                     </a>
                 </div>
             @else
-               <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                     <a href="masterplans_post?id={{ $data['id_master'] }}" class="flex flex-col h-full">
                         <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
                             onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                         <div class="p-2">
-                            <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">{{ $data['title'] }} | {{ $data['author'] }} | {{ $data['city'] }}</h3>
+                            <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">
+                                {{ $data['title'] }} | {{ $data['author'] }} | {{ $data['city'] }}</h3>
                             <p class="max-w-sm pb-2 mt-2 text-xs text-center text-gray-700 md:text-sm">
-                              {{ $data['category'] }} &nbsp;
+                                {{ $data['category'] }} &nbsp;
                                 @foreach ($data['tags'] as $tag)
                                     {{ $tag }} &nbsp;
                                 @endforeach
                             </p>
-                          
+
                         </div>
                     </a>
                 </div>
-
-
-
-
             @endif
 
         @empty
@@ -233,6 +234,9 @@
                 </a>
             </div>
         @endforelse
+
+
+
 
 
 
@@ -282,4 +286,15 @@
     L.marker([44.97618, 9.82580]).addTo(mymap);
     mymap.touchZoom.enable();
     mymap.scrollWheelZoom.disable();
+
+    $("#change-layout").click(function() {
+      $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3").addClass("grid-cols-2").addClass("lg:grid-cols-2").addClass("xl:grid-cols-3");
+      console.log("change-layout");
+    });
+
+      $("#change-layout2").click(function() {
+      $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2");
+      console.log("change-layout");
+    });
+
 </script>
