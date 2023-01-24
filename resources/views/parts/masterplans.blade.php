@@ -50,7 +50,7 @@
 
 @forelse ($masterplans as $masterplan)
      <div class="p-4 swiper-slide">
-                    <a href="">
+                    <a href="masterplans_post?id={{ $masterplan->id }}">
                         <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
                             <div class="flex-shrink-0">
                                 <img class="h-[450px] w-full object-cover border-b"
@@ -70,7 +70,7 @@
                         <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
                             <div class="flex-shrink-0">
                                 <img class="h-[450px] w-full object-cover border-b"
-                                    src="./img/M_DOUBLE-DUTCH_Stadstuin-1-1-scaled.jpg" alt="">
+                                    src="./img/empty.png" alt="">
                                 <h1 class="pt-4 mx-8 font-bold text-center text-black">Empty</h1>
                                 <p class="pb-4 mx-8 text-xs text-center text-gray-700">
                                    dummy

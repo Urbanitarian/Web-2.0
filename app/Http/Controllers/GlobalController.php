@@ -118,6 +118,11 @@ class GlobalController extends Controller
         return view('webresources', compact('webresources'));
     }
 
+    public function webresources_post()
+    {
+        return view('webresources_post');
+    }
+
 
     public function dictionaries_post()
     {

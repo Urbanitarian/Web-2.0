@@ -75,7 +75,7 @@
 
                 @forelse ($masterplans as $masterplan)
                 <div class="">
-                    <a href="./masterplans_post">
+                    <a href="masterplans_post?id={{ $masterplan->id }}">
                         <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
                             <div class="flex-shrink-0">
                                 <img class="object-cover w-full h-auto border-b"
