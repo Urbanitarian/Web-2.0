@@ -37,11 +37,12 @@ class GlobalController extends Controller
     public function getAll()
     {
         $all_data;
-        $masters = Masterplan::select('id', 'title', 'image', 'tags', 'city', 'country', 'status', 'size', 'category', 'location')->get();
+        $masters = Masterplan::select('id', 'title', 'author', 'image', 'tags', 'city', 'country', 'status', 'size', 'category', 'location')->get();
         foreach($masters as $master) {
             $all_data[] = array(
                 'id_master' => $master->id,
                 'title' => $master->title,
+                'author' => $master->author,
                 'image' => $master->image,
                 'tags' => $master->tags,
                 'city' => $master->city,
@@ -54,11 +55,12 @@ class GlobalController extends Controller
             
         }
 
-        $streets = Streetscape::select('id', 'title', 'image', 'tags', 'city', 'country', 'status', 'size', 'category', 'location')->get();
+        $streets = Streetscape::select('id', 'title', 'author', 'image', 'tags', 'city', 'country', 'status', 'size', 'category', 'location')->get();
         foreach($streets as $street) {
             $all_data[] = array(
                 'id_street' => $street->id,
                 'title' => $street->title,
+                'author' => $street->author,
                 'image' => $street->image,
                 'tags' => $street->tags,
                 'city' => $street->city,
@@ -70,11 +72,12 @@ class GlobalController extends Controller
             );
             
         }
-        $neighbs = Neighbourhood::select('id', 'title', 'image', 'tags', 'city', 'country', 'status', 'size', 'category', 'location')->get();
+        $neighbs = Neighbourhood::select('id', 'title','author', 'image', 'tags', 'city', 'country', 'status', 'size', 'category', 'location')->get();
         foreach($neighbs as $neighb) {
             $all_data[] = array(
                 'id_neighb' => $neighb->id,
                 'title' => $neighb->title,
+                'author' => $neighb->author,
                 'image' => $neighb->image,
                 'tags' => $neighb->tags,
                 'city' => $neighb->city,
