@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('neighbourhoods', function (Blueprint $table) {
             $table->id();
-            $table->string('image')->nullable();
+            $table->longText('image')->nullable();
             $table->string('title')->unique();
             $table->string('author')->nullable();
             $table->string('city')->nullable();

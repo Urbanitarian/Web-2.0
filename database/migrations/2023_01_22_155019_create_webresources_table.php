@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('webresources', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image')->nullable();
+            $table->longText('image')->nullable();
             $table->string('type')->nullable();
             $table->string('link')->nullable();
             $table->timestamps();

@@ -181,9 +181,9 @@ class GlobalController extends Controller
     {
         $id = $request->id;
         $masterplan = Masterplan::where('id', '=', $id)->get();
+        $masterplans = Masterplan::where('id', '!=', null)->inRandomOrder()->get();
         
-        
-        return view('masterplans_post', compact('masterplan'));
+        return view('masterplans_post', compact('masterplan', 'masterplans'));
     }
 
     public function alldictionary()

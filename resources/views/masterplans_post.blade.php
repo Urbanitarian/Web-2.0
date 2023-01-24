@@ -10,10 +10,22 @@
                                <div class="grid grid-cols-1 gap-4">
                                    <div class="w-full">
                                        @php $image0 =  $item->image[0] ?? null; @endphp
-                                       <img class="object-cover w-full border" src="./storage/{{ $image0 }}"
-                                           alt="" onerror="this.src='/img/empty.png'">
+                                       <img class="object-cover w-full border" src="{{ asset('storage/' . $image0) }}"alt=""  onerror="this.src='./img/empty.png'"/>
                                    </div>
-
+                                   <div class="container mx-auto space-y-2 lg:space-y-0 lg:gap-2 lg:grid lg:grid-cols-3">
+                                   @php
+                                   $imgarray = $item->image;
+                                   reset($imgarray);
+                                   next($imgarray);
+                                      @endphp
+                                      @foreach ($imgarray as $image)
+                                           <div class="w-full rounded hover:shadow-2xl">
+                                           <img src="{{ asset('storage/' . $image) }}"alt=""  onerror="this.src='./img/empty.png'"/>
+                                       </div>
+                                      @endforeach
+                                      
+                                     
+                                   </div>
                                </div>
                                <div class="sticky top-0 mx-auto">
                                    <div class="flex justify-between pb-8">
@@ -180,8 +192,116 @@
                        </div>
                    </section>
                @endforelse
+
+
+               <section>
+                   <div class="w-full pt-12 border-t">
+                       <h1 class="pt-4 pb-8 text-2xl font-bold text-center text-gray-900 md:text-4xl">See more Masterplans
+                       </h1>
+                   </div>
+                   <div x-data="{ swiper: null }" x-init="swiper = new Swiper($refs.container, {
+                       loop: true,
+                       slidesPerView: 1,
+                       spaceBetween: 0,
+                   
+                       breakpoints: {
+                           640: {
+                               slidesPerView: 1,
+                               spaceBetween: 0,
+                           },
+                           768: {
+                               slidesPerView: 2,
+                               spaceBetween: 0,
+                           },
+                           1024: {
+                               slidesPerView: 3,
+                               spaceBetween: 0,
+                           },
+                           1440: {
+                               slidesPerView: 4,
+                               spaceBetween: 0,
+                           },
+                       },
+                   })" class="relative flex flex-row w-10/12 mx-auto">
+                       <div class="absolute inset-y-0 left-0 z-10 flex items-center mb-4">
+                           <button @click="swiper.slidePrev()"
+                               class="flex items-center justify-center w-10 h-10 -ml-2 transition bg-black border rounded-full shadow lg:-ml-4 focus:outline-none hover:bg-gray-800 active:bg-black border-opacity-20">
+                               <svg viewBox="0 0 20 20" fill="white" class="w-6 h-6 chevron-left">
+                                   <path fill-rule="evenodd"
+                                       d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                       clip-rule="evenodd"></path>
+                               </svg>
+                           </button>
+                       </div>
+
+                       <div class="swiper-container" x-ref="container">
+                           <div class="my-8 swiper-wrapper">
+
+
+                               @forelse ($masterplans as $masterplan)
+                                   <div class="p-4 swiper-slide">
+                                       <a href="masterplans_post?id={{ $masterplan->id }}">
+                                           <div
+                                               class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
+                                               <div class="flex-shrink-0">
+                                                   <img class="h-[450px] w-full object-cover border-b"
+                                                       src="{{ asset('storage/' . $masterplan->image[0]) }}"alt=""
+                                                       onerror="this.src='./img/empty.png'" />
+                                                   <h1 class="pt-4 mx-8 font-bold text-center text-black uppercase">
+                                                       {{ $masterplan->title }} | {{ $masterplan->author }} |
+                                                       {{ $masterplan->city }} </h1>
+                                                   <p class="pb-4 mx-8 text-xs text-center text-gray-700">
+                                                       {{ $masterplan->category }}, {{ $masterplan->size }}
+                                                   </p>
+                                               </div>
+                                           </div>
+                                       </a>
+                                   </div>
+                               @empty
+                                   <div class="p-4 swiper-slide">
+                                       <a href="">
+                                           <div
+                                               class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
+                                               <div class="flex-shrink-0">
+                                                   <img class="h-[450px] w-full object-cover border-b"
+                                                       src="./img/empty.png" alt="">
+                                                   <h1 class="pt-4 mx-8 font-bold text-center text-black">Empty</h1>
+                                                   <p class="pb-4 mx-8 text-xs text-center text-gray-700">
+                                                       dummy
+                                                   </p>
+                                               </div>
+                                           </div>
+                                       </a>
+                                   </div>
+                               @endforelse
+                           </div>
+                       </div>
+
+                       <div class="absolute inset-y-0 right-0 z-10 flex items-center mb-4">
+                           <button @click="swiper.slideNext()"
+                               class="flex items-center justify-center w-10 h-10 -mr-2 transition bg-black border rounded-full shadow lg:-mr-4 focus:outline-none hover:bg-gray-800 active:bg-black border-opacity-20">
+                               <svg viewBox="0 0 20 20" fill="white" class="w-6 h-6 chevron-right">
+                                   <path fill-rule="evenodd"
+                                       d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                       clip-rule="evenodd"></path>
+                               </svg>
+                           </button>
+                       </div>
+                   </div>
+
+
+                   <button
+                       class="flex px-8 py-2 mx-auto mt-8 mb-20 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800"><a
+                           href="./masterplans">
+                           See all Masterplans</a></button>
+               </section>
+               <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
            </div>
        </div>
+
+
+
+
 
        <style>
            .myparagraph {
@@ -190,25 +310,25 @@
            }
        </style>
        <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
-    integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
-<script>
-    var gps = {!! json_encode($item->location) !!};
-    var decimalString = gps.split(',');
-    decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
-    decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
+           integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+       <script>
+           var gps = {!! json_encode($item->location) !!};
+           var decimalString = gps.split(',');
+           decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
+           decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
 
-    let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1] ], 15);
-    osmLayer = L.tileLayer(
-        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            apikey: 'choisirgeoportail',
-            format: 'image/jpeg',
-            style: 'normal'
-        }).addTo(mymap);
-    mymap.addLayer(osmLayer);
-    L.marker([decimalString[0], decimalString[1] ]).addTo(mymap);
-    mymap.touchZoom.enable();
-    mymap.scrollWheelZoom.disable();
-</script>
+           let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1]], 15);
+           osmLayer = L.tileLayer(
+               'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                   maxZoom: 19,
+                   apikey: 'choisirgeoportail',
+                   format: 'image/jpeg',
+                   style: 'normal'
+               }).addTo(mymap);
+           mymap.addLayer(osmLayer);
+           L.marker([decimalString[0], decimalString[1]]).addTo(mymap);
+           mymap.touchZoom.enable();
+           mymap.scrollWheelZoom.disable();
+       </script>
 
    @endsection

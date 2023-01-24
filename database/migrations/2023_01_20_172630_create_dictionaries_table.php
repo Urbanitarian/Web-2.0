@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->text('description');
             $table->string('type');
-            $table->string('image');
+            $table->longText('image');
             $table->text('tags')->nullable();
             $table->timestamps();
         });
