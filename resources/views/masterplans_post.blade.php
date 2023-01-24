@@ -15,12 +15,12 @@
                                    <div class="container mx-auto space-y-2 lg:space-y-0 lg:gap-2 lg:grid lg:grid-cols-3">
                                    @php
                                    $imgarray = $item->image;
-                                   reset($imgarray);
-                                   next($imgarray);
+                                   //skip first element
+                                      array_shift($imgarray);
                                       @endphp
                                       @foreach ($imgarray as $image)
                                            <div class="w-full rounded hover:shadow-2xl">
-                                           <img src="{{ asset('storage/' . $image) }}"alt=""  onerror="this.src='./img/empty.png'"/>
+                                           <img src="{{ asset('storage/' . $image) }}" class="object-cover h-full" alt=""  onerror="this.src='./img/empty.png'"/>
                                        </div>
                                       @endforeach
                                       
