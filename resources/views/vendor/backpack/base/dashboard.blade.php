@@ -1,5 +1,11 @@
+@php use \App\Http\Controllers\GlobalController; @endphp
+@php  $mastercount = GlobalController::master();@endphp
+@php  $neighcount = GlobalController::neigh();@endphp
+@php  $streetcount = GlobalController::street();@endphp
+
 @extends(backpack_view('blank'))
 @section('content')
+
     <section class="text-gray-600 body-font">
         <div id="main-content" class="relative w-full h-full mt-2 overflow-y-auto bg-white border rounded-lg shadow-xl">
             <div class="flex flex-col w-full">
@@ -7,16 +13,18 @@
 
                   <div class="flex w-full px-3">
                     <div class="w-1/3 h-32 p-3 m-2 bg-white border shadow">
-                        <h1 class="text-base font-bold text-gray-900">Stats</h1>
+                        <h1 class="text-base font-bold text-gray-900">Masterplans:</h1>
+                        <h1 class="text-2xl font-bold text-gray-900">{{$mastercount}}</h1>
                     </div>
 
                      <div class="w-1/3 h-32 p-3 m-2 bg-white border shadow">
-                      <h1 class="text-base font-bold text-gray-900">Data0</h1>
+                      <h1 class="text-base font-bold text-gray-900">Neighbourhoods:</h1>
+                        <h1 class="text-2xl font-bold text-gray-900">{{$neighcount}}</h1>
                     </div>
 
                     <div class="w-1/3 h-32 p-3 m-2 bg-white border shadow">
-                      <h1 class="text-base font-bold text-gray-900">Data1:</h1>
-                    
+                      <h1 class="text-base font-bold text-gray-900">Streetscapes:</h1>
+                        <h1 class="text-2xl font-bold text-gray-900">{{$streetcount}}</h1>
                     </div>
                         </div>
                     <div class="flex md:mx-4">

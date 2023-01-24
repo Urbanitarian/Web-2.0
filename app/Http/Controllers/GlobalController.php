@@ -237,14 +237,30 @@ class GlobalController extends Controller
     
 
    
-    static function version()
+    static function master()
     {
-        $filename = '../public/build/manifest.json';
-        // $ver = date('d/m/y H:i', filemtime($filename) + 3600);
-        $ver = '1.1.0';
-        $version = $ver;
-        return $version;
+        $master = Masterplan::all();
+        //count masterplans
+        $mastercount = $master->count();
+        return $mastercount;
     }
+
+       static function neigh()
+    {
+       $neigh = neighbourhood::all();
+        //count neighbourhoods
+        $neighcount = $neigh->count();
+        return $neighcount;
+    }
+
+       static function street()
+    {
+        $street = Streetscape::all();
+        //count streetscapes
+        $streetcount = $street->count();
+        return $streetcount;
+    }
+
 
     public function deleteUser(Request $id)
     {
