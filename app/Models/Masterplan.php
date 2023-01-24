@@ -70,7 +70,7 @@ class Masterplan extends Model
     
         $attribute_name = "image";
         $disk = "public";
-        $destination_path = "/uploads/streetscapes";
+        $destination_path = "/uploads/masterplans";
 
         $this->uploadMultipleFilesToDisk($value, $attribute_name, $disk, $destination_path);
    
