@@ -53,6 +53,7 @@ class StreetscapeCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('title');
+        $this->getFieldsData();
         $this->crud->addColumn([
             'name'    => 'tags',
             'label'   => 'Tags',
@@ -64,7 +65,6 @@ class StreetscapeCrudController extends CrudController
                         }
                     ],
         ]);
-        $this->getFieldsData();
         CRUD::column('city');
         CRUD::column('country');
 

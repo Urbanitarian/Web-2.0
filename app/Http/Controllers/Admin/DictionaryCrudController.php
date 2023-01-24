@@ -53,6 +53,7 @@ class DictionaryCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('name');
+        $this->getFieldsData();
         CRUD::column('description');
         $this->crud->addColumn([
             'name'    => 'type',
@@ -65,7 +66,6 @@ class DictionaryCrudController extends CrudController
                         }
             ],
         ]);
-        $this->getFieldsData();
         CRUD::column('tags')->label('Tags');
      
         /**
