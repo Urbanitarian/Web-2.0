@@ -20,7 +20,7 @@
                                       @endphp
                                       @foreach ($imgarray as $image)
                                            <div class="w-full rounded hover:shadow-2xl">
-                                           <img src="{{ asset('storage/' . $image) }}" class="object-cover h-full" alt=""  onerror="this.src='./img/empty.png'"/>
+                                           <img src="{{ asset('storage/' . $image) }}" class="object-cover h-full" alt=""  onerror="this.src='./img/empty.png'" onclick="window.open('{{ asset('storage/' . $image) }}', 'Image', 'width=800,height=600')"/>
                                        </div>
                                       @endforeach
                                       
