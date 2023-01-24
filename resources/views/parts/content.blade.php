@@ -8,7 +8,7 @@
     <div class="flex flex-wrap justify-between py-4 mx-4 md:mx-0">
         <div class="pb-4 md:pb-0">
             <select name="type"
-                class=" px-4 h-[40px] text-sm bg-white border-gray-200 rounded-md transition border focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                class=" px-4 h-[40px] text-sm bg-white border-gray-200 rounded-md  border focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                 <option value="">Popular</option>
                 <option value="new" {{ $popular == 'new' ? 'selected' : '' }}>The Newest</option>
                 <option value="old" {{ $popular == 'old' ? 'selected' : '' }}>The Oldest</option>
@@ -18,9 +18,9 @@
         </div>
 
         <div class="flex pt-1 md:hidden md:py-0">
-            <i class="mx-2 text-gray-200 transition fa-solid fa-list fa-2x hover:text-gray-400"></i>
-            <i class="mr-2 text-gray-200 transition fa-solid fa-border-all fa-2x hover:text-gray-400"></i>
-            <i class="text-gray-200 transition fa-solid fa-map fa-2x hover:text-gray-400"></i>
+            <i class="mx-2 text-gray-200 fa-solid fa-list fa-2x hover:text-gray-400"></i>
+            <i class="mr-2 text-gray-200 fa-solid fa-border-all fa-2x hover:text-gray-400"></i>
+            <i class="text-gray-200 fa-solid fa-map fa-2x hover:text-gray-400"></i>
         </div>
 
 
@@ -102,7 +102,7 @@
                 <p class="pb-2 font-bold text-black">Size</p>
             </label>
             <select name="type"
-                class="w-full px-4 py-3 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                class="w-full px-4 py-3 text-sm bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                 <option value="">All</option>
                 <option value="Large" {{ $size == 'Large' ? 'selected' : '' }}>Large</option>
                 <option value="Medium" {{ $size == 'Medium' ? 'selected' : '' }}>Medium</option>
@@ -116,11 +116,12 @@
                 <p class="pb-2 font-bold text-black">Status</p>
             </label>
             <select name="type"
-                class="w-full px-4 py-3 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                <option value="" >All</option>
+                class="w-full px-4 py-3 text-sm bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                <option value="">All</option>
                 <option value="built" {{ $status == 'built' ? 'selected' : '' }}>built</option>
                 <option value="future" {{ $status == 'future' ? 'selected' : '' }}>future</option>
-                <option value="under_development" {{ $status == 'under_development' ? 'selected' : '' }}>under development</option>
+                <option value="under_development" {{ $status == 'under_development' ? 'selected' : '' }}>under
+                    development</option>
                 <option value="regeneration" {{ $status == 'regeneration' ? 'selected' : '' }}>regeneration</option>
             </select>
         </div>
@@ -130,10 +131,11 @@
                 <p class="pb-2 font-bold text-black">City</p>
             </label>
             <select name="prix"
-                class="w-full px-4 py-3 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                class="w-full px-4 py-3 text-sm bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                 <option value="">All</option>
-               @foreach($cities as $city)
-                <option value="{{ $city->id }}" {{ old('city') == $city->id ? 'selected' : '' }}>{{ $city->name }}</option>
+                @foreach ($cities as $city)
+                    <option value="{{ $city->id }}" {{ old('city') == $city->id ? 'selected' : '' }}>
+                        {{ $city->name }}</option>
                 @endforeach
 
             </select>
@@ -146,8 +148,9 @@
             <select name="country"
                 class="w-full px-4 py-3 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                 <option value="">All</option>
-                 @foreach($countries as $country)
-                <option value="{{ $country->id }}" {{ old('country') == $country->id ? 'selected' : '' }}>{{ $country->name }}</option>
+                @foreach ($countries as $country)
+                    <option value="{{ $country->id }}" {{ old('country') == $country->id ? 'selected' : '' }}>
+                        {{ $country->name }}</option>
                 @endforeach
 
             </select>
@@ -159,174 +162,66 @@
 <section class="block pb-16 mx-4 md:mx-16">
     <div class="grid grid-cols-2 gap-5 lg:grid-cols-4 xl:grid-cols-5">
 
-        <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-            <a href="#" class="flex flex-col h-full">
-                <img alt="Art" src="./img/OCEANIX-BIG.jpg" class="object-cover h-full max-h-[480px]" />
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
+        {{-- @dd($all_data); --}}
 
-       <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-            <a href="#" class="flex flex-col h-full">
-                <img alt="Art" src="./img/M_DOUBLE-DUTCH_Stadstuin-1-1-scaled.jpg" class="object-cover h-full max-h-[480px]" />
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
+        @forelse ($units as $data)
 
-        <div class="col-span-2 bg-gray-50 hover:bg-gray-100 transition md:hover:scale-[102%] shadow-md"> 
-         <a href="#" class="flex flex-col h-full">
-                <img alt="Art" src="./img/LIME-STREET2.jpg" class="object-cover h-full max-h-[480px]" />
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
+            @if ($data['category'] == 'Streetscapes')
+                <div class="col-span-2 transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                    <a href="#" class="flex flex-col h-full">
+                        <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
+                            onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
+                        <div class="p-2">
+                            <h3 class="mt-4 font-bold text-gray-900 md:text-xl">{{ $data['title'] }}</h3>
+                            <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
+                                @foreach ($data['tags'] as $tag)
+                                    {{ $tag }} &nbsp;
+                                @endforeach
+                            </p>
+                        </div>
+                    </a>
                 </div>
-            </a>
-        </div>
+            @else
+                <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                    <a href="#" class="flex flex-col h-full">
+                        <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
+                            onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
+                        <div class="p-2">
+                            <h3 class="mt-4 font-bold text-gray-900 md:text-xl">{{ $data['title'] }}</h3>
+                            <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
+                                @foreach ($data['tags'] as $tag)
+                                    {{ $tag }} &nbsp;
+                                @endforeach
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            @endif
 
-       <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-            <a href="#" class="flex flex-col h-full">
-                <img alt="Art" src="./img/az.jpg" class="object-cover h-full max-h-[480px]" />
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
-         <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-            <a href="#" class="flex flex-col h-full">
-                <img alt="Art" src="./img/OMA-UNICORN.jpg" class="object-cover h-full max-h-[480px]" />
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
-         <div class="col-span-2 transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-[102%]">
-            <a href="#" class="flex flex-col h-full">
-                <img alt="Art" src="./img/Kings-Crescent_Streetscape_1.jpg" class="object-cover h-full max-h-[480px]" />
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
-         <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-            <a href="#" class="flex flex-col h-full">
-                <img alt="Art" src="./img/zz.jpg" class="object-cover h-full max-h-[480px]" />
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
-         <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-            <a href="#" class="flex flex-col h-full">
-                <img alt="Art" src="./img/za.jpg" class="object-cover h-full max-h-[480px]" />
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
+        @empty
+            <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                <a href="#" class="flex flex-col h-full">
+                    <img alt="Art" src="./img/empty.png" class="object-cover h-full max-h-[480px]" />
+                    <div class="p-2">
+                        <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
+                        <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
+                            Lorem ipsum dolor sit
+                        </p>
+                    </div>
+                </a>
+            </div>
+        @endforelse
 
-             <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-            <a href="#" class="flex flex-col h-full">
-                <img alt="Art" src="./img/zz.jpg" class="object-cover h-full max-h-[480px]" />
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
-         <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-            <a href="#" class="flex flex-col h-full">
-                <img alt="Art" src="./img/M_DOUBLE-DUTCH_Stadstuin-1-1-scaled.jpg" class="object-cover h-full max-h-[480px]" />
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
-
-           <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-            <a href="#" class="flex flex-col h-full">
-                <img alt="Art" src="./img/zz.jpg" class="object-cover h-full max-h-[480px]" />
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
-         <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-            <a href="#" class="flex flex-col h-full">
-                <img alt="Art" src="./img/za.jpg" class="object-cover h-full max-h-[480px]" />
-                <div class="p-2">
-                    <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
-                    <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        Lorem ipsum dolor sit
-                    </p>
-                </div>
-            </a>
-        </div>
 
 
 
     </div>
 
-    <div class="flex flex-row items-center justify-center pt-12 mx-auto">
-        <div>
-            <span class="z-0 inline-flex justify-center space-x-1 text-white rounded-md shadow-sm">
 
-                <button
-                    class="flex items-center justify-center w-10 h-10 duration-150 bg-black rounded-md shadow-md hover:bg-gray-600 focus:shadow-outline">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path
-                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                            clip-rule="evenodd" fill-rule="evenodd"></path>
-                    </svg>
-                </button>
-
-
-                <button
-                    class="flex items-center justify-center w-10 h-10 duration-150 bg-black rounded-md shadow-md hover:bg-gray-600 focus:shadow-outline">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path
-                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                            clip-rule="evenodd" fill-rule="evenodd"></path>
-                    </svg>
-                </button>
-
-            </span>
-        </div>
+    <div class="flex justify-center pt-8">
+        {{ $units->appends(Request::all())->links('pagination::tailwind') }}
     </div>
+
 </section>
 
 @include('parts.streetscapes')

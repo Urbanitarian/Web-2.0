@@ -37,6 +37,8 @@ Route::get('streetscapes', 'streetscapes');
 Route::get('streetscapes_post/', 'streetscapes_post');
 Route::get('masterplans', 'masterplans');
 Route::get('masterplans_post/', 'masterplans_post');
+
+
 Route::post('import', 'import');
 
 

@@ -1,9 +1,9 @@
 <div>
-<i>Message de:
+<i>Message from:
 {{ $mailData['email']}}</i>
 <p>
 {{ $mailData['message']}}
 <br><br>
-Nom du contact:
+Contact name:
 {{ $mailData['name']}}
 </div>

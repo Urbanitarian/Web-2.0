@@ -12,11 +12,41 @@
     <div class="">
 
 
-        <form method="post" action="/import">
+        <form method="post" action="/import" enctype="multipart/form-data">
             @csrf
             <div class="flex flex-col w-1/2 pt-4 bg-white rounded-xl">
+            
+           <fieldset class="flex flex-wrap justify-center gap-2 mx-auto mb-4 md:gap-4">
+                <div>
+                    <input type="radio" name="dataType" value="masterplans" id="masterplans" class="hidden peer" checked />
+                    <label for="masterplans"
+                        class="flex justify-center h-8 px-3 pt-1 pb-3 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        <p class="text-sm font-medium">Masterplans</p>
+                    </label>
+                </div>
 
+                <div>
+                    <input type="radio" name="dataType" value="streetscapes" id="streetscapes" class="hidden peer" />
+
+                    <label for="streetscapes"
+                        class="flex justify-center h-8 px-3 pt-1 pb-3 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        <p class="text-sm font-medium">Streetscapes</p>
+                    </label>
+                </div>
+
+                <div>
+                    <input type="radio" name="dataType" value="neighbourhoods" id="neighbourhoods" class="hidden peer" />
+
+                    <label for="neighbourhoods"
+                        class="flex justify-center h-8 px-3 pt-1 pb-3 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        <p class="text-sm font-medium">Neighbourhoods</p>
+                    </label>
+                </div>
+              
+            </fieldset>
+            
                 <div class="flex items-center justify-center w-full">
+
                     <label for="dropzone-file" 
                         class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
                         <div class="flex flex-col items-center justify-center pt-5 pb-6">
@@ -29,7 +59,7 @@
                             <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to
                                     upload</span> or drag and drop</p>
                         </div>
-                        <input id="dropzone-file" type="file"  accept="xls" class="hidden" />
+                        <input id="dropzone-file" name="file" type="file" class="hidden" />
                         
                     </label>
                 </div>

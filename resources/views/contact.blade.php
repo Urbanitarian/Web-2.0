@@ -16,10 +16,10 @@
          @endif
          <div class="p-5 mx-auto sm:p-10 md:px-16">
              <div class="flex flex-col max-w-5xl pb-8 mx-auto mb-8 overflow-hidden rounded">
-                 <section class="relative text-gray-600 body-font">
+                 <section class="relative body-font">
                      <div class="container px-5 py-8 mx-auto">
                          <div class="flex flex-col w-full mb-4 text-center">
-                             <h1 class="mb-2 text-2xl font-medium sm:text-3xl title-font">Contact Us</h1>
+                             <h1 class="mb-2 text-3xl font-medium text-black md:text-5xl title-font">Contact Us</h1>
                          </div>
                          <div class="mx-auto lg:w-1/2 md:w-2/3">
                              <form class="flex flex-wrap -m-2" method="post" action="contactmail" >

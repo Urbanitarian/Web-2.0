@@ -16,10 +16,12 @@ use App\Models\City;
 use Backpack\Settings\app\Models\Setting;
 use Carbon\Carbon;
 
+
 use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -34,6 +36,67 @@ class GlobalController extends Controller
      */
     public function getAll()
     {
+        $all_data;
+        $masters = Masterplan::select('id', 'title', 'image', 'tags', 'city', 'country', 'status', 'size', 'category', 'location')->get();
+        foreach($masters as $master) {
+            $all_data[] = array(
+                'id_master' => $master->id,
+                'title' => $master->title,
+                'image' => $master->image,
+                'tags' => $master->tags,
+                'city' => $master->city,
+                'country' => $master->country,
+                'status' => $master->status,
+                'size' => $master->size,
+                'category' => $master->category,
+                'location' => $master->location,
+            );
+            
+        }
+
+        $streets = Streetscape::select('id', 'title', 'image', 'tags', 'city', 'country', 'status', 'size', 'category', 'location')->get();
+        foreach($streets as $street) {
+            $all_data[] = array(
+                'id_street' => $street->id,
+                'title' => $street->title,
+                'image' => $street->image,
+                'tags' => $street->tags,
+                'city' => $street->city,
+                'country' => $street->country,
+                'status' => $street->status,
+                'size' => $street->size,
+                'category' => $street->category,
+                'location' => $street->location,
+            );
+            
+        }
+        $neighbs = Neighbourhood::select('id', 'title', 'image', 'tags', 'city', 'country', 'status', 'size', 'category', 'location')->get();
+        foreach($neighbs as $neighb) {
+            $all_data[] = array(
+                'id_neighb' => $neighb->id,
+                'title' => $neighb->title,
+                'image' => $neighb->image,
+                'tags' => $neighb->tags,
+                'city' => $neighb->city,
+                'country' => $neighb->country,
+                'status' => $neighb->status,
+                'size' => $neighb->size,
+                'category' => $neighb->category,
+                'location' => $neighb->location,
+            );
+            
+        }
+        
+        shuffle($all_data);
+
+         $units = new LengthAwarePaginator(
+             array_slice($all_data, 0 ,9,  true),
+             count($all_data),
+             9,
+         );
+
+   
+     
         $cities = City::all();
         $countries = Country::All();
         $neighbourhoods = neighbourhood::where('id', '!=', null)->limit(8)->inRandomOrder()->get();
@@ -44,7 +107,18 @@ class GlobalController extends Controller
         $dictionary = Dictionary::where('id', '!=', null)->limit(10)->inRandomOrder()->get();
     
         $insta = Setting::get('curator_link');
-        return view('index', compact('dictionary', 'magazines', 'webresources', 'insta', 'streetscapes', 'masterplans', 'countries', 'cities', 'neighbourhoods'));
+        return view('index', compact(
+            'dictionary',
+             'magazines',
+              'webresources',
+               'insta',
+                'streetscapes',
+                 'masterplans',
+                  'countries',
+                   'cities',
+                    'neighbourhoods',
+                    'units'
+                    ));
     }
 
   
@@ -136,7 +210,7 @@ class GlobalController extends Controller
         // ]);
         // $file = $request->file('file');
         // Excel::import(new DictionaryImport, $file);
-        dd('okok');
+        dd($request->all());
         return back()->with('success', 'All good!');
     }
 
