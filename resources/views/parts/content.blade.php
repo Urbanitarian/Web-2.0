@@ -157,14 +157,14 @@
 </section>
 
 <section class="block pb-16 mx-4 md:mx-16">
-    <div class="grid grid-cols-2 gap-5 lg:grid-cols-4 xl:grid-cols-5">
+    <div class="grid grid-cols-2 gap-5 lg:grid-cols-4 xl:grid-cols-5 ">
 
         {{-- @dd($all_data); --}}
 
         @forelse ($units as $data)
 
             @if ($data['category'] == 'Streetscapes')
-                <div class="relative col-span-2 transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                <div class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                     <a href="streetscapes_post?id={{ $data['id_street'] }}" class="flex flex-col h-full">
                         <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
                             onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />

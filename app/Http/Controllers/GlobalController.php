@@ -93,9 +93,9 @@ class GlobalController extends Controller
         shuffle($all_data);
 
          $units = new LengthAwarePaginator(
-             array_slice($all_data, 0 ,9,  true),
+             array_slice($all_data, 0 ,8,  true),
              count($all_data),
-             9,
+             8,
          );
 
    
@@ -177,9 +177,13 @@ class GlobalController extends Controller
         return view('masterplans', compact('masterplans'));
     }
 
-    public function masterplans_post()
+    public function masterplans_post(Request $request)
     {
-        return view('masterplans_post');
+        $id = $request->id;
+        $masterplan = Masterplan::where('id', '=', $id)->get();
+        
+        
+        return view('masterplans_post', compact('masterplan'));
     }
 
     public function alldictionary()
@@ -195,15 +199,19 @@ class GlobalController extends Controller
         return view('webresources', compact('webresources'));
     }
 
-    public function webresources_post()
+    public function webresources_post(Request $request)
     {
-        return view('webresources_post');
+        $id = $request->id;
+        $webresource = Webresource::where('id', '=', $id)->get();
+        return view('webresources_post', compact('webresource'));
     }
 
 
-    public function dictionaries_post()
+    public function dictionaries_post(Request $request)
     {
-        return view('dictionaries_post');
+        $id = $request->id;
+        $dictionary = Dictionary::where('id', '=', $id)->get();
+        return view('dictionaries_post', compact('dictionary'));
     }
 
     public function import(Request $request)
@@ -217,11 +225,6 @@ class GlobalController extends Controller
         return back()->with('success', 'All good!');
     }
 
-
-    public function dictionary()
-    {
-        return view('dictionaries_post');
-    }
 
     public function read(Request $request)
     {
