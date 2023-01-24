@@ -10,8 +10,8 @@
                                <div class="grid grid-cols-1 gap-4">
                                    <div class="w-full">
                                        @php $image0 =  $item->image[0] ?? null; @endphp
-                                       <img class="object-cover w-full border" src="./storage/{{ $image0 }}" alt=""
-                                           onerror="this.src='/img/empty.png'">
+                                       <img class="object-cover w-full border" src="./storage/{{ $image0 }}"
+                                           alt="" onerror="this.src='/img/empty.png'">
                                    </div>
 
                                </div>
@@ -73,61 +73,74 @@
                                        <div class="flex flex-col w-1/2 text-sm">
                                            <div class="flex pt-2 pb-1 border-t border-gray-200">
                                                <span class="text-gray-500"> Site area: </span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->area }}<i class="text-xs text-gray-500"> sqm</i></span>
+                                               <span class="ml-auto text-gray-900"> {{ $item->area }}<i
+                                                       class="text-xs text-gray-500"> sqm</i></span>
                                            </div>
                                            <div class="flex py-1 border-gray-200">
                                                <span class="text-gray-500">Gfa:</span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->gfa }}<i class="text-xs text-gray-500"> sqm</i></span>
+                                               <span class="ml-auto text-gray-900"> {{ $item->gfa }}<i
+                                                       class="text-xs text-gray-500"> sqm</i></span>
                                            </div>
                                            <div class="flex py-1 border-gray-200">
                                                <span class="text-gray-500"> Density:</span>
-                                               <span class="ml-auto text-gray-900">{{ $item->density }}<i class="text-xs text-gray-500"> far</i></span>
+                                               <span class="ml-auto text-gray-900">{{ $item->density }}<i
+                                                       class="text-xs text-gray-500"> far</i></span>
                                            </div>
 
                                            <div class="flex py-1 border-gray-200">
                                                <span class="overflow-x-hidden text-gray-500"> Population density:</span>
-                                               <span class="ml-auto text-gray-900">{{ $item->popdensity }}<i class="text-xs text-gray-500"> inh/ha</i></span>
+                                               <span class="ml-auto text-gray-900">{{ $item->popdensity }}<i
+                                                       class="text-xs text-gray-500"> inh/ha</i></span>
                                            </div>
 
                                            <div class="flex py-1 border-gray-200">
                                                <span class="text-gray-500">Home Units: </span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->homeunit }}<i class="text-xs text-gray-500"></i></span>
+                                               <span class="ml-auto text-gray-900"> {{ $item->homeunit }}<i
+                                                       class="text-xs text-gray-500"></i></span>
                                            </div>
-                                            <div class="flex py-1 border-gray-200">
+                                           <div class="flex py-1 border-gray-200">
                                                <span class="text-gray-500">Jobs: </span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->jobs }}<i class="text-xs text-gray-500"></i></span>
+                                               <span class="ml-auto text-gray-900"> {{ $item->jobs }}<i
+                                                       class="text-xs text-gray-500"></i></span>
                                            </div>
                                            <input type="hidden" name="id" value="">
 
-                                            <div class="flex py-1 border-gray-200">
+                                           <div class="flex py-1 border-gray-200">
                                                <span class="text-gray-500"> Streets/road: </span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->streetroad }}<i class="text-xs text-gray-500"> %</i></span>
+                                               <span class="ml-auto text-gray-900"> {{ $item->streetroad }}<i
+                                                       class="text-xs text-gray-500"> %</i></span>
                                            </div>
                                            <div class="flex py-1 border-gray-200">
                                                <span class="text-gray-500">Build-up:</span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->buildup }}<i class="text-xs text-gray-500"> %</i></span>
+                                               <span class="ml-auto text-gray-900"> {{ $item->buildup }}<i
+                                                       class="text-xs text-gray-500"> %</i></span>
                                            </div>
                                            <div class="flex py-1 border-gray-200">
                                                <span class="text-gray-500"> Non Build-up:</span>
-                                               <span class="ml-auto text-gray-900">{{ $item->nonbuildup }}<i class="text-xs text-gray-500"> %</i></span>
+                                               <span class="ml-auto text-gray-900">{{ $item->nonbuildup }}<i
+                                                       class="text-xs text-gray-500"> %</i></span>
                                            </div>
 
                                            <div class="flex py-1 border-gray-200">
                                                <span class="text-gray-500"> Residential:</span>
-                                               <span class="ml-auto text-gray-900">{{ $item->residential }}<i class="text-xs text-gray-500"> %</i></span>
+                                               <span class="ml-auto text-gray-900">{{ $item->residential }}<i
+                                                       class="text-xs text-gray-500"> %</i></span>
                                            </div>
 
                                            <div class="flex py-1 border-gray-200">
                                                <span class="text-gray-500">Business: </span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->business }}<i class="text-xs text-gray-500"> %</i></span>
+                                               <span class="ml-auto text-gray-900"> {{ $item->business }}<i
+                                                       class="text-xs text-gray-500"> %</i></span>
                                            </div>
-                                            <div class="flex py-1 border-gray-200">
+                                           <div class="flex py-1 border-gray-200">
                                                <span class="text-gray-500">Commercial: </span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->commercial }}<i class="text-xs text-gray-500"> %</i></span>
+                                               <span class="ml-auto text-gray-900"> {{ $item->commercial }}<i
+                                                       class="text-xs text-gray-500"> %</i></span>
                                            </div>
-                                            <div class="flex py-1 mb-6 border-b border-gray-200">
+                                           <div class="flex py-1 mb-6 border-b border-gray-200">
                                                <span class="text-gray-500">Civic: </span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->civic }}<i class="text-xs text-gray-500"> %</i></span>
+                                               <span class="ml-auto text-gray-900"> {{ $item->civic }}<i
+                                                       class="text-xs text-gray-500"> %</i></span>
                                            </div>
                                        </div>
                                    </div>
@@ -146,6 +159,8 @@
                                            {{ $item->credits }}
                                        </div>
                                    </fieldset>
+                                   <div id="mastermap" class="mt-4 rounded h-[350px] w-full">
+                                   </div>
                                </div>
                            </div>
 
@@ -174,5 +189,26 @@
 
            }
        </style>
+       <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+    integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+<script>
+    var gps = {!! json_encode($item->location) !!};
+    var decimalString = gps.split(',');
+    decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
+    decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
+
+    let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1] ], 15);
+    osmLayer = L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            apikey: 'choisirgeoportail',
+            format: 'image/jpeg',
+            style: 'normal'
+        }).addTo(mymap);
+    mymap.addLayer(osmLayer);
+    L.marker([decimalString[0], decimalString[1] ]).addTo(mymap);
+    mymap.touchZoom.enable();
+    mymap.scrollWheelZoom.disable();
+</script>
 
    @endsection
