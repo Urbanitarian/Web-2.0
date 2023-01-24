@@ -83,7 +83,9 @@ class MasterplanCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(MasterplanRequest::class);
-
+        $this->crud->setValidation([
+            'title' => 'required|min:2|max:255',
+        ]);
         CRUD::addField([ // Text
             'name'  => 'title',
             'label' => 'Title',
@@ -227,10 +229,11 @@ class MasterplanCrudController extends CrudController
 
 
         CRUD::addField(['prefix' => '<i class="las la-map"></i>','name' => 'address','type' => 'text','label' => 'Address','tab' => 'Location',]);
-        CRUD::addField(['prefix' => '<i class="las la-city"></i>','name' => 'city','type' => 'text','label' => 'City', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
-        CRUD::addField(['prefix' => '<i class="las la-flag"></i>','name' => 'country', 'type' => 'text', 'label' => 'Country', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
+        CRUD::addField([ 'prefix' => '<a href="../../city/create">+</a>','name' => 'city','type' => 'text','label' => 'City', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
+        CRUD::addField([ 'prefix' => '<a href="../../country/create">+</a>','name' => 'country', 'type' => 'text', 'label' => 'Country', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
+        
         CRUD::addField([
-            'prefix' => '<i class="las la-map-marker"></i>',
+            'prefix' => '<a href="https://www.google.com/maps" target="_blank">Map</a>',
             'name' => 'location',
              'type' => 'text',
               'label' => 'gps coordinates',

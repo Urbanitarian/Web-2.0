@@ -24,7 +24,10 @@ class City extends Model
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
-
+    protected $fillable = [
+        'name',
+        'country_id',
+    ];
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS

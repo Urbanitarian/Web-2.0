@@ -24,6 +24,9 @@ class Country extends Model
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
+    protected $fillable = [
+        'name',
+    ];
 
     /*
     |--------------------------------------------------------------------------

@@ -57,7 +57,9 @@ class CountryCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(CountryRequest::class);
-
+        $this->crud->setValidation([
+            'name' => 'required|min:2|max:255',
+        ]);
         CRUD::addField([ // Text
             'name'  => 'name',
             'label' => 'Name',

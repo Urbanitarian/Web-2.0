@@ -83,7 +83,9 @@ class WebresourceCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(WebresourceRequest::class);
-
+        $this->crud->setValidation([
+            'name' => 'required|min:2|max:255',
+        ]);
         CRUD::field('name');
           CRUD::addField([ // Photo
             'name'      => 'image',

@@ -58,7 +58,9 @@ class CityCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(CityRequest::class);
-
+        $this->crud->setValidation([
+            'name' => 'required|min:2|max:255',
+        ]);
         CRUD::addField([ // Text
             'name'  => 'name',
             'label' => 'Name',
