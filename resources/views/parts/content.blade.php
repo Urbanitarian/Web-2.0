@@ -287,12 +287,12 @@
     mymap.touchZoom.enable();
     mymap.scrollWheelZoom.disable();
 
-    $("#change-layout").click(function() {
+    $("#change-layout2").click(function() {
       $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3").addClass("grid-cols-2").addClass("lg:grid-cols-2").addClass("xl:grid-cols-3");
       console.log("change-layout");
     });
 
-      $("#change-layout2").click(function() {
+      $("#change-layout").click(function() {
       $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2");
       console.log("change-layout");
     });
