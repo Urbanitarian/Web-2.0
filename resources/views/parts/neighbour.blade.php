@@ -129,14 +129,35 @@
             <section>
                 <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
                     <ul class="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-4">
-                        <li>
+
+                    @forelse ($neighbourhoods as $neighbourhood)
+                         <li>
                             <a href="./neighbourhoods_post" class="block overflow-hidden group">
-                                <img src="./img/banner.jpeg"
+                                <img src="{{ asset('storage/' . $neighbourhood->image[0]) }}"alt=""  onerror="this.src='./img/empty.png'"
+                                    class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
+
+                                <div class="relative pt-3 bg-white">
+                                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900">{{ $neighbourhood->title }}</span>
+                                    <p class="mt-2">
+                                        <span class="mx-2 text-xs font-semibold text-gray-500">
+                                          @foreach($neighbourhood->tags as $tag)
+                        {{ $tag }} &nbsp;
+                        @endforeach
+                                        </span>
+
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    @empty
+                         <li>
+                            <a href="./neighbourhoods_post" class="block overflow-hidden group">
+                                <img src="./img/empty.png"
                                     alt=""
                                     class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
 
                                 <div class="relative pt-3 bg-white">
-                                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900"> Strandlodsvej </span>
+                                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900"> empty </span>
                                     <p class="mt-2">
                                         <span class="mx-2 text-xs font-semibold text-gray-500">   </span>
 
@@ -144,64 +165,15 @@
                                 </div>
                             </a>
                         </li>
+                    @endforelse
+                       
 
-                        <li>
-                            <a href="./neighbourhoods_post" class="block overflow-hidden group">
-                                <img src="./img/banner2.jpg"
-                                    alt=""
-                                    class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-
-                                <div class="relative pt-3 bg-white">
-
-
-                                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900"> Vanlose Torv </span>
-                                    <p class="flex mt-2">
-                                        <span class="mx-2 text-xs font-semibold text-gray-500"> Child-friendly </span>
-                                        <span class="mx-2 text-xs font-semibold text-gray-500">  Green </span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="./neighbourhoods_post" class="block overflow-hidden group">
-                                <img src="./img/banner3.jpg"
-                                    alt=""
-                                    class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-
-                                <div class="relative pt-3 bg-white">
-
-
-                                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900"> Grondalen </span>
-                                    <p class="flex mt-2">
-                                        <span class="mx-2 text-xs font-semibold text-gray-500">  Climate-proof</span>
-                                        <span class="mx-2 text-xs font-semibold text-gray-500"> Child-friendly </span>
-                                        <span class="mx-2 text-xs font-semibold text-gray-500">  Green </span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="./neighbourhoods_post" class="block overflow-hidden group">
-                                <img src="./img/image1.jpg"
-                                    alt=""
-                                    class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-
-                                <div class="relative pt-3 bg-white">
-
-
-                                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900"> Stradlodsvej </span>
-                                    <p class="flex mt-2">
-                                        <span class="mx-2 text-xs font-semibold text-gray-500">  Age-friendly</span>
-                                        <span class="mx-2 text-xs font-semibold text-gray-500"> Child-friendly </span>
-                                        <span class="mx-2 text-xs font-semibold text-gray-500">  Placemaking </span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </div>
+                                     <div class="flex justify-center pt-8">
+  {{ $neighbourhoods->appends(Request::all())->links('pagination::tailwind') }}
+      </div>
             </section>
 
 

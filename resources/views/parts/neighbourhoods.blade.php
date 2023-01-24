@@ -10,115 +10,39 @@
                 </div>
             </div>
         </div>
+
         <div class="flex flex-wrap -m-4">
-            <div class="p-4 xl:w-1/4 md:w-1/2">
+
+@forelse ($neighbourhoods as $neighbourhood)
+      <div class="p-4 xl:w-1/4 md:w-1/2">
+                <a href="">
+                    <div class="p-4 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
+                        <img class="object-cover object-center w-full h-40 mb-3" src="{{ asset('storage/' . $neighbourhood->image[0]) }}"alt=""  onerror="this.src='./img/empty.png'"/>
+                        <h2 class="mb-1 text-lg font-medium text-gray-900 title-font">{{ $neighbourhood->title }}</h2>
+                        <p class="text-xs font-semibold leading-relaxed text-gray-500">
+                        @foreach($neighbourhood->tags as $tag)
+                        {{ $tag }} &nbsp;
+                        @endforeach
+                        </p>
+                    </div>
+                </a>
+            </div>
+@empty
+      <div class="p-4 xl:w-1/4 md:w-1/2">
                 <a href="">
                     <div class="p-6 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
-                        <img class="object-cover object-center w-full h-40 mb-6" src="./img/OMA-UNICORN.jpg"
+                        <img class="object-cover object-center w-full h-40 mb-6" src="./img/empty.png"
                             alt="content">
 
-                        <h2 class="mb-4 text-lg font-medium text-gray-900 title-font">Chichen Itza</h2>
-                        <p class="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
-                            Distillery
-                            hexagon
-                            disrupt edison bulbche.</p>
+                        <h2 class="mb-4 text-lg font-medium text-gray-900 title-font">Empty</h2>
+                        <p class="text-base leading-relaxed">dummy</p>
                     </div>
                 </a>
             </div>
-            <div class="p-4 xl:w-1/4 md:w-1/2">
-                <a href="">
-                    <div class="p-6 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
-                        <img class="object-cover object-center w-full h-40 mb-6" src="./img/LIME-STREET2.jpg"
-                            alt="content">
+@endforelse
+          
 
-                        <h2 class="mb-4 text-lg font-medium text-gray-900 title-font">Colosseum Roma</h2>
-                        <p class="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
-                            Distillery
-                            hexagon
-                            disrupt edison bulbche.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="p-4 xl:w-1/4 md:w-1/2">
-                <a href="">
-                    <div class="p-6 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
-                        <img class="object-cover object-center w-full h-40 mb-6" src="./img/az.jpg" alt="content">
-
-                        <h2 class="mb-4 text-lg font-medium text-gray-900 title-font">Great Pyramid of Giza</h2>
-                        <p class="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
-                            Distillery
-                            hexagon
-                            disrupt edison bulbche.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="p-4 xl:w-1/4 md:w-1/2">
-                <a href="">
-                    <div class="p-6 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
-                        <img class="object-cover object-center w-full h-40 mb-6" src="./img/image1.jpg"
-                            alt="content">
-
-                        <h2 class="mb-4 text-lg font-medium text-gray-900 title-font">San Francisco</h2>
-                        <p class="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
-                            Distillery
-                            hexagon
-                            disrupt edison bulbche.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="p-4 xl:w-1/4 md:w-1/2">
-                <a href="">
-                    <div class="p-6 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
-                        <img class="object-cover object-center w-full h-40 mb-6" src="./img/house3.jpeg"
-                            alt="content">
-
-                        <h2 class="mb-4 text-lg font-medium text-gray-900 title-font">Chichen Itza</h2>
-                        <p class="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
-                            Distillery
-                            hexagon
-                            disrupt edison bulbche.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="p-4 xl:w-1/4 md:w-1/2">
-                <a href="">
-                    <div class="p-6 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
-                        <img class="object-cover object-center w-full h-40 mb-6" src="./img/house1.jpeg"
-                            alt="content">
-
-                        <h2 class="mb-4 text-lg font-medium text-gray-900 title-font">Colosseum Roma</h2>
-                        <p class="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
-                            Distillery
-                            hexagon
-                            disrupt edison bulbche.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="p-4 xl:w-1/4 md:w-1/2">
-                <a href="">
-                    <div class="p-6 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
-                        <img class="object-cover object-center w-full h-40 mb-6" src="./img/za.jpg" alt="content">
-
-                        <h2 class="mb-4 text-lg font-medium text-gray-900 title-font">Great Pyramid of Giza</h2>
-                        <p class="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
-                            Distillery
-                            hexagon
-                            disrupt edison bulbche.</p>
-                    </div>
-            </div>
-            <div class="p-4 xl:w-1/4 md:w-1/2">
-                <a href="">
-                    <div class="p-6 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
-                        <img class="object-cover object-center w-full h-40 mb-6" src="./img/z.jpg" alt="content">
-
-                        <h2 class="mb-4 text-lg font-medium text-gray-900 title-font">San Francisco</h2>
-                        <p class="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
-                            Distillery
-                            hexagon
-                            disrupt edison bulbche.</p>
-                    </div>
-                </a>
-            </div>
+           
         </div>
 
         <button

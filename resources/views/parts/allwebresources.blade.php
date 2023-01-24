@@ -32,7 +32,7 @@
                                     alt="content">
                                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
                                     Empty</p>
-                                <p class="pb-2 text-xs text-center text-gray-500">Dictionary</p>
+                                <p class="pb-2 text-xs text-center text-gray-500">dummy</p>
                             </a>
                         </div>
                     </div>

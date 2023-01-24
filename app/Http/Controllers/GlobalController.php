@@ -9,6 +9,7 @@ use App\Models\Magazine;
 use App\Models\Pages;
 use App\Models\Streetscape;
 use App\Models\Masterplan;
+use App\Models\Neighbourhood;
 use App\Models\Webresource;
 use App\Models\Country;
 use App\Models\City;
@@ -35,6 +36,7 @@ class GlobalController extends Controller
     {
         $cities = City::all();
         $countries = Country::All();
+        $neighbourhoods = neighbourhood::where('id', '!=', null)->limit(8)->inRandomOrder()->get();
         $masterplans = Masterplan::where('id', '!=', null)->limit(8)->inRandomOrder()->get();
         $streetscapes = Streetscape::where('id', '!=', null)->limit(3)->inRandomOrder()->get();
         $webresources = Webresource::where('id', '!=', null)->limit(5)->inRandomOrder()->get();
@@ -42,7 +44,7 @@ class GlobalController extends Controller
         $dictionary = Dictionary::where('id', '!=', null)->limit(10)->inRandomOrder()->get();
     
         $insta = Setting::get('curator_link');
-        return view('index', compact('dictionary', 'magazines', 'webresources', 'insta', 'streetscapes', 'masterplans', 'countries', 'cities'));
+        return view('index', compact('dictionary', 'magazines', 'webresources', 'insta', 'streetscapes', 'masterplans', 'countries', 'cities', 'neighbourhoods'));
     }
 
   
@@ -71,7 +73,8 @@ class GlobalController extends Controller
 
     public function neighbourhoods()
     {
-        return view('neighbourhoods');
+        $neighbourhoods = neighbourhood::paginate(8);
+        return view('neighbourhoods', compact('neighbourhoods'));
     }
 
     public function neighbourhoods_post()
