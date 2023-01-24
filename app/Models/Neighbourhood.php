@@ -6,7 +6,7 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Masterplan extends Model
+class Neighbourhood extends Model
 {
     use CrudTrait;
     use HasFactory;
@@ -17,7 +17,7 @@ class Masterplan extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'masterplans';
+    protected $table = 'neighbourhoods';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
@@ -55,28 +55,28 @@ class Masterplan extends Model
              'category',
              'address',
       ];
- 
-     protected $casts = [
-         'image' => 'array',
-         'tags' => 'array',
-     ];
-    /*
-    |--------------------------------------------------------------------------
-    | FUNCTIONS
-    |--------------------------------------------------------------------------
-    */
-    public function setImageAttribute($value)
-    {
-    
-        $attribute_name = "image";
-        $disk = "public";
-        $destination_path = "/uploads/streetscapes";
 
-        $this->uploadMultipleFilesToDisk($value, $attribute_name, $disk, $destination_path);
+    protected $casts = [
+        'image' => 'array',
+        'tags' => 'array',
+    ];
+   /*
+   |--------------------------------------------------------------------------
+   | FUNCTIONS
+   |--------------------------------------------------------------------------
+   */
+   public function setImageAttribute($value)
+   {
    
+       $attribute_name = "image";
+       $disk = "public";
+       $destination_path = "/uploads/streetscapes";
 
-    // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
-    }
+       $this->uploadMultipleFilesToDisk($value, $attribute_name, $disk, $destination_path);
+  
+
+   // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
+   }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

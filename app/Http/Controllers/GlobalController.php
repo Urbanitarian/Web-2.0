@@ -8,7 +8,10 @@ use App\Models\Dictionary;
 use App\Models\Magazine;
 use App\Models\Pages;
 use App\Models\Streetscape;
+use App\Models\Masterplan;
 use App\Models\Webresource;
+use App\Models\Country;
+use App\Models\City;
 use Backpack\Settings\app\Models\Setting;
 use Carbon\Carbon;
 
@@ -30,13 +33,16 @@ class GlobalController extends Controller
      */
     public function getAll()
     {
+        $cities = City::all();
+        $countries = Country::All();
+        $masterplans = Masterplan::where('id', '!=', null)->limit(8)->inRandomOrder()->get();
         $streetscapes = Streetscape::where('id', '!=', null)->limit(3)->inRandomOrder()->get();
         $webresources = Webresource::where('id', '!=', null)->limit(5)->inRandomOrder()->get();
         $magazines = Magazine::where('id', '!=', null)->limit(5)->inRandomOrder()->get();
         $dictionary = Dictionary::where('id', '!=', null)->limit(10)->inRandomOrder()->get();
     
         $insta = Setting::get('curator_link');
-        return view('index', compact('dictionary', 'magazines', 'webresources', 'insta', 'streetscapes'));
+        return view('index', compact('dictionary', 'magazines', 'webresources', 'insta', 'streetscapes', 'masterplans', 'countries', 'cities'));
     }
 
   
@@ -87,7 +93,8 @@ class GlobalController extends Controller
 
     public function masterplans()
     {
-        return view('masterplans');
+        $masterplans = Masterplan::paginate(10);
+        return view('masterplans', compact('masterplans'));
     }
 
     public function masterplans_post()

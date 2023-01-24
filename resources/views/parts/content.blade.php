@@ -1,8 +1,8 @@
 <div class="border-b border-gray-300"></div>
 @php
-    $urltype = null;
-    $urlprix = null;
-    $urlsurface = null;
+    $size = null;
+    $status = null;
+    $popular = null;
 @endphp
 <section class="pt-4 pb-8 mx-2 bg-white md:mx-16">
     <div class="flex flex-wrap justify-between py-4 mx-4 md:mx-0">
@@ -10,8 +10,8 @@
             <select name="type"
                 class=" px-4 h-[40px] text-sm bg-white border-gray-200 rounded-md transition border focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                 <option value="">Popular</option>
-                <option value="new" {{ $urltype == 'new' ? 'selected' : '' }}>The Newest</option>
-                <option value="old" {{ $urltype == 'old' ? 'selected' : '' }}>The Oldest</option>
+                <option value="new" {{ $popular == 'new' ? 'selected' : '' }}>The Newest</option>
+                <option value="old" {{ $popular == 'old' ? 'selected' : '' }}>The Oldest</option>
             </select>
 
 
@@ -77,7 +77,7 @@
     </div>
 
 
-    <div class="grid grid-cols-2 gap-2 mx-4 mt-4 md:grid-cols-4 md:mx-0">
+    <div class="grid grid-cols-3 gap-2 mx-4 mt-4 md:grid-cols-5 md:mx-0">
         <div class="block">
             <label for="DeliveryStandard" class="block">
                 <p class="pb-2 font-bold text-black">Tags</p>
@@ -103,13 +103,25 @@
             </label>
             <select name="type"
                 class="w-full px-4 py-3 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                <option value="">Choose Size</option>
-                <option value="Maison" {{ $urltype == 'Maison' ? 'selected' : '' }}>Size</option>
-                <option value="Appartement" {{ $urltype == 'Appartement' ? 'selected' : '' }}>Size</option>
-                <option value="Terrain" {{ $urltype == 'Terrain' ? 'selected' : '' }}>Size</option>
-                <option value="" {{ $urltype == 'Villa' ? 'selected' : '' }}>Size</option>
-                <option value="Bureau" {{ $urltype == 'Bureau' ? 'selected' : '' }}>Size</option>
-                <option value="Commerce" {{ $urltype == 'Commerce' ? 'selected' : '' }}>Size</option>
+                <option value="">All</option>
+                <option value="Large" {{ $size == 'Large' ? 'selected' : '' }}>Large</option>
+                <option value="Medium" {{ $size == 'Medium' ? 'selected' : '' }}>Medium</option>
+                <option value="Small" {{ $size == 'Small' ? 'selected' : '' }}>Small</option>
+                <option value="Xs" {{ $size == 'Xs' ? 'selected' : '' }}>Xs</option>
+            </select>
+        </div>
+
+        <div class="block">
+            <label for="DeliveryStandard" class="block">
+                <p class="pb-2 font-bold text-black">Status</p>
+            </label>
+            <select name="type"
+                class="w-full px-4 py-3 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                <option value="" >All</option>
+                <option value="built" {{ $status == 'built' ? 'selected' : '' }}>built</option>
+                <option value="future" {{ $status == 'future' ? 'selected' : '' }}>future</option>
+                <option value="under_development" {{ $status == 'under_development' ? 'selected' : '' }}>under development</option>
+                <option value="regeneration" {{ $status == 'regeneration' ? 'selected' : '' }}>regeneration</option>
             </select>
         </div>
 
@@ -119,13 +131,11 @@
             </label>
             <select name="prix"
                 class="w-full px-4 py-3 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                <option value="">Choose city</option>
-                <option value="900" {{ $urlprix == '900' ? 'selected' : '' }}>city</option>
-                <option value="2900" {{ $urlprix == '2900' ? 'selected' : '' }}>city</option>
-                <option value="3900" {{ $urlprix == '3900' ? 'selected' : '' }}>city</option>
-                <option value="5000" {{ $urlprix == '5000' ? 'selected' : '' }}>city</option>
-                <option value="8000" {{ $urlprix == '8000' ? 'selected' : '' }}>city</option>
-                <option value="10000" {{ $urlprix == '10000' ? 'selected' : '' }}>city</option>
+                <option value="">All</option>
+               @foreach($cities as $city)
+                <option value="{{ $city->id }}" {{ old('city') == $city->id ? 'selected' : '' }}>{{ $city->name }}</option>
+                @endforeach
+
             </select>
         </div>
 
@@ -133,15 +143,13 @@
             <label for="DeliveryStandard" class="block">
                 <p class="pb-2 font-bold text-black">Country</p>
             </label>
-            <select name="surface"
+            <select name="country"
                 class="w-full px-4 py-3 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                <option value="">Choose country</option>
-                <option value="50" {{ $urlsurface == '50' ? 'selected' : '' }}>country</option>
-                <option value="100" {{ $urlsurface == '100' ? 'selected' : '' }}>country</option>
-                <option value="200" {{ $urlsurface == '200' ? 'selected' : '' }}>country</option>
-                <option value="300" {{ $urlsurface == '300' ? 'selected' : '' }}>country</option>
-                <option value="400" {{ $urlsurface == '400' ? 'selected' : '' }}>country</option>
-                <option value="500" {{ $urlsurface == '500' ? 'selected' : '' }}>country</option>
+                <option value="">All</option>
+                 @foreach($countries as $country)
+                <option value="{{ $country->id }}" {{ old('country') == $country->id ? 'selected' : '' }}>{{ $country->name }}</option>
+                @endforeach
+
             </select>
         </div>
 
@@ -320,8 +328,6 @@
         </div>
     </div>
 </section>
-
-
 
 @include('parts.streetscapes')
 @include('parts.masterplans')

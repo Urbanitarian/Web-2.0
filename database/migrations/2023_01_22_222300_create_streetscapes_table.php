@@ -22,20 +22,6 @@ return new class extends Migration
             $table->string('country')->nullable();
             $table->string('program')->nullable();
             $table->integer('year')->nullable();
-            $table->integer('area')->nullable();
-            $table->integer('gfa')->nullable();
-            $table->integer('density')->nullable();
-            $table->integer('popdensity')->nullable();
-            $table->integer('homeunit')->nullable();
-            $table->integer('jobs')->nullable();
-            $table->integer('streetroad')->nullable();
-            $table->integer('buildup')->nullable();
-            $table->integer('nonbuildup')->nullable();
-            
-            $table->integer('residential')->nullable();
-            $table->integer('business')->nullable();
-            $table->integer('commercial')->nullable();
-            $table->integer('civic')->nullable();
             $table->longText('description')->nullable();
             $table->string('credits')->nullable();
             $table->string('location')->nullable();

@@ -48,89 +48,43 @@
             <div class="my-8 swiper-wrapper">
 
 
-                <div class="p-4 swiper-slide">
+@forelse ($masterplans as $masterplan)
+     <div class="p-4 swiper-slide">
+                    <a href="">
+                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
+                            <div class="flex-shrink-0">
+                                <img class="h-[450px] w-full object-cover border-b"
+                                    src="{{ asset('storage/' . $masterplan->image[0]) }}"alt=""  onerror="this.src='./img/empty.png'"/>
+                                <h1 class="pt-4 mx-8 font-bold text-center text-black uppercase">{{ $masterplan->title }} | {{ $masterplan->author }} |
+                                    {{ $masterplan->city }} </h1>
+                                <p class="pb-4 mx-8 text-xs text-center text-gray-700">
+                                    {{ $masterplan->category }}, {{ $masterplan->size }}  
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+@empty
+     <div class="p-4 swiper-slide">
                     <a href="">
                         <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
                             <div class="flex-shrink-0">
                                 <img class="h-[450px] w-full object-cover border-b"
                                     src="./img/M_DOUBLE-DUTCH_Stadstuin-1-1-scaled.jpg" alt="">
-                                <h1 class="pt-4 mx-8 font-bold text-center text-black">KROYER PLADS | VLA+COBE |
-                                    COPENHAGEN</h1>
+                                <h1 class="pt-4 mx-8 font-bold text-center text-black">Empty</h1>
                                 <p class="pb-4 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, small
+                                   dummy
                                 </p>
                             </div>
                         </div>
                     </a>
                 </div>
+@endforelse
+               
 
 
 
-                <div class="p-4 swiper-slide">
-                    <a href="">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="h-[450px] w-full object-cover border-b"
-                                    src="./img/S_FCB-STUDIOS_Lime-Tree-Square-scaled.jpg" alt="">
-                                <h1 class="pt-4 mx-8 font-bold text-center text-black">KROYER PLADS | VLA+COBE |
-                                    COPENHAGEN</h1>
-                                <p class="pb-4 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, small
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="p-4 swiper-slide">
-                    <a href="">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="h-[450px] w-full object-cover border-b"
-                                    src="./img/S_HOLSCHER-NORDBERG_Strandlodsvej_web.jpg" alt="">
-                                <h1 class="pt-4 mx-8 font-bold text-center text-black">KARTOFFELRAEKKERNE | OSTERBRO |
-                                    COPENHAGEN</h1>
-                                <p class="pb-4 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, small
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="p-4 swiper-slide">
-                    <a href="">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="h-[450px] w-full object-cover border-b"
-                                    src="./img/S_HOLSCHER-NORDBERG_Strandlodsvej_web.jpg" alt="">
-                                <h1 class="pt-4 mx-8 font-bold text-center text-black">LIME TREE SQUARE | FCB | STREET
-                                    SOMERSET</h1>
-                                <p class="pb-4 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, xs
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-
-                <div class="p-4 swiper-slide">
-                    <a href="">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="h-[450px] w-full object-cover border-b"
-                                    src="./img/S_Kartoffelraekkerne-scaled.jpg" alt="">
-                                <h1 class="pt-4 mx-8 font-bold text-center text-black">LIME TREE SQUARE | FCB | STREET
-                                    SOMERSET</h1>
-                                <p class="pb-4 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, xs
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+               
 
             </div>
         </div>

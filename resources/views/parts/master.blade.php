@@ -72,17 +72,32 @@
     <div class="mx-4 border-t">
         <section class="pb-16 max-w-screen-2xl md:py-16 md:mx-auto">
             <div class="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-                
+
+                @forelse ($masterplans as $masterplan)
                 <div class="">
+                    <a href="./masterplans_post">
+                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
+                            <div class="flex-shrink-0">
+                                <img class="object-cover w-full h-auto border-b"
+                                    src="{{ asset('storage/' . $masterplan->image[0]) }}"alt=""  onerror="this.src='./img/empty.png'"/>
+                                <h1 class="pt-2 mx-8 text-sm font-bold text-center">{{ $masterplan->title }} | {{ $masterplan->author }} |
+                                    {{ $masterplan->city }}</h1>
+                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
+                                   {{ $masterplan->category }}, {{ $masterplan->size }}  
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+@empty
+     <div class="">
                     <a href="./masterplans_post">
                         <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
                             <div class="flex-shrink-0">
                                 <img class="object-cover w-full h-auto border-b"
                                     src="./img/M_DOUBLE-DUTCH_Stadstuin-1-1-scaled.jpg" alt="">
-                                <h1 class="pt-2 mx-8 text-sm font-bold text-center">KROYER PLADS | VLA+COBE |
-                                    COPENHAGEN</h1>
+                                <h1 class="pt-2 mx-8 text-sm font-bold text-center">Empty</h1>
                                 <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, small
                                 </p>
                             </div>
                         </div>
@@ -90,158 +105,8 @@
                 </div>
 
 
-
-                <div class="">
-                    <a href="./masterplans_post">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b"
-                                    src="./img/S_FCB-STUDIOS_Lime-Tree-Square-scaled.jpg" alt="">
-                                <h1 class="pt-2 mx-8 text-sm font-bold text-center">KROYER PLADS | VLA+COBE |
-                                    COPENHAGEN</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, small
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="">
-                    <a href="./masterplans_post">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b"
-                                    src="./img/S_HOLSCHER-NORDBERG_Strandlodsvej_web.jpg" alt="">
-                                <h1 class="pt-2 mx-8 text-sm font-bold text-center">KARTOFFELRAEKKERNE | OSTERBRO |
-                                    COPENHAGEN</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, small
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="">
-                    <a href="./masterplans_post">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b"
-                                    src="./img/S_HOLSCHER-NORDBERG_Strandlodsvej_web.jpg" alt="">
-                                <h1 class="pt-2 mx-8 text-sm font-bold text-center">LIME TREE SQUARE | FCB | STREET
-                                    SOMERSET</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, xs
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-
-                <div class="">
-                    <a href="./masterplans_post">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b"
-                                    src="./img/S_Kartoffelraekkerne-scaled.jpg" alt="">
-                                <h1 class="pt-2 mx-8 text-sm font-bold text-center">LIME TREE SQUARE | FCB | STREET
-                                    SOMERSET</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, xs
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="">
-                    <a href="./masterplans_post">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b"
-                                    src="./img/M_DOUBLE-DUTCH_Stadstuin-1-1-scaled.jpg" alt="">
-                                <h1 class="pt-2 mx-8 text-sm font-bold text-center">KROYER PLADS | VLA+COBE |
-                                    COPENHAGEN</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, small
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-
-                <div class="">
-                    <a href="./masterplans_post">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b"
-                                    src="./img/S_FCB-STUDIOS_Lime-Tree-Square-scaled.jpg" alt="">
-                                <h1 class="pt-2 mx-8 text-sm font-bold text-center">KROYER PLADS | VLA+COBE |
-                                    COPENHAGEN</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, small
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="">
-                    <a href="./masterplans_post">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b"
-                                    src="./img/S_HOLSCHER-NORDBERG_Strandlodsvej_web.jpg" alt="">
-                                <h1 class="pt-2 mx-8 text-sm font-bold text-center">KARTOFFELRAEKKERNE | OSTERBRO |
-                                    COPENHAGEN</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, small
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="">
-                    <a href="./masterplans_post">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b"
-                                    src="./img/S_HOLSCHER-NORDBERG_Strandlodsvej_web.jpg" alt="">
-                                <h1 class="pt-2 mx-8 text-sm font-bold text-center">LIME TREE SQUARE | FCB | STREET
-                                    SOMERSET</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, xs
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-
-                <div class="">
-                    <a href="./masterplans_post">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b"
-                                    src="./img/S_Kartoffelraekkerne-scaled.jpg" alt="">
-                                <h1 class="pt-2 mx-8 text-sm font-bold text-center">LIME TREE SQUARE | FCB | STREET
-                                    SOMERSET</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                    Masterplans, xs
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
+@endforelse
             </div>
-                     {{-- {{ $locations->appends(Request::all())->links('pagination::tailwind') }} --}}
+                    {{ $masterplans->appends(Request::all())->links('pagination::tailwind') }} 
         </section>
     </div>

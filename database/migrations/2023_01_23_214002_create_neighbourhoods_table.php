@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('masterplans', function (Blueprint $table) {
+        Schema::create('neighbourhoods', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
             $table->string('title')->unique();
@@ -22,20 +22,6 @@ return new class extends Migration
             $table->string('country')->nullable();
             $table->string('program')->nullable();
             $table->integer('year')->nullable();
-            $table->integer('area')->nullable();
-            $table->integer('gfa')->nullable();
-            $table->integer('density')->nullable();
-            $table->integer('popdensity')->nullable();
-            $table->integer('homeunit')->nullable();
-            $table->integer('jobs')->nullable();
-            $table->integer('streetroad')->nullable();
-            $table->integer('buildup')->nullable();
-            $table->integer('nonbuildup')->nullable();
-            
-            $table->integer('residential')->nullable();
-            $table->integer('business')->nullable();
-            $table->integer('commercial')->nullable();
-            $table->integer('civic')->nullable();
             $table->longText('description')->nullable();
             $table->string('credits')->nullable();
             $table->string('location')->nullable();
@@ -43,7 +29,7 @@ return new class extends Migration
             $table->string('size')->nullable();
             $table->string('tags')->nullable();
             $table->text('link')->nullable();
-            $table->string('category')->default('Masterplans');
+            $table->string('category')->default('Neighbourhoods');
             $table->text('address')->nullable();
             $table->timestamps();
         });
@@ -56,6 +42,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('masterplans');
+        Schema::dropIfExists('neighbourhoods');
     }
 };
