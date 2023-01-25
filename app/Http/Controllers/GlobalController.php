@@ -177,9 +177,16 @@ class GlobalController extends Controller
         return view('contactus');
     }
 
-    public function neighbourhoods()
+    public function neighbourhoods(Request $request)
     {
-        $neighbourhoods = neighbourhood::paginate(8);
+        $q = request()->input('q');
+
+        if ($q) {
+            $neighbourhoods = neighbourhood::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->paginate(8);
+        } else {
+            $neighbourhoods = neighbourhood::paginate(8);
+        }
+
         return view('neighbourhoods', compact('neighbourhoods'));
     }
 

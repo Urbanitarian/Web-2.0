@@ -1,4 +1,9 @@
- <section class="pt-8">
+
+<section class="pt-8">
+@php
+    $size = urldecode(request()->get('size'));
+    $q = urldecode(request()->get('q'));
+@endphp
         <div class="p-8 md:p-12 lg:px-12 lg:py-12">
             <div class="max-w-lg mx-auto text-center lg:max-w-xl">
                 <h2 class="text-3xl font-bold text-gray-900 md:text-5xl">
@@ -17,115 +22,93 @@
                             class="w-full p-3 text-gray-700 transition bg-gray-100 border-gray-200 rounded-md shadow-sm focus:border-white focus:outline-none focus:ring focus:ring-gray-400" />
                     </div>
                 </form>
-
-
             </div>
 
             <fieldset class="flex flex-wrap justify-center gap-2 pt-8 mx-auto md:gap-4">
-                <div>
-                    <input type="radio" name="ColorOption0" value="All0" id="All0" class="hidden peer" checked />
-
+                <a href="{{ route('nfilter') }}">
                     <label for="All0"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $q == '' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">All</p>
                     </label>
-                </div>
+                </a>
 
-                <div>
-                    <input type="radio" name="ColorOption0" value="child" id="child" class="hidden peer" />
-
+                 <a href="{{ route('nfilter') }}?q=child-friendly">
                     <label for="child"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $q == 'child-friendly' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">Child-friendly</p>
                     </label>
-                </div>
+                </a>
 
-                <div>
-                    <input type="radio" name="ColorOption0" value="green" id="green" class="hidden peer" />
-
+                 <a href="{{ route('nfilter') }}?q=green">
                     <label for="green"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $q == 'green' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">Green</p>
                     </label>
-                </div>
+                </a>
 
-                <div>
-                    <input type="radio" name="ColorOption0" value="climate" id="climate" class="hidden peer" />
-
+                 <a href="{{ route('nfilter') }}?q=climate-proof">
                     <label for="climate"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $q == 'climate-proof' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">Climate-proof</p>
                     </label>
-                </div>
+                </a>
 
-                <div>
-                    <input type="radio" name="ColorOption0" value="age" id="age" class="hidden peer" />
-
+                 <a href="{{ route('nfilter') }}?q=age-friendly">
                     <label for="age"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $q == 'age-friendly' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">Age-friendly</p>
                     </label>
-                </div>
+                </a>
 
-                <div>
-                    <input type="radio" name="ColorOption0" value="placemaking" id="placemaking" class="hidden peer" />
-
+                 <a href="{{ route('nfilter') }}?q=placemaking">
                     <label for="placemaking"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $q == 'placemaking' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">Placemaking</p>
                     </label>
-                </div>
+                </a>
             </fieldset>
 
 
 
 
             <fieldset class="flex flex-wrap justify-center gap-2 pt-8 mx-auto md:gap-4">
-                <div>
-                    <input type="radio" name="ColorOption" value="All" id="All" class="hidden peer" checked />
-
+                 <a href="{{ route('nfilter') }}">
                     <label for="All"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $q == '' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">All</p>
                     </label>
-                </div>
+                </a>
 
-                <div>
-                    <input type="radio" name="ColorOption" value="Masterplan" id="Masterplan" class="hidden peer" />
-
-                    <label for="Masterplan"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                <a href="{{ route('nfilter') }}?q=large">
+                    <label for="large"
+                        class="{{ $q == 'large' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">large</p>
                     </label>
-                </div>
+                </a>
 
-                <div>
-                    <input type="radio" name="ColorOption" value="Streetscapes" id="Streetscapes" class="hidden peer" />
-
-                    <label for="Streetscapes"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+               <a href="{{ route('nfilter') }}?q=medium">
+                    <label for="medium"
+                        class="{{ $q == 'medium' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">medium</p>
                     </label>
-                </div>
+                </a>
 
-                <div>
-                    <input type="radio" name="ColorOption" value="Neiborhoods" id="Neiborhoods" class="hidden peer" />
-
-                    <label for="Neiborhoods"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                <a href="{{ route('nfilter') }}?q=small">
+                    <label for="small"
+                        class="{{ $q == 'small' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">small</p>
                     </label>
-                </div>
+                </a>
 
-                <div>
-                    <input type="radio" name="ColorOption" value="xs" id="xs" class="hidden peer" />
-
+                <a href="{{ route('nfilter') }}?q=xs">
                     <label for="xs"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $q == 'xs' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">xs</p>
                     </label>
-                </div>
+              </a>
             </fieldset>
+
+
             <section>
                 <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
                     <ul class="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -141,8 +124,8 @@
                                     <p class="mt-2">
                                         <span class="mx-2 text-xs font-semibold text-gray-500">
                                           @foreach($neighbourhood->tags as $tag)
-                        {{ $tag }} &nbsp;
-                        @endforeach
+                                               {{ $tag }} &nbsp;
+                                           @endforeach
                                         </span>
 
                                     </p>
@@ -151,8 +134,8 @@
                         </li>
                     @empty
                          <li>
-                            <a href="./neighbourhoods_post" class="block overflow-hidden group">
-                                <img src="./img/empty.png"
+                            <a href="" class="block overflow-hidden group">
+                                <img src="{{ asset('img/empty.png') }}"
                                     alt=""
                                     class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
 

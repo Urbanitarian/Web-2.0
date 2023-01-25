@@ -21,6 +21,7 @@ Route::controller(GlobalController::class)->group(function(){
     // Route::get('/', 'getAll')->name('getAll')->middleware('App\Http\Middleware\MyMiddleware');
 Route::get('/', 'getAll')->name('getAll');
 Route::get('/filter', 'getAll')->name('filter');
+
 Route::get('index', 'getAll')->name('getAll');
 Route::get('logout', 'logout');
 Route::get('contact', 'contact');
@@ -32,7 +33,9 @@ Route::get('dictionaries_post/', 'dictionaries_post');
 Route::get('allwebresources', 'allwebresources');
 Route::get('webresources_post/', 'webresources_post');
 Route::get('read', 'read');
+
 Route::get('neighbourhoods', 'neighbourhoods');
+Route::get('neighbourhoods/filter', 'neighbourhoods')->name('nfilter');
 Route::get('neighbourhoods_post/', 'neighbourhoods_post');
 Route::get('streetscapes', 'streetscapes');
 Route::get('streetscapes_post/', 'streetscapes_post');
