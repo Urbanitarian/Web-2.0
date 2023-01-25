@@ -12,7 +12,7 @@
 <button type="submit"></button>
     <div class="flex flex-wrap justify-between py-4 mx-4 md:mx-0">
         <div class="pb-4 md:pb-0">
-            <select name="popular"
+            <select name="popular" onchange="this.form.submit();"
                 class=" px-4 h-[40px] text-sm bg-white border-gray-200 rounded-md  border focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                 <option value="">Popular</option>
                 <option value="new" {{ $popular == 'new' ? 'selected' : '' }}>The Newest</option>
@@ -84,7 +84,7 @@
             <label for="DeliveryStandard" class="block">
                 <p class="pb-2 font-bold text-black">Size</p>
             </label>
-            <select name="size"
+            <select name="size" onchange="this.form.submit();"
                 class="w-full px-4 py-3 text-sm bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                 <option value="">All</option>
                 <option value="Large" {{ $size == 'Large' ? 'selected' : '' }}>Large</option>
@@ -98,7 +98,7 @@
             <label for="DeliveryStandard" class="block">
                 <p class="pb-2 font-bold text-black">Status</p>
             </label>
-            <select name="status"
+            <select name="status" onchange="this.form.submit();"
                 class="w-full px-4 py-3 text-sm bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                 <option value="">All</option>
                 <option value="built" {{ $status == 'built' ? 'selected' : '' }}>built</option>
@@ -113,11 +113,11 @@
             <label for="DeliveryStandard" class="block">
                 <p class="pb-2 font-bold text-black">City</p>
             </label>
-            <select name="city"
+            <select name="city" onchange="this.form.submit();"
                 class="w-full px-4 py-3 text-sm bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                 <option value="">All</option>
                 @foreach ($cities as $city)
-                    <option value="{{ $city->id }}" {{ old('city') == $city->id ? 'selected' : '' }}>
+                    <option value="{{ $city->name }}" {{ old('city') == $city->name ? 'selected' : '' }}>
                         {{ $city->name }}</option>
                 @endforeach
 
@@ -128,11 +128,11 @@
             <label for="DeliveryStandard" class="block">
                 <p class="pb-2 font-bold text-black">Country</p>
             </label>
-            <select name="country"
+            <select name="country" onchange="this.form.submit();"
                 class="w-full px-4 py-3 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                 <option value="">All</option>
                 @foreach ($countries as $country)
-                    <option value="{{ $country->id }}" {{ old('country') == $country->id ? 'selected' : '' }}>
+                    <option value="{{ $country->name }}" {{ old('country') == $country->name ? 'selected' : '' }}>
                         {{ $country->name }}</option>
                 @endforeach
 
@@ -289,4 +289,5 @@
         console.log(layout);
         layout = "medium";
     });
+
 </script>
