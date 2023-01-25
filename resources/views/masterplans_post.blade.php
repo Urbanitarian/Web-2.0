@@ -1,7 +1,7 @@
    @extends('layouts.app')
 
    @section('main')
-       <div data-barba="mycontainer">
+       <div data-barba="container">
            <div class="mx-4 lg:mx-16">
                @forelse ($masterplan as $item)
                    <section>

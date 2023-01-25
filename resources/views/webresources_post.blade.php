@@ -2,7 +2,7 @@
    @extends('layouts.app')
 
 @section('main')
-<div data-barba="mycontainer">
+<div data-barba="container">
     <section class="pt-8">
         <div class="p-8 md:p-12 lg:px-12 lg:py-12">
             <div class="max-w-lg mx-auto text-center lg:max-w-xl">

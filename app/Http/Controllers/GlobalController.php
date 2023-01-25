@@ -279,8 +279,12 @@ class GlobalController extends Controller
     public function dictionaries_post(Request $request)
     {
         $id = $request->id;
-        $dictionary = Dictionary::where('id', '=', $id)->get();
-        return view('dictionaries_post', compact('dictionary'));
+        $dictionaries = Dictionary::where('id', '=', $id)->get();
+        $dictionary = Dictionary::where('id', '!=', null)
+            ->inRandomOrder()
+            ->limit(5)
+            ->get();
+        return view('dictionaries_post', compact('dictionaries', 'dictionary'));
     }
 
     public function import(Request $request)

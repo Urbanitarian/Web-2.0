@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-    <div data-barba="mycontainer">
+    <div data-barba="container">
         <section class="pt-8 mx-4 md:mx-16 lg:mx-32">
             <div class="p-8 md:p-12 lg:px-16 lg:py-12 max-w-7xl mx-auto">
                 @foreach ($streetscapes as $streetscape)

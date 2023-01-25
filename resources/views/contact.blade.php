@@ -1,7 +1,7 @@
  @extends('layouts.app')
 
  @section('main')
-     <div data-barba="mycontainer">
+     <div data-barba="container">
          @php use \App\Http\Controllers\GlobalController; @endphp
          @if (session('Message_envoye'))
              <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000, PopupUser())" class="pt-1 pr-4">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-    <div data-barba="mycontainer">
+    <div data-barba="container">
         <div class="mx-auto max-w-[1440px]">
             @forelse ($neighbourhood as $item)
                 <section>
