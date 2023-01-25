@@ -16,9 +16,9 @@
             </div>
 
             <div class="max-w-2xl mx-auto mt-8">
-                <form action="#" class="sm:flex sm:gap-4">
+                <form action="{{ route('nfilter') }}" class="sm:flex sm:gap-4">
                     <div class="sm:flex-1">
-                        <input type="text" placeholder="SEARCH"
+                        <input type="text" placeholder="SEARCH" name="q" value="{{ $q }}"
                             class="w-full p-3 text-gray-700 transition bg-gray-100 border-gray-200 rounded-md shadow-sm focus:border-white focus:outline-none focus:ring focus:ring-gray-400" />
                     </div>
                 </form>
@@ -79,28 +79,28 @@
                     </label>
                 </a>
 
-                <a href="{{ route('nfilter') }}?q=large">
+                <a href="{{ route('nfilter') }}?size=large">
                     <label for="large"
                         class="{{ $q == 'large' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">large</p>
                     </label>
                 </a>
 
-               <a href="{{ route('nfilter') }}?q=medium">
+               <a href="{{ route('nfilter') }}?size=medium">
                     <label for="medium"
                         class="{{ $q == 'medium' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">medium</p>
                     </label>
                 </a>
 
-                <a href="{{ route('nfilter') }}?q=small">
+                <a href="{{ route('nfilter') }}?size=small">
                     <label for="small"
                         class="{{ $q == 'small' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">small</p>
                     </label>
                 </a>
 
-                <a href="{{ route('nfilter') }}?q=xs">
+                <a href="{{ route('nfilter') }}?size=xs">
                     <label for="xs"
                         class="{{ $q == 'xs' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">xs</p>

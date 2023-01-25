@@ -1,4 +1,7 @@
 <section class="pt-8">
+@php
+    $q = urldecode(request()->get('q'));
+@endphp
     <div class="p-8 md:p-12 lg:px-12 lg:py-16">
       <div class="max-w-lg mx-auto text-center lg:max-w-xl">
         <img class="flex justify-center w-12 mx-auto my-8" src="./img/logo.png">
@@ -14,7 +17,7 @@
       <div class="max-w-2xl mx-auto mt-8">
         <form action="{{ route('filter') }}" method="get" class="sm:flex sm:gap-4">
           <div class="sm:flex-1">
-            <input type="text" placeholder="SEARCH" name="q"
+            <input type="text" placeholder="SEARCH" name="q" value="{{ $q }}"
               class="w-full p-3 text-gray-700 transition bg-gray-100 border-gray-200 rounded-md shadow-sm focus:border-white focus:outline-none focus:ring focus:ring-gray-400" />
           </div>
         </form>

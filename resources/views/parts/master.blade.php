@@ -1,4 +1,8 @@
  <section class="pt-8">
+ @php
+    $size = urldecode(request()->get('size'));
+    $q = urldecode(request()->get('q'));
+@endphp
         <div class="p-8 md:p-12 lg:px-12 lg:py-12">
             <div class="max-w-lg mx-auto text-center lg:max-w-xl">
                 <h2 class="text-3xl font-bold text-gray-900 md:text-5xl">
@@ -11,9 +15,9 @@
             </div>
 
             <div class="max-w-2xl mx-auto mt-8">
-                <form action="#" class="sm:flex sm:gap-4">
+                <form action="{{ route('mfilter') }}" class="sm:flex sm:gap-4">
                     <div class="sm:flex-1">
-                        <input type="text" placeholder="SEARCH"
+                        <input type="text" placeholder="SEARCH" name="q" value="{{ $q }}"
                             class="w-full p-3 text-gray-700 transition bg-gray-100 border-gray-200 rounded-md shadow-sm focus:border-white focus:outline-none focus:ring focus:ring-gray-400" />
                     </div>
                 </form>
@@ -22,50 +26,40 @@
             </div>
 
             <fieldset class="flex flex-wrap justify-center gap-2 pt-8 mx-auto md:gap-4">
-                <div>
-                    <input type="radio" name="ColorOption" value="All" id="All" class="hidden peer" checked />
-
+                <a href="{{ route('mfilter') }}">
                     <label for="All"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $q == '' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">All</p>
                     </label>
-                </div>
+                 </a>
 
-                <div>
-                    <input type="radio" name="ColorOption" value="Masterplan" id="Masterplan" class="hidden peer" />
-
-                    <label for="Masterplan"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                 <a href="{{ route('mfilter') }}?size=large">
+                    <label for="large"
+                        class="{{ $q == 'large' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">large</p>
                     </label>
-                </div>
+                 </a>
 
-                <div>
-                    <input type="radio" name="ColorOption" value="Streetscapes" id="Streetscapes" class="hidden peer" />
-
-                    <label for="Streetscapes"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                 <a href="{{ route('mfilter') }}?size=medium">
+                    <label for="medium"
+                        class="{{ $q == 'medium' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">medium</p>
                     </label>
-                </div>
+                 </a>
 
-                <div>
-                    <input type="radio" name="ColorOption" value="Neiborhoods" id="Neiborhoods" class="hidden peer" />
-
-                    <label for="Neiborhoods"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                 <a href="{{ route('mfilter') }}?size=small">
+                    <label for="small"
+                        class="{{ $q == 'small' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">small</p>
                     </label>
-                </div>
+                 </a>
 
-                <div>
-                    <input type="radio" name="ColorOption" value="xs" id="xs" class="hidden peer" />
-
+                 <a href="{{ route('mfilter') }}?size=xs">
                     <label for="xs"
-                        class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $q == 'xs' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">xs</p>
                     </label>
-                </div>
+                 </a>
             </fieldset>
     </section>
 

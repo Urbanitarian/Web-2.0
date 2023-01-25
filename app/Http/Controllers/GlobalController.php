@@ -180,10 +180,14 @@ class GlobalController extends Controller
     public function neighbourhoods(Request $request)
     {
         $q = request()->input('q');
+        $size = request()->input('size');
 
         if ($q) {
             $neighbourhoods = neighbourhood::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->paginate(8);
-        } else {
+        } elseif ($size) {
+            $neighbourhoods = neighbourhood::where('size', 'like', '%' . $size . '%')->paginate(8);
+        } else
+        {
             $neighbourhoods = neighbourhood::paginate(8);
         }
 
@@ -209,9 +213,18 @@ class GlobalController extends Controller
         return view('streetscapes_post', compact('streetscapes', 'allstreetscapes'));
     }
 
-    public function masterplans()
+    public function masterplans(Request $request)
     {
-        $masterplans = Masterplan::paginate(10);
+        $q = request()->input('q');
+        $size = request()->input('size');
+        
+        if ($q) {
+            $masterplans = Masterplan::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->paginate(10);
+        } elseif ($size) {
+            $masterplans = Masterplan::where('size', 'like', '%' . $size . '%')->paginate(10);
+        } else {
+            $masterplans = Masterplan::paginate(10);
+        }
         return view('masterplans', compact('masterplans'));
     }
 

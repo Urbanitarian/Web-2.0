@@ -182,6 +182,22 @@ class NeighbourhoodCrudController extends CrudController
              'tab'             => 'Main',
         ]);
 
+        $this->crud->addField([   // select_from_array
+            'name'        => 'size',
+            'label'       => "Size",
+            'type'        => 'select_from_array',
+            'options'     => [
+                'Large'        => 'Large',
+                'Medium'        => 'Medium',
+                'Small'        => 'Small',
+                'Xs'        => 'Xs',
+            ],
+            'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+            'allows_null' => false,
+            'default'     => '1',
+             'allows_multiple' => false, // OPTIONAL; needs you to cast this to array in your model;
+             'tab'             => 'Main',
+        ]);
        
 
         $this->crud->addField([   // CustomHTML

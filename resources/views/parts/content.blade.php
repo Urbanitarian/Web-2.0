@@ -1,6 +1,7 @@
 <div class="border-b border-gray-300"></div>
 @php
     $size = urldecode(request()->get('size'));
+    $tags = urldecode(request()->get('tags'));
     $status = urldecode(request()->get('status'));
     $popular = urldecode(request()->get('popular'));
     $city = urldecode(request()->get('city'));
@@ -74,7 +75,7 @@
                         </path>
                     </svg>
                 </span>
-                <input type="text" name="tags"
+                <input type="text" name="tags" value="{{ $tags }}"
                     class="w-full py-3 pl-10 pr-4 text-gray-700 bg-gray-100 border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400"
                     placeholder="">
             </div>
