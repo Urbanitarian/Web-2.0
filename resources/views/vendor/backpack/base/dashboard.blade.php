@@ -2,7 +2,7 @@
 @php  $mastercount = GlobalController::master();@endphp
 @php  $neighcount = GlobalController::neigh();@endphp
 @php  $streetcount = GlobalController::street();@endphp
-
+@php  $all_data = GlobalController::alldata();@endphp
 @extends(backpack_view('blank'))
 @section('content')
 
@@ -65,18 +65,89 @@
     <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
         integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
     <script>
-        let mymap = L.map('map').setView([48.6890, 11.14086], 5);
-        osmLayer = L.tileLayer(
-            'https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
-                maxZoom: 19,
-                apikey: 'choisirgeoportail',
-                format: 'image/jpeg',
-                style: 'normal'
-            }).addTo(mymap);
-        mymap.addLayer(osmLayer);
-        L.marker([47.97618, 7.82580]).addTo(mymap);
-        L.marker([44.97618, 9.82580]).addTo(mymap);
-        mymap.touchZoom.enable();
+           data = {!! json_encode($all_data) !!};
+         markers = {};
+
+    let mymap = L.map('map').setView([48.6890, 11.14086], 5);
+    osmLayer = L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            apikey: 'choisirgeoportail',
+            format: 'image/jpeg',
+            style: 'normal'
+        }).addTo(mymap);
+    mymap.addLayer(osmLayer);
+    mymap.touchZoom.enable();
+    mymap.scrollWheelZoom.enable();
+
+let count = 0;
+        for (let i = 0; i < data.length; i++) {
+            count = count + 1;
+            graff = data[i];
+            pics = graff.image[0];
+            graffid = graff.id;
+            category = graff.category.toLowerCase();
+            if (category == 'streetscapes') {
+                cat = 1;
+            } else if (category == 'masterplans') {
+                cat = 2;
+            } else if (category == 'neighbourhoods') {
+                cat = 3;
+            }
+            graffcity = graff.city;
+            graffname = graff.title;
+            graffposition = graff.location;
+            var decimalString = graffposition.split(',');
+             decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
+             decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
+
+            marker = L.marker([decimalString[0], decimalString[1]], {
+            }).addTo(mymap).bindPopup(
+                '<div class="mappopup relative flex flex-col"><img onclick="myfunction(' + graffid + ',' + cat +
+                ')" class="mt-4" src="/storage/' + pics +
+                '" /><div class="flex justify-between"><h5 class="font-bold text-sm mt-1 mb-2" id="graffnom">' + graffname + '</h5><h5 class="text-xs text-gray-500 mt-1 mb-2" id="graffcity">' + graffcity + '</h5></div></div>'
+            );
+            markers[graff.id] = marker;
+ 
+        }
+
+function myfunction(id , cat) {
+
+     
+        markers[id].closePopup();
+        if (cat == 1) {
+            categ = "streetscape";
+        } else if (cat == 2) {
+            categ = "masterplan";
+        } else if (cat == 3) {
+            categ = "neighbourhood";
+        }
+
+        let pageName = categ + "/" + id + "/edit";
+        //open link
+        window.open(pageName, "_self");
+
+}
     
     </script>
+    <style>
+    #map {
+    max-height: 100%;
+}
+
+    .mappopup {
+        width: 200px;
+        height: 240px;
+    }
+
+    .mappopup img {
+        width: 100%;
+        height: 80%;
+        object-fit: cover;
+    }
+
+    .mappopup img {
+        cursor: pointer;
+    }
+    </style>
 @endsection

@@ -126,10 +126,27 @@ class GlobalController extends Controller
 
         return view(
             'index',
-            compact('dictionary','magazines','webresources','insta','streetscapes','masterplans','countries','cities','neighbourhoods','units'
+            compact('dictionary','magazines','webresources','insta','streetscapes','masterplans','countries','cities','neighbourhoods','units', 'all_data'
             )
         );
     }
+
+    static function alldata(){
+
+        $masters = Masterplan::all();
+        $streets = Streetscape::all();
+        $neighbs = Neighbourhood::all();
+
+        $all_data = array_merge(
+            $masters->toArray(),
+            $streets->toArray(),
+            $neighbs->toArray()
+        );
+
+        return $all_data;
+    }
+
+
 
     static function pages()
     {
