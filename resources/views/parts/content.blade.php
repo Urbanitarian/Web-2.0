@@ -9,7 +9,7 @@
     $category = urldecode(request()->get('category'));
 @endphp
 
-<form class="pt-4 pb-8 mx-2 bg-white md:mx-16" method="get"  action="{{ route('filter') }}">
+<form id="mysearch" class="pt-4 pb-8 mx-2 bg-white md:mx-16" method="get"  action="{{ route('filter') }}#mysearch">
 <button type="submit"></button>
     <div class="flex flex-wrap justify-between py-4 mx-4 md:mx-0">
         <div class="pb-4 md:pb-0">

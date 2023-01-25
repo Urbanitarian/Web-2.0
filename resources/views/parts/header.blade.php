@@ -2,7 +2,7 @@
 @php
     $q = urldecode(request()->get('q'));
 @endphp
-    <div class="p-8 md:p-12 lg:px-12 lg:py-16">
+    <div class="p-8 md:p-12 lg:px-12 lg:py-10">
       <div class="max-w-lg mx-auto text-center lg:max-w-xl">
         <img class="flex justify-center w-12 mx-auto my-8" src="./img/logo.png">
         <h2 class="text-2xl font-bold text-gray-900 md:text-3xl">
