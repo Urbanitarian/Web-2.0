@@ -1,72 +1,58 @@
 <div class="border-b border-gray-300"></div>
 @php
-    $size = null;
-    $status = null;
-    $popular = null;
+    $size = urldecode(request()->get('size'));
+    $status = urldecode(request()->get('status'));
+    $popular = urldecode(request()->get('popular'));
+    $city = urldecode(request()->get('city'));
+    $country = urldecode(request()->get('country'));
+    $category = urldecode(request()->get('category'));
 @endphp
-<section class="pt-4 pb-8 mx-2 bg-white md:mx-16">
+
+<form class="pt-4 pb-8 mx-2 bg-white md:mx-16" method="get"  action="{{ route('filter') }}">
+<button type="submit"></button>
     <div class="flex flex-wrap justify-between py-4 mx-4 md:mx-0">
         <div class="pb-4 md:pb-0">
-            <select name="type"
+            <select name="popular"
                 class=" px-4 h-[40px] text-sm bg-white border-gray-200 rounded-md  border focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                 <option value="">Popular</option>
                 <option value="new" {{ $popular == 'new' ? 'selected' : '' }}>The Newest</option>
                 <option value="old" {{ $popular == 'old' ? 'selected' : '' }}>The Oldest</option>
             </select>
-
-
         </div>
 
         <div class="flex pt-1 md:hidden md:py-0">
-            <button  id="change-layouts" > <i class="mx-2 text-gray-200 fa-solid fa-list fa-2x hover:text-gray-400"></i></button>
-            <button  id="change-layouts2" > <i class="mr-2 text-gray-200 fa-solid fa-border-all fa-2x hover:text-gray-400"></i></button>
-             <button  id="change-layouts3" ><i class="text-gray-200 fa-solid fa-map fa-2x hover:text-gray-400"></i></button>
+            <button id="change-layouts" onclick="return false;"> <i
+                    class="mx-2 text-gray-200 fa-solid fa-list fa-2x hover:text-gray-400"></i></button>
+            <button id="change-layouts2" onclick="return false;"> <i
+                    class="mr-2 text-gray-200 fa-solid fa-border-all fa-2x hover:text-gray-400"></i></button>
+            <button id="change-layouts3" onclick="return false;"><i
+                    class="text-gray-200 fa-solid fa-map fa-2x hover:text-gray-400"></i></button>
         </div>
 
 
-        <fieldset class="flex flex-wrap gap-2 md:gap-4">
-            <div>
-                <input type="radio" name="ColorOption" value="All" id="All" class="hidden peer" checked />
-
-                <label for="All"
-                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
-                    <p class="text-sm font-medium">All</p>
-                </label>
-            </div>
-
-            <div>
-                <input type="radio" name="ColorOption" value="Masterplan" id="Masterplan" class="hidden peer" />
-
-                <label for="Masterplan"
-                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
-                    <p class="text-sm font-medium">Masterplan</p>
-                </label>
-            </div>
-
-            <div>
-                <input type="radio" name="ColorOption" value="Streetscapes" id="Streetscapes" class="hidden peer" />
-
-                <label for="Streetscapes"
-                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
-                    <p class="text-sm font-medium">Streetscapes</p>
-                </label>
-            </div>
-
-            <div>
-                <input type="radio" name="ColorOption" value="Neiborhoods" id="Neiborhoods" class="hidden peer" />
-
-                <label for="Neiborhoods"
-                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
-                    <p class="text-sm font-medium">neighbourhoods</p>
-                </label>
-            </div>
+        <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category">
+            <button name="category" value="All" >
+                <p class="text-sm font-medium px-4 py-2 border rounded {{ $category == '' ? 'bg-gray-400 text-white' : '' }} {{ $category == 'All' ? 'bg-gray-400 text-white' : '' }}">All</p>
+            </button>
+             <button name="category" value="Masterplans">
+                <p class="text-sm font-medium px-4 py-2 border rounded {{ $category == 'Masterplans' ? 'bg-gray-400 text-white' : '' }} ">Masterplans</p>
+            </button>
+             <button name="category" value="Streetscapes">
+                <p class="text-sm font-medium px-4 py-2 border rounded {{ $category == 'Streetscapes' ? 'bg-gray-400 text-white' : '' }} ">Streetscapes</p>
+            </button>
+             <button name="category" value="Neighbourhoods">
+                <p class="text-sm font-medium px-4 py-2 border rounded {{ $category == 'Neighbourhoods' ? 'bg-gray-400 text-white' : '' }} ">Neighbourhoods</p>
+            </button>
         </fieldset>
 
         <div class="flex flex-col">
             <div class="hidden py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
-              <button  id="change-layout" >  <i class="mx-2 text-gray-200 transition fa-solid fa-list fa-2x hover:text-gray-400"></i></button>
-              <button  id="change-layout2" >   <i class="mr-2 text-gray-200 transition fa-solid fa-border-all fa-2x hover:text-gray-400"></i></button>
-              <button  id="change-layout3" >  <i class="text-gray-200 transition fa-solid fa-map fa-2x hover:text-gray-400"></i></button>
+                <button id="change-layout" onclick="return false;"> <i
+                        class="mx-2 text-gray-200 transition fa-solid fa-list fa-2x hover:text-gray-400"></i></button>
+                <button id="change-layout2" onclick="return false;"> <i
+                        class="mr-2 text-gray-200 transition fa-solid fa-border-all fa-2x hover:text-gray-400"></i></button>
+                <button id="change-layout3" onclick="return false;"> <i
+                        class="text-gray-200 transition fa-solid fa-map fa-2x hover:text-gray-400"></i></button>
             </div>
 
         </div>
@@ -88,7 +74,7 @@
                         </path>
                     </svg>
                 </span>
-                <input type="text"
+                <input type="text" name="tags"
                     class="w-full py-3 pl-10 pr-4 text-gray-700 bg-gray-100 border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400"
                     placeholder="">
             </div>
@@ -98,7 +84,7 @@
             <label for="DeliveryStandard" class="block">
                 <p class="pb-2 font-bold text-black">Size</p>
             </label>
-            <select name="type"
+            <select name="size"
                 class="w-full px-4 py-3 text-sm bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                 <option value="">All</option>
                 <option value="Large" {{ $size == 'Large' ? 'selected' : '' }}>Large</option>
@@ -112,7 +98,7 @@
             <label for="DeliveryStandard" class="block">
                 <p class="pb-2 font-bold text-black">Status</p>
             </label>
-            <select name="type"
+            <select name="status"
                 class="w-full px-4 py-3 text-sm bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                 <option value="">All</option>
                 <option value="built" {{ $status == 'built' ? 'selected' : '' }}>built</option>
@@ -127,7 +113,7 @@
             <label for="DeliveryStandard" class="block">
                 <p class="pb-2 font-bold text-black">City</p>
             </label>
-            <select name="prix"
+            <select name="city"
                 class="w-full px-4 py-3 text-sm bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                 <option value="">All</option>
                 @foreach ($cities as $city)
@@ -154,8 +140,8 @@
         </div>
 
     </div>
-</section>
-
+</form>
+<div data-barba="container">
 <section class="block pb-16 mx-4 md:mx-16 tabset">
 
     <div class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5 ">
@@ -167,7 +153,7 @@
             @if ($data['category'] == 'Streetscapes')
                 <div
                     class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-                    <a href="streetscapes_post?id={{ $data['id_street'] }}" class="flex flex-col h-full">
+                    <a href="streetscapes_post?id={{ $data['id'] }}" class="flex flex-col h-full">
                         <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
                             onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                         <div class="p-2">
@@ -185,7 +171,7 @@
                 </div>
             @elseif ($data['category'] == 'Neighbourhoods')
                 <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-                    <a href="neighbourhoods_post?id={{ $data['id_neighb'] }}" class="flex flex-col h-full">
+                    <a href="neighbourhoods_post?id={{ $data['id'] }}" class="flex flex-col h-full">
                         <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
                             onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                         <div class="p-2">
@@ -203,7 +189,7 @@
                 </div>
             @else
                 <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-                    <a href="masterplans_post?id={{ $data['id_master'] }}" class="flex flex-col h-full">
+                    <a href="masterplans_post?id={{ $data['id'] }}" class="flex flex-col h-full">
                         <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
                             onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                         <div class="p-2">
@@ -226,9 +212,8 @@
                 <a href="#" class="flex flex-col h-full">
                     <img alt="Art" src="./img/empty.png" class="object-cover h-full max-h-[480px]" />
                     <div class="p-2">
-                        <h3 class="mt-4 font-bold text-gray-900 md:text-xl">Lorem, ipsum dolor.</h3>
+                        <h3 class="mt-4 font-bold text-gray-900 md:text-xl">No results</h3>
                         <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                            Lorem ipsum dolor sit
                         </p>
                     </div>
                 </a>
@@ -249,7 +234,7 @@
     </div>
 
 </section>
-
+ </div>
 @include('parts.streetscapes')
 @include('parts.masterplans')
 @include('parts.neighbourhoods')
@@ -287,22 +272,21 @@
     mymap.touchZoom.enable();
     mymap.scrollWheelZoom.disable();
 
-      layout = null;
+    layout = null;
 
 
 
-      $("#change-layout").click(function() {
-      $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2");
-      console.log(layout);
-      layout = "xl";
+    $("#change-layout").click(function() {
+        $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").removeClass(
+            "lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2");
+        console.log(layout);
+        layout = "xl";
     });
 
     $("#change-layout2").click(function() {
-      $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3").addClass("grid-cols-2").addClass("lg:grid-cols-2").addClass("xl:grid-cols-3");
-      console.log(layout);
+        $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3")
+            .addClass("grid-cols-2").addClass("lg:grid-cols-2").addClass("xl:grid-cols-3");
+        console.log(layout);
         layout = "medium";
     });
-
-
-
 </script>

@@ -20,6 +20,7 @@ use App\Http\Middleware\Cors;
 Route::controller(GlobalController::class)->group(function(){
     // Route::get('/', 'getAll')->name('getAll')->middleware('App\Http\Middleware\MyMiddleware');
 Route::get('/', 'getAll')->name('getAll');
+Route::get('/filter', 'getAll')->name('filter');
 Route::get('index', 'getAll')->name('getAll');
 Route::get('logout', 'logout');
 Route::get('contact', 'contact');

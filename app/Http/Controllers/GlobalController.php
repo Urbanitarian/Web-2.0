@@ -16,7 +16,6 @@ use App\Models\City;
 use Backpack\Settings\app\Models\Setting;
 use Carbon\Carbon;
 
-
 use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Contracts\View\View;
@@ -24,7 +23,6 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-
 
 class GlobalController extends Controller
 {
@@ -34,72 +32,88 @@ class GlobalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function getAll()
+    public function getAll(Request $request)
     {
-        $all_data;
-        $masters = Masterplan::select('id', 'title', 'author', 'image', 'tags', 'city', 'country', 'status', 'size', 'category', 'location')->get();
-        foreach($masters as $master) {
-            $all_data[] = array(
-                'id_master' => $master->id,
-                'title' => $master->title,
-                'author' => $master->author,
-                'image' => $master->image,
-                'tags' => $master->tags,
-                'city' => $master->city,
-                'country' => $master->country,
-                'status' => $master->status,
-                'size' => $master->size,
-                'category' => $master->category,
-                'location' => $master->location,
-            );
-            
+        $tags = request()->input('tags');
+        $size = request()->input('size');
+        $status = request()->input('status');
+        $city = request()->input('city');
+        $country = request()->input('country');
+        $category = request()->input('category');
+        $popular = request()->input('popular');
+
+        if ($request->filled('tags')) { 
+            $masters = Masterplan::where('tags','like','%' . $tags . '%')->get();
+            $streets = Streetscape::where('tags','like','%' . $tags . '%')->get();
+            $neighbs = Neighbourhood::where('tags','like','%' . $tags . '%')->get();
+        } elseif ($request->filled('size')) 
+        { 
+            $masters = Masterplan::where('size', '=', $size)->get();
+            $streets = Streetscape::where('size', '=', $size)->get();
+            $neighbs = Neighbourhood::where('size', '=', $size)->get();
+        } 
+        elseif ($request->filled('status')) 
+        { 
+            $masters = Masterplan::where('status', '=', $status)->get();
+            $streets = Streetscape::where('status', '=', $status)->get();
+            $neighbs = Neighbourhood::where('status', '=', $status)->get();
+        } elseif ($request->filled('city')) 
+        { 
+            $masters = Masterplan::where('city', '=', $city)->get();
+            $streets = Streetscape::where('city', '=', $city)->get();
+            $neighbs = Neighbourhood::where('city', '=', $city)->get();
+        } elseif ($request->filled('country')) 
+        { 
+            $masters = Masterplan::where('country', '=', $country)->get();
+            $streets = Streetscape::where('country', '=', $country)->get();
+            $neighbs = Neighbourhood::where('country', '=', $country)->get();
+        }  elseif ($request->filled('category')) 
+        { 
+            if ($category == 'All') {
+                $masters = Masterplan::all();
+                $streets = Streetscape::all();
+                $neighbs = Neighbourhood::all();
+            } else {
+                $masters = Masterplan::where('category', '=', $category)->get();
+                $streets = Streetscape::where('category', '=', $category)->get();
+                $neighbs = Neighbourhood::where('category', '=', $category)->get();
+            }
+        } elseif ($request->filled('popular')) 
+        { 
+            if ($popular == 'new') {
+                $masters = Masterplan::orderBy('id', 'desc')->get();
+                $streets = Streetscape::orderBy('id', 'desc')->get();
+                $neighbs = Neighbourhood::orderBy('id', 'desc')->get();
+            }
+            else if ($popular == 'old'){
+                $masters = Masterplan::orderBy('id', 'asc')->get();
+                $streets = Streetscape::orderBy('id', 'asc')->get();
+                $neighbs = Neighbourhood::orderBy('id', 'asc')->get();
+            }
+           
+        } else
+        {
+            $masters = Masterplan::all();
+            $streets = Streetscape::all();
+            $neighbs = Neighbourhood::all();
         }
 
-        $streets = Streetscape::select('id', 'title', 'author', 'image', 'tags', 'city', 'country', 'status', 'size', 'category', 'location')->get();
-        foreach($streets as $street) {
-            $all_data[] = array(
-                'id_street' => $street->id,
-                'title' => $street->title,
-                'author' => $street->author,
-                'image' => $street->image,
-                'tags' => $street->tags,
-                'city' => $street->city,
-                'country' => $street->country,
-                'status' => $street->status,
-                'size' => $street->size,
-                'category' => $street->category,
-                'location' => $street->location,
-            );
-            
-        }
-        $neighbs = Neighbourhood::select('id', 'title','author', 'image', 'tags', 'city', 'country', 'status', 'size', 'category', 'location')->get();
-        foreach($neighbs as $neighb) {
-            $all_data[] = array(
-                'id_neighb' => $neighb->id,
-                'title' => $neighb->title,
-                'author' => $neighb->author,
-                'image' => $neighb->image,
-                'tags' => $neighb->tags,
-                'city' => $neighb->city,
-                'country' => $neighb->country,
-                'status' => $neighb->status,
-                'size' => $neighb->size,
-                'category' => $neighb->category,
-                'location' => $neighb->location,
-            );
-            
-        }
-        
+        $all_data = array_merge(
+            $masters->toArray(),
+            $streets->toArray(),
+            $neighbs->toArray()
+        );
         shuffle($all_data);
 
-         $units = new LengthAwarePaginator(
-             array_slice($all_data, 0 ,8,  true),
-             count($all_data),
-             8,
-         );
+        $units = new LengthAwarePaginator(
+            array_slice($all_data, 0, 8, true),
+            count($all_data),
+            8
+        );
 
-   
-     
+
+
+        //other parts
         $cities = City::all();
         $countries = Country::All();
         $neighbourhoods = neighbourhood::where('id', '!=', null)->limit(8)->inRandomOrder()->get();
@@ -108,30 +122,20 @@ class GlobalController extends Controller
         $webresources = Webresource::where('id', '!=', null)->limit(5)->inRandomOrder()->get();
         $magazines = Magazine::where('id', '!=', null)->limit(5)->inRandomOrder()->get();
         $dictionary = Dictionary::where('id', '!=', null)->limit(10)->inRandomOrder()->get();
-    
         $insta = Setting::get('curator_link');
-        return view('index', compact(
-            'dictionary',
-             'magazines',
-              'webresources',
-               'insta',
-                'streetscapes',
-                 'masterplans',
-                  'countries',
-                   'cities',
-                    'neighbourhoods',
-                    'units'
-                    ));
-    }
 
-  
+        return view(
+            'index',
+            compact('dictionary','magazines','webresources','insta','streetscapes','masterplans','countries','cities','neighbourhoods','units'
+            )
+        );
+    }
 
     static function pages()
     {
         $pages = Pages::all();
         return $pages;
     }
-
 
     public function about()
     {
@@ -166,7 +170,8 @@ class GlobalController extends Controller
     }
 
     public function streetscapes_post(Request $request)
-    {   $id = $request->id;
+    {
+        $id = $request->id;
         $streetscapes = Streetscape::where('id', '=', $id)->get();
         return view('streetscapes_post', compact('streetscapes'));
     }
@@ -181,8 +186,10 @@ class GlobalController extends Controller
     {
         $id = $request->id;
         $masterplan = Masterplan::where('id', '=', $id)->get();
-        $masterplans = Masterplan::where('id', '!=', null)->inRandomOrder()->get();
-        
+        $masterplans = Masterplan::where('id', '!=', null)
+            ->inRandomOrder()
+            ->get();
+
         return view('masterplans_post', compact('masterplan', 'masterplans'));
     }
 
@@ -206,7 +213,6 @@ class GlobalController extends Controller
         return view('webresources_post', compact('webresource'));
     }
 
-
     public function dictionaries_post(Request $request)
     {
         $id = $request->id;
@@ -225,7 +231,6 @@ class GlobalController extends Controller
         return back()->with('success', 'All good!');
     }
 
-
     public function read(Request $request)
     {
         $magazines = Magazine::where('id', '!=', null);
@@ -234,9 +239,7 @@ class GlobalController extends Controller
             'magazines' => $magazines->paginate(15),
         ]);
     }
-    
 
-   
     static function master()
     {
         $master = Masterplan::all();
@@ -245,22 +248,21 @@ class GlobalController extends Controller
         return $mastercount;
     }
 
-       static function neigh()
+    static function neigh()
     {
-       $neigh = neighbourhood::all();
+        $neigh = neighbourhood::all();
         //count neighbourhoods
         $neighcount = $neigh->count();
         return $neighcount;
     }
 
-       static function street()
+    static function street()
     {
         $street = Streetscape::all();
         //count streetscapes
         $streetcount = $street->count();
         return $streetcount;
     }
-
 
     public function deleteUser(Request $id)
     {
@@ -293,7 +295,6 @@ class GlobalController extends Controller
         $users_session = Session::all();
         return $users_session;
     }
-    
 
     static function getLegal()
     {
@@ -314,5 +315,4 @@ class GlobalController extends Controller
     {
         return view('work');
     }
-   
 }

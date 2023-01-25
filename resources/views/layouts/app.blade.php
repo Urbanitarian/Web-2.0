@@ -5,7 +5,7 @@
     @include('parts.head')
 </head>
 
-<body class="" data-barba="wrapper">
+<body class="">
    
         @include('parts.navbar')
     <main>
