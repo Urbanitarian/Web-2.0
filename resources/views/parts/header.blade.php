@@ -12,9 +12,9 @@
       </div>
 
       <div class="max-w-2xl mx-auto mt-8">
-        <form action="#" class="sm:flex sm:gap-4">
+        <form action="{{ route('filter') }}" method="get" class="sm:flex sm:gap-4">
           <div class="sm:flex-1">
-            <input type="text" placeholder="SEARCH"
+            <input type="text" placeholder="SEARCH" name="q"
               class="w-full p-3 text-gray-700 transition bg-gray-100 border-gray-200 rounded-md shadow-sm focus:border-white focus:outline-none focus:ring focus:ring-gray-400" />
           </div>
         </form>
@@ -29,43 +29,32 @@
           </label>
         </div>
 
-        <div>
-          <input type="radio" name="ColorOption0" value="ColorBlack" id="ColorBlack"
-            class="peer hidden [&:checked_+_label_svg]:block" checked />
+        <a href="filter?q=child-friendly">
           <label for="ColorBlack"
             class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:text-black hover:border-gray-200 ">
-            <p class="text-sm font-medium">child-friendly</p>
+            <p class="text-sm font-medium">Child-friendly</p>
           </label>
-        </div>
+        </a>
 
-        <div>
-          <input type="radio" name="ColorOption0" value="ColorRed" id="ColorRed"
-            class="peer hidden [&:checked_+_label_svg]:block" />
-
+         <a href="filter?q=wsud">
           <label for="ColorRed"
             class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:text-black hover:border-gray-200 ">
             <p class="text-sm font-medium">WSUD</p>
           </label>
-        </div>
+        </a>
 
-        <div>
-          <input type="radio" name="ColorOption0" value="ColorBlue" id="ColorBlue"
-            class="peer hidden [&:checked_+_label_svg]:block" />
-
+         <a href="filter?q=playful">
           <label for="ColorBlue"
             class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:text-black hover:border-gray-200 ">
             <p class="text-sm font-medium">Playful</p>
           </label>
-        </div>
+        </a>
 
-        <div>
-          <input type="radio" name="ColorOption0" value="ColorGold" id="ColorGold"
-            class="peer hidden [&:checked_+_label_svg]:block" />
-
+         <a href="filter?q=car-free">
           <label for="ColorGold"
             class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:text-black hover:border-gray-200 ">
             <p class="text-sm font-medium">car-free</p>
           </label>
-        </div>
+        </a>
       </fieldset>
   </section>

@@ -41,8 +41,16 @@ class GlobalController extends Controller
         $country = request()->input('country');
         $category = request()->input('category');
         $popular = request()->input('popular');
+        $q = request()->input('q');
 
-        if ($request->filled('tags')) { 
+
+
+        if ($request->filled('q')) { 
+            $masters = Masterplan::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
+            $streets = Streetscape::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
+            $neighbs = Neighbourhood::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
+        }
+        elseif ($request->filled('tags')) { 
             $masters = Masterplan::where('tags','like','%' . $tags . '%')->get();
             $streets = Streetscape::where('tags','like','%' . $tags . '%')->get();
             $neighbs = Neighbourhood::where('tags','like','%' . $tags . '%')->get();

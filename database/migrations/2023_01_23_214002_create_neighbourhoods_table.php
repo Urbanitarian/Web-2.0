@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('location')->default('40.50, 8.00');
             $table->string('status')->nullable();
             $table->string('size')->nullable();
-            $table->string('tags')->nullable();
+            $table->string('tags')->default('[\"Green\"]');
             $table->text('link')->nullable();
             $table->string('category')->default('Neighbourhoods');
             $table->text('address')->nullable();

@@ -43,7 +43,7 @@
 
       <a href="admin/login"
         class="relative flex max-w-[200px] px-5 py-4 my-2 text-center mt-2 font-bold text-white bg-black shadow-lg prevent lg:ml-8 group rounded-xl hover:bg-gray-800">
-        <span class="mx-8 text-sm">SUBMIT YOUR<br> PROJECT</span>
+        <span class="mx-8 text-xs xl:text-sm">SUBMIT YOUR<br> PROJECT</span>
       </a>
 
     </div>
