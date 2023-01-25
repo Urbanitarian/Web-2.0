@@ -189,8 +189,9 @@ class GlobalController extends Controller
     public function streetscapes_post(Request $request)
     {
         $id = $request->id;
+        $allstreetscapes = Streetscape::where('id', '!=', null)->limit(3)->inRandomOrder()->get();
         $streetscapes = Streetscape::where('id', '=', $id)->get();
-        return view('streetscapes_post', compact('streetscapes'));
+        return view('streetscapes_post', compact('streetscapes', 'allstreetscapes'));
     }
 
     public function masterplans()
