@@ -12,7 +12,7 @@
                                     @php $image0 =  $item->image[0] ?? null; @endphp
                                     <img class="object-cover w-full border"
                                         src="{{ asset('storage/' . $image0) }}"alt=""
-                                        onerror="this.src='./img/empty.png'" />
+                                        onerror="this.src='./img/empty.png'" onclick="window.open('{{ asset('storage/' . $image0) }}', 'Image', 'width=800,height=600')"/>
                                 </div>
                                 <div class="container mx-auto space-y-2 lg:space-y-0 lg:gap-2 lg:grid lg:grid-cols-3">
                                     @php
@@ -46,10 +46,6 @@
                                     <button
                                         class="px-3 py-1 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
                                         <a href="masterplans"> {{ $item->category }}</a>
-                                    </button>
-                                    <button
-                                        class="px-3 py-1 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
-                                        {{ $item->size }}
                                     </button>
                                     @foreach ($item->tags as $tag)
                                         <button
