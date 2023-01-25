@@ -116,7 +116,7 @@
 
                     @forelse ($neighbourhoods as $neighbourhood)
                          <li>
-                            <a href="./neighbourhoods_post" class="block overflow-hidden group">
+                            <a href="./neighbourhoods_post?id={{ $neighbourhood->id }}" class="block overflow-hidden group">
                                 <img src="{{ asset('storage/' . $neighbourhood->image[0]) }}"alt=""  onerror="this.src='./img/empty.png'"
                                     class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
 

@@ -196,9 +196,14 @@ class GlobalController extends Controller
         return view('neighbourhoods', compact('neighbourhoods'));
     }
 
-    public function neighbourhoods_post()
+    public function neighbourhoods_post(Request $request)
     {
-        return view('neighbourhoods_post');
+        $id = $request->id;
+        $neighbourhood = neighbourhood::where('id', '=', $id)->get();
+        $neighbourhoods = neighbourhood::where('id', '!=', null)->limit(4)
+            ->inRandomOrder()
+            ->get();
+        return view('neighbourhoods_post', compact('neighbourhood', 'neighbourhoods'));
     }
 
     public function streetscapes(Request $request)
