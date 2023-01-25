@@ -18,6 +18,14 @@
                     <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="{{ asset('storage/' . $streetscape->image[0]) }}"alt="00"  onerror="this.src='./img/empty.png'"/>
                      <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="{{ asset('storage/' . $streetscape->image[1]) }}"alt="00"  onerror="this.src='./img/empty.png'"/>
                      </div>
+                     <p class="my-4 text-sm text-gray-600">
+                            {{ $streetscape->created_at->format('M d Y') }}
+                     </p>
+                     <p class="my-4 text-sm text-gray-500 text-center">
+                            {{ $streetscape->description }}
+                     </p>
+
+
                 <button class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded md:mt-8 focus:outline-none hover:bg-gray-800"> <a href="{{ $streetscape->link }}">See project </a></button>
                 @endforeach
 

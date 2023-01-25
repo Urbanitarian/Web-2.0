@@ -38,7 +38,7 @@ return new class extends Migration
             $table->integer('civic')->nullable();
             $table->longText('description')->nullable();
             $table->string('credits')->nullable();
-            $table->string('location')->nullable();
+            $table->string('location')->default('40.50, 8.00');
             $table->string('status')->nullable();
             $table->string('size')->nullable();
             $table->string('tags')->nullable();
