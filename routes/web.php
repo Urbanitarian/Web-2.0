@@ -38,6 +38,7 @@ Route::get('neighbourhoods', 'neighbourhoods');
 Route::get('neighbourhoods/filter', 'neighbourhoods')->name('nfilter');
 Route::get('neighbourhoods_post/', 'neighbourhoods_post');
 Route::get('streetscapes', 'streetscapes');
+Route::get('streetscapes/filter', 'streetscapes')->name('sfilter');
 Route::get('streetscapes_post/', 'streetscapes_post');
 Route::get('masterplans', 'masterplans');
 Route::get('masterplans/filter', 'masterplans')->name('mfilter');

@@ -181,13 +181,15 @@ class GlobalController extends Controller
     {
         $q = request()->input('q');
         $size = request()->input('size');
+        $tags = request()->input('tags');
 
         if ($q) {
             $neighbourhoods = neighbourhood::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->paginate(8);
         } elseif ($size) {
             $neighbourhoods = neighbourhood::where('size', 'like', '%' . $size . '%')->paginate(8);
-        } else
-        {
+        } elseif ($tags) {
+            $neighbourhoods = neighbourhood::where('tags', 'like', '%' . $tags . '%')->paginate(8);
+        } else {
             $neighbourhoods = neighbourhood::paginate(8);
         }
 
@@ -199,9 +201,19 @@ class GlobalController extends Controller
         return view('neighbourhoods_post');
     }
 
-    public function streetscapes()
+    public function streetscapes(Request $request)
     {
-        $streetscapes = Streetscape::where('id', '!=', null)->paginate(5);
+        $q = request()->input('q');
+        $size = request()->input('size');
+
+        if ($q) {
+            $streetscapes = Streetscape::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->paginate(5);
+        } elseif ($size) {
+            $streetscapes = Streetscape::where('size', 'like', '%' . $size . '%')->paginate(5);
+        } else {
+            $streetscapes = Streetscape::paginate(5);
+        }
+
         return view('streetscapes', compact('streetscapes'));
     }
 

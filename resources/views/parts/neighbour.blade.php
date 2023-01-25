@@ -3,6 +3,7 @@
 @php
     $size = urldecode(request()->get('size'));
     $q = urldecode(request()->get('q'));
+    $tags = urldecode(request()->get('tags'));
 @endphp
         <div class="p-8 md:p-12 lg:px-12 lg:py-12">
             <div class="max-w-lg mx-auto text-center lg:max-w-xl">
@@ -27,42 +28,42 @@
             <fieldset class="flex flex-wrap justify-center gap-2 pt-8 mx-auto md:gap-4">
                 <a href="{{ route('nfilter') }}">
                     <label for="All0"
-                        class="{{ $q == '' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $tags == '' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">All</p>
                     </label>
                 </a>
 
-                 <a href="{{ route('nfilter') }}?q=child-friendly">
+                 <a href="{{ route('nfilter') }}?tags=child-friendly">
                     <label for="child"
-                        class="{{ $q == 'child-friendly' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $tags == 'child-friendly' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">Child-friendly</p>
                     </label>
                 </a>
 
-                 <a href="{{ route('nfilter') }}?q=green">
+                 <a href="{{ route('nfilter') }}?tags=green">
                     <label for="green"
-                        class="{{ $q == 'green' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $tags == 'green' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">Green</p>
                     </label>
                 </a>
 
-                 <a href="{{ route('nfilter') }}?q=climate-proof">
+                 <a href="{{ route('nfilter') }}?tags=climate-proof">
                     <label for="climate"
-                        class="{{ $q == 'climate-proof' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $tags == 'climate-proof' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">Climate-proof</p>
                     </label>
                 </a>
 
-                 <a href="{{ route('nfilter') }}?q=age-friendly">
+                 <a href="{{ route('nfilter') }}?tags=age-friendly">
                     <label for="age"
-                        class="{{ $q == 'age-friendly' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $tags == 'age-friendly' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">Age-friendly</p>
                     </label>
                 </a>
 
-                 <a href="{{ route('nfilter') }}?q=placemaking">
+                 <a href="{{ route('nfilter') }}?tags=placemaking">
                     <label for="placemaking"
-                        class="{{ $q == 'placemaking' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $tags == 'placemaking' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">Placemaking</p>
                     </label>
                 </a>
@@ -74,35 +75,35 @@
             <fieldset class="flex flex-wrap justify-center gap-2 pt-8 mx-auto md:gap-4">
                  <a href="{{ route('nfilter') }}">
                     <label for="All"
-                        class="{{ $q == '' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $size == '' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">All</p>
                     </label>
                 </a>
 
                 <a href="{{ route('nfilter') }}?size=large">
                     <label for="large"
-                        class="{{ $q == 'large' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $size == 'large' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">large</p>
                     </label>
                 </a>
 
                <a href="{{ route('nfilter') }}?size=medium">
                     <label for="medium"
-                        class="{{ $q == 'medium' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $size == 'medium' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">medium</p>
                     </label>
                 </a>
 
                 <a href="{{ route('nfilter') }}?size=small">
                     <label for="small"
-                        class="{{ $q == 'small' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $size == 'small' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">small</p>
                     </label>
                 </a>
 
                 <a href="{{ route('nfilter') }}?size=xs">
                     <label for="xs"
-                        class="{{ $q == 'xs' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $size == 'xs' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">xs</p>
                     </label>
               </a>

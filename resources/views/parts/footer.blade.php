@@ -8,7 +8,7 @@
 <div aria-label="Site Footer" class="border-t">
     <div class="max-w-5xl px-4 pt-16 pb-8 mx-auto sm:px-6 lg:px-8">
       <div class="flex justify-center text-teal-600">
-        <img src="./img/logo.png" alt="logo" class="w-12 h-12" />
+        <img src="{{ asset('img/logo.png') }}" alt="logo" class="w-12 h-12" />
       </div>
 
       <p class="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500">

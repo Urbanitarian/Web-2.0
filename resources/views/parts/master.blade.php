@@ -28,35 +28,35 @@
             <fieldset class="flex flex-wrap justify-center gap-2 pt-8 mx-auto md:gap-4">
                 <a href="{{ route('mfilter') }}">
                     <label for="All"
-                        class="{{ $q == '' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $size == '' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">All</p>
                     </label>
                  </a>
 
                  <a href="{{ route('mfilter') }}?size=large">
                     <label for="large"
-                        class="{{ $q == 'large' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $size == 'large' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">large</p>
                     </label>
                  </a>
 
                  <a href="{{ route('mfilter') }}?size=medium">
                     <label for="medium"
-                        class="{{ $q == 'medium' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $size == 'medium' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">medium</p>
                     </label>
                  </a>
 
                  <a href="{{ route('mfilter') }}?size=small">
                     <label for="small"
-                        class="{{ $q == 'small' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $size == 'small' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">small</p>
                     </label>
                  </a>
 
                  <a href="{{ route('mfilter') }}?size=xs">
                     <label for="xs"
-                        class="{{ $q == 'xs' ? 'bg-gray-400 text-white' : '' }} flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                        class="{{ $size == 'xs' ? 'bg-gray-400 text-white' : 'text-gray-900' }} flex items-center justify-center px-3 py-2 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                         <p class="text-sm font-medium">xs</p>
                     </label>
                  </a>
