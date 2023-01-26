@@ -9,9 +9,21 @@ use App\Models\Neighbourhood;
 class NeighbourhoodsController extends Controller
 {
   
-    public function index() 
+    public function index(Request $request) 
     { 
-        $neighbourhoods = neighbourhood::all();
+        $q = request()->input('q');
+        $tags = request()->input('tags');
+        $size = request()->input('size');
+
+        if ($q) { 
+            $neighbourhoods = Neighbourhood::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
+        }elseif ($tags) {
+            $neighbourhoods = Neighbourhood::where('tags','like','%' . $tags . '%')->get();
+        }elseif ($size) {
+            $neighbourhoods = Neighbourhood::where('size','like','%' . $size . '%')->get();
+        } else {
+            $neighbourhoods = Neighbourhood::all();
+        }
         return response()->json($neighbourhoods);
     }
 
