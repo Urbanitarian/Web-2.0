@@ -3,8 +3,9 @@
 use App\Http\Controllers\API\DataController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\ScoresController;
-use App\Http\Controllers\API\PartiesController;
+use App\Http\Controllers\API\NeighbourhoodsController;
+use App\Http\Controllers\API\MasterplansController;
+use App\Http\Controllers\API\StreetscapesController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,5 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource("data", DataController::class); // Les routes "users.*" de l'API
+Route::apiResource("data", DataController::class);
 
+Route::apiResource("neighbourhoods", NeighbourhoodsController::class); 
+
+Route::apiResource("masterplans", MasterplansController::class);
+
+Route::apiResource("streetscapes", StreetscapesController::class);

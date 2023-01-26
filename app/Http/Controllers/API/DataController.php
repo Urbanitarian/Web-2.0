@@ -12,21 +12,15 @@ class DataController extends Controller
 {
     public function index() 
     { 
-
-
-
-        $users = Masterplan::all();
-        return response()->json($users);
+        $masters = Masterplan::all();
+        $streets = Streetscape::all();
+        $neighbs = Neighbourhood::all();
+        $all_data = array_merge(
+        $masters->toArray(),
+        $streets->toArray(),
+        $neighbs->toArray()
+    );
+        return response()->json($all_data);
     }
-
-    public function store(Request $request) 
-    {
-
-     }
-
-    public function show(Data $data)
-     {
-
-     }
 
 }
