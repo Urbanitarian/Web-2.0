@@ -42,7 +42,7 @@ Route::get('streetscapes/filter', 'streetscapes')->name('sfilter');
 Route::get('streetscapes_post/', 'streetscapes_post');
 Route::get('masterplans', 'masterplans');
 Route::get('masterplans/filter', 'masterplans')->name('mfilter');
-Route::get('masterplans_post/', 'masterplans_post');
+Route::get('masterplans_post/', 'masterplans_post')->name('masterplans_post');
 
 
 Route::post('import', 'import');
