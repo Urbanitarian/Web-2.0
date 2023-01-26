@@ -199,11 +199,11 @@ class GlobalController extends Controller
     public function neighbourhoods_post(Request $request)
     {
         $id = $request->id;
-        $neighbourhood = neighbourhood::where('id', '=', $id)->get();
+        $neighbourhood = neighbourhood::all();
         $neighbourhoods = neighbourhood::where('id', '!=', null)->limit(4)
             ->inRandomOrder()
             ->get();
-        return view('neighbourhoods_post', compact('neighbourhood', 'neighbourhoods'));
+        return view('neighbourhoods_post', compact('neighbourhood', 'neighbourhoods', 'id'));
     }
 
     public function streetscapes(Request $request)
@@ -226,8 +226,8 @@ class GlobalController extends Controller
     {
         $id = $request->id;
         $allstreetscapes = Streetscape::where('id', '!=', null)->limit(3)->inRandomOrder()->get();
-        $streetscapes = Streetscape::where('id', '=', $id)->get();
-        return view('streetscapes_post', compact('streetscapes', 'allstreetscapes'));
+        $streetscapes = Streetscape::all();
+        return view('streetscapes_post', compact('streetscapes', 'allstreetscapes', 'id'));
     }
 
     public function masterplans(Request $request)
@@ -280,12 +280,12 @@ class GlobalController extends Controller
     public function dictionaries_post(Request $request)
     {
         $id = $request->id;
-        $dictionaries = Dictionary::where('id', '=', $id)->get();
+        $dictionaries = Dictionary::all();
         $dictionary = Dictionary::where('id', '!=', null)
             ->inRandomOrder()
             ->limit(5)
             ->get();
-        return view('dictionaries_post', compact('dictionaries', 'dictionary'));
+        return view('dictionaries_post', compact('dictionaries', 'dictionary', 'id'));
     }
 
     public function import(Request $request)

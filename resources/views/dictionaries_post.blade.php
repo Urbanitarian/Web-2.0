@@ -4,7 +4,7 @@
 @section('main')
 <div data-barba="container">
      <div class="mx-auto max-w-[1440px]">
-            @forelse ($dictionaries as $item)
+            @forelse ($dictionaries->where('id', $id) as $item)
                 <section>
                     <div class="relative px-4 py-8 mx-8 my-8">
                         <div class="grid items-start grid-cols-1 gap-8 lg:grid-cols-2">
@@ -16,7 +16,7 @@
                                         onerror="this.src='./img/empty.png'" onclick="window.open('{{ asset('storage/' . $item->image) }}', 'Image', 'width=800,height=600')"/>
                                 </div>
                             </div>
-                            <div class="sticky top-0 mx-auto w-full">
+                            <div class="sticky top-0 w-full mx-auto">
                                 <div class="flex justify-between">
                                     <h1 class="text-2xl font-bold">
                                         {{ $item->name }}
@@ -37,7 +37,21 @@
                                 </fieldset>
                             </div>
                         </div>
-
+ <div class="flex justify-between pt-8 ">
+                                   @php
+                                       // next id and previous id from masterplans table
+                                       $next_id = $dictionaries->where('id', '>', $item->id)->min('id');
+                                       $prev_id = $dictionaries->where('id', '<', $item->id)->max('id');
+                                   @endphp
+                                   <a href="{{ route('dictionaries_post', 'id=' . $prev_id) }}"
+                                       class="px-4 py-2 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border rounded-lg active:bg-gray-600 hover:bg-gray-400 hover:text-white focus:outline-none focus:shadow-outline-gray">
+                                       Previous
+                                   </a>
+                                   <a href="{{ route('dictionaries_post', 'id=' . $next_id) }}"
+                                       class="px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border rounded-lg active:bg-gray-600 hover:text-white hover:bg-gray-400 focus:outline-none focus:shadow-outline-gray">
+                                       Next
+                                   </a>
+                               </div>
                     </div>
                 </section>
             @empty
@@ -55,7 +69,7 @@
             @endforelse
             <section>
         </div>
-        <section class="py-16 mx-4 mb-4 md:mx-16 border-t">
+        <section class="py-16 mx-4 mb-4 border-t md:mx-16">
 
     <div class="w-full">
         <h1 class="pb-8 text-2xl font-bold text-center text-gray-900 md:text-4xl">See more Dictionary</h1>

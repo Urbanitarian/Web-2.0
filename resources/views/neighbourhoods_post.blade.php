@@ -3,7 +3,7 @@
 @section('main')
     <div data-barba="container">
         <div class="mx-auto max-w-[1440px]">
-            @forelse ($neighbourhood as $item)
+            @forelse ($neighbourhood->where('id', $id) as $item)
                 <section>
                     <div class="relative px-4 py-8 mx-8 my-8">
                         <div class="grid items-start grid-cols-1 gap-8 lg:grid-cols-2">
@@ -21,7 +21,7 @@
                                         array_shift($imgarray);
                                     @endphp
                                     @foreach ($imgarray as $image)
-                                        <div class="w-1/3 lg:w-full rounded hover:shadow-2xl">
+                                        <div class="w-1/3 rounded lg:w-full hover:shadow-2xl">
                                             <img src="{{ asset('storage/' . $image) }}" class="object-cover h-full"
                                                 alt="" onerror="this.src='./img/empty.png'"
                                                 onclick="window.open('{{ asset('storage/' . $image) }}', 'Image', 'width=800,height=600')" />
@@ -31,7 +31,7 @@
 
                                 </div>
                             </div>
-                            <div class="sticky top-0 mx-auto w-full">
+                            <div class="sticky top-0 w-full mx-auto">
                                 <div class="flex justify-between pb-8">
                                     <h1 class="text-2xl font-bold">
                                         {{ $item->title }} | {{ $item->city }}
@@ -99,7 +99,21 @@
                                 </div>
                             </div>
                         </div>
-
+                                <div class="flex justify-between pt-8 ">
+                                   @php
+                                       // next id and previous id from masterplans table
+                                       $next_id = $neighbourhood->where('id', '>', $item->id)->min('id');
+                                       $prev_id = $neighbourhood->where('id', '<', $item->id)->max('id');
+                                   @endphp
+                                   <a href="{{ route('neighbourhoods_post', 'id=' . $prev_id) }}"
+                                       class="px-4 py-2 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border rounded-lg active:bg-gray-600 hover:bg-gray-400 hover:text-white focus:outline-none focus:shadow-outline-gray">
+                                       Previous
+                                   </a>
+                                   <a href="{{ route('neighbourhoods_post', 'id=' . $next_id) }}"
+                                       class="px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border rounded-lg active:bg-gray-600 hover:text-white hover:bg-gray-400 focus:outline-none focus:shadow-outline-gray">
+                                       Next
+                                   </a>
+                               </div>
                     </div>
                 </section>
             @empty
@@ -129,7 +143,7 @@
                         <div class="flex flex-wrap -m-4">
 
                             @forelse ($neighbourhoods as $neigh)
-                                <div class="p-4 xl:w-1/4 md:w-1/2 w-full">
+                                <div class="w-full p-4 xl:w-1/4 md:w-1/2">
                                     <a href="neighbourhoods_post?id={{ $neigh->id }}">
                                         <div
                                             class="p-4 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
