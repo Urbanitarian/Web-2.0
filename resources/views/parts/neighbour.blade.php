@@ -13,7 +13,7 @@
         <div class="max-w-2xl mx-auto mt-8">
             <div action=" " class="sm:flex sm:gap-4">
                 <div class="sm:flex-1">
-                    <input type="text" placeholder="SEARCH" name="q" value=""
+                    <input id="searchbar" type="text" placeholder="SEARCH" name="q" value=""
                         class="w-full p-3 text-gray-700 transition bg-gray-100 border-gray-200 rounded-md shadow-sm focus:border-white focus:outline-none focus:ring focus:ring-gray-400" />
                 </div>
             </div>
@@ -435,6 +435,35 @@
     $('#Xs').click(function() {
          url = "api/neighbourhoods?size=Xs";
         $('#boucle').empty();
+        fetch(url)
+            .then((res) => res.json())
+            .then((out) => {
+                const text = JSON.stringify(out);
+                const obj = JSON.parse(text);
+                let textFromJSON = obj;
+
+                $.each(textFromJSON, function(i, item) {
+                    let html = `
+                   <div>
+                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
+                   <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
+                   <div class="relative pt-3 bg-gray-100">
+                   <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
+                   <p class="my-1">
+                   <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
+                   </p>
+                   </div>
+                   </a>
+                   </div>`;
+                   $('#boucle').append(html);
+                });
+            })
+    });
+
+     $('#searchbar').keyup(function() {
+        console.log($('#searchbar').val());
+         url = "api/neighbourhoods?q=" + $('#searchbar').val();
+      $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
             .then((out) => {
