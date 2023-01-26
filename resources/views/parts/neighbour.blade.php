@@ -11,16 +11,16 @@
         </div>
 
         <div class="max-w-2xl mx-auto mt-8">
-            <form action=" " class="sm:flex sm:gap-4">
+            <div action=" " class="sm:flex sm:gap-4">
                 <div class="sm:flex-1">
                     <input type="text" placeholder="SEARCH" name="q" value=""
                         class="w-full p-3 text-gray-700 transition bg-gray-100 border-gray-200 rounded-md shadow-sm focus:border-white focus:outline-none focus:ring focus:ring-gray-400" />
                 </div>
-            </form>
+            </div>
         </div>
 
         <fieldset class="flex flex-wrap justify-center gap-2 pt-8 mx-auto md:gap-4">
-            <button value="All" onclick="filter(this.value)">
+            <button id="all">
                 <label for="All"
                     class="text-gray-900 flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                     <p class="text-sm font-medium">All</p>
@@ -106,7 +106,7 @@
 
         <section>
             <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
-                <ul id="boucle" class="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-4">
+                <ul id="boucle" class="grid gap-4 mt-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
                 </ul>
             </div>
@@ -122,7 +122,34 @@
 <script>
  url = "http://127.0.0.1:8000/api/neighbourhoods";
 
-    $(document).ready(function() {
+  $(document).ready(function() {
+        fetch(url)
+            .then((res) => res.json())
+            .then((out) => {
+                const text = JSON.stringify(out);
+                const obj = JSON.parse(text);
+                let textFromJSON = obj;
+
+                $.each(textFromJSON, function(i, item) {
+                    let html = `
+                   <div>
+                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden group shadow-lg bg-gray-100">
+                   <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
+                   <div class="relative pt-3 bg-gray-100">
+                   <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
+                   <p class="my-1">
+                   <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
+                   </p>
+                   </div>
+                   </a>
+                   </div>`;
+                   $('#boucle').append(html);
+                });
+            })
+    });
+
+ $('#all').click(function() {
+      $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
             .then((out) => {
