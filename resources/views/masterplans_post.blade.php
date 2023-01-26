@@ -12,7 +12,7 @@
                                        @php $image0 =  $item->image[0] ?? null; @endphp
                                        <img class="object-cover w-full border" src="{{ asset('storage/' . $image0) }}"alt=""  onerror="this.src='./img/empty.png'"/>
                                    </div>
-                                   <div class="container mx-auto space-y-2 lg:space-y-0 lg:gap-2 lg:grid lg:grid-cols-3">
+                                   <div class="container grid grid-cols-2 gap-2 pt-16 mx-auto space-y-2 md:pt-32 lg:grid-cols-3">
                                    @php
                                    $imgarray = $item->image;
                                    //skip first element
@@ -55,54 +55,55 @@
                                        @endforeach
                                    </div>
                                    <div class="flex space-x-8">
+                                       <div class="flex w-1/2">
                                        <div class="flex flex-col w-1/2 text-sm">
                                            <div class="flex py-4 border-t border-gray-200">
-                                               <span class="text-gray-500"> Author: </span>
+                                               <span class="pr-2 text-gray-500"> Author: </span>
                                                <span class="ml-auto text-gray-900"> {{ $item->author }}</span>
                                            </div>
                                            <div class="flex py-4 border-t border-gray-200">
-                                               <span class="text-gray-500">City:</span>
+                                               <span class="pr-2 text-gray-500">City:</span>
                                                <span class="ml-auto text-gray-900"> {{ $item->city }}</span>
                                            </div>
                                            <div class="flex py-4 border-t border-gray-200">
-                                               <span class="text-gray-500"> Country:</span>
+                                               <span class="pr-2 text-gray-500"> Country:</span>
                                                <span class="ml-auto text-gray-900">{{ $item->country }}</span>
                                            </div>
 
                                            <div class="flex py-4 border-t border-gray-200">
-                                               <span class="text-gray-500"> Year:</span>
+                                               <span class="pr-2 text-gray-500"> Year:</span>
                                                <span class="ml-auto text-gray-900">{{ $item->year }}</span>
                                            </div>
 
                                            <div class="flex py-4 mb-6 border-t border-b border-gray-200">
-                                               <span class="text-gray-500">Program: </span>
+                                               <span class="pr-2 text-gray-500">Program: </span>
                                                <span class="ml-auto text-gray-900"> {{ $item->program }}</span>
                                            </div>
                                        </div>
-
+ </div>
 
 
                                        <div class="flex flex-col w-1/2 text-sm">
                                            <div class="flex pt-2 pb-1 border-t border-gray-200">
-                                               <span class="text-gray-500"> Site area: </span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->area }}<i
-                                                       class="text-xs text-gray-500"> sqm</i></span>
+                                               <span class="text-base "> Site area: </span>
+                                               <span class="ml-auto text-base "> {{ $item->area }}<i
+                                                       class="text-base text-gray-500"> sqm</i></span>
                                            </div>
                                            <div class="flex py-1 border-gray-200">
-                                               <span class="text-gray-500">Gfa:</span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->gfa }}<i
-                                                       class="text-xs text-gray-500"> sqm</i></span>
+                                               <span class="text-base ">Gfa:</span>
+                                               <span class="ml-auto text-base text-gray-900"> {{ $item->gfa }}<i
+                                                       class="text-base text-gray-500 "> sqm</i></span>
                                            </div>
                                            <div class="flex py-1 border-gray-200">
-                                               <span class="text-gray-500"> Density:</span>
-                                               <span class="ml-auto text-gray-900">{{ $item->density }}<i
-                                                       class="text-xs text-gray-500"> far</i></span>
+                                               <span class="text-basetext-gray-500"> Density:</span>
+                                               <span class="ml-auto text-base text-gray-900">{{ $item->density }}<i
+                                                       class="text-base text-gray-500"> far</i></span>
                                            </div>
 
                                            <div class="flex py-1 border-gray-200">
-                                               <span class="overflow-x-hidden text-gray-500"> Population density:</span>
-                                               <span class="ml-auto text-gray-900">{{ $item->popdensity }}<i
-                                                       class="text-xs text-gray-500"> inh/ha</i></span>
+                                               <span class="overflow-x-hidden text-base "> Population density:</span>
+                                               <span class="ml-auto text-base text-gray-900">{{ $item->popdensity }}<i
+                                                       class="text-base text-gray-500 "> inh/ha</i></span>
                                            </div>
 
                                            <div class="flex py-1 border-gray-200">
@@ -317,9 +318,9 @@
            decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
            decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
 
-           let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1]], 15);
+           let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1]], 8);
            osmLayer = L.tileLayer(
-               'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               'https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
                    maxZoom: 19,
                    apikey: 'choisirgeoportail',
                    format: 'image/jpeg',

@@ -22,42 +22,42 @@
         <fieldset class="flex flex-wrap justify-center gap-2 pt-8 mx-auto md:gap-4">
             <button id="all">
                 <label for="All"
-                    class="text-gray-900 flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                     <p class="text-sm font-medium">All</p>
                 </label>
             </button>
 
             <button id="child">
                 <label for="child"
-                    class=" text-gray-900 flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                     <p class="text-sm font-medium">Child-friendly</p>
                 </label>
             </button>
 
             <button id="green">
                 <label for="green"
-                    class=" text-gray-900 flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                     <p class="text-sm font-medium">Green</p>
                 </label>
             </button>
 
             <button id="climate">
                 <label for="climate"
-                    class="text-gray-900 flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                     <p class="text-sm font-medium">Climate-proof</p>
                 </label>
             </button>
 
             <button id="age">
                 <label for="age"
-                    class="text-gray-900 flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                     <p class="text-sm font-medium">Age-friendly</p>
                 </label>
             </button>
 
             <button id="placemaking">
                 <label for="placemaking"
-                    class="text-gray-900 flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                     <p class="text-sm font-medium">Placemaking</p>
                 </label>
             </button>
@@ -69,35 +69,35 @@
         <fieldset class="flex flex-wrap justify-center gap-2 pt-8 mx-auto md:gap-4">
             <button id="Allsize">
                 <label for="Allsize"
-                    class="text-gray-900 flex items-center justify-center px-3 py-2 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                     <p class="text-sm font-medium">All size</p>
                 </label>
             </button>
 
             <button id="Large">
                 <label for="large"
-                    class=" text-gray-900  flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                     <p class="text-sm font-medium">large</p>
                 </label>
             </button>
 
             <button id="Medium">
                 <label for="medium"
-                    class=" text-gray-900  flex items-center justify-center px-3 py-2 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                     <p class="text-sm font-medium">medium</p>
                 </label>
             </button>
 
             <button id="Small">
                 <label for="small"
-                    class=" text-gray-900  flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                     <p class="text-sm font-medium">small</p>
                 </label>
             </button>
 
             <button id="Xs">
                 <label for="xs"
-                    class=" text-gray-900  flex items-center justify-center px-3 py-2  border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                     <p class="text-sm font-medium">xs</p>
                 </label>
             </button>
@@ -123,7 +123,7 @@
 
 
   $(document).ready(function() {
-     url = "http://127.0.0.1:8000/api/neighbourhoods";
+     url = "api/neighbourhoods";
         fetch(url)
             .then((res) => res.json())
             .then((out) => {
@@ -134,7 +134,7 @@
                 $.each(textFromJSON, function(i, item) {
                     let html = `
                    <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden group shadow-lg bg-gray-100">
+                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
@@ -150,7 +150,7 @@
     });
 
  $('#all').click(function() {
-     url = "http://127.0.0.1:8000/api/neighbourhoods";
+     url = "api/neighbourhoods";
        //empty the div with fade out
          $('#boucle').empty();
         fetch(url)
@@ -163,7 +163,7 @@
                 $.each(textFromJSON, function(i, item) {
                     let html = `
                    <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden group shadow-lg bg-gray-100">
+                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
@@ -179,7 +179,7 @@
     });
 
     $('#child').click(function() {
-         url = "http://127.0.0.1:8000/api/neighbourhoods?tags=child";
+         url = "api/neighbourhoods?tags=child";
       $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
@@ -191,7 +191,7 @@
                 $.each(textFromJSON, function(i, item) {
                     let html = `
                    <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden group shadow-lg bg-gray-100">
+                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
@@ -207,7 +207,7 @@
     });
 
     $('#green').click(function() {
-         url = "http://127.0.0.1:8000/api/neighbourhoods?tags=green";
+         url = "api/neighbourhoods?tags=green";
         $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
@@ -220,7 +220,7 @@
                     let html = `
 
                    <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden group shadow-lg bg-gray-100">
+                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
@@ -236,7 +236,7 @@
     });
 
     $('#climate').click(function() {
-              url = "http://127.0.0.1:8000/api/neighbourhoods?tags=climate";
+              url = "api/neighbourhoods?tags=climate";
         $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
@@ -248,7 +248,7 @@
                 $.each(textFromJSON, function(i, item) {
                     let html = `
                    <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden group shadow-lg bg-gray-100">
+                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
@@ -264,7 +264,7 @@
     });
 
     $('#age').click(function() {
-             url = "http://127.0.0.1:8000/api/neighbourhoods?tags=age";
+             url = "api/neighbourhoods?tags=age";
         $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
@@ -276,7 +276,7 @@
                 $.each(textFromJSON, function(i, item) {
                     let html = `
                    <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden group shadow-lg bg-gray-100">
+                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
@@ -292,7 +292,7 @@
     });
 
     $('#placemaking').click(function() {
-                 url = "http://127.0.0.1:8000/api/neighbourhoods?tags=placemaking";
+                 url = "api/neighbourhoods?tags=placemaking";
              $('#boucle').empty();
              fetch(url)
                  .then((res) => res.json())
@@ -304,7 +304,7 @@
                      $.each(textFromJSON, function(i, item) {
                          let html = `
                         <div>
-                        <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden group shadow-lg bg-gray-100">
+                        <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                         <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                         <div class="relative pt-3 bg-gray-100">
                         <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
@@ -321,7 +321,7 @@
 
 
     $('#Allsize').click(function() {
-         url = "http://127.0.0.1:8000/api/neighbourhoods";
+         url = "api/neighbourhoods";
         $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
@@ -333,7 +333,7 @@
                 $.each(textFromJSON, function(i, item) {
                     let html = `
                    <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden group shadow-lg bg-gray-100">
+                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
@@ -349,7 +349,7 @@
     });
 
     $('#Small').click(function() {
-         url = "http://127.0.0.1:8000/api/neighbourhoods?size=Small";
+         url = "api/neighbourhoods?size=Small";
         $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
@@ -361,7 +361,7 @@
                 $.each(textFromJSON, function(i, item) {
                     let html = `
                    <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden group shadow-lg bg-gray-100">
+                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
@@ -377,7 +377,7 @@
     });
 
     $('#Medium').click(function() {
-         url = "http://127.0.0.1:8000/api/neighbourhoods?size=Medium";
+         url = "api/neighbourhoods?size=Medium";
         $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
@@ -389,7 +389,7 @@
                 $.each(textFromJSON, function(i, item) {
                     let html = `
                    <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden group shadow-lg bg-gray-100">
+                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
@@ -405,7 +405,7 @@
     });
 
     $('#Large').click(function() {
-         url = "http://127.0.0.1:8000/api/neighbourhoods?size=Large";
+         url = "api/neighbourhoods?size=Large";
         $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
@@ -417,7 +417,7 @@
                 $.each(textFromJSON, function(i, item) {
                     let html = `
                    <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden group shadow-lg bg-gray-100">
+                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
@@ -433,7 +433,7 @@
     });
 
     $('#Xs').click(function() {
-         url = "http://127.0.0.1:8000/api/neighbourhoods?size=Xs";
+         url = "api/neighbourhoods?size=Xs";
         $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
@@ -445,7 +445,7 @@
                 $.each(textFromJSON, function(i, item) {
                     let html = `
                    <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden group shadow-lg bg-gray-100">
+                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
                    <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
