@@ -14,7 +14,7 @@
         <div class="flex flex-wrap -m-4">
 
 @forelse ($neighbourhoods as $neighbourhood)
-      <div class="p-4 xl:w-1/4 md:w-1/2">
+      <div class="p-4 mx-auto xl:w-1/4 md:w-1/2">
                 <a href="neighbourhoods_post?id={{ $neighbourhood->id }}">
                     <div class="p-4 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
                         <img class="object-cover object-center w-full h-40 mb-3" src="{{ asset('storage/' . $neighbourhood->image[0]) }}"alt=""  onerror="this.src='./img/empty.png'"/>

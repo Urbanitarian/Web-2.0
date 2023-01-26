@@ -369,6 +369,12 @@ class GlobalController extends Controller
         return view('legal');
     }
 
+    
+    static function association()
+    {
+        return view('association');
+    }
+
     static function getConf()
     {
         return view('confidentialite');

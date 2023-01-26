@@ -10,7 +10,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+   image-rendering: crisp-edges;
 }
 
 body{
@@ -35,4 +35,3 @@ img{
 [v-cloak] {
   display: none;
 }
-

@@ -9,8 +9,8 @@
     $category = urldecode(request()->get('category'));
 @endphp
 
-<form id="mysearch" class="pt-4 pb-8 mx-2 bg-white md:mx-16" method="get"  action="{{ route('filter') }}#mysearch">
-<button type="submit"></button>
+<form id="mysearch" class="pt-4 pb-8 mx-2 bg-white md:mx-16" method="get" action="{{ route('filter') }}#mysearch">
+    <button type="submit"></button>
     <div class="flex flex-wrap justify-between py-4 mx-4 md:mx-0">
         <div class="pb-4 md:pb-0">
             <select name="popular" onchange="this.form.submit();"
@@ -32,17 +32,25 @@
 
 
         <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category">
-            <button name="category" value="All" >
-                <p class="text-sm font-medium px-4 py-2 border rounded {{ $category == '' ? 'bg-gray-400 text-white' : '' }} {{ $category == 'All' ? 'bg-gray-400 text-white' : '' }}">All</p>
+            <button name="category" value="All">
+                <p
+                    class="text-sm font-medium px-4 py-2 border rounded {{ $category == '' ? 'bg-gray-400 text-white' : '' }} {{ $category == 'All' ? 'bg-gray-400 text-white' : '' }}">
+                    All</p>
             </button>
-             <button name="category" value="Masterplans">
-                <p class="text-sm font-medium px-4 py-2 border rounded {{ $category == 'Masterplans' ? 'bg-gray-400 text-white' : '' }} ">Masterplans</p>
+            <button name="category" value="Masterplans">
+                <p
+                    class="text-sm font-medium px-4 py-2 border rounded {{ $category == 'Masterplans' ? 'bg-gray-400 text-white' : '' }} ">
+                    Masterplans</p>
             </button>
-             <button name="category" value="Streetscapes">
-                <p class="text-sm font-medium px-4 py-2 border rounded {{ $category == 'Streetscapes' ? 'bg-gray-400 text-white' : '' }} ">Streetscapes</p>
+            <button name="category" value="Streetscapes">
+                <p
+                    class="text-sm font-medium px-4 py-2 border rounded {{ $category == 'Streetscapes' ? 'bg-gray-400 text-white' : '' }} ">
+                    Streetscapes</p>
             </button>
-             <button name="category" value="Neighbourhoods">
-                <p class="text-sm font-medium px-4 py-2 border rounded {{ $category == 'Neighbourhoods' ? 'bg-gray-400 text-white' : '' }} ">Neighbourhoods</p>
+            <button name="category" value="Neighbourhoods">
+                <p
+                    class="text-sm font-medium px-4 py-2 border rounded {{ $category == 'Neighbourhoods' ? 'bg-gray-400 text-white' : '' }} ">
+                    Neighbourhoods</p>
             </button>
         </fieldset>
 
@@ -143,83 +151,83 @@
     </div>
 </form>
 <div data-barba="container">
-<section class="block pb-16 mx-4 md:mx-16 tabset">
+    <section class="block pb-16 mx-4 md:mx-16 tabset">
 
-    <div class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5 ">
+        <div class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5 ">
 
-        {{-- @dd($all_data); --}}
+            {{-- @dd($all_data); --}}
 
-        @forelse ($units as $data)
+            @forelse ($units as $data)
 
-            @if ($data['category'] == 'Streetscapes')
-                <div
-                    class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-                    <a href="streetscapes_post?id={{ $data['id'] }}" class="flex flex-col h-full">
-                        <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
-                            onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                        <div class="p-2">
-                            <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">
-                                {{ $data['title'] }} | {{ $data['author'] }} | {{ $data['city'] }}</h3>
-                            <p class="pb-2 mt-2 text-xs text-center text-gray-700 md:text-sm">
-                                {{ $data['category'] }} &nbsp;
-                                @foreach ($data['tags'] as $tag)
-                                    {{ $tag }} &nbsp;
-                                @endforeach
-                            </p>
+                @if ($data['category'] == 'Streetscapes')
+                    <div
+                        class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                        <a href="streetscapes_post?id={{ $data['id'] }}" class="flex flex-col h-full">
+                            <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
+                                onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
+                            <div class="p-2">
+                                <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">
+                                    {{ $data['title'] }} | {{ $data['author'] }} | {{ $data['city'] }}</h3>
+                                <p class="pb-2 mt-2 text-xs text-center text-gray-700 md:text-sm">
+                                    {{ $data['category'] }} &nbsp;
+                                    @foreach ($data['tags'] as $tag)
+                                        {{ $tag }} &nbsp;
+                                    @endforeach
+                                </p>
 
-                        </div>
-                    </a>
-                </div>
-            @elseif ($data['category'] == 'Neighbourhoods')
-                <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-                    <a href="neighbourhoods_post?id={{ $data['id'] }}" class="flex flex-col h-full">
-                        <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
-                            onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                        <div class="p-2">
-                            <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">
-                                {{ $data['title'] }} | {{ $data['city'] }}</h3>
-                            <p class="max-w-sm pb-2 mt-2 text-xs text-center text-gray-700 md:text-sm">
-                                {{ $data['category'] }} &nbsp;
-                                @foreach ($data['tags'] as $tag)
-                                    {{ $tag }} &nbsp;
-                                @endforeach
-                            </p>
-
-                        </div>
-                    </a>
-                </div>
-            @else
-                <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-                    <a href="masterplans_post?id={{ $data['id'] }}" class="flex flex-col h-full">
-                        <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
-                            onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                        <div class="p-2">
-                            <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">
-                                {{ $data['title'] }} | {{ $data['author'] }} | {{ $data['city'] }}</h3>
-                            <p class="max-w-sm pb-2 mt-2 text-xs text-center text-gray-700 md:text-sm">
-                                {{ $data['category'] }} &nbsp;
-                                @foreach ($data['tags'] as $tag)
-                                    {{ $tag }} &nbsp;
-                                @endforeach
-                            </p>
-
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-        @empty
-            <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-                <a href="#" class="flex flex-col h-full">
-                    <img alt="Art" src="./img/empty.png" class="object-cover h-full max-h-[480px]" />
-                    <div class="p-2">
-                        <h3 class="mt-4 font-bold text-gray-900 md:text-xl">No results</h3>
-                        <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
-                        </p>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-        @endforelse
+                @elseif ($data['category'] == 'Neighbourhoods')
+                    <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                        <a href="neighbourhoods_post?id={{ $data['id'] }}" class="flex flex-col h-full">
+                            <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
+                                onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
+                            <div class="p-2">
+                                <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">
+                                    {{ $data['title'] }} | {{ $data['city'] }}</h3>
+                                <p class="max-w-sm pb-2 mt-2 text-xs text-center text-gray-700 md:text-sm">
+                                    {{ $data['category'] }} &nbsp;
+                                    @foreach ($data['tags'] as $tag)
+                                        {{ $tag }} &nbsp;
+                                    @endforeach
+                                </p>
+
+                            </div>
+                        </a>
+                    </div>
+                @else
+                    <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                        <a href="masterplans_post?id={{ $data['id'] }}" class="flex flex-col h-full">
+                            <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
+                                onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
+                            <div class="p-2">
+                                <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">
+                                    {{ $data['title'] }} | {{ $data['author'] }} | {{ $data['city'] }}</h3>
+                                <p class="max-w-sm pb-2 mt-2 text-xs text-center text-gray-700 md:text-sm">
+                                    {{ $data['category'] }} &nbsp;
+                                    @foreach ($data['tags'] as $tag)
+                                        {{ $tag }} &nbsp;
+                                    @endforeach
+                                </p>
+
+                            </div>
+                        </a>
+                    </div>
+                @endif
+
+            @empty
+                <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                    <a href="#" class="flex flex-col h-full">
+                        <img alt="Art" src="./img/empty.png" class="object-cover h-full max-h-[480px]" />
+                        <div class="p-2">
+                            <h3 class="mt-4 font-bold text-gray-900 md:text-xl">No results</h3>
+                            <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            @endforelse
 
 
 
@@ -227,15 +235,15 @@
 
 
 
-    </div>
+        </div>
 
 
-    <div class="flex justify-center pt-8">
-        {{ $units->appends(Request::all())->links('pagination::tailwind') }}
-    </div>
+        <div class="flex justify-center pt-8">
+            {{ $units->appends(Request::all())->links('pagination::tailwind') }}
+        </div>
 
-</section>
- </div>
+    </section>
+</div>
 @include('parts.streetscapes')
 @include('parts.masterplans')
 @include('parts.neighbourhoods')
@@ -250,31 +258,48 @@
     </div>
 </section>
 
-@include('parts.dictionary')
-@include('parts.webresources')
+<section class="mx-4 mb-16 border-b">
+    <div class=" mb-16 mx-auto bg-neutral-100 h-[250px] max-w-[1180px]">
+        <div class="px-5 py-12 mx-auto lg:px-16">
+            <div class="flex flex-col w-full mb-8 text-center">
+                <span class="mb-4 text-sm font-medium tracking-wide text-gray-500 uppercase">
+                    Ads super hero dummy place.
+                </span>
+            </div>
+            <div class="mx-auto text-center">
+                <div class="grid grid-cols-5 gap-4 mx-auto lg:grid-cols-5">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
 
-@include('parts.toread')
-@include('parts.instagram')
+    @include('parts.dictionary')
+    @include('parts.webresources')
 
-<script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
-    integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
-<script>
-      data = {!! json_encode($all_data) !!};
-         markers = {};
+    @include('parts.toread')
+    @include('parts.instagram')
 
-    let mymap = L.map('map').setView([48.6890, 11.14086], 5);
-    osmLayer = L.tileLayer(
-        'https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
-            maxZoom: 19,
-            apikey: 'choisirgeoportail',
-            format: 'image/jpeg',
-            style: 'normal'
-        }).addTo(mymap);
-    mymap.addLayer(osmLayer);
-    mymap.touchZoom.enable();
-    mymap.scrollWheelZoom.disable();
+    <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+        integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+    <script>
+        data = {!! json_encode($all_data) !!};
+        markers = {};
 
-let count = 0;
+        let mymap = L.map('map').setView([48.6890, 11.14086], 5);
+        osmLayer = L.tileLayer(
+            'https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
+                maxZoom: 19,
+                apikey: 'choisirgeoportail',
+                format: 'image/jpeg',
+                style: 'normal'
+            }).addTo(mymap);
+        mymap.addLayer(osmLayer);
+        mymap.touchZoom.enable();
+        mymap.scrollWheelZoom.disable();
+
+        let count = 0;
         for (let i = 0; i < data.length; i++) {
             count = count + 1;
             graff = data[i];
@@ -292,68 +317,66 @@ let count = 0;
             graffname = graff.title;
             graffposition = graff.location;
             var decimalString = graffposition.split(',');
-             decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
-             decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
+            decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
+            decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
 
-            marker = L.marker([decimalString[0], decimalString[1]], {
-            }).addTo(mymap).bindPopup(
-                '<div class="mappopup relative flex flex-col"><img onclick="myfunction(' + graffid + ',' + cat +
+            marker = L.marker([decimalString[0], decimalString[1]], {}).addTo(mymap).bindPopup(
+                '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' + graffid + ',' + cat +
                 ')" class="mt-4" src="/storage/' + pics +
-                '" /><div class="flex justify-between"><h1 class="font-bold mt-1 mb-2" id="graffnom">' + graffname + '</h1><h1 class="text-xs text-gray-500 mt-1 mb-2" id="graffcity">' + graffcity + '</h1></div></div>'
+                '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold" id="graffnom">' + graffname +
+                '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500" id="graffcity">' + graffcity + '</h1></div></div>'
             );
             markers[graff.id] = marker;
- 
+
         }
 
-function myfunction(id , cat) {
+        function myfunction(id, cat) {
 
-     
-        markers[id].closePopup();
-        if (cat == 1) {
-            categ = "streetscapes";
-        } else if (cat == 2) {
-            categ = "masterplans";
-        } else if (cat == 3) {
-            categ = "neighbourhoods";
+
+            markers[id].closePopup();
+            if (cat == 1) {
+                categ = "streetscapes";
+            } else if (cat == 2) {
+                categ = "masterplans";
+            } else if (cat == 3) {
+                categ = "neighbourhoods";
+            }
+
+            let pageName = categ + "_post?id=" + id;
+            //open link
+            window.open(pageName, "_self");
+
         }
 
-        let pageName = categ + "_post?id=" + id;
-        //open link
-        window.open(pageName, "_self");
+        layout = null;
 
-}
+        $("#change-layout").click(function() {
+            $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").removeClass(
+                "lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2");
+            console.log(layout);
+            layout = "xl";
+        });
 
-    layout = null;
+        $("#change-layout2").click(function() {
+            $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3")
+                .addClass("grid-cols-2").addClass("lg:grid-cols-2").addClass("xl:grid-cols-3");
+            console.log(layout);
+            layout = "medium";
+        });
+    </script>
+    <style>
+        .mappopup {
+            width: 200px;
+            height: 240px;
+        }
 
-    $("#change-layout").click(function() {
-        $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").removeClass(
-            "lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2");
-        console.log(layout);
-        layout = "xl";
-    });
+        .mappopup img {
+            width: 100%;
+            height: 90%;
+            object-fit: cover;
+        }
 
-    $("#change-layout2").click(function() {
-        $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3")
-            .addClass("grid-cols-2").addClass("lg:grid-cols-2").addClass("xl:grid-cols-3");
-        console.log(layout);
-        layout = "medium";
-    });
-
-</script>
-<style>
-
-    .mappopup {
-        width: 200px;
-        height: 240px;
-    }
-
-    .mappopup img {
-        width: 100%;
-        height: 90%;
-        object-fit: cover;
-    }
-
-    .mappopup h1 {
-        cursor: pointer;
-    }
+        .mappopup h1 {
+            cursor: pointer;
+        }
     </style>

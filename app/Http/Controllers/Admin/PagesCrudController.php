@@ -58,6 +58,14 @@ class PagesCrudController extends CrudController
     {
 
         CRUD::setValidation(PagesRequest::class);
+        CRUD::addField([
+            'name'       => 'title',
+            'label'      => 'Title',
+            'type'       => 'text',
+            'attributes' => [
+                'disabled' => 'disabled',
+            ],
+        ]);
         $this->crud->addField([
             'name' => 'content',
             'label' => 'Content',

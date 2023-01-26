@@ -56,7 +56,7 @@ Route::post('import', 'import');
 Route::get('legal' , [GlobalController::class, 'getLegal']);
 Route::get('confidentialite' , [GlobalController::class, 'getConf']);
 Route::get('cookies' , [GlobalController::class, 'cookies']);
-
+Route::get('association' , [GlobalController::class, 'association']);
 
 Route::post('deleteuser/{id}', [GlobalController::class, 'deleteUser'])->name('deleteUser');
 Route::post('contactmail' , [MailController::class, 'sendMessage']);

@@ -6,32 +6,50 @@
             @forelse ($neighbourhood->where('id', $id) as $item)
                 <section>
                     <div class="relative px-4 py-8 mx-8 my-8">
-                        <div class="grid items-start grid-cols-1 gap-8 lg:grid-cols-2">
-                            <div class="grid grid-cols-1 gap-4">
-                                <div class="w-full">
-                                    @php $image0 =  $item->image[0] ?? null; @endphp
-                                    <img class="object-cover w-full border"
-                                        src="{{ asset('storage/' . $image0) }}"alt=""
-                                        onerror="this.src='./img/empty.png'" onclick="window.open('{{ asset('storage/' . $image0) }}', 'Image', 'width=800,height=600')"/>
-                                </div>
-                                <div class="container mx-auto space-y-2 lg:space-y-0 lg:gap-2 lg:grid lg:grid-cols-3">
+
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="w-full">
+                                @php $image0 =  $item->image[0] ?? null; @endphp
+                                <img class="object-cover w-full border h-96"
+                                    src="{{ asset('storage/' . $image0) }}"alt="" onerror="this.src='./img/empty.png'"
+                                    onclick="window.open('{{ asset('storage/' . $image0) }}', 'Image', 'width=800,height=600')" />
+                            </div>
+
+                        </div>
+                        <div class="grid items-start grid-cols-1 gap-8 md:grid-cols-2">
+
+                            <div>
+                                <div class="container grid grid-cols-3 gap-2 pt-8 mx-auto space-y-2">
+
                                     @php
                                         $imgarray = $item->image;
                                         //skip first element
                                         array_shift($imgarray);
                                     @endphp
                                     @foreach ($imgarray as $image)
-                                        <div class="w-1/3 rounded lg:w-full hover:shadow-2xl">
+                                        <div class="w-full rounded hover:shadow-2xl">
                                             <img src="{{ asset('storage/' . $image) }}" class="object-cover h-full"
                                                 alt="" onerror="this.src='./img/empty.png'"
                                                 onclick="window.open('{{ asset('storage/' . $image) }}', 'Image', 'width=800,height=600')" />
                                         </div>
                                     @endforeach
 
-
+                                </div>
+                                <div class="hidden pt-8 md:block">
+                                    <div>
+                                        <div class="text-gray-700 max-w-none group-open:hidden">
+                                        <label for="description" class="block font-medium text-gray-800">Description:</label>
+                                            <p class="max-w-3xl text-gray-500 myparagraph">
+                                                {{ $item->description }}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="sticky top-0 w-full mx-auto">
+
+
+
+                            <div class="sticky w-full pt-8 mx-auto">
                                 <div class="flex justify-between pb-8">
                                     <h1 class="text-2xl font-bold">
                                         {{ $item->title }} | {{ $item->city }}
@@ -80,10 +98,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="block">
+                                <div class="block md:hidden">
                                     <div>
                                         <div class="text-gray-700 max-w-none group-open:hidden">
-                                            <p class="max-w-3xl mt-4 leading-loose text-gray-500 myparagraph">
+                                          <label for="description" class="block font-medium text-gray-800">Description:</label>
+                                            <p class="max-w-3xl text-gray-500 myparagraph">
                                                 {{ $item->description }}
                                             </p>
                                         </div>
@@ -99,21 +118,21 @@
                                 </div>
                             </div>
                         </div>
-                                <div class="flex justify-between pt-8 ">
-                                   @php
-                                       // next id and previous id from masterplans table
-                                       $next_id = $neighbourhood->where('id', '>', $item->id)->min('id');
-                                       $prev_id = $neighbourhood->where('id', '<', $item->id)->max('id');
-                                   @endphp
-                                   <a href="{{ route('neighbourhoods_post', 'id=' . $prev_id) }}"
-                                       class="px-4 py-2 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border rounded-lg active:bg-gray-600 hover:bg-gray-400 hover:text-white focus:outline-none focus:shadow-outline-gray">
-                                       Previous
-                                   </a>
-                                   <a href="{{ route('neighbourhoods_post', 'id=' . $next_id) }}"
-                                       class="px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border rounded-lg active:bg-gray-600 hover:text-white hover:bg-gray-400 focus:outline-none focus:shadow-outline-gray">
-                                       Next
-                                   </a>
-                               </div>
+                        <div class="flex justify-between pt-8 ">
+                            @php
+                                // next id and previous id from masterplans table
+                                $next_id = $neighbourhood->where('id', '>', $item->id)->min('id');
+                                $prev_id = $neighbourhood->where('id', '<', $item->id)->max('id');
+                            @endphp
+                            <a href="{{ route('neighbourhoods_post', 'id=' . $prev_id) }}"
+                                class="px-4 py-2 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border rounded-lg active:bg-gray-600 hover:bg-gray-400 hover:text-white focus:outline-none focus:shadow-outline-gray">
+                                Previous
+                            </a>
+                            <a href="{{ route('neighbourhoods_post', 'id=' . $next_id) }}"
+                                class="px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border rounded-lg active:bg-gray-600 hover:text-white hover:bg-gray-400 focus:outline-none focus:shadow-outline-gray">
+                                Next
+                            </a>
+                        </div>
                     </div>
                 </section>
             @empty
@@ -205,9 +224,9 @@
         decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
         decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
 
-        let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1]], 15);
+        let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1]], 8);
         osmLayer = L.tileLayer(
-            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            'https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
                 maxZoom: 19,
                 apikey: 'choisirgeoportail',
                 format: 'image/jpeg',

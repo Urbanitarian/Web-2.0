@@ -4,7 +4,7 @@
         "dev": "vite",
         "build": "vite build --watch",
         "serve": "php artisan serve",
-         "host": "npm run dev -- --host",
+        "host": "npm run dev -- --host",
         "migrate-fresh-seed": "php artisan migrate:fresh --seed",
         "migrate-standard": "php artisan migrate"
     },
@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@barba/core": "^2.9.7",
-        "alpinejs": "^3.10.5"
+        "alpinejs": "^3.10.5",
+        "tailwindcss-all": "^0.0.2"
     }
 }

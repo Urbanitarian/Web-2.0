@@ -1,22 +1,18 @@
-        @php use \App\Http\Controllers\GlobalController; @endphp
-        @php  $pages = GlobalController::pages();@endphp
-        @extends('layouts.app')
 
-        @section('main')
-            <div data-barba="container">
-                <div class="min-h-screen p-5 mx-auto sm:p-10 md:px-16">
-                    <div class="flex flex-col max-w-5xl mx-auto overflow-hidden rounded">
+@extends('layouts.app')
 
-                        <div class="page all-initial">
-                            @php
-                                echo $pages[3]->content;
-                            @endphp
-                        </div>
-
-                    </div>
+@section('main')
+    <div data-barba="container">
+        <div class="min-h-screen p-5 mx-auto sm:p-10 md:px-16">
+            <div class="flex flex-col max-w-5xl mx-auto overflow-hidden rounded">
+                            <div class="page all-initial">
+         Association
                 </div>
+
             </div>
-            <style>
+        </div>
+    </div>
+  <style>
                 .page>h1 {
                     font-size: 2.2em;
                 }
@@ -192,4 +188,4 @@
                     display: inline;
                 }
             </style>
-        @endsection
+@endsection
