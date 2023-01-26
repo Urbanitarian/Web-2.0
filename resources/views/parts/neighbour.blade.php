@@ -179,7 +179,7 @@
     });
 
     $('#child').click(function() {
-         url = "api/neighbourhoods?tags=child";
+         url = "api/neighbourhoods?tags=Child-friendly";
       $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
@@ -207,7 +207,7 @@
     });
 
     $('#green').click(function() {
-         url = "api/neighbourhoods?tags=green";
+         url = "api/neighbourhoods?tags=Green";
         $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
@@ -236,7 +236,7 @@
     });
 
     $('#climate').click(function() {
-              url = "api/neighbourhoods?tags=climate";
+              url = "api/neighbourhoods?tags=Climate-proof";
         $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
@@ -264,7 +264,7 @@
     });
 
     $('#age').click(function() {
-             url = "api/neighbourhoods?tags=age";
+             url = "api/neighbourhoods?tags=Age-friendly";
         $('#boucle').empty();
         fetch(url)
             .then((res) => res.json())
