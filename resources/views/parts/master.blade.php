@@ -134,9 +134,9 @@
                         <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
                             <div class="flex-shrink-0">
                                 <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-2 mx-8 text-sm font-bold text-center">${item.title} |${item.author} | ${item.city}</h1>
+                                <h1 class="pt-2 mx-8 text-sm font-bold text-center">${item.title} |${item.author}</h1>
                                 <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.categry}, ${item.size} 
+                                   ${item.category}, ${item.city} 
                                 </p>
                             </div>
                         </div>
@@ -169,7 +169,7 @@
                                 <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
                                 <h1 class="pt-2 mx-8 text-sm font-bold text-center">${item.title} |${item.author} | ${item.city}</h1>
                                 <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.categry}, ${item.size} 
+                                   ${item.category}, ${item.size} 
                                 </p>
                             </div>
                         </div>
@@ -200,7 +200,7 @@
                                 <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
                                 <h1 class="pt-2 mx-8 text-sm font-bold text-center">${item.title} |${item.author} | ${item.city}</h1>
                                 <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.categry}, ${item.size} 
+                                   ${item.category}, ${item.size} 
                                 </p>
                             </div>
                         </div>
@@ -231,7 +231,7 @@
                                 <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
                                 <h1 class="pt-2 mx-8 text-sm font-bold text-center">${item.title} |${item.author} | ${item.city}</h1>
                                 <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.categry}, ${item.size} 
+                                   ${item.category}, ${item.size} 
                                 </p>
                             </div>
                         </div>
@@ -261,7 +261,7 @@
                                 <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
                                 <h1 class="pt-2 mx-8 text-sm font-bold text-center">${item.title} |${item.author} | ${item.city}</h1>
                                 <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.categry}, ${item.size} 
+                                   ${item.category}, ${item.size} 
                                 </p>
                             </div>
                         </div>
@@ -291,7 +291,7 @@
                                 <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
                                 <h1 class="pt-2 mx-8 text-sm font-bold text-center">${item.title} |${item.author} | ${item.city}</h1>
                                 <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.categry}, ${item.size} 
+                                   ${item.category}, ${item.size} 
                                 </p>
                             </div>
                         </div>
@@ -321,7 +321,7 @@
                                 <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
                                 <h1 class="pt-2 mx-8 text-sm font-bold text-center">${item.title} |${item.author} | ${item.city}</h1>
                                 <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.categry}, ${item.size} 
+                                   ${item.category}, ${item.size} 
                                 </p>
                             </div>
                         </div>
@@ -352,7 +352,7 @@
                                 <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
                                 <h1 class="pt-2 mx-8 text-sm font-bold text-center">${item.title} |${item.author} | ${item.city}</h1>
                                 <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.categry}, ${item.size} 
+                                   ${item.category}, ${item.size} 
                                 </p>
                             </div>
                         </div>

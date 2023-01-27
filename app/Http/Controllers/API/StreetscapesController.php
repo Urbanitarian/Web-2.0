@@ -8,8 +8,7 @@ use App\Models\Streetscape;
 
 class StreetscapesController extends Controller
 {
-    public function index() 
-    { 
+
         public function index(Request $request) 
         { 
             $q = request()->input('q');
@@ -27,5 +26,4 @@ class StreetscapesController extends Controller
             }
             return response()->json($streets);
         }
-    }
 }
