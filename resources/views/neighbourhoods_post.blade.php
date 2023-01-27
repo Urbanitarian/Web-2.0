@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('main')
+
+
     <div data-barba="container">
         <div class="mx-auto max-w-[1440px]">
             @forelse ($neighbourhood->where('id', $id) as $item)
@@ -19,26 +21,39 @@
                         <div class="grid items-start grid-cols-1 gap-8 md:grid-cols-2">
 
                             <div>
-                                <div class="container grid grid-cols-3 gap-2 pt-8 mx-auto space-y-2">
-
-                                    @php
-                                        $imgarray = $item->image;
-                                        //skip first element
-                                        array_shift($imgarray);
-                                    @endphp
-                                    @foreach ($imgarray as $image)
-                                        <div class="w-full rounded hover:shadow-2xl">
-                                            <img src="{{ asset('storage/' . $image) }}" class="object-cover h-full"
-                                                alt="" onerror="this.src='./img/empty.png'"
-                                                onclick="window.open('{{ asset('storage/' . $image) }}', 'Image', 'width=800,height=600')" />
-                                        </div>
-                                    @endforeach
-
-                                </div>
                                 <div class="hidden pt-8 md:block">
-                                    <div>
-                                        <div class="text-gray-700 max-w-none group-open:hidden">
-                                        <label for="description" class="block font-medium text-gray-800">Description:</label>
+                                    <div class="flex flex-col">
+                                        <div class="text-gray-700 max-w-none">
+                                            <label for="description" class="block font-medium text-gray-800 text-2xl">Title
+                                                paragraph 1</label>
+                                            <p class="max-w-3xl text-gray-500 myparagraph">
+                                                {{ $item->description }}
+                                            </p>
+                                        </div>
+                                     
+                                        <div class="container grid grid-cols-1">
+                                            @php
+                                                $imgarray = $item->image;
+                                                //skip first element
+                                                array_shift($imgarray);
+                                            @endphp
+                                            <div class="">
+                                             
+                                                    {{-- @foreach ($imgarray as $image) --}}
+                                                        <div class="py-8">
+                                                            <img src="{{ asset('storage/' . $item->image[1]) }}"
+                                                                class="object-cover w-full h-96" alt=""
+                                                                onerror="this.src='./img/empty.png'" />
+                                                        </div>
+                                                    {{-- @endforeach --}}
+                                          
+                                            </div>
+
+                                        </div>
+
+                                        <div class="text-gray-700 max-w-none">
+                                            <label for="description" class="block font-medium text-gray-800 text-2xl">Title
+                                                paragraph 2</label>
                                             <p class="max-w-3xl text-gray-500 myparagraph">
                                                 {{ $item->description }}
                                             </p>
@@ -46,8 +61,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
 
                             <div class="sticky w-full pt-8 mx-auto">
                                 <div class="flex justify-between pb-8">
@@ -101,7 +114,8 @@
                                 <div class="block md:hidden">
                                     <div>
                                         <div class="text-gray-700 max-w-none group-open:hidden">
-                                          <label for="description" class="block font-medium text-gray-800">Description:</label>
+                                            <label for="description"
+                                                class="block font-medium text-gray-800">Description:</label>
                                             <p class="max-w-3xl text-gray-500 myparagraph">
                                                 {{ $item->description }}
                                             </p>
@@ -216,6 +230,8 @@
 
         }
     </style>
+
+
     <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
         integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
     <script>
@@ -236,5 +252,25 @@
         L.marker([decimalString[0], decimalString[1]]).addTo(mymap);
         mymap.touchZoom.enable();
         mymap.scrollWheelZoom.disable();
+
+document.addEventListener('DOMContentLoaded', function() {
+    const swiper = new Swiper('.mySwiper', {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 4500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    })
+});
+      
     </script>
 @endsection
