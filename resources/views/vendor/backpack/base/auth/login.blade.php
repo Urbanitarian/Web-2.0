@@ -4,7 +4,7 @@
     <div class="row justify-content-center ">
         <div class="col-12 col-md-8 col-lg-4">
             <a href="/">
-                <img class="w-auto pb-8 mx-auto h-1/6" src="/img/logo.png"></a>
+                <img class="w-auto pb-2 mx-auto h-1/8" src="/img/logo.png"></a>
             <h3 class="mb-4 text-center  font-bold text-[#333333] hover:text-gray-400 tracking-widest">URBANITARIAN</h3>
             <div class="card">
                 <div class="card-body">
