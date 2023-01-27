@@ -3,13 +3,88 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-4">
-            <a href="/"><img class="pb-2 mx-auto w-[80px]" src="/img/logo.png"></a>
+            <a href="/">
+                <img class="w-auto pb-8 mx-auto h-1/6" src="/img/logo.png"></a>
+            <h3 class="mb-4 text-center  font-bold text-[#333333] hover:text-gray-400 tracking-widest">URBANITARIAN</h3>
             <div class="card">
                 <div class="card-body">
-                    <form class="col-md-12" role="form" method="POST" action="{{ route('backpack.auth.register') }}">
+                    <form class="col-md-12 p-t-10" role="form" method="POST"
+                        action="{{ route('backpack.auth.register') }}">
                         {!! csrf_field() !!}
-                        <div class"form-group">
+
+                        <div class="form-group">
+                            <label class="control-label" for="name">{{ trans('backpack::base.name') }}</label>
+
                             <div>
+                                <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                    name="name" id="name" value="{{ old('name') }}">
+
+                                @if ($errors->has('name'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label"
+                                for="{{ backpack_authentication_column() }}">{{ config('backpack.base.authentication_column_name') }}</label>
+
+                            <div>
+                                <input type="{{ backpack_authentication_column() == 'email' ? 'email' : 'text' }}"
+                                    class="form-control{{ $errors->has(backpack_authentication_column()) ? ' is-invalid' : '' }}"
+                                    name="{{ backpack_authentication_column() }}"
+                                    id="{{ backpack_authentication_column() }}"
+                                    value="{{ old(backpack_authentication_column()) }}">
+
+                                @if ($errors->has(backpack_authentication_column()))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first(backpack_authentication_column()) }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="password">{{ trans('backpack::base.password') }}</label>
+
+                            <div>
+                                <input type="password"
+                                    class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
+                                    id="password">
+
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label"
+                                for="password_confirmation">{{ trans('backpack::base.confirm_password') }}</label>
+
+                            <div>
+                                <input type="password"
+                                    class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}"
+                                    name="password_confirmation" id="password_confirmation">
+
+                                @if ($errors->has('password_confirmation'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div>
+                                <button type="submit" class="btn btn-block btn-dark">
+                                    {{ trans('backpack::base.register') }}
+                                </button>
+
                                 <a href="{{ route('socialite.redirect', 'google') }}" class="border btn btn-block">
                                     <div class="flex justify-center">
                                         <svg class="w-6 h-6 mx-2" viewBox="0 0 40 40">
@@ -27,116 +102,34 @@
                                                 fill="#1976D2" />
                                         </svg>
 
-                                        <span class="py-1 text-sm"> {{ trans('backpack::base.register') }} via Google</span>
+                                        <span class="py-1 text-sm"> {{ trans('backpack::base.login') }} Google</span>
                                     </div>
                                 </a>
 
+                                {{-- <a href="{{ route('socialite.redirect', 'facebook') }}" class="btn btn-block btn-primary">
+                                    <div class="flex justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-6 h-6 mx-2">
+                                            <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                            <path fill="currentColor"
+                                                d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+                                        </svg>
+
+                                        <span class="py-1 text-sm"> {{ trans('backpack::base.login') }} Facebook</span>
+                                    </div>
+                                </a> --}}
 
                             </div>
                         </div>
-
-                        <style>
-                            #show,
-                            #content {
-                                display: none;
-                            }
-
-                            #show:checked~#content {
-                                display: block;
-                            }
-                        </style>
-                        <input type=checkbox id="show">
-                        <label for="show"class="mt-2 border btn btn-block" style="cursor:pointer;"><i
-                                class="mr-2 fa fa-user"></i> Register</label>
-                        <span id="content">
-                            <div class="form-group">
-                                <label class="control-label" for="name">{{ trans('backpack::base.name') }}</label>
-
-                                <div>
-                                    <input type="text"
-                                        class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name"
-                                        id="name" value="{{ old('name') }}">
-
-                                    @if ($errors->has('name'))
-                                        <span class="invalid-feedback">
-                                            <strong>{{ $errors->first('name') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label"
-                                    for="{{ backpack_authentication_column() }}">{{ config('backpack.base.authentication_column_name') }}</label>
-
-                                <div>
-                                    <input type="{{ backpack_authentication_column() == 'email' ? 'email' : 'text' }}"
-                                        class="form-control{{ $errors->has(backpack_authentication_column()) ? ' is-invalid' : '' }}"
-                                        name="{{ backpack_authentication_column() }}"
-                                        id="{{ backpack_authentication_column() }}"
-                                        value="{{ old(backpack_authentication_column()) }}">
-
-                                    @if ($errors->has(backpack_authentication_column()))
-                                        <span class="invalid-feedback">
-                                            <strong>{{ $errors->first(backpack_authentication_column()) }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label" for="password">{{ trans('backpack::base.password') }}</label>
-
-                                <div>
-                                    <input type="password"
-                                        class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                        name="password" id="password">
-
-                                    @if ($errors->has('password'))
-                                        <span class="invalid-feedback">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label"
-                                    for="password_confirmation">{{ trans('backpack::base.confirm_password') }}</label>
-                                <div>
-                                    <input type="password"
-                                        class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}"
-                                        name="password_confirmation" id="password_confirmation">
-
-                                    @if ($errors->has('password_confirmation'))
-                                        <span class="invalid-feedback">
-                                            <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div>
-                                    <button type="submit" class="btn btn-block btn-primary">
-                                        {{ trans('backpack::base.register') }}
-                                    </button>
-
-                                </div>
-                            </div>
-                        </span>
                     </form>
-                    @if (backpack_users_have_email() && config('backpack.base.setup_password_recovery_routes', true))
-                        <br>
-                    @endif
-                    <div class="text-center"><a
-                            href="{{ route('backpack.auth.login') }}">{{ trans('backpack::base.login') }}</a> /
-                        <a
-                            href="{{ route('backpack.auth.password.reset') }}">{{ trans('backpack::base.forgot_your_password') }}</a>
-                    </div>
                 </div>
             </div>
-
+            @if (backpack_users_have_email() && config('backpack.base.setup_password_recovery_routes', true))
+                <div class="text-center"><a
+                        href="{{ route('backpack.auth.password.reset') }}">{{ trans('backpack::base.forgot_your_password') }}</a>
+                </div>
+            @endif
+            <div class="text-center"><a href="{{ route('backpack.auth.login') }}">{{ trans('backpack::base.login') }}</a>
+            </div>
         </div>
     </div>
 @endsection
