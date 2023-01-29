@@ -32,6 +32,8 @@
 
   <link rel='stylesheet' href="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.css">
 
+
+
   <title>Urbanitarian</title>
 @vite('resources/css/app.css')
 <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}">

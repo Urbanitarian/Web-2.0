@@ -1,4 +1,5 @@
 <section class="pt-8">
+
     @php
         $size = urldecode(request()->get('size'));
         $q = urldecode(request()->get('q'));
@@ -123,28 +124,6 @@
 <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
 <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
 <script>
-
-window.addEventListener("load", function() {
-    $juxtapose = $('.juxtapose');
-    $juxtapose.each(function(index, element) {
-        var $juxtaposeContainer = $juxtapose.parent();
-        var juxtaposeRatio;
-
-        $(window).on('load', function(event) {
-            juxtaposeRatio = $(element).outerHeight() / $(element).outerWidth();
-        });
-
-        $(window).on('resize', function(event) {
-            var newWidth = $juxtaposeContainer.outerWidth();
-            var newHeight = newWidth * juxtaposeRatio;
-            $(element).css({
-                width: newWidth,
-                height: newHeight
-            });
-        });
-    });
-});
-
     $(document).ready(function() {
         url = "api/streetscapes";
         fetch(url)
@@ -159,9 +138,9 @@ window.addEventListener("load", function() {
                  <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
                     <div class="lg:w-3/4 md:px-6">
                         <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/>
+                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'" />
                         <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[1]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                    </div>
+                         </div>
 
                     </div>
 
@@ -187,6 +166,7 @@ window.addEventListener("load", function() {
                     $('#boucle').append(html);
                 });
             })
+            console.log("ready!");
     });
 
     $('#all').click(function() {
@@ -734,6 +714,27 @@ window.addEventListener("load", function() {
                 });
             })
     });
+
+     $('.juxtapose').each(function() {
+            // get the parent element
+            var $juxtaposeContainer = $(this).parent();
+            // get the ratio of the image
+            var juxtaposeRatio = $(this).outerHeight() / $(this).outerWidth();
+            // on window resize
+            $(window).on('resize', function() {
+                // get the new width of the parent element
+                var newWidth = $juxtaposeContainer.outerWidth();
+                // calculate the new height based on the ratio
+                var newHeight = newWidth * juxtaposeRatio;
+                // set the new width and height
+                $(this).css({
+                    width: newWidth,
+                    height: newHeight
+                });
+            });
+        });
+
+  
 </script>
 
 

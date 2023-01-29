@@ -16,8 +16,9 @@
     </footer>
     
     @vite('resources/js/app.js')
-
         <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
+
+
 </body>
 
 </html>
