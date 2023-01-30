@@ -401,10 +401,8 @@ class GlobalController extends Controller
         } elseif ($request->dataType == "streetscapes"){
             Excel::import(new StreetscapesImport, $file);
         }
-
-
+        
         \Alert::success('Excel data imported successfully.')->flash();
-
         return redirect('/admin/masterplan')->with('success', 'Data imported successfully.');
     }
 

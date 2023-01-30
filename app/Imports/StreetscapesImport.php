@@ -48,7 +48,7 @@ class StreetscapesImport implements ToModel, WithHeadingRow
                 'size' => $row[24],
                 'tags' => explode(",", $row[25]),
                 'link' => $row[26],
-                'category' => "Masterplans",
+                'category' => "Streetscapes",
                 'address' => "adress_dummy",
             ]);
         }

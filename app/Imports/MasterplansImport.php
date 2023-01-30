@@ -21,7 +21,7 @@ class MasterplansImport implements ToModel, WithHeadingRow
             return null;
         } else {
             return new Masterplan([
-                'image' => "['uploads\/masterplans\/$row[0].png']",
+                'image' => $row[0],$row[0],
                 'title' => $row[1],
                 'author' => $row[2],
                 'city' => $row[3],
