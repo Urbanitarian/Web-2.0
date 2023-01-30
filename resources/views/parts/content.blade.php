@@ -161,15 +161,15 @@
 
                 @if ($data['category'] == 'Streetscapes')
                     <div
-                        class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                        class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
                         <a href="streetscapes_post?id={{ $data['id'] }}" class="flex flex-col h-full">
                            @php $image1 =   $data['image'][0] ?? null; @endphp
                             <img alt="Art" src="{{ asset('storage/' . $image1) }}"alt=""
                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                            <div class="p-2">
-                                <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">
+                            <div class="">
+                                <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
                                     {{ $data['title'] }} | {{ $data['author'] }} | {{ $data['city'] }}</h3>
-                                <p class="pb-2 mt-2 text-xs text-center text-gray-700 md:text-sm">
+                                <p class=" pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
                                     {{ $data['category'] }} &nbsp;
                                     @foreach ($data['tags'] as $tag)
                                         {{ $tag }} &nbsp;
@@ -180,15 +180,15 @@
                         </a>
                     </div>
                 @elseif ($data['category'] == 'Neighbourhoods')
-                    <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                    <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
                         <a href="neighbourhoods_post?id={{ $data['id'] }}" class="flex flex-col h-full">
                          @php $neighimg =   $data['image'][0] ?? null; @endphp
                             <img alt="Art" src="{{ asset('storage/' . $neighimg) }}"alt=""
                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                            <div class="p-2">
-                                <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">
+                            <div class="">
+                                <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
                                     {{ $data['title'] }} | {{ $data['city'] }}</h3>
-                                <p class="max-w-sm pb-2 mt-2 text-xs text-center text-gray-700 md:text-sm">
+                                <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
                                     {{ $data['category'] }} &nbsp;
                                     @foreach ($data['tags'] as $tag)
                                         {{ $tag }} &nbsp;
@@ -199,15 +199,15 @@
                         </a>
                     </div>
                 @else
-                    <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                    <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
                         <a href="masterplans_post?id={{ $data['id'] }}" class="flex flex-col h-full">
                                @php $masterimg =   $data['image'][0] ?? null; @endphp
                             <img alt="Art" src="{{ asset('storage/' . $masterimg) }}"alt=""
                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                            <div class="p-2">
-                                <h3 class="pt-3 text-sm font-bold text-center truncate mx-2">
+                            <div class="">
+                                <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
                                     {{ $data['title'] }} | {{ $data['author'] }} | {{ $data['city'] }}</h3>
-                                <p class="max-w-sm pb-2 mt-2 text-xs text-center text-gray-700 md:text-sm">
+                                <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
                                     {{ $data['category'] }} &nbsp;
                                     @foreach ($data['tags'] as $tag)
                                         {{ $tag }} &nbsp;
@@ -223,7 +223,7 @@
                 <div class="transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                     <a href="#" class="flex flex-col h-full">
                         <img alt="Art" src="./img/empty.png" class="object-cover h-full max-h-[480px]" />
-                        <div class="p-2">
+                        <div class="">
                             <h3 class="mt-4 font-bold text-gray-900 md:text-xl">No results</h3>
                             <p class="max-w-sm pb-2 mt-2 text-xs text-gray-700 md:text-sm">
                             </p>

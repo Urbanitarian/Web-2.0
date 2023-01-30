@@ -51,7 +51,7 @@
 @forelse ($masterplans as $masterplan)
      <div class="p-4 swiper-slide">
                     <a href="masterplans_post?id={{ $masterplan->id }}">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
+                        <div class="flex flex-col overflow-hidden transition shadow-lg md:hover:scale-110 border">
                             <div class="flex-shrink-0">
                              @php $image0 =   $masterplan->image[0] ?? null; @endphp
                                 <img class="h-[450px] w-full object-cover border-b"
