@@ -15,11 +15,13 @@
                         </p>
                     </div>
                     <div class="juxtapose">
+                     @php $img0 =$streetscape->image[0] ?? null; @endphp
+                      @php $img1 = $streetscape->image[1] ?? null; @endphp
                         <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"
-                            src="{{ asset('storage/' . $streetscape->image[0]) }}"alt="00"
+                            src="{{ asset('storage/' . $img0) }}"alt="00"
                             onerror="this.src='./img/empty.png'" />
                         <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"
-                            src="{{ asset('storage/' . $streetscape->image[1]) }}"alt="00"
+                            src="{{ asset('storage/' . $img1) }}"alt="00"
                             onerror="this.src='./img/empty.png'" />
                     </div>
                     <p class="my-4 text-sm text-gray-600">
@@ -63,11 +65,13 @@
                     @forelse ($allstreetscapes as $street)
                         <div>
                             <div class="juxtapose">
+                             @php $img00 = $street->image[0] ?? null; @endphp
+                              @php $img01 = $street->image[1] ?? null; @endphp
                                 <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"
-                                    src="{{ asset('storage/' . $street->image[0]) }}"alt="00"
+                                    src="{{ asset('storage/' . $img00) }}"alt="00"
                                     onerror="this.src='./img/empty.png'" />
                                 <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"
-                                    src="{{ asset('storage/' . $street->image[1]) }}"alt="00"
+                                    src="{{ asset('storage/' . $img01) }}"alt="00"
                                     onerror="this.src='./img/empty.png'" />
                             </div>
                             <a href="streetscapes_post?id={{ $street->id }}">

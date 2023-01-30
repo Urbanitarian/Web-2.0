@@ -24,7 +24,8 @@
                                            @endphp
                                            @foreach ($imgarray as $image)
                                                <div class="w-full rounded hover:shadow-2xl">
-                                                   <img src="{{ asset('storage/' . $image) }}" class="object-cover h-full"
+                                                   @php $img09 = $image ?? null; @endphp
+                                                   <img src="{{ asset('storage/' . $img09) }}" class="object-cover h-full"
                                                        alt="" onerror="this.src='./img/empty.png'"
                                                        onclick="window.open('{{ asset('storage/' . $image) }}', 'Image', 'width=800,height=600')" />
                                                </div>
@@ -267,13 +268,14 @@
                                            <div
                                                class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
                                                <div class="flex-shrink-0">
+                                                   @php $img10 = $masterplan->image[0] ?? null; @endphp
                                                    <img class="h-[450px] w-full object-cover border-b"
-                                                       src="{{ asset('storage/' . $masterplan->image[0]) }}"alt=""
+                                                       src="{{ asset('storage/' . $img10) }}"alt=""
                                                        onerror="this.src='./img/empty.png'" />
-                                                   <h1 class="pt-4 mx-8 font-bold text-center text-black uppercase">
+                                                   <h1 class="pt-2 mx-8 text-sm font-bold text-center">
                                                        {{ $masterplan->title }} | {{ $masterplan->author }} |
                                                        {{ $masterplan->city }} </h1>
-                                                   <p class="pb-4 mx-8 text-xs text-center text-gray-700">
+                                                   <p class="pb-2 mx-8 text-xs text-center text-gray-700">
                                                        {{ $masterplan->category }}, {{ $masterplan->size }}
                                                    </p>
                                                </div>

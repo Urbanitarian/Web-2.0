@@ -40,8 +40,10 @@
                                             <div class="">
                                              
                                                     {{-- @foreach ($imgarray as $image) --}}
+                                                     @php $img04 = $item->image[1] ?? null; @endphp
+        
                                                         <div class="py-8">
-                                                            <img src="{{ asset('storage/' . $item->image[1]) }}"
+                                                            <img src="{{ asset('storage/' . $img04) }}"
                                                                 class="object-cover w-full h-96" alt=""
                                                                 onerror="this.src='./img/empty.png'" />
                                                         </div>
@@ -180,8 +182,9 @@
                                     <a href="neighbourhoods_post?id={{ $neigh->id }}">
                                         <div
                                             class="p-4 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
+                                             @php $img08 = $neigh->image[0] ?? null; @endphp
                                             <img class="object-cover object-center w-full h-40 mb-3"
-                                                src="{{ asset('storage/' . $neigh->image[0]) }}"alt=""
+                                                src="{{ asset('storage/' . $img08) }}"alt=""
                                                 onerror="this.src='./img/empty.png'" />
                                             <h2 class="mb-1 text-lg font-medium text-gray-900 title-font">
                                                 {{ $neigh->title }}</h2>

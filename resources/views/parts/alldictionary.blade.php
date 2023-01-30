@@ -17,7 +17,8 @@
                     <div class="flex transition border shadow-md md:hover:scale-110">
                         <div class="flex flex-col mx-auto">
                             <a href="dictionaries_post?id={{ $item->id }}">
-                                <img class="object-cover w-auto h-32" src="{{ asset('storage/' . $item->image) }}"
+                             @php $dictimg = $item->image ?? null; @endphp
+                                <img class="object-cover w-auto h-32" src="{{ asset('storage/' . $dictimg) }}"
                                     alt="content" onerror="this.src='./img/empty.png'">
                                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
                                   {{ $item->name }}</p>

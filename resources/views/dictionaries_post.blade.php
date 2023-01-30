@@ -10,10 +10,10 @@
                         <div class="grid items-start grid-cols-1 gap-8 lg:grid-cols-2">
                             <div class="grid grid-cols-1 gap-4">
                                 <div class="w-full">
-                                  
+                                        @php $img12 = $item->image ?? null; @endphp
                                     <img class="object-cover w-full border"
-                                        src="{{ asset('storage/' . $item->image) }}"alt=""
-                                        onerror="this.src='./img/empty.png'" onclick="window.open('{{ asset('storage/' . $item->image) }}', 'Image', 'width=800,height=600')"/>
+                                        src="{{ asset('storage/' . $img12) }}"alt=""
+                                        onerror="this.src='./img/empty.png'" onclick="window.open('{{ asset('storage/' . $img12) }}', 'Image', 'width=800,height=600')"/>
                                 </div>
                             </div>
                             <div class="sticky top-0 w-full mx-auto">
@@ -83,7 +83,8 @@
                     <div class="flex transition border shadow-md md:hover:scale-110">
                         <div class="flex flex-col mx-auto">
                             <a href="dictionaries_post?id={{ $item->id }}">
-                                <img class="object-cover w-auto h-32" src="{{ asset('storage/' . $item->image) }}"
+                                @php $img11 = $item->image ?? null; @endphp
+                                <img class="object-cover w-auto h-32" src="{{ asset('storage/' . $img11) }}"
                                     alt="content" onerror="this.src='./img/empty.png'">
                                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
                                   {{ $item->name }}</p>

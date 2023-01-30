@@ -163,7 +163,8 @@
                     <div
                         class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                         <a href="streetscapes_post?id={{ $data['id'] }}" class="flex flex-col h-full">
-                            <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
+                           @php $image1 =   $data['image'][0] ?? null; @endphp
+                            <img alt="Art" src="{{ asset('storage/' . $image1) }}"alt=""
                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                             <div class="p-2">
                                 <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">
@@ -181,7 +182,8 @@
                 @elseif ($data['category'] == 'Neighbourhoods')
                     <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                         <a href="neighbourhoods_post?id={{ $data['id'] }}" class="flex flex-col h-full">
-                            <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
+                         @php $neighimg =   $data['image'][0] ?? null; @endphp
+                            <img alt="Art" src="{{ asset('storage/' . $neighimg) }}"alt=""
                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                             <div class="p-2">
                                 <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">
@@ -199,7 +201,8 @@
                 @else
                     <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                         <a href="masterplans_post?id={{ $data['id'] }}" class="flex flex-col h-full">
-                            <img alt="Art" src="{{ asset('storage/' . $data['image'][0]) }}"alt=""
+                               @php $masterimg =   $data['image'][0] ?? null; @endphp
+                            <img alt="Art" src="{{ asset('storage/' . $masterimg) }}"alt=""
                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                             <div class="p-2">
                                 <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">

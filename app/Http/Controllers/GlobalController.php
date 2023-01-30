@@ -13,9 +13,14 @@ use App\Models\Neighbourhood;
 use App\Models\Webresource;
 use App\Models\Country;
 use App\Models\City;
+use App\Imports\MasterplansImport;
+use App\Imports\StreetscapesImport;
+use App\Imports\NeighbourhoodsImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Backpack\Settings\app\Models\Setting;
 use Carbon\Carbon;
-
+use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Contracts\View\View;
@@ -288,16 +293,7 @@ class GlobalController extends Controller
         return view('dictionaries_post', compact('dictionaries', 'dictionary', 'id'));
     }
 
-    public function import(Request $request)
-    {
-        // $request->validate([
-        //     'file' => 'required|mimes:xls,xlsx'
-        // ]);
-        // $file = $request->file('file');
-        // Excel::import(new DictionaryImport, $file);
-        dd($request->all());
-        return back()->with('success', 'All good!');
-    }
+
 
     public function read(Request $request)
     {
@@ -389,4 +385,28 @@ class GlobalController extends Controller
     {
         return view('work');
     }
+
+    public function import(Request $request) 
+    {
+        $request->validate([
+            'file' => 'required|mimes:xls,xlsx'
+        ]);
+
+        $file = $request->file('file');
+
+        if ($request->dataType == "masterplans"){
+            Excel::import(new MasterplansImport, $file);
+        } elseif ($request->dataType == "neighbourhoods"){
+            Excel::import(new NeighbourhoodsImport, $file);
+        } elseif ($request->dataType == "streetscapes"){
+            Excel::import(new StreetscapesImport, $file);
+        }
+
+
+        \Alert::success('Excel data imported successfully.')->flash();
+
+        return redirect('/admin/masterplan')->with('success', 'Data imported successfully.');
+    }
+
+
 }
