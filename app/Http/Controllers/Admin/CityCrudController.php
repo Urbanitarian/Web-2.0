@@ -41,7 +41,7 @@ class CityCrudController extends CrudController
     {
         
         CRUD::column('name');
-        CRUD::column('country_id')->label('Country')->type('select')->entity('country')->attribute('name')->model('App\Models\Country');
+        // CRUD::column('country_id')->label('Country')->type('select')->entity('country')->attribute('name')->model('App\Models\Country');
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -60,6 +60,9 @@ class CityCrudController extends CrudController
         CRUD::setValidation(CityRequest::class);
         $this->crud->setValidation([
             'name' => 'required|min:2|max:255',
+            'tags' => 'required',
+            'city' => 'required',
+            'country' => 'required',
         ]);
         CRUD::addField([ // Text
             'name'  => 'name',
@@ -67,16 +70,16 @@ class CityCrudController extends CrudController
             'type'  => 'text',
         ]);
 
-        CRUD::addField([  // Select2
-            'label'     => "Country",
-            'type'      => 'select',
-            'name'      => 'country_id', // the db column for the foreign key
+        // CRUD::addField([  // Select2
+        //     'label'     => "Country",
+        //     'type'      => 'select',
+        //     'name'      => 'country_id', // the db column for the foreign key
 
-            // optional
-            'entity'    => 'country', // the method that defines the relationship in your Model
-            'attribute' => 'name', // foreign key attribute that is shown to user
-            'model'     => "App\Models\Country", // foreign key model
-        ]);
+        //     // optional
+        //     'entity'    => 'country', // the method that defines the relationship in your Model
+        //     'attribute' => 'name', // foreign key attribute that is shown to user
+        //     'model'     => "App\Models\Country", // foreign key model
+        // ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

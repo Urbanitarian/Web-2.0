@@ -86,6 +86,7 @@ class DictionaryCrudController extends CrudController
         CRUD::setValidation(DictionaryRequest::class);
         $this->crud->setValidation([
             'name' => 'required|min:2|max:255',
+            'tags' => 'required',
         ]);
 
         CRUD::field('name');

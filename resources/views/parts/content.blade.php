@@ -205,7 +205,7 @@
                             <img alt="Art" src="{{ asset('storage/' . $masterimg) }}"alt=""
                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                             <div class="p-2">
-                                <h3 class="mt-4 font-bold text-center text-gray-900 uppercase md:text-base">
+                                <h3 class="pt-3 text-sm font-bold text-center truncate mx-2">
                                     {{ $data['title'] }} | {{ $data['author'] }} | {{ $data['city'] }}</h3>
                                 <p class="max-w-sm pb-2 mt-2 text-xs text-center text-gray-700 md:text-sm">
                                     {{ $data['category'] }} &nbsp;

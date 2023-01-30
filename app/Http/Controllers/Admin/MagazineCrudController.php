@@ -86,6 +86,7 @@ class MagazineCrudController extends CrudController
         CRUD::setValidation(MagazineRequest::class);
         $this->crud->setValidation([
             'name' => 'required|min:2|max:255',
+            
         ]);
         CRUD::field('name');
         CRUD::addField([ // Photo

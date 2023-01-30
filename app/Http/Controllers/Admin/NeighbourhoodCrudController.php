@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\NeighbourhoodRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-
+use App\Models\City;
+use App\Models\Country;
 /**
  * Class NeighbourhoodCrudController
  * @package App\Http\Controllers\Admin
@@ -86,6 +87,9 @@ class NeighbourhoodCrudController extends CrudController
         CRUD::setValidation(NeighbourhoodRequest::class);
         $this->crud->setValidation([
             'title' => 'required|min:2|max:255',
+            'tags' => 'required',
+            'city' => 'required',
+            'country' => 'required',
         ]);
         CRUD::addField([ // Text
             'name'  => 'title',
@@ -228,7 +232,13 @@ class NeighbourhoodCrudController extends CrudController
         CRUD::addField([ 'prefix' => '<a href="../../country/create">+</a>','name' => 'country', 'type' => 'text', 'label' => 'Country', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
         CRUD::addField(['prefix' => '<a href="https://www.google.com/maps" target="_blank">Map</a>','name' => 'location', 'type' => 'text', 'label' => 'gps coordinates', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
 
+        CRUD::field('city')->on('saving', function ($entry) {
+            $this->saveCity($entry);
+        });
 
+        CRUD::field('country')->on('saving', function ($entry) {
+            $this->saveCountry($entry);
+        });
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -237,6 +247,16 @@ class NeighbourhoodCrudController extends CrudController
          */
     }
 
+
+    public function saveCountry($entry)
+    {
+        Country::firstOrCreate(['name' => $entry->country]);
+    }
+
+    public function saveCity($entry)
+    {
+        City::firstOrCreate(['name' => $entry->city]);
+    }
     /**
      * Define what happens when the Update operation is loaded.
      * 

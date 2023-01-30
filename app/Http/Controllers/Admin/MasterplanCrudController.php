@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MasterplanRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-
+use App\Models\City;
+use App\Models\Country;
 /**
  * Class MasterplanCrudController
  * @package App\Http\Controllers\Admin
@@ -85,6 +86,9 @@ class MasterplanCrudController extends CrudController
         CRUD::setValidation(MasterplanRequest::class);
         $this->crud->setValidation([
             'title' => 'required|min:2|max:255',
+            'tags' => 'required',
+            'city' => 'required',
+            'country' => 'required',
         ]);
         CRUD::addField([ // Text
             'name'  => 'title',
@@ -229,8 +233,34 @@ class MasterplanCrudController extends CrudController
 
 
         CRUD::addField(['prefix' => '<i class="las la-map"></i>','name' => 'address','type' => 'text','label' => 'Address','tab' => 'Location',]);
-        CRUD::addField([ 'prefix' => '<a href="../../city/create">+</a>','name' => 'city','type' => 'text','label' => 'City', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
-        CRUD::addField([ 'prefix' => '<a href="../../country/create">+</a>','name' => 'country', 'type' => 'text', 'label' => 'Country', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
+        CRUD::addField([
+             'prefix' => '<a href="../../city/create">+</a>',
+             'name' => 'city',
+             'type' => 'text',
+             'label' => 'City', 
+             'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+             'tab' => 'Location',
+            ]);
+
+            
+            CRUD::field('city')->on('saving', function ($entry) {
+                $this->saveCity($entry);
+            });
+            
+
+        CRUD::addField([ 
+            'prefix' => '<a href="../../country/create">+</a>',
+            'name' => 'country',
+             'type' => 'text',
+              'label' => 'Country',
+               'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+               'tab' => 'Location',
+        ]);
+        
+            CRUD::field('country')->on('saving', function ($entry) {
+                $this->saveCountry($entry);
+            });
+
         
         CRUD::addField([
             'prefix' => '<a href="https://www.google.com/maps" target="_blank">Map</a>',
@@ -371,6 +401,15 @@ class MasterplanCrudController extends CrudController
          */
     }
 
+    public function saveCountry($entry)
+    {
+        Country::firstOrCreate(['name' => $entry->country]);
+    }
+
+    public function saveCity($entry)
+    {
+        City::firstOrCreate(['name' => $entry->city]);
+    }
     /**
      * Define what happens when the Update operation is loaded.
      * 

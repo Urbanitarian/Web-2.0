@@ -26,7 +26,6 @@ class City extends Model
     // protected $dates = [];
     protected $fillable = [
         'name',
-        'country_id',
     ];
     /*
     |--------------------------------------------------------------------------
@@ -39,16 +38,12 @@ class City extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function country()
-    {
-        return $this->belongsTo(Country::class);
-        }
-    /*
-    |--------------------------------------------------------------------------
-    | SCOPES
-    |--------------------------------------------------------------------------
-    */
-
+    // public function country()
+    // {
+    //     return $this->belongsTo(Country::class);
+    // }
+    // /*
+  
     /*
     |--------------------------------------------------------------------------
     | ACCESSORS
