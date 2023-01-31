@@ -129,7 +129,7 @@
 
 
      $(document).ready(function() {
-         url = "api/data";
+         url = "api/masterplans";
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
