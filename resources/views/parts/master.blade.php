@@ -186,36 +186,42 @@
 
      $('#child').click(function() {
          url = "api/masterplans?tags=Child-friendly";
+           $('#searchbar').val('Child-friendly');
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
      $('#green').click(function() {
          url = "api/masterplans?tags=Green";
+           $('#searchbar').val('Green');
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
      $('#climate').click(function() {
          url = "api/masterplans?tags=climate";
+           $('#searchbar').val('climate');
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
      $('#age').click(function() {
          url = "api/masterplans?tags=age";
+           $('#searchbar').val('Age-friendly');
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
      $('#all').click(function() {
          url = "api/masterplans";
+           $('#searchbar').val('');
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
      $('#Allsize').click(function() {
          url = "api/masterplans";
+           $('#searchbar').val('');
          $('#boucle').empty();
          fetchAndRenderData(url);
      });

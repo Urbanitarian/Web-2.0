@@ -182,60 +182,77 @@ $("#prev").click(function() {
 
 $('#child').click(function() {
   url = "api/neighbourhoods?tags=Child-friendly";
+      $('#searchbar').val('Child-friendly');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#green').click(function() {
   url = "api/neighbourhoods?tags=Green";
+      $('#searchbar').val('Green');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#climate').click(function() {
   url = "api/neighbourhoods?tags=climate";
+      $('#searchbar').val('Climate-proof');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#age').click(function() {
   url = "api/neighbourhoods?tags=age";
+        $('#searchbar').val('Age-friendly');
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#placemaking').click(function() {
+  url = "api/neighbourhoods?tags=placemaking";
+        $('#searchbar').val('Placemaking');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#all').click(function() {
   url = "api/neighbourhoods";
+      $('#searchbar').val('');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#Allsize').click(function() {
   url = "api/neighbourhoods";
+    $('#searchbar').val('');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#Large').click(function() {
   url = "api/neighbourhoods?size=large";
+    $('#searchbar').val('');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#Medium').click(function() {
   url = "api/neighbourhoods?size=medium";
+    $('#searchbar').val('');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#Small').click(function() {
   url = "api/neighbourhoods?size=small";
+    $('#searchbar').val('');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#Xs').click(function() {
   url = "api/neighbourhoods?size=xs";
+    $('#searchbar').val('');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });

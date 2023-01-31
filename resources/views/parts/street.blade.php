@@ -225,30 +225,42 @@
 
     $('#child').click(function() {
         url = "api/streetscapes?tags=Child-friendly";
+          $('#searchbar').val('Child-friendly');
         $('#boucle').empty();
         fetchAndRenderData(url);
     });
 
     $('#green').click(function() {
         url = "api/streetscapes?tags=Green";
+          $('#searchbar').val('Green');
         $('#boucle').empty();
         fetchAndRenderData(url);
     });
 
     $('#climate').click(function() {
         url = "api/streetscapes?tags=climate";
+          $('#searchbar').val('Climate-proof');
         $('#boucle').empty();
         fetchAndRenderData(url);
     });
 
     $('#age').click(function() {
         url = "api/streetscapes?tags=age";
+            $('#searchbar').val('Age-friendly');
+        $('#boucle').empty();
+        fetchAndRenderData(url);
+    });
+
+     $('#placemaking').click(function() {
+        url = "api/streetscapes?tags=placemaking";
+            $('#searchbar').val('Placemaking');
         $('#boucle').empty();
         fetchAndRenderData(url);
     });
 
     $('#all').click(function() {
         url = "api/streetscapes";
+        $('#searchbar').val('');
         $('#boucle').empty();
         fetchAndRenderData(url);
     });

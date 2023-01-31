@@ -320,48 +320,56 @@ let currentPage = 1;
 
 $('#child').click(function() {
   url = "api/data?tags=Child-friendly";
+  $('#searchbar').val('Child-friendly');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#playful').click(function() {
   url = "api/data?tags=Playful";
+    $('#searchbar').val('Playful');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#wsud').click(function() {
   url = "api/data?tags=wsud";
+      $('#searchbar').val('wsud');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#carfree').click(function() {
   url = "api/data?tags=car-free";
+      $('#searchbar').val('car-free');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#masterplans').click(function() {
   url = "api/data?category=masterplans";
+      $('#searchbar').val('masterplans');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#neighbourhoods').click(function() {
   url = "api/data?category=neighbourhoods";
+      $('#searchbar').val('neighbourhoods');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#streetscapes').click(function() {
   url = "api/data?category=streetscapes";
+      $('#searchbar').val('streetscapes');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#allcat').click(function() {
   url = "api/data";
+   $('#searchbar').val('');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
