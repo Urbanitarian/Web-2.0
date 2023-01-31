@@ -1,5 +1,5 @@
 <section class="mx-4">
-    <div class="px-4 py-8 pb-16 mx-8 max-w-screen-2xl md:py-16 md:mx-auto">
+    <div class="px-4 py-8 mx-8 max-w-screen-2xl md:mx-auto">
         <div class="flex flex-wrap w-full mb-8 md:mb-10">
             <div class="w-full">
                 <h1 class="pb-4 text-3xl font-bold text-center text-gray-900 md:text-5xl">Web Resources</h1>
@@ -19,42 +19,42 @@
                     </div>
                     <button id="all">
                         <label for="All" id="Alltag"
-                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">All</p>
                         </label>
                     </button>
 
                     <button id="case">
                         <label for="child" id="childtag"
-                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">Case studies</p>
                         </label>
                     </button>
 
                     <button id="design">
                         <label for="green"
-                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">Design awards</p>
                         </label>
                     </button>
 
                     <button id="resource">
                         <label for="climate"
-                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">Resources</p>
                         </label>
                     </button>
 
                     <button id="plateform">
                         <label for="age"
-                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">Platforms</p>
                         </label>
                     </button>
 
                     <button id="non-profit">
                         <label for="placemaking"
-                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">Non-profits</p>
                         </label>
                     </button>
@@ -68,63 +68,64 @@
                     </div>
                     <button id="word">
                         <label for="Allsize" id="Allsizetag"
-                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">Worldwide</p>
                         </label>
                     </button>
 
                     <button id="uk">
                         <label for="large"
-                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">Uk</p>
                         </label>
                     </button>
 
                     <button id="france">
                         <label for="medium"
-                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">France</p>
                         </label>
                     </button>
 
                     <button id="singapour">
                         <label for="small"
-                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">Singapour</p>
                         </label>
                     </button>
 
                     <button id="china">
                         <label for="xs"
-                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">China</p>
                         </label>
                     </button>
 
                     <button id="brazil">
                         <label for="xs"
-                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">Brazil</p>
                         </label>
                     </button>
                 </fieldset>
             </div>
         </div>
-        <div class="py-8">
+        <div>
             <div id="boucle" class="grid grid-cols-2 gap-5 row-gap-5 lg:grid-cols-3 xl:grid-cols-5 md:grid-cols-2">
 
             </div>
-            <div class="flex pt-8">
+            <div class="flex pt-16">
                 <button id="prev"
-                    class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
+                    class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-300 active:text-white peer-checked:text-white">
                     <p class="text-sm font-medium">previous</p>
                     <button id="next"
-                        class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
+                        class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-300 active:text-white peer-checked:text-white">
                         <p class="text-sm font-medium">Next</p>
             </div>
         </div>
 
     </div>
+          @include('parts.all')
 </section>
 <script>
     const itemsPerPage = 10;

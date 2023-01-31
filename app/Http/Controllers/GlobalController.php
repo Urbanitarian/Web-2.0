@@ -160,7 +160,6 @@ class GlobalController extends Controller
     }
 
 
-
     static function pages()
     {
         $pages = Pages::all();

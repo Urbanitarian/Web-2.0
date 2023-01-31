@@ -47,4 +47,5 @@
       </div>
         </div>
     </div>
+          @include('parts.all')
 </section>

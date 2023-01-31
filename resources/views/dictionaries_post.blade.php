@@ -117,5 +117,6 @@
             href="./alldictionary">See
             All Dictionary</a></button>
 </section>
+      @include('parts.all')
      </div>
 @endsection

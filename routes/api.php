@@ -7,6 +7,7 @@ use App\Http\Controllers\API\NeighbourhoodsController;
 use App\Http\Controllers\API\MasterplansController;
 use App\Http\Controllers\API\StreetscapesController;
 use App\Http\Controllers\API\WebresourcesController;
+use App\Http\Controllers\API\PromoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,3 +32,5 @@ Route::apiResource("masterplans", MasterplansController::class);
 Route::apiResource("streetscapes", StreetscapesController::class);
 
 Route::apiResource("webresources", WebresourcesController::class);
+
+Route::apiResource("promo", PromoController::class);

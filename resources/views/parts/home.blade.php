@@ -74,8 +74,8 @@
                      class="mx-2 text-gray-200 fa-solid fa-list fa-2x hover:text-gray-400"></i></button>
              <button id="change-layouts2" onclick="return false;"> <i
                      class="mr-2 text-gray-200 fa-solid fa-border-all fa-2x hover:text-gray-400"></i></button>
-             <button id="change-layouts3" onclick="return false;"><i
-                     class="text-gray-200 fa-solid fa-map fa-2x hover:text-gray-400"></i></button>
+             {{-- <button id="change-layouts3" onclick="return false;"><i
+                     class="text-gray-200 fa-solid fa-map fa-2x hover:text-gray-400"></i></button> --}}
          </div>
 
          <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category">
@@ -107,8 +107,8 @@
                          class="mx-2 text-gray-200 transition fa-solid fa-list fa-2x hover:text-gray-400"></i></button>
                  <button id="change-layout2" onclick="return false;"> <i
                          class="mr-2 text-gray-200 transition fa-solid fa-border-all fa-2x hover:text-gray-400"></i></button>
-                 <button id="change-layout3" onclick="return false;"> <i
-                         class="text-gray-200 transition fa-solid fa-map fa-2x hover:text-gray-400"></i></button>
+                 {{-- <button id="change-layout3" onclick="return false;"> <i
+                         class="text-gray-200 transition fa-solid fa-map fa-2x hover:text-gray-400"></i></button> --}}
              </div>
 
          </div>
@@ -206,10 +206,10 @@
          </div>
           <div class="flex pt-10">
                 <button id="prev"
-                    class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
+                    class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
                     <p class="text-sm font-medium">previous</p>
                     <button id="next"
-                        class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
+                        class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
                         <p class="text-sm font-medium">Next</p>
             </div>
      </section>

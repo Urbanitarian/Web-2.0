@@ -104,24 +104,24 @@
         </fieldset>
 
 
-        <section>
+        <div>
             <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
                 <ul id="boucle" class="grid gap-4 mt-8 sm:grid-cols-2 md:grid-cols-3 ">
 
                 </ul>
             </div>
               <div class="flex pt-8">
-        <button id="prev" class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+        <button id="prev" class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
             <p class="text-sm font-medium">previous</p>
-        <button id="next" class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+        <button id="next" class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
             <p class="text-sm font-medium">Next</p>
               </div>
-        </section>
-
-
+        </div>
 
 
 </section>
+
+
 <script>
 const itemsPerPage = 10;
 let currentPage = 1;
@@ -164,11 +164,11 @@ $("#prev").click(function() {
 
         $.each(itemsToDisplay, function(i, item) {
                     let html = `
-                         <div>
+                         <div class="border">
                    <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
-                   <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
+                   <span class="mx-2 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
                    <p class="my-1">
                    <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
                    </p>

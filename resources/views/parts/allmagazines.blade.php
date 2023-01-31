@@ -42,6 +42,6 @@
             </div>
                {{ $magazines->appends(Request::all())->links('pagination::tailwind') }}
         </div>    
-
+      
     </div>
 </section>
