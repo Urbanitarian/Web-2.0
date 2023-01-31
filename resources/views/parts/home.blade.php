@@ -280,23 +280,22 @@
             })
     });
 
- $('#child').click(function() {
-     url = "api/data?tags=Child-friendly";
-     $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
+ const fetchAndRenderData = (url) => {
+  fetch(url)
+    .then((res) => res.json())
+    .then((out) => {
+        const obj = JSON.parse(JSON.stringify(out));
+        let textFromJSON = obj;
 
-                $.each(textFromJSON, function(i, item) {
-                    if (item.category == "Streetscapes") {
+        $.each(textFromJSON, function(i, item) {
+           if (item.category == "Streetscapes") {
                     let html = `
                      <div
                          class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
                          <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
+                             @php $image1 =   $data['image'][0] ?? null; @endphp
+                             <img alt="Art" src="storage/${item.image[0]}"alt=""
+                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                              <div class="">
                                  <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
                                      ${item.title} | ${item.author} | ${item.city}</h3>
@@ -314,7 +313,8 @@
                         let html = `
                       <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
                          <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
+                             <img alt="Art" src="storage/${item.image[0]}"alt=""
+                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                              <div class="">
                                  <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
                                      ${item.title} | ${item.author} | ${item.city}</h3>
@@ -331,7 +331,8 @@
                         let html = `
                       <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
                          <a href="neighbourhoods_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
+                             <img alt="Art" src="storage/${item.image[0]}"alt=""
+                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                              <div class="">
                                  <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
                                      ${item.title} | ${item.author} | ${item.city}</h3>
@@ -345,425 +346,87 @@
                       `;
                    $('#boucle').append(html);
                     }
-                });
-            })
-    });
+        });
+    })
+};
 
- $('#playful').click(function() {
-     url = "api/data?tags=Playful";
-     $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
+$('#child').click(function() {
+  url = "api/data?tags=Child-friendly";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
 
-                $.each(textFromJSON, function(i, item) {
-                    if (item.category == "Streetscapes") {
-                    let html = `
-                     <div
-                         class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class=" pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                     ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
+$('#playful').click(function() {
+  url = "api/data?tags=Playful";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
 
-                             </div>
-                         </a>
-                     </div>
-                     `;
-                      $('#boucle').append(html);
-                    } else if (item.category == "Masterplans") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    } else if (item.category == "Neighbourhoods") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="neighbourhoods_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    }
-                });
-            })
-    });
+$('#wsud').click(function() {
+  url = "api/data?tags=wsud";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
 
 $('#carfree').click(function() {
-     url = "api/data?tags=car-free";
-     $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    if (item.category == "Streetscapes") {
-                    let html = `
-                     <div
-                         class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class=" pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                     ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-
-                             </div>
-                         </a>
-                     </div>
-                     `;
-                      $('#boucle').append(html);
-                    } else if (item.category == "Masterplans") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    } else if (item.category == "Neighbourhoods") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="neighbourhoods_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    }
-                });
-            })
-    });
-
-
+  url = "api/data?tags=car-free";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
 
 $('#masterplans').click(function() {
-     url = "api/data?category=masterplans";
-     $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    if (item.category == "Streetscapes") {
-                    let html = `
-                     <div
-                         class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class=" pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                     ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-
-                             </div>
-                         </a>
-                     </div>
-                     `;
-                      $('#boucle').append(html);
-                    } else if (item.category == "Masterplans") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    } else if (item.category == "Neighbourhoods") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="neighbourhoods_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    }
-                });
-            })
-    });
-
-$('#streetscapes').click(function() {
-     url = "api/data?category=streetscapes";
-     $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    if (item.category == "Streetscapes") {
-                    let html = `
-                     <div
-                         class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class=" pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                     ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-
-                             </div>
-                         </a>
-                     </div>
-                     `;
-                      $('#boucle').append(html);
-                    } else if (item.category == "Masterplans") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    } else if (item.category == "Neighbourhoods") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="neighbourhoods_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    }
-                });
-            })
-    });
+  url = "api/data?category=masterplans";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
 
 $('#neighbourhoods').click(function() {
-     url = "api/data?category=neighbourhoods";
-     $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
+  url = "api/data?category=neighbourhoods";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
 
-                $.each(textFromJSON, function(i, item) {
-                    if (item.category == "Streetscapes") {
-                    let html = `
-                     <div
-                         class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class=" pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                     ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-
-                             </div>
-                         </a>
-                     </div>
-                     `;
-                      $('#boucle').append(html);
-                    } else if (item.category == "Masterplans") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    } else if (item.category == "Neighbourhoods") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="neighbourhoods_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    }
-                });
-            })
-    });
+$('#streetscapes').click(function() {
+  url = "api/data?category=streetscapes";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
 
 $('#allcat').click(function() {
-     url = "api/data";
-     $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
+  url = "api/data";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
 
-                $.each(textFromJSON, function(i, item) {
-                    if (item.category == "Streetscapes") {
-                    let html = `
-                     <div
-                         class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class=" pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                     ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
+$('#size_selector').change(function() {
+  url = "api/data?size=" + $('#size_selector').val();
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
 
-                             </div>
-                         </a>
-                     </div>
-                     `;
-                      $('#boucle').append(html);
-                    } else if (item.category == "Masterplans") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    } else if (item.category == "Neighbourhoods") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="neighbourhoods_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    }
-                });
-            })
-    });
+$('#status_selector').change(function() {
+  url = "api/data?status=" + $('#status_selector').val();
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#city_selector').change(function() {
+  url = "api/data?q=" + $('#city_selector').val();
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#country_selector').change(function() {
+  url = "api/data?q=" + $('#country_selector').val();
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#pop_selector').change(function() {
+  url = "api/data?pop=" + $('#pop_selector').val();
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
 
 
  $('#searchbar').keyup(function() {

@@ -16,6 +16,8 @@ class DataController extends Controller
         $tags = request()->input('tags');
         $size = request()->input('size');
         $category = request()->input('category');
+        $status = request()->input('status');
+        $pop = request()->input('pop');
 
         if ($q) { 
             $masters = Masterplan::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
@@ -37,6 +39,38 @@ class DataController extends Controller
                 $neighbs->toArray()
                 
             );
+        }elseif ($status) {
+            $masters = Masterplan::where('status','like','%' . $status . '%')->get();
+            $streets = Streetscape::where('status','like','%' . $status . '%')->get();
+            $neighbs = Neighbourhood::where('status','like','%' . $status . '%')->get();
+            $all_data = array_merge(
+                $masters->toArray(),
+                $streets->toArray(),
+                $neighbs->toArray()
+                
+            );
+        }elseif ($pop) {
+            if ($pop == 'new') {
+                $masters = Masterplan::orderBy('created_at', 'desc')->get();
+                $streets = Streetscape::orderBy('created_at', 'desc')->get();
+                $neighbs = Neighbourhood::orderBy('created_at', 'desc')->get();
+                $all_data = array_merge(
+                    $masters->toArray(),
+                    $streets->toArray(),
+                    $neighbs->toArray()
+                    
+                );
+            }elseif ($pop == 'old') {
+                $masters = Masterplan::orderBy('created_at', 'asc')->get();
+                $streets = Streetscape::orderBy('created_at', 'asc')->get();
+                $neighbs = Neighbourhood::orderBy('created_at', 'asc')->get();
+                $all_data = array_merge(
+                    $masters->toArray(),
+                    $streets->toArray(),
+                    $neighbs->toArray()
+                    
+                );
+            }
         }elseif ($size) {
             $masters = Masterplan::where('size','like','%' . $size . '%')->get();
             $streets = Streetscape::where('size','like','%' . $size . '%')->get();
