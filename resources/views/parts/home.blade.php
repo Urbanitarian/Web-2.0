@@ -23,7 +23,7 @@
       <fieldset class="flex flex-wrap justify-center gap-3 pt-8 mx-auto">
         <div>
           <label for="ColorBlack" class="flex items-center justify-center gap-2 px-3 py-2 text-black ">
-            <p class="text-base font-medium">Trending searchs</p>
+            <p class="text-base font-medium">Trending searchs:</p>
           </label>
         </div>
 

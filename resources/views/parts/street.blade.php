@@ -110,24 +110,25 @@
 
 <section class="mx-4 border-t">
     <div class="container px-6 py-10 mx-auto">
-        <div id="boucle" class="flex flex-col">
+        <div id="boucle">
 
         </div>
     </div>
-     <div class="flex pb-8">
-             <button id="prev"
-                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
-                 <p class="text-sm font-medium">previous</p>
-                 <button id="next"
-                     class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">Next</p>
-         </div>
+    <div class="flex pb-8">
+        <button id="prev"
+            class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
+            <p class="text-sm font-medium">previous</p>
+            <button id="next"
+                class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
+                <p class="text-sm font-medium">Next</p>
+    </div>
 </section>
 
 
 
 <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
 <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
 <script>
     const itemsPerPage = 5;
     let currentPage = 1;
@@ -136,7 +137,6 @@
         url = "api/streetscapes";
         $('#boucle').empty();
         fetchAndRenderData(url);
-
 
         $("#next").click(function() {
             $('#boucle').empty();
@@ -155,26 +155,9 @@
             }
             fetchAndRenderData(url);
         });
+        console.log('ok');
 
 
-        $('.juxtapose').each(function() {
-            // get the parent element
-            var $juxtaposeContainer = $(this).parent();
-            // get the ratio of the image
-            var juxtaposeRatio = $(this).outerHeight() / $(this).outerWidth();
-            // on window resize
-            $(window).on('resize', function() {
-                // get the new width of the parent element
-                var newWidth = $juxtaposeContainer.outerWidth();
-                // calculate the new height based on the ratio
-                var newHeight = newWidth * juxtaposeRatio;
-                // set the new width and height
-                $(this).css({
-                    width: newWidth,
-                    height: newHeight
-                });
-            });
-        });
     });
 
     const fetchAndRenderData = (url) => {
@@ -190,14 +173,17 @@
 
                 $.each(itemsToDisplay, function(i, item) {
                     let html = `
-                        <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[1]}"alt="00"  onerror="this.src='./img/empty.png'"/>
+                <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
+                    <div id="juxt" class="lg:w-3/4 md:px-6">
+                        <div class="juxtapose" data-juxtapose>
+                        {{-- <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/> --}}
+                         <a href="streetscapes_post?id=${item.id}">
+                        <img class="object-cover object-center w-full h-full md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/>
+                        </a>
+                         </div>
                     </div>
-
-                    </div>
+                          
+                  
 
                     <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
                         <div>
@@ -218,42 +204,70 @@
 
                     </div>
                 </div> `;
+
                     $('#boucle').append(html);
+                    juxtaposer();
                 });
             })
     };
 
+    function juxtaposer() {
+
+        var $juxtapose = $('.juxtapose');
+
+        $juxtapose.each(function(index, element) {
+            var $juxtaposeContainer = $juxtapose.parent();
+            var juxtaposeRatio;
+
+            $(window).on('load', function(event) {
+                juxtaposeRatio = $(element).outerHeight() / $(element).outerWidth();
+            });
+
+            $(window).on('resize', function(event) {
+                var newWidth = $juxtaposeContainer.outerWidth();
+                var newHeight = newWidth * juxtaposeRatio;
+                $(element).css({
+                    width: newWidth,
+                    height: newHeight
+                });
+            });
+
+        });
+
+    }
+
+
     $('#child').click(function() {
         url = "api/streetscapes?tags=Child-friendly";
-          $('#searchbar').val('Child-friendly');
+        $('#searchbar').val('Child-friendly');
         $('#boucle').empty();
         fetchAndRenderData(url);
     });
 
     $('#green').click(function() {
         url = "api/streetscapes?tags=Green";
-          $('#searchbar').val('Green');
+        $('#searchbar').val('Green');
         $('#boucle').empty();
         fetchAndRenderData(url);
     });
 
     $('#climate').click(function() {
         url = "api/streetscapes?tags=climate";
-          $('#searchbar').val('Climate-proof');
+        $('#searchbar').val('Climate-proof');
         $('#boucle').empty();
         fetchAndRenderData(url);
     });
 
     $('#age').click(function() {
         url = "api/streetscapes?tags=age";
-            $('#searchbar').val('Age-friendly');
+        $('#searchbar').val('Age-friendly');
         $('#boucle').empty();
         fetchAndRenderData(url);
     });
 
-     $('#placemaking').click(function() {
+    $('#placemaking').click(function() {
         url = "api/streetscapes?tags=placemaking";
-            $('#searchbar').val('Placemaking');
+        $('#searchbar').val('Placemaking');
         $('#boucle').empty();
         fetchAndRenderData(url);
     });
