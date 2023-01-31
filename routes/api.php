@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\NeighbourhoodsController;
 use App\Http\Controllers\API\MasterplansController;
 use App\Http\Controllers\API\StreetscapesController;
+use App\Http\Controllers\API\WebresourcesController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,3 +29,5 @@ Route::apiResource("neighbourhoods", NeighbourhoodsController::class);
 Route::apiResource("masterplans", MasterplansController::class);
 
 Route::apiResource("streetscapes", StreetscapesController::class);
+
+Route::apiResource("webresources", WebresourcesController::class);

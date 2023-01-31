@@ -19,6 +19,7 @@ return new class extends Migration
             $table->longText('image')->nullable();
             $table->string('type')->nullable();
             $table->string('link')->nullable();
+            $table->string('country')->nullable();
             $table->timestamps();
         });
     }

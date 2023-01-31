@@ -98,9 +98,10 @@ class DataController extends Controller
                     $masters->toArray(),
                     $streets->toArray(),
                     $neighbs->toArray()
-                    
                 );
          }
+         //shuffle data
+            shuffle($all_data);
 
         return response()->json($all_data);
     }

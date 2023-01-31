@@ -198,17 +198,43 @@
      </div>
  </div>
  <div data-barba="container">
-     <section class="block pb-16 mx-4 md:mx-16 tabset">
+     <section class="block pb-8 mx-4 md:mx-16 tabset">
 
-         <div id="boucle" class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5 ">
+         <div id="boucle" class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5">
 
           
          </div>
+          <div class="flex pt-10">
+                <button id="prev"
+                    class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
+                    <p class="text-sm font-medium">previous</p>
+                    <button id="next"
+                        class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
+                        <p class="text-sm font-medium">Next</p>
+            </div>
      </section>
  </div>
 <script>
-const itemsPerPage = 10;
+const itemsPerPage = 8;
 let currentPage = 1;
+
+    $("#next").click(function() {
+        $('#boucle').empty();
+        currentPage++;
+        if (currentPage > totalPages) {
+            currentPage = totalPages;
+        }
+        fetchAndRenderData(url);
+    });
+
+    $("#prev").click(function() {
+        $('#boucle').empty();
+        currentPage--;
+        if (currentPage < 1) {
+            currentPage = 1;
+        }
+        fetchAndRenderData(url);
+    });
 
 
   $(document).ready(function() {
@@ -217,12 +243,15 @@ let currentPage = 1;
     fetchAndRenderData(url);
     });
 
+
+
  const fetchAndRenderData = (url) => {
   fetch(url)
     .then((res) => res.json())
     .then((out) => {
         const obj = JSON.parse(JSON.stringify(out));
         let textFromJSON = obj;
+           totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
               const startIndex = (currentPage - 1) * itemsPerPage;
                  const endIndex = startIndex + itemsPerPage;
                 const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
