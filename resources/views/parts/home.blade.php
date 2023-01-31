@@ -207,77 +207,14 @@
      </section>
  </div>
 <script>
+const itemsPerPage = 10;
+let currentPage = 1;
+
 
   $(document).ready(function() {
-     url = "api/data";
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    if (item.category == "Streetscapes") {
-                    let html = `
-                     <div
-                         class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
-                             @php $image1 =   $data['image'][0] ?? null; @endphp
-                             <img alt="Art" src="storage/${item.image[0]}"alt=""
-                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class=" pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                     ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-
-                             </div>
-                         </a>
-                     </div>
-                     `;
-                      $('#boucle').append(html);
-                    } else if (item.category == "Masterplans") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt=""
-                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    } else if (item.category == "Neighbourhoods") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="neighbourhoods_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt=""
-                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    }
-                });
-            })
+    url = "api/data";
+      $('#boucle').empty();
+    fetchAndRenderData(url);
     });
 
  const fetchAndRenderData = (url) => {
@@ -286,8 +223,11 @@
     .then((out) => {
         const obj = JSON.parse(JSON.stringify(out));
         let textFromJSON = obj;
+              const startIndex = (currentPage - 1) * itemsPerPage;
+                 const endIndex = startIndex + itemsPerPage;
+                const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
 
-        $.each(textFromJSON, function(i, item) {
+        $.each(itemsToDisplay, function(i, item) {
            if (item.category == "Streetscapes") {
                     let html = `
                      <div
@@ -430,73 +370,9 @@ $('#pop_selector').change(function() {
 
 
  $('#searchbar').keyup(function() {
-        console.log($('#searchbar').val());
          url = "api/data?q=" + $('#searchbar').val();
-      $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                               if (item.category == "Streetscapes") {
-                    let html = `
-                     <div
-                         class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class=" pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                     ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-
-                             </div>
-                         </a>
-                     </div>
-                     `;
-                      $('#boucle').append(html);
-                    } else if (item.category == "Masterplans") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    } else if (item.category == "Neighbourhoods") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="neighbourhoods_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    }
-                });
-            })
+        $('#boucle').empty();
+        fetchAndRenderData(url);
     });
 
 
@@ -504,78 +380,8 @@ $('#searchtag').keyup(function() {
 
          url = "api/data?tags=" + $('#searchtag').val();
       $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                               if (item.category == "Streetscapes") {
-                    let html = `
-                     <div
-                         class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class=" pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                     ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-
-                             </div>
-                         </a>
-                     </div>
-                     `;
-                      $('#boucle').append(html);
-                    } else if (item.category == "Masterplans") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    } else if (item.category == "Neighbourhoods") {
-                        let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
-                         <a href="neighbourhoods_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt="" onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
-                             <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
-                                     ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
-                                       ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
-                                 </p>
-                             </div>
-                         </a>
-                     </div>
-                      `;
-                   $('#boucle').append(html);
-                    }
-                });
-            })
+        fetchAndRenderData(url);
     });
-
-
-
-
-
-
-
 
     
         layout = null;

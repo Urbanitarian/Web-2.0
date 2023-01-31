@@ -120,79 +120,28 @@
 
 </section>
 <script>
-
+const itemsPerPage = 10;
+let currentPage = 1;
 
   $(document).ready(function() {
-     url = "api/neighbourhoods";
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                   <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
-                   <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-                   <div class="relative pt-3 bg-gray-100">
-                   <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
-                   <p class="my-1">
-                   <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
-                   </p>
-                   </div>
-                   </a>
-                   </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
- $('#all').click(function() {
-
-     url = "api/neighbourhoods";
-       //empty the div with fade out
-         $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                   <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
-                   <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-                   <div class="relative pt-3 bg-gray-100">
-                   <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
-                   <p class="my-1">
-                   <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
-                   </p>
-                   </div>
-                   </a>
-                   </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#child').click(function() {
-
-         url = "api/neighbourhoods?tags=Child-friendly";
+    url = "api/neighbourhoods";
       $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
+    fetchAndRenderData(url);
+    });
 
-                $.each(textFromJSON, function(i, item) {
+ const fetchAndRenderData = (url) => {
+  fetch(url)
+    .then((res) => res.json())
+    .then((out) => {
+        const obj = JSON.parse(JSON.stringify(out));
+        let textFromJSON = obj;
+              const startIndex = (currentPage - 1) * itemsPerPage;
+                 const endIndex = startIndex + itemsPerPage;
+                const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
+
+        $.each(itemsToDisplay, function(i, item) {
                     let html = `
-                   <div>
+                         <div>
                    <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
@@ -202,293 +151,82 @@
                    </p>
                    </div>
                    </a>
-                   </div>`;
+                   </div> `;
                    $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#green').click(function() {
-         url = "api/neighbourhoods?tags=Green";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-
-                   <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
-                   <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-                   <div class="relative pt-3 bg-gray-100">
-                   <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
-                   <p class="my-1">
-                   <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
-                   </p>
-                   </div>
-                   </a>
-                   </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#climate').click(function() {
-              url = "api/neighbourhoods?tags=Climate-proof";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                   <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
-                   <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-                   <div class="relative pt-3 bg-gray-100">
-                   <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
-                   <p class="my-1">
-                   <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
-                   </p>
-                   </div>
-                   </a>
-                   </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#age').click(function() {
-             url = "api/neighbourhoods?tags=Age-friendly";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                   <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
-                   <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-                   <div class="relative pt-3 bg-gray-100">
-                   <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
-                   <p class="my-1">
-                   <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
-                   </p>
-                   </div>
-                   </a>
-                   </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#placemaking').click(function() {
-                 url = "api/neighbourhoods?tags=placemaking";
-             $('#boucle').empty();
-             fetch(url)
-                 .then((res) => res.json())
-                 .then((out) => {
-                     const text = JSON.stringify(out);
-                     const obj = JSON.parse(text);
-                     let textFromJSON = obj;
-
-                     $.each(textFromJSON, function(i, item) {
-                         let html = `
-                        <div>
-                        <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
-                        <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-                        <div class="relative pt-3 bg-gray-100">
-                        <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
-                        <p class="my-1">
-                        <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
-                        </p>
-                        </div>
-                        </a>
-                        </div>`;
-                        $('#boucle').append(html);
-                     });
-                 })
         });
+    })
+};
+
+$('#child').click(function() {
+  url = "api/neighbourhoods?tags=Child-friendly";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#green').click(function() {
+  url = "api/neighbourhoods?tags=Green";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#climate').click(function() {
+  url = "api/neighbourhoods?tags=climate";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#age').click(function() {
+  url = "api/neighbourhoods?tags=age";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#all').click(function() {
+  url = "api/neighbourhoods";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#Allsize').click(function() {
+  url = "api/neighbourhoods";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#Large').click(function() {
+  url = "api/neighbourhoods?size=large";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#Medium').click(function() {
+  url = "api/neighbourhoods?size=medium";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#Small').click(function() {
+  url = "api/neighbourhoods?size=small";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#Xs').click(function() {
+  url = "api/neighbourhoods?size=xs";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
 
 
-    $('#Allsize').click(function() {
-         url = "api/neighbourhoods";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
 
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                   <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
-                   <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-                   <div class="relative pt-3 bg-gray-100">
-                   <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
-                   <p class="my-1">
-                   <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
-                   </p>
-                   </div>
-                   </a>
-                   </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#Small').click(function() {
-         url = "api/neighbourhoods?size=Small";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                   <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
-                   <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-                   <div class="relative pt-3 bg-gray-100">
-                   <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
-                   <p class="my-1">
-                   <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
-                   </p>
-                   </div>
-                   </a>
-                   </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#Medium').click(function() {
-         url = "api/neighbourhoods?size=Medium";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                   <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
-                   <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-                   <div class="relative pt-3 bg-gray-100">
-                   <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
-                   <p class="my-1">
-                   <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
-                   </p>
-                   </div>
-                   </a>
-                   </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#Large').click(function() {
-         url = "api/neighbourhoods?size=Large";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                   <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
-                   <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-                   <div class="relative pt-3 bg-gray-100">
-                   <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
-                   <p class="my-1">
-                   <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
-                   </p>
-                   </div>
-                   </a>
-                   </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#Xs').click(function() {
-         url = "api/neighbourhoods?size=Xs";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                   <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
-                   <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-                   <div class="relative pt-3 bg-gray-100">
-                   <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
-                   <p class="my-1">
-                   <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
-                   </p>
-                   </div>
-                   </a>
-                   </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-     $('#searchbar').keyup(function() {
-        console.log($('#searchbar').val());
+ $('#searchbar').keyup(function() {
          url = "api/neighbourhoods?q=" + $('#searchbar').val();
-      $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                   <div>
-                   <a href="./neighbourhoods_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
-                   <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
-                   <div class="relative pt-3 bg-gray-100">
-                   <span class="mx-1 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
-                   <p class="my-1">
-                   <span class="mx-2 text-xs font-semibold text-gray-500">${item.tags}</span>
-                   </p>
-                   </div>
-                   </a>
-                   </div>`;
-                   $('#boucle').append(html);
-                });
-            })
+        $('#boucle').empty();
+        fetchAndRenderData(url);
     });
+
+
+
+
 
 </script>

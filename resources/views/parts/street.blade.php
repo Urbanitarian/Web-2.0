@@ -4,7 +4,7 @@
         $size = urldecode(request()->get('size'));
         $q = urldecode(request()->get('q'));
     @endphp
-    
+
     <div class="p-8 md:p-12 lg:px-12 lg:py-12">
         <div class="max-w-lg mx-auto text-center lg:max-w-xl">
             <h2 class="text-3xl font-bold text-gray-900 md:text-5xl">
@@ -113,9 +113,7 @@
         <div id="boucle" class="flex flex-col">
 
         </div>
-        <div class="flex justify-center pt-8">
-            {{ $streetscapes->appends(Request::all())->links('pagination::tailwind') }}
-        </div>
+
     </div>
 </section>
 
@@ -124,291 +122,45 @@
 <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
 <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
 <script>
+    const itemsPerPage = 5;
+    let currentPage = 1;
+
     $(document).ready(function() {
         url = "api/streetscapes";
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
+        $('#boucle').empty();
+        fetchAndRenderData(url);
 
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                 <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'" />
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[1]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                         </div>
-
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">  ${item.tags[0]}</h3>
-
-                            <a href="streetscapes_post?id=${item.id}"  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
-                             ${item.title}
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                            <p class="mt-2 text-center text-gray-600 "> ${item.address} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.city} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.country} </p>
-                            </div>
-                           
-                                <button
-                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800"> <a href="${item.link}">See project </a></button>
-                        </div>
-
-                    </div>
-                </div>`;
-                    $('#boucle').append(html);
+        $('.juxtapose').each(function() {
+            // get the parent element
+            var $juxtaposeContainer = $(this).parent();
+            // get the ratio of the image
+            var juxtaposeRatio = $(this).outerHeight() / $(this).outerWidth();
+            // on window resize
+            $(window).on('resize', function() {
+                // get the new width of the parent element
+                var newWidth = $juxtaposeContainer.outerWidth();
+                // calculate the new height based on the ratio
+                var newHeight = newWidth * juxtaposeRatio;
+                // set the new width and height
+                $(this).css({
+                    width: newWidth,
+                    height: newHeight
                 });
-            })
-            console.log("ready!");
+            });
+        });
     });
 
-    $('#all').click(function() {
-
-        url = "api/streetscapes";
-        //empty the div with fade out
-        $('#boucle').empty();
+    const fetchAndRenderData = (url) => {
         fetch(url)
             .then((res) => res.json())
             .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
+                const obj = JSON.parse(JSON.stringify(out));
                 let textFromJSON = obj;
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
 
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                     <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[1]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                    </div>
-
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">  ${item.tags[0]}</h3>
-
-                            <a href="streetscapes_post?id=${item.id}"  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
-                             ${item.title}
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                            <p class="mt-2 text-center text-gray-600 "> ${item.address} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.city} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.country} </p>
-                            </div>
-                           
-                                <button
-                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800"> <a href="${item.link}">See project </a></button>
-                        </div>
-
-                    </div>
-                </div>`;
-                    $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#child').click(function() {
-
-        url = "api/streetscapes?tags=Child-friendly";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                   <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[1]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                    </div>
-
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">  ${item.tags[0]}</h3>
-
-                            <a href="streetscapes_post?id=${item.id}"  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
-                             ${item.title}
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                            <p class="mt-2 text-center text-gray-600 "> ${item.address} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.city} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.country} </p>
-                            </div>
-                           
-                                <button
-                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800"> <a href="${item.link}">See project </a></button>
-                        </div>
-
-                    </div>
-                </div>`;
-                    $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#green').click(function() {
-        url = "api/streetscapes?tags=Green";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-
-                     <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[1]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                    </div>
-
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">  ${item.tags[0]}</h3>
-
-                            <a href="streetscapes_post?id=${item.id}"  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
-                             ${item.title}
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                            <p class="mt-2 text-center text-gray-600 "> ${item.address} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.city} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.country} </p>
-                            </div>
-                           
-                                <button
-                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800"> <a href="${item.link}">See project </a></button>
-                        </div>
-
-                    </div>
-                </div>`;
-                    $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#climate').click(function() {
-        url = "api/streetscapes?tags=Climate-proof";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                    <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[1]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                    </div>
-
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">  ${item.tags[0]}</h3>
-
-                            <a href="streetscapes_post?id=${item.id}"  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
-                             ${item.title}
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                            <p class="mt-2 text-center text-gray-600 "> ${item.address} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.city} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.country} </p>
-                            </div>
-                           
-                                <button
-                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800"> <a href="${item.link}">See project </a></button>
-                        </div>
-
-                    </div>
-                </div>`;
-                    $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#age').click(function() {
-        url = "api/streetscapes?tags=Age-friendly";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                  <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[1]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                    </div>
-
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">  ${item.tags[0]}</h3>
-
-                            <a href="streetscapes_post?id=${item.id}"  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
-                             ${item.title}
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                            <p class="mt-2 text-center text-gray-600 "> ${item.address} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.city} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.country} </p>
-                            </div>
-                           
-                                <button
-                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800"> <a href="${item.link}">See project </a></button>
-                        </div>
-
-                    </div>
-                </div>`;
-                    $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#placemaking').click(function() {
-        url = "api/streetscapes?tags=placemaking";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
+                $.each(itemsToDisplay, function(i, item) {
                     let html = `
                         <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
                     <div class="lg:w-3/4 md:px-6">
@@ -437,304 +189,77 @@
                         </div>
 
                     </div>
-                </div>`;
+                </div> `;
                     $('#boucle').append(html);
                 });
             })
+    };
+
+    $('#child').click(function() {
+        url = "api/streetscapes?tags=Child-friendly";
+        $('#boucle').empty();
+        fetchAndRenderData(url);
     });
 
+    $('#green').click(function() {
+        url = "api/streetscapes?tags=Green";
+        $('#boucle').empty();
+        fetchAndRenderData(url);
+    });
+
+    $('#climate').click(function() {
+        url = "api/streetscapes?tags=climate";
+        $('#boucle').empty();
+        fetchAndRenderData(url);
+    });
+
+    $('#age').click(function() {
+        url = "api/streetscapes?tags=age";
+        $('#boucle').empty();
+        fetchAndRenderData(url);
+    });
+
+    $('#all').click(function() {
+        url = "api/streetscapes";
+        $('#boucle').empty();
+        fetchAndRenderData(url);
+    });
 
     $('#Allsize').click(function() {
         url = "api/streetscapes";
         $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                   <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[1]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                    </div>
-
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">  ${item.tags[0]}</h3>
-
-                            <a href="streetscapes_post?id=${item.id}"  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
-                             ${item.title}
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                            <p class="mt-2 text-center text-gray-600 "> ${item.address} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.city} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.country} </p>
-                            </div>
-                           
-                                <button
-                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800"> <a href="${item.link}">See project </a></button>
-                        </div>
-
-                    </div>
-                </div>`;
-                    $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#Small').click(function() {
-        url = "api/streetscapes?size=Small";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                    <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[1]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                    </div>
-
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">  ${item.tags[0]}</h3>
-
-                            <a href="streetscapes_post?id=${item.id}"  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
-                             ${item.title}
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                            <p class="mt-2 text-center text-gray-600 "> ${item.address} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.city} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.country} </p>
-                            </div>
-                           
-                                <button
-                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800"> <a href="${item.link}">See project </a></button>
-                        </div>
-
-                    </div>
-                </div>`;
-                    $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#Medium').click(function() {
-        url = "api/streetscapes?size=Medium";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                     <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[1]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                    </div>
-
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">  ${item.tags[0]}</h3>
-
-                            <a href="streetscapes_post?id=${item.id}"  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
-                             ${item.title}
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                            <p class="mt-2 text-center text-gray-600 "> ${item.address} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.city} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.country} </p>
-                            </div>
-                           
-                                <button
-                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800"> <a href="${item.link}">See project </a></button>
-                        </div>
-
-                    </div>
-                </div>`;
-                    $('#boucle').append(html);
-                });
-            })
+        fetchAndRenderData(url);
     });
 
     $('#Large').click(function() {
-        url = "api/streetscapes?size=Large";
+        url = "api/streetscapes?size=large";
         $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
+        fetchAndRenderData(url);
+    });
 
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                     <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[1]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                    </div>
+    $('#Medium').click(function() {
+        url = "api/streetscapes?size=medium";
+        $('#boucle').empty();
+        fetchAndRenderData(url);
+    });
 
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">  ${item.tags[0]}</h3>
-
-                            <a href="streetscapes_post?id=${item.id}"  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
-                             ${item.title}
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                            <p class="mt-2 text-center text-gray-600 "> ${item.address} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.city} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.country} </p>
-                            </div>
-                           
-                                <button
-                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800"> <a href="${item.link}">See project </a></button>
-                        </div>
-
-                    </div>
-                </div>`;
-                    $('#boucle').append(html);
-                });
-            })
+    $('#Small').click(function() {
+        url = "api/streetscapes?size=small";
+        $('#boucle').empty();
+        fetchAndRenderData(url);
     });
 
     $('#Xs').click(function() {
-        url = "api/streetscapes?size=Xs";
+        url = "api/streetscapes?size=xs";
         $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                    <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[1]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                    </div>
-
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">  ${item.tags[0]}</h3>
-
-                            <a href="streetscapes_post?id=${item.id}"  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
-                             ${item.title}
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                            <p class="mt-2 text-center text-gray-600 "> ${item.address} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.city} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.country} </p>
-                            </div>
-                           
-                                <button
-                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800"> <a href="${item.link}">See project </a></button>
-                        </div>
-
-                    </div>
-                </div>`;
-                    $('#boucle').append(html);
-                });
-            })
+        fetchAndRenderData(url);
     });
+
+
 
     $('#searchbar').keyup(function() {
-        console.log($('#searchbar').val());
         url = "api/streetscapes?q=" + $('#searchbar').val();
         $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                     <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
-                    <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[0]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                        <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4" src="storage/${item.image[1]}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                    </div>
-
-                    </div>
-
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase">  ${item.tags[0]}</h3>
-
-                            <a href="streetscapes_post?id=${item.id}"  class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
-                             ${item.title}
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                            <p class="mt-2 text-center text-gray-600 "> ${item.address} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.city} |</p>
-                            <p class="mt-2 text-center text-gray-600 "> &nbsp; ${item.country} </p>
-                            </div>
-                           
-                                <button
-                                  class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800"> <a href="${item.link}">See project </a></button>
-                        </div>
-
-                    </div>
-                </div>`;
-                    $('#boucle').append(html);
-                });
-            })
+        fetchAndRenderData(url);
     });
-
-     $('.juxtapose').each(function() {
-            // get the parent element
-            var $juxtaposeContainer = $(this).parent();
-            // get the ratio of the image
-            var juxtaposeRatio = $(this).outerHeight() / $(this).outerWidth();
-            // on window resize
-            $(window).on('resize', function() {
-                // get the new width of the parent element
-                var newWidth = $juxtaposeContainer.outerWidth();
-                // calculate the new height based on the ratio
-                var newHeight = newWidth * juxtaposeRatio;
-                // set the new width and height
-                $(this).css({
-                    width: newWidth,
-                    height: newHeight
-                });
-            });
-        });
-
-  
 </script>
-
-

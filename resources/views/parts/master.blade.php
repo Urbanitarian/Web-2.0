@@ -111,87 +111,31 @@
 
 
             </div>
-               
         </section>
     </div>
 
     <script>
+const itemsPerPage = 10;
+let currentPage = 1;
 
 
   $(document).ready(function() {
-     url = "api/masterplans";
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                  <div class="">
-                    <a href="masterplans_post?id=${item.id}">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-full border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} | ${item.author}</h1>
-                                <p class="pb-3 mx-2 text-xs text-center text-gray-700">
-                                   ${item.tags[0]} ,  ${item.city} 
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                `;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
- $('#all').click(function() {
-
-     url = "api/masterplans";
-       //empty the div with fade out
-         $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                        <div class="">
-                    <a href="masterplans_post?id=${item.id}">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} |${item.author} | ${item.city}</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.category}, ${item.size} 
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#child').click(function() {
-
-         url = "api/masterplans?tags=Child-friendly";
+    url = "api/data";
       $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
+    fetchAndRenderData(url);
+    });
 
-                $.each(textFromJSON, function(i, item) {
+ const fetchAndRenderData = (url) => {
+  fetch(url)
+    .then((res) => res.json())
+    .then((out) => {
+        const obj = JSON.parse(JSON.stringify(out));
+        let textFromJSON = obj;
+              const startIndex = (currentPage - 1) * itemsPerPage;
+                 const endIndex = startIndex + itemsPerPage;
+                const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
+
+        $.each(itemsToDisplay, function(i, item) {
                     let html = `
                         <div class="">
                     <a href="masterplans_post?id=${item.id}">
@@ -200,318 +144,84 @@
                                 <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
                                 <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} |${item.author} | ${item.city}</h1>
                                 <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.category}, ${item.size} 
+                                   ${item.categry}, ${item.size} 
                                 </p>
                             </div>
                         </div>
                     </a>
-                </div>`;
+                </div> `;
                    $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#green').click(function() {
-         url = "api/masterplans?tags=Green";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-
-                     <div class="">
-                    <a href="masterplans_post?id=${item.id}">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} |${item.author} | ${item.city}</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.category}, ${item.size} 
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#climate').click(function() {
-              url = "api/masterplans?tags=Climate-proof";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                        <div class="">
-                    <a href="masterplans_post?id=${item.id}">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} |${item.author} | ${item.city}</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.category}, ${item.size} 
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#age').click(function() {
-             url = "api/masterplans?tags=Age-friendly";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                       <div class="">
-                    <a href="masterplans_post?id=${item.id}">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} |${item.author} | ${item.city}</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.category}, ${item.size} 
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#placemaking').click(function() {
-                 url = "api/masterplans?tags=placemaking";
-             $('#boucle').empty();
-             fetch(url)
-                 .then((res) => res.json())
-                 .then((out) => {
-                     const text = JSON.stringify(out);
-                     const obj = JSON.parse(text);
-                     let textFromJSON = obj;
-
-                     $.each(textFromJSON, function(i, item) {
-                         let html = `
-                           <div class="">
-                    <a href="masterplans_post?id=${item.id}">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} |${item.author} | ${item.city}</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.category}, ${item.size} 
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>`;
-                        $('#boucle').append(html);
-                     });
-                 })
         });
+    })
+};
+
+$('#child').click(function() {
+  url = "api/masterplans?tags=Child-friendly";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#green').click(function() {
+  url = "api/masterplans?tags=Green";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#climate').click(function() {
+  url = "api/masterplans?tags=climate";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#age').click(function() {
+  url = "api/masterplans?tags=age";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#all').click(function() {
+  url = "api/masterplans";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#Allsize').click(function() {
+  url = "api/masterplans";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#Large').click(function() {
+  url = "api/masterplans?size=large";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#Medium').click(function() {
+  url = "api/masterplans?size=medium";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#Small').click(function() {
+  url = "api/masterplans?size=small";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
+
+$('#Xs').click(function() {
+  url = "api/masterplans?size=xs";
+  $('#boucle').empty();
+  fetchAndRenderData(url);
+});
 
 
-    $('#Allsize').click(function() {
-         url = "api/masterplans";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
 
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                      <div class="">
-                    <a href="masterplans_post?id=${item.id}">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} |${item.author} | ${item.city}</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.category}, ${item.size} 
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#Small').click(function() {
-         url = "api/masterplans?size=Small";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                       <div class="">
-                    <a href="masterplans_post?id=${item.id}">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} |${item.author} | ${item.city}</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.categry}, ${item.size} 
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#Medium').click(function() {
-         url = "api/masterplans?size=Medium";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                      <div class="">
-                    <a href="masterplans_post?id=${item.id}">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} |${item.author} | ${item.city}</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.categry}, ${item.size} 
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#Large').click(function() {
-         url = "api/masterplans?size=Large";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                       <div class="">
-                    <a href="masterplans_post?id=${item.id}">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} |${item.author} | ${item.city}</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.categry}, ${item.size} 
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-    $('#Xs').click(function() {
-         url = "api/masterplans?size=Xs";
-        $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                        <div class="">
-                    <a href="masterplans_post?id=${item.id}">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} |${item.author} | ${item.city}</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.categry}, ${item.size} 
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>`;
-                   $('#boucle').append(html);
-                });
-            })
-    });
-
-     $('#searchbar').keyup(function() {
-        console.log($('#searchbar').val());
+ $('#searchbar').keyup(function() {
          url = "api/masterplans?q=" + $('#searchbar').val();
-      $('#boucle').empty();
-        fetch(url)
-            .then((res) => res.json())
-            .then((out) => {
-                const text = JSON.stringify(out);
-                const obj = JSON.parse(text);
-                let textFromJSON = obj;
-
-                $.each(textFromJSON, function(i, item) {
-                    let html = `
-                        <div class="">
-                    <a href="masterplans_post?id=${item.id}">
-                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                            <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b" src="storage/${item.image[0]}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} |${item.author} | ${item.city}</h1>
-                                <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.categry}, ${item.size} 
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>`;
-                   $('#boucle').append(html);
-                });
-            })
+        $('#boucle').empty();
+        fetchAndRenderData(url);
     });
+
 
 </script>
