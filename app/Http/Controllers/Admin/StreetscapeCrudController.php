@@ -231,7 +231,7 @@ class StreetscapeCrudController extends CrudController
         CRUD::addField(['name' => 'address','type' => 'text','label' => 'Address','tab' => 'Location',]);
 
         CRUD::addField([
-            'prefix' => '<a href="../../city/create">+</a>',
+            'prefix' => '<a href="../../admin/city/create">+</a>',
             'name' => 'city',
             'type' => 'text',
             'label' => 'City',
@@ -240,7 +240,7 @@ class StreetscapeCrudController extends CrudController
             ]);
 
 
-        CRUD::addField(['prefix' => '<a href="../../country/create">+</a>','name' => 'country', 'type' => 'text', 'label' => 'Country', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
+        CRUD::addField(['prefix' => '<a href="../../admin/country/create">+</a>','name' => 'country', 'type' => 'text', 'label' => 'Country', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
         CRUD::addField(['prefix' => '<a href="https://www.google.com/maps" target="_blank">Map</a>','name' => 'location', 'type' => 'text', 'label' => 'gps coordinates', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
 
         CRUD::field('city')->on('saving', function ($entry) {
@@ -275,6 +275,172 @@ class StreetscapeCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        $this->setupCreateOperation();
+        CRUD::setValidation(StreetscapeRequest::class);
+        $this->crud->setValidation([
+            'title' => 'required|min:2|max:255',
+            'tags' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+        ]);
+        CRUD::addField([ // Text
+            'name'  => 'title',
+            'label' => 'Title',
+            'type'  => 'text',
+            'tab'             => 'Main',
+            'wrapper' => [ 'class' => 'form-group1 col-md pl-3'],
+        ]);
+        CRUD::addField([ // Text
+            'name'  => 'author',
+            'label' => 'Author',
+            'type'  => 'text',
+            'tab'             => 'Main',
+            'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
+        ]);
+     
+        CRUD::addField([ // Photo
+            'name'      => 'image',
+            'key' => 'image_up',
+            'label'     => 'Images',
+            'type'      => 'upload_multiple',
+            'prefix' => 'storage/',
+            'upload'    => true,
+            'temporary' => 10,
+            'tab'             => 'Main',
+        ]);
+
+        CRUD::addField([
+            'name'  => 'description',
+            'label' => 'Description',
+            'type'  => 'textarea',
+            'tab'             => 'Main',
+        ]);
+      
+        $this->crud->addField([   // select_from_array
+            'name'        => 'tags',
+            'label'       => "Tags",
+            'type'        => 'select_from_array',
+            'options'     => [
+                'Child-friendly'        => 'Child-friendly',
+                'Healthy'        => 'Healthy',
+                'Safe'        => 'Safe' ,
+                'Grow your own food / Local food production'        => 'Grow your own food / Local food production',
+                'Inclusive and Diverse'        => 'Inclusive and Diverse' ,
+                'Green'        => 'Green',
+                'Reachable / Accessible'        => 'Reachable / Accessible', 
+                'Affordable'        => 'Affordable' ,
+                'Self-sufficient'        => 'Self-sufficient',
+                'Car-free'        => 'Car-free',
+                'Walkable'        => 'Walkable',
+                'Preventing Loneliness'        => 'Preventing Loneliness',
+                'Youth-friendly'        => 'Youth-friendly' ,
+                'Age-friendly'        => 'Age-friendly',
+                'Accessible and connected'        => 'Accessible and connected',
+                'Climate-proof'        => 'Climate-proof' ,
+                'Sustainable'        => 'Sustainable', 
+                'Playful'        => 'Playful',
+                'Circular'        => 'Circular',
+                'Climate-neutral'        => 'Climate-neutral',
+                'Zero carbon'        => 'Zero carbon' ,
+                'Carbon negative'        => 'Carbon negative',
+                'WSUD'        => 'WSUD', 
+                'Place-led'        => 'Place-led',
+                'Co-housing'        => 'Co-housing',
+                'Timber'        => 'Timber',
+                'Social housing'        => 'Social housing',
+                'Biodiverse'        => 'Biodiverse',
+                'Low-rise'        => 'Low-rise',
+                'High-rise'        => 'High-rise',
+                'Dense'        => 'Dense',
+                'Mixed-use'        => 'Mixed-use',
+            ],
+            'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+            'allows_null' => false,
+            'default'     => '1',
+             'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
+             'tab'             => 'Main',
+        ]);
+
+        $this->crud->addField([   // select_from_array
+            'name' => 'status',
+            'label' => "Status",
+            'type' => 'select_from_array',
+            'options' => [
+                'built' => 'built',
+                'future' => 'future',
+                'under development' => 'under development',
+                'regeneration' => 'regeneration',
+            ],
+            'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+            'allows_null' => false,
+            'default'     => '1',
+             'allows_multiple' => false, // OPTIONAL; needs you to cast this to array in your model;
+             'tab'             => 'Main',
+        ]);
+
+        $this->crud->addField([   // select_from_array
+            'name'        => 'size',
+            'label'       => "Size",
+            'type'        => 'select_from_array',
+            'options'     => [
+                'Large'        => 'Large',
+                'Medium'        => 'Medium',
+                'Small'        => 'Small',
+                'Xs'        => 'Xs',
+            ],
+            'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+            'allows_null' => false,
+            'default'     => '1',
+             'allows_multiple' => false, // OPTIONAL; needs you to cast this to array in your model;
+             'tab'             => 'Main',
+        ]);
+
+       
+
+        $this->crud->addField([   // CustomHTML
+            'name'  => 'separator0',
+            'type'  => 'custom_html',
+            'value' => '<hr>',
+            'tab' => 'Main',
+        ]);
+        CRUD::addField([
+            'name'  => 'link',
+             'label' => 'Link',
+             'type'  => 'url',
+             'tab' => 'Main',
+             'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+            ]);
+            CRUD::addField([
+                'name'  => 'credits',
+                 'label' => 'Credits',
+                 'type'  => 'text',
+                 'tab' => 'Main',
+                 'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+                ]);
+
+
+
+        CRUD::addField(['name' => 'address','type' => 'text','label' => 'Address','tab' => 'Location',]);
+
+        CRUD::addField([
+            'prefix' => '<a href="../../../admin/city/create">+</a>',
+            'name' => 'city',
+            'type' => 'text',
+            'label' => 'City',
+             'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+             'tab' => 'Location',
+            ]);
+
+
+        CRUD::addField(['prefix' => '<a href="../country/create">+</a>','name' => 'country', 'type' => 'text', 'label' => 'Country', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
+        CRUD::addField(['prefix' => '<a href="https://www.google.com/maps" target="_blank">Map</a>','name' => 'location', 'type' => 'text', 'label' => 'gps coordinates', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
+
+        CRUD::field('city')->on('saving', function ($entry) {
+            $this->saveCity($entry);
+        });
+
+        CRUD::field('country')->on('saving', function ($entry) {
+            $this->saveCountry($entry);
+        });
+
     }
 }
