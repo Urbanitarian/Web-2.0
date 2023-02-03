@@ -1,4 +1,4 @@
- <section class="pt-8 border-b mx-8">
+ <section class="pt-8 mx-8 border-b">
     <div class="p-8 md:p-12 lg:px-12 lg:py-10">
       <div class="max-w-lg mx-auto text-center lg:max-w-xl">
         <img class="flex justify-center w-12 mx-auto my-8" src="./img/logo.png">
@@ -29,28 +29,28 @@
 
         <button id="child">
           <label for="ColorBlack"
-            class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md hover:bg-gray-200 active:bg-gray-300 cursor-pointer hover:text-black hover:border-gray-200 ">
+            class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
             <p class="text-sm font-medium">Child-friendly</p>
           </label>
       </button>
 
           <button id="wsud">
           <label for="ColorRed"
-            class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md hover:bg-gray-200 active:bg-gray-300 cursor-pointer hover:text-black hover:border-gray-200 ">
+            class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
             <p class="text-sm font-medium">WSUD</p>
           </label>
         </button>
 
           <button id="playful">
           <label for="ColorBlue"
-            class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md hover:bg-gray-200 active:bg-gray-300 cursor-pointer hover:text-black hover:border-gray-200 ">
+            class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
             <p class="text-sm font-medium">Playful</p>
           </label>
         </button>
 
           <button id="carfree">
           <label for="ColorGold"
-            class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md hover:bg-gray-200 active:bg-gray-300 cursor-pointer hover:text-black hover:border-gray-200 ">
+            class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
             <p class="text-sm font-medium">car-free</p>
           </label>
       </button>
@@ -74,29 +74,29 @@
                      class="mx-2 text-gray-200 fa-solid fa-list fa-2x hover:text-gray-400"></i></button>
              <button id="change-layouts2" onclick="return false;"> <i
                      class="mr-2 text-gray-200 fa-solid fa-border-all fa-2x hover:text-gray-400"></i></button>
-             {{-- <button id="change-layouts3" onclick="return false;"><i
-                     class="text-gray-200 fa-solid fa-map fa-2x hover:text-gray-400"></i></button> --}}
+             <button id="change-layouts3" onclick="return false;"><i
+                     class="text-gray-200 fa-solid fa-map fa-2x hover:text-gray-400"></i></button>
          </div>
 
          <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category">
              <button id="allcat" name="category" value="All">
                  <p
-                     class="text-sm hover:bg-gray-200 active:bg-gray-300 font-medium px-4 py-2 border rounded">
+                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                      All</p>
              </button>
              <button id="masterplans" name="category" value="Masterplans">
                  <p
-                     class="text-sm hover:bg-gray-200 active:bg-gray-300 font-medium px-4 py-2 border rounded">
+                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                      Masterplans</p>
              </button>
              <button id="streetscapes" name="category" value="Streetscapes">
                  <p
-                     class="text-sm hover:bg-gray-200 active:bg-gray-300 font-medium px-4 py-2 border rounded">
+                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                      Streetscapes</p>
              </button>
              <button id="neighbourhoods" name="category" value="Neighbourhoods">
                  <p
-                     class="text-sm hover:bg-gray-200 active:bg-gray-300 font-medium px-4 py-2 border rounded">
+                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                      Neighbourhoods</p>
              </button>
          </fieldset>
@@ -259,14 +259,14 @@ let currentPage = 1;
         $.each(itemsToDisplay, function(i, item) {
                    if (item.category == "Masterplans") {
                         let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
+                      <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
                              <img alt="Art" src="storage/${item.image[0]}"alt=""
                                  onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                              <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
+                                 <h3 class="mx-2 mt-2 text-sm font-bold text-center truncate">
                                      ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
+                                 <p class="max-w-sm pb-2 mx-4 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
                                        ${item.category} &nbsp;
                                           ${item.tags}&nbsp;
                                  </p>
@@ -277,14 +277,14 @@ let currentPage = 1;
                    $('#boucle').append(html);
                     } else if (item.category == "Neighbourhoods") {
                         let html = `
-                      <div class="relative transition shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
+                      <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="neighbourhoods_post?id=${item.id}" class="flex flex-col h-full">
                              <img alt="Art" src="storage/${item.image[0]}"alt=""
                                  onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                              <div class="">
-                                 <h3 class="mt-2 text-sm font-bold text-center truncate mx-2">
+                                 <h3 class="mx-2 mt-2 text-sm font-bold text-center truncate">
                                      ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
+                                 <p class="max-w-sm pb-2 mx-4 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
                                        ${item.category} &nbsp;
                                           ${item.tags}&nbsp;
                                  </p>
@@ -296,7 +296,7 @@ let currentPage = 1;
                     } else if (item.category == "Streetscapes") {
                     let html = `
                      <div
-                         class="relative col-span-2 transition shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 border">
+                         class="relative col-span-2 transition border shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
                              @php $image1 =   $data['image'][0] ?? null; @endphp
                              <img alt="Art" src="storage/${item.image[0]}"alt=""
@@ -304,7 +304,7 @@ let currentPage = 1;
                              <div class="">
                                  <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
                                      ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class=" pb-2 mb-2 mt-1 text-xs text-center mx-4 text-gray-700  truncate">
+                                 <p class="pb-2 mx-4 mt-1 mb-2 text-xs text-center text-gray-700 truncate ">
                                      ${item.category} &nbsp;
                                           ${item.tags}&nbsp;
                                  </p>
