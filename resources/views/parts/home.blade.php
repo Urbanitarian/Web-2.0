@@ -70,12 +70,15 @@
          </div>
 
          <div class="flex pt-1 md:hidden md:py-0">
-             <button id="change-layouts" onclick="return false;"> <i
-                     class="mx-2 text-gray-200 fa-solid fa-list fa-2x hover:text-gray-400"></i></button>
-             <button id="change-layouts2" onclick="return false;"> <i
-                     class="mr-2 text-gray-200 fa-solid fa-border-all fa-2x hover:text-gray-400"></i></button>
-             <button id="change-layouts3" onclick="return false;"><i
-                     class="text-gray-200 fa-solid fa-map fa-2x hover:text-gray-400"></i></button>
+             <button id="change-layouts" onclick="return false;"> 
+                  <i class="mx-2 text-gray-200 fa-solid fa-list fa-2x hover:text-gray-400"></i>
+             </button>
+             <button id="change-layouts2" onclick="return false;"> 
+                  <i class="mr-2 text-gray-200 fa-solid fa-border-all fa-2x hover:text-gray-400"></i>
+             </button>
+             <button id="change-layouts3" onclick="return false;">
+                  <i class="text-gray-200 fa-solid fa-map fa-2x hover:text-gray-400"></i>
+             </button>
          </div>
 
          <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category">
@@ -107,8 +110,8 @@
                          class="mx-2 text-gray-200 transition fa-solid fa-list fa-2x hover:text-gray-400"></i></button>
                  <button id="change-layout2" onclick="return false;"> <i
                          class="mr-2 text-gray-200 transition fa-solid fa-border-all fa-2x hover:text-gray-400"></i></button>
-                 {{-- <button id="change-layout3" onclick="return false;"> <i
-                         class="text-gray-200 transition fa-solid fa-map fa-2x hover:text-gray-400"></i></button> --}}
+                 <button id="change-layout3" onclick="return false;"> <i
+                         class="text-gray-200 transition fa-solid fa-map fa-2x hover:text-gray-400"></i></button>
              </div>
 
          </div>
