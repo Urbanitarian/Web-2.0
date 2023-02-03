@@ -1,66 +1,66 @@
  <section class="pt-8 mx-8 border-b">
-    <div class="p-8 md:p-12 lg:px-12 lg:py-10">
-      <div class="max-w-lg mx-auto text-center lg:max-w-xl">
-        <img class="flex justify-center w-12 mx-auto my-8" src="./img/logo.png">
-        <h2 class="text-2xl font-bold text-gray-900 md:text-3xl">
-          Explore the best world's urban design projects collection
-        </h2>
+     <div class="p-8 md:p-12 lg:px-12 lg:py-10">
+         <div class="max-w-lg mx-auto text-center lg:max-w-xl">
+             <img class="flex justify-center w-12 mx-auto my-8" src="./img/logo.png">
+             <h2 class="text-2xl font-bold text-gray-900 md:text-3xl">
+                 Explore the best world's urban design projects collection
+             </h2>
 
-        <p class="mt-4 text-sm text-gray-500">
-          We are number one destination to get knowledge on urban design.
-        </p>
-      </div>
+             <p class="mt-4 text-sm text-gray-500">
+                 We are number one destination to get knowledge on urban design.
+             </p>
+         </div>
 
-      <div class="max-w-2xl mx-auto mt-8">
-       
-          <div class="sm:flex-1">
-            <input id="searchbar" type="text" placeholder="SEARCH" name="q" value=""
-              class="w-full p-3 text-gray-700 transition bg-gray-100 border-gray-200 rounded-md shadow-sm focus:border-white focus:outline-none focus:ring focus:ring-gray-400" />
-          </div>
-      
-      </div>
+         <div class="max-w-2xl mx-auto mt-8">
 
-      <fieldset class="flex flex-wrap justify-center gap-3 pt-8 mx-auto">
-        <div>
-          <label for="ColorBlack" class="flex items-center justify-center gap-2 px-3 py-2 text-black ">
-            <p class="text-base font-medium">Trending searchs:</p>
-          </label>
-        </div>
+             <div class="sm:flex-1">
+                 <input id="searchbar" type="text" placeholder="SEARCH" name="q" value=""
+                     class="w-full p-3 text-gray-700 transition bg-gray-100 border-gray-200 rounded-md shadow-sm focus:border-white focus:outline-none focus:ring focus:ring-gray-400" />
+             </div>
 
-        <button id="child">
-          <label for="ColorBlack"
-            class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
-            <p class="text-sm font-medium">Child-friendly</p>
-          </label>
-      </button>
+         </div>
 
-          <button id="wsud">
-          <label for="ColorRed"
-            class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
-            <p class="text-sm font-medium">WSUD</p>
-          </label>
-        </button>
+         <fieldset class="flex flex-wrap justify-center gap-3 pt-8 mx-auto">
+             <div>
+                 <label for="ColorBlack" class="flex items-center justify-center gap-2 px-3 py-2 text-black ">
+                     <p class="text-base font-medium">Trending searchs:</p>
+                 </label>
+             </div>
 
-          <button id="playful">
-          <label for="ColorBlue"
-            class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
-            <p class="text-sm font-medium">Playful</p>
-          </label>
-        </button>
+             <button id="child">
+                 <label for="ColorBlack"
+                     class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
+                     <p class="text-sm font-medium">Child-friendly</p>
+                 </label>
+             </button>
 
-          <button id="carfree">
-          <label for="ColorGold"
-            class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
-            <p class="text-sm font-medium">car-free</p>
-          </label>
-      </button>
-      </fieldset>
-  </section>
- 
+             <button id="wsud">
+                 <label for="ColorRed"
+                     class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
+                     <p class="text-sm font-medium">WSUD</p>
+                 </label>
+             </button>
+
+             <button id="playful">
+                 <label for="ColorBlue"
+                     class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
+                     <p class="text-sm font-medium">Playful</p>
+                 </label>
+             </button>
+
+             <button id="carfree">
+                 <label for="ColorGold"
+                     class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
+                     <p class="text-sm font-medium">car-free</p>
+                 </label>
+             </button>
+         </fieldset>
+ </section>
+
  <div id="mysearch" class="pt-4 pb-8 mx-2 bg-white md:mx-16">
 
      <div class="flex flex-wrap justify-between py-4 mx-4 md:mx-0">
-         <div class="pb-4 md:pb-0">
+         <div class="hidden md:flex pb-4 md:pb-0">
              <select name="popular" id="pop_selector"
                  class=" px-4 h-[40px] text-sm bg-white border-gray-200 rounded-md  border focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">Popular</option>
@@ -69,43 +69,27 @@
              </select>
          </div>
 
-         <div class="flex pt-1 md:hidden md:py-0">
-             <button id="change-layouts" onclick="return false;"> 
-                  <i class="mx-2 text-gray-200 fa-solid fa-list fa-2x hover:text-gray-400"></i>
-             </button>
-             <button id="change-layouts2" onclick="return false;"> 
-                  <i class="mr-2 text-gray-200 fa-solid fa-border-all fa-2x hover:text-gray-400"></i>
-             </button>
-             <button id="change-layouts3" onclick="return false;">
-                  <i class="text-gray-200 fa-solid fa-map fa-2x hover:text-gray-400"></i>
-             </button>
-         </div>
-
          <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category">
              <button id="allcat" name="category" value="All">
-                 <p
-                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
+                 <p class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                      All</p>
              </button>
              <button id="masterplans" name="category" value="Masterplans">
-                 <p
-                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
+                 <p class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                      Masterplans</p>
              </button>
              <button id="streetscapes" name="category" value="Streetscapes">
-                 <p
-                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
+                 <p class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                      Streetscapes</p>
              </button>
              <button id="neighbourhoods" name="category" value="Neighbourhoods">
-                 <p
-                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
+                 <p class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                      Neighbourhoods</p>
              </button>
          </fieldset>
 
          <div class="flex flex-col">
-             <div class="hidden py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
+             <div class=" py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
                  <button id="change-layout" onclick="return false;"> <i
                          class="mx-2 text-gray-200 transition fa-solid fa-list fa-2x hover:text-gray-400"></i></button>
                  <button id="change-layout2" onclick="return false;"> <i
@@ -146,10 +130,10 @@
              <select name="size" id="size_selector"
                  class="w-full px-4 py-3 text-sm bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">All</option>
-                 <option value="Large" >Large</option>
+                 <option value="Large">Large</option>
                  <option value="Medium">Medium</option>
-                 <option value="Small" >Small</option>
-                 <option value="Xs" >Xs</option>
+                 <option value="Small">Small</option>
+                 <option value="Xs">Xs</option>
              </select>
          </div>
 
@@ -160,8 +144,8 @@
              <select name="status" id="status_selector"
                  class="w-full px-4 py-3 text-sm bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">All</option>
-                 <option value="built" >built</option>
-                 <option value="future" >future</option>
+                 <option value="built">built</option>
+                 <option value="future">future</option>
                  <option value="under_development">under
                      development</option>
                  <option value="regeneration">regeneration</option>
@@ -205,63 +189,65 @@
 
          <div id="boucle" class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5">
 
-          
          </div>
-          <div class="flex pt-10">
-                <button id="prev"
-                    class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
-                    <p class="text-sm font-medium">previous</p>
-                    <button id="next"
-                        class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
-                        <p class="text-sm font-medium">Next</p>
-            </div>
+         <div class="flex pt-10">
+             <button id="prev"
+                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
+                 <p class="text-sm font-medium">previous</p>
+                 <button id="next"
+                     class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
+                     <p class="text-sm font-medium">Next</p>
+         </div>
      </section>
  </div>
-<script>
-const itemsPerPage = 8;
-let currentPage = 1;
+ <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+     integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+ <script>
+     const itemsPerPage = 8;
+     let currentPage = 1;
+     let currentfilter = "";
+     let url = "";
+
+     $(document).ready(function() {
+         url = "api/data";
+         $('#boucle').empty();
+         currentfilter = "none";
+         fetchAndRenderData(url);
+     });
 
 
+     $("#next").click(function() {
+         $('#boucle').empty();
+         currentPage++;
+         if (currentPage > totalPages) {
+             currentPage = totalPages;
+         }
+         fetchAndRenderData(url);
+     });
 
-  $(document).ready(function() {
-    url = "api/data";
-      $('#boucle').empty();
-    fetchAndRenderData(url);
-    });
+     $("#prev").click(function() {
+         $('#boucle').empty();
+         currentPage--;
+         if (currentPage < 1) {
+             currentPage = 1;
+         }
+         fetchAndRenderData(url);
+     });
 
-
-    $("#next").click(function() {
-        $('#boucle').empty();
-        currentPage++;
-        if (currentPage > totalPages) {
-            currentPage = totalPages;
-        }
-        fetchAndRenderData(url);
-    });
-
-    $("#prev").click(function() {
-        $('#boucle').empty();
-        currentPage--;
-        if (currentPage < 1) {
-            currentPage = 1;
-        }
-        fetchAndRenderData(url);
-    });
-
- const fetchAndRenderData = (url) => {
-  fetch(url)
-    .then((res) => res.json())
-    .then((out) => {
-        const obj = JSON.parse(JSON.stringify(out));
-        let textFromJSON = obj;
-           totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
-              const startIndex = (currentPage - 1) * itemsPerPage;
+     const fetchAndRenderData = (url) => {
+         fetch(url)
+             .then((res) => res.json())
+             .then((out) => {
+                 const obj = JSON.parse(JSON.stringify(out));
+                 let textFromJSON = obj;
+                 totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
+                 const startIndex = (currentPage - 1) * itemsPerPage;
                  const endIndex = startIndex + itemsPerPage;
-                const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
+                 const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
 
-        $.each(itemsToDisplay, function(i, item) {
-                   if (item.category == "Masterplans") {
-                        let html = `
+                 $.each(itemsToDisplay, function(i, item) {
+                     if (item.category == "Masterplans") {
+                         let html = `
                       <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
                              <img alt="Art" src="storage/${item.image[0]}"alt=""
@@ -277,9 +263,9 @@ let currentPage = 1;
                          </a>
                      </div>
                       `;
-                   $('#boucle').append(html);
-                    } else if (item.category == "Neighbourhoods") {
-                        let html = `
+                         $('#boucle').append(html);
+                     } else if (item.category == "Neighbourhoods") {
+                         let html = `
                       <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="neighbourhoods_post?id=${item.id}" class="flex flex-col h-full">
                              <img alt="Art" src="storage/${item.image[0]}"alt=""
@@ -295,9 +281,9 @@ let currentPage = 1;
                          </a>
                      </div>
                       `;
-                   $('#boucle').append(html);
-                    } else if (item.category == "Streetscapes") {
-                    let html = `
+                         $('#boucle').append(html);
+                     } else if (item.category == "Streetscapes") {
+                         let html = `
                      <div
                          class="relative col-span-2 transition border shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
@@ -315,127 +301,239 @@ let currentPage = 1;
                              </div>
                          </a>
                      </div>`;
-                      $('#boucle').append(html);
-                    }
-        });
-    })
-};
+                         $('#boucle').append(html);
+                     }
+                 });
+             })
+     };
 
-$('#child').click(function() {
-  url = "api/data?tags=Child-friendly";
-  $('#searchbar').val('Child-friendly');
-  $('#boucle').empty();
-  fetchAndRenderData(url);
-});
+     $('button').click(function() {
+         console.log(currentfilter);
+         console.log(url);
+     });
 
-$('#playful').click(function() {
-  url = "api/data?tags=Playful";
-    $('#searchbar').val('Playful');
-  $('#boucle').empty();
-  fetchAndRenderData(url);
-});
-
-$('#wsud').click(function() {
-  url = "api/data?tags=wsud";
-      $('#searchbar').val('wsud');
-  $('#boucle').empty();
-  fetchAndRenderData(url);
-});
-
-$('#carfree').click(function() {
-  url = "api/data?tags=car-free";
-      $('#searchbar').val('car-free');
-  $('#boucle').empty();
-  fetchAndRenderData(url);
-});
-
-$('#masterplans').click(function() {
-  url = "api/data?category=masterplans";
-      $('#searchbar').val('masterplans');
-  $('#boucle').empty();
-  fetchAndRenderData(url);
-});
-
-$('#neighbourhoods').click(function() {
-  url = "api/data?category=neighbourhoods";
-      $('#searchbar').val('neighbourhoods');
-  $('#boucle').empty();
-  fetchAndRenderData(url);
-});
-
-$('#streetscapes').click(function() {
-  url = "api/data?category=streetscapes";
-      $('#searchbar').val('streetscapes');
-  $('#boucle').empty();
-  fetchAndRenderData(url);
-});
-
-$('#allcat').click(function() {
-  url = "api/data";
-   $('#searchbar').val('');
-  $('#boucle').empty();
-  fetchAndRenderData(url);
-});
-
-$('#size_selector').change(function() {
-  url = "api/data?size=" + $('#size_selector').val();
-  $('#boucle').empty();
-  fetchAndRenderData(url);
-});
-
-$('#status_selector').change(function() {
-  url = "api/data?status=" + $('#status_selector').val();
-  $('#boucle').empty();
-  fetchAndRenderData(url);
-});
-
-$('#city_selector').change(function() {
-  url = "api/data?q=" + $('#city_selector').val();
-  $('#boucle').empty();
-  fetchAndRenderData(url);
-});
-
-$('#country_selector').change(function() {
-  url = "api/data?q=" + $('#country_selector').val();
-  $('#boucle').empty();
-  fetchAndRenderData(url);
-});
-
-$('#pop_selector').change(function() {
-  url = "api/data?pop=" + $('#pop_selector').val();
-  $('#boucle').empty();
-  fetchAndRenderData(url);
-});
-
-
- $('#searchbar').keyup(function() {
-         url = "api/data?q=" + $('#searchbar').val();
-        $('#boucle').empty();
-        fetchAndRenderData(url);
-    });
-
-
-$('#searchtag').keyup(function() {
-
-         url = "api/data?tags=" + $('#searchtag').val();
-      $('#boucle').empty();
-        fetchAndRenderData(url);
-    });
-
+     $('#child').click(function() {
+        resetLayout();
+         url = "api/data?tags=Child-friendly";
     
-        layout = null;
+         $('#boucle').empty();
+         currentfilter = "child";
+         fetchAndRenderData(url);
+     });
 
-        $("#change-layout").click(function() {
-            $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").removeClass(
-                "lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2");
-            console.log(layout);
-            layout = "xl";
-        });
+     $('#playful').click(function() {
+         resetLayout();
+         url = "api/data?tags=Playful";
+    
+         $('#boucle').empty();
+         currentfilter = "playful";
+         fetchAndRenderData(url);
+     });
 
-        $("#change-layout2").click(function() {
-            $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3")
-                .addClass("grid-cols-2").addClass("lg:grid-cols-2").addClass("xl:grid-cols-3");
-            console.log(layout);
-            layout = "medium";
-        });
-    </script>
+     $('#wsud').click(function() {
+         resetLayout();
+         url = "api/data?tags=wsud";
+  
+         $('#boucle').empty();
+         currentfilter = "wsud";
+         fetchAndRenderData(url);
+     });
+
+     $('#carfree').click(function() {
+         resetLayout();
+         url = "api/data?tags=car-free";
+     
+         $('#boucle').empty();
+         currentfilter = "carfree";
+         fetchAndRenderData(url);
+     });
+
+     $('#masterplans').click(function() {
+         resetLayout();
+         url = "api/data?category=masterplans";
+     
+         $('#boucle').empty();
+         currentfilter = "masterplans";
+         fetchAndRenderData(url);
+     });
+
+     $('#neighbourhoods').click(function() {
+         resetLayout();
+         url = "api/data?category=neighbourhoods";
+    
+         $('#boucle').empty();
+         currentfilter = "neighbourhoods";
+         fetchAndRenderData(url);
+     });
+
+     $('#streetscapes').click(function() {
+         resetLayout();
+         url = "api/data?category=streetscapes";
+      
+         $('#boucle').empty();
+         currentfilter = "streetscapes";
+         fetchAndRenderData(url);
+     });
+
+     $('#allcat').click(function() {
+         resetLayout();
+         url = "api/data";
+  
+         $('#boucle').empty();
+         currentfilter = "allcat";
+         fetchAndRenderData(url);
+     });
+
+     $('#size_selector').change(function() {
+         url = "api/data?size=" + $('#size_selector').val();
+         $('#boucle').empty();
+         currentfilter = $('#size_selector').val();
+         fetchAndRenderData(url);
+     });
+
+     $('#status_selector').change(function() {
+         url = "api/data?status=" + $('#status_selector').val();
+         $('#boucle').empty();
+         currentfilter = $('#status_selector').val();
+         fetchAndRenderData(url);
+     });
+
+     $('#city_selector').change(function() {
+         url = "api/data?q=" + $('#city_selector').val();
+         $('#boucle').empty();
+         currentfilter = $('#city_selector').val();
+         fetchAndRenderData(url);
+     });
+
+     $('#country_selector').change(function() {
+         url = "api/data?q=" + $('#country_selector').val();
+         $('#boucle').empty();
+         currentfilter = $('#country_selector').val();
+         fetchAndRenderData(url);
+     });
+
+     $('#pop_selector').change(function() {
+         url = "api/data?pop=" + $('#pop_selector').val();
+         $('#boucle').empty();
+         currentfilter = $('#pop_selector').val();
+         fetchAndRenderData(url);
+     });
+
+
+     $('#searchbar').keyup(function() {
+         resetLayout();
+         url = "api/data?q=" + $('#searchbar').val();
+         $('#boucle').empty();
+         currentfilter = $('#searchbar').val();
+         fetchAndRenderData(url);
+     });
+
+
+     $('#searchtag').keyup(function() {
+         resetLayout();
+         url = "api/data?tags=" + $('#searchtag').val();
+         $('#boucle').empty();
+         currentfilter = $('#searchtag').val();
+         fetchAndRenderData(url);
+     });
+
+
+     layout = null;
+
+
+function resetLayout() {
+      $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").addClass(
+                 "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
+             .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
+               layout = "xl";
+}
+
+
+
+     $("#change-layout").click(function() {
+         $("#themap").remove();
+         fetchAndRenderData(url);
+         $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").addClass(
+                 "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
+             .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
+
+         layout = "xl";
+         console.log(layout);
+     });
+
+     $("#change-layout2").click(function() {
+         $("#themap").remove();
+         fetchAndRenderData(url);
+         $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3")
+             .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1").addClass(
+                 "grid-cols-2").addClass("lg:grid-cols-2").addClass("xl:grid-cols-3").addClass("gap-5");
+
+         layout = "medium";
+         console.log(layout);
+     });
+
+     $("#change-layout3").click(function() {
+         $("#boucle").empty();
+         $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3")
+             .removeClass("grid-cols-2").addClass("grid-cols-1").addClass("lg:grid-cols-1").addClass(
+                 "xl:grid-cols-1").removeClass("gap-5");
+         $("#boucle").html(
+             "<section id='themap' class='flex w-full pb-16 mx-auto border-b'><div id='map2' class='mx-2 mt-4 rounded h-[550px] w-screen'></div></section>"
+         );
+
+
+         layout = "map";
+         console.log(url);
+
+         fetch(url)
+             .then((resa) => resa.json())
+             .then((outa) => {
+                 const obja = JSON.parse(JSON.stringify(outa));
+                 let thedata = obja;
+
+                 amarkers = {};
+
+                 let mymap2 = L.map('map2').setView([48.6890, 11.14086], 5);
+                 theosmLayer = L.tileLayer(
+                     'https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
+                         maxZoom: 19,
+                         apikey: 'choisirgeoportail',
+                         format: 'image/jpeg',
+                         style: 'normal'
+                     }).addTo(mymap2);
+                 mymap2.addLayer(theosmLayer);
+                 mymap2.touchZoom.enable();
+                 mymap2.scrollWheelZoom.disable();
+
+                 let counter = 0;
+                 for (let i = 0; i < thedata.length; i++) {
+                     counter = counter + 1;
+                     mydata = thedata[i];
+                     mypics = mydata.image[0];
+                     mydataid = mydata.id;
+                     mydatacity = mydata.city;
+                     mydataname = mydata.title;
+                     mydataposition = mydata.location;
+                     var decimalStringa = [0, 0];
+                     if (mydataposition != null) {
+                         decimalStringa = mydataposition.split(',');
+                     }
+                     decimalStringa[0] = parseFloat(decimalStringa[0]).toFixed(6);
+                     decimalStringa[1] = parseFloat(decimalStringa[1]).toFixed(6);
+
+                     markera = L.marker([decimalStringa[0], decimalStringa[1]], {}).addTo(mymap2).bindPopup(
+                         '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' +
+                         mydataid + ',' + cat +
+                         ')" class="mt-4" src="/storage/' + mypics +
+                         '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold" id="mydatanom">' +
+                         mydataname +
+                         '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500" id="mydatacity">' +
+                         mydatacity + '</h1></div></div>'
+                     );
+                     amarkers[mydata.id] = markera;
+                 }
+
+             })
+
+     });
+ </script>

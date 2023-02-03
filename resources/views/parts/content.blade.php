@@ -1,13 +1,4 @@
 <div class="border-b border-gray-300"></div>
-@php
-    $size = urldecode(request()->get('size'));
-    $tags = urldecode(request()->get('tags'));
-    $status = urldecode(request()->get('status'));
-    $popular = urldecode(request()->get('popular'));
-    $city = urldecode(request()->get('city'));
-    $country = urldecode(request()->get('country'));
-    $category = urldecode(request()->get('category'));
-@endphp
 
 @include('parts.home');
 @include('parts.streetscapes')
@@ -23,7 +14,7 @@
         </div>
     </div>
 </section>
-
+{{-- 
 <section class="mx-4 mb-16 border-b">
     <div class=" mb-16 mx-auto bg-neutral-100 h-[250px] max-w-[1180px]">
         <div class="px-5 py-12 mx-auto lg:px-16">
@@ -39,98 +30,98 @@
             </div>
         </div>
     </div>
-    </section>
+    </section> --}}
 
-    @include('parts.dictionary')
-    @include('parts.webresources')
+@include('parts.dictionary')
+@include('parts.webresources')
 
-    @include('parts.toread')
-    @include('parts.instagram')
+@include('parts.toread')
+@include('parts.instagram')
 
-    <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
-        integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
-    <script>
-        data = {!! json_encode($all_data) !!};
-        markers = {};
 
-        let mymap = L.map('map').setView([48.6890, 11.14086], 5);
-        osmLayer = L.tileLayer(
-            'https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
-                maxZoom: 19,
-                apikey: 'choisirgeoportail',
-                format: 'image/jpeg',
-                style: 'normal'
-            }).addTo(mymap);
-        mymap.addLayer(osmLayer);
-        mymap.touchZoom.enable();
-        mymap.scrollWheelZoom.disable();
+<script>
+    data = {!! json_encode($all_data) !!};
+    markers = {};
 
-        let count = 0;
-        for (let i = 0; i < data.length; i++) {
-            count = count + 1;
-            graff = data[i];
-            pics = graff.image[0];
-            graffid = graff.id;
-            category = graff.category.toLowerCase();
-            if (category == 'streetscapes') {
-                cat = 1;
-            } else if (category == 'masterplans') {
-                cat = 2;
-            } else if (category == 'neighbourhoods') {
-                cat = 3;
-            }
-            graffcity = graff.city;
-            graffname = graff.title;
-            graffposition = graff.location;
-            var decimalString = graffposition.split(',');
-            decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
-            decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
+    let mymap = L.map('map').setView([48.6890, 11.14086], 5);
+    osmLayer = L.tileLayer(
+        'https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
+            maxZoom: 19,
+            apikey: 'choisirgeoportail',
+            format: 'image/jpeg',
+            style: 'normal'
+        }).addTo(mymap);
+    mymap.addLayer(osmLayer);
+    mymap.touchZoom.enable();
+    mymap.scrollWheelZoom.disable();
 
-            marker = L.marker([decimalString[0], decimalString[1]], {}).addTo(mymap).bindPopup(
-                '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' + graffid + ',' + cat +
-                ')" class="mt-4" src="/storage/' + pics +
-                '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold" id="graffnom">' + graffname +
-                '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500" id="graffcity">' + graffcity + '</h1></div></div>'
-            );
-            markers[graff.id] = marker;
+    let count = 0;
+    for (let i = 0; i < data.length; i++) {
+        count = count + 1;
+        graff = data[i];
+        pics = graff.image[0];
+        graffid = graff.id;
+        category = graff.category.toLowerCase();
+        if (category == 'streetscapes') {
+            cat = 1;
+        } else if (category == 'masterplans') {
+            cat = 2;
+        } else if (category == 'neighbourhoods') {
+            cat = 3;
+        }
+        graffcity = graff.city;
+        graffname = graff.title;
+        graffposition = graff.location;
+        var decimalString = [0, 0];
+        if (graffposition != null) {
+            decimalString = graffposition.split(',');
+        }
+        decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
+        decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
 
+        marker = L.marker([decimalString[0], decimalString[1]], {}).addTo(mymap).bindPopup(
+            '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' + graffid + ',' + cat +
+            ')" class="mt-4" src="/storage/' + pics +
+            '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold" id="graffnom">' + graffname +
+            '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500" id="graffcity">' + graffcity + '</h1></div></div>'
+        );
+        markers[graff.id] = marker;
+
+    }
+
+    function myfunction(id, cat) {
+
+
+        markers[id].closePopup();
+        if (cat == 1) {
+            categ = "streetscapes";
+        } else if (cat == 2) {
+            categ = "masterplans";
+        } else if (cat == 3) {
+            categ = "neighbourhoods";
         }
 
-        function myfunction(id, cat) {
+        let pageName = categ + "_post?id=" + id;
+        //open link
+        window.open(pageName, "_self");
 
+    }
 
-            markers[id].closePopup();
-            if (cat == 1) {
-                categ = "streetscapes";
-            } else if (cat == 2) {
-                categ = "masterplans";
-            } else if (cat == 3) {
-                categ = "neighbourhoods";
-            }
+    layout = null;
+</script>
+<style>
+    .mappopup {
+        width: 200px;
+        height: 240px;
+    }
 
-            let pageName = categ + "_post?id=" + id;
-            //open link
-            window.open(pageName, "_self");
+    .mappopup img {
+        width: 100%;
+        height: 90%;
+        object-fit: cover;
+    }
 
-        }
-
-        layout = null;
-
-
-    </script>
-    <style>
-        .mappopup {
-            width: 200px;
-            height: 240px;
-        }
-
-        .mappopup img {
-            width: 100%;
-            height: 90%;
-            object-fit: cover;
-        }
-
-        .mappopup h1 {
-            cursor: pointer;
-        }
-    </style>
+    .mappopup h1 {
+        cursor: pointer;
+    }
+</style>
