@@ -1,6 +1,6 @@
 <section>
     <div class="w-full pt-12">
-        <h1 class="pt-4 pb-8 text-3xl font-bold text-center text-gray-900 md:text-5xl">Masterplans</h1>
+        <a href="./masterplans"><h1 class="pt-4 pb-8 text-3xl font-bold text-center text-gray-900 md:text-5xl">Masterplans</h1></a>
         <div class="max-w-xl mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-2xl">
             <p class="mx-8 text-base text-gray-700 md:text-lg">
                 Samples of housing diagrams and schemes inspirations showing many ways of how residential areas can be
@@ -51,12 +51,12 @@
 @forelse ($masterplans as $masterplan)
      <div class="p-4 swiper-slide">
                     <a href="masterplans_post?id={{ $masterplan->id }}">
-                        <div class="flex flex-col overflow-hidden transition shadow-lg md:hover:scale-110 border">
+                        <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
                             <div class="flex-shrink-0">
                              @php $image0 =   $masterplan->image[0] ?? null; @endphp
                                 <img class="h-[450px] w-full object-cover border-b"
                                     src="{{ asset('storage/' . $image0) }}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">{{ $masterplan->title }} | {{ $masterplan->author }} |
+                                <h1 class="pt-3 mx-2 text-sm font-bold text-center truncate">{{ $masterplan->title }} | {{ $masterplan->author }} |
                                     {{ $masterplan->city }} </h1>
                                 <p class="pb-4 mx-8 text-xs text-center text-gray-700">
                                     {{ $masterplan->category }}, {{ $masterplan->size }}  

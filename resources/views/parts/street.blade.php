@@ -68,43 +68,6 @@
                 </label>
             </button>
         </fieldset>
-
-        <fieldset class="flex flex-wrap justify-center gap-2 pt-8 mx-auto md:gap-4">
-            <button id="Allsize">
-                <label for="Allsize" id="Allsizetag"
-                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                    <p class="text-sm font-medium">All size</p>
-                </label>
-            </button>
-
-            <button id="Large">
-                <label for="large"
-                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                    <p class="text-sm font-medium">large</p>
-                </label>
-            </button>
-
-            <button id="Medium">
-                <label for="medium"
-                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                    <p class="text-sm font-medium">medium</p>
-                </label>
-            </button>
-
-            <button id="Small">
-                <label for="small"
-                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                    <p class="text-sm font-medium">small</p>
-                </label>
-            </button>
-
-            <button id="Xs">
-                <label for="xs"
-                    class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                    <p class="text-sm font-medium">xs</p>
-                </label>
-            </button>
-        </fieldset>
 </section>
 
 
@@ -278,38 +241,6 @@
         $('#boucle').empty();
         fetchAndRenderData(url);
     });
-
-    $('#Allsize').click(function() {
-        url = "api/streetscapes";
-        $('#boucle').empty();
-        fetchAndRenderData(url);
-    });
-
-    $('#Large').click(function() {
-        url = "api/streetscapes?size=large";
-        $('#boucle').empty();
-        fetchAndRenderData(url);
-    });
-
-    $('#Medium').click(function() {
-        url = "api/streetscapes?size=medium";
-        $('#boucle').empty();
-        fetchAndRenderData(url);
-    });
-
-    $('#Small').click(function() {
-        url = "api/streetscapes?size=small";
-        $('#boucle').empty();
-        fetchAndRenderData(url);
-    });
-
-    $('#Xs').click(function() {
-        url = "api/streetscapes?size=xs";
-        $('#boucle').empty();
-        fetchAndRenderData(url);
-    });
-
-
 
     $('#searchbar').keyup(function() {
         url = "api/streetscapes?q=" + $('#searchbar').val();

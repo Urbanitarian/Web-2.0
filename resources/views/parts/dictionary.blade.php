@@ -1,7 +1,7 @@
 <section class="pb-16 mx-4 mb-4 border-b md:mx-16">
 
     <div class="w-full">
-        <h1 class="pb-8 text-3xl font-bold text-center text-gray-900 md:text-5xl">Dictionary</h1>
+      <a href="alldictionary"><h1 class="pb-8 text-3xl font-bold text-center text-gray-900 md:text-5xl">Dictionary</h1></a>
         <div class="max-w-xl mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-2xl">
             <p class="text-base text-gray-700 md:text-lg">
                 Lexicon of random urban terms, from deeply informative vocabulary to light-hearted buzzwords:
@@ -47,7 +47,6 @@
     </div>
 
     <button
-        class="flex px-8 py-2 mx-auto mt-8 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800"><a
-            href="./alldictionary">See
+        class="flex px-8 py-2 mx-auto mt-8 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800"><a href="alldictionary">See
             All Dictionary</a></button>
 </section>
