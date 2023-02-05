@@ -245,7 +245,7 @@
 
         let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1]], 8);
         osmLayer = L.tileLayer(
-            'https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
+            'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
                 maxZoom: 19,
                 apikey: 'choisirgeoportail',
                 format: 'image/jpeg',
