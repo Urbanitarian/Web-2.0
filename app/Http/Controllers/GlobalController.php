@@ -213,12 +213,12 @@ class GlobalController extends Controller
     public function streetscapes(Request $request)
     {
         $q = request()->input('q');
-        $size = request()->input('size');
+        $tags = request()->input('tags');
 
         if ($q) {
             $streetscapes = Streetscape::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->paginate(5);
-        } elseif ($size) {
-            $streetscapes = Streetscape::where('size', 'like', '%' . $size . '%')->paginate(5);
+        } elseif ($tags) {
+            $streetscapes = Streetscape::where('title','like','%' . $tags . '%')->orWhere('tags', 'like', '%' . $tags . '%')->orWhere('category', 'like', '%' . $tags . '%')->orWhere('city', 'like', '%' . $tags . '%')->orWhere('country', 'like', '%' . $tags . '%')->paginate(5);
         } else {
             $streetscapes = Streetscape::paginate(5);
         }
