@@ -2,7 +2,7 @@
     <div class="container px-5 pt-12 pb-8 mx-auto">
         <div class="flex flex-wrap w-full mb-8 md:mb-20">
             <div class="w-full">
-                <a href="neighbourhoods"><h1 class="pb-4 text-3xl font-bold text-center text-gray-900 md:text-5xl">Neighbourhoods</h1></a>
+                <a href="urbanscapes"><h1 class="pb-4 text-3xl font-bold text-center text-gray-900 md:text-5xl">Urbanscapes</h1></a>
                 <div class="max-w-xl mb-6 sm:mx-auto sm:text-center lg:max-w-2xl">
                     <p class="text-base text-gray-700 md:text-lg">
                         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.
@@ -15,7 +15,7 @@
 
 @forelse ($neighbourhoods as $neighbourhood)
       <div class="p-4 mx-auto xl:w-1/4 md:w-1/2">
-                <a href="neighbourhoods_post?id={{ $neighbourhood->id }}">
+                <a href="urbanscapes_post?id={{ $neighbourhood->id }}">
                     <div class="p-4 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
                         @php $nimg = $neighbourhood->image[0] ?? null; @endphp
                         <img class="object-cover object-center w-full h-40 mb-3" src="{{ asset('storage/' . $nimg) }}"alt=""  onerror="this.src='./img/empty.png'"/>
@@ -48,7 +48,7 @@
 
         <button
             class="flex px-8 py-2 mx-auto mt-16 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800">
-            <a href="./neighbourhoods">See
+            <a href="./urbanscapes">See
             All</a></button>
 
     </div>

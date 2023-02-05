@@ -34,9 +34,9 @@ Route::get('allwebresources', 'allwebresources');
 Route::get('webresources_post/', 'webresources_post')->name('webresources_post');
 Route::get('read', 'read');
 
-Route::get('neighbourhoods', 'neighbourhoods');
-Route::get('neighbourhoods/filter', 'neighbourhoods')->name('nfilter');
-Route::get('neighbourhoods_post/', 'neighbourhoods_post')->name('neighbourhoods_post');
+Route::get('urbanscapes', 'neighbourhoods');
+Route::get('urbanscapes/filter', 'neighbourhoods')->name('nfilter');
+Route::get('urbanscapes_post/', 'neighbourhoods_post')->name('urbanscapes_post');
 Route::get('streetscapes', 'streetscapes');
 Route::get('streetscapes/filter', 'streetscapes')->name('sfilter');
 Route::get('streetscapes_post/', 'streetscapes_post')->name('streetscapes_post');

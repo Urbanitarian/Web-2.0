@@ -29,8 +29,8 @@ class NeighbourhoodCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\Neighbourhood::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/neighbourhood');
-        CRUD::setEntityNameStrings('neighbourhood', 'neighbourhoods');
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/urbanscapes');
+        CRUD::setEntityNameStrings('urbanscape', 'urbanscapes');
     }
 
     function getFieldsData()

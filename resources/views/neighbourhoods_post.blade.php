@@ -140,11 +140,11 @@
                                 $next_id = $neighbourhood->where('id', '>', $item->id)->min('id');
                                 $prev_id = $neighbourhood->where('id', '<', $item->id)->max('id');
                             @endphp
-                            <a href="{{ route('neighbourhoods_post', 'id=' . $prev_id) }}"
+                            <a href="{{ route('urbanscapes_post', 'id=' . $prev_id) }}"
                                 class="px-4 py-2 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border rounded-lg active:bg-gray-600 hover:bg-gray-400 hover:text-white focus:outline-none focus:shadow-outline-gray">
                                 Previous
                             </a>
-                            <a href="{{ route('neighbourhoods_post', 'id=' . $next_id) }}"
+                            <a href="{{ route('urbanscapes_post', 'id=' . $next_id) }}"
                                 class="px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border rounded-lg active:bg-gray-600 hover:text-white hover:bg-gray-400 focus:outline-none focus:shadow-outline-gray">
                                 Next
                             </a>
@@ -170,7 +170,7 @@
                     <div class="container px-5 pt-12 pb-8 mx-auto">
                         <div class="flex flex-wrap w-full mb-8 md:mb-20">
                             <div class="w-full">
-                                <h1 class="text-2xl font-bold text-center text-gray-900 md:text-4xl">See more Neighbourhoods
+                                <h1 class="text-2xl font-bold text-center text-gray-900 md:text-4xl">See more Urbanscapes
                                 </h1>
                             </div>
                         </div>
@@ -179,7 +179,7 @@
 
                             @forelse ($neighbourhoods as $neigh)
                                 <div class="w-full p-4 xl:w-1/4 md:w-1/2">
-                                    <a href="neighbourhoods_post?id={{ $neigh->id }}">
+                                    <a href="urbanscapes_post?id={{ $neigh->id }}">
                                         <div
                                             class="p-4 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
                                              @php $img08 = $neigh->image[0] ?? null; @endphp
@@ -217,7 +217,7 @@
 
                         <button
                             class="flex px-8 py-2 mx-auto mt-16 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800">
-                            <a href="./neighbourhoods">See
+                            <a href="./urbanscapes">See
                                 All</a></button>
 
                     </div>

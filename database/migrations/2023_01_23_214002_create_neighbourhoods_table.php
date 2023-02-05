@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('size')->nullable();
             $table->string('tags')->default('[\"Green\"]');
             $table->text('link')->nullable();
-            $table->string('category')->default('Neighbourhoods');
+            $table->string('category')->default('Urbanscapes');
             $table->text('address')->nullable();
             $table->timestamps();
         });

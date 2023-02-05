@@ -82,9 +82,9 @@
                  <p class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                      Streetscapes</p>
              </button>
-             <button id="neighbourhoods" name="category" value="Neighbourhoods">
+             <button id="urbanscapes" name="category" value="Neighbourhoods">
                  <p class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
-                     Neighbourhoods</p>
+                     Urbanscapes</p>
              </button>
          </fieldset>
 
@@ -264,10 +264,10 @@
                      </div>
                       `;
                          $('#boucle').append(html);
-                     } else if (item.category == "Neighbourhoods") {
+                     } else if (item.category == "Urbanscapes") {
                          let html = `
                       <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
-                         <a href="neighbourhoods_post?id=${item.id}" class="flex flex-col h-full">
+                         <a href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full">
                              <img alt="Art" src="storage/${item.image[0]}"alt=""
                                  onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                              <div class="">
@@ -357,12 +357,12 @@
          fetchAndRenderData(url);
      });
 
-     $('#neighbourhoods').click(function() {
+     $('#urbanscapes').click(function() {
          resetLayout();
-         url = "api/data?category=neighbourhoods";
+         url = "api/data?category=urbanscapes";
     
          $('#boucle').empty();
-         currentfilter = "neighbourhoods";
+         currentfilter = "urbanscapes";
          fetchAndRenderData(url);
      });
 

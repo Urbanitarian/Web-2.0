@@ -66,7 +66,7 @@
             cat = 1;
         } else if (category == 'masterplans') {
             cat = 2;
-        } else if (category == 'neighbourhoods') {
+        } else if (category == 'urbanscapes') {
             cat = 3;
         }
         graffcity = graff.city;
@@ -98,7 +98,7 @@
         } else if (cat == 2) {
             categ = "masterplans";
         } else if (cat == 3) {
-            categ = "neighbourhoods";
+            categ = "urbanscapes";
         }
 
         let pageName = categ + "_post?id=" + id;

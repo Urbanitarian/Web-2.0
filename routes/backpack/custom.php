@@ -26,5 +26,5 @@ Route::group([
     Route::crud('masterplan', 'MasterplanCrudController');
     Route::crud('country', 'CountryCrudController');
     Route::crud('city', 'CityCrudController');
-    Route::crud('neighbourhood', 'NeighbourhoodCrudController');
+    Route::crud('urbanscapes', 'NeighbourhoodCrudController');
 }); // this should be the absolute last line of this file

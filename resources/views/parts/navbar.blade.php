@@ -30,8 +30,8 @@
       <div class="flex flex-col pb-4 space-y-4 align-baseline lg:mt-0 lg:flex-row lg:space-y-0 md:pb-0">
         <a class="text-sm font-semibold text-gray-400 lg:mx-2 xl:mx-4 hover:text-black" href="/"
           @click="isOpen = false">&nbsp;HOME</a>
-        <a class="text-sm font-semibold text-gray-400 lg:mx-2 xl:mx-4 hover:text-black" href="/neighbourhoods"
-          @click="isOpen = false">&nbsp;NEIGHBOURHOODS</a>
+        <a class="text-sm font-semibold text-gray-400 lg:mx-2 xl:mx-4 hover:text-black" href="/urbanscapes"
+          @click="isOpen = false">&nbsp;URBANSCAPES</a>
         <a class="text-sm font-semibold text-gray-400 lg:mx-2 xl:mx-4 hover:text-black" href="/masterplans"
           @click="isOpen = false">&nbsp;MASTERPLANS</a>
         <a class="text-sm font-semibold text-gray-400 lg:mx-2 xl:mx-4 hover:text-black" href="/streetscapes"
