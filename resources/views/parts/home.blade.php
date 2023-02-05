@@ -493,7 +493,7 @@ function resetLayout() {
 
                  amarkers = {};
 
-                 let mymap2 = L.map('map2').setView([48.6890, 11.14086], 5);
+                 let mymap2 = L.map('map2').setView([48.6890, 11.14086], 4);
                  theosmLayer = L.tileLayer(
                      'https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
                          maxZoom: 19,
