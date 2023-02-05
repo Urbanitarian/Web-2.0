@@ -87,7 +87,7 @@ class DataController extends Controller
         }elseif ($category == 'streetscapes') {
                     $streets = Streetscape::all();
                     $all_data = $streets->toArray();
-        }elseif ($category == 'neighbourhoods') {
+        }elseif ($category == 'urbanscapes') {
                     $neighbs = Neighbourhood::all();
                     $all_data = $neighbs->toArray();
         }else {
