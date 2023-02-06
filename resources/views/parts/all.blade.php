@@ -39,7 +39,7 @@
                             <a href="${link}">
                               <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
                                   ${item.category}</p>
-                                <img class="object-cover w-48 h-32 pt-2 pb-2" src="storage/${item.image[0]}" alt="content" onerror="this.src='./img/empty.png'">
+                                <img class="object-cover w-48 h-32 pt-2 pb-2" src="storage/uploads/${item.category}/${item.imagea}" alt="content" onerror="this.src='./img/empty.png'">
                                 <p class="mx-auto text-xs text-center font-semibold text-gray-500 pb-3">See all</p>
                             </a>
                         </div>

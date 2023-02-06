@@ -16,9 +16,12 @@ return new class extends Migration
         Schema::create('streetscapes', function (Blueprint $table) {
             $table->id();
             $table->longText('image')->nullable();
-            $table->string('title')->unique();
+            $table->string('imagea')->nullable();
+            $table->string('imageb')->nullable();
+            $table->string('title')->nullable();
             $table->string('author')->nullable();
             $table->string('city')->nullable();
+            $table->integer('area')->nullable();
             $table->string('country')->nullable();
             $table->string('program')->nullable();
             $table->integer('year')->nullable();

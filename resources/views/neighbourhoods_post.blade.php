@@ -8,90 +8,56 @@
             @forelse ($neighbourhood->where('id', $id) as $item)
                 <section>
                     <div class="relative px-4 py-8 mx-8 my-8">
-
-                        <div class="grid grid-cols-1 gap-4">
-                            <div class="w-full">
-                                @php $image0 =  $item->image[0] ?? null; @endphp
-                                <img class="object-cover w-full border h-96"
-                                    src="{{ asset('storage/' . $image0) }}"alt="" onerror="this.src='./img/empty.png'"
-                                    onclick="window.open('{{ asset('storage/' . $image0) }}', 'Image', 'width=800,height=600')" />
+                        <div class="flex flex-col">
+                            <div class="flex justify-between pb-4">
+                                <h1 class="ml-1 text-3xl font-bold">
+                                    {{ $item->title }}
+                                </h1>
                             </div>
+                            <div class="flex pb-8">
+                                <button
+                                    class="px-3 py-1 mx-1 text-xs font-medium tracking-wide text-white bg-blue-800 rounded-md">
+                                    {{ $item->status }}
+                                </button>
 
-                        </div>
-                        <div class="grid items-start grid-cols-1 gap-8 md:grid-cols-2">
-
-                            <div>
-                                <div class="hidden pt-8 md:block">
-                                    <div class="flex flex-col">
-                                        <div class="text-gray-700 max-w-none">
-                                            <label for="description" class="block font-medium text-gray-800 text-2xl">Title
-                                                paragraph 1</label>
-                                            <p class="max-w-3xl text-gray-500 myparagraph">
-                                                {{ $item->description }}
-                                            </p>
-                                        </div>
-                                     
-                                        <div class="container grid grid-cols-1">
-                                            @php
-                                                $imgarray = $item->image;
-                                                //skip first element
-                                                array_shift($imgarray);
-                                            @endphp
-                                            <div class="">
-                                             
-                                                    {{-- @foreach ($imgarray as $image) --}}
-                                                     @php $img04 = $item->image[1] ?? null; @endphp
-        
-                                                        <div class="py-8">
-                                                            <img src="{{ asset('storage/' . $img04) }}"
-                                                                class="object-cover w-full h-96" alt=""
-                                                                onerror="this.src='./img/empty.png'" />
-                                                        </div>
-                                                    {{-- @endforeach --}}
-                                          
-                                            </div>
-
-                                        </div>
-
-                                        <div class="text-gray-700 max-w-none">
-                                            <label for="description" class="block font-medium text-gray-800 text-2xl">Title
-                                                paragraph 2</label>
-                                            <p class="max-w-3xl text-gray-500 myparagraph">
-                                                {{ $item->description }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="sticky w-full pt-8 mx-auto">
-                                <div class="flex justify-between pb-8">
-                                    <h1 class="text-2xl font-bold">
-                                        {{ $item->title }} | {{ $item->city }}
-                                    </h1>
-                                </div>
-                                <div class="flex pb-8">
-                                    <button
-                                        class="px-3 py-1 mx-1 text-xs font-medium tracking-wide text-white bg-blue-800 rounded-md">
-                                        {{ $item->status }}
-                                    </button>
-
+                                <button
+                                    class="px-3 py-1 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
+                                    <a href="masterplans"> {{ $item->category }}</a>
+                                </button>
+                                @foreach ($item->tags as $tag)
                                     <button
                                         class="px-3 py-1 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
-                                        <a href="masterplans"> {{ $item->category }}</a>
+                                        {{ $tag }}
                                     </button>
-                                    @foreach ($item->tags as $tag)
-                                        <button
-                                            class="px-3 py-1 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
-                                            {{ $tag }}
-                                        </button>
-                                    @endforeach
-                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="w-full">
+                                @php $image0 =  $item->image ?? null; @endphp
+                                <img class="object-cover w-full border h-96"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $image0) }}"alt=""
+                                    onerror="this.src='./img/empty.png'"
+                                    onclick="window.open('{{ asset('storage/' . $image0) }}', 'Image', 'width=800,height=600')" />
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="grid items-start grid-cols-1 gap-8 md:grid-cols-2">
+
+                            <div class="sticky w-full pt-8 mx-auto">
+
                                 <div class="flex space-x-8">
-                                    <div class="flex flex-col w-full text-sm">
+                                    <div class="flex flex-col w-full text-sm mx-16 md:pb-8">
                                         <div class="flex py-4 border-t border-gray-200">
                                             <span class="text-gray-500"> Author: </span>
                                             <span class="ml-auto text-gray-900"> {{ $item->author }}</span>
+                                        </div>
+                                        <div class="flex py-4 border-t border-gray-200">
+                                            <span class="text-gray-500">Project title:</span>
+                                            <span class="ml-auto text-gray-900"> {{ $item->project_title }}</span>
                                         </div>
                                         <div class="flex py-4 border-t border-gray-200">
                                             <span class="text-gray-500">City:</span>
@@ -107,32 +73,105 @@
                                             <span class="ml-auto text-gray-900">{{ $item->year }}</span>
                                         </div>
 
-                                        <div class="flex py-4 mb-6 border-t border-b border-gray-200">
+                                        <div class="flex py-4 border-t border-b border-gray-200">
                                             <span class="text-gray-500">Program: </span>
                                             <span class="ml-auto text-gray-900"> {{ $item->program }}</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="block md:hidden">
-                                    <div>
-                                        <div class="text-gray-700 max-w-none group-open:hidden">
-                                            <label for="description"
-                                                class="block font-medium text-gray-800">Description:</label>
-                                            <p class="max-w-3xl text-gray-500 myparagraph">
-                                                {{ $item->description }}
-                                            </p>
-                                        </div>
+                            </div>
+
+
+                            <div class="block md:pt-12 pt-0">
+                                <div class="flex flex-col">
+                                    <div class="text-gray-700 max-w-none">
+                                        <p class="max-w-3xl text-gray-500 myparagraph text-center mx-4 pb-8">
+                                            {{ $item->descriptiona }}
+                                        </p>
                                     </div>
-                                </div>
-                                <fieldset>
-                                    <legend class="pt-4 pb-2 mb-1 font-medium">Sources:</legend>
-                                    <div class="flex flex-wrap text-sm">
-                                        {{ $item->credits }}
-                                    </div>
-                                </fieldset>
-                                <div id="mastermap" class="mt-4 rounded h-[350px] w-full">
                                 </div>
                             </div>
+
+                        </div>
+
+
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="md:w-3/4 w-full  mx-auto">
+                                @php $image00 =  $item->imagea ?? null; @endphp
+                                <img class="object-cover w-full border h-96"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $image00) }}"alt=""
+                                    onerror="this.src='./img/empty.png'"
+                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image00) }}', 'Image', 'width=800,height=600')" />
+                            </div>
+                        </div>
+
+
+                        <div class="flex justify-center">
+                            <div class="text-gray-700">
+                                <p class="max-w-3xl text-gray-500 myparagraph text-center mx-4 pb-8">
+                                    {{ $item->descriptionb }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="md:w-3/4 w-full mx-auto">
+                                @php $image1 =  $item->imageb ?? null; @endphp
+                                <img class="object-cover w-full border h-96"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $image1) }}"alt=""
+                                    onerror="this.src='./img/empty.png'"
+                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image1) }}', 'Image', 'width=800,height=600')" />
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <div class="text-gray-700">
+                                <p class="max-w-3xl text-gray-500 myparagraph text-center mx-4 pb-8">
+                                    {{ $item->descriptionc }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="md:w-3/4 w-full  mx-auto">
+                                @php $image2 =  $item->imagec ?? null; @endphp
+                                <img class="object-cover w-full border h-96"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $image2) }}"alt=""
+                                    onerror="this.src='./img/empty.png'"
+                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image2) }}', 'Image', 'width=800,height=600')" />
+                            </div>
+                        </div>
+
+
+                        <div class="flex justify-center">
+                            <div class="text-gray-700">
+                                <p class="max-w-3xl text-gray-500 myparagraph text-center mx-4 pb-8">
+                                    {{ $item->descriptiond }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="md:w-3/4 w-full mx-auto">
+                                @php $image3 =  $item->imaged ?? null; @endphp
+                                <img class="object-cover w-full border h-96"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $image3) }}"alt=""
+                                    onerror="this.src='./img/empty.png'"
+                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image3) }}', 'Image', 'width=800,height=600')" />
+                            </div>
+                        </div>
+                        <div class="flex justify-center pb-8">
+                            <div class="text-gray-700">
+                                  <p class="max-w-3xl text-black font-bold text-center mx-4 pt-4">
+                                 Credits:
+                                </p>
+                                <a href="{{ $item->credits }}" class="max-w-3xl text-blue-700 text-center mx-4 py-4">
+                                    {{ $item->credits }}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div id="mastermap" class="mt-4 rounded h-[350px] w-full"></div>
                         </div>
                         <div class="flex justify-between pt-8 ">
                             @php
@@ -182,9 +221,9 @@
                                     <a href="urbanscapes_post?id={{ $neigh->id }}">
                                         <div
                                             class="p-4 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
-                                             @php $img08 = $neigh->image[0] ?? null; @endphp
+                                            @php $img08 = $neigh->imagea ?? null; @endphp
                                             <img class="object-cover object-center w-full h-40 mb-3"
-                                                src="{{ asset('storage/' . $img08) }}"alt=""
+                                                src="{{ asset('storage/uploads/urbanscapes/' . $img08) }}"alt=""
                                                 onerror="this.src='./img/empty.png'" />
                                             <h2 class="mb-1 text-lg font-medium text-gray-900 title-font">
                                                 {{ $neigh->title }}</h2>
@@ -256,24 +295,23 @@
         mymap.touchZoom.enable();
         mymap.scrollWheelZoom.disable();
 
-document.addEventListener('DOMContentLoaded', function() {
-    const swiper = new Swiper('.mySwiper', {
-        spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: {
-            delay: 4500,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    })
-});
-      
+        document.addEventListener('DOMContentLoaded', function() {
+            const swiper = new Swiper('.mySwiper', {
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 4500,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            })
+        });
     </script>
 @endsection

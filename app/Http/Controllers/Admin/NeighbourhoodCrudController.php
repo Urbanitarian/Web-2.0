@@ -39,7 +39,7 @@ class NeighbourhoodCrudController extends CrudController
             'name' => 'image',
             'label' => 'Image',
             'type' => 'image',
-            'prefix' => 'storage/',
+            'prefix' => 'storage/uploads/urbanscapes/',
             'height' => '80px',
             'width' => 'auto',
 
@@ -105,24 +105,26 @@ class NeighbourhoodCrudController extends CrudController
             'tab'             => 'Main',
             'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
         ]);
-     
-        CRUD::addField([ // Photo
-            'name'      => 'image',
-            'key' => 'image_up',
-            'label'     => 'Images',
-            'type'      => 'upload_multiple',
-            'prefix' => 'storage/',
-            'upload'    => true,
-            'temporary' => 10,
+        CRUD::addField([ // Text
+            'name'  => 'project_title',
+            'label' => 'Project title',
+            'type'  => 'text',
+            'tab'             => 'Main',
+            'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
+        ]);
+        $this->crud->addField([   // CustomHTML
+            'name'  => 'separator0',
+            'type'  => 'custom_html',
+            'value' => '<hr>',
+            'tab' => 'Main',
+        ]);
+        CRUD::addField([ // Text
+            'name'  => 'image',
+            'label' => 'Main image',
+            'type'  => 'text',
             'tab'             => 'Main',
         ]);
 
-        CRUD::addField([
-            'name'  => 'description',
-            'label' => 'Description',
-            'type'  => 'textarea',
-            'tab'             => 'Main',
-        ]);
       
         $this->crud->addField([   // select_from_array
             'name'        => 'tags',
@@ -210,13 +212,7 @@ class NeighbourhoodCrudController extends CrudController
             'value' => '<hr>',
             'tab' => 'Main',
         ]);
-        CRUD::addField([
-            'name'  => 'link',
-             'label' => 'Link',
-             'type'  => 'url',
-             'tab' => 'Main',
-             'wrapper' => [ 'class' => 'form-group col-md pl-3'],
-            ]);
+        
             CRUD::addField([
                 'name'  => 'credits',
                  'label' => 'Credits',
@@ -225,7 +221,57 @@ class NeighbourhoodCrudController extends CrudController
                  'wrapper' => [ 'class' => 'form-group col-md pl-3'],
                 ]);
 
+                CRUD::addField([
+                    'name'  => 'imagea',
+                     'label' => 'Image A',
+                     'type'  => 'text',
+                     'tab' => 'Secondary',
+                    ]);
+                CRUD::addField([
+                    'name'  => 'descriptiona',
+                    'label' => 'Description A',
+                    'type'  => 'textarea',
+                    'tab'             => 'Secondary',
+                ]);
 
+                CRUD::addField([
+                    'name'  => 'imageb',
+                     'label' => 'Image B',
+                     'type'  => 'text',
+                     'tab' => 'Secondary',
+                    ]);
+                CRUD::addField([
+                    'name'  => 'descriptionb',
+                    'label' => 'Description B',
+                    'type'  => 'textarea',
+                    'tab'             => 'Secondary',
+                ]);
+
+                CRUD::addField([
+                    'name'  => 'imagec',
+                     'label' => 'Image C',
+                     'type'  => 'text',
+                     'tab' => 'Secondary',
+                    ]);
+                CRUD::addField([
+                    'name'  => 'descriptionc',
+                    'label' => 'Description C',
+                    'type'  => 'textarea',
+                    'tab'             => 'Secondary',
+                ]);
+
+                CRUD::addField([
+                    'name'  => 'imaged',
+                     'label' => 'Image D',
+                     'type'  => 'text',
+                     'tab' => 'Secondary',
+                    ]);
+                CRUD::addField([
+                    'name'  => 'descriptiond',
+                    'label' => 'Description D',
+                    'type'  => 'textarea',
+                    'tab'             => 'Secondary',
+                ]);
 
         CRUD::addField(['prefix' => '<i class="las la-map"></i>','name' => 'address','type' => 'text','label' => 'Address','tab' => 'Location',]);
         CRUD::addField([ 'prefix' => '<a href="../../admin/city/create">+</a>','name' => 'city','type' => 'text','label' => 'City', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);
@@ -286,22 +332,25 @@ class NeighbourhoodCrudController extends CrudController
             'tab'             => 'Main',
             'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
         ]);
-     
-        CRUD::addField([ // Photo
-            'name'      => 'image',
-            'key' => 'image_up',
-            'label'     => 'Images',
-            'type'      => 'upload_multiple',
-            'prefix' => 'storage/',
-            'upload'    => true,
-            'temporary' => 10,
-            'tab'             => 'Main',
-        ]);
 
-        CRUD::addField([
-            'name'  => 'description',
-            'label' => 'Description',
-            'type'  => 'textarea',
+        CRUD::addField([ // Text
+            'name'  => 'project_title',
+            'label' => 'Project title',
+            'type'  => 'text',
+            'tab'             => 'Main',
+            'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
+        ]);
+     
+        $this->crud->addField([   // CustomHTML
+            'name'  => 'separator0',
+            'type'  => 'custom_html',
+            'value' => '<hr>',
+            'tab' => 'Main',
+        ]);
+        CRUD::addField([ // Text
+            'name'  => 'image',
+            'label' => 'Main image',
+            'type'  => 'text',
             'tab'             => 'Main',
         ]);
       
@@ -391,13 +440,7 @@ class NeighbourhoodCrudController extends CrudController
             'value' => '<hr>',
             'tab' => 'Main',
         ]);
-        CRUD::addField([
-            'name'  => 'link',
-             'label' => 'Link',
-             'type'  => 'url',
-             'tab' => 'Main',
-             'wrapper' => [ 'class' => 'form-group col-md pl-3'],
-            ]);
+
             CRUD::addField([
                 'name'  => 'credits',
                  'label' => 'Credits',
@@ -406,7 +449,57 @@ class NeighbourhoodCrudController extends CrudController
                  'wrapper' => [ 'class' => 'form-group col-md pl-3'],
                 ]);
 
+                CRUD::addField([
+                    'name'  => 'imagea',
+                     'label' => 'Image A',
+                     'type'  => 'text',
+                     'tab' => 'Secondary',
+                    ]);
+                CRUD::addField([
+                    'name'  => 'descriptiona',
+                    'label' => 'Description A',
+                    'type'  => 'textarea',
+                    'tab'             => 'Secondary',
+                ]);
 
+                CRUD::addField([
+                    'name'  => 'imageb',
+                     'label' => 'Image B',
+                     'type'  => 'text',
+                     'tab' => 'Secondary',
+                    ]);
+                CRUD::addField([
+                    'name'  => 'descriptionb',
+                    'label' => 'Description B',
+                    'type'  => 'textarea',
+                    'tab'             => 'Secondary',
+                ]);
+
+                CRUD::addField([
+                    'name'  => 'imagec',
+                     'label' => 'Image C',
+                     'type'  => 'text',
+                     'tab' => 'Secondary',
+                    ]);
+                CRUD::addField([
+                    'name'  => 'descriptionc',
+                    'label' => 'Description C',
+                    'type'  => 'textarea',
+                    'tab'             => 'Secondary',
+                ]);
+
+                CRUD::addField([
+                    'name'  => 'imaged',
+                     'label' => 'Image D',
+                     'type'  => 'text',
+                     'tab' => 'Secondary',
+                    ]);
+                CRUD::addField([
+                    'name'  => 'descriptiond',
+                    'label' => 'Description D',
+                    'type'  => 'textarea',
+                    'tab'             => 'Secondary',
+                ]);
 
         CRUD::addField(['prefix' => '<i class="las la-map"></i>','name' => 'address','type' => 'text','label' => 'Address','tab' => 'Location',]);
         CRUD::addField([ 'prefix' => '<a href="../../../admin/city/create">+</a>','name' => 'city','type' => 'text','label' => 'City', 'wrapper' => [ 'class' => 'form-group col-md pl-3'],'tab' => 'Location',]);

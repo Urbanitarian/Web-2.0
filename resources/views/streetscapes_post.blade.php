@@ -15,13 +15,13 @@
                         </p>
                     </div>
                     <div class="juxtapose">
-                     @php $img0 =$streetscape->image[0] ?? null; @endphp
-                      @php $img1 = $streetscape->image[1] ?? null; @endphp
+                     @php $img0 =$streetscape->imagea ?? null; @endphp
+                      @php $img1 = $streetscape->imageb ?? null; @endphp
                         <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"
-                            src="{{ asset('storage/' . $img0) }}"alt="00"
+                            src="{{ asset('storage/uploads/streetscapes/' . $img0) }}"alt="00"
                             onerror="this.src='./img/empty.png'" />
                         <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"
-                            src="{{ asset('storage/' . $img1) }}"alt="00"
+                            src="{{ asset('storage/uploads/streetscapes/' . $img1) }}"alt="00"
                             onerror="this.src='./img/empty.png'" />
                     </div>
                     <p class="my-4 text-sm text-gray-600">
@@ -34,7 +34,7 @@
 
                     <button
                         class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded md:mt-8 focus:outline-none hover:bg-gray-800">
-                        <a href="{{ $streetscape->link }}">See project </a></button>
+                        <a href="{{ $streetscape->credits }}">See project </a></button>
                 @endforeach
 
                 <div class="flex justify-between pt-8 ">
@@ -65,13 +65,13 @@
                     @forelse ($allstreetscapes as $street)
                         <div>
                             <div class="juxtapose">
-                             @php $img00 = $street->image[0] ?? null; @endphp
-                              @php $img01 = $street->image[1] ?? null; @endphp
+                             @php $img00 = $street->imagea ?? null; @endphp
+                              @php $img01 = $street->imageb ?? null; @endphp
                                 <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"
-                                    src="{{ asset('storage/' . $img00) }}"alt="00"
+                                    src="{{ asset('storage/uploads/streetscapes/' . $img00) }}"alt="00"
                                     onerror="this.src='./img/empty.png'" />
                                 <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"
-                                    src="{{ asset('storage/' . $img01) }}"alt="00"
+                                    src="{{ asset('storage/uploads/streetscapes/' . $img01) }}"alt="00"
                                     onerror="this.src='./img/empty.png'" />
                             </div>
                             <a href="streetscapes_post?id={{ $street->id }}">

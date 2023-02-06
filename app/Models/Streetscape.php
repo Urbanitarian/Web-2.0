@@ -26,26 +26,27 @@ class Streetscape extends Model
     // protected $dates = [];
     protected $fillable = [
        'image',
+       'imagea',
+       'imageb',
          'title',
+         'address',
+         'program',
             'author',
             'city',
             'country',
-            'program',
-            'year',
-            'area',
-            'description',
-            'credits',
+            'link',
             'location',
             'status',
             'size',
             'tags',
-            'link',
+            'year',
+            'area',
+            'description',
+            'credits',
             'category',
-            'address',
      ];
 
     protected $casts = [
-        'image' => 'array',
         'tags' => 'array',
     ];
     
@@ -56,14 +57,6 @@ class Streetscape extends Model
     */
     public function setImageAttribute($value)
     {
-    
-        $attribute_name = "image";
-        $disk = "public";
-        $destination_path = "/uploads/streetscapes";
-
-        $this->uploadMultipleFilesToDisk($value, $attribute_name, $disk, $destination_path);
-   
-
     // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
     }
     /*

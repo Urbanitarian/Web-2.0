@@ -81,10 +81,10 @@
                     <div class="lg:w-3/4 md:px-6">
                         <div class="juxtapose">
                             <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4"
-                                src="{{ asset('storage/' . $streetscape->image[0]) }}"alt="00"
+                                src="{{ asset('storage/uploads/streetscapes/' . $streetscape->imagea) }}"alt="00"
                                 onerror="this.src='./img/empty.png'" />
                             <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4"
-                                src="{{ asset('storage/' . $streetscape->image[1]) }}"alt="00"
+                                src="{{ asset('storage/uploads/streetscapes/' . $streetscape->imageb) }}"alt="00"
                                 onerror="this.src='./img/empty.png'" />
                         </div>
 
@@ -95,7 +95,7 @@
                             <h3 class="mt-4 font-semibold text-center text-black uppercase"> {{ $streetscape->tags[0] }}
                             </h3>
 
-                            <a href="streetscapes_post?id={{ $streetscape->id }}"
+                            <a href="../streetscapes_post?id={{ $streetscape->id }}"
                                 class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
                                 {{ $streetscape->title }}
                             </a>
@@ -107,7 +107,7 @@
 
                             <button
                                 class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800">
-                                <a href="streetscapes_post?id={{ $streetscape->id }}">More Info </a></button>
+                                <a href="../streetscapes_post?id={{ $streetscape->id }}">More Info </a></button>
 
                         </div>
 

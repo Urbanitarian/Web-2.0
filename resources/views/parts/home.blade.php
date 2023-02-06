@@ -268,7 +268,7 @@
                          let html = `
                       <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt=""
+                             <img alt="Art" src="storage/uploads/urbanscapes/${item.imagea}"alt=""
                                  onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                              <div class="">
                                  <h3 class="mx-2 mt-2 text-sm font-bold text-center truncate">
@@ -287,8 +287,7 @@
                      <div
                          class="relative col-span-2 transition border shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
-                             @php $image1 =   $data['image'][0] ?? null; @endphp
-                             <img alt="Art" src="storage/${item.image[0]}"alt=""
+                             <img alt="Art" src="storage/uploads/streetscapes/${item.imagea}"alt=""
                                  onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                              <div class="">
                                  <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">

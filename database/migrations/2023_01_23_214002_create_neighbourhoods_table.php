@@ -21,8 +21,17 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('country')->nullable();
             $table->string('program')->nullable();
+            $table->string('project_title')->nullable();
             $table->integer('year')->nullable();
             $table->longText('description')->nullable();
+            $table->longText('descriptiona')->nullable();
+            $table->string('imagea')->nullable();
+            $table->longText('descriptionb')->nullable();
+            $table->string('imageb')->nullable();
+            $table->longText('descriptionc')->nullable();
+            $table->string('imagec')->nullable();
+            $table->longText('descriptiond')->nullable();
+            $table->string('imaged')->nullable();
             $table->string('credits')->nullable();
             $table->string('location')->default('40.50, 8.00');
             $table->string('status')->nullable();

@@ -13,10 +13,10 @@
            @forelse ($streetscapes as $streetscape)
                <div>
                  <div class="juxtapose">
-                     @php $img0 = $streetscape->image[0] ?? null; @endphp
-                      @php $img1 = $streetscape->image[1] ?? null; @endphp
-                    <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="{{ asset('storage/' . $img0) }}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                     <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="{{ asset('storage/' . $img1) }}"alt="00"  onerror="this.src='./img/empty.png'"/>
+                     @php $img0 = $streetscape->imagea ?? null; @endphp
+                      @php $img1 = $streetscape->imageb ?? null; @endphp
+                    <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="{{ asset('storage/uploads/streetscapes/' . $img0) }}"alt="00"  onerror="this.src='./img/empty.png'"/>
+                     <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="{{ asset('storage/uploads/streetscapes/' . $img1) }}"alt="00"  onerror="this.src='./img/empty.png'"/>
                 </div>
                     <a href="streetscapes_post?id={{ $streetscape->id }}">
                     <h5 class="pt-1 mx-4 mb-2 text-xl font-bold leading-none sm:text-2xl">

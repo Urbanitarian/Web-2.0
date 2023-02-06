@@ -15,41 +15,22 @@ class StreetscapesImport implements ToModel, WithHeadingRow
      */
     public function model(array $row)
     {
-        //check for unique title
-        $streetscapes = Streetscape::where('title', $row[1])->first();
-        if ($streetscapes) {
-            return null;
-        } else {
+        foreach ($row as $key => $value) {
+            $pieces = explode(", ", $row[0]);
             return new Streetscape([
-                'image' => "['uploads\/streetscapes\/$row[0].png']",
-                'title' => $row[1],
-                'author' => $row[2],
-                'city' => $row[3],
-                'country' => $row[4],
-                'program' => $row[5],
-                'year' => $row[6],
-                'area' => $row[7],
-                'gfa' => $row[8],
-                'density' => $row[9],
-                'popdensity' => $row[10],
-                'homeunit' => $row[11],
-                'jobs' => $row[12],
-                'streetroad' => $row[13],
-                'buildup' => $row[14],
-                'nonbuildup' => $row[15],
-                'residential' => $row[16],
-                'business' => $row[17],
-                'commercial' => $row[18],
-                'civic' => $row[19],
-                'description' => $row[20],
-                'credits' => $row[21],
-                'location' => $row[22],
-                'status' => $row[23],
-                'size' => $row[24],
-                'tags' => explode(",", $row[25]),
-                'link' => $row[26],
-                'category' => "Streetscapes",
-                'address' => "adress_dummy",
+                'imagea' => "$pieces[0]",
+                'imageb' => "$pieces[1]",
+                'title' => "$row[1]",
+                'address' => "$row[2]",
+                'program' => "$row[3]",
+                'author' => strtoupper("$row[4]"),
+                'city' => ucfirst(strtolower("$row[5]")),
+                'country' => ucfirst(strtolower("$row[6]")),
+                'credits' => "$row[9]",
+                'location' => "$row[10]",
+                'status' => strtolower("$row[11]"),
+                'size' => strtoupper("$row[12]"),
+                'tags' =>  explode(", ", $row[13]),
             ]);
         }
     }

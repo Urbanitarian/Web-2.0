@@ -35,6 +35,7 @@ class Neighbourhood extends Model
              'area',
              'gfa',
              'density',
+             'project_title',
              'popdensity',
              'homeunit',
              'jobs',
@@ -46,6 +47,14 @@ class Neighbourhood extends Model
              'commercial',
              'civic',
              'description',
+                'descriptiona',
+                'imagea',
+                'descriptionb',
+                'imageb',
+                'descriptionc',
+                'imagec',
+                'descriptiond',
+                'imaged',
              'credits',
              'location',
              'status',
@@ -57,7 +66,6 @@ class Neighbourhood extends Model
       ];
 
     protected $casts = [
-        'image' => 'array',
         'tags' => 'array',
     ];
    /*
@@ -65,18 +73,7 @@ class Neighbourhood extends Model
    | FUNCTIONS
    |--------------------------------------------------------------------------
    */
-   public function setImageAttribute($value)
-   {
-   
-       $attribute_name = "image";
-       $disk = "public";
-       $destination_path = "/uploads/neighbourhoods";
 
-       $this->uploadMultipleFilesToDisk($value, $attribute_name, $disk, $destination_path);
-  
-
-   // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
-   }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

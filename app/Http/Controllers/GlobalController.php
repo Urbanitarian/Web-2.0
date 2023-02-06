@@ -402,7 +402,7 @@ class GlobalController extends Controller
         }
         
         \Alert::success('Excel data imported successfully.')->flash();
-        return redirect('/admin/masterplan')->with('success', 'Data imported successfully.');
+        return redirect('/admin')->with('success', 'Data imported successfully.');
     }
 
 

@@ -36,10 +36,10 @@ class StreetscapeCrudController extends CrudController
     function getFieldsData()
     {
         $this->crud->addColumn([
-            'name' => 'image',
+            'name' => 'imagea',
             'label' => 'Image',
             'type' => 'image',
-            'prefix' => 'storage/',
+            'prefix' => 'storage/uploads/streetscapes/',
             'height' => '80px',
             'width' => 'auto',
 
@@ -106,14 +106,24 @@ class StreetscapeCrudController extends CrudController
             'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
         ]);
      
-        CRUD::addField([ // Photo
-            'name'      => 'image',
-            'key' => 'image_up',
-            'label'     => 'Images',
-            'type'      => 'upload_multiple',
-            'prefix' => 'storage/',
-            'upload'    => true,
-            'temporary' => 10,
+        $this->crud->addField([   // CustomHTML
+            'name'  => 'separator0',
+            'type'  => 'custom_html',
+            'value' => '<hr>',
+            'tab' => 'Main',
+        ]);
+
+        CRUD::addField([ // Text
+            'name'  => 'imagea',
+            'label' => 'Main image',
+            'type'  => 'text',
+            'tab'             => 'Main',
+        ]);
+
+        CRUD::addField([ // Text
+            'name'  => 'imageb',
+            'label' => 'Overlay image',
+            'type'  => 'text',
             'tab'             => 'Main',
         ]);
 
@@ -175,6 +185,7 @@ class StreetscapeCrudController extends CrudController
             'type' => 'select_from_array',
             'options' => [
                 'built' => 'built',
+                'temporary' => 'temporary',
                 'future' => 'future',
                 'under development' => 'under development',
                 'regeneration' => 'regeneration',
@@ -191,10 +202,10 @@ class StreetscapeCrudController extends CrudController
             'label'       => "Size",
             'type'        => 'select_from_array',
             'options'     => [
-                'Large'        => 'Large',
-                'Medium'        => 'Medium',
-                'Small'        => 'Small',
-                'Xs'        => 'Xs',
+                'L'        => 'Large',
+                'M'        => 'Medium',
+                'S'        => 'Small',
+                'XS'        => 'Xs',
             ],
             'wrapper' => [ 'class' => 'form-group col-md pl-3'],
             'allows_null' => false,
@@ -211,13 +222,7 @@ class StreetscapeCrudController extends CrudController
             'value' => '<hr>',
             'tab' => 'Main',
         ]);
-        CRUD::addField([
-            'name'  => 'link',
-             'label' => 'Link',
-             'type'  => 'url',
-             'tab' => 'Main',
-             'wrapper' => [ 'class' => 'form-group col-md pl-3'],
-            ]);
+        
             CRUD::addField([
                 'name'  => 'credits',
                  'label' => 'Credits',
@@ -296,15 +301,25 @@ class StreetscapeCrudController extends CrudController
             'tab'             => 'Main',
             'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
         ]);
-     
-        CRUD::addField([ // Photo
-            'name'      => 'image',
-            'key' => 'image_up',
-            'label'     => 'Images',
-            'type'      => 'upload_multiple',
-            'prefix' => 'storage/',
-            'upload'    => true,
-            'temporary' => 10,
+        
+        $this->crud->addField([   // CustomHTML
+            'name'  => 'separator0',
+            'type'  => 'custom_html',
+            'value' => '<hr>',
+            'tab' => 'Main',
+        ]);
+
+        CRUD::addField([ // Text
+            'name'  => 'imagea',
+            'label' => 'Main image',
+            'type'  => 'text',
+            'tab'             => 'Main',
+        ]);
+
+        CRUD::addField([ // Text
+            'name'  => 'imageb',
+            'label' => 'Overlay image',
+            'type'  => 'text',
             'tab'             => 'Main',
         ]);
 
@@ -382,10 +397,10 @@ class StreetscapeCrudController extends CrudController
             'label'       => "Size",
             'type'        => 'select_from_array',
             'options'     => [
-                'Large'        => 'Large',
-                'Medium'        => 'Medium',
-                'Small'        => 'Small',
-                'Xs'        => 'Xs',
+                'L'        => 'Large',
+                'M'        => 'Medium',
+                'S'        => 'Small',
+                'XS'        => 'Xs',
             ],
             'wrapper' => [ 'class' => 'form-group col-md pl-3'],
             'allows_null' => false,
@@ -402,13 +417,7 @@ class StreetscapeCrudController extends CrudController
             'value' => '<hr>',
             'tab' => 'Main',
         ]);
-        CRUD::addField([
-            'name'  => 'link',
-             'label' => 'Link',
-             'type'  => 'url',
-             'tab' => 'Main',
-             'wrapper' => [ 'class' => 'form-group col-md pl-3'],
-            ]);
+
             CRUD::addField([
                 'name'  => 'credits',
                  'label' => 'Credits',

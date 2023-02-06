@@ -166,7 +166,7 @@ $("#prev").click(function() {
                     let html = `
                          <div class="border">
                    <a href="./urbanscapes_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
-                   <img src="storage/${item.image[0]}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
+                   <img src="storage/uploads/urbanscapes/${item.imagea}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
                    <span class="mx-2 text-base font-bold tracking-wider text-gray-900">${item.title}</span>
                    <p class="my-1">
