@@ -508,7 +508,7 @@ function resetLayout() {
                  for (let i = 0; i < thedata.length; i++) {
                      counter = counter + 1;
                      mydata = thedata[i];
-                     mypics = mydata.image[0];
+                     mypics = mydata.imagea;
                      mydataid = mydata.id;
                      mydatacity = mydata.city;
                      mydataname = mydata.title;

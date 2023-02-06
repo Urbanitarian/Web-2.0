@@ -18,7 +18,7 @@
                     </div>
 
                      <div class="w-1/3 h-32 p-3 m-2 bg-white border shadow">
-                      <h1 class="text-base font-bold text-gray-900">Neighbourhoods:</h1>
+                      <h1 class="text-base font-bold text-gray-900">Urbanscapes:</h1>
                         <h1 class="text-2xl font-bold text-gray-900">{{$neighcount}}</h1>
                     </div>
 

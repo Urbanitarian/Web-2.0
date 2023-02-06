@@ -35,7 +35,7 @@
                         <div class="grid grid-cols-1 gap-4">
                             <div class="w-full">
                                 @php $image0 =  $item->image ?? null; @endphp
-                                <img class="object-cover w-full border h-96"
+                                <img class="object-cover w-full border h-[550px]"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $image0) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/' . $image0) }}', 'Image', 'width=800,height=600')" />
@@ -82,10 +82,10 @@
                             </div>
 
 
-                            <div class="block md:pt-12 pt-0">
+                            <div class="block md:pt-4 pt-0">
                                 <div class="flex flex-col">
                                     <div class="text-gray-700 max-w-none">
-                                        <p class="max-w-3xl text-gray-500 myparagraph text-center mx-4 pb-8">
+                                        <p class="max-w-3xl text-gray-500 myparagraph text-center md:text-left mx-4 pb-8">
                                             {{ $item->descriptiona }}
                                         </p>
                                     </div>
@@ -98,7 +98,7 @@
                         <div class="grid grid-cols-1 gap-4">
                             <div class="md:w-3/4 w-full  mx-auto">
                                 @php $image00 =  $item->imagea ?? null; @endphp
-                                <img class="object-cover w-full border h-96"
+                                <img class="object-cover w-full border h-[450px]"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $image00) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image00) }}', 'Image', 'width=800,height=600')" />
@@ -108,56 +108,92 @@
 
                         <div class="flex justify-center">
                             <div class="text-gray-700">
-                                <p class="max-w-3xl text-gray-500 myparagraph text-center mx-4 pb-8">
+                                <p class="max-w-3xl text-gray-500 myparagraph text-center md:text-left mx-4 pb-8">
                                     {{ $item->descriptionb }}
                                 </p>
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 gap-4">
-                            <div class="md:w-3/4 w-full mx-auto">
-                                @php $image1 =  $item->imageb ?? null; @endphp
-                                <img class="object-cover w-full border h-96"
-                                    src="{{ asset('storage/uploads/urbanscapes/' . $image1) }}"alt=""
+                        <div class="grid grid-cols-3 gap-4">
+                          @php $image1 =  $item->imageb ?? null; 
+                                     $pieces = explode(", ", $image1);
+                                @endphp
+                            <div class="w-full mx-auto">
+                                <img class="object-cover w-full border h-[550px]"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces[0]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
-                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image1) }}', 'Image', 'width=800,height=600')" />
+                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[0]) }}', 'Image', 'width=800,height=600')" />
+                            </div>
+                             <div class="w-full mx-auto">
+                                <img class="object-cover w-full border h-[550px]"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces[1]) }}"alt=""
+                                    onerror="this.src='./img/empty.png'"
+                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[1]) }}', 'Image', 'width=800,height=600')" />
+                            </div>
+                             <div class="w-full mx-auto">
+                                <img class="object-cover w-full border h-[550px]"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces[2]) }}"alt=""
+                                    onerror="this.src='./img/empty.png'"
+                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[2]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                         </div>
 
                         <div class="flex justify-center">
                             <div class="text-gray-700">
-                                <p class="max-w-3xl text-gray-500 myparagraph text-center mx-4 pb-8">
+                                <p class="max-w-3xl text-gray-500 myparagraph text-center md:text-left mx-4 pb-8">
                                     {{ $item->descriptionc }}
                                 </p>
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 gap-4">
-                            <div class="md:w-3/4 w-full  mx-auto">
-                                @php $image2 =  $item->imagec ?? null; @endphp
+                        <div class="grid grid-cols-2 gap-4">
+                            @php $image2 =  $item->imagec ?? null; 
+                                 $pieces2 = explode(", ", $image2);
+                                @endphp
+                            <div class="w-full mx-auto">
                                 <img class="object-cover w-full border h-96"
-                                    src="{{ asset('storage/uploads/urbanscapes/' . $image2) }}"alt=""
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces2[0]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
-                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image2) }}', 'Image', 'width=800,height=600')" />
+                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces2[0]) }}', 'Image', 'width=800,height=600')" />
+                            </div>
+                             <div class="w-full mx-auto">
+                                <img class="object-cover w-full border h-96"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces2[1]) }}"alt=""
+                                    onerror="this.src='./img/empty.png'"
+                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces2[1]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                         </div>
 
 
                         <div class="flex justify-center">
                             <div class="text-gray-700">
-                                <p class="max-w-3xl text-gray-500 myparagraph text-center mx-4 pb-8">
+                                <p class="max-w-3xl text-gray-500 myparagraph text-center md:text-left mx-4 pb-8">
                                     {{ $item->descriptiond }}
                                 </p>
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 gap-4">
-                            <div class="md:w-3/4 w-full mx-auto">
-                                @php $image3 =  $item->imaged ?? null; @endphp
-                                <img class="object-cover w-full border h-96"
-                                    src="{{ asset('storage/uploads/urbanscapes/' . $image3) }}"alt=""
+                        <div class="grid grid-cols-3 gap-4">
+                             @php $image3 =  $item->imaged ?? null; 
+                                     $pieces3 = explode(", ", $image3);
+                                @endphp
+                            <div class="w-full mx-auto">
+                                <img class="object-cover w-full border h-[550px]"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces3[0]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
-                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image3) }}', 'Image', 'width=800,height=600')" />
+                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces3[0]) }}', 'Image', 'width=800,height=600')" />
+                            </div>
+                             <div class="w-full mx-auto">
+                                <img class="object-cover w-full border h-[550px]"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces3[1]) }}"alt=""
+                                    onerror="this.src='./img/empty.png'"
+                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces3[1]) }}', 'Image', 'width=800,height=600')" />
+                            </div>
+                             <div class="w-full mx-auto">
+                                <img class="object-cover w-full border h-[550px]"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces3[2]) }}"alt=""
+                                    onerror="this.src='./img/empty.png'"
+                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces3[2]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                         </div>
                         <div class="flex justify-center pb-8">

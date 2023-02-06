@@ -45,6 +45,7 @@ return new class extends Migration
             $table->text('link')->nullable();
             $table->string('category')->default('Masterplans');
             $table->text('address')->nullable();
+            $table->integer('active')->default('1');
             $table->timestamps();
         });
     }

@@ -59,7 +59,7 @@
     for (let i = 0; i < data.length; i++) {
         count = count + 1;
         graff = data[i];
-        pics = graff.image[0];
+        pics = graff.imagea;
         graffid = graff.id;
         category = graff.category.toLowerCase();
         if (category == 'streetscapes') {
