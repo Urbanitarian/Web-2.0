@@ -13,6 +13,15 @@
                         <p class="my-4 text-sm text-gray-500">
                             {{ $streetscape->address }} | {{ $streetscape->city }} | {{ $streetscape->country }}
                         </p>
+
+                          <div class="flex flex-wrap mb-4 justify-center">
+                          @foreach ($streetscape->tags as $tag)
+                                    <a
+                                        class="px-3 py-1 my-1 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
+                                        {{ $tag }}
+                                    </a>
+                                @endforeach
+                           </div>
                     </div>
                     <div class="juxtapose">
                      @php $img0 =$streetscape->imagea ?? null; @endphp
@@ -24,25 +33,24 @@
                             src="{{ asset('storage/uploads/streetscapes/' . $img1) }}"alt="00"
                             onerror="this.src='./img/empty.png'" />
                     </div>
+                    <div class="flex justify-between">
                     <p class="my-4 text-sm text-gray-600">
                         {{ $streetscape->created_at->format('M d Y') }}
                     </p>
+                     <p class="my-4 text-sm text-right text-gray-500">
+                       {{ $streetscape->area }}
+                    </p>
+                    </div>
                     <p class="my-4 text-sm text-center text-gray-500">
                         {{ $streetscape->description }}
                     </p>
-
+                   
                   
 
                     <button
                         class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded md:mt-8 focus:outline-none hover:bg-gray-800">
                         <a href="{{ $streetscape->credits }}">See project </a></button>
                 @endforeach
-
-      <div class="grid grid-cols-1 gap-4">
-                            <div id="mastermap" class="mt-4 rounded h-[350px] w-full"></div>
-                        </div>
-
-
                 <div class="flex justify-between pt-8 ">
                     @php
                         // next id and previous id from masterplans table
@@ -58,6 +66,12 @@
                         Next
                     </a>
                 </div>
+
+      <div class="grid grid-cols-1 gap-4">
+                            <div id="mastermap" class="mt-4 rounded h-[350px] w-full"></div>
+                        </div>
+
+
             </div>
         </section>
         <section class="mx-4 border-t md:mx-16">

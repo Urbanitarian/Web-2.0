@@ -105,6 +105,17 @@
                                 <p class="mt-2 text-center text-gray-600 "> &nbsp; {{ $streetscape->country }} </p>
                             </div>
 
+                            <div class="flex flex-wrap justify-center mx-10 pt-4 w-3/4">
+                                @foreach ($streetscape->tags as $tag)
+                                    <button
+                                        class="px-3 py-1 my-0.5 mx-1 text-xs font-light tracking-wide text-white bg-black rounded-md">
+                                        {{ $tag }}
+                                    </button>
+                                @endforeach
+                            </div>    
+
+                            <p class="mt-2 text-center text-gray-600 "><span class="text-black"> Width:</span> &nbsp; {{ $streetscape->area }} </p>
+                       
                             <button
                                 class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800">
                                 <a href="../streetscapes_post?id={{ $streetscape->id }}">More Info </a></button>

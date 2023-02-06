@@ -257,7 +257,7 @@
                                      ${item.title} | ${item.author} | ${item.city}</h3>
                                  <p class="max-w-sm pb-2 mx-4 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
                                        ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
+                                        ${item.tags[0]}&nbsp; ${item.tags[1]}&nbsp; ${item.tags[2]}&nbsp;
                                  </p>
                              </div>
                          </a>
@@ -275,7 +275,7 @@
                                      ${item.title} | ${item.author} | ${item.city}</h3>
                                  <p class="max-w-sm pb-2 mx-4 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
                                        ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
+                                           ${item.tags[0]}&nbsp; ${item.tags[1]}&nbsp; ${item.tags[2]}&nbsp;
                                  </p>
                              </div>
                          </a>
@@ -294,7 +294,7 @@
                                      ${item.title} | ${item.author} | ${item.city}</h3>
                                  <p class="pb-2 mx-4 mt-1 mb-2 text-xs text-center text-gray-700 truncate ">
                                      ${item.category} &nbsp;
-                                          ${item.tags}&nbsp;
+                                           ${item.tags[0]}&nbsp; ${item.tags[1]}&nbsp; ${item.tags[2]}&nbsp;
                                  </p>
 
                              </div>

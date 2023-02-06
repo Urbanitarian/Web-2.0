@@ -26,6 +26,8 @@ class StreetscapesImport implements ToModel, WithHeadingRow
                 'author' => strtoupper("$row[4]"),
                 'city' => ucfirst(strtolower("$row[5]")),
                 'country' => ucfirst(strtolower("$row[6]")),
+                'area' => "$row[7]",
+                'description' => "$row[8]",
                 'credits' => "$row[9]",
                 'location' => "$row[10]",
                 'status' => strtolower("$row[11]"),
