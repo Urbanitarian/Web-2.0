@@ -13,37 +13,26 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('masterplans', function (Blueprint $table) {
+        Schema::create('mindscapes', function (Blueprint $table) {
             $table->id();
             $table->longText('image')->nullable();
-            $table->string('title')->unique();
+            $table->string('imagea')->nullable();
+            $table->string('imageb')->nullable();
+            $table->string('title')->nullable();
             $table->string('author')->nullable();
             $table->string('city')->nullable();
+            $table->integer('area')->nullable();
             $table->string('country')->nullable();
             $table->string('program')->nullable();
             $table->integer('year')->nullable();
-            $table->integer('area')->nullable();
-            $table->integer('gfa')->nullable();
-            $table->integer('density')->nullable();
-            $table->integer('popdensity')->nullable();
-            $table->integer('homeunit')->nullable();
-            $table->integer('jobs')->nullable();
-            $table->integer('streetroad')->nullable();
-            $table->integer('buildup')->nullable();
-            $table->integer('nonbuildup')->nullable();
-            
-            $table->integer('residential')->nullable();
-            $table->integer('business')->nullable();
-            $table->integer('commercial')->nullable();
-            $table->integer('civic')->nullable();
             $table->longText('description')->nullable();
             $table->string('credits')->nullable();
             $table->string('location')->default('40.50, 8.00')->nullable();
             $table->string('status')->nullable();
             $table->string('size')->nullable();
-            $table->string('tags')->default('[\"Green\"]')->nullable();
+            $table->string('tags')->default('[\"Green\"]');
             $table->text('link')->nullable();
-            $table->string('category')->default('Masterplans');
+            $table->string('category')->default('Mindscapes');
             $table->text('address')->nullable();
             $table->integer('active')->default('1');
             $table->timestamps();
@@ -57,6 +46,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('masterplans');
+        Schema::dropIfExists('mindscapes');
     }
 };

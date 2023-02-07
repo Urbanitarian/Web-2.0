@@ -27,10 +27,10 @@ return new class extends Migration
             $table->integer('year')->nullable();
             $table->longText('description')->nullable();
             $table->string('credits')->nullable();
-            $table->string('location')->default('40.50, 8.00');
+            $table->string('location')->default('40.50, 8.00')->nullable();
             $table->string('status')->nullable();
             $table->string('size')->nullable();
-            $table->string('tags')->default('[\"Green\"]');
+            $table->string('tags')->default('[\"Green\"]')->nullable();
             $table->text('link')->nullable();
             $table->string('category')->default('Streetscapes');
             $table->text('address')->nullable();
