@@ -71,29 +71,33 @@
 
          <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category">
              <button id="allcat" name="category" value="All">
-                 <p class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
+                 <p id="allcatbtn"
+                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                      All</p>
              </button>
              <button id="masterplans" name="category" value="Masterplans">
-                 <p class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
+                 <p id="masterbtn"
+                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                      Masterplans</p>
              </button>
              <button id="streetscapes" name="category" value="Streetscapes">
-                 <p class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
+                 <p id="streetbtn"
+                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                      Streetscapes</p>
              </button>
              <button id="urbanscapes" name="category" value="Neighbourhoods">
-                 <p class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
+                 <p id="urbanbtn"
+                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                      Urbanscapes</p>
              </button>
          </fieldset>
 
          <div class="flex flex-col">
              <div class=" py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
-                 <button id="change-layout" onclick="return false;"> <i
-                         class="mx-2 text-gray-200 transition fa-solid fa-list fa-2x hover:text-gray-400"></i></button>
-                 <button id="change-layout3" onclick="return false;"> <i
-                         class="text-gray-200 transition fa-solid fa-map fa-2x hover:text-gray-400"></i></button>
+                 <span id="change-layout" onclick="return false;"> <i
+                         class="mx-2 text-gray-200 transition fa-solid fa-list fa-2x hover:text-gray-400"></i></span>
+                 <span id="change-layout3" onclick="return false;"> <i
+                         class="text-gray-200 transition fa-solid fa-map fa-2x hover:text-gray-400"></i></span>
              </div>
 
          </div>
@@ -126,7 +130,7 @@
                  <p class="pb-2 font-bold text-black">Size</p>
              </label>
              <select name="size" id="size_selector"
-                 class="w-full px-4 py-3 text-sm bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                 class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">All</option>
                  <option value="Large">Large</option>
                  <option value="Medium">Medium</option>
@@ -140,7 +144,7 @@
                  <p class="pb-2 font-bold text-black">Status</p>
              </label>
              <select name="status" id="status_selector"
-                 class="w-full px-4 py-3 text-sm bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                 class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">All</option>
                  <option value="built">built</option>
                  <option value="future">future</option>
@@ -155,7 +159,7 @@
                  <p class="pb-2 font-bold text-black">City</p>
              </label>
              <select name="city" id="city_selector"
-                 class="w-full px-4 py-3 text-sm bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                 class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">All</option>
                  @foreach ($cities as $city)
                      <option value="{{ $city->name }}">
@@ -304,74 +308,79 @@
                          }
                      })
                  } else {
-                    $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3").removeClass("grid-cols-2").addClass("grid-cols-1").addClass("lg:grid-cols-1").addClass("xl:grid-cols-1").removeClass("gap-5");
-                    let html = `<section id='themap' class='flex w-full pb-16 mx-auto border-b'><div id='map2' class='mx-2 mt-4 rounded h-[550px] w-screen'></div></section>`;
+                     $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass(
+                         "grid-cols-3").removeClass("grid-cols-2").addClass("grid-cols-1").addClass(
+                         "lg:grid-cols-1").addClass("xl:grid-cols-1").removeClass("gap-5");
+                     let html =
+                         `<section id='themap' class='flex w-full pb-16 mx-auto border-b'><div id='map2' class='mx-2 mt-4 rounded h-[550px] w-screen'></div></section>`;
                      $('#boucle').append(html);
 
-                         fetch(url)
-             .then((resa) => resa.json())
-             .then((outa) => {
-                 const obja = JSON.parse(JSON.stringify(outa));
-                 let thedata = obja;
+                     fetch(url)
+                         .then((resa) => resa.json())
+                         .then((outa) => {
+                             const obja = JSON.parse(JSON.stringify(outa));
+                             let thedata = obja;
 
-                 amarkers = {};
+                             amarkers = {};
 
-                 let mymap2 = L.map('map2').setView([48.6890, 11.14086], 4);
-                 theosmLayer = L.tileLayer(
-                     'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                         maxZoom: 19,
-                         apikey: 'choisirgeoportail',
-                         format: 'image/jpeg',
-                         style: 'normal'
-                     }).addTo(mymap2);
-                 mymap2.addLayer(theosmLayer);
-                 mymap2.touchZoom.enable();
-                 mymap2.scrollWheelZoom.disable();
+                             let mymap2 = L.map('map2').setView([48.6890, 11.14086], 4);
+                             theosmLayer = L.tileLayer(
+                                 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                                     maxZoom: 19,
+                                     apikey: 'choisirgeoportail',
+                                     format: 'image/jpeg',
+                                     style: 'normal'
+                                 }).addTo(mymap2);
+                             mymap2.addLayer(theosmLayer);
+                             mymap2.touchZoom.enable();
+                             mymap2.scrollWheelZoom.disable();
 
-                 let counter = 0;
-                 for (let i = 0; i < thedata.length; i++) {
-                     counter = counter + 1;
-                     mydata = thedata[i];
-                     mydatacat = mydata.category.toLowerCase();
-                     //mydatacat to lower case
-                     if (mydatacat == "masterplans") {
-                         mypics = mydata.image;
-                     } else {
-                         mypics = mydata.imagea;
-                     }
-                     category = mydata.category.toLowerCase();
-                     if (category == 'streetscapes') {
-                         cat = 1;
-                     } else if (category == 'masterplans') {
-                         cat = 2;
-                     } else if (category == 'urbanscapes') {
-                         cat = 3;
-                     }
+                             let counter = 0;
+                             for (let i = 0; i < thedata.length; i++) {
+                                 counter = counter + 1;
+                                 mydata = thedata[i];
+                                 mydatacat = mydata.category.toLowerCase();
+                                 //mydatacat to lower case
+                                 if (mydatacat == "masterplans") {
+                                     mypics = mydata.image;
+                                 } else {
+                                     mypics = mydata.imagea;
+                                 }
+                                 category = mydata.category.toLowerCase();
+                                 if (category == 'streetscapes') {
+                                     cat = 1;
+                                 } else if (category == 'masterplans') {
+                                     cat = 2;
+                                 } else if (category == 'urbanscapes') {
+                                     cat = 3;
+                                 }
 
-                     mydataid = mydata.id;
-                     mydatacity = mydata.city;
-                     mydataname = mydata.title;
-                     mydataposition = mydata.location;
-                     var decimalStringa = [0, 0];
-                     if (mydataposition != null) {
-                         decimalStringa = mydataposition.split(',');
-                     }
-                     decimalStringa[0] = parseFloat(decimalStringa[0]).toFixed(6);
-                     decimalStringa[1] = parseFloat(decimalStringa[1]).toFixed(6);
+                                 mydataid = mydata.id;
+                                 mydatacity = mydata.city;
+                                 mydataname = mydata.title;
+                                 mydataposition = mydata.location;
+                                 var decimalStringa = [0, 0];
+                                 if (mydataposition != null) {
+                                     decimalStringa = mydataposition.split(',');
+                                 }
+                                 decimalStringa[0] = parseFloat(decimalStringa[0]).toFixed(6);
+                                 decimalStringa[1] = parseFloat(decimalStringa[1]).toFixed(6);
 
-                     markera = L.marker([decimalStringa[0], decimalStringa[1]], {}).addTo(mymap2).bindPopup(
-                         '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' +
-                         mydataid + ',' + cat +
-                         ')" class="mt-4" src="/storage/uploads/' + mydatacat + '/' + mypics +
-                         '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="mydatanom">' +
-                         mydataname +
-                         '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500 pb-4" id="mydatacity">' +
-                         mydatacity + '</h1></div></div>'
-                     );
-                     amarkers[mydata.id] = markera;
-                 }
+                                 markera = L.marker([decimalStringa[0], decimalStringa[1]], {}).addTo(mymap2)
+                                     .bindPopup(
+                                         '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' +
+                                         mydataid + ',' + cat +
+                                         ')" class="mt-4" src="/storage/uploads/' + mydatacat + '/' +
+                                         mypics +
+                                         '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="mydatanom">' +
+                                         mydataname +
+                                         '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500 pb-4" id="mydatacity">' +
+                                         mydatacity + '</h1></div></div>'
+                                     );
+                                 amarkers[mydata.id] = markera;
+                             }
 
-             })
+                         })
 
                  }
 
@@ -379,8 +388,8 @@
      };
 
      $('button').click(function() {
-         console.log(currentfilter);
-         console.log(url);
+            $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
+    
      });
 
      $('#child').click(function() {
@@ -426,6 +435,7 @@
          $('#boucle').empty();
          currentfilter = "masterplans";
          category = "masterplans";
+       
          fetchAndRenderData(url);
      });
 
@@ -436,6 +446,7 @@
          $('#boucle').empty();
          currentfilter = "urbanscapes";
          category = "urbanscapes";
+    
          fetchAndRenderData(url);
      });
 
@@ -446,16 +457,19 @@
          $('#boucle').empty();
          currentfilter = "streetscapes";
          category = "streetscapes";
+     
          fetchAndRenderData(url);
      });
 
      $('#allcat').click(function() {
+      
          resetLayout();
          url = "api/data";
 
          $('#boucle').empty();
          currentfilter = "allcat";
-         category = "allcat";
+         category = "all";
+   
          fetchAndRenderData(url);
      });
 
@@ -514,7 +528,6 @@
 
 
      layout = null;
-
 
      function resetLayout() {
          $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").addClass(
