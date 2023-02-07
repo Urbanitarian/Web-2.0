@@ -17,6 +17,9 @@ use App\Models\Mindscape;
 use App\Imports\MasterplansImport;
 use App\Imports\StreetscapesImport;
 use App\Imports\NeighbourhoodsImport;
+use App\Imports\DictionariesImport;
+use App\Imports\MagazinesImport;
+use App\Imports\WebresourcesImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Backpack\Settings\app\Models\Setting;
 use Carbon\Carbon;
@@ -419,8 +422,13 @@ class GlobalController extends Controller
             Excel::import(new NeighbourhoodsImport, $file);
         } elseif ($request->dataType == "streetscapes"){
             Excel::import(new StreetscapesImport, $file);
+        } elseif  ($request->dataType == "dictionaries"){
+            Excel::import(new DictionariesImport, $file);
+        } elseif  ($request->dataType == "magazines"){
+            Excel::import(new MagazinesImport, $file);
+        } elseif  ($request->dataType == "webresources"){
+            Excel::import(new WebresourcesImport, $file);
         }
-        
         \Alert::success('Excel data imported successfully.')->flash();
         return redirect('/admin')->with('success', 'Data imported successfully.');
     }
