@@ -31,7 +31,7 @@
                     let link = item.category;
                     //to lower case
                     link = link.toLowerCase();
-                    if (item.category == "Masterplans") {
+                    if (link == "masterplans") {
                         let html = `
                       <div class="flex transition border shadow-md md:hover:scale-110">
                         <div class="flex flex-col mx-auto">
