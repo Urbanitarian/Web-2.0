@@ -38,7 +38,7 @@
                                 <img class="object-cover w-full border h-[550px]"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $image0) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
-                                    onclick="window.open('{{ asset('storage/' . $image0) }}', 'Image', 'width=800,height=600')" />
+                                    onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image0) }}', 'Image', 'width=800,height=600')" />
                             </div>
                         </div>
 
@@ -107,7 +107,7 @@
 
 
                         <div class="flex justify-center">
-                            <div class="text-gray-700">
+                            <div class="text-gray-700 py-8">
                                 <p class="max-w-3xl text-gray-500 myparagraph text-center md:text-left mx-4 pb-8">
                                     {{ $item->descriptionb }}
                                 </p>
@@ -139,7 +139,7 @@
                         </div>
 
                         <div class="flex justify-center">
-                            <div class="text-gray-700">
+                            <div class="text-gray-700 py-8">
                                 <p class="max-w-3xl text-gray-500 myparagraph text-center md:text-left mx-4 pb-8">
                                     {{ $item->descriptionc }}
                                 </p>
@@ -166,7 +166,7 @@
 
 
                         <div class="flex justify-center">
-                            <div class="text-gray-700">
+                            <div class="text-gray-700 py-8">
                                 <p class="max-w-3xl text-gray-500 myparagraph text-center md:text-left mx-4 pb-8">
                                     {{ $item->descriptiond }}
                                 </p>
@@ -197,7 +197,7 @@
                             </div>
                         </div>
                         <div class="flex justify-center pb-8">
-                            <div class="text-gray-700">
+                            <div class="text-gray-700 py-8">
                                   <p class="max-w-3xl text-black font-bold text-center mx-4 pt-4">
                                  Credits:
                                 </p>
