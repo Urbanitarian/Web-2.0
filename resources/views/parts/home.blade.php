@@ -92,8 +92,6 @@
              <div class=" py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
                  <button id="change-layout" onclick="return false;"> <i
                          class="mx-2 text-gray-200 transition fa-solid fa-list fa-2x hover:text-gray-400"></i></button>
-                 <button id="change-layout2" onclick="return false;"> <i
-                         class="mr-2 text-gray-200 transition fa-solid fa-border-all fa-2x hover:text-gray-400"></i></button>
                  <button id="change-layout3" onclick="return false;"> <i
                          class="text-gray-200 transition fa-solid fa-map fa-2x hover:text-gray-400"></i></button>
              </div>
@@ -508,8 +506,9 @@
                  for (let i = 0; i < thedata.length; i++) {
                      counter = counter + 1;
                      mydata = thedata[i];
-                     mydatacat = mydata.category;
-                     if (mydatacat == "Masterplans") {
+                     mydatacat = mydata.category.toLowerCase();
+                     //mydatacat to lower case
+                     if (mydatacat == "masterplans") {
                          mypics = mydata.image;
                      } else {
                          mypics = mydata.imagea;
@@ -535,7 +534,7 @@
                      decimalStringa[1] = parseFloat(decimalStringa[1]).toFixed(6);
 
                      markera = L.marker([decimalStringa[0], decimalStringa[1]], {}).addTo(mymap2).bindPopup(
-                         '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' +
+                         '<div class="relative flex flex-col mappopup mb-2"><img onclick="myfunction(' +
                          mydataid + ',' + cat +
                          ')" class="mt-4" src="/storage/uploads/' + mydatacat + '/' + mypics +
                          '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="mydatanom">' +

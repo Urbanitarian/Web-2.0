@@ -61,8 +61,8 @@
         graff = data[i];
         pics = graff.imagea;
         graffid = graff.id;
-         mydataca = graff.category;
-          if (mydataca == "Masterplans") {
+         mydataca = graff.category.toLowerCase();
+          if (mydataca == "masterplans") {
                          pics = graff.image;
                      } else {
                          pics = graff.imagea;
