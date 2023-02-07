@@ -312,9 +312,9 @@
      });
 
      $('#child').click(function() {
-        resetLayout();
+         resetLayout();
          url = "api/data?tags=Child-friendly";
-    
+
          $('#boucle').empty();
          currentfilter = "child";
          fetchAndRenderData(url);
@@ -323,7 +323,7 @@
      $('#playful').click(function() {
          resetLayout();
          url = "api/data?tags=Playful";
-    
+
          $('#boucle').empty();
          currentfilter = "playful";
          fetchAndRenderData(url);
@@ -332,7 +332,7 @@
      $('#wsud').click(function() {
          resetLayout();
          url = "api/data?tags=wsud";
-  
+
          $('#boucle').empty();
          currentfilter = "wsud";
          fetchAndRenderData(url);
@@ -341,7 +341,7 @@
      $('#carfree').click(function() {
          resetLayout();
          url = "api/data?tags=car-free";
-     
+
          $('#boucle').empty();
          currentfilter = "carfree";
          fetchAndRenderData(url);
@@ -350,7 +350,7 @@
      $('#masterplans').click(function() {
          resetLayout();
          url = "api/data?category=masterplans";
-     
+
          $('#boucle').empty();
          currentfilter = "masterplans";
          fetchAndRenderData(url);
@@ -359,7 +359,7 @@
      $('#urbanscapes').click(function() {
          resetLayout();
          url = "api/data?category=urbanscapes";
-    
+
          $('#boucle').empty();
          currentfilter = "urbanscapes";
          fetchAndRenderData(url);
@@ -368,7 +368,7 @@
      $('#streetscapes').click(function() {
          resetLayout();
          url = "api/data?category=streetscapes";
-      
+
          $('#boucle').empty();
          currentfilter = "streetscapes";
          fetchAndRenderData(url);
@@ -377,7 +377,7 @@
      $('#allcat').click(function() {
          resetLayout();
          url = "api/data";
-  
+
          $('#boucle').empty();
          currentfilter = "allcat";
          fetchAndRenderData(url);
@@ -440,12 +440,12 @@
      layout = null;
 
 
-function resetLayout() {
-      $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").addClass(
+     function resetLayout() {
+         $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").addClass(
                  "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
              .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
-               layout = "xl";
-}
+         layout = "xl";
+     }
 
 
 
@@ -508,7 +508,21 @@ function resetLayout() {
                  for (let i = 0; i < thedata.length; i++) {
                      counter = counter + 1;
                      mydata = thedata[i];
-                     mypics = mydata.imagea;
+                     mydatacat = mydata.category;
+                     if (mydatacat == "Masterplans") {
+                         mypics = mydata.image;
+                     } else {
+                         mypics = mydata.imagea;
+                     }
+                     category = mydata.category.toLowerCase();
+                     if (category == 'streetscapes') {
+                         cat = 1;
+                     } else if (category == 'masterplans') {
+                         cat = 2;
+                     } else if (category == 'urbanscapes') {
+                         cat = 3;
+                     }
+
                      mydataid = mydata.id;
                      mydatacity = mydata.city;
                      mydataname = mydata.title;
@@ -523,8 +537,8 @@ function resetLayout() {
                      markera = L.marker([decimalStringa[0], decimalStringa[1]], {}).addTo(mymap2).bindPopup(
                          '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' +
                          mydataid + ',' + cat +
-                         ')" class="mt-4" src="/storage/' + mypics +
-                         '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold" id="mydatanom">' +
+                         ')" class="mt-4" src="/storage/uploads/' + mydatacat + '/' + mypics +
+                         '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="mydatanom">' +
                          mydataname +
                          '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500" id="mydatacity">' +
                          mydatacity + '</h1></div></div>'
@@ -536,3 +550,12 @@ function resetLayout() {
 
      });
  </script>
+<style>
+.clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+}
+</style>

@@ -61,6 +61,12 @@
         graff = data[i];
         pics = graff.imagea;
         graffid = graff.id;
+         mydataca = graff.category;
+          if (mydataca == "Masterplans") {
+                         pics = graff.image;
+                     } else {
+                         pics = graff.imagea;
+                     }
         category = graff.category.toLowerCase();
         if (category == 'streetscapes') {
             cat = 1;
@@ -81,8 +87,8 @@
 
         marker = L.marker([decimalString[0], decimalString[1]], {}).addTo(mymap).bindPopup(
             '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' + graffid + ',' + cat +
-            ')" class="mt-4" src="/storage/' + pics +
-            '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold" id="graffnom">' + graffname +
+            ')" class="mt-4" src="/storage/uploads/' + mydataca + '/' + pics +
+            '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="graffnom">' + graffname +
             '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500" id="graffcity">' + graffcity + '</h1></div></div>'
         );
         markers[graff.id] = marker;
@@ -124,4 +130,12 @@
     .mappopup h1 {
         cursor: pointer;
     }
+
+.clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+}
 </style>
