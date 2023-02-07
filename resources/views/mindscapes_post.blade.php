@@ -26,7 +26,7 @@
                     <div class="">
                         @php $img7 = $mindscape->image ?? null; @endphp
 
-                        <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96 w-full"
+                        <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-auto w-full"
                             src="{{ asset('storage/' . $img7) }}"alt="00" onerror="this.src='./img/empty.png'" />
                     </div>
                     <div class="flex justify-between">
@@ -80,7 +80,7 @@
                             <div class="">
                                 @php $img00 = $mind->image ?? null; @endphp
 
-                                <img class="object-cover mb-6 rounded shadow-lg"
+                                <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"
                                     src="{{ asset('storage/' . $img00) }}"alt="00"
                                     onerror="this.src='./img/empty.png'" />
                             </div>
