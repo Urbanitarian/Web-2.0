@@ -10,14 +10,14 @@
                                <div class="grid items-start grid-cols-1 gap-8 lg:grid-cols-2">
                                    <div class="grid grid-cols-1 gap-4">
                                        <div class="w-full">
-                                           @php $image0 =  $item->image[0] ?? null; @endphp
+                                           @php $image0 =  $item->image ?? null; @endphp
                                            <img class="object-cover w-full border"
-                                               src="{{ asset('storage/' . $image0) }}"alt=""
+                                               src="{{ asset('storage/uploads/masterplans/' . $image0) }}"alt=""
                                                onerror="this.src='./img/empty.png'" />
                                        </div>
                                        <div
                                            class="container grid grid-cols-2 gap-2 pt-16 mx-auto space-y-2 md:pt-32 lg:grid-cols-3">
-                                           @php
+                                           {{-- @php
                                                $imgarray = $item->image;
                                                //skip first element
                                                array_shift($imgarray);
@@ -25,11 +25,11 @@
                                            @foreach ($imgarray as $image)
                                                <div class="w-full rounded hover:shadow-2xl">
                                                    @php $img09 = $image ?? null; @endphp
-                                                   <img src="{{ asset('storage/' . $img09) }}" class="object-cover h-full"
+                                                   <img src="{{ asset('storage/uploads/masterplans/' . $img09) }}" class="object-cover h-full"
                                                        alt="" onerror="this.src='./img/empty.png'"
-                                                       onclick="window.open('{{ asset('storage/' . $image) }}', 'Image', 'width=800,height=600')" />
+                                                       onclick="window.open('{{ asset('storage/uploads/masterplans/' . $image) }}', 'Image', 'width=800,height=600')" />
                                                </div>
-                                           @endforeach
+                                           @endforeach --}}
 
 
                                        </div>
@@ -268,9 +268,9 @@
                                            <div
                                                class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
                                                <div class="flex-shrink-0">
-                                                   @php $img10 = $masterplan->image[0] ?? null; @endphp
+                                                   @php $img10 = $masterplan->image ?? null; @endphp
                                                    <img class="h-[450px] w-full object-cover border-b"
-                                                       src="{{ asset('storage/' . $img10) }}"alt=""
+                                                       src="{{ asset('storage/uploads/masterplans/' . $img10) }}"alt=""
                                                        onerror="this.src='./img/empty.png'" />
                                                    <h1 class="pt-2 mx-8 text-sm font-bold text-center">
                                                        {{ $masterplan->title }} | {{ $masterplan->author }} |

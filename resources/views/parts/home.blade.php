@@ -250,7 +250,7 @@
                          let html = `
                       <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/${item.image[0]}"alt=""
+                             <img alt="Art" src="storage/uploads/masterplans/${item.image}"alt=""
                                  onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
                              <div class="">
                                  <h3 class="mx-2 mt-2 text-sm font-bold text-center truncate">
