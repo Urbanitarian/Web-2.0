@@ -80,7 +80,7 @@
                             <div class="">
                                 @php $img00 = $mind->image ?? null; @endphp
 
-                                <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"
+                                <img class="object-cover mb-6 rounded shadow-lg"
                                     src="{{ asset('storage/' . $img00) }}"alt="00"
                                     onerror="this.src='./img/empty.png'" />
                             </div>
