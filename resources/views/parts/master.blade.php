@@ -173,7 +173,7 @@
                                 <img class="object-cover w-full h-auto border-b" src="storage/uploads/masterplans/${item.image}"alt=""  onerror="this.src='./img/empty.png'"/>
                                 <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} |${item.author} | ${item.city}</h1>
                                 <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.categry}, ${item.size} 
+                                   ${item.category}, ${item.size} 
                                 </p>
                             </div>
                         </div>
