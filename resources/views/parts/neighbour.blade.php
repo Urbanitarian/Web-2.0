@@ -169,7 +169,7 @@ $("#prev").click(function() {
                    <img src="storage/uploads/urbanscapes/${item.imagea}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105" />
                    <div class="relative pt-3 bg-gray-100">
                    <p class="px-2 mx-2 text-base font-bold tracking-wider text-gray-900 clamp">${item.title}</p>
-                   <p class="my-1">
+                   <p class="my-1 pb-4">
                    <span class="mx-4 text-xs font-semibold text-gray-500">${item.tags}</span>
                    </p>
                    </div>
@@ -276,6 +276,6 @@ $('#Xs').click(function() {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    padding-bottom: 5px;
+
 }
 </style>
