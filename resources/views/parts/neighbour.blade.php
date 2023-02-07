@@ -123,6 +123,12 @@
 
 
 <script>
+
+     $('button').click(function() {
+            $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
+    
+     });
+
 const itemsPerPage = 10;
 let currentPage = 1;
 
@@ -230,28 +236,28 @@ $('#Allsize').click(function() {
 });
 
 $('#Large').click(function() {
-  url = "api/neighbourhoods?size=large";
+  url = "api/neighbourhoods?size=L";
     $('#searchbar').val('');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#Medium').click(function() {
-  url = "api/neighbourhoods?size=medium";
+  url = "api/neighbourhoods?size=M";
     $('#searchbar').val('');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#Small').click(function() {
-  url = "api/neighbourhoods?size=small";
+  url = "api/neighbourhoods?size=S";
     $('#searchbar').val('');
   $('#boucle').empty();
   fetchAndRenderData(url);
 });
 
 $('#Xs').click(function() {
-  url = "api/neighbourhoods?size=xs";
+  url = "api/neighbourhoods?size=XS";
     $('#searchbar').val('');
   $('#boucle').empty();
   fetchAndRenderData(url);

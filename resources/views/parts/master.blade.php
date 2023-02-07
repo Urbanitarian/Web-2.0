@@ -123,6 +123,11 @@
  </div>
 
  <script>
+     $('button').click(function() {
+            $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
+    
+     });
+
      const itemsPerPage = 50;
      let currentPage = 1;
 
@@ -227,25 +232,25 @@
      });
 
      $('#Large').click(function() {
-         url = "api/masterplans?size=large";
+         url = "api/masterplans?size=L";
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
      $('#Medium').click(function() {
-         url = "api/masterplans?size=medium";
+         url = "api/masterplans?size=M";
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
      $('#Small').click(function() {
-         url = "api/masterplans?size=small";
+         url = "api/masterplans?size=S";
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
      $('#Xs').click(function() {
-         url = "api/masterplans?size=xs";
+         url = "api/masterplans?size=XS";
          $('#boucle').empty();
          fetchAndRenderData(url);
      });

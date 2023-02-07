@@ -24,50 +24,50 @@
 
         </div>
 
-           <fieldset class="flex flex-wrap justify-center gap-3 pt-8 mx-auto">
+        <fieldset class="flex flex-wrap justify-center gap-3 pt-8 mx-auto">
             <div>
                 <label for="ColorBlack" class="flex items-center justify-center gap-2 px-3 py-2 text-black ">
                     <p class="text-base font-medium">Trending searchs:</p>
                 </label>
             </div>
 
-         
-              
-               <button id="child">
-                    <label for="ColorBlack"
-                        class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
-                        <p class="text-sm font-medium">Child-friendly</p>
-                    </label>
-                </button>
-            
-         
 
-       
-                <button id="wsud">
-                    <label for="ColorRed"
-                        class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
-                        <p class="text-sm font-medium">WSUD</p>
-                    </label>
-                </button>
-         
 
-         
-                <button id="playful">
-                    <label for="ColorBlue"
-                        class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
-                        <p class="text-sm font-medium">Playful</p>
-                    </label>
-                </button>
-       
+            <button id="child">
+                <label for="ColorBlack"
+                    class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
+                    <p class="text-sm font-medium">Child-friendly</p>
+                </label>
+            </button>
 
-       
-                <button id="carfree">
-                    <label for="ColorGold"
-                        class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
-                        <p class="text-sm font-medium">car-free</p>
-                    </label>
-                </button>
-       
+
+
+
+            <button id="wsud">
+                <label for="ColorRed"
+                    class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
+                    <p class="text-sm font-medium">WSUD</p>
+                </label>
+            </button>
+
+
+
+            <button id="playful">
+                <label for="ColorBlue"
+                    class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
+                    <p class="text-sm font-medium">Playful</p>
+                </label>
+            </button>
+
+
+
+            <button id="carfree">
+                <label for="ColorGold"
+                    class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
+                    <p class="text-sm font-medium">car-free</p>
+                </label>
+            </button>
+
         </fieldset>
 </section>
 
@@ -91,20 +91,20 @@
                     </div>
 
                     <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
-                        <div>
-                            <h3 class="mt-4 font-semibold text-center text-black uppercase"> {{ $streetscape->tags[0] }}
-                            </h3>
 
-                            <a href="../streetscapes_post?id={{ $streetscape->id }}"
-                                class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
-                                {{ $streetscape->title }}
-                            </a>
-                            <div class="flex flex-wrap justify-center mx-4 text-xs">
-                                <p class="mt-2 text-center text-gray-600 "> {{ $streetscape->address }} |</p>
-                                <p class="mt-2 text-center text-gray-600 "> &nbsp; {{ $streetscape->city }} |</p>
-                                <p class="mt-2 text-center text-gray-600 "> &nbsp; {{ $streetscape->country }} </p>
-                            </div>
+                        <h3 class="mt-4 font-semibold text-center text-black uppercase"> {{ $streetscape->tags[0] }}
+                        </h3>
 
+                        <a href="../streetscapes_post?id={{ $streetscape->id }}"
+                            class="block mt-8 text-2xl font-bold text-center text-gray-900 uppercase">
+                            {{ $streetscape->title }}
+                        </a>
+                        <div class="flex flex-wrap justify-center mx-4 text-xs">
+                            <p class="mt-2 text-center text-gray-600 "> {{ $streetscape->address }} |</p>
+                            <p class="mt-2 text-center text-gray-600 "> &nbsp; {{ $streetscape->city }} |</p>
+                            <p class="mt-2 text-center text-gray-600 "> &nbsp; {{ $streetscape->country }} </p>
+                        </div>
+                        <div class="flex justify-center">
                             <div class="flex flex-wrap justify-center mx-10 pt-4 w-3/4">
                                 @foreach ($streetscape->tags as $tag)
                                     <button disabled
@@ -112,15 +112,16 @@
                                         {{ $tag }}
                                     </button>
                                 @endforeach
-                            </div>    
-
-                            <p class="mt-2 text-center text-gray-600 "><span class="text-black"> Width:</span> &nbsp; {{ $streetscape->area }} </p>
-                       
-                            <button
-                                class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-48 md:mt-8 focus:outline-none hover:bg-gray-800">
-                                <a href="../streetscapes_post?id={{ $streetscape->id }}">More Info </a></button>
-
+                            </div>
                         </div>
+                        <p class="mt-2 text-center text-gray-600 "><span class="text-black"></span> &nbsp;
+                            {{ $streetscape->area }} </p>
+
+                        <button
+                            class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded xl:mt-32 md:mt-8 focus:outline-none hover:bg-gray-800">
+                            <a href="../streetscapes_post?id={{ $streetscape->id }}">More Info </a></button>
+
+
 
                     </div>
                 </div>
@@ -159,29 +160,33 @@
 
     });
 
-$('#child').click(function() {
-    $('#thesearch').val('Child-friendly');
-    $('#searchform').submit();
-   
-});
 
-$('#wsud').click(function() {
-    $('#thesearch').val('WSUD');
-    $('#searchform').submit();
-   
-});
+    $('button').click(function() {
+        $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
 
-$('#playful').click(function() {
-    $('#thesearch').val('Playful');
-    $('#searchform').submit();
-   
-});
+    });
 
-$('#carfree').click(function() {
-    $('#thesearch').val('car-free');
-    $('#searchform').submit();
-   
-});
+    $('#child').click(function() {
+        $('#thesearch').val('Child-friendly');
+        $('#searchform').submit();
 
+    });
 
+    $('#wsud').click(function() {
+        $('#thesearch').val('WSUD');
+        $('#searchform').submit();
+
+    });
+
+    $('#playful').click(function() {
+        $('#thesearch').val('Playful');
+        $('#searchform').submit();
+
+    });
+
+    $('#carfree').click(function() {
+        $('#thesearch').val('car-free');
+        $('#searchform').submit();
+
+    });
 </script>
