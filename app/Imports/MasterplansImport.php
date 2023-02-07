@@ -15,17 +15,13 @@ class MasterplansImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        //check for unique title
-        $masterplan = Masterplan::where('title', $row[1])->first();
-        if ($masterplan) {
-            return null;
-        } else {
+        foreach ($row as $key => $value) {
             return new Masterplan([
-                'image' => $row[0],$row[0],
+                'image' => $row[0],
                 'title' => $row[1],
-                'author' => $row[2],
-                'city' => $row[3],
-                'country' => $row[4],
+                'author' => strtoupper("$row[2]"),
+                'city' => ucfirst(strtolower("$row[3]")),
+                'country' => ucfirst(strtolower("$row[4]")),
                 'program' => $row[5],
                 'year' => $row[6],
                 'area' => $row[7],
@@ -42,12 +38,12 @@ class MasterplansImport implements ToModel, WithHeadingRow
                 'commercial' => $row[18],
                 'civic' => $row[19],
                 'description' => $row[20],
-                'credits' => $row[21],
+                //'credits' => $row[21],
                 'location' => $row[22],
-                'status' => $row[23],
-                'size' => $row[24],
-                'tags' => explode(",",$row[25]),
-                'link' => $row[26],
+                'status' => strtolower("$row[23]"),
+                'size' => strtoupper("$row[24]"),
+                'tags' => explode(",", $row[25]),
+                'link' => "$row[26]",
                 'category' => "Masterplans",
                 'address' =>"adress_dummy",
             ]);
