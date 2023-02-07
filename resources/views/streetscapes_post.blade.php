@@ -50,6 +50,11 @@
                     <button
                         class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded md:mt-8 focus:outline-none hover:bg-gray-800">
                         <a href="{{ $streetscape->credits }}">See project </a></button>
+
+                          <div class="grid grid-cols-1 gap-4">
+                            <div id="mastermap" class="mt-4 rounded h-[350px] w-full"></div>
+                        </div>
+
                 @endforeach
                 <div class="flex justify-between pt-8 ">
                     @php
@@ -67,10 +72,7 @@
                     </a>
                 </div>
 
-      <div class="grid grid-cols-1 gap-4">
-                            <div id="mastermap" class="mt-4 rounded h-[350px] w-full"></div>
-                        </div>
-
+                      
 
             </div>
         </section>
@@ -135,15 +137,14 @@
 
     <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
     <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
-     <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
-        integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+     <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js" integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
     <script>
         var gps = {!! json_encode($streetscape->location) !!};
         var decimalString = gps.split(',');
         decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
         decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
 
-        let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1]], 16);
+        let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1]], 12);
         osmLayer = L.tileLayer(
             'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
                 maxZoom: 19,
