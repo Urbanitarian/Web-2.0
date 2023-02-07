@@ -258,7 +258,7 @@
                                             <img class="object-cover object-center w-full h-40 mb-3"
                                                 src="{{ asset('storage/uploads/urbanscapes/' . $img08) }}"alt=""
                                                 onerror="this.src='./img/empty.png'" />
-                                            <h2 class="mb-1 text-lg font-medium text-gray-900 title-font">
+                                            <h2 class="mb-1 text-lg font-medium text-gray-900 title-font clamp2">
                                                 {{ $neigh->title }}</h2>
                                             <p class="text-xs font-semibold leading-relaxed text-gray-500">
                                                 @foreach ($neigh->tags as $tag)
@@ -348,3 +348,12 @@
         });
     </script>
 @endsection
+ <style>
+     .clamp2 {
+         display: -webkit-box;
+         -webkit-line-clamp: 1;
+         -webkit-box-orient: vertical;
+         overflow: hidden;
+
+     }
+ </style>
