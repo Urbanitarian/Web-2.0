@@ -55,10 +55,7 @@
                                             <span class="text-gray-500"> Author: </span>
                                             <span class="ml-auto text-gray-900"> {{ $item->author }}</span>
                                         </div>
-                                        <div class="flex py-4 border-t border-gray-200">
-                                            <span class="text-gray-500">Project title:</span>
-                                            <span class="ml-auto text-gray-900"> {{ $item->project_title }}</span>
-                                        </div>
+                                      
                                         <div class="flex py-4 border-t border-gray-200">
                                             <span class="text-gray-500">City:</span>
                                             <span class="ml-auto text-gray-900"> {{ $item->city }}</span>
@@ -75,7 +72,7 @@
 
                                         <div class="flex py-4 border-t border-b border-gray-200">
                                             <span class="text-gray-500">Program: </span>
-                                            <span class="ml-auto text-gray-900"> {{ $item->program }}</span>
+                                            <span class="ml-auto text-gray-900">  {{ $item->project_title }}</span>
                                         </div>
                                     </div>
                                 </div>
