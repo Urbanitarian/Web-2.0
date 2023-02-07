@@ -106,7 +106,7 @@
  </section>
 
  <div class="mx-4 border-t">
-     <section class="pb-16 max-w-screen-2xl md:py-16 md:mx-auto">
+     <section class="pb-16 md:py-16 md:mx-auto">
          <div id="boucle" class="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
 
 
