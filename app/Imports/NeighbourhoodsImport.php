@@ -15,39 +15,30 @@ class NeighbourhoodsImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        $neighbourhoods = Neighbourhood::where('title', $row[1])->first();
-        if ($neighbourhoods) {
-            return null;
-        } else {
+        foreach ($row as $key => $value) {
         return new Neighbourhood([
-            'image' => "['uploads\/neighbourhoods\/$row[0].png']",
+            'image' => $row[0],
             'title' => $row[1],
-            'author' => $row[2],
-            'city' => $row[3],
-            'country' => $row[4],
+            'author' => strtoupper("$row[2]"),
+            'city' => ucfirst(strtolower("$row[3]")),
+            'country' => ucfirst(strtolower("$row[4]")),
             'program' => $row[5],
-            'year' => $row[6],
-            'area' => $row[7],
-            'gfa' => $row[8],
-            'density' => $row[9],
-            'popdensity' => $row[10],
-            'homeunit' => $row[11],
-            'jobs' => $row[12],
-            'streetroad' => $row[13],
-            'buildup' => $row[14],
-            'nonbuildup' => $row[15],
-            'residential' => $row[16],
-            'business' => $row[17],
-            'commercial' => $row[18],
-            'civic' => $row[19],
-            'description' => $row[20],
-            'credits' => $row[21],
-            'location' => $row[22],
-            'status' => $row[23],
-            'size' => $row[24],
-            'tags' => explode(",",$row[25]),
-            'link' => $row[26],
-            'category' => "Neighbourhoods",
+            'project_title' => $row[6],
+            'year' => $row[7],
+            'descriptiona' => $row[8],
+            'imagea' => $row[9],
+            'descriptionb' => $row[10],
+            'imageb' => $row[11],
+            'descriptionc' => $row[12],
+            'imagec' => $row[13],
+            'descriptiond' => $row[14],
+            'imaged' => $row[15],
+            'credits' => $row[16],
+            'location' => $row[17],
+            'status' => strtolower("$row[18]"),
+            'size' => strtoupper("$row[19]"),
+            'tags' => explode(",", $row[20]),
+            'category' => "Urbanscapes",
             'address' =>"adress_dummy",
         ]);
     }

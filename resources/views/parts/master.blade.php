@@ -123,7 +123,7 @@
  </div>
 
  <script>
-     const itemsPerPage = 10;
+     const itemsPerPage = 50;
      let currentPage = 1;
 
 
