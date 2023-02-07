@@ -35,7 +35,7 @@
                         <div class="grid grid-cols-1 gap-4">
                             <div class="w-full">
                                 @php $image0 =  $item->image ?? null; @endphp
-                                <img class="object-cover w-full border h-[550px]"
+                                <img class="object-cover w-screen border"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $image0) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image0) }}', 'Image', 'width=800,height=600')" />
@@ -98,7 +98,7 @@
                         <div class="grid grid-cols-1 gap-4">
                             <div class="md:w-3/4 w-full  mx-auto">
                                 @php $image00 =  $item->imagea ?? null; @endphp
-                                <img class="object-cover w-full border h-[450px]"
+                                <img class="object-cover w-full border"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $image00) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image00) }}', 'Image', 'width=800,height=600')" />
@@ -119,19 +119,19 @@
                                      $pieces = explode(", ", $image1);
                                 @endphp
                             <div class="w-full mx-auto">
-                                <img class="object-cover w-full border h-[550px]"
+                                <img class="object-cover w-full border"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces[0]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[0]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
-                                <img class="object-cover w-full border h-[550px]"
+                                <img class="object-cover w-full border"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces[1]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[1]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
-                                <img class="object-cover w-full border h-[550px]"
+                                <img class="object-cover w-full border"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces[2]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[2]) }}', 'Image', 'width=800,height=600')" />
@@ -151,13 +151,13 @@
                                  $pieces2 = explode(", ", $image2);
                                 @endphp
                             <div class="w-full mx-auto">
-                                <img class="object-cover w-full border h-96"
+                                <img class="object-cover w-full border"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces2[0]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces2[0]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
-                                <img class="object-cover w-full border h-96"
+                                <img class="object-cover w-full border"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces2[1]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces2[1]) }}', 'Image', 'width=800,height=600')" />
