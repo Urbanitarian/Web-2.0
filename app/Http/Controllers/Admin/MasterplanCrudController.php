@@ -112,14 +112,10 @@ class MasterplanCrudController extends CrudController
             'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
         ]);
 
-        CRUD::addField([ // Photo
-            'name'      => 'image',
-            'key' => 'image_up',
-            'label'     => 'Images',
-            'type'      => 'upload_multiple',
-            'prefix' => 'storage/',
-            'upload'    => true,
-            'temporary' => 10,
+        CRUD::addField([ // Text
+            'name'  => 'image',
+            'label' => 'Image',
+            'type'  => 'text',
             'tab'             => 'Main',
         ]);
 
@@ -197,10 +193,10 @@ class MasterplanCrudController extends CrudController
             'label'       => "Size",
             'type'        => 'select_from_array',
             'options'     => [
-                'Large'        => 'Large',
-                'Medium'        => 'Medium',
-                'Small'        => 'Small',
-                'Xs'        => 'Xs',
+                'L'        => 'Large',
+                'M'        => 'Medium',
+                'S'        => 'Small',
+                'XS'        => 'Xs',
             ],
             'wrapper' => [ 'class' => 'form-group col-md pl-3'],
             'allows_null' => false,
@@ -446,14 +442,10 @@ class MasterplanCrudController extends CrudController
             'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
         ]);
 
-        CRUD::addField([ // Photo
-            'name'      => 'image',
-            'key' => 'image_up',
-            'label'     => 'Images',
-            'type'      => 'upload_multiple',
-            'prefix' => 'storage/',
-            'upload'    => true,
-            'temporary' => 10,
+        CRUD::addField([ // Text
+            'name'  => 'imagea',
+            'label' => 'Main image',
+            'type'  => 'text',
             'tab'             => 'Main',
         ]);
 
@@ -531,10 +523,10 @@ class MasterplanCrudController extends CrudController
             'label'       => "Size",
             'type'        => 'select_from_array',
             'options'     => [
-                'Large'        => 'Large',
-                'Medium'        => 'Medium',
-                'Small'        => 'Small',
-                'Xs'        => 'Xs',
+                'L'        => 'Large',
+                'M'        => 'Medium',
+                'S'        => 'Small',
+                'XS'        => 'Xs',
             ],
             'wrapper' => [ 'class' => 'form-group col-md pl-3'],
             'allows_null' => false,
