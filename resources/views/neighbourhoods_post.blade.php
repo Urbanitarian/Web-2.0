@@ -4,7 +4,7 @@
 
 
     <div data-barba="container">
-        <div class="mx-auto max-w-[1440px]">
+        <div class="mx-auto">
             @forelse ($neighbourhood->where('id', $id) as $item)
                 <section>
                     <div class="relative px-4 py-8 mx-8 my-8">
@@ -45,7 +45,7 @@
 
 
 
-                        <div class="grid items-start grid-cols-1 gap-8 md:grid-cols-2">
+                        <div class="grid items-start grid-cols-1 gap-8 md:grid-cols-2  max-w-[1440px] mx-auto">
 
                             <div class="sticky w-full pt-8 mx-auto">
 
@@ -95,7 +95,7 @@
                         </div>
 
 
-                        <div class="grid grid-cols-1 gap-4">
+                        <div class="grid grid-cols-1 gap-4  max-w-[1440px] mx-auto">
                             <div class="md:w-3/4 w-full  mx-auto">
                                 @php $image00 =  $item->imagea ?? null; @endphp
                                 <img class="object-cover w-full border"
@@ -114,7 +114,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 gap-4">
+                        <div class="grid grid-cols-3 gap-4  max-w-[1440px] mx-auto">
                           @php $image1 =  $item->imageb ?? null; 
                                      $pieces = explode(", ", $image1);
                                 @endphp
@@ -146,7 +146,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="grid grid-cols-2 gap-4  max-w-[1040px] mx-auto">
                             @php $image2 =  $item->imagec ?? null; 
                                  $pieces2 = explode(", ", $image2);
                                 @endphp
@@ -173,7 +173,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 gap-4">
+                        <div class="grid grid-cols-3 gap-4  max-w-[1440px] mx-auto">
                              @php $image3 =  $item->imaged ?? null; 
                                      $pieces3 = explode(", ", $image3);
                                 @endphp
@@ -206,10 +206,10 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="grid grid-cols-1 gap-4">
+                        <div class="grid grid-cols-1 gap-4  max-w-[1440px] mx-auto">
                             <div id="mastermap" class="mt-4 rounded h-[350px] w-full"></div>
                         </div>
-                        <div class="flex justify-between pt-8 ">
+                        <div class="flex justify-between pt-8  max-w-[1440px] mx-auto">
                             @php
                                 // next id and previous id from masterplans table
                                 $next_id = $neighbourhood->where('id', '>', $item->id)->min('id');
@@ -242,7 +242,7 @@
             @endforelse
             <section>
                 <section class="py-4 mx-4 text-gray-600 border-t border-b body-font md:mx-16 md:py-8">
-                    <div class="container px-5 pt-12 pb-8 mx-auto">
+                    <div class="container px-5 pt-12 pb-8  max-w-[1440px] mx-auto">
                         <div class="flex flex-wrap w-full mb-8 md:mb-20">
                             <div class="w-full">
                                 <h1 class="text-2xl font-bold text-center text-gray-900 md:text-4xl">See more Urbanscapes
