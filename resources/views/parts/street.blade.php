@@ -107,7 +107,7 @@
 
                             <div class="flex flex-wrap justify-center mx-10 pt-4 w-3/4">
                                 @foreach ($streetscape->tags as $tag)
-                                    <button
+                                    <button disabled
                                         class="px-3 py-1 my-0.5 mx-1 text-xs font-light tracking-wide text-white bg-black rounded-md">
                                         {{ $tag }}
                                     </button>

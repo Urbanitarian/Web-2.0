@@ -41,21 +41,21 @@
                                            </h1>
                                        </div>
                                        <div class="flex pb-8">
-                                           <button
+                                           <button disabled
                                                class="px-3 py-1 mx-1 text-xs font-medium tracking-wide text-white bg-blue-800 rounded-md">
                                                {{ $item->status }}
                                            </button>
 
-                                           <button
+                                           <button disabled
                                                class="px-3 py-1 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
                                                <a href="masterplans"> {{ $item->category }}</a>
                                            </button>
-                                           <button
+                                           <button disabled
                                                class="px-3 py-1 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
                                                {{ $item->size }}
                                            </button>
                                            @foreach ($item->tags as $tag)
-                                               <button
+                                               <button disabled
                                                    class="px-3 py-1 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
                                                    {{ $tag }}
                                                </button>
