@@ -443,8 +443,8 @@ class MasterplanCrudController extends CrudController
         ]);
 
         CRUD::addField([ // Text
-            'name'  => 'imagea',
-            'label' => 'Main image',
+            'name'  => 'image',
+            'label' => 'Image',
             'type'  => 'text',
             'tab'             => 'Main',
         ]);
