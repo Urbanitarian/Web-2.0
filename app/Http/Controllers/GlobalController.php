@@ -13,6 +13,7 @@ use App\Models\Neighbourhood;
 use App\Models\Webresource;
 use App\Models\Country;
 use App\Models\City;
+use App\Models\Mindscape;
 use App\Imports\MasterplansImport;
 use App\Imports\StreetscapesImport;
 use App\Imports\NeighbourhoodsImport;
@@ -267,6 +268,25 @@ class GlobalController extends Controller
 
         return view('dictionaries', compact('dictionary'));
     }
+
+    public function mindscapes()
+    {
+        $mindscapes = Mindscape::paginate(10);
+
+        return view('mindscapes', compact('mindscapes'));
+    }
+
+    public function mindscapes_post(Request $request)
+    {
+        $id = $request->id;
+        $allmindscapes = Mindscape::where('id', '!=', null)->limit(3)->inRandomOrder()->get();
+        $mindscapes = Mindscape::all();
+        return view('mindscapes_post', compact('mindscapes', 'allmindscapes', 'id'));
+    }
+
+
+
+
 
     public function allwebresources()
     {

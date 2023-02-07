@@ -43,8 +43,8 @@ Route::get('streetscapes_post/', 'streetscapes_post')->name('streetscapes_post')
 Route::get('masterplans', 'masterplans');
 Route::get('masterplans/filter', 'masterplans')->name('mfilter');
 Route::get('masterplans_post/', 'masterplans_post')->name('masterplans_post');
-
-
+Route::get('mindscapes', 'mindscapes');
+Route::get('mindscapes_post/', 'mindscapes_post')->name('mindscapes_post');
 Route::post('import', 'import');
 
 

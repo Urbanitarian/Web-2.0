@@ -36,6 +36,8 @@
           @click="isOpen = false">&nbsp;MASTERPLANS</a>
         <a class="text-sm font-semibold text-gray-400 lg:mx-2 xl:mx-4 hover:text-black" href="/streetscapes"
           @click="isOpen = false">&nbsp;STREETSCAPES</a>
+           <a class="text-sm font-semibold text-gray-400 lg:mx-2 xl:mx-4 hover:text-black" href="/mindscapes"
+          @click="isOpen = false">&nbsp;MINDSCAPES</a>
         <a class="text-sm font-semibold text-gray-400 lg:mx-2 xl:mx-4 hover:text-black" href="/about"
           @click="isOpen = false">&nbsp;ABOUT</a>
 
