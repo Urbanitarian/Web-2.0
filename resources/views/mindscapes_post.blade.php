@@ -88,7 +88,7 @@
                                 <h5 class="pt-1 mx-4 mb-2 text-xl font-bold leading-none sm:text-2xl">
                                     {{ $mind->title }}
                                 </h5>
-                                <p class="text-sm text-gray-700">
+                                <p class="text-sm text-gray-700 mx-4">
                                     {{ $mind->address }} | {{ $mind->city }} | {{ $mind->country }}
                                 </p>
                             </a>
