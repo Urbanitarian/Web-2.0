@@ -11,15 +11,24 @@
 @section('content')
     <div class="">
         <div class="mt-1 p-4 leading-normal text-white bg-green-400 rounded-lg w-1/2">
-        <hi class="text-2xl">Instructions:</hi>
-        <p class="text-sm">Download the exemple sheet and fill it with your data.</br>
-         Make sure that the file is in the correct format.</br>
-         Select the type of category.</br>
-         Upload the file and click on "Import" button.</br>
-       </p>
-        <a href="{{ asset('img/masterplans_exemple_sheet.xlsx')}}">Masterplans sheet</a></br>
-        <a href="{{ asset('img/streetscapes_exemple_sheet.xlsx')}}">Streetscapes sheet</a></br>
-        <a href="{{ asset('img/urbanscapes_exemple_sheet.xlsx')}}">Urbanscapes sheet</a>
+            <hi class="text-2xl">Instructions:</hi>
+            <p class="text-sm">Download the exemple sheet and fill it with your data.</br>
+                Make sure that the file is in the correct format.</br>
+                Select the type of category.</br>
+                Upload the file and click on "Import" button.</br>
+            </p>
+            <div class="flex">
+                <div class="mr-4">
+                    <a href="{{ asset('img/masterplans_exemple_sheet.xlsx') }}">Masterplans sheet</a></br>
+                    <a href="{{ asset('img/streetscapes_exemple_sheet.xlsx') }}">Streetscapes sheet</a></br>
+                    <a href="{{ asset('img/urbanscapes_exemple_sheet.xlsx') }}">Urbanscapes sheet</a>
+                </div>
+                <div>
+                    <a href="{{ asset('img/dictionaries_exemple_sheet.xlsx') }}">Dictionaries sheet</a></br>
+                    <a href="{{ asset('img/magazines_exemple_sheet.xlsx') }}">Magazines sheet</a></br>
+                    <a href="{{ asset('img/webresources_exemple_sheet.xlsx') }}">Webresources sheet</a>
+                </div>
+            </div>
         </div>
 
         <form method="post" action="/import" enctype="multipart/form-data">
@@ -52,6 +61,36 @@
                         <label for="neighbourhoods"
                             class="flex justify-center h-8 px-3 pt-1 pb-3 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
                             <p class="text-sm font-medium">Urbanscapes</p>
+                        </label>
+                    </div>
+
+                     <div>
+                        <input type="radio" name="dataType" value="dictionaries" id="dictionaries"
+                            class="hidden peer" />
+
+                        <label for="dictionaries"
+                            class="flex justify-center h-8 px-3 pt-1 pb-3 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                            <p class="text-sm font-medium">Dictionaries</p>
+                        </label>
+                    </div>
+
+                     <div>
+                        <input type="radio" name="dataType" value="magazines" id="magazines"
+                            class="hidden peer" />
+
+                        <label for="magazines"
+                            class="flex justify-center h-8 px-3 pt-1 pb-3 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                            <p class="text-sm font-medium">Magazines</p>
+                        </label>
+                    </div>
+
+                     <div>
+                        <input type="radio" name="dataType" value="webresources" id="webresources"
+                            class="hidden peer" />
+
+                        <label for="webresources"
+                            class="flex justify-center h-8 px-3 pt-1 pb-3 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 peer-checked:text-white">
+                            <p class="text-sm font-medium">Webresources</p>
                         </label>
                     </div>
 
