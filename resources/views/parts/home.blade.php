@@ -526,6 +526,7 @@
 
 
      $("#change-layout").click(function() {
+         view = "grid";
          $("#themap").remove();
          fetchAndRenderData(url);
          $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").addClass(
