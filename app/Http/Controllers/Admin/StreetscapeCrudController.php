@@ -105,6 +105,14 @@ class StreetscapeCrudController extends CrudController
             'tab'             => 'Main',
             'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
         ]);
+
+        CRUD::addField([ // Text
+            'name'  => 'area',
+            'label' => 'Area',
+            'type'  => 'number',
+            'tab'             => 'Main',
+            'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
+        ]);
      
         $this->crud->addField([   // CustomHTML
             'name'  => 'separator0',
@@ -298,6 +306,14 @@ class StreetscapeCrudController extends CrudController
             'name'  => 'author',
             'label' => 'Author',
             'type'  => 'text',
+            'tab'             => 'Main',
+            'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
+        ]);
+
+        CRUD::addField([ // Text
+            'name'  => 'area',
+            'label' => 'Area',
+            'type'  => 'number',
             'tab'             => 'Main',
             'wrapper' => [ 'class' => 'form-group1 col-sm pl-3'],
         ]);
