@@ -128,6 +128,11 @@
           @include('parts.all')
 </section>
 <script>
+     $('button').click(function() {
+            $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
+    
+     });
+
     const itemsPerPage = 10;
     let currentPage = 1;
 
