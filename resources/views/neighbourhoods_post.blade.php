@@ -35,7 +35,7 @@
                         <div class="grid grid-cols-1 gap-4">
                             <div class="w-full">
                                 @php $image0 =  $item->image ?? null; @endphp
-                                <img class="lazy object-cover w-screen border"
+                                <img class=" object-cover w-screen border"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $image0) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image0) }}', 'Image', 'width=800,height=600')" />
@@ -95,7 +95,7 @@
                         <div class="grid grid-cols-1 gap-4  max-w-[1440px] mx-auto">
                             <div class="md:w-3/4 w-full  mx-auto">
                                 @php $image00 =  $item->imagea ?? null; @endphp
-                                <img class="lazy object-cover w-full border"
+                                <img class=" object-cover w-full border"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $image00) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image00) }}', 'Image', 'width=800,height=600')" />
@@ -116,19 +116,19 @@
                                      $pieces = explode(", ", $image1);
                                 @endphp
                             <div class="w-full mx-auto">
-                                <img class="lazy object-cover w-full border"
+                                <img class=" object-cover w-full border"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces[0]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[0]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
-                                <img class="lazy object-cover w-full border"
+                                <img class=" object-cover w-full border"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces[1]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[1]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
-                                <img class="lazy object-cover w-full border"
+                                <img class=" object-cover w-full border"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces[2]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[2]) }}', 'Image', 'width=800,height=600')" />
@@ -148,13 +148,13 @@
                                  $pieces2 = explode(", ", $image2);
                                 @endphp
                             <div class="w-full mx-auto">
-                                <img class="lazy object-cover w-full border"
+                                <img class=" object-cover w-full border"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces2[0]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces2[0]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
-                                <img class="lazy object-cover w-full border"
+                                <img class=" object-cover w-full border"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces2[1]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces2[1]) }}', 'Image', 'width=800,height=600')" />
@@ -175,19 +175,19 @@
                                      $pieces3 = explode(", ", $image3);
                                 @endphp
                             <div class="w-full mx-auto">
-                                <img class="lazy object-cover w-full border h-[550px]"
+                                <img class=" object-cover w-full border h-[550px]"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces3[0]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces3[0]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
-                                <img class="lazy object-cover w-full border h-[550px]"
+                                <img class=" object-cover w-full border h-[550px]"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces3[1]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces3[1]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
-                                <img class="lazy object-cover w-full border h-[550px]"
+                                <img class=" object-cover w-full border h-[550px]"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces3[2]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces3[2]) }}', 'Image', 'width=800,height=600')" />
@@ -255,7 +255,7 @@
                                         <div
                                             class="p-4 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
                                             @php $img08 = $neigh->imagea ?? null; @endphp
-                                            <img class="lazy object-cover object-center w-full h-40 mb-3"
+                                            <img class="object-cover object-center w-full h-40 mb-3"
                                                 src="{{ asset('storage/uploads/urbanscapes/' . $img08) }}"alt=""
                                                 onerror="this.src='./img/empty.png'" />
                                             <h2 class="mb-1 text-lg font-medium text-gray-900 title-font clamp2">
@@ -273,7 +273,7 @@
                                     <a href="">
                                         <div
                                             class="p-6 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
-                                            <img class="lazy object-cover object-center w-full h-40 mb-6" src="./img/empty.png"
+                                            <img class="object-cover object-center w-full h-40 mb-6" src="./img/empty.png"
                                                 alt="content">
 
                                             <h2 class="mb-4 text-lg font-medium text-gray-900 title-font">Empty</h2>
@@ -309,7 +309,7 @@
 
     <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
         integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.js"></script>
+    
     <script>
         var gps = {!! json_encode($item->location) !!};
         var decimalString = gps.split(',');
@@ -347,16 +347,6 @@
                 },
             })
         });
-
-
-  $('.lazy').each(function() {
-            $(this).attr('data-original', $(this).attr('src'));
-            $(this).removeAttr('src').removeAttr('alt');
-        });
-        $('.lazy').lazyload({
-	    effect : "fadeIn"
-	});
-
 
     </script>
 @endsection
