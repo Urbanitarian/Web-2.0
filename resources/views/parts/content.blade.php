@@ -89,7 +89,7 @@
             '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' + graffid + ',' + cat +
             ')" class="mt-4" src="/storage/uploads/' + mydataca + '/' + pics +
             '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="graffnom">' + graffname +
-            '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500" id="graffcity">' + graffcity + '</h1></div></div>'
+            '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500 pb-4" id="graffcity">' + graffcity + '</h1></div></div>'
         );
         markers[graff.id] = marker;
 
@@ -118,7 +118,7 @@
 <style>
     .mappopup {
         width: 200px;
-        height: 240px;
+        height: 245px;
     }
 
     .mappopup img {

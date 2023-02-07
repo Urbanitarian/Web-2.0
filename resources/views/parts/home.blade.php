@@ -202,6 +202,8 @@
      integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
  <script>
      const itemsPerPage = 8;
+     let categories = "all";
+     let view = "grid";
      let currentPage = 1;
      let currentfilter = "";
      let url = "";
@@ -242,10 +244,10 @@
                  const startIndex = (currentPage - 1) * itemsPerPage;
                  const endIndex = startIndex + itemsPerPage;
                  const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
-
-                 $.each(itemsToDisplay, function(i, item) {
-                     if (item.category == "Masterplans") {
-                         let html = `
+                 if (view == "grid") {
+                     $.each(itemsToDisplay, function(i, item) {
+                         if (item.category == "Masterplans") {
+                             let html = `
                       <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
                              <img alt="Art" src="storage/uploads/masterplans/${item.image}"alt=""
@@ -261,9 +263,9 @@
                          </a>
                      </div>
                       `;
-                         $('#boucle').append(html);
-                     } else if (item.category == "Urbanscapes") {
-                         let html = `
+                             $('#boucle').append(html);
+                         } else if (item.category == "Urbanscapes") {
+                             let html = `
                       <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full">
                              <img alt="Art" src="storage/uploads/urbanscapes/${item.imagea}"alt=""
@@ -279,9 +281,9 @@
                          </a>
                      </div>
                       `;
-                         $('#boucle').append(html);
-                     } else if (item.category == "Streetscapes") {
-                         let html = `
+                             $('#boucle').append(html);
+                         } else if (item.category == "Streetscapes") {
+                             let html = `
                      <div
                          class="relative col-span-2 transition border shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
@@ -298,9 +300,81 @@
                              </div>
                          </a>
                      </div>`;
-                         $('#boucle').append(html);
+                             $('#boucle').append(html);
+                         }
+                     })
+                 } else {
+                    $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3").removeClass("grid-cols-2").addClass("grid-cols-1").addClass("lg:grid-cols-1").addClass("xl:grid-cols-1").removeClass("gap-5");
+                    let html = `<section id='themap' class='flex w-full pb-16 mx-auto border-b'><div id='map2' class='mx-2 mt-4 rounded h-[550px] w-screen'></div></section>`;
+                     $('#boucle').append(html);
+
+                         fetch(url)
+             .then((resa) => resa.json())
+             .then((outa) => {
+                 const obja = JSON.parse(JSON.stringify(outa));
+                 let thedata = obja;
+
+                 amarkers = {};
+
+                 let mymap2 = L.map('map2').setView([48.6890, 11.14086], 4);
+                 theosmLayer = L.tileLayer(
+                     'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                         maxZoom: 19,
+                         apikey: 'choisirgeoportail',
+                         format: 'image/jpeg',
+                         style: 'normal'
+                     }).addTo(mymap2);
+                 mymap2.addLayer(theosmLayer);
+                 mymap2.touchZoom.enable();
+                 mymap2.scrollWheelZoom.disable();
+
+                 let counter = 0;
+                 for (let i = 0; i < thedata.length; i++) {
+                     counter = counter + 1;
+                     mydata = thedata[i];
+                     mydatacat = mydata.category.toLowerCase();
+                     //mydatacat to lower case
+                     if (mydatacat == "masterplans") {
+                         mypics = mydata.image;
+                     } else {
+                         mypics = mydata.imagea;
                      }
-                 });
+                     category = mydata.category.toLowerCase();
+                     if (category == 'streetscapes') {
+                         cat = 1;
+                     } else if (category == 'masterplans') {
+                         cat = 2;
+                     } else if (category == 'urbanscapes') {
+                         cat = 3;
+                     }
+
+                     mydataid = mydata.id;
+                     mydatacity = mydata.city;
+                     mydataname = mydata.title;
+                     mydataposition = mydata.location;
+                     var decimalStringa = [0, 0];
+                     if (mydataposition != null) {
+                         decimalStringa = mydataposition.split(',');
+                     }
+                     decimalStringa[0] = parseFloat(decimalStringa[0]).toFixed(6);
+                     decimalStringa[1] = parseFloat(decimalStringa[1]).toFixed(6);
+
+                     markera = L.marker([decimalStringa[0], decimalStringa[1]], {}).addTo(mymap2).bindPopup(
+                         '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' +
+                         mydataid + ',' + cat +
+                         ')" class="mt-4" src="/storage/uploads/' + mydatacat + '/' + mypics +
+                         '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="mydatanom">' +
+                         mydataname +
+                         '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500 pb-4" id="mydatacity">' +
+                         mydatacity + '</h1></div></div>'
+                     );
+                     amarkers[mydata.id] = markera;
+                 }
+
+             })
+
+                 }
+
              })
      };
 
@@ -351,6 +425,7 @@
 
          $('#boucle').empty();
          currentfilter = "masterplans";
+         category = "masterplans";
          fetchAndRenderData(url);
      });
 
@@ -360,6 +435,7 @@
 
          $('#boucle').empty();
          currentfilter = "urbanscapes";
+         category = "urbanscapes";
          fetchAndRenderData(url);
      });
 
@@ -369,6 +445,7 @@
 
          $('#boucle').empty();
          currentfilter = "streetscapes";
+         category = "streetscapes";
          fetchAndRenderData(url);
      });
 
@@ -378,6 +455,7 @@
 
          $('#boucle').empty();
          currentfilter = "allcat";
+         category = "allcat";
          fetchAndRenderData(url);
      });
 
@@ -470,6 +548,7 @@
      });
 
      $("#change-layout3").click(function() {
+         view = "map";
          $("#boucle").empty();
          $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3")
              .removeClass("grid-cols-2").addClass("grid-cols-1").addClass("lg:grid-cols-1").addClass(
@@ -480,7 +559,6 @@
 
 
          layout = "map";
-         console.log(url);
 
          fetch(url)
              .then((resa) => resa.json())
@@ -534,12 +612,12 @@
                      decimalStringa[1] = parseFloat(decimalStringa[1]).toFixed(6);
 
                      markera = L.marker([decimalStringa[0], decimalStringa[1]], {}).addTo(mymap2).bindPopup(
-                         '<div class="relative flex flex-col mappopup mb-2"><img onclick="myfunction(' +
+                         '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' +
                          mydataid + ',' + cat +
                          ')" class="mt-4" src="/storage/uploads/' + mydatacat + '/' + mypics +
                          '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="mydatanom">' +
                          mydataname +
-                         '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500" id="mydatacity">' +
+                         '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500 pb-4" id="mydatacity">' +
                          mydatacity + '</h1></div></div>'
                      );
                      amarkers[mydata.id] = markera;
@@ -549,12 +627,12 @@
 
      });
  </script>
-<style>
-.clamp {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+ <style>
+     .clamp {
+         display: -webkit-box;
+         -webkit-line-clamp: 2;
+         -webkit-box-orient: vertical;
+         overflow: hidden;
 
-}
-</style>
+     }
+ </style>
