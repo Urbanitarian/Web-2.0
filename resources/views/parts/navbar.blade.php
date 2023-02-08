@@ -43,7 +43,7 @@
 
       </div>
       <div class="mt-8 lg:mt-0">
-      <a href="admin/login"
+      <a href="submit_project"
         class="relative flex w-[180px] h-12 px-5 py-4 my-2 text-center mt-2 font-bold text-white bg-black shadow-lg prevent lg:ml-4 group rounded-xl hover:bg-gray-800">
         <span class="text-xs">SUBMIT YOUR PROJECT</span>
       </a>

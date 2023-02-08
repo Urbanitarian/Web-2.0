@@ -180,6 +180,27 @@ class GlobalController extends Controller
         return view('contact');
     }
 
+       public function submit()
+    {
+        return view('submit');
+    }
+
+    public function submit_project(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+
+
+            
+            'g-recaptcha-response' => 'required|recaptchav3:register,0.5'
+        ]);
+        dd($request->all());
+
+
+        return view('submit');
+    }
+
     public function contactus()
     {
         return view('contactus');

@@ -104,8 +104,8 @@
       </ul>
     </div>
     <div class="flex justify-center pb-4 text-gray-500">
-      <p class="flex flex-col items-center text-xs">
+       <a href="admin"> <p class="flex flex-col items-center text-xs">
        <span> &copy; All Rights Reserved. Urbanitarian</span>
        <span>  All images are &copy; each office/photographer mentioned.</span>
-      </p>
+      </p></a>
   </div>

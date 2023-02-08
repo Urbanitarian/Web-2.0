@@ -19,10 +19,12 @@ class MailController extends Controller
     public function sendMessage (Request $request) {
         $usermail = env('MAIL_USERNAME');
        
-        $this->validate($request, [ 'email' => 'required' ]);
-        $this->validate($request, [ 'name' => 'required' ]);
-        $this->validate($request, [ 'message' => 'required|string' ]);
-
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required|string',
+            'g-recaptcha-response' => 'required|recaptchav3:register,0.5'
+        ]);
 
        if ($request->session()->exists('mail')) {
              return back()->with('already_send', 'ok');

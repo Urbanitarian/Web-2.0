@@ -46,8 +46,8 @@ Route::get('masterplans_post/', 'masterplans_post')->name('masterplans_post');
 Route::get('mindscapes', 'mindscapes');
 Route::get('mindscapes_post/', 'mindscapes_post')->name('mindscapes_post');
 Route::post('import', 'import');
-
-
+Route::get('submit_project', 'submit');
+Route::post('submit_project', 'submit_project');
 
 });
 

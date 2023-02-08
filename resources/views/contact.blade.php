@@ -1,6 +1,8 @@
  @extends('layouts.app')
 
  @section('main')
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {!! RecaptchaV3::initJs() !!}
      <div data-barba="container">
          @php use \App\Http\Controllers\GlobalController; @endphp
          @if (session('Message_envoye'))
@@ -49,7 +51,12 @@
                                           <button type="submit" class="relative flex max-w-[200px] px-5 py-4 my-2 text-center mt-2 font-bold text-white bg-black shadow-lg prevent lg:ml-8 group rounded-xl hover:bg-gray-800">Send message</button>
                                  </div>
                                  <div class="w-full p-2 pt-8 mt-8 text-center border-t border-gray-800">
-
+                                  {!! RecaptchaV3::field('register') !!}
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif
                                  </div>
                              </form>
                          </div>
