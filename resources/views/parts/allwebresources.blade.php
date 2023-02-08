@@ -176,7 +176,7 @@
                     let html = `
                         <div class="flex transition border shadow-md md:hover:scale-110">
                         <div class="flex flex-col mx-auto">
-                            <a href="${item.link}">
+                            <a href="${item.link}" target="_blank">
                                 <img class="object-cover w-auto h-32" src="storage/uploads/webresources/${item.image}" alt="content" onerror="this.src='./img/empty.png'">
                                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
                                     ${item.name}</p>

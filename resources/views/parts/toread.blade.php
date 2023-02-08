@@ -15,7 +15,7 @@
                 @forelse ($magazines as $magazine)
                     <div class="flex transition border shadow-md md:hover:scale-105">
                         <div class="flex flex-col mx-auto mb-16">
-                            <a href=" {{  $magazine->link }}">
+                            <a href=" {{  $magazine->link }}" target="_blank">
                              @php $img01 = $magazine->image ?? null; @endphp
                                 <img class="object-cover w-full h-full" src="{{ asset('storage/uploads/magazines/' . $img01) }}"
                                     alt="content" onerror="this.src='./img/empty.png'">

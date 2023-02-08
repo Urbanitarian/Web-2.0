@@ -16,7 +16,7 @@
                 @forelse ($webresources as $item)
                     <div class="flex transition border shadow-md md:hover:scale-110">
                         <div class="flex flex-col mx-auto">
-                            <a href="webresources_post?id={{ $item->id }}">
+                            <a href="{{ $item->link }}" target="_blank">
                              @php $img = $item->image ?? null; @endphp
                                 <img class="object-cover w-auto h-32" src="{{ asset('storage/uploads/webresources/' . $img) }}"
                                     alt="content" onerror="this.src='./img/empty.png'">
