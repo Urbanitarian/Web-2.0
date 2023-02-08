@@ -9,6 +9,7 @@ use App\Models\Magazine;
 use App\Models\Pages;
 use App\Models\Streetscape;
 use App\Models\Masterplan;
+use App\Models\team;
 use App\Models\Neighbourhood;
 use App\Models\Webresource;
 use App\Models\Country;
@@ -174,7 +175,9 @@ class GlobalController extends Controller
 
     public function about()
     {
-        return view('about');
+        $team = Team::all()->sortByDesc('id');
+
+        return view('about' , compact('team'));
     }
 
     public function contact()
