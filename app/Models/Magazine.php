@@ -26,7 +26,6 @@ class Magazine extends Model
     protected $fillable = [
         'name',
         'type',
-        'tags',
         'image',
         'link',
         'created_at',
@@ -41,17 +40,17 @@ class Magazine extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function setImageAttribute($value)
-    {
+    // public function setImageAttribute($value)
+    // {
     
-        $attribute_name = "image";
-        $disk = "public";
-        $destination_path = "/uploads/magazines";
+    //     $attribute_name = "image";
+    //     $disk = "public";
+    //     $destination_path = "/uploads/magazines";
 
-        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+    //     $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
 
-    // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
-    }
+    // // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
+    // }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

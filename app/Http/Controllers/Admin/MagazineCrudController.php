@@ -38,7 +38,7 @@ class MagazineCrudController extends CrudController
             'name' => 'image',
             'label' => 'Miniature',
             'type' => 'image',
-            'prefix' => 'storage/',
+            'prefix' => 'storage/uploads/magazines/',
             'height' => '80px',
             'width' => 'auto',
 

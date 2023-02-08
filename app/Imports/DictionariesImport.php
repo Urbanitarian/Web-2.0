@@ -18,10 +18,10 @@ class DictionariesImport implements ToModel, WithHeadingRow
         foreach ($row as $key => $value) {
           
             return new Dictionary([
-                'name' => "$row[0]",
-                'image' => "$row[1]",
-                'description' => "$row[2]",
-                'sources' => "$row[3]",
+                'name' => !empty($row[0]) ? $row[0] : 'default name',
+                'image' => !empty($row[1]) ? $row[1] : 'default_image.jpg',
+                'description' => !empty($row[2]) ? $row[2] : 'description',
+                'sources' => !empty($row[3]) ? $row[3] : 'http://',
                 'type' => "Dictionary",
             ]);
         }
