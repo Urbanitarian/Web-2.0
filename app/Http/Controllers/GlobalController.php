@@ -9,7 +9,7 @@ use App\Models\Magazine;
 use App\Models\Pages;
 use App\Models\Streetscape;
 use App\Models\Masterplan;
-use App\Models\team;
+use App\Models\Team;
 use App\Models\Neighbourhood;
 use App\Models\Webresource;
 use App\Models\Country;
