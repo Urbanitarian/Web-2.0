@@ -1,12 +1,15 @@
 
 @extends('layouts.app')
-
+        @php use \App\Http\Controllers\GlobalController; @endphp
+        @php  $pages = GlobalController::pages();@endphp
 @section('main')
     <div data-barba="container">
         <div class="min-h-screen p-5 mx-auto sm:p-10 md:px-16">
             <div class="flex flex-col max-w-5xl mx-auto overflow-hidden rounded">
                             <div class="page all-initial">
-         Association
+                     @php
+                        echo $pages[6]->content;
+                    @endphp
                 </div>
 
             </div>
