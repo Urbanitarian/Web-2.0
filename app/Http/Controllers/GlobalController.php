@@ -428,6 +428,9 @@ class GlobalController extends Controller
             Excel::import(new MagazinesImport, $file);
         } elseif  ($request->dataType == "webresources"){
             Excel::import(new WebresourcesImport, $file);
+        } else {
+            \Alert::success('Error.')->flash();
+            return redirect('/admin')->with('error', 'Invalid data type.');
         }
         \Alert::success('Excel data imported successfully.')->flash();
         return redirect('/admin')->with('success', 'Data imported successfully.');

@@ -84,15 +84,18 @@ let count = 0;
         for (let i = 0; i < data.length; i++) {
             count = count + 1;
             graff = data[i];
-            pics = graff.image[0];
+            
             graffid = graff.id;
             category = graff.category.toLowerCase();
             if (category == 'streetscapes') {
                 cat = 1;
+                pics = graff.imagea;
             } else if (category == 'masterplans') {
                 cat = 2;
+                pics = graff.image;
             } else if (category == 'neighbourhoods') {
                 cat = 3;
+                pics = graff.imagea;
             }
             graffcity = graff.city;
             graffname = graff.title;
@@ -103,8 +106,8 @@ let count = 0;
 
             marker = L.marker([decimalString[0], decimalString[1]], {
             }).addTo(mymap).bindPopup(
-                '<div class="mappopup relative flex flex-col"><img onclick="myfunction(' + graffid + ',' + cat +
-                ')" class="mt-4" src="/storage/' + pics +
+                '<div class="mappopup relative flex flex-col" onclick="myfunction(' + graffid + ',' + cat +
+                ')"><img  class="mt-4" src="/storage/uploads/'+ category + '/' + pics +
                 '" /><div class="flex justify-between"><h5 class="font-bold text-sm mt-1 mb-2" id="graffnom">' + graffname + '</h5><h5 class="text-xs text-gray-500 mt-1 mb-2" id="graffcity">' + graffcity + '</h5></div></div>'
             );
             markers[graff.id] = marker;

@@ -15,24 +15,25 @@ class StreetscapesImport implements ToModel, WithHeadingRow
      */
     public function model(array $row)
     {
-        foreach ($row as $key => $value) {
+
+         foreach ($row as $key => $value) {
             $pieces = explode(", ", $row[0]);
             return new Streetscape([
-                'imagea' => "$pieces[0]",
-                'imageb' => "$pieces[1]",
-                'title' => "$row[1]",
-                'address' => "$row[2]",
-                'program' => "$row[3]",
-                'author' => strtoupper("$row[4]"),
-                'city' => ucfirst(strtolower("$row[5]")),
-                'country' => ucfirst(strtolower("$row[6]")),
-                'area' => "$row[7]",
-                'description' => "$row[8]",
-                'credits' => "$row[9]",
-                'location' => "$row[10]",
-                'status' => strtolower("$row[11]"),
-                'size' => strtoupper("$row[12]"),
-                'tags' =>  explode(", ", $row[13]),
+                'imagea' => !empty($pieces[0]) ? $pieces[0] : 'default_image.jpg',
+                'imageb' => !empty($pieces[1]) ? $pieces[1] : 'default_image.jpg',
+                'title' => !empty($row[1]) ? $row[1] : 'No title',
+                'address' => !empty($row[2]) ? $row[2] : 'No address',
+                'program' => !empty($row[3]) ? $row[3] : 'No program',
+                'author' => !empty($row[4]) ? strtoupper($row[4]) : 'No author',
+                'city' => !empty($row[5]) ? ucfirst(strtolower($row[5])) : 'No city',
+                'country' => !empty($row[6]) ? ucfirst(strtolower($row[6])) : 'No country',
+                'area' => !empty($row[7]) ? $row[7] : '0',
+                'description' => !empty($row[8]) ? $row[8] : 'No description',
+                'credits' => !empty($row[9]) ? $row[9] : 'No credits',
+                'location' =>  !empty($row[10]) ? $row[10] : '00.00, 00.00',
+                'status' => !empty($row[11]) ? strtolower($row[11]) : 'No status',
+                'size' =>  !empty($row[12]) ? strtoupper($row[12]) : 'No size',
+                'tags' =>  !empty($row[13]) ? explode(", ", $row[13]) : ["No Tags"],
             ]);
         }
     }
