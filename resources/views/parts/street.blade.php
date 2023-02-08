@@ -79,7 +79,7 @@
             @forelse ($streetscapes as $streetscape)
                 <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
                     <div class="lg:w-3/4 md:px-6">
-                        <div class="juxtapose">
+                        <div class="juxtapose saturate-120">
                             <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4"
                                 src="{{ asset('storage/uploads/streetscapes/' . $streetscape->imagea) }}"alt="00"
                                 onerror="this.src='./img/empty.png'" />

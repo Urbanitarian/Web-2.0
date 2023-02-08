@@ -23,7 +23,7 @@
                 <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
                     <div class="lg:w-3/4 md:px-6">
                         <div class="juxtapose">
-                            <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4"
+                            <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4  saturate-120"
                                 src="{{ asset('storage/' . $mindscape->image) }}"alt="00"
                                 onerror="this.src='./img/empty.png'" />
                         </div>

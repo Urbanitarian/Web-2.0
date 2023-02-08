@@ -23,7 +23,7 @@
                                 @endforeach
                            </div>
                     </div>
-                    <div class="juxtapose">
+                    <div class="juxtapose  saturate-120">
                      @php $img0 =$streetscape->imagea ?? null; @endphp
                       @php $img1 = $streetscape->imageb ?? null; @endphp
                         <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"

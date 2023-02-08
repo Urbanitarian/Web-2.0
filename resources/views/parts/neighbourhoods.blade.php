@@ -18,7 +18,7 @@
                 <a href="urbanscapes_post?id={{ $neighbourhood->id }}">
                     <div class="p-4 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
                         @php $nimg = $neighbourhood->imagea ?? null; @endphp
-                        <img class="object-cover object-center w-full h-40 mb-3" src="{{ asset('storage/uploads/urbanscapes/' . $nimg) }}"alt=""  onerror="this.src='./img/empty.png'"/>
+                        <img class="object-cover object-center w-full h-40 mb-3  saturate-120" src="{{ asset('storage/uploads/urbanscapes/' . $nimg) }}"alt=""  onerror="this.src='./img/empty.png'"/>
                         <h2 class="mb-1 text-lg font-medium text-gray-900 title-font clamp1">{{ $neighbourhood->title }}</h2>
                         <p class="text-xs font-semibold leading-relaxed text-gray-500">
                         @foreach($neighbourhood->tags as $tag)

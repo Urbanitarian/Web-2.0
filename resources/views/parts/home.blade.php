@@ -259,7 +259,7 @@
                       <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
                              <img alt="Art" src="storage/uploads/masterplans/${item.image}"alt=""
-                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
+                                 onerror="this.src='./img/empty.png'" class="object-cover h-full  saturate-120 max-h-[480px]" />
                              <div class="">
                                  <h3 class="mx-2 mt-2 text-sm font-bold text-center truncate">
                                      ${item.title} | ${item.author} | ${item.city}</h3>
@@ -277,7 +277,7 @@
                       <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full">
                              <img alt="Art" src="storage/uploads/urbanscapes/${item.imagea}"alt=""
-                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
+                                 onerror="this.src='./img/empty.png'" class="object-cover h-full  saturate-120 max-h-[480px]" />
                              <div class="">
                                  <h3 class="mx-2 mt-2 text-sm font-bold text-center truncate">
                                      ${item.title} | ${item.author} | ${item.city}</h3>
@@ -296,7 +296,7 @@
                          class="relative col-span-2 transition border shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
                          <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
                              <img alt="Art" src="storage/uploads/streetscapes/${item.imagea}"alt=""
-                                 onerror="this.src='./img/empty.png'" class="object-cover h-full max-h-[480px]" />
+                                 onerror="this.src='./img/empty.png'" class="object-cover h-full  saturate-120 max-h-[480px]" />
                              <div class="">
                                  <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
                                      ${item.title} | ${item.author} | ${item.city}</h3>

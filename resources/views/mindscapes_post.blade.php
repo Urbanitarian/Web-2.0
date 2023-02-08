@@ -26,7 +26,7 @@
                     <div class="">
                         @php $img7 = $mindscape->image ?? null; @endphp
 
-                        <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-auto w-full"
+                        <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-auto w-full  saturate-120"
                             src="{{ asset('storage/' . $img7) }}"alt="00" onerror="this.src='./img/empty.png'" />
                     </div>
                     <div class="flex justify-between">

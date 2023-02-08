@@ -17,7 +17,7 @@
                         <div class="flex flex-col mx-auto mb-16">
                             <a href=" {{  $magazine->link }}" target="_blank">
                               @php $magimg = $magazine->image ?? null; @endphp
-                                <img class="object-cover w-full h-full" src="{{ asset('storage/uploads/magazines/' . $magimg) }}"
+                                <img class="object-cover w-full h-full  saturate-120" src="{{ asset('storage/uploads/magazines/' . $magimg) }}"
                                     alt="content" onerror="this.src='./img/empty.png'">
                                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
                                   {{  $magazine->name }}

@@ -11,7 +11,7 @@
                                <div class="grid grid-cols-1 gap-4">
                                    <div class="w-full relative">
                                        @php $image0 =  $item->image ?? null; @endphp
-                                       <img class="object-cover w-full border"
+                                       <img class="object-cover w-full border  saturate-120"
                                            src="{{ asset('storage/uploads/masterplans/' . $image0) }}"alt=""
                                            onerror="this.src='./img/empty.png'" />
                                        <i class="absolute fa-solid fa-expand top-5 right-5 fa-2x text-gray-600 hover:text-gray-500 active:text-gray-700"
@@ -257,7 +257,7 @@
                                                class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
                                                <div class="flex-shrink-0">
                                                    @php $img10 = $masterplan->image ?? null; @endphp
-                                                   <img class="h-[450px] w-full object-cover border-b"
+                                                   <img class="h-[450px] w-full object-cover border-b  saturate-120"
                                                        src="{{ asset('storage/uploads/masterplans/' . $img10) }}"alt=""
                                                        onerror="this.src='./img/empty.png'" />
                                                    <h1 class="pt-2 mx-8 text-sm font-bold text-center">
