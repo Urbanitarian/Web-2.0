@@ -112,7 +112,7 @@
             </div>
               <div class="flex pt-8">
         <button id="prev" class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-            <p class="text-sm font-medium">previous</p>
+            <p class="text-sm font-medium">Previous</p>
         <button id="next" class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
             <p class="text-sm font-medium">Next</p>
               </div>

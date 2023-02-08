@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+        @php use \App\Http\Controllers\GlobalController; @endphp
+        @php  $pages = GlobalController::pages();@endphp
 @section('main')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     {!! RecaptchaV3::initJs() !!}
@@ -8,16 +9,12 @@
             <div class="p-8 md:p-12 lg:px-12 lg:py-12">
                 <div class="max-w-lg mx-auto text-center lg:max-w-xl">
                     <h2 class="text-2xl font-bold text-gray-900 md:text-4xl">
-                        Publish your work on our architecture platform
+                        {{ $pages[4]->title;}}
                     </h2>
 
                     <p class="mt-8 text-xl text-gray-500 leading-relaxed">
-                        The content we produce is made possible by our global architecture community.
-                        Our site receives number of projects every day with a mission to carefully curate and select the
-                        best
-                        architecture around the world.
-                        By publishing your work, you can inspire the millions of people who visit our site to design a
-                        better world.
+          
+                       {{ $pages[4]->content;}}
                     </p>
                     <a href="#sub" class="pt-8">
                         <h2 class="text-xl font-bold text-gray-900 pt-16">Submit a Project</h2>

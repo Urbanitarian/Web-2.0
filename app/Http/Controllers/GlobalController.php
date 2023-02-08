@@ -23,6 +23,7 @@ use App\Imports\WebresourcesImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Backpack\Settings\app\Models\Setting;
 use Carbon\Carbon;
+use App\Mail\MyMailsubmit;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification;
@@ -31,6 +32,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class GlobalController extends Controller
@@ -187,18 +189,15 @@ class GlobalController extends Controller
 
     public function submit_project(Request $request)
     {
+        $usermail = env('MAIL_USERNAME');
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email',
-
-
-            
             'g-recaptcha-response' => 'required|recaptchav3:register,0.5'
         ]);
-        dd($request->all());
 
-
-        return view('submit');
+        Mail::to($usermail)->queue(new MyMailsubmit($request->all()));
+        return back()->with('Mail_envoye', 'ok');
     }
 
     public function contactus()
