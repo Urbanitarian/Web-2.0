@@ -15,24 +15,7 @@
                                                src="{{ asset('storage/uploads/masterplans/' . $image0) }}"alt=""
                                                onerror="this.src='./img/empty.png'" />
                                        </div>
-                                       <div
-                                           class="container grid grid-cols-2 gap-2 pt-16 mx-auto space-y-2 md:pt-32 lg:grid-cols-3">
-                                           {{-- @php
-                                               $imgarray = $item->image;
-                                               //skip first element
-                                               array_shift($imgarray);
-                                           @endphp
-                                           @foreach ($imgarray as $image)
-                                               <div class="w-full rounded hover:shadow-2xl">
-                                                   @php $img09 = $image ?? null; @endphp
-                                                   <img src="{{ asset('storage/uploads/masterplans/' . $img09) }}" class="object-cover h-full"
-                                                       alt="" onerror="this.src='./img/empty.png'"
-                                                       onclick="window.open('{{ asset('storage/uploads/masterplans/' . $image) }}', 'Image', 'width=800,height=600')" />
-                                               </div>
-                                           @endforeach --}}
 
-
-                                       </div>
                                    </div>
                                    <div class="sticky top-0 mx-auto">
                                        <div class="flex justify-between pb-8">
@@ -201,19 +184,8 @@
                            </div>
                        </section>
                @empty
-                   <section>
-                       <div class="relative px-4 py-8 mx-auto my-8">
-                           <div class="grid items-start grid-cols-1 gap-8 lg:grid-cols-2">
-                               <div class="grid grid-cols-1 gap-4">
-                                   <div class="w-full">
-                                       <h1 class="text-2xl font-bold">Empty</h1>
-                                   </div>
-                               </div>
-                           </div>
 
-                       </div>
-                   </section>
-                   
+              
                @endforelse
 
   
@@ -338,7 +310,7 @@
        <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
            integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
        <script>
-           var gps = {!! json_encode($item->location) !!};
+           var gps =  {!! json_encode($item->location ?? [0.00, 0.00]) !!};
            var decimalString = gps.split(',');
            decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
            decimalString[1] = parseFloat(decimalString[1]).toFixed(6);

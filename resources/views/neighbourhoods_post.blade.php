@@ -224,18 +224,7 @@
                     </div>
                 </section>
             @empty
-                <section>
-                    <div class="relative px-4 py-8 mx-auto my-8">
-                        <div class="grid items-start grid-cols-1 gap-8 lg:grid-cols-2">
-                            <div class="grid grid-cols-1 gap-4">
-                                <div class="w-full">
-                                    <h1 class="text-2xl font-bold">Empty</h1>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
+               
             @endforelse
             <section>
                 <section class="py-4 mx-4 text-gray-600 border-t border-b body-font md:mx-16 md:py-8">
@@ -311,7 +300,7 @@
         integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
     
     <script>
-        var gps = {!! json_encode($item->location) !!};
+        var gps = {!! json_encode($item->location ?? [0.00, 0.00]) !!};
         var decimalString = gps.split(',');
         decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
         decimalString[1] = parseFloat(decimalString[1]).toFixed(6);

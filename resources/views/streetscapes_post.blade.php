@@ -4,7 +4,7 @@
     <div data-barba="container">
         <section class="pt-8 mx-4 md:mx-16 lg:mx-32">
             <div class="p-8 mx-auto md:p-12 lg:px-16 lg:py-12 max-w-7xl">
-                @foreach ($streetscapes->where('id', $id) as $streetscape)
+                @forelse ($streetscapes->where('id', $id) as $streetscape)
                     <div class="mx-auto text-center">
                         <h2 class="text-3xl font-bold text-gray-900 md:text-5xl">
                             {{ $streetscape->title }}
@@ -54,8 +54,7 @@
                           <div class="grid grid-cols-1 gap-4">
                             <div id="mastermap" class="mt-4 rounded h-[350px] w-full"></div>
                         </div>
-
-                @endforeach
+                       
                 <div class="flex justify-between pt-8 ">
                     @php
                         // next id and previous id from masterplans table
@@ -71,7 +70,9 @@
                         Next
                     </a>
                 </div>
+ @empty
 
+                @endforelse
                       
 
             </div>
@@ -139,7 +140,7 @@
     <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
      <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js" integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
     <script>
-        var gps = {!! json_encode($streetscape->location) !!};
+        var gps = {!! json_encode($streetscape->location ?? [0.00, 0.00]) !!};
         var decimalString = gps.split(',');
         decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
         decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
