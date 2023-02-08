@@ -323,7 +323,7 @@
 
                              amarkers = {};
 
-                             let mymap2 = L.map('map2').setView([48.6890, 11.14086], 4);
+                             let mymap2 = L.map('map2').setView([48.6890, 11.14086], 2);
                              theosmLayer = L.tileLayer(
                                  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
                                      maxZoom: 19,

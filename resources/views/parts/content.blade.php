@@ -43,7 +43,7 @@
     data = {!! json_encode($all_data) !!};
     markers = {};
 
-    let mymap = L.map('map').setView([38.6890, 11.14086], 3);
+    let mymap = L.map('map').setView([38.6890, 11.14086], 2);
     osmLayer = L.tileLayer(
         'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
             maxZoom: 19,
