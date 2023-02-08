@@ -331,7 +331,7 @@
            decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
            decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
 
-           let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1]], 16);
+           let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1]], 18);
            osmLayer = L.tileLayer(
                'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
                    maxZoom: 19,
