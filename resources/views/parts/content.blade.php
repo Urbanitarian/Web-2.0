@@ -10,7 +10,7 @@
         <h1 class="pt-16 pb-16 text-3xl font-bold text-center text-gray-900 md:text-5xl">Search on the map</h1>
     </div>
     <div class="flex md:mx-4">
-        <div id="map" class="mx-2 mt-4 rounded h-[550px] w-screen">
+        <div id="map" class="mx-2 mt-4 rounded h-[650px] w-screen">
         </div>
     </div>
 </section>
@@ -43,7 +43,7 @@
     data = {!! json_encode($all_data) !!};
     markers = {};
 
-    let mymap = L.map('map').setView([48.6890, 11.14086], 2);
+    let mymap = L.map('map').setView([38.6890, 11.14086], 3);
     osmLayer = L.tileLayer(
         'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
             maxZoom: 19,
