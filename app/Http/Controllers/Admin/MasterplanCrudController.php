@@ -142,8 +142,11 @@ class MasterplanCrudController extends CrudController
                 'Self-sufficient'        => 'Self-sufficient',
                 'Car-free'        => 'Car-free',
                 'Walkable'        => 'Walkable',
+                'CBD'        => 'CBD',
                 'Sustainable'       => 'Sustainable',
                 'Dense'       => 'Dense',
+                'Science Park'       => 'Science Park',
+                'Business District'       => 'Business District',
                 'Missing middle'      => 'Missing middle',
                 'Preventing Loneliness'        => 'Preventing Loneliness',
                 'Youth-friendly'        => 'Youth-friendly' ,
@@ -196,6 +199,10 @@ class MasterplanCrudController extends CrudController
             'label'       => "Size",
             'type'        => 'select_from_array',
             'options'     => [
+                'XXXXL'        => 'XXXXL',
+                'XXXL'        => 'XXXL',
+                'XXL'        => 'XXL',
+                'XL'        => 'XL',
                 'L'        => 'Large',
                 'M'        => 'Medium',
                 'S'        => 'Small',
@@ -214,13 +221,7 @@ class MasterplanCrudController extends CrudController
             'value' => '<hr>',
             'tab' => 'Main',
         ]);
-        CRUD::addField([
-            'name'  => 'link',
-             'label' => 'Link',
-             'type'  => 'url',
-             'tab' => 'Main',
-             'wrapper' => [ 'class' => 'form-group col-md pl-3'],
-            ]);
+
             CRUD::addField([
                 'name'  => 'credits',
                  'label' => 'Credits',
@@ -475,8 +476,11 @@ class MasterplanCrudController extends CrudController
                 'Self-sufficient'        => 'Self-sufficient',
                 'Car-free'        => 'Car-free',
                 'Walkable'        => 'Walkable',
+                'CBD'        => 'CBD',
                 'Sustainable'       => 'Sustainable',
                 'Dense'       => 'Dense',
+                'Science Park'       => 'Science Park',
+                'Business District'       => 'Business District',
                 'Missing middle'      => 'Missing middle',
                 'Preventing Loneliness'        => 'Preventing Loneliness',
                 'Youth-friendly'        => 'Youth-friendly' ,
@@ -529,6 +533,10 @@ class MasterplanCrudController extends CrudController
             'label'       => "Size",
             'type'        => 'select_from_array',
             'options'     => [
+                'XXXXL'        => 'XXXXL',
+                'XXXL'        => 'XXXL',
+                'XXL'        => 'XXL',
+                'XL'        => 'XL',
                 'L'        => 'Large',
                 'M'        => 'Medium',
                 'S'        => 'Small',
@@ -547,13 +555,7 @@ class MasterplanCrudController extends CrudController
             'value' => '<hr>',
             'tab' => 'Main',
         ]);
-        CRUD::addField([
-            'name'  => 'link',
-             'label' => 'Link',
-             'type'  => 'url',
-             'tab' => 'Main',
-             'wrapper' => [ 'class' => 'form-group col-md pl-3'],
-            ]);
+
             CRUD::addField([
                 'name'  => 'credits',
                  'label' => 'Credits',

@@ -75,17 +75,10 @@
                  </label>
              </button>
 
-             <button id="Large">
-                 <label for="large"
+             <button id="Xs">
+                 <label for="xs"
                      class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">large</p>
-                 </label>
-             </button>
-
-             <button id="Medium">
-                 <label for="medium"
-                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">medium</p>
+                     <p class="text-sm font-medium">xs</p>
                  </label>
              </button>
 
@@ -96,12 +89,50 @@
                  </label>
              </button>
 
-             <button id="Xs">
-                 <label for="xs"
+             <button id="Medium">
+                 <label for="medium"
                      class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">xs</p>
+                     <p class="text-sm font-medium">medium</p>
                  </label>
              </button>
+
+
+             <button id="Large">
+                 <label for="large"
+                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                     <p class="text-sm font-medium">large</p>
+                 </label>
+             </button>
+
+             <button id="XL">
+                 <label for="XL"
+                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                     <p class="text-sm font-medium">XL</p>
+                 </label>
+             </button>
+
+             <button id="XXL">
+                 <label for="XXL"
+                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                     <p class="text-sm font-medium">XXL</p>
+                 </label>
+             </button>
+
+             <button id="XXXL">
+                 <label for="XXXL"
+                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                     <p class="text-sm font-medium">XXXL</p>
+                 </label>
+             </button>
+
+             <button id="XXXXL">
+                 <label for="XXXXL"
+                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                     <p class="text-sm font-medium">XXXXL</p>
+                 </label>
+             </button>
+
+
          </fieldset>
  </section>
 
@@ -124,8 +155,8 @@
 
  <script>
      $('button').click(function() {
-            $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
-    
+         $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
+
      });
 
      const itemsPerPage = 50;
@@ -191,42 +222,42 @@
 
      $('#child').click(function() {
          url = "api/masterplans?tags=Child-friendly";
-           $('#searchbar').val('Child-friendly');
+         $('#searchbar').val('Child-friendly');
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
      $('#green').click(function() {
          url = "api/masterplans?tags=Green";
-           $('#searchbar').val('Green');
+         $('#searchbar').val('Green');
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
      $('#climate').click(function() {
          url = "api/masterplans?tags=climate";
-           $('#searchbar').val('climate');
+         $('#searchbar').val('climate');
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
      $('#age').click(function() {
          url = "api/masterplans?tags=age";
-           $('#searchbar').val('Age-friendly');
+         $('#searchbar').val('Age-friendly');
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
      $('#all').click(function() {
          url = "api/masterplans";
-           $('#searchbar').val('');
+         $('#searchbar').val('');
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
      $('#Allsize').click(function() {
          url = "api/masterplans";
-           $('#searchbar').val('');
+         $('#searchbar').val('');
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
@@ -255,7 +286,29 @@
          fetchAndRenderData(url);
      });
 
+        $('#XL').click(function() {
+         url = "api/masterplans?size=XL";
+         $('#boucle').empty();
+         fetchAndRenderData(url);
+     });
 
+   $('#XXL').click(function() {
+         url = "api/masterplans?size=XXL";
+         $('#boucle').empty();
+         fetchAndRenderData(url);
+     });
+
+        $('#XXXL').click(function() {
+         url = "api/masterplans?size=XXXL";
+         $('#boucle').empty();
+         fetchAndRenderData(url);
+     });
+
+   $('#XXXXL').click(function() {
+         url = "api/masterplans?size=XXXXL";
+         $('#boucle').empty();
+         fetchAndRenderData(url);
+     });
 
      $('#searchbar').keyup(function() {
          url = "api/masterplans?q=" + $('#searchbar').val();
