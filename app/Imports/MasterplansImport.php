@@ -45,7 +45,7 @@ class MasterplansImport implements ToModel, WithHeadingRow
                 'tags' =>  !empty($row[25]) ? explode(", ", $row[25]) : ["No Tags"],
                 'link' => !empty($row[26]) ? $row[26] : 'http://www.website.com',
                 'category' => "Masterplans",
-                'address' =>"adress_dummy",
+                'address' =>"address_dummy",
             ]);
         }
        
