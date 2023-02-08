@@ -1,17 +1,23 @@
+         @php use \App\Http\Controllers\GlobalController; @endphp
+        @php  $pages = GlobalController::pages();@endphp
  <section class="pt-8">
         <div class="p-8 md:p-12 lg:px-12 lg:py-12">
             <div class="max-w-lg mx-auto text-center lg:max-w-xl">
                 <h2 class="text-3xl font-bold text-gray-900 md:text-5xl">
                     About
                 </h2>
+                <p class="text-base text-gray-700 md:text-lg pt-8">
+                   {{ $pages[5]->content;}}
+            </p>
             </div>
+            
         </div>
     </section>
 
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-8 mx-auto">
             <div class="flex flex-col w-full mb-20 text-center">
-                <h1 class="mb-4 text-2xl font-medium tracking-widest text-gray-900 title-font">OUR TEAM</h1>
+                <h1 class="mb-4 text-2xl font-medium tracking-widest text-gray-900 title-font">People</h1>
             </div>
             <div class="flex flex-wrap -m-4">
 
