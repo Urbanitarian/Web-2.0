@@ -26,7 +26,7 @@
                     </a>
                     <hr class="mt-12">
                     <p   id="sub" class="mt-4 text-sm text-gray-500 leading-relaxed pt-24">
-                        Once you download the following folder, you will find detailed information on our requirements for
+                        Once you download the <a class="text-blue-500" href="{{ asset('storage/uploads/submission-requirements.zip') }}"> following folder</a>, you will find detailed information on our requirements for
                         publication.
                         Upload all documents to Dropbox or Google Drive and paste the link at the end of this form.
                     </p>
@@ -71,7 +71,7 @@
                         <p class="mt-4 text-xs text-gray-500 leading-relaxed py-4 mx-4">
                             We only receive submissions of built projects completed after 2014.
                         </p>
-                        <div class="p-2">
+                        <div class="ml-4 p-2">
                             <input type="checkbox" id="secure" name="secure" required>
                             <label for="secure" class="text-sm leading-7 text-gray-800">I agree to the <a href="legal" class="text-blue-500">Terms of use</a> and the <a href="confidentialite" class="text-blue-500">Privacy Policy</a></label>
                         </div>
