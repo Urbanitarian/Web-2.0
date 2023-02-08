@@ -312,7 +312,7 @@
                          "grid-cols-3").removeClass("grid-cols-2").addClass("grid-cols-1").addClass(
                          "lg:grid-cols-1").addClass("xl:grid-cols-1").removeClass("gap-5");
                      let html =
-                         `<section id='themap' class='flex w-full pb-16 mx-auto border-b'><div id='map2' class='mx-2 mt-4 rounded h-[550px] w-screen'></div></section>`;
+                         `<section id='themap' class='flex w-full pb-16 mx-auto border-b'><div id='map2' class='mx-2 mt-4 rounded h-[650px] w-screen'></div></section>`;
                      $('#boucle').append(html);
 
                      fetch(url)
@@ -568,7 +568,7 @@
              .removeClass("grid-cols-2").addClass("grid-cols-1").addClass("lg:grid-cols-1").addClass(
                  "xl:grid-cols-1").removeClass("gap-5");
          $("#boucle").html(
-             "<section id='themap' class='flex w-full pb-16 mx-auto border-b'><div id='map2' class='mx-2 mt-4 rounded h-[550px] w-screen'></div></section>"
+             "<section id='themap' class='flex w-full pb-16 mx-auto border-b'><div id='map2' class='mx-2 mt-4 rounded h-[650px] w-screen'></div></section>"
          );
 
 
@@ -582,7 +582,7 @@
 
                  amarkers = {};
 
-                 let mymap2 = L.map('map2').setView([48.6890, 11.14086], 4);
+                 let mymap2 = L.map('map2').setView([48.6890, 11.14086], 2);
                  theosmLayer = L.tileLayer(
                      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
                          maxZoom: 19,
