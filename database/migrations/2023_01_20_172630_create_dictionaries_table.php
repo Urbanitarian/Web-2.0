@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('dictionaries', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->text('description');
-            $table->string('type');
-            $table->longText('image');
+            $table->text('description')->nullable();
+            $table->string('type')->default('Dictionary')->nullable();
+            $table->string('sources')->nullable();
+            $table->longText('image')->nullable();
             $table->text('tags')->nullable();
             $table->timestamps();
         });

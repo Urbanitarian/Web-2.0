@@ -38,7 +38,7 @@ class DictionaryCrudController extends CrudController
             'name' => 'image',
             'label' => 'Image',
             'type' => 'image',
-            'prefix' => 'storage/',
+            'prefix' => 'storage/uploads/dictionaries/',
             'height' => '80px',
             'width' => 'auto',
 
@@ -66,7 +66,7 @@ class DictionaryCrudController extends CrudController
                         }
             ],
         ]);
-        CRUD::column('tags')->label('Tags');
+      
      
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -90,18 +90,9 @@ class DictionaryCrudController extends CrudController
         ]);
 
         CRUD::field('name');
+        CRUD::field('image');
         CRUD::field('description');
-        CRUD::field('copyright');
-       
-        CRUD::addField([ // Photo
-            'name'      => 'image',
-            'key' => 'image_up',
-            'label'     => 'Image',
-            'type'      => 'upload',
-            'prefix' => 'storage/',
-            'upload'    => true,
-            'temporary' => 10,
-        ]);
+        CRUD::field('sources');
       
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -119,30 +110,11 @@ class DictionaryCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         CRUD::field('name');
+        CRUD::field('image');
         CRUD::field('description');
-        CRUD::field('copyright');
+        CRUD::field('sources');
        
-        CRUD::addField([ // Photo
-            'name'      => 'image',
-            'key' => 'image_up',
-            'label'     => 'Miniature',
-            'type'      => 'upload',
-            'prefix' => 'storage/',
-            'upload'    => true,
-            'temporary' => 10,
-        ]);
-        $this->crud->addField([   // select_from_array
-            'name'        => 'tags',
-            'label'       => "Tags",
-            'type'        => 'select_from_array',
-            'options'     => [
-                'magazines' => 'magazines',
-                'polish magazines' => 'polish magazines',
-            ],
-            'allows_null' => false,
-            'default'     => '1',
-             'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
-        ]);
-       
+    
+      
     }
 }

@@ -12,7 +12,7 @@
                                 <div class="w-full">
                                         @php $img12 = $item->image ?? null; @endphp
                                     <img class="object-cover w-full border"
-                                        src="{{ asset('storage/' . $img12) }}"alt=""
+                                        src="{{ asset('storage/uploads/dictionaries/' . $img12) }}"alt=""
                                         onerror="this.src='./img/empty.png'" onclick="window.open('{{ asset('storage/' . $img12) }}', 'Image', 'width=800,height=600')"/>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                                 <fieldset>
                                     <legend class="pt-4 pb-2 mb-1 font-medium">Sources:</legend>
                                     <div class="flex flex-wrap text-sm">
-                                        {{ $item->credits }}
+                                       <a href="{{ $item->sources }}"> {{ $item->sources }}</a>
                                     </div>
                                 </fieldset>
                             </div>
@@ -84,7 +84,7 @@
                         <div class="flex flex-col mx-auto">
                             <a href="dictionaries_post?id={{ $item->id }}">
                                 @php $img11 = $item->image ?? null; @endphp
-                                <img class="object-cover w-auto h-32" src="{{ asset('storage/' . $img11) }}"
+                                <img class="object-cover w-auto h-32" src="{{ asset('storage/uploads/dictionaries/' . $img11) }}"
                                     alt="content" onerror="this.src='./img/empty.png'">
                                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
                                   {{ $item->name }}</p>

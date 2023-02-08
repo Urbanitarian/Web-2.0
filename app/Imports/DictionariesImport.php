@@ -19,11 +19,10 @@ class DictionariesImport implements ToModel, WithHeadingRow
           
             return new Dictionary([
                 'name' => "$row[0]",
-                'type' => "$row[1]",
-                'tags' =>  explode(", ", $row[2]),
-                'image' => "$row[3]",
-                'link' => "$row[4]",
-                'description' => "$row[5]",
+                'image' => "$row[1]",
+                'description' => "$row[2]",
+                'sources' => "$row[3]",
+                'type' => "Dictionary",
             ]);
         }
     }

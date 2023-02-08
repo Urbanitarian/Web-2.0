@@ -27,7 +27,7 @@ class Dictionary extends Model
         'description',
         'type',
         'image',
-        'tags',
+        'sources',
         'created_at',
         'updated_at',
     ];
@@ -38,17 +38,17 @@ class Dictionary extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function setImageAttribute($value)
-    {
+    // public function setImageAttribute($value)
+    // {
     
-        $attribute_name = "image";
-        $disk = "public";
-        $destination_path = "/uploads/dictionaries";
+    //     $attribute_name = "imagex";
+    //     $disk = "public";
+    //     $destination_path = "/uploads/dictionaries";
 
-        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+    //     $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
 
-    // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
-    }
+    // // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
+    // }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
