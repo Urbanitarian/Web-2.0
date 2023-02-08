@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\CityRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-
+use Backpack\CRUD\app\Library\Widget;
 /**
  * Class CityCrudController
  * @package App\Http\Controllers\Admin
@@ -26,6 +26,12 @@ class CityCrudController extends CrudController
      */
     public function setup()
     {
+        Widget::add( ['type'         => 'alert',
+        'class'        => '',
+        'content'      => 'List of cities listed in search dropdown',
+        'close_button' => false, // show close button or not
+    ])->to('before_content');
+
         CRUD::setModel(\App\Models\City::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/city');
         CRUD::setEntityNameStrings('city', 'cities');

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\CountryRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-
+use Backpack\CRUD\app\Library\Widget;
 /**
  * Class CountryCrudController
  * @package App\Http\Controllers\Admin
@@ -26,6 +26,14 @@ class CountryCrudController extends CrudController
      */
     public function setup()
     {
+        Widget::add( ['type'         => 'alert',
+        'class'        => '',
+        'content'      => 'List of countries listed in search dropdown',
+        'close_button' => false, // show close button or not
+    ])->to('before_content');
+
+
+    
         CRUD::setModel(\App\Models\Country::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/country');
         CRUD::setEntityNameStrings('country', 'countries');
