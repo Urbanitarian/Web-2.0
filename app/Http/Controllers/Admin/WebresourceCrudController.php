@@ -37,7 +37,7 @@ class WebresourceCrudController extends CrudController
             'name' => 'image',
             'label' => 'Miniature',
             'type' => 'image',
-            'prefix' => 'storage/uploads/webresources',
+            'prefix' => 'storage/uploads/webresources/',
             'height' => '80px',
             'width' => 'auto',
 
