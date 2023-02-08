@@ -9,11 +9,12 @@
                            <div class="relative px-4 py-8 mx-auto mt-8 mb-4">
                                <div class="grid items-start grid-cols-1 gap-8 lg:grid-cols-2">
                                    <div class="grid grid-cols-1 gap-4">
-                                       <div class="w-full">
+                                       <div class="w-full relative">
                                            @php $image0 =  $item->image ?? null; @endphp
                                            <img class="object-cover w-full border"
                                                src="{{ asset('storage/uploads/masterplans/' . $image0) }}"alt=""
-                                               onerror="this.src='./img/empty.png'" />
+                                               onerror="this.src='./img/empty.png'"/>
+                                               <i class="absolute fa-solid fa-expand top-5 right-5 fa-2x text-gray-600 hover:text-gray-500 active:text-gray-700" onclick="window.open('{{ asset('storage/uploads/masterplans/' . $image0) }}', 'Image', 'width=800,height=600')"></i>
                                        </div>
 
                                    </div>
@@ -150,7 +151,7 @@
                                        <div class="block">
                                            <div>
                                                <div class="text-gray-700 max-w-none group-open:hidden">
-                                                   <p class="max-w-3xl mt-6 leading-loose text-gray-500 myparagraph">
+                                                   <p id="parag" class="max-w-3xl mt-6 leading-loose text-gray-500 myparagraph">
                                                        {{ $item->description }}
                                                    </p>
                                                </div>
@@ -159,7 +160,7 @@
                                        <fieldset>
                                            <legend class="pt-4 pb-2 mb-1 font-medium">Sources:</legend>
                                            <div class="flex flex-wrap text-sm">
-                                               {{ $item->credits }}
+                                              <a href="{{ $item->credits }}" class="text-blue-600"> {{ $item->credits }}</a>
                                            </div>
                                        </fieldset>
                                        <div id="mastermap" class="mt-4 rounded h-[350px] w-full">
@@ -327,6 +328,19 @@
            L.marker([decimalString[0], decimalString[1]]).addTo(mymap);
            mymap.touchZoom.enable();
            mymap.scrollWheelZoom.disable();
+
+
+         $(document).ready(function() {
+  var lines = $("#parag").html().split(".");
+  var newLines = [];
+  for (var i = 0; i < lines.length; i++) {
+    newLines.push(lines[i] + ".");
+    if (i < lines.length) { 
+      newLines.push("<br>");
+    }
+  }
+  $("#parag").html(newLines.join(""));
+});
        </script>
 
    @endsection

@@ -10,14 +10,11 @@
     <br>
     <p> {{ $mailData['message'] }} </p>
     <br>
-    <i>message:</i>
+    <i>office:</i>
     <br>
     <p> {{ $mailData['office'] }} </p>
-    <br>
-    <i>message:</i>
-    <p> {{ $mailData['message'] }} </p>
 <br>
-  <i>message:</i>
+  <i>link:</i>
     <p> {{ $mailData['link'] }} </p>
 <br>
 </div>
