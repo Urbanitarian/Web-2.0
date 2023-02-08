@@ -37,7 +37,7 @@ class WebresourceCrudController extends CrudController
             'name' => 'image',
             'label' => 'Miniature',
             'type' => 'image',
-            'prefix' => 'storage/',
+            'prefix' => 'storage/uploads/webresources',
             'height' => '80px',
             'width' => 'auto',
 
@@ -65,7 +65,7 @@ class WebresourceCrudController extends CrudController
                     ],
         ]);
         CRUD::column('link');
-        CRUD::column('country');
+
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -87,15 +87,7 @@ class WebresourceCrudController extends CrudController
             'name' => 'required|min:2|max:255',
         ]);
         CRUD::field('name');
-          CRUD::addField([ // Photo
-            'name'      => 'image',
-            'key' => 'image_up',
-            'label'     => 'Miniature',
-            'type'      => 'upload',
-            'prefix' => 'storage/',
-            'upload'    => true,
-            'temporary' => 10,
-        ]);
+        CRUD::field('image');
         $this->crud->addField([   // select_from_array
             'name'        => 'type',
             'label'       => "Tags",
@@ -122,7 +114,7 @@ class WebresourceCrudController extends CrudController
             'label' => 'Link',
             'type'  => 'url'
         ]);
-        CRUD::field('country');
+    
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

@@ -18,11 +18,10 @@ class WebresourcesImport implements ToModel, WithHeadingRow
         foreach ($row as $key => $value) {
            
             return new Webresource([
-                'name' => "$row[0]",
-                'type' => "$row[1]",
-                'tags' =>  explode(", ", $row[2]),
-                'image' => "$row[3]",
-                'link' => "$row[4]",
+                'name' => !empty($row[0]) ? $row[0] : 'default name',
+                'image' => !empty($row[1]) ? $row[1] : 'default_image.jpg',
+                'type' =>  !empty($row[2]) ? explode(", ", $row[2]) : ["No type"],
+                'link' => !empty($row[3]) ? $row[3] : 'http://',
             ]);
         }
     }

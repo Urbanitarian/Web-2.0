@@ -18,7 +18,7 @@
                         <div class="flex flex-col mx-auto">
                             <a href="webresources_post?id={{ $item->id }}">
                              @php $img = $item->image ?? null; @endphp
-                                <img class="object-cover w-auto h-32" src="{{ asset('storage/' . $img) }}"
+                                <img class="object-cover w-auto h-32" src="{{ asset('storage/uploads/webresources/' . $img) }}"
                                     alt="content" onerror="this.src='./img/empty.png'">
                                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
                                   {{ $item->name }}</p>
