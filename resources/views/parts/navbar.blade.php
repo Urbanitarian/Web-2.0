@@ -26,7 +26,7 @@
 
     <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
     <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
-      class="absolute inset-x-0 z-50 w-screen px-6 py-4 mt-12 transition-all duration-300 ease-in-out shadow-md bg-gray-50 lg:bg-transparent lg:shadow-none lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
+      class="mynav absolute inset-x-0 z-50 w-screen px-6 py-4 mt-12 transition-all duration-300 ease-in-out shadow-md bg-gray-50 lg:bg-transparent lg:shadow-none lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
       <div class="flex flex-col pb-4 space-y-4 align-baseline lg:mt-0 lg:flex-row lg:space-y-0 md:pb-0">
         <a class="text-sm font-semibold text-gray-400 lg:mx-2 xl:mx-4 hover:text-black" href="/"
           @click="isOpen = false">&nbsp;HOME</a>
@@ -50,3 +50,19 @@
      </div>
     </div>
   </nav>
+
+  <style>
+  .selected {
+    text-decoration: underline;
+  }
+</style>
+
+<script>
+  const links = document.querySelectorAll(".mynav a");
+  links.forEach(link => {
+    link.addEventListener("click", function() {
+      links.forEach(l => l.classList.remove("selected"));
+      this.classList.add("selected");
+    });
+  });
+</script>

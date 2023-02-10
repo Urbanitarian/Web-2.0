@@ -65,7 +65,11 @@ class WebresourceCrudController extends CrudController
                     ],
         ]);
         CRUD::column('link');
-
+ CRUD::addField([   // URL
+            'name'  => 'Country',
+            'label' => 'country',
+            'type'  => 'text'
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -97,6 +101,8 @@ class WebresourceCrudController extends CrudController
                 'organisations' => 'organisations',
                 'design awards' => 'design awards',
                 'case studies' => 'case studies',
+                'online magazines' => 'online magazines',
+                'investigations' => 'investigations',
                 'psd materials' => 'psd materials',
                 'resources' => 'resources',
                 'platforms' => 'platforms',
@@ -114,7 +120,11 @@ class WebresourceCrudController extends CrudController
             'label' => 'Link',
             'type'  => 'url'
         ]);
-    
+        CRUD::addField([   
+            'name'  => 'country',
+            'label' => 'Country',
+            'type'  => 'text'
+        ]);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

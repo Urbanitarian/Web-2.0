@@ -22,6 +22,7 @@ class WebresourcesImport implements ToModel, WithHeadingRow
                 'image' => !empty($row[1]) ? $row[1] : 'default_image.jpg',
                 'type' =>  !empty($row[2]) ? explode(", ", $row[2]) : ["No type"],
                 'link' => !empty($row[3]) ? $row[3] : 'http://',
+                'country' => !empty($row[4]) ? $row[4] : '',
             ]);
         }
     }

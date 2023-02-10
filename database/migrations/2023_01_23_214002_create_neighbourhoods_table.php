@@ -32,11 +32,11 @@ return new class extends Migration
             $table->string('imagec')->nullable();
             $table->longText('descriptiond')->nullable();
             $table->string('imaged')->nullable();
-            $table->string('credits')->nullable();
+            $table->text('credits')->nullable();
             $table->string('location')->default('40.50, 8.00')->nullable();
             $table->string('status')->nullable();
             $table->string('size')->nullable();
-            $table->string('tags')->default('[\"Green\"]')->nullable();
+            $table->text('tags')->default('[\"Green\"]')->nullable();
             $table->text('link')->nullable();
             $table->string('category')->default('Urbanscapes');
             $table->text('address')->nullable();

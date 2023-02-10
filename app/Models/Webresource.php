@@ -29,6 +29,7 @@ class Webresource extends Model
         'type',
         'image',
         'link',
+        'country',
      ];
 
     protected $casts = [
