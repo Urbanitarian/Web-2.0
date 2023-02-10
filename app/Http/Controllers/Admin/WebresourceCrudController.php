@@ -98,7 +98,7 @@ class WebresourceCrudController extends CrudController
             'type'        => 'select_from_array',
             'options'     => [
                 'websites' => 'websites',
-                'organisations' => 'organisations',
+                'organizations' => 'organizations',
                 'design awards' => 'design awards',
                 'case studies' => 'case studies',
                 'online magazines' => 'online magazines',

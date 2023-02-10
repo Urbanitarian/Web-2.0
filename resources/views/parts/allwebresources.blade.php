@@ -38,14 +38,14 @@
                         </label>
                     </button>
 
-                    <button id="resource">
+                    <button id="resources">
                         <label for="climate"
                             class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">Resources</p>
                         </label>
                     </button>
 
-                    <button id="plateform">
+                    <button id="platforms">
                         <label for="age"
                             class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">Platforms</p>
@@ -58,6 +58,27 @@
                             <p class="text-sm font-medium">Non-profits</p>
                         </label>
                     </button>
+
+                         <button id="organizations">
+                        <label for="placemaking"
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            <p class="text-sm font-medium">Organizations</p>
+                        </label>
+                    </button>
+
+                         <button id="magazines">
+                        <label for="placemaking"
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            <p class="text-sm font-medium">Online Magazines</p>
+                        </label>
+                    </button>
+
+                         <button id="investigations">
+                        <label for="placemaking"
+                            class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                            <p class="text-sm font-medium">Investigations</p>
+                        </label>
+                    </button>
                 </fieldset>
 
                 <fieldset class="flex flex-wrap justify-center gap-2 pt-8 mx-auto md:gap-4">
@@ -66,7 +87,7 @@
                             <p class="text-base font-medium">Where:</p>
                         </label>
                     </div>
-                    <button id="word">
+                    <button id="world">
                         <label for="Allsize" id="Allsizetag"
                             class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                             <p class="text-sm font-medium">Worldwide</p>
@@ -207,20 +228,38 @@
         fetchAndRenderData(url);
     });
 
-    $('#resource').click(function() {
-        url = "api/webresources?type=resource";
+    $('#resources').click(function() {
+        url = "api/webresources?type=resources";
         $('#boucle').empty();
         fetchAndRenderData(url);
     });
 
-    $('#plateform').click(function() {
-        url = "api/webresources?type=plateform";
+    $('#platforms').click(function() {
+        url = "api/webresources?type=platforms";
         $('#boucle').empty();
         fetchAndRenderData(url);
     });
 
     $('#non-profit').click(function() {
         url = "api/webresources?type=non-profit";
+        $('#boucle').empty();
+        fetchAndRenderData(url);
+    });
+
+        $('#magazines').click(function() {
+        url = "api/webresources?type=online magazines";
+        $('#boucle').empty();
+        fetchAndRenderData(url);
+    });
+
+     $('#organizations').click(function() {
+        url = "api/webresources?type=organizations";
+        $('#boucle').empty();
+        fetchAndRenderData(url);
+    });
+
+     $('#investigations').click(function() {
+        url = "api/webresources?type=investigations";
         $('#boucle').empty();
         fetchAndRenderData(url);
     });
