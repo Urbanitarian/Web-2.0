@@ -52,6 +52,9 @@
   </nav>
 
 <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+
   const currentLocation = location.href;
   const menuItem = document.querySelectorAll('.mynav a');
   const menuLength = menuItem.length;
@@ -60,4 +63,5 @@
       menuItem[i].className = 'text-sm font-semibold lg:mx-2 xl:mx-4 text-black';
     }
   }
+});
 </script>
