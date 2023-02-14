@@ -32,7 +32,11 @@
                                 <fieldset>
                                     <legend class="pt-4 pb-2 mb-1 font-medium">Sources:</legend>
                                     <div class="flex flex-wrap text-sm">
-                                       <a href="{{ $item->sources }}"> {{ $item->sources }}</a>
+                                        @php $credits = explode(',', $item->sources); @endphp
+                                        @foreach ($credits as $source)
+                                            <a href="{{ $source }}" class="text-blue-600">
+                                                {{ $source }}</a>
+                                        @endforeach
                                     </div>
                                 </fieldset>
                             </div>

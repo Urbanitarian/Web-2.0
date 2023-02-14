@@ -19,10 +19,10 @@
                      <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="{{ asset('storage/uploads/streetscapes/' . $img1) }}"alt="00"  onerror="this.src='./img/empty.png'"/>
                 </div>
                     <a href="streetscapes_post?id={{ $streetscape->id }}">
-                    <h5 class="pt-1 mx-4 mb-2 text-xl font-bold leading-none sm:text-2xl">
+                    <h5 class="flex justify-center pt-1 mx-4 mb-2 text-xl font-bold leading-none sm:text-2xl">
                        {{ $streetscape->title }}
                     </h5>
-                    <p class="text-sm text-gray-700">
+                    <p class="flex justify-center text-sm text-gray-700">
                       {{ $streetscape->address }} | {{ $streetscape->city }} | {{ $streetscape->country }}
                     </p>
                 </a>

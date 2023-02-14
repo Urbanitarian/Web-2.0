@@ -198,9 +198,11 @@
                                   <p class="max-w-3xl text-black font-bold text-center mx-4 pt-4">
                                  Credits:
                                 </p>
-                                <a href="{{ $item->credits }}" class="max-w-3xl text-blue-700 text-center mx-4 py-4">
-                                    {{ $item->credits }}
-                                </a>
+                                  @php $credits = explode(',', $item->credits); @endphp
+                                        @foreach ($credits as $source)
+                                            <a href="{{ $source }}" class="text-blue-600">
+                                                {{ $source }}</a>
+                                        @endforeach
                             </div>
                         </div>
                         <div class="grid grid-cols-1 gap-4  max-w-[1440px] mx-auto">
