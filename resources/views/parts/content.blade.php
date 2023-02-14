@@ -118,12 +118,12 @@
 <style>
     .mappopup {
         width: 200px;
-        height: 245px;
+        height: 265px;
     }
 
     .mappopup img {
         width: 100%;
-        height: 90%;
+        height: 80%;
         object-fit: cover;
     }
 
