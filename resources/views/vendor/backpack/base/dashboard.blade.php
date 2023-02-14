@@ -140,7 +140,7 @@ function myfunction(id , cat) {
 
     .mappopup {
         width: 200px;
-        height: 240px;
+        height: 260px;
     }
 
     .mappopup img {
