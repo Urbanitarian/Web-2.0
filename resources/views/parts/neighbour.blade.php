@@ -77,28 +77,28 @@
             <button id="Large">
                 <label for="large"
                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                    <p class="text-sm font-medium">large</p>
+                    <p class="text-sm font-medium">LARGE</p>
                 </label>
             </button>
 
             <button id="Medium">
                 <label for="medium"
                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                    <p class="text-sm font-medium">medium</p>
+                    <p class="text-sm font-medium">MEDIUM</p>
                 </label>
             </button>
 
             <button id="Small">
                 <label for="small"
                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                    <p class="text-sm font-medium">small</p>
+                    <p class="text-sm font-medium">SMALL</p>
                 </label>
             </button>
 
             <button id="Xs">
                 <label for="xs"
                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                    <p class="text-sm font-medium">xs</p>
+                    <p class="text-sm font-medium">XS</p>
                 </label>
             </button>
         </fieldset>
