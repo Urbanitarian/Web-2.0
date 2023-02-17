@@ -21,7 +21,7 @@ class MasterplansController extends Controller
         }elseif ($size) {
             $masters = Masterplan::where('size','=', $size)->get();
         } else {
-            $masters = Masterplan::all();
+            $masters = Masterplan::inRandomOrder()->get();
         }
         return response()->json($masters);
     }

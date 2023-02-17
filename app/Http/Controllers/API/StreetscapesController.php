@@ -22,7 +22,7 @@ class StreetscapesController extends Controller
             }elseif ($size) {
                 $streets = Streetscape::where('size','=', $size)->get();
             } else {
-                $streets = Streetscape::all();
+                $streets = Streetscape::inRandomOrder()->get();
             }
             return response()->json($streets);
         }

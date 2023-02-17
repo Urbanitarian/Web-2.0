@@ -22,7 +22,7 @@ class NeighbourhoodsController extends Controller
         }elseif ($size) {
             $neighbourhoods = Neighbourhood::where('size','=', $size)->get();
         } else {
-            $neighbourhoods = Neighbourhood::all();
+            $neighbourhoods = Neighbourhood::inRandomOrder()->get();
         }
         return response()->json($neighbourhoods);
     }
