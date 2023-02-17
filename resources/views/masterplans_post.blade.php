@@ -19,7 +19,7 @@
                                    </div>
                                    <fieldset class="pl-8">
                                        <legend class="pt-8 pb-2 mb-1 font-medium">Sources:</legend>
-                                       <div class="flex flex-wrap text-sm md:w-96 2xl:w-1/2 overflow-x-hidden">
+                                       <div class="flex flex-wrap text-sm md:w-96 2xl:w-2/3 overflow-x-hidden">
                                         @php $credits = explode(',', $item->credits); @endphp
                                         @foreach ($credits as $source)
                                             <a href="{{ $source }}" class="text-blue-600">
