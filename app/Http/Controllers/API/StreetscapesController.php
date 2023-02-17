@@ -20,7 +20,7 @@ class StreetscapesController extends Controller
             }elseif ($tags) {
                 $streets = Streetscape::where('tags','like','%' . $tags . '%')->get();
             }elseif ($size) {
-                $streets = Streetscape::where('size','like','%' . $size . '%')->get();
+                $streets = Streetscape::where('size','=', $size)->get();
             } else {
                 $streets = Streetscape::all();
             }

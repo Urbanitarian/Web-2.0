@@ -20,7 +20,7 @@ class NeighbourhoodsController extends Controller
         }elseif ($tags) {
             $neighbourhoods = Neighbourhood::where('tags','like','%' . $tags . '%')->get();
         }elseif ($size) {
-            $neighbourhoods = Neighbourhood::where('size','like','%' . $size . '%')->get();
+            $neighbourhoods = Neighbourhood::where('size','=', $size)->get();
         } else {
             $neighbourhoods = Neighbourhood::all();
         }

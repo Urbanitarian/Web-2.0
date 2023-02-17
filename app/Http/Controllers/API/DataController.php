@@ -72,9 +72,9 @@ class DataController extends Controller
                 );
             }
         }elseif ($size) {
-            $masters = Masterplan::where('size','like','%' . $size . '%')->get();
-            $streets = Streetscape::where('size','like','%' . $size . '%')->get();
-            $neighbs = Neighbourhood::where('size','like','%' . $size . '%')->get();
+            $masters = Masterplan::where('size','=', $size)->get();
+            $streets = Streetscape::where('size','=', $size)->get();
+            $neighbs = Neighbourhood::where('size','=', $size)->get();
             $all_data = array_merge(
                 $masters->toArray(),
                 $streets->toArray(),

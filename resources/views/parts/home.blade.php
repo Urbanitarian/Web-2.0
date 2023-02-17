@@ -132,14 +132,14 @@
              <select name="size" id="size_selector"
                  class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">All</option>
-                  <option value="">XXXXL</option>
-                  <option value="">XXXL</option>
-                  <option value="">XXL</option>
-                 <option value="">XL</option>
-                 <option value="L">Large</option>
-                 <option value="M">Medium</option>
-                 <option value="S">Small</option>
-                 <option value="XS">Xs</option>
+                  <option value="XXXXL">XXXXL</option>
+                  <option value="XXXL">XXXL</option>
+                  <option value="XXL">XXL</option>
+                 <option value="XL">XL</option>
+                 <option value="L">LARGE</option>
+                 <option value="M">MEDIUM</option>
+                 <option value="S">SMALL</option>
+                 <option value="XS">XS</option>
              </select>
          </div>
 

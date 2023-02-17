@@ -75,32 +75,32 @@
                  </label>
              </button>
 
-             <button id="Xs">
+             <button id="XS">
                  <label for="xs"
                      class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">xs</p>
+                     <p class="text-sm font-medium">XS</p>
                  </label>
              </button>
 
-             <button id="Small">
+             <button id="SMALL">
                  <label for="small"
                      class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">small</p>
+                     <p class="text-sm font-medium">SMALL</p>
                  </label>
              </button>
 
-             <button id="Medium">
+             <button id="MEDIUM">
                  <label for="medium"
                      class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">medium</p>
+                     <p class="text-sm font-medium">MEDIUM</p>
                  </label>
              </button>
 
 
-             <button id="Large">
+             <button id="LARGE">
                  <label for="large"
                      class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">large</p>
+                     <p class="text-sm font-medium">LARGE</p>
                  </label>
              </button>
 
@@ -262,25 +262,25 @@
          fetchAndRenderData(url);
      });
 
-     $('#Large').click(function() {
+     $('#LARGE').click(function() {
          url = "api/masterplans?size=L";
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
-     $('#Medium').click(function() {
+     $('#MEDIUM').click(function() {
          url = "api/masterplans?size=M";
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
-     $('#Small').click(function() {
+     $('#SMALL').click(function() {
          url = "api/masterplans?size=S";
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
-     $('#Xs').click(function() {
+     $('#XS').click(function() {
          url = "api/masterplans?size=XS";
          $('#boucle').empty();
          fetchAndRenderData(url);
