@@ -22,7 +22,7 @@
                                        <div class="flex flex-wrap text-sm md:w-96 2xl:w-2/3 overflow-x-hidden">
                                         @php $credits = explode(',', $item->credits); @endphp
                                         @foreach ($credits as $source)
-                                            <a href="{{ $source }}" class="text-blue-600">
+                                            <a href="{{ $source }}" class="text-blue-600" target="_blank">
                                                 {{ $source }}</a>
                                         @endforeach
                                        </div>

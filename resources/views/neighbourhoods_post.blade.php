@@ -200,7 +200,7 @@
                                 </p>
                                   @php $credits = explode(',', $item->credits); @endphp
                                         @foreach ($credits as $source)
-                                            <a href="{{ $source }}" class="text-blue-600">
+                                            <a href="{{ $source }}" class="text-blue-600" target="_blank">
                                                 {{ $source }}</a>
                                         @endforeach
                             </div>

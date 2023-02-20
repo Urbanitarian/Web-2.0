@@ -49,7 +49,7 @@
 
                     <button
                         class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded md:mt-8 focus:outline-none hover:bg-gray-800">
-                        <a href="{{ $streetscape->credits }}">See project </a></button>
+                        <a href="{{ $streetscape->credits }}" target="_blank">See project </a></button>
 
                           <div class="grid grid-cols-1 gap-4">
                             <div id="mastermap" class="mt-4 rounded h-[350px] w-full"></div>
