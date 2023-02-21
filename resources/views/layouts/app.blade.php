@@ -6,7 +6,12 @@
 </head>
 
 <body>
-   
+ @php
+        $topbar_text = Setting::get('topbar_text');
+        @endphp
+        @if ($topbar_text != null)
+       <div class="marquee py-1">{{ $topbar_text }}</div>
+        @endif
         @include('parts.navbar')
     <main>
         @yield('main')
@@ -20,5 +25,27 @@
 
 
 </body>
+<style>
+.marquee {
+  color: white;
+  overflow: hidden;
+  background: black;
+}
+</style>
+<script>
+$('.marquee').marquee({
+    //speed in milliseconds of the marquee
+    duration: 11000,
+    //gap in pixels between the tickers
+    gap: 50,
+    //time in milliseconds before the marquee will start animating
+    delayBeforeStart: 0,
+    //'left' or 'right'
+    direction: 'left',
+    //true or false - should the marquee be duplicated to show an effect of continues flow
+    duplicated: true
+
+});
+</script>
 
 </html>

@@ -9,6 +9,7 @@ class SettingCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+   
 
     public function setup()
     {
@@ -36,12 +37,14 @@ class SettingCrudController extends CrudController
         ]);
     }
 
+    
+
     public function setupUpdateOperation()
     {
         CRUD::addField([   // CustomHTML
             'name'  => 'separator',
             'type'  => 'custom_html',
-            'value' => '<h3 class="text-sm text-gray-800">Attention la modification de ce paramétre redemarre le serveur patienter 1mn aprés la sauvegarde</h3>',
+            'value' => '<h3 class="text-sm text-gray-800">Warning: changing this setting will restart the server. Please wait 1 minute after saving.</h3>',
         ],);
         CRUD::addField([
             'name'       => 'key',
