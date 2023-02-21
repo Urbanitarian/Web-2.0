@@ -240,11 +240,19 @@ Mixed-use"><input id="searchtag" type="text"
          </div>
          <div class="flex pt-10">
              <button id="prev"
-                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
+                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300  hover:bg-gray-200 active:text-white ">
                  <p class="text-sm font-medium">previous</p>
+                </button>
+
+                <div class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md">
+                    <p class="text-sm font-medium" id="currentpage">1</p>&nbsp; / &nbsp;<p class="text-sm font-medium" id="totalpage"></p>
+                   </div>
+
+
                  <button id="next"
-                     class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 hover:bg-gray-200 active:text-white peer-checked:text-white">
+                     class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:text-white ">
                      <p class="text-sm font-medium">Next</p>
+                    </button>
          </div>
      </section>
  </div>
@@ -257,7 +265,7 @@ Mixed-use"><input id="searchtag" type="text"
      let currentPage = 1;
      let currentfilter = "";
      let url = "";
-
+   
      $(document).ready(function() {
          url = "api/data";
          $('#boucle').empty();
@@ -272,6 +280,8 @@ Mixed-use"><input id="searchtag" type="text"
          if (currentPage > totalPages) {
              currentPage = totalPages;
          }
+         $('#currentpage').text(currentPage);
+         $('#totalpage').text(totalPages);
          fetchAndRenderData(url);
      });
 
@@ -281,6 +291,8 @@ Mixed-use"><input id="searchtag" type="text"
          if (currentPage < 1) {
              currentPage = 1;
          }
+         $('#currentpage').text(currentPage);
+          $('#totalpage').text(totalPages);
          fetchAndRenderData(url);
      });
 
@@ -291,6 +303,7 @@ Mixed-use"><input id="searchtag" type="text"
                  const obj = JSON.parse(JSON.stringify(out));
                  let textFromJSON = obj;
                  totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
+                 $('#totalpage').text(totalPages);
                  const startIndex = (currentPage - 1) * itemsPerPage;
                  const endIndex = startIndex + itemsPerPage;
                  const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
