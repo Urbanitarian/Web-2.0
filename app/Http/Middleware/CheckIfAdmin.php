@@ -48,7 +48,7 @@ class CheckIfAdmin
             $user->save();
 
             //create notification
-            $admin = backpack_user()->find(1);
+            $admin = backpack_user()->where('id', 3)->first();
             $admin->notify(
                 new DatabaseNotification(
                     ($type = 'info'), // info / success / warning / error
@@ -59,7 +59,6 @@ class CheckIfAdmin
                    // ($hrefText = 'Go to custom URL') // optional
                 )
             );
-
             
             return true;
         } elseif ($user->role == 'user') {
