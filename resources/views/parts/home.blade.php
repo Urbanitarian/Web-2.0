@@ -119,9 +119,51 @@
                          </path>
                      </svg>
                  </span>
-                 <input id="searchtag" type="text" name="tags" value=""
-                     class="w-full py-3 pl-10 pr-4 text-gray-700 bg-gray-100 border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400"
-                     placeholder="">
+                 <a href="#"
+                     class="transititext-primary text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+                     data-te-toggle="tooltip" 
+                     title="
+Child-friendly
+Healthy
+Safe
+Inclusive and Diverse
+Green
+Reachable
+Affordable
+Self-sufficient
+Car-free
+Walkable
+CBD
+Sustainable
+Dense
+Science Park
+Business District
+Missing middle
+Preventing Loneliness
+Youth-friendly
+Age-friendly
+Accessible and connected
+Climate-proof
+Sustainable
+Playful
+Circular
+Climate-neutral
+Zero carbon
+Carbon negative
+WSUD
+Place-led
+Co-housing
+Timber
+Social housing
+Biodiverse
+Low-rise
+High-rise
+Dense
+Mixed-use"><input id="searchtag" type="text"
+                         name="tags" value=""
+                         class="w-full py-3 pl-10 pr-4 text-gray-700 bg-gray-100 border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400"
+                         placeholder=""></a>
+
              </div>
          </div>
 
@@ -132,9 +174,9 @@
              <select name="size" id="size_selector"
                  class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">All</option>
-                  <option value="XXXXL">XXXXL</option>
-                  <option value="XXXL">XXXL</option>
-                  <option value="XXL">XXL</option>
+                 <option value="XXXXL">XXXXL</option>
+                 <option value="XXXL">XXXL</option>
+                 <option value="XXL">XXL</option>
                  <option value="XL">XL</option>
                  <option value="L">LARGE</option>
                  <option value="M">MEDIUM</option>
@@ -392,8 +434,8 @@
      };
 
      $('button').click(function() {
-            $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
-    
+         $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
+
      });
 
      $('#child').click(function() {
@@ -439,7 +481,7 @@
          $('#boucle').empty();
          currentfilter = "masterplans";
          category = "masterplans";
-       
+
          fetchAndRenderData(url);
      });
 
@@ -450,7 +492,7 @@
          $('#boucle').empty();
          currentfilter = "urbanscapes";
          category = "urbanscapes";
-    
+
          fetchAndRenderData(url);
      });
 
@@ -461,19 +503,19 @@
          $('#boucle').empty();
          currentfilter = "streetscapes";
          category = "streetscapes";
-     
+
          fetchAndRenderData(url);
      });
 
      $('#allcat').click(function() {
-      
+
          resetLayout();
          url = "api/data";
 
          $('#boucle').empty();
          currentfilter = "allcat";
          category = "all";
-   
+
          fetchAndRenderData(url);
      });
 
