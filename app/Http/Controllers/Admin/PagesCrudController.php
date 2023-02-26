@@ -62,9 +62,6 @@ class PagesCrudController extends CrudController
             'name'       => 'title',
             'label'      => 'Title',
             'type'       => 'text',
-            'attributes' => [
-                'disabled' => 'disabled',
-            ],
         ]);
         $this->crud->addField([
             'name' => 'content',
