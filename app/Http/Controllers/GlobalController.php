@@ -265,15 +265,31 @@ class GlobalController extends Controller
     {
         $q = request()->input('q');
         $size = request()->input('size');
+        $city = request()->input('city');
+        $country = request()->input('country');
         
         if ($q) {
             $masterplans = Masterplan::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->paginate(10);
         } elseif ($size) {
             $masterplans = Masterplan::where('size', 'like', '%' . $size . '%')->paginate(10);
+        }  elseif ($request->filled('city')) 
+        { 
+            $masters = Masterplan::where('city', '=', $city)->paginate(10);
+            $streets = Streetscape::where('city', '=', $city)->paginate(10);
+            $neighbs = Neighbourhood::where('city', '=', $city)->paginate(10);
+        } elseif ($request->filled('country')) 
+        { 
+            $masters = Masterplan::where('country', '=', $country)->paginate(10);
+            $streets = Streetscape::where('country', '=', $country)->paginate(10);
+            $neighbs = Neighbourhood::where('country', '=', $country)->paginate(10);
         } else {
             $masterplans = Masterplan::paginate(10);
         }
-        return view('masterplans', compact('masterplans'));
+
+        $cities = City::all();
+        $countries = Country::All();
+
+        return view('masterplans', compact('masterplans', 'cities', 'countries'));
     }
 
     public function masterplans_post(Request $request)

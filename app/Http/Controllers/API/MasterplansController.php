@@ -17,7 +17,7 @@ class MasterplansController extends Controller
         if ($q) { 
             $masters = Masterplan::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
         }elseif ($tags) {
-            $masters = Masterplan::where('tags','=','%' . $tags . '%')->get();
+            $masters = Masterplan::where('tags','like','%' . $tags . '%')->get();
         }elseif ($size) {
             $masters = Masterplan::where('size','=', $size)->get();
         } else {

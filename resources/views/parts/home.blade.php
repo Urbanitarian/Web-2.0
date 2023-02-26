@@ -520,7 +520,7 @@
          fetchAndRenderData(url);
      });
 
-      $('#tags_selector').change(function() {
+     $('#tags_selector').change(function() {
          url = "api/data?tags=" + $('#tags_selector').val();
          $('#boucle').empty();
          currentfilter = $('#tags_selector').val();

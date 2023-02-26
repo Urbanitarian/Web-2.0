@@ -1,5 +1,8 @@
  <section class="pt-8">
      @php
+  use \App\Http\Controllers\GlobalController;
+         $city = GlobalController::pages();
+         $country = GlobalController::pages();
          $size = urldecode(request()->get('size'));
          $q = urldecode(request()->get('q'));
      @endphp
@@ -71,73 +74,120 @@
              </button>
          </fieldset>
 
-         <fieldset class="flex flex-wrap justify-center gap-2 pt-8 mx-auto md:gap-4">
-             <button id="Allsize">
-                 <label for="Allsize" id="Allsizetag"
-                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">All sizes</p>
+         <div class="grid grid-cols-3 gap-2 mx-4 mt-4 md:grid-cols-5 md:mx-0">
+             <div class="block">
+                 <label for="DeliveryStandard" class="block">
+                     <p class="pb-2 font-bold text-black">Tags</p>
                  </label>
-             </button>
+                 <select name="tags" id="tags_selector"
+                     class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                     <option value="">All</option>
+                     <option value="Child-friendly">Child-friendly</option>
+                     <option value="Healthy">Healthy</option>
+                     <option value="Safe">Safe</option>
+                     <option value="Inclusive and Diverse">Inclusive and Diverse</option>
+                     <option value="Green">Green</option>
+                     <option value="Reachable">Reachable</option>
+                     <option value="Affordable">Affordable</option>
+                     <option value="Self-sufficient">Self-sufficient</option>
+                     <option value="Car-free">Car-free</option>
+                     <option value="Walkable">Walkable</option>
+                     <option value="CBD">CBD</option>
+                     <option value="Sustainable">Sustainable</option>
+                     <option value="Dense">Dense</option>
+                     <option value="SciencePark">Science Park</option>
+                     <option value="BusinessDistrict">Business District</option>
+                     <option value="MissingMiddle">Missing middle</option>
+                     <option value="PreventingLoneliness">Preventing Loneliness</option>
+                     <option value="YouthFriendly">Youth-friendly</option>
+                     <option value="AgeFriendly">Age-friendly</option>
+                     <option value="AccessibleConnected">Accessible and connected</option>
+                     <option value="ClimateProof">Climate-proof</option>
+                     <option value="Sustainable">Sustainable</option>
+                     <option value="Playful">Playful</option>
+                     <option value="Circular">Circular</option>
+                     <option value="ClimateNeutral">Climate-neutral</option>
+                     <option value="ZeroCarbon">Zero carbon</option>
+                     <option value="CarbonNegative">Carbon negative</option>
+                     <option value="WSUD">WSUD</option>
+                     <option value="PlaceLed">Place-led</option>
+                     <option value="CoHousing">Co-housing</option>
+                     <option value="Timber">Timber</option>
+                     <option value="SocialHousing">Social housing</option>
+                     <option value="Biodiverse">Biodiverse</option>
+                     <option value="LowRise">Low-rise</option>
+                     <option value="HighRise">High-rise </option>
+                     <option value="Dense">Dense </option>
+                     <option value="Mixed-use">Mixed-use</option>
+                 </select>
+             </div>
 
-             <button id="XS">
-                 <label for="xs"
-                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">XS</p>
+             <div class="block">
+                 <label for="DeliveryStandard" class="block">
+                     <p class="pb-2 font-bold text-black">Size</p>
                  </label>
-             </button>
+                 <select name="size" id="size_selector"
+                     class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                     <option value="">All</option>
+                     <option value="XXXXL">XXXXL</option>
+                     <option value="XXXL">XXXL</option>
+                     <option value="XXL">XXL</option>
+                     <option value="XL">XL</option>
+                     <option value="L">L</option>
+                     <option value="M">M</option>
+                     <option value="S">S</option>
+                     <option value="XS">XS</option>
+                 </select>
+             </div>
 
-             <button id="SMALL">
-                 <label for="small"
-                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">S</p>
+             <div class="block">
+                 <label for="DeliveryStandard" class="block">
+                     <p class="pb-2 font-bold text-black">Status</p>
                  </label>
-             </button>
+                 <select name="status" id="status_selector"
+                     class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                     <option value="">All</option>
+                     <option value="built">Built</option>
+                     <option value="future">Future</option>
+                     <option value="under_development">Under
+                         development</option>
+                     <option value="regeneration">Regeneration</option>
+                 </select>
+             </div>
 
-             <button id="MEDIUM">
-                 <label for="medium"
-                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">M</p>
+             <div class="block">
+                 <label for="DeliveryStandard" class="block">
+                     <p class="pb-2 font-bold text-black">City</p>
                  </label>
-             </button>
+                 <select name="city" id="city_selector"
+                     class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                     <option value="">All</option>
+                     @foreach ($cities as $city)
+                     <option value="{{ $city->name }}">
+                         {{ $city->name }}</option>
+                 @endforeach
 
+                 </select>
+             </div>
 
-             <button id="LARGE">
-                 <label for="large"
-                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">L</p>
+             <div class="block">
+                 <label for="DeliveryStandard" class="block">
+                     <p class="pb-2 font-bold text-black">Country</p>
                  </label>
-             </button>
+                 <select name="country" id="country_selector"
+                     class="w-full px-4 py-3 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                     <option value="">All</option>
+                     @foreach ($countries as $country)
+                     <option value="{{ $country->name }}">
+                         {{ $country->name }}</option>
+                 @endforeach
 
-             <button id="XL">
-                 <label for="XL"
-                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">XL</p>
-                 </label>
-             </button>
+                 </select>
+             </div>
 
-             <button id="XXL">
-                 <label for="XXL"
-                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">XXL</p>
-                 </label>
-             </button>
-
-             <button id="XXXL">
-                 <label for="XXXL"
-                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">XXXL</p>
-                 </label>
-             </button>
-
-             <button id="XXXXL">
-                 <label for="XXXXL"
-                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">XXXXL</p>
-                 </label>
-             </button>
+         </div>
 
 
-         </fieldset>
  </section>
 
  <div class="mx-4 border-t">
@@ -259,58 +309,38 @@
          fetchAndRenderData(url);
      });
 
-     $('#Allsize').click(function() {
-         url = "api/masterplans";
-         $('#searchbar').val('');
+      $('#tags_selector').change(function() {
+         url = "api/masterplans?tags=" + $('#tags_selector').val();
          $('#boucle').empty();
+         currentfilter = $('#tags_selector').val();
          fetchAndRenderData(url);
      });
 
-     $('#LARGE').click(function() {
-         url = "api/masterplans?size=L";
+     $('#size_selector').change(function() {
+         url = "api/masterplans?size=" + $('#size_selector').val();
          $('#boucle').empty();
+         currentfilter = $('#size_selector').val();
          fetchAndRenderData(url);
      });
 
-     $('#MEDIUM').click(function() {
-         url = "api/masterplans?size=M";
+     $('#status_selector').change(function() {
+         url = "api/masterplans?status=" + $('#status_selector').val();
          $('#boucle').empty();
+         currentfilter = $('#status_selector').val();
          fetchAndRenderData(url);
      });
 
-     $('#SMALL').click(function() {
-         url = "api/masterplans?size=S";
+     $('#city_selector').change(function() {
+         url = "api/masterplans?q=" + $('#city_selector').val();
          $('#boucle').empty();
+         currentfilter = $('#city_selector').val();
          fetchAndRenderData(url);
      });
 
-     $('#XS').click(function() {
-         url = "api/masterplans?size=XS";
+     $('#country_selector').change(function() {
+         url = "api/masterplans?q=" + $('#country_selector').val();
          $('#boucle').empty();
-         fetchAndRenderData(url);
-     });
-
-     $('#XL').click(function() {
-         url = "api/masterplans?size=XL";
-         $('#boucle').empty();
-         fetchAndRenderData(url);
-     });
-
-     $('#XXL').click(function() {
-         url = "api/masterplans?size=XXL";
-         $('#boucle').empty();
-         fetchAndRenderData(url);
-     });
-
-     $('#XXXL').click(function() {
-         url = "api/masterplans?size=XXXL";
-         $('#boucle').empty();
-         fetchAndRenderData(url);
-     });
-
-     $('#XXXXL').click(function() {
-         url = "api/masterplans?size=XXXXL";
-         $('#boucle').empty();
+         currentfilter = $('#country_selector').val();
          fetchAndRenderData(url);
      });
 
