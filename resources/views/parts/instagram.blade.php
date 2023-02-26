@@ -1,4 +1,4 @@
-<section class="mx-4 mb-16 border-t border-b">
+<section class="mx-4 mb-8 border-t">
     <div class="px-4 py-8 pb-16 mx-8 max-w-screen-2xl md:py-16 md:mx-auto">
         <div class="flex flex-wrap w-full mb-8 md:mb-10">
             <div class="w-full">

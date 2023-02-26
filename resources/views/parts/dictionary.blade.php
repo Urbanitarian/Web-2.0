@@ -6,7 +6,7 @@
                           <p class="text-sm font-bold text-gray-700 md:text-lg pt-4">
                 Unlock Your Urban Design Vocabulary: Join the Largest Urban Design Jargon Community Online.
             </p>
-             <p class="text-ssm text-gray-700 md:text-lg">
+             <p class="text-ssm text-gray-500 md:text-lg">
               Lexicon of urban design terms, from deeply informative vocabulary to light-hearted buzzwords
             </p>
         </div>

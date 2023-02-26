@@ -8,7 +8,7 @@
               <p class="text-base font-bold text-gray-700 md:text-lg pt-4">
                 Design the Future of Urban Living with our ultimate resource for Urbanscapes
             </p>
-             <p class="text-base text-gray-700 md:text-lg">
+             <p class="text-base text-gray-500 md:text-lg">
                 Take a deep-dive into some of the finest urban developments through our insightful articles
             </p>
         </div>

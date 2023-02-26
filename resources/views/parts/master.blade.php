@@ -15,7 +15,7 @@
              <p class="text-sm font-bold text-gray-700 md:text-xl pt-4">
                  Discover Urban Design's Hidden Gems: Explore The Urbanitarian Masterplan Archive
              </p>
-             <p class="text-sm text-gray-700 md:text-base">
+             <p class="text-sm text-gray-500 md:text-base">
                  Get your daily dose of inspiration in our curated list of urban design projects from all around the world.<br>
                   Each project contains key insights along with useful diagrams, measurements and data
              </p>

@@ -11,7 +11,7 @@
                  <p class="text-sm font-bold text-gray-700 md:text-lg pt-4">
                 The Power of Emotions in Urban Design
              </p>
-             <p class="text-ssm text-gray-700 md:text-lg">
+             <p class="text-ssm text-gray-500 md:text-lg">
           Designing for Human Experience with our New Urban Data Resource: Mapping Emotions with Mindscapes
              </p>
         </div>

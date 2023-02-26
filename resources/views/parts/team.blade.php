@@ -6,7 +6,7 @@
                 <h2 class="text-3xl font-bold text-gray-900 md:text-5xl">
                     About
                 </h2>
-                <p class="text-base text-gray-700 md:text-lg pt-8">
+                <p class="text-base text-gray-500 md:text-lg pt-8">
                    {{ $pages[5]->content;}}
             </p>
             </div>

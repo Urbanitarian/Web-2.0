@@ -7,7 +7,7 @@
             <p class="text-sm font-bold text-gray-700 md:text-lg">
                 Redefine Streets: Get Inspired by Our Curated Streetscapes Collection
             </p>
-             <p class="text-sm text-gray-700 md:text-lg">
+             <p class="text-sm text-gray-500 md:text-lg">
                 Examples of streetscapes with description, measures and solutions to incorporate in your designs
             </p>
         </div>

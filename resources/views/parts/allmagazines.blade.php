@@ -4,7 +4,7 @@
             <div class="w-full">
                 <h1 class="pb-4 text-3xl font-bold text-center text-gray-900 md:text-5xl">To Read</h1>
                 <div class="max-w-xl mb-6 sm:mx-auto sm:text-center lg:max-w-2xl">
-                    <p class="text-base text-gray-700 md:text-lg">
+                    <p class="text-base text-gray-500 md:text-lg">
                         Rundown of a variety of printed/online planning magazines and books you might consider reading.
                     </p>
                 </div>
