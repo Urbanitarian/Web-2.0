@@ -3,11 +3,11 @@
          <div class="max-w-lg mx-auto text-center lg:max-w-xl">
              <img class="flex justify-center w-12 mx-auto my-8" src="./img/logo.png">
              <h2 class="text-2xl font-bold text-gray-900 md:text-3xl">
-                 Explore the best world's urban design projects collection
+                 The world's go to urban design online platform
              </h2>
 
              <p class="mt-4 text-sm text-gray-500">
-                 We are number one destination to get knowledge on urban design.
+                The Ultimate Urban Design Knowledge Hub - Urbanitarian
              </p>
          </div>
 

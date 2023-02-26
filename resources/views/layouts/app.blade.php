@@ -10,7 +10,7 @@
         $topbar_text = Setting::get('topbar_text');
         @endphp
         @if ($topbar_text != null)
-       <div class="marquee py-1">{{ $topbar_text }}</div>
+       <div class="marquee py-2">{{ $topbar_text }}  &nbsp;   &nbsp; {{ $topbar_text }}  &nbsp;   &nbsp; {{ $topbar_text }}  &nbsp; &nbsp; {{ $topbar_text }}</div>
         @endif
         @include('parts.navbar')
     <main>
@@ -44,7 +44,7 @@ $('.marquee').marquee({
     direction: 'left',
     //true or false - should the marquee be duplicated to show an effect of continues flow
     duplicated: true
-
+   
 });
 </script>
 
