@@ -6,7 +6,7 @@
                  The world's go to urban design online platform
              </h2>
 
-             <p class="mt-4 text-sm text-gray-500">
+             <p class="mt-4 text-base text-gray-500">
                  The Ultimate Urban Design Knowledge Hub - Urbanitarian
              </p>
          </div>
