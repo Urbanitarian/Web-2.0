@@ -73,7 +73,7 @@
             <button id="Allsize">
                 <label for="Allsize" id="Allsizetag"
                     class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                    <p class="text-sm font-medium">All size</p>
+                    <p class="text-sm font-medium">All sizes</p>
                 </label>
             </button>
 

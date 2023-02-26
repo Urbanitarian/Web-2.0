@@ -4,13 +4,17 @@
          $q = urldecode(request()->get('q'));
      @endphp
      <div class="p-8 md:p-12 lg:px-12 lg:py-12">
-         <div class="max-w-lg mx-auto text-center lg:max-w-xl">
+         <div class="max-w-lg mx-auto text-center lg:max-w-4xl">
              <h2 class="text-3xl font-bold text-gray-900 md:text-5xl">
                  Masterplans
              </h2>
 
-             <p class="mt-4 text-sm text-gray-500">
-                 We are number one destination to get knowledge on urban design.
+             <p class="text-sm font-bold text-gray-700 md:text-lg pt-4">
+                 Discover Urban Design's Hidden Gems: Explore The Urbanitarian Masterplan Archive
+             </p>
+             <p class="text-ssm text-gray-700 md:text-lg">
+                 Get your daily dose of inspiration in our curated list of urban design projects from all around the
+                 world. Each project contains key insights along with useful diagrams, measurements and data
              </p>
          </div>
 
@@ -71,7 +75,7 @@
              <button id="Allsize">
                  <label for="Allsize" id="Allsizetag"
                      class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">All size</p>
+                     <p class="text-sm font-medium">All sizes</p>
                  </label>
              </button>
 
@@ -85,14 +89,14 @@
              <button id="SMALL">
                  <label for="small"
                      class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">SMALL</p>
+                     <p class="text-sm font-medium">S</p>
                  </label>
              </button>
 
              <button id="MEDIUM">
                  <label for="medium"
                      class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">MEDIUM</p>
+                     <p class="text-sm font-medium">M</p>
                  </label>
              </button>
 
@@ -100,7 +104,7 @@
              <button id="LARGE">
                  <label for="large"
                      class="flex items-center justify-center px-3 py-2 text-gray-900 border border-gray-100 rounded-md cursor-pointer hover:border-gray-200 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">LARGE</p>
+                     <p class="text-sm font-medium">L</p>
                  </label>
              </button>
 
@@ -286,25 +290,25 @@
          fetchAndRenderData(url);
      });
 
-        $('#XL').click(function() {
+     $('#XL').click(function() {
          url = "api/masterplans?size=XL";
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
-   $('#XXL').click(function() {
+     $('#XXL').click(function() {
          url = "api/masterplans?size=XXL";
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
-        $('#XXXL').click(function() {
+     $('#XXXL').click(function() {
          url = "api/masterplans?size=XXXL";
          $('#boucle').empty();
          fetchAndRenderData(url);
      });
 
-   $('#XXXXL').click(function() {
+     $('#XXXXL').click(function() {
          url = "api/masterplans?size=XXXXL";
          $('#boucle').empty();
          fetchAndRenderData(url);

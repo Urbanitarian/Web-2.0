@@ -10,7 +10,7 @@
         $topbar_text = Setting::get('topbar_text');
         @endphp
         @if ($topbar_text != null)
-       <div class="marquee py-2">{{ $topbar_text }}  &nbsp;   &nbsp; {{ $topbar_text }}  &nbsp;   &nbsp; {{ $topbar_text }}  &nbsp; &nbsp; {{ $topbar_text }}</div>
+       <div class="marquee py-2">{{ $topbar_text }}  &nbsp;   &nbsp; {{ $topbar_text }}  &nbsp;   &nbsp; {{ $topbar_text }}  &nbsp; &nbsp; {{ $topbar_text }}   &nbsp; &nbsp;  {{ $topbar_text }}  &nbsp;   &nbsp; {{ $topbar_text }}  &nbsp;   &nbsp; {{ $topbar_text }}  &nbsp; &nbsp; {{ $topbar_text }}</div>
         @endif
         @include('parts.navbar')
     <main>
@@ -35,9 +35,9 @@
 <script>
 $('.marquee').marquee({
     //speed in milliseconds of the marquee
-    duration: 11000,
+    duration: 15000,
     //gap in pixels between the tickers
-    gap: 50,
+    gap: 20,
     //time in milliseconds before the marquee will start animating
     delayBeforeStart: 0,
     //'left' or 'right'

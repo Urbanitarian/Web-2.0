@@ -3,14 +3,17 @@
         $q = urldecode(request()->get('q'));
     @endphp
     <div class="p-8 md:p-12 lg:px-12 lg:py-12">
-        <div class="max-w-lg mx-auto text-center lg:max-w-xl">
+        <div class="max-w-lg mx-auto text-center lg:max-w-4xl">
             <h2 class="text-3xl font-bold text-gray-900 md:text-5xl">
                 Mindscapes
             </h2>
 
-            <p class="mt-4 text-sm text-gray-500">
-                We are number one destination to get knowledge on urban design.
-            </p>
+                 <p class="text-sm font-bold text-gray-700 md:text-lg pt-4">
+                The Power of Emotions in Urban Design
+             </p>
+             <p class="text-ssm text-gray-700 md:text-lg">
+          Designing for Human Experience with our New Urban Data Resource: Mapping Emotions with Mindscapes
+             </p>
         </div>
 </section>
 
@@ -24,7 +27,7 @@
                     <div class="lg:w-3/4 md:px-6">
                         <div class="juxtapose">
                             <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4  saturate-120"
-                                src="{{ asset('storage/' . $mindscape->image) }}"alt="00"
+                                src="{{ asset('storage/' . $mindscape->image[0]) }}"alt="00"
                                 onerror="this.src='./img/empty.png'" />
                         </div>
 

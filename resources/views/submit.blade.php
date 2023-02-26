@@ -2,7 +2,7 @@
         @php use \App\Http\Controllers\GlobalController; @endphp
         @php  $pages = GlobalController::pages();@endphp
 @section('main')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
     {!! RecaptchaV3::initJs() !!}
     <div data-barba="container">
         <section class="pt-8">
@@ -45,14 +45,14 @@
                         </div>
                         <div class="w-full p-2">
                             <div class="relative">
-                                <label for="office" class="text-sm leading-7 text-gray-800">office</label>
+                                <label for="office" class="text-sm leading-7 text-gray-800">Office</label>
                                 <input type="office" id="office" name="office" required
                                     class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-gray-100 bg-opacity-50 border border-gray-300 rounded outline-none focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200">
                             </div>
                         </div>
                         <div class="w-full p-2">
                             <div class="relative">
-                                <label for="link" class="text-sm leading-7 text-gray-800">link</label>
+                                <label for="link" class="text-sm leading-7 text-gray-800">Link</label>
                                 <input type="link" id="office" name="link" required
                                     class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-gray-100 bg-opacity-50 border border-gray-300 rounded outline-none focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200">
                             </div>
@@ -65,9 +65,6 @@
                             </div>
                         </div>
 
-                        <p class="mt-4 text-xs text-gray-500 leading-relaxed py-4 mx-4">
-                            We only receive submissions of built projects completed after 2014.
-                        </p>
                         <div class="ml-4 p-2">
                             <input type="checkbox" id="secure" name="secure" required>
                             <label for="secure" class="text-sm leading-7 text-gray-800">I agree to the <a href="legal" class="text-blue-500">Terms of use</a> and the <a href="confidentialite" class="text-blue-500">Privacy Policy</a></label>

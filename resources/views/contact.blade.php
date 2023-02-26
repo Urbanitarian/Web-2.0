@@ -7,13 +7,12 @@
          @php use \App\Http\Controllers\GlobalController; @endphp
          @if (session('Message_envoye'))
              <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000, PopupUser())" class="pt-1 pr-4">
-                 <div id="popmenu" class="px-4 py-2 text-xs btnmenu text-emerald-500">&zwnj; Email envoyé</div>
+                 <div id="popmenu" class="px-4 py-2 text-xs btnmenu text-emerald-500">&zwnj; Email send</div>
              </div>
          @endif
          @if (session('already_send'))
              <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000, PopupUser())" class="pt-1 pr-4">
-                 <div id="popmenu" class="px-4 py-2 text-xs btnmenu text-emerald-500">&zwnj; Vous avez déja envoyé un
-                     message aujourd'hui</div>
+                 <div id="popmenu" class="px-4 py-2 text-xs btnmenu text-emerald-500">&zwnj; Already send an email today</div>
              </div>
          @endif
          <div class="p-5 mx-auto sm:p-10 md:px-16">

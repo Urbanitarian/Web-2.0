@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="">
-                        @php $img7 = $mindscape->image ?? null; @endphp
+                        @php $img7 = $mindscape->image[0] ?? null; @endphp
 
                         <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-auto w-full  saturate-120"
                             src="{{ asset('storage/' . $img7) }}"alt="00" onerror="this.src='./img/empty.png'" />
@@ -34,15 +34,26 @@
                             {{ $mindscape->created_at->format('M d Y') }}
                         </p>
                     </div>
-                    <p class="my-4 text-sm text-center text-gray-500">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <p class="my-4 text-sm text-gray-500">
                         {{ $mindscape->description }}
                     </p>
 
+                    <div class="grid grid-cols-2 gap-4">
+                @forelse ($mindscape->image as $img)
+                    @if ($loop->index > 0)
+                        <img class="object-cover h-48 mb-2 rounded shadow-lg w-full saturate-120"
+                            src="{{ asset('storage/' . $img) }}"alt="00" onerror="this.src='./img/empty.png'" onclick="window.open('{{ asset('storage/' . $img) }}', 'Image', 'width=800,height=600')">
+                    @endif
+                    {{-- <img class="object-cover h-48 mb-2 rounded shadow-lg w-full saturate-120" src="./img/empty.png"> --}}
+                @empty
+                    
+                @endforelse
 
 
-                    <button
-                        class="flex px-8 py-2 mx-auto my-4 text-base font-bold text-white uppercase bg-black border-0 rounded md:mt-8 focus:outline-none hover:bg-gray-800">
-                        <a href="{{ $mindscape->credits }}">See project </a></button>
+                    </div>
+
+                 </div>
                     <div class="flex justify-between pt-8 ">
 
                         @php
@@ -65,7 +76,7 @@
 
 
                 <div class="grid grid-cols-1 gap-4">
-                    <div id="mastermap" class="mt-4 rounded h-[350px] w-full"></div>
+                   
                 </div>
 
 
@@ -82,7 +93,7 @@
                     @forelse ($allmindscapes as $mind)
                         <div>
                             <div class="">
-                                @php $img00 = $mind->image ?? null; @endphp
+                                @php $img00 = $mind->image[0] ?? null; @endphp
 
                                 <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"
                                     src="{{ asset('storage/' . $img00) }}"alt="00"
@@ -129,25 +140,5 @@
 
     <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
     <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
-    <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
-        integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
-    <script>
-        var gps = {!! json_encode($mindscape->location ?? [0.0, 0.0]) !!};
-        var decimalString = gps.split(',');
-        decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
-        decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
-
-        let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1]], 16);
-        osmLayer = L.tileLayer(
-            'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                maxZoom: 19,
-                apikey: 'choisirgeoportail',
-                format: 'image/jpeg',
-                style: 'normal'
-            }).addTo(mymap);
-        mymap.addLayer(osmLayer);
-        L.marker([decimalString[0], decimalString[1]]).addTo(mymap);
-        mymap.touchZoom.enable();
-        mymap.scrollWheelZoom.disable();
-    </script>
+   
 @endsection
