@@ -92,6 +92,7 @@
 
                     @forelse ($allmindscapes as $mind)
                         <div>
+                        <a href="mindscapes_post?id={{ $mind->id }}">
                             <div class="">
                                 @php $img00 = $mind->image[0] ?? null; @endphp
 
@@ -99,7 +100,7 @@
                                     src="{{ asset('storage/' . $img00) }}"alt="00"
                                     onerror="this.src='./img/empty.png'" />
                             </div>
-                            <a href="mindscapes_post?id={{ $mind->id }}">
+                            
                                 <h5 class="pt-1 mx-4 mb-2 text-xl font-bold leading-none sm:text-2xl">
                                     {{ $mind->title }}
                                 </h5>
