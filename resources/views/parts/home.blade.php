@@ -7,7 +7,7 @@
              </h2>
 
              <p class="mt-4 text-sm text-gray-500">
-                The Ultimate Urban Design Knowledge Hub - Urbanitarian
+                 The Ultimate Urban Design Knowledge Hub - Urbanitarian
              </p>
          </div>
 
@@ -23,7 +23,7 @@
          <fieldset class="flex flex-wrap justify-center gap-3 pt-8 mx-auto">
              <div>
                  <label for="ColorBlack" class="flex items-center justify-center gap-2 px-3 py-2 text-black ">
-                     <p class="text-base font-medium">Trending searchs:</p>
+                     <p class="text-base font-medium">Trending searches:</p>
                  </label>
              </div>
 
@@ -110,61 +110,47 @@
              <label for="DeliveryStandard" class="block">
                  <p class="pb-2 font-bold text-black">Tags</p>
              </label>
-             <div class="relative">
-                 <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                     <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
-                         <path
-                             d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                         </path>
-                     </svg>
-                 </span>
-                 <a href="#"
-                     class="transititext-primary text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
-                     data-te-toggle="tooltip" 
-                     title="
-Child-friendly
-Healthy
-Safe
-Inclusive and Diverse
-Green
-Reachable
-Affordable
-Self-sufficient
-Car-free
-Walkable
-CBD
-Sustainable
-Dense
-Science Park
-Business District
-Missing middle
-Preventing Loneliness
-Youth-friendly
-Age-friendly
-Accessible and connected
-Climate-proof
-Sustainable
-Playful
-Circular
-Climate-neutral
-Zero carbon
-Carbon negative
-WSUD
-Place-led
-Co-housing
-Timber
-Social housing
-Biodiverse
-Low-rise
-High-rise
-Dense
-Mixed-use"><input id="searchtag" type="text"
-                         name="tags" value=""
-                         class="w-full py-3 pl-10 pr-4 text-gray-700 bg-gray-100 border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400"
-                         placeholder=""></a>
-
-             </div>
+             <select name="tags" id="tags_selector"
+                 class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                 <option value="">All</option>
+                 <option value="Child-friendly">Child-friendly</option>
+                 <option value="Healthy">Healthy</option>
+                 <option value="Safe">Safe</option>
+                 <option value="Inclusive and Diverse">Inclusive and Diverse</option>
+                 <option value="Green">Green</option>
+                 <option value="Reachable">Reachable</option>
+                 <option value="Affordable">Affordable</option>
+                 <option value="Self-sufficient">Self-sufficient</option>
+                 <option value="Car-free">Car-free</option>
+                 <option value="Walkable">Walkable</option>
+                 <option value="CBD">CBD</option>
+                 <option value="Sustainable">Sustainable</option>
+                 <option value="Dense">Dense</option>
+                 <option value="SciencePark">Science Park</option>
+                 <option value="BusinessDistrict">Business District</option>
+                 <option value="MissingMiddle">Missing middle</option>
+                 <option value="PreventingLoneliness">Preventing Loneliness</option>
+                 <option value="YouthFriendly">Youth-friendly</option>
+                 <option value="AgeFriendly">Age-friendly</option>
+                 <option value="AccessibleConnected">Accessible and connected</option>
+                 <option value="ClimateProof">Climate-proof</option>
+                 <option value="Sustainable">Sustainable</option>
+                 <option value="Playful">Playful</option>
+                 <option value="Circular">Circular</option>
+                 <option value="ClimateNeutral">Climate-neutral</option>
+                 <option value="ZeroCarbon">Zero carbon</option>
+                 <option value="CarbonNegative">Carbon negative</option>
+                 <option value="WSUD">WSUD</option>
+                 <option value="PlaceLed">Place-led</option>
+                 <option value="CoHousing">Co-housing</option>
+                 <option value="Timber">Timber</option>
+                 <option value="SocialHousing">Social housing</option>
+                 <option value="Biodiverse">Biodiverse</option>
+                 <option value="LowRise">Low-rise</option>
+                 <option value="HighRise">High-rise </option>
+                 <option value="Dense">Dense </option>
+                 <option value="Mixed-use">Mixed-use</option>
+             </select>
          </div>
 
          <div class="block">
@@ -178,9 +164,9 @@ Mixed-use"><input id="searchtag" type="text"
                  <option value="XXXL">XXXL</option>
                  <option value="XXL">XXL</option>
                  <option value="XL">XL</option>
-                 <option value="L">LARGE</option>
-                 <option value="M">MEDIUM</option>
-                 <option value="S">SMALL</option>
+                 <option value="L">L</option>
+                 <option value="M">M</option>
+                 <option value="S">S</option>
                  <option value="XS">XS</option>
              </select>
          </div>
@@ -192,11 +178,11 @@ Mixed-use"><input id="searchtag" type="text"
              <select name="status" id="status_selector"
                  class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">All</option>
-                 <option value="built">built</option>
-                 <option value="future">future</option>
-                 <option value="under_development">under
+                 <option value="built">Built</option>
+                 <option value="future">Future</option>
+                 <option value="under_development">Under
                      development</option>
-                 <option value="regeneration">regeneration</option>
+                 <option value="regeneration">Regeneration</option>
              </select>
          </div>
 
@@ -242,17 +228,19 @@ Mixed-use"><input id="searchtag" type="text"
              <button id="prev"
                  class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300  hover:bg-gray-200 active:text-white ">
                  <p class="text-sm font-medium">previous</p>
-                </button>
+             </button>
 
-                <div class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md">
-                    <p class="text-sm font-medium" id="currentpage">1</p>&nbsp; / &nbsp;<p class="text-sm font-medium" id="totalpage"></p>
-                   </div>
+             <div
+                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md">
+                 <p class="text-sm font-medium" id="currentpage">1</p>&nbsp; / &nbsp;<p class="text-sm font-medium"
+                     id="totalpage"></p>
+             </div>
 
 
-                 <button id="next"
-                     class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:text-white ">
-                     <p class="text-sm font-medium">Next</p>
-                    </button>
+             <button id="next"
+                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:text-white ">
+                 <p class="text-sm font-medium">Next</p>
+             </button>
          </div>
      </section>
  </div>
@@ -265,7 +253,7 @@ Mixed-use"><input id="searchtag" type="text"
      let currentPage = 1;
      let currentfilter = "";
      let url = "";
-   
+
      $(document).ready(function() {
          url = "api/data";
          $('#boucle').empty();
@@ -292,7 +280,7 @@ Mixed-use"><input id="searchtag" type="text"
              currentPage = 1;
          }
          $('#currentpage').text(currentPage);
-          $('#totalpage').text(totalPages);
+         $('#totalpage').text(totalPages);
          fetchAndRenderData(url);
      });
 
@@ -529,6 +517,13 @@ Mixed-use"><input id="searchtag" type="text"
          currentfilter = "allcat";
          category = "all";
 
+         fetchAndRenderData(url);
+     });
+
+      $('#tags_selector').change(function() {
+         url = "api/data?tags=" + $('#tags_selector').val();
+         $('#boucle').empty();
+         currentfilter = $('#tags_selector').val();
          fetchAndRenderData(url);
      });
 
