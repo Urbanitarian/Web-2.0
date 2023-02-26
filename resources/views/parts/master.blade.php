@@ -74,8 +74,8 @@
              </button>
          </fieldset>
 
-         <div class="grid grid-cols-3 gap-2 mx-4 mt-4 md:grid-cols-5 md:mx-0">
-             <div class="block">
+         <div class="grid grid-cols-3 gap-2 mx-4 mt-8 md:grid-cols-5 md:mx-0 border-t">
+             <div class="block pt-4">
                  <label for="DeliveryStandard" class="block">
                      <p class="pb-2 font-bold text-black">Tags</p>
                  </label>
@@ -122,7 +122,7 @@
                  </select>
              </div>
 
-             <div class="block">
+             <div class="block pt-4">
                  <label for="DeliveryStandard" class="block">
                      <p class="pb-2 font-bold text-black">Size</p>
                  </label>
@@ -140,7 +140,7 @@
                  </select>
              </div>
 
-             <div class="block">
+             <div class="block pt-4">
                  <label for="DeliveryStandard" class="block">
                      <p class="pb-2 font-bold text-black">Status</p>
                  </label>
@@ -155,7 +155,7 @@
                  </select>
              </div>
 
-             <div class="block">
+             <div class="block pt-4">
                  <label for="DeliveryStandard" class="block">
                      <p class="pb-2 font-bold text-black">City</p>
                  </label>
@@ -170,7 +170,7 @@
                  </select>
              </div>
 
-             <div class="block">
+             <div class="block pt-4">
                  <label for="DeliveryStandard" class="block">
                      <p class="pb-2 font-bold text-black">Country</p>
                  </label>
