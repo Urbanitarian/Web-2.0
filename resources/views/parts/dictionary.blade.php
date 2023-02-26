@@ -2,9 +2,12 @@
 
     <div class="w-full">
       <a href="alldictionary"><h1 class="pb-8 text-3xl font-bold text-center text-gray-900 md:text-5xl">Dictionary</h1></a>
-        <div class="max-w-xl mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-2xl">
-            <p class="text-base text-gray-700 md:text-lg">
-                Lexicon of random urban terms, from deeply informative vocabulary to light-hearted buzzwords:
+        <div class="max-w-xl mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-4xl">
+                          <p class="text-sm font-bold text-gray-700 md:text-lg pt-4">
+                Unlock Your Urban Design Vocabulary: Join the Largest Urban Design Jargon Community Online.
+            </p>
+             <p class="text-ssm text-gray-700 md:text-lg">
+              Lexicon of urban design terms, from deeply informative vocabulary to light-hearted buzzwords
             </p>
         </div>
     </div>

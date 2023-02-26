@@ -4,8 +4,11 @@
             <a href="streetscapes"><h1 class="pb-4 text-3xl font-bold text-center text-gray-900 md:text-5xl">Streetscapes</h1></a>
         </div>
         <div class="max-w-xl mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-2xl">
-            <p class="text-base text-gray-700 md:text-lg">
-                Examples of streetscapes with explanation, measures and solutions to incorporate in your designs:
+            <p class="text-sm font-bold text-gray-700 md:text-lg">
+                Redefine Streets: Get Inspired by Our Curated Streetscapes Collection
+            </p>
+             <p class="text-sm text-gray-700 md:text-lg">
+                Examples of streetscapes with description, measures and solutions to incorporate in your designs
             </p>
         </div>
         <div class="grid gap-6 row-gap-5 lg:grid-cols-3">

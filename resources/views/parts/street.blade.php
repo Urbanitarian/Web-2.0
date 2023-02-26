@@ -3,13 +3,16 @@
         $q = urldecode(request()->get('q'));
     @endphp
     <div class="p-8 md:p-12 lg:px-12 lg:py-12">
-        <div class="max-w-lg mx-auto text-center lg:max-w-xl">
+        <div class="max-w-lg mx-auto text-center lg:max-w-2xl">
             <h2 class="text-3xl font-bold text-gray-900 md:text-5xl">
                 Streetscapes
             </h2>
 
-            <p class="mt-4 text-sm text-gray-500">
-                We are number one destination to get knowledge on urban design.
+               <p class="text-sm font-bold text-gray-700 md:text-lg pt-4">
+                Redefine Streets: Get Inspired by Our Curated Streetscapes Collection
+            </p>
+             <p class="text-sm text-gray-700 md:text-lg">
+                Examples of streetscapes with description, measures and solutions to incorporate in your designs
             </p>
         </div>
 

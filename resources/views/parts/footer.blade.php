@@ -10,9 +10,9 @@
       <div class="flex justify-center text-teal-600">
         <img src="{{ asset('img/logo.png') }}" alt="logo" class="w-12 h-12" />
       </div>
-
-      <p class="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500">
-        We are number one destination to get knowledge on urban design..
+    <h1 class="py-4 text-base font-bold text-[#333333] tracking-widest text-center">URBANITARIAN</h1>
+      <p class="max-w-md mx-auto leading-relaxed text-center text-gray-500">
+       Unlocking the Power of Urban Design
       </p>
 
       <nav aria-label="Footer Nav" class="mt-12">
@@ -53,11 +53,11 @@
             </a>
           </li>
 
-            <li>
+            {{-- <li>
             <a class="text-gray-700 transition hover:text-gray-900" href="association">
               Association
             </a>
-          </li>
+          </li> --}}
         </ul>
       </nav>
 

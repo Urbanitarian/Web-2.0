@@ -3,10 +3,13 @@
         <div class="flex flex-wrap w-full mb-8 md:mb-20">
             <div class="w-full">
                 <a href="urbanscapes"><h1 class="pb-4 text-3xl font-bold text-center text-gray-900 md:text-5xl">Urbanscapes</h1></a>
-                <div class="max-w-xl mb-6 sm:mx-auto sm:text-center lg:max-w-2xl">
-                    <p class="text-base text-gray-700 md:text-lg">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.
-                    </p>
+                <div class="max-w-xl mb-6 sm:mx-auto sm:text-center lg:max-w-4xl">
+                    <p class="text-base font-bold text-gray-700 md:text-lg pt-4">
+                Design the Future of Urban Living with our ultimate resource for Urbanscapes
+            </p>
+             <p class="text-base text-gray-700 md:text-lg">
+                Take a deep-dive into some of the finest urban developments through our insightful articles
+            </p>
                 </div>
             </div>
         </div>

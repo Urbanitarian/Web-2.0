@@ -1,12 +1,15 @@
 <section class="pt-8">
     <div class="p-8 md:p-12 lg:px-12 lg:py-12">
-        <div class="max-w-lg mx-auto text-center lg:max-w-xl">
+        <div class="max-w-lg mx-auto text-center lg:max-w-4xl">
             <h2 class="text-3xl font-bold text-gray-900 md:text-5xl">
                 Urbanscapes
             </h2>
 
-            <p class="mt-4 text-sm text-gray-500">
-                We are number one destination to get knowledge on urban design.
+              <p class="text-base font-bold text-gray-700 md:text-lg pt-4">
+                Design the Future of Urban Living with our ultimate resource for Urbanscapes
+            </p>
+             <p class="text-base text-gray-700 md:text-lg">
+                Take a deep-dive into some of the finest urban developments through our insightful articles
             </p>
         </div>
 

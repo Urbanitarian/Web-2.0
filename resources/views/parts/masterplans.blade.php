@@ -1,11 +1,12 @@
 <section>
     <div class="w-full pt-12">
         <a href="./masterplans"><h1 class="pt-4 pb-8 text-3xl font-bold text-center text-gray-900 md:text-5xl">Masterplans</h1></a>
-        <div class="max-w-xl mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-2xl">
-            <p class="mx-8 text-base text-gray-700 md:text-lg">
-                Samples of housing diagrams and schemes inspirations showing many ways of how residential areas can be
-                developed.<br>
-                Each example includes measurements, data and explanation of the project:.
+        <div class="max-w-xl mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-4xl">
+                      <p class="text-sm font-bold text-gray-700 md:text-lg pt-4">
+                Discover Urban Design's Hidden Gems: Explore The Urbanitarian Masterplan Archive
+            </p>
+             <p class="text-ssm text-gray-700 md:text-lg">
+                Get your daily dose of inspiration in our curated list of urban design projects from all around the world. Each project contains key insights along with useful diagrams, measurements and data
             </p>
         </div>
     </div>
