@@ -29,13 +29,13 @@
             </a>
           </li>
 
-          <li>
-            <a class="text-gray-700 transition hover:text-gray-900" href="work">
-              Work with us
+         <li>
+            <a class="text-gray-700 transition hover:text-gray-900" href="people">
+              Team
             </a>
           </li>
 
-          <li>
+         {{-- <li>
             <a class="text-gray-700 transition hover:text-gray-900" href="legal">
               Terms of use
             </a>
@@ -45,7 +45,7 @@
             <a class="text-gray-700 transition hover:text-gray-900" href="confidentialite">
               Privacy policy
             </a>
-          </li>
+          </li> --}}
 
           <li>
             <a class="text-gray-700 transition hover:text-gray-900" href="cookies">

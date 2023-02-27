@@ -26,6 +26,7 @@ Route::get('index', 'getAll')->name('getAll');
 Route::get('logout', 'logout');
 Route::get('contact', 'contact');
 Route::get('about', 'about');
+Route::get('people', 'people');
 Route::get('work', 'work');
 Route::post('contactus', 'contactus');
 Route::get('alldictionary', 'alldictionary');

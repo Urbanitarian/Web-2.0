@@ -59,7 +59,7 @@
                                     {{ trans('backpack::base.login') }}
                                 </button>
 
-                                <a href="{{ route('socialite.redirect', 'google') }}" class="border btn btn-block">
+                                {{-- <a href="{{ route('socialite.redirect', 'google') }}" class="border btn btn-block">
                                     <div class="flex justify-center">
                                         <svg class="w-6 h-6 mx-2" viewBox="0 0 40 40">
                                             <path
@@ -78,7 +78,7 @@
 
                                         <span class="py-1 text-sm"> {{ trans('backpack::base.login') }} Google</span>
                                     </div>
-                                </a>
+                                </a> --}}
 
                                 {{-- <a href="{{ route('socialite.redirect', 'facebook') }}" class="btn btn-block btn-primary">
                                     <div class="flex justify-center">

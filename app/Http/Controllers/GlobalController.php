@@ -175,9 +175,15 @@ class GlobalController extends Controller
 
     public function about()
     {
+      
+        return view('about');
+    }
+
+    public function people()
+    {
         $team = Team::all()->sortByDesc('id');
 
-        return view('about' , compact('team'));
+        return view('people' , compact('team'));
     }
 
     public function contact()
