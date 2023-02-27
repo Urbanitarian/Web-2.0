@@ -1,7 +1,6 @@
  @extends('layouts.app')
 
  @section('main')
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     {!! RecaptchaV3::initJs() !!}
      <div data-barba="container">
          @php use \App\Http\Controllers\GlobalController; @endphp
