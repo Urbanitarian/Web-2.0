@@ -29,6 +29,7 @@ Route::get('about', 'about');
 Route::get('people', 'people');
 Route::get('work', 'work');
 Route::post('contactus', 'contactus');
+Route::get('subscribe', 'subscribe');
 Route::get('alldictionary', 'alldictionary');
 Route::get('dictionaries_post/', 'dictionaries_post')->name('dictionaries_post');
 Route::get('allwebresources', 'allwebresources');

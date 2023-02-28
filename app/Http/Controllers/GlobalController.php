@@ -448,6 +448,11 @@ class GlobalController extends Controller
         return view('cookies');
     }
 
+    static function subscribe()
+    {
+        return view('subscribe');
+    }
+
     static function work()
     {
         return view('work');

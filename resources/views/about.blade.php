@@ -79,7 +79,7 @@
                     </p>
 
                     <button class="bg-black text-white font-bold py-2 px-4 rounded-lg mt-8 hover:bg-[#333333]">
-                        <a href="">Subscribe</a>
+                        <a href="subscribe">Subscribe</a>
 
                 </div>
 
