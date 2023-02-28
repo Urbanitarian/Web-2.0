@@ -6,11 +6,11 @@
         @php  $pages = GlobalController::pages();@endphp
         <section class="pt-8">
             <div class="p-8 md:p-12 lg:px-12 lg:py-12">
-                <div class="max-w-lg mx-auto text-center lg:max-w-4xl">
+                <div class="max-w-lg mx-auto text-center lg:max-w-full">
                     <h2 class="text-3xl font-bold text-gray-900 md:text-5xl">
                         About Us
                     </h2>
-                    <p class="text-base text-gray-500 md:text-lg pt-8 ">
+                    <p class="pt-8 mx-auto text-base text-gray-500 md:text-lg lg:max-w-4xl">
                         Urbanitarian is the world's leading community-based, scalable, didactic, free, open, and
                         comprehensive dataset and archive of urban design projects and resources. Urbanitarian is a result
                         of the observation and recognition of the assets required to design meaningful urban spaces. As a
@@ -19,10 +19,10 @@
                         person interested in shaping urban environments.
                     </p>
 
-                       <img src="{{ asset('storage/uploads/about/0.jpg') }}" alt="logo" class="mx-auto py-16" onerror="this.src='./img/empty.png'"
+                       <img src="{{ asset('storage/uploads/about/0.jpg') }}" alt="logo" class="py-16 mx-auto" onerror="this.src='./img/empty.png'"
                             onclick="window.open('{{ asset('storage/uploads/about/0.jpg') }}', 'Image', 'width=800,height=600')">
 
-                    <p class="text-base text-gray-500 md:text-lg pt-8 text-center">
+                    <p class="pt-8 mx-auto text-base text-center text-gray-500 md:text-lg lg:max-w-4xl">
                         The core mission of Urbanitarian is to bring forward a new way of practicing urban design, creating
                         actionable plans and operational insights based on findings gathered and published in a
                         community-engaging manner.
@@ -37,10 +37,10 @@
 
                     <h1 class="pt-16 pb-4 text-2xl font-bold text-[#333333] tracking-widest text-center">HOW</h1>
 
-                        <img src="{{ asset('storage/uploads/about/1.jpg') }}" alt="logo" class="mx-auto py-16" onerror="this.src='./img/empty.png'"
+                        <img src="{{ asset('storage/uploads/about/1.jpg') }}" alt="logo" class="py-16 mx-auto" onerror="this.src='./img/empty.png'"
                             onclick="window.open('{{ asset('storage/uploads/about/1.jpg') }}', 'Image', 'width=800,height=600')">
 
-                    <p class="text-base text-gray-500 md:text-lg pt-8 text-center">
+                    <p class="pt-8 mx-auto text-base text-center text-gray-500 md:text-lg lg:max-w-4xl">
                         Urbanitarian carries our quantitative and qualitative data analysis of projects and website traffic
                         for
                         correlational mapping. It offers industry-informed marketing for projects of shared values.
@@ -56,7 +56,7 @@
 
                     <h1 class="pt-16 pb-4 text-2xl font-bold text-[#333333] tracking-widest text-center">WEBSPACE</h1>
 
-                    <p class="text-base text-gray-500 md:text-lg pt-8 text-center">
+                    <p class="pt-8 mx-auto text-base text-center text-gray-500 md:text-lg lg:max-w-4xl">
                         While the Urbanitarian WEBSITE offers such a platform, the Urbanitarian WEBSPACE is a virtual 3d
                         environment that spatially showcases your favourite Urbanitarian resources. Streetscapes, Urban
                         Master Plans, Projects, and an interactive space for the community to meet and share knowledge.
@@ -66,10 +66,10 @@
 
                     </p>
 
-                        <img src="{{ asset('storage/uploads/about/2.jpg') }}" alt="logo" class="mx-auto py-16" onerror="this.src='./img/empty.png'"
+                        <img src="{{ asset('storage/uploads/about/2.jpg') }}" alt="logo" class="py-16 mx-auto" onerror="this.src='./img/empty.png'"
                             onclick="window.open('{{ asset('storage/uploads/about/2.jpg') }}', 'Image', 'width=800,height=600')">
 
-                    <p class="text-base text-gray-500 md:text-lg pt-8 text-center">
+                    <p class="pt-8 mx-auto text-base text-center text-gray-500 md:text-lg lg:max-w-4xl">
                         We're not done yet!
                        <br>
                        <br>
@@ -82,7 +82,7 @@
                     </p>
 
                     <button class="bg-black text-white font-bold py-2 px-4 rounded-lg mt-8 hover:bg-[#333333]">
-                        <a href="">Sign in</a>
+                        <a href="">Subscribe</a>
 
                 </div>
 
