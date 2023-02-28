@@ -395,6 +395,14 @@ class GlobalController extends Controller
         return $streetcount;
     }
 
+    static function mind()
+    {
+        $mind = Mindscape::all();
+        //count mindscapes
+        $mindcount = $mind->count();
+        return $mindcount;
+    }
+
     public function deleteUser(Request $id)
     {
         $thisuser = User::where('id', $id)->get();

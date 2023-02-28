@@ -2,6 +2,7 @@
 @php  $mastercount = GlobalController::master();@endphp
 @php  $neighcount = GlobalController::neigh();@endphp
 @php  $streetcount = GlobalController::street();@endphp
+@php  $mindcount = GlobalController::mind();@endphp
 @php  $all_data = GlobalController::alldata();@endphp
 @extends(backpack_view('blank'))
 @section('content')
@@ -11,20 +12,25 @@
             <div class="flex flex-col w-full">
                 <h3 class="m-4 text-xl font-bold text-gray-900">Welcome</h3>
 
-                  <div class="flex w-full px-3">
-                    <div class="w-1/3 h-32 p-3 m-2 bg-white border shadow">
-                        <h1 class="text-base font-bold text-gray-900">Masterplans:</h1>
+                  <div class="flex flex-wrap w-full px-3 justify-center lg:justify-start">
+                    <div class="w-36 md:w-64 h-24 p-3 m-2 bg-white border shadow">
+                        <h1 class="text-xs md:text-base font-bold text-gray-900">Masterplans:</h1>
                         <h1 class="text-2xl font-bold text-gray-900">{{$mastercount}}</h1>
                     </div>
 
-                     <div class="w-1/3 h-32 p-3 m-2 bg-white border shadow">
-                      <h1 class="text-base font-bold text-gray-900">Urbanscapes:</h1>
+                     <div class="w-36 md:w-64 h-24 p-3 m-2 bg-white border shadow">
+                      <h1 class="text-xs md:text-base font-bold text-gray-900">Urbanscapes:</h1>
                         <h1 class="text-2xl font-bold text-gray-900">{{$neighcount}}</h1>
                     </div>
 
-                    <div class="w-1/3 h-32 p-3 m-2 bg-white border shadow">
-                      <h1 class="text-base font-bold text-gray-900">Streetscapes:</h1>
+                    <div class="w-36 md:w-64 h-24 p-3 m-2 bg-white border shadow">
+                      <h1 class="text-xs md:text-base font-bold text-gray-900">Streetscapes:</h1>
                         <h1 class="text-2xl font-bold text-gray-900">{{$streetcount}}</h1>
+                    </div>
+
+                     <div class="w-36 md:w-64 h-24 p-3 m-2 bg-white border shadow">
+                      <h1 class="text-xs md:text-base font-bold text-gray-900">Mindscapes:</h1>
+                        <h1 class="text-2xl font-bold text-gray-900">{{$mindcount}}</h1>
                     </div>
                         </div>
                     <div class="flex md:mx-4">
