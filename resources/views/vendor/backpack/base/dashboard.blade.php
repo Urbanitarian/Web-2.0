@@ -114,7 +114,7 @@ let count = 0;
             }).addTo(mymap).bindPopup(
                 '<div class="mappopup relative flex flex-col" onclick="myfunction(' + graffid + ',' + cat +
                 ')"><img  class="mt-4" src="/storage/uploads/'+ category + '/' + pics +
-                '" /><div class="flex justify-between"><h5 class="font-bold text-sm mt-1 mb-2" id="graffnom">' + graffname + '</h5><h5 class="text-xs text-gray-500 mt-1 mb-2" id="graffcity">' + graffcity + '</h5></div></div>'
+                '" /><div class="flex justify-between"><h5 class="font-bold text-sm mt-1 mb-2 truncate" id="graffnom">' + graffname + '</h5><h5 class="text-xs text-gray-500 mt-2 mb-2" id="graffcity">' + graffcity + '</h5></div></div>'
             );
             markers[graff.id] = marker;
  
