@@ -57,8 +57,7 @@
                              @php $image0 =   $masterplan->image ?? null; @endphp
                                 <img class="h-[450px] w-full object-cover border-b saturate-120"
                                     src="{{ asset('storage/uploads/masterplans/' . $image0) }}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 mx-2 text-sm font-bold text-center truncate">{{ $masterplan->title }} | {{ $masterplan->author }} |
-                                    {{ $masterplan->city }} </h1>
+                                <h1 class="pt-3 mx-2 text-sm font-bold text-center truncate">{{ $masterplan->title }} | {{ $masterplan->author }} | {{ $masterplan->city }} </h1>
                                 <p class="pb-4 mx-8 text-xs text-center text-gray-700">
                                     {{ $masterplan->category }}, {{ $masterplan->size }}  
                                 </p>

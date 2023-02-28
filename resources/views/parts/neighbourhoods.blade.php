@@ -4,7 +4,7 @@
             <div class="w-full">
                 <a href="urbanscapes"><h1 class="pb-4 text-3xl font-bold text-center text-gray-900 md:text-5xl">Urbanscapes</h1></a>
                 <div class="max-w-xl mb-6 sm:mx-auto sm:text-center lg:max-w-4xl">
-                    <p class="text-base font-bold text-gray-700 md:text-lg pt-4">
+                    <p class="pt-4 text-base font-bold text-gray-700 md:text-lg">
                 Design the Future of Urban Living with our ultimate resource for Urbanscapes
             </p>
              <p class="text-base text-gray-500 md:text-lg">
@@ -19,10 +19,10 @@
 @forelse ($neighbourhoods as $neighbourhood)
       <div class="p-4 mx-auto xl:w-1/4 md:w-1/2">
                 <a href="urbanscapes_post?id={{ $neighbourhood->id }}">
-                    <div class="p-4 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
+                    <div class="p-4 transition border shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
                         @php $nimg = $neighbourhood->imagea ?? null; @endphp
-                        <img class="object-cover object-center w-full h-40 mb-3  saturate-120" src="{{ asset('storage/uploads/urbanscapes/' . $nimg) }}"alt=""  onerror="this.src='./img/empty.png'"/>
-                        <h2 class="mb-1 text-lg font-medium text-gray-900 title-font clamp1">{{ $neighbourhood->title }}</h2>
+                        <img class="object-cover object-center w-full h-40 mb-3 saturate-120" src="{{ asset('storage/uploads/urbanscapes/' . $nimg) }}"alt=""  onerror="this.src='./img/empty.png'"/>
+                        <h2 class="mb-1 text-sm font-bold text-black title-font clamp1">{{ $neighbourhood->title }}</h2>
                         <p class="text-xs font-semibold leading-relaxed text-gray-500">
                         @foreach($neighbourhood->tags as $tag)
                         {{ $tag }} &nbsp;

@@ -312,7 +312,7 @@ class GlobalController extends Controller
 
     public function alldictionary()
     {
-        $dictionary = Dictionary::paginate(10);
+        $dictionary = Dictionary::paginate(15);
 
         return view('dictionaries', compact('dictionary'));
     }

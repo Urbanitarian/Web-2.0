@@ -9,17 +9,17 @@
                        <div class="relative px-4 py-8 mx-auto mt-8 mb-4">
                            <div class="grid items-start grid-cols-1 gap-8 lg:grid-cols-2">
                                <div class="grid grid-cols-1 gap-4">
-                                   <div class="w-full relative">
+                                   <div class="relative w-full">
                                        @php $image0 =  $item->image ?? null; @endphp
-                                       <img class="object-cover w-full border  saturate-120"
+                                       <img class="object-cover w-full border saturate-120"
                                            src="{{ asset('storage/uploads/masterplans/' . $image0) }}"alt=""
                                            onerror="this.src='./img/empty.png'" />
-                                       <i class="absolute fa-solid fa-expand top-5 right-5 fa-2x text-gray-600 hover:text-gray-500 active:text-gray-700"
+                                       <i class="absolute text-gray-600 fa-solid fa-expand top-5 right-5 fa-2x hover:text-gray-500 active:text-gray-700"
                                            onclick="window.open('{{ asset('storage/uploads/masterplans/' . $image0) }}', 'Image', 'width=800,height=600')"></i>
                                    </div>
                                    <fieldset class="pl-8">
                                        <legend class="pt-8 pb-2 mb-1 font-medium">Sources:</legend>
-                                       <div class="flex flex-wrap text-sm md:w-96 2xl:w-2/3 overflow-x-hidden">
+                                       <div class="flex flex-wrap overflow-x-hidden text-sm md:w-96 2xl:w-2/3">
                                         @php $credits = explode(',', $item->credits); @endphp
                                         @foreach ($credits as $source)
                                             <a href="{{ $source }}" class="text-blue-600" target="_blank">
@@ -28,29 +28,29 @@
                                        </div>
                                    </fieldset>
                                </div>
-                               <div class="sticky top-0 md:mx-auto mx-4">
+                               <div class="sticky top-0 mx-4 md:mx-auto">
                                    <div class="flex justify-between pb-8">
                                        <h1 class="text-2xl font-bold">
                                            {{ $item->title }} | {{ $item->author }} | {{ $item->city }}
                                        </h1>
                                    </div>
-                                   <div class="flex pb-8 flex-wrap">
+                                   <div class="flex flex-wrap pb-8">
                                        <button disabled
-                                           class="px-3 py-1 my-2 mx-1 text-xs font-medium tracking-wide text-white bg-blue-800 rounded-md">
+                                           class="px-3 py-1 mx-1 my-2 text-xs font-medium tracking-wide text-white bg-blue-800 rounded-md">
                                            {{ $item->status }}
                                        </button>
 
                                        <button disabled
-                                           class="px-3 py-1 my-2 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
+                                           class="px-3 py-1 mx-1 my-2 text-xs font-medium tracking-wide text-white bg-black rounded-md">
                                            <a href="masterplans"> {{ $item->category }}</a>
                                        </button>
                                        <button disabled
-                                           class="px-3 py-1 my-2 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
+                                           class="px-3 py-1 mx-1 my-2 text-xs font-medium tracking-wide text-white bg-black rounded-md">
                                            {{ $item->size }}
                                        </button>
                                        @foreach ($item->tags as $tag)
                                            <button disabled
-                                               class="px-3 py-1 my-2 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
+                                               class="px-3 py-1 mx-1 my-2 text-xs font-medium tracking-wide text-white bg-black rounded-md">
                                                {{ $tag }}
                                            </button>
                                        @endforeach
@@ -163,17 +163,17 @@
                                            <div class="text-gray-700 max-w-none">
                                                <div x-data="{ expanded: false }">
                                                    <p id="parag"
-                                                       class="relative overflow-hidden transition-all ease-in duration-1000 max-w-3xl mt-6 leading-loose text-gray-500 myparagraph"
+                                                       class="relative max-w-3xl mt-6 overflow-hidden leading-loose text-gray-500 transition-all duration-1000 ease-in myparagraph"
                                                        x-bind:class="{ 'max-h-[650px]': !expanded }" x-ref="container"
                                                        x-bind:style="expanded ? 'max-height: ' + $refs.container.offsetHeight + 'px' :
                                                            ''">
                                                        {{ $item->description }}
 
                                                    </p>
-                                                   <button type="button" class=" z-20 mx-auto bottom-0 mt-8 w-full"
+                                                   <button type="button" class="bottom-0 z-20 w-full mx-auto mt-8 "
                                                        @click="expanded = !expanded">
                                                        <span
-                                                           class="bg-gray-300 w-full rounded py-2 px-16 hover:bg-gray-400 hover:text-gray-200 active:bg-gray-500"
+                                                           class="w-full px-16 py-2 bg-gray-300 rounded hover:bg-gray-400 hover:text-gray-200 active:bg-gray-500"
                                                            x-text="expanded ? 'Collapse' : 'Read More'"></span>
                                                    </button>
                                                </div>
@@ -195,11 +195,11 @@
                                    $prev_id = $masterplans->where('id', '<', $item->id)->max('id');
                                @endphp
                                <a href="{{ route('masterplans_post', 'id=' . $prev_id) }}"
-                                   class="px-4 py-2 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border border-gray-300  rounded-lg active:bg-gray-600 hover:bg-gray-400 hover:text-white focus:outline-none focus:shadow-outline-gray">
+                                   class="px-4 py-2 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border border-gray-300 rounded-lg active:bg-gray-600 hover:bg-gray-400 hover:text-white focus:outline-none focus:shadow-outline-gray">
                                    Previous
                                </a>
                                <a href="{{ route('masterplans_post', 'id=' . $next_id) }}"
-                                   class="px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border border-gray-300  rounded-lg active:bg-gray-600 hover:text-white hover:bg-gray-400 focus:outline-none focus:shadow-outline-gray">
+                                   class="px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border border-gray-300 rounded-lg active:bg-gray-600 hover:text-white hover:bg-gray-400 focus:outline-none focus:shadow-outline-gray">
                                    Next
                                </a>
                            </div>
@@ -263,7 +263,7 @@
                                                    <img class="h-[450px] w-full object-cover border-b  saturate-120"
                                                        src="{{ asset('storage/uploads/masterplans/' . $img10) }}"alt=""
                                                        onerror="this.src='./img/empty.png'" />
-                                                   <h1 class="pt-2 mx-8 text-sm font-bold text-center">
+                                                   <h1 class="pt-2 mx-8 text-sm font-bold text-center truncate">
                                                        {{ $masterplan->title }} | {{ $masterplan->author }} |
                                                        {{ $masterplan->city }} </h1>
                                                    <p class="pb-2 mx-8 text-xs text-center text-gray-700">

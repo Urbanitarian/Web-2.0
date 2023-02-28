@@ -19,8 +19,7 @@
                         person interested in shaping urban environments.
                     </p>
 
-                       <img src="{{ asset('storage/uploads/about/0.jpg') }}" alt="logo" class="py-16 mx-auto" onerror="this.src='./img/empty.png'"
-                            onclick="window.open('{{ asset('storage/uploads/about/0.jpg') }}', 'Image', 'width=800,height=600')">
+                       <img src="{{ asset('storage/uploads/about/0.jpg') }}" alt="logo" class="py-16 mx-auto" onerror="this.src='./img/empty.png'">
 
                     <p class="pt-8 mx-auto text-base text-center text-gray-500 md:text-lg lg:max-w-4xl">
                         The core mission of Urbanitarian is to bring forward a new way of practicing urban design, creating
@@ -37,8 +36,7 @@
 
                     <h1 class="pt-16 pb-4 text-2xl font-bold text-[#333333] tracking-widest text-center">HOW</h1>
 
-                        <img src="{{ asset('storage/uploads/about/1.jpg') }}" alt="logo" class="py-16 mx-auto" onerror="this.src='./img/empty.png'"
-                            onclick="window.open('{{ asset('storage/uploads/about/1.jpg') }}', 'Image', 'width=800,height=600')">
+                        <img src="{{ asset('storage/uploads/about/1.jpg') }}" alt="logo" class="py-16 mx-auto" onerror="this.src='./img/empty.png'">
 
                     <p class="pt-8 mx-auto text-base text-center text-gray-500 md:text-lg lg:max-w-4xl">
                         Urbanitarian carries our quantitative and qualitative data analysis of projects and website traffic
@@ -66,8 +64,7 @@
 
                     </p>
 
-                        <img src="{{ asset('storage/uploads/about/2.jpg') }}" alt="logo" class="py-16 mx-auto" onerror="this.src='./img/empty.png'"
-                            onclick="window.open('{{ asset('storage/uploads/about/2.jpg') }}', 'Image', 'width=800,height=600')">
+                        <img src="{{ asset('storage/uploads/about/2.jpg') }}" alt="logo" class="py-16 mx-auto" onerror="this.src='./img/empty.png'">
 
                     <p class="pt-8 mx-auto text-base text-center text-gray-500 md:text-lg lg:max-w-4xl">
                         We're not done yet!

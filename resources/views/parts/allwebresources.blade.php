@@ -154,7 +154,7 @@
     
      });
 
-    const itemsPerPage = 10;
+    const itemsPerPage = 15;
     let currentPage = 1;
 
     $(document).ready(function() {
@@ -198,7 +198,7 @@
                         <div class="flex transition border shadow-md md:hover:scale-110">
                         <div class="flex flex-col mx-auto">
                             <a href="${item.link}" target="_blank">
-                                <img class="object-cover w-auto  saturate-120 h-32" src="storage/uploads/webresources/${item.image}" alt="content" onerror="this.src='./img/empty.png'">
+                                <img class="object-cover w-auto h-32 saturate-120" src="storage/uploads/webresources/${item.image}" alt="content" onerror="this.src='./img/empty.png'">
                                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
                                     ${item.name}</p>
                                 <p class="pb-2 text-xs text-center text-gray-500"> ${item.type}</p>
