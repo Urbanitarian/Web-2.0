@@ -21,4 +21,3 @@
 @php
     echo $insta;
 @endphp
-é
