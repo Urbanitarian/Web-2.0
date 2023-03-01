@@ -38,6 +38,7 @@
                         <!-- Begin Sendinblue Form -->
                         <!-- START - We recommend to place the below code in head tag of your website html  -->
                         <style>
+ 
                             #sib-container input:-ms-input-placeholder {
                                 text-align: left;
                                 font-family: "Helvetica", sans-serif;
@@ -57,8 +58,11 @@
                             }
                         </style>
                         <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+                        <!--  END - We recommend to place the above code in head tag of your website html -->
 
-                        <div class="sib-form" style="text-align: center; ">
+                        <!-- START - We recommend to place the below code where you want the form in your website html  -->
+                        <div class="sib-form"
+                            style="text-align: center;">
                             <div id="sib-form-container" class="sib-form-container">
                                 <div id="error-message" class="sib-form-message-panel"
                                     style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:540px;">
@@ -89,22 +93,30 @@
                                 <div id="sib-container" class="sib-container--large sib-container--vertical"
                                     style="text-align:center; background-color:rgba(255,255,255,1); max-width:540px; border-width:0px; border-color:#C0CCD9; border-style:solid; direction:ltr">
                                     <form id="sib-form" method="POST"
-                                        action="https://1626c7a6.sibforms.com/serve/MUIEAFmeZCA0L8Xf6cQI1NVeLCLju88Eojw16OLSkhLNfk88u10-w9pw4I-Gn-5DoMRwxULSZv_J2DsHtpG923ybJKcZq97DwfAslKp_8Rf24q2fxiPVP3hBEbYNg9MverunHW08uqejWK-MZowXO36wp2_gLzKYbHHeVA2pr5Ao77u5Kdhc57RlxjilS4bQQpfWjrKV6jKpEN8-"
+                                        action="https://ddee9ea1.sibforms.com/serve/MUIEADQelXEuC6ynvFNEqqPyQlFU9SNHYBWnyFeHq0AVBtGuermvExYRomTpqulaB5N9QGm0IDzq3C2RzkJqS__5nMC9h-Jdp0VQW6x_xJDUcYQeZkMmHUVJ9nQP9JNDNWr8pDHOqdjxYnpASVb-3ulcxOdyyiyRuGd9490TitbwYe6SprcxCLkendWpHMyaa7OnMqK8S7rUKmpz"
                                         data-type="subscription">
                                         <div style="padding: 8px 0;">
                                             <div class="sib-input sib-form-block">
                                                 <div class="form__entry entry_block">
                                                     <div class="form__label-row ">
+                                                        <label class="entry__label"
+                                                            style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:&quot;Helvetica&quot;, sans-serif; color:#3c4858;"
+                                                            for="EMAIL" data-required="*">Enter your email address to
+                                                            subscribe</label>
 
                                                         <div class="entry__field">
                                                             <input class="input " type="text" id="EMAIL"
-                                                                name="EMAIL" autocomplete="off" data-required="true"
-                                                                required placeholder="Email address"/>
+                                                                name="EMAIL" autocomplete="off" placeholder="EMAIL"
+                                                                data-required="true" required />
                                                         </div>
                                                     </div>
 
                                                     <label class="entry__error entry__error--primary"
                                                         style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                                                    </label>
+                                                    <label class="entry__specification"
+                                                        style="font-size:12px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#8390A4; text-align:left">
+                                                        Provide your email address to subscribe. For e.g abc@xyz.com
                                                     </label>
                                                 </div>
                                             </div>
@@ -120,26 +132,35 @@
                                                             <div class="entry__choice">
                                                                 <label class="checkbox__label">
                                                                     <input type="checkbox" class="input_replaced"
-                                                                        name="lists_28[]" data-value="weekly update"
-                                                                        value="5" data-required="true" />
-                                                                    <span class="checkbox checkbox_tick_positive"
-                                                                        style="margin-left:"></span><span>Urbanitarian weekly update</span> </label>
-                                                            </div>
-                                                            <div class="entry__choice">
-                                                                <label class="checkbox__label">
-                                                                    <input type="checkbox" class="input_replaced"
-                                                                        name="lists_28[]" data-value="MASTERPLAN  daily"
+                                                                        name="lists_28[]"
+                                                                        data-value="Urbanitarian weekly update"
                                                                         value="4" data-required="true" />
                                                                     <span class="checkbox checkbox_tick_positive"
-                                                                        style="margin-left:"></span><span>Urbanitarian MASTERPLAN daily</span> </label>
+                                                                        style="margin-left:"></span><span
+                                                                        style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#3C4858; background-color:transparent;">Urbanitarian
+                                                                        weekly update</span> </label>
                                                             </div>
                                                             <div class="entry__choice">
                                                                 <label class="checkbox__label">
                                                                     <input type="checkbox" class="input_replaced"
-                                                                        name="lists_28[]" data-value="WEBSPACE events"
-                                                                        value="3" data-required="true" />
+                                                                        name="lists_28[]"
+                                                                        data-value="Urbanitarian WEBSPACE events"
+                                                                        value="6" data-required="true" />
                                                                     <span class="checkbox checkbox_tick_positive"
-                                                                        style="margin-left:"></span><span>Urbanitarian WEBSPACE events</span> </label>
+                                                                        style="margin-left:"></span><span
+                                                                        style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#3C4858; background-color:transparent;">Urbanitarian
+                                                                        WEBSPACE events</span> </label>
+                                                            </div>
+                                                            <div class="entry__choice">
+                                                                <label class="checkbox__label">
+                                                                    <input type="checkbox" class="input_replaced"
+                                                                        name="lists_28[]"
+                                                                        data-value="Urbanitarian MASTERPLAN daily"
+                                                                        value="5" data-required="true" />
+                                                                    <span class="checkbox checkbox_tick_positive"
+                                                                        style="margin-left:"></span><span
+                                                                        style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#3C4858; background-color:transparent;">Urbanitarian
+                                                                        MASTERPLAN daily</span> </label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -150,34 +171,41 @@
                                             </div>
                                         </div>
                                         <div style="padding: 8px 0;">
-                                            <div class="sib-optin sib-form-block" data-required="true">
+                                            <div class="sib-optin sib-form-block">
                                                 <div class="form__entry entry_mcq">
                                                     <div class="form__label-row ">
                                                         <div class="entry__choice" style="">
                                                             <label>
                                                                 <input type="checkbox" class="input_replaced"
-                                                                    value="1" id="OPT_IN" name="OPT_IN"
-                                                                    required />
+                                                                    value="1" id="OPT_IN" name="OPT_IN" />
                                                                 <span class="checkbox checkbox_tick_positive"
                                                                     style="margin-left:"></span><span
                                                                     style="font-size:14px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#3C4858; background-color:transparent;">
                                                                     <p>I agree to receive your newsletters and accept the
-                                                                        data privacy statement.</p><span data-required="*"
-                                                                        style="display: inline;"
-                                                                        class="entry__label entry__label_optin"></span>
+                                                                        data privacy statement.</p>
                                                                 </span> </label>
                                                         </div>
                                                     </div>
                                                     <label class="entry__error entry__error--primary"
                                                         style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
                                                     </label>
+                                                    <label class="entry__specification"
+                                                        style="font-size:12px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#8390A4; text-align:left">
+                                                        You may unsubscribe at any time using the link in our newsletter.
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div style="padding: 8px 0;">
+                                            <div class="g-recaptcha"
+                                                data-sitekey="6LegwmMkAAAAAJ8o8JF7GapcTUQPyPCeFu4-rn1V"
+                                                data-callback="invisibleCaptchaCallback" data-size="invisible"
+                                                onclick="executeCaptcha"></div>
+                                        </div>
+                                        <div style="padding: 8px 0;">
                                             <div class="sib-form-block" style="text-align: center">
                                                 <button class="sib-form-block__button sib-form-block__button-with-loader"
-                                                    style="font-size:16px; text-align:center; font-weight:700; font-family:&quot;Helvetica&quot;, sans-serif; color:#FFFFFF; background-color:#000000; border-radius:11px; border-width:0px;"
+                                                    style="font-size:16px; text-align:center; font-weight:700; font-family:&quot;Helvetica&quot;, sans-serif; color:#FFFFFF; background-color:#000000; border-radius:9px; border-width:0px;"
                                                     form="sib-form" type="submit">
                                                     <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"
                                                         viewBox="0 0 512 512">
@@ -225,6 +253,10 @@
                         </script>
                         <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 
+                        <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+
+                        <!-- END - We recommend to place the above code in footer or bottom of your website html  -->
+                        <!-- End Sendinblue Form -->
 
                     </div>
 
