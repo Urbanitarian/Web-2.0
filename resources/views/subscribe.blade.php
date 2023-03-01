@@ -1,25 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-    <style>
-        #sib-container input:-ms-input-placeholder {
-            text-align: left;
-            font-family: "Helvetica", sans-serif;
-            color: #c0ccda;
-        }
 
-        #sib-container input::placeholder {
-            text-align: left;
-            font-family: "Helvetica", sans-serif;
-            color: #c0ccda;
-        }
-
-        #sib-container textarea::placeholder {
-            text-align: left;
-            font-family: "Helvetica", sans-serif;
-            color: #c0ccda;
-        }
-    </style>
     <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
     <div data-barba="container">
 
@@ -35,34 +17,7 @@
                     </p>
                     <div class="max-w-4xl mx-auto">
 
-                        <!-- Begin Sendinblue Form -->
-                        <!-- START - We recommend to place the below code in head tag of your website html  -->
-                        <style>
- 
-                            #sib-container input:-ms-input-placeholder {
-                                text-align: left;
-                                font-family: "Helvetica", sans-serif;
-                                color: #c0ccda;
-                            }
-
-                            #sib-container input::placeholder {
-                                text-align: left;
-                                font-family: "Helvetica", sans-serif;
-                                color: #c0ccda;
-                            }
-
-                            #sib-container textarea::placeholder {
-                                text-align: left;
-                                font-family: "Helvetica", sans-serif;
-                                color: #c0ccda;
-                            }
-                        </style>
-                        <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
-                        <!--  END - We recommend to place the above code in head tag of your website html -->
-
-                        <!-- START - We recommend to place the below code where you want the form in your website html  -->
-                        <div class="sib-form"
-                            style="text-align: center;">
+                        <div class="sib-form" style="text-align: center;">
                             <div id="sib-form-container" class="sib-form-container">
                                 <div id="error-message" class="sib-form-message-panel"
                                     style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:540px;">
@@ -128,39 +83,67 @@
                                                         <label class="entry__label"
                                                             style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:&quot;Helvetica&quot;, sans-serif; color:#3c4858;"
                                                             data-required="*">Choose your subscriptions</label>
-                                                        <div style="">
+                                                        <div class="max-w-4xl">
                                                             <div class="entry__choice">
-                                                                <label class="checkbox__label">
-                                                                    <input type="checkbox" class="input_replaced"
-                                                                        name="lists_28[]"
-                                                                        data-value="Urbanitarian weekly update"
-                                                                        value="4" data-required="true" />
-                                                                    <span class="checkbox checkbox_tick_positive"
-                                                                        style="margin-left:"></span><span
-                                                                        style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#3C4858; background-color:transparent;">Urbanitarian
-                                                                        weekly update</span> </label>
+                                                                <label class="flex cursor-pointer">
+                                                                    <div class="flex justify-between">
+                                                                        <span class="mr-2">Urbanitarian weekly
+                                                                            update &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>
+                                                                        <div class="relative">
+                                                                            <input type="checkbox" class="hidden peer"
+                                                                                name="lists_28[]"
+                                                                                data-value="Urbanitarian weekly update"
+                                                                                value="4" data-required="true" />
+                                                                            <div
+                                                                                class="w-10 h-5 bg-gray-400 rounded-full shadow-inner">
+                                                                            </div>
+                                                                            <div
+                                                                                class="absolute top-0.5 left-0.5 w-4 h-4 bg-black rounded-full shadow transition-transform duration-300 transform peer-checked:translate-x-5 peer-checked:bg-green-500">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </label>
                                                             </div>
                                                             <div class="entry__choice">
-                                                                <label class="checkbox__label">
-                                                                    <input type="checkbox" class="input_replaced"
-                                                                        name="lists_28[]"
-                                                                        data-value="Urbanitarian WEBSPACE events"
-                                                                        value="6" data-required="true" />
-                                                                    <span class="checkbox checkbox_tick_positive"
-                                                                        style="margin-left:"></span><span
-                                                                        style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#3C4858; background-color:transparent;">Urbanitarian
-                                                                        WEBSPACE events</span> </label>
+                                                                <label class="flex cursor-pointer">
+                                                                    <div class="flex justify-between">
+                                                                        <span class="mr-2">Urbanitarian
+                                                                        WEBSPACE events  &nbsp;</span>
+                                                                        <div class="relative">
+                                                                            <input type="checkbox" class="hidden peer"
+                                                                                name="lists_28[]"
+                                                                                data-value="Urbanitarian weekly update"
+                                                                                value="6" data-required="true" />
+                                                                            <div
+                                                                                class="w-10 h-5 bg-gray-400 rounded-full shadow-inner">
+                                                                            </div>
+                                                                            <div
+                                                                                class="absolute top-0.5 left-0.5 w-4 h-4 bg-black rounded-full shadow transition-transform duration-300 transform peer-checked:translate-x-5 peer-checked:bg-green-500">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </label>
                                                             </div>
-                                                            <div class="entry__choice">
-                                                                <label class="checkbox__label">
-                                                                    <input type="checkbox" class="input_replaced"
-                                                                        name="lists_28[]"
-                                                                        data-value="Urbanitarian MASTERPLAN daily"
-                                                                        value="5" data-required="true" />
-                                                                    <span class="checkbox checkbox_tick_positive"
-                                                                        style="margin-left:"></span><span
-                                                                        style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#3C4858; background-color:transparent;">Urbanitarian
-                                                                        MASTERPLAN daily</span> </label>
+                                                       
+                                                          <div class="entry__choice">
+                                                                <label class="flex cursor-pointer">
+                                                                    <div class="flex justify-between">
+                                                                        <span class="mr-2">Urbanitarian
+                                                                        MASTERPLAN daily</span>
+                                                                        <div class="relative">
+                                                                            <input type="checkbox" class="hidden peer"
+                                                                                name="lists_28[]"
+                                                                                data-value="Urbanitarian weekly update"
+                                                                                value="5" data-required="true" />
+                                                                            <div
+                                                                                class="w-10 h-5 bg-gray-400 rounded-full shadow-inner">
+                                                                            </div>
+                                                                            <div
+                                                                                class="absolute top-0.5 left-0.5 w-4 h-4 bg-black rounded-full shadow transition-transform duration-300 transform peer-checked:translate-x-5 peer-checked:bg-green-500">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -179,9 +162,9 @@
                                                                 <input type="checkbox" class="input_replaced"
                                                                     value="1" id="OPT_IN" name="OPT_IN" />
                                                                 <span class="checkbox checkbox_tick_positive"
-                                                                    style="margin-left:"></span><span
-                                                                    style="font-size:14px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#3C4858; background-color:transparent;">
-                                                                    <p>I agree to receive your newsletters and accept the
+                                                                    style="margin-left:"></span>
+                                                                <span>
+                                                                    <p class="text-xs text-gray-600">I agree to receive your newsletters and accept the
                                                                         data privacy statement.</p>
                                                                 </span> </label>
                                                         </div>
