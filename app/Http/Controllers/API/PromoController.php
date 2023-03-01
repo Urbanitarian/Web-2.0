@@ -12,9 +12,9 @@ class PromoController extends Controller
 {
     public function index() 
     { 
-        $masters = Masterplan::take(1)->get();
-        $streets = Streetscape::take(1)->get();
-        $neighbs = Neighbourhood::take(1)->get();
+        $masters = Masterplan::where('active', 1)->take(1)->get();
+        $streets = Streetscape::where('active', 1)->take(1)->get();
+        $neighbs = Neighbourhood::where('active', 1)->take(1)->get();
 
         $datas = array_merge(
             $masters->toArray(),

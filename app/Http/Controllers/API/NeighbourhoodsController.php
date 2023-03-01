@@ -16,13 +16,13 @@ class NeighbourhoodsController extends Controller
         $size = request()->input('size');
 
         if ($q) { 
-            $neighbourhoods = Neighbourhood::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
+            $neighbourhoods = Neighbourhood::where('active', 1)->where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
         }elseif ($tags) {
-            $neighbourhoods = Neighbourhood::where('tags','like','%' . $tags . '%')->get();
+            $neighbourhoods = Neighbourhood::where('active', 1)->where('tags','like','%' . $tags . '%')->get();
         }elseif ($size) {
-            $neighbourhoods = Neighbourhood::where('size','=', $size)->get();
+            $neighbourhoods = Neighbourhood::where('active', 1)->where('size','=', $size)->get();
         } else {
-            $neighbourhoods = Neighbourhood::inRandomOrder()->get();
+            $neighbourhoods = Neighbourhood::where('active', 1)->inRandomOrder()->get();
         }
         return response()->json($neighbourhoods);
     }

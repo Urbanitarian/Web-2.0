@@ -67,6 +67,7 @@ class MasterplanCrudController extends CrudController
         ]);
         CRUD::column('city');
         CRUD::column('country');
+        CRUD::column('active');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -217,6 +218,21 @@ class MasterplanCrudController extends CrudController
              'tab'             => 'Main',
         ]);
 
+        
+        $this->crud->addField([   // select_from_array
+            'name'        => 'active',
+            'label'       => "Active",
+            'type'        => 'select_from_array',
+            'options'     => [
+                '0'        => '0',
+                '1'        => '1',
+            ],
+            'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+            'allows_null' => false,
+            'default'     => '1',
+             'tab'             => 'Main',
+        ]);
+
         $this->crud->addField([   // CustomHTML
             'name'  => 'separator0',
             'type'  => 'custom_html',
@@ -229,7 +245,7 @@ class MasterplanCrudController extends CrudController
                  'label' => 'Credits',
                  'type'  => 'text',
                  'tab' => 'Main',
-                 'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+                 'wrapper' => [ 'class' => 'form-group col-xl pl-3'],
                 ]);
 
 
@@ -553,6 +569,21 @@ class MasterplanCrudController extends CrudController
              'tab'             => 'Main',
         ]);
 
+        
+        $this->crud->addField([   // select_from_array
+            'name'        => 'active',
+            'label'       => "Active",
+            'type'        => 'select_from_array',
+            'options'     => [
+                '0'        => '0',
+                '1'        => '1',
+            ],
+            'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+            'allows_null' => false,
+            'default'     => '1',
+             'tab'             => 'Main',
+        ]);
+
         $this->crud->addField([   // CustomHTML
             'name'  => 'separator0',
             'type'  => 'custom_html',
@@ -565,7 +596,7 @@ class MasterplanCrudController extends CrudController
                  'label' => 'Credits',
                  'type'  => 'text',
                  'tab' => 'Main',
-                 'wrapper' => [ 'class' => 'form-group col-md pl-3'],
+                 'wrapper' => [ 'class' => 'form-group col-xl pl-3'],
                 ]);
 
 

@@ -16,13 +16,13 @@ class StreetscapesController extends Controller
             $size = request()->input('size');
     
             if ($q) { 
-                $streets = Streetscape::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
+                $streets = Streetscape::where('active', 1)->where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
             }elseif ($tags) {
-                $streets = Streetscape::where('tags','like','%' . $tags . '%')->get();
+                $streets = Streetscape::where('active', 1)->where('tags','like','%' . $tags . '%')->get();
             }elseif ($size) {
-                $streets = Streetscape::where('size','=', $size)->get();
+                $streets = Streetscape::where('active', 1)->where('size','=', $size)->get();
             } else {
-                $streets = Streetscape::inRandomOrder()->get();
+                $streets = Streetscape::where('active', 1)->inRandomOrder()->get();
             }
             return response()->json($streets);
         }
