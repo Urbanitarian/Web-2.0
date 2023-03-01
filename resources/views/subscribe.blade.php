@@ -23,7 +23,7 @@
 
                        <div class="py-3 border-b" x-data="{enabled: false}">
                        <label class="flex items-center justify-between">
-                       <span class="text-sm text-gray-800">Push Notifications</span>
+                       <span class="text-sm text-gray-800">Urbanitarian weekly update</span>
                        <button @click="enabled = !enabled" type="button" class="relative inline-flex flex-shrink-0 w-10 h-5 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" :class="enabled &amp;&amp; 'bg-gray-600'" role="switch" aria-checked="false">
                        <span class="sr-only">Sleek Toggle</span>
                        <span aria-hidden="true" class="inline-block w-4 h-4 transition duration-200 ease-in-out transform bg-white rounded-full shadow pointer-events-none ring-0" :class="enabled &amp;&amp; 'translate-x-5'"></span>
@@ -32,7 +32,7 @@
                        </div>
                        <div class="py-3 border-b" x-data="{enabled: false}">
                        <label class="flex items-center justify-between">
-                       <span class="text-sm text-gray-800">SMS Notifications</span>
+                       <span class="text-sm text-gray-800">Urbanitarian WEBSPACE events</span>
                        <button @click="enabled = !enabled" type="button" class="relative inline-flex flex-shrink-0 w-10 h-5 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" :class="enabled &amp;&amp; 'bg-gray-600'" role="switch" aria-checked="false">
                        <span class="sr-only">Sleek Toggle</span>
                        <span aria-hidden="true" class="inline-block w-4 h-4 transition duration-200 ease-in-out transform bg-white rounded-full shadow pointer-events-none ring-0" :class="enabled &amp;&amp; 'translate-x-5'"></span>
@@ -41,7 +41,7 @@
                        </div>
                        <div class="py-3 border-b" x-data="{enabled: false}">
                        <label class="flex items-center justify-between">
-                       <span class="text-sm text-gray-800">Email Notifications</span>
+                       <span class="text-sm text-gray-800">Urbanitarian MASTERPLAN  daily</span>
                        <button @click="enabled = !enabled" type="button" class="relative inline-flex flex-shrink-0 w-10 h-5 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" :class="enabled &amp;&amp; 'bg-gray-600'" role="switch" aria-checked="false">
                        <span class="sr-only">Sleek Toggle</span>
                        <span aria-hidden="true" class="inline-block w-4 h-4 transition duration-200 ease-in-out transform bg-white rounded-full shadow pointer-events-none ring-0" :class="enabled &amp;&amp; 'translate-x-5'"></span>

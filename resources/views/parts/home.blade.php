@@ -168,6 +168,8 @@
                  <option value="M">M</option>
                  <option value="S">S</option>
                  <option value="XS">XS</option>
+                 <option value="XXS">XXS</option>
+                 <option value="XXXS">XXXS</option>
              </select>
          </div>
 
