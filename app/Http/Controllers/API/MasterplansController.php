@@ -13,6 +13,7 @@ class MasterplansController extends Controller
         $q = request()->input('q');
         $tags = request()->input('tags');
         $size = request()->input('size');
+        $status = request()->input('status');
 
         if ($q) { 
             $masters = Masterplan::where('active', 1)->where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
