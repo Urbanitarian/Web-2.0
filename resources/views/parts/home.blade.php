@@ -136,6 +136,7 @@
                     <option value="Solar Powered">Solar Powered</option>
                  <option value="Food-production">Food-production</option>
                  <option value="Green wedges">Green wedges</option>
+                    <option value="Climate adaptation">Climate adaptation</option>
                  <option value="Sustainable">Sustainable</option>
                  <option value="Science Park">Science Park</option>
                  <option value="Missing middle">Missing middle</option>
