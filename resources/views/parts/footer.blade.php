@@ -23,6 +23,12 @@
             </a>
           </li>
 
+           <li>
+            <a class="text-gray-700 transition hover:text-gray-900" href="subscribe">
+              Subscribe
+            </a>
+          </li>
+
           <li>
             <a class="text-gray-700 transition hover:text-gray-900" href="contact">
               Contact
