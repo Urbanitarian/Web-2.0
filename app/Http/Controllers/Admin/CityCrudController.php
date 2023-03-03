@@ -66,9 +66,7 @@ class CityCrudController extends CrudController
         CRUD::setValidation(CityRequest::class);
         $this->crud->setValidation([
             'name' => 'required|min:2|max:255',
-            'tags' => 'required',
             'city' => 'required',
-            'country' => 'required',
         ]);
         CRUD::addField([ // Text
             'name'  => 'name',

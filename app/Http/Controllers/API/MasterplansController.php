@@ -20,6 +20,8 @@ class MasterplansController extends Controller
             $masters = Masterplan::where('active', 1)->where('tags','like','%' . $tags . '%')->get();
         }elseif ($size) {
             $masters = Masterplan::where('active', 1)->where('size','=', $size)->get();
+        }elseif ($status) {
+            $masters = Masterplan::where('active', 1)->where('status','like','%' . $status . '%')->get();
         } else {
             $masters = Masterplan::where('active', 1)->inRandomOrder()->get();
         }
