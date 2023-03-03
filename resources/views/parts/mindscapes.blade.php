@@ -26,14 +26,14 @@
                 <div class="flex flex-col py-4 lg:flex-row lg:-mx-6">
                     <div class="lg:w-3/4 md:px-6">
                         <div class="juxtapose">
-                            <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4  saturate-120"
+                            <img class="object-cover object-center w-full h-80 xl:h-[28rem] md:mr-4  saturate-120 animate__animated animate__backInLeft"
                                 src="{{ asset('storage/' . $mindscape->image[0]) }}"alt="00"
                                 onerror="this.src='./img/empty.png'" />
                         </div>
 
                     </div>
 
-                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6">
+                    <div class="mt-8 border-t border-b lg:w-1/4 lg:mt-0 lg:px-6 animate__animated animate__backInRight">
 
                         <h3 class="mt-4 font-semibold text-center text-black uppercase"> {{ $mindscape->tags[0] }}
                         </h3>

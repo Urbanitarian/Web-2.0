@@ -173,7 +173,7 @@ $("#prev").click(function() {
 
         $.each(itemsToDisplay, function(i, item) {
                     let html = `
-                         <div class="border">
+                         <div class="border  animate__animated animate__backInUp">
                    <a href="./urbanscapes_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/uploads/urbanscapes/${item.imagea}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105  saturate-120" />
                    <div class="relative pt-3 bg-gray-100">

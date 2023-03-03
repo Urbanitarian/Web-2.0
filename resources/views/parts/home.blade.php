@@ -238,7 +238,7 @@
      </div>
  </div>
  <div data-barba="container">
-     <section class="block pb-8 mx-4 md:mx-16 tabset">
+     <section class="block pb-8 mx-4 md:mx-16 tabset min-h-96">
 
          <div id="boucle" class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5">
 
@@ -318,7 +318,7 @@
                      $.each(itemsToDisplay, function(i, item) {
                          if (item.category == "Masterplans") {
                              let html = `
-                      <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                      <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 saturate-120 animate__animated animate__backInLeft">
                          <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
                              <img alt="Art" src="storage/uploads/masterplans/${item.image}"alt=""
                                  onerror="this.src='./img/empty.png'" class="object-cover h-full  saturate-120 max-h-[480px]" />
@@ -336,7 +336,7 @@
                              $('#boucle').append(html);
                          } else if (item.category == "Urbanscapes") {
                              let html = `
-                      <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                      <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 saturate-120 animate__animated animate__backInRight">
                          <a href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full">
                              <img alt="Art" src="storage/uploads/urbanscapes/${item.imagea}"alt=""
                                  onerror="this.src='./img/empty.png'" class="object-cover h-full  saturate-120 max-h-[480px]" />
@@ -355,7 +355,7 @@
                          } else if (item.category == "Streetscapes") {
                              let html = `
                      <div
-                         class="relative col-span-2 transition border shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105">
+                         class="relative col-span-2 transition border shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 saturate-120 animate__animated animate__backInUp">
                          <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
                              <img alt="Art" src="storage/uploads/streetscapes/${item.imagea}"alt=""
                                  onerror="this.src='./img/empty.png'" class="object-cover h-full  saturate-120 max-h-[480px]" />
