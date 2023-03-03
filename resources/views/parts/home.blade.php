@@ -146,6 +146,7 @@
                  <option value="Playful">Playful</option>
                  <option value="Circular">Circular</option>
                  <option value="Climate-neutral">Climate-neutral</option>
+                 <option value="Net zero">Net zero</option>
                  <option value="Zero Carbon">Zero carbon</option>
                  <option value="Carbon negative">Carbon negative</option>
                  <option value="WSUD">WSUD</option>

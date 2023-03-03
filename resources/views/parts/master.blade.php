@@ -97,6 +97,9 @@
                  <option value="Nature-rich">Nature-rich</option>
                  <option value="Courtyards">Courtyards</option>
                  <option value="By the railway">By the railway</option>
+                <option value="By the water">By the water</option>
+                 <option value="Garden City">Garden City</option>
+                 <option value="Modular">Modular</option>
                  <option value="DIY Urbanism">DIY Urbanism</option>
                  <option value="Food-production">Food-production</option>
                  <option value="Green wedges">Green wedges</option>
@@ -104,6 +107,7 @@
                  <option value="Science Park">Science Park</option>
                  <option value="Missing middle">Missing middle</option>
                  <option value="Dense">Dense</option>
+                <option value="Greenfield">Greenfield</option>
                  <option value="Science Park">Science Park</option>
                  <option value="Business District">Business District</option>
                  <option value="Missing Middle">Missing middle</option>
@@ -113,8 +117,11 @@
                  <option value="Accessible and Connected">Accessible and connected</option>
                  <option value="Climate-proof">Climate-proof</option>
                  <option value="Playful">Playful</option>
+                 <option value="Self-sufficient">Self-sufficient</option>
+                 <option value="Houses in row">Houses in row</option>
                  <option value="Circular">Circular</option>
                  <option value="Climate-neutral">Climate-neutral</option>
+                  <option value="Net zero">Net zero</option>
                  <option value="Zero Carbon">Zero carbon</option>
                  <option value="Carbon negative">Carbon negative</option>
                  <option value="WSUD">WSUD</option>

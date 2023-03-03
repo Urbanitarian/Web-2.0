@@ -148,23 +148,31 @@ class MasterplanCrudController extends CrudController
                 'Walkable'        => 'Walkable',
                 'Courtyards'        => 'Courtyards',
                 'By the railway'        => 'By the railway',
+                'By the water'        => 'By the water',
+                'SUDS'       => 'SUDS',
                 'CBD'        => 'CBD',
                 'DIY Urbanism'        => 'DIY Urbanism',
+                'Greenfield'        => 'Greenfield',
                 'Sustainable'       => 'Sustainable',
                 'Food-production'      => 'Food-production',
                 'Dense'       => 'Dense',
+                'Garden City'       => 'Garden City',
                 'Science Park'       => 'Science Park',
+                'Self-sufficient'       => 'Self-sufficient',
                 'Business District'       => 'Business District',
                 'Missing middle'      => 'Missing middle',
+                'Modular'       => 'Modular',
                 'Preventing Loneliness'        => 'Preventing Loneliness',
                 'Youth-friendly'        => 'Youth-friendly' ,
                 'Age-friendly'        => 'Age-friendly',
+                'Houses in row'       => 'Houses in row',
                 'Accessible and connected'        => 'Accessible and connected',
                 'Climate-proof'        => 'Climate-proof' ,
                 'Sustainable'        => 'Sustainable', 
                 'Playful'        => 'Playful',
                 'Circular'        => 'Circular',
                 'Climate-neutral'        => 'Climate-neutral',
+                'Net zero'        => 'Net zero',
                 'Zero carbon'        => 'Zero carbon' ,
                 'Carbon negative'        => 'Carbon negative',
                 'WSUD'        => 'WSUD', 
@@ -427,13 +435,13 @@ class MasterplanCrudController extends CrudController
 
     public function saveCountry($entry)
     {
-        $name = ucfirst(strtolower($entry->country));
+        $name = ucwords(strtolower($entry->country));
         Country::firstOrCreate(['name' => $name]);
     }
 
     public function saveCity($entry)
     {
-        $city = ucfirst(strtolower($entry->city));
+        $city = ucwords(strtolower($entry->city));
         City::firstOrCreate(['name' => $city]);
     }
     /**
@@ -502,29 +510,37 @@ class MasterplanCrudController extends CrudController
                 'Affordable'        => 'Affordable' ,
                 'Self-sufficient'        => 'Self-sufficient',
                 'Car-free'        => 'Car-free',
-                'Eco-village'       => 'Eco-village',
                 'Green wedges'        => 'Green wedges',
+                'Eco-village'       => 'Eco-village',
                 'Nature-rich'        => 'Nature-rich',
                 'Walkable'        => 'Walkable',
                 'Courtyards'        => 'Courtyards',
                 'By the railway'        => 'By the railway',
+                'By the water'        => 'By the water',
+                'SUDS'       => 'SUDS',
                 'CBD'        => 'CBD',
                 'DIY Urbanism'        => 'DIY Urbanism',
+                'Greenfield'        => 'Greenfield',
                 'Sustainable'       => 'Sustainable',
                 'Food-production'      => 'Food-production',
                 'Dense'       => 'Dense',
+                'Garden City'       => 'Garden City',
                 'Science Park'       => 'Science Park',
+                'Self-sufficient'       => 'Self-sufficient',
                 'Business District'       => 'Business District',
                 'Missing middle'      => 'Missing middle',
+                'Modular'       => 'Modular',
                 'Preventing Loneliness'        => 'Preventing Loneliness',
                 'Youth-friendly'        => 'Youth-friendly' ,
                 'Age-friendly'        => 'Age-friendly',
+                'Houses in row'       => 'Houses in row',
                 'Accessible and connected'        => 'Accessible and connected',
                 'Climate-proof'        => 'Climate-proof' ,
                 'Sustainable'        => 'Sustainable', 
                 'Playful'        => 'Playful',
                 'Circular'        => 'Circular',
                 'Climate-neutral'        => 'Climate-neutral',
+                'Net zero'        => 'Net zero',
                 'Zero carbon'        => 'Zero carbon' ,
                 'Carbon negative'        => 'Carbon negative',
                 'WSUD'        => 'WSUD', 
