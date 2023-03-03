@@ -105,7 +105,7 @@
      </div>
 
 
-     <div class="grid grid-cols-3 gap-2 mx-4 mt-4 md:grid-cols-5 md:mx-0">
+     <div id="up" class="grid grid-cols-3 gap-2 mx-4 mt-4 md:grid-cols-5 md:mx-0">
          <div class="block">
              <label for="DeliveryStandard" class="block">
                  <p class="pb-2 font-bold text-black">Tags</p>
@@ -238,16 +238,16 @@
      </div>
  </div>
  <div data-barba="container">
-     <section class="block pb-8 mx-4 md:mx-16 tabset min-h-96">
+     <section class="block pb-8 mx-4 md:mx-16 tabset">
 
-         <div id="boucle" class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5">
+         <div id="boucle" class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5 min-h-[640px]">
 
          </div>
          <div class="flex pt-10">
-             <button id="prev"
+           <a href="#up">  <button id="prev"
                  class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300  hover:bg-gray-200 active:text-white ">
                  <p class="text-sm font-medium">previous</p>
-             </button>
+             </button></a>
 
              <div
                  class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md">
@@ -256,10 +256,10 @@
              </div>
 
 
-             <button id="next"
+            <a href="#up"> <button id="next"
                  class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:text-white ">
                  <p class="text-sm font-medium">Next</p>
-             </button>
+             </button></a>
          </div>
      </section>
  </div>

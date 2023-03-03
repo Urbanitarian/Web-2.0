@@ -109,7 +109,7 @@
 
         <div>
             <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
-                <ul id="boucle" class="grid gap-4 mt-8 sm:grid-cols-2 md:grid-cols-3 ">
+                <ul id="boucle" class="grid gap-4 mt-8 sm:grid-cols-2 md:grid-cols-3 min-h-[640px]">
 
                 </ul>
             </div>
