@@ -143,6 +143,8 @@ class MasterplanCrudController extends CrudController
                 'Self-sufficient'        => 'Self-sufficient',
                 'Car-free'        => 'Car-free',
                 'Walkable'        => 'Walkable',
+                'Courtyards'        => 'Courtyards',
+                'By the railway'        => 'By the railway',
                 'CBD'        => 'CBD',
                 'Sustainable'       => 'Sustainable',
                 'Dense'       => 'Dense',
@@ -420,12 +422,14 @@ class MasterplanCrudController extends CrudController
 
     public function saveCountry($entry)
     {
-        Country::firstOrCreate(['name' => $entry->country]);
+        $name = ucfirst(strtolower($entry->country));
+        Country::firstOrCreate(['name' => $name]);
     }
 
     public function saveCity($entry)
     {
-        City::firstOrCreate(['name' => $entry->city]);
+        $city = ucfirst(strtolower($entry->city));
+        City::firstOrCreate(['name' => $city]);
     }
     /**
      * Define what happens when the Update operation is loaded.
@@ -495,6 +499,8 @@ class MasterplanCrudController extends CrudController
                 'Car-free'        => 'Car-free',
                 'Walkable'        => 'Walkable',
                 'CBD'        => 'CBD',
+                'Courtyards'        => 'Courtyards',
+                'By the railway'        => 'By the railway',
                 'Sustainable'       => 'Sustainable',
                 'Dense'       => 'Dense',
                 'Science Park'       => 'Science Park',
