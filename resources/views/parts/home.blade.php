@@ -112,7 +112,7 @@
              </label>
              <select name="tags" id="tags_selector"
                  class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                 <option value="">All</option>
+                  <option value="">All</option>
                  <option value="Child-friendly">Child-friendly</option>
                  <option value="Healthy">Healthy</option>
                  <option value="Safe">Safe</option>
@@ -128,13 +128,19 @@
                  <option value="Nature-rich">Nature-rich</option>
                  <option value="Courtyards">Courtyards</option>
                  <option value="By the railway">By the railway</option>
+                <option value="By the water">By the water</option>
+                 <option value="Garden City">Garden City</option>
+                 <option value="Modular">Modular</option>
+                    <option value="Floating City">Floating City</option>
                  <option value="DIY Urbanism">DIY Urbanism</option>
+                    <option value="Solar Powered">Solar Powered</option>
                  <option value="Food-production">Food-production</option>
                  <option value="Green wedges">Green wedges</option>
                  <option value="Sustainable">Sustainable</option>
                  <option value="Science Park">Science Park</option>
                  <option value="Missing middle">Missing middle</option>
                  <option value="Dense">Dense</option>
+                <option value="Greenfield">Greenfield</option>
                  <option value="Science Park">Science Park</option>
                  <option value="Business District">Business District</option>
                  <option value="Missing Middle">Missing middle</option>
@@ -144,9 +150,11 @@
                  <option value="Accessible and Connected">Accessible and connected</option>
                  <option value="Climate-proof">Climate-proof</option>
                  <option value="Playful">Playful</option>
+                 <option value="Self-sufficient">Self-sufficient</option>
+                 <option value="Houses in row">Houses in row</option>
                  <option value="Circular">Circular</option>
                  <option value="Climate-neutral">Climate-neutral</option>
-                 <option value="Net zero">Net zero</option>
+                  <option value="Net zero">Net zero</option>
                  <option value="Zero Carbon">Zero carbon</option>
                  <option value="Carbon negative">Carbon negative</option>
                  <option value="WSUD">WSUD</option>

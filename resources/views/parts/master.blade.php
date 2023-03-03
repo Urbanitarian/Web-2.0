@@ -100,7 +100,9 @@
                 <option value="By the water">By the water</option>
                  <option value="Garden City">Garden City</option>
                  <option value="Modular">Modular</option>
+                    <option value="Floating City">Floating City</option>
                  <option value="DIY Urbanism">DIY Urbanism</option>
+                    <option value="Solar Powered">Solar Powered</option>
                  <option value="Food-production">Food-production</option>
                  <option value="Green wedges">Green wedges</option>
                  <option value="Sustainable">Sustainable</option>
