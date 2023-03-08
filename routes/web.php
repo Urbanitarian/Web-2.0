@@ -69,3 +69,8 @@ Route::post('contactmail' , [MailController::class, 'sendMessage']);
 Route::get("redirect/{provider}",[SocialiteController::class, 'redirect'])->name('socialite.redirect');
 // Le callback du provider
 Route::get("callback/{provider}",[SocialiteController::class, 'callback'])->name('socialite.callback');
+
+Route::get('schedule', function () {
+    Artisan::call('quote:daily');
+    return "successfully!";
+});
