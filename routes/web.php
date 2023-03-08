@@ -17,7 +17,7 @@ use App\Http\Middleware\Cors;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::controller(GlobalController::class)->group(function(){
+Route::controller(GlobalController::class)->middleware('cache.headers:public;max_age=2628000;etag')->group(function(){
     // Route::get('/', 'getAll')->name('getAll')->middleware('App\Http\Middleware\MyMiddleware');
 Route::get('/', 'getAll')->name('getAll');
 Route::get('/filter', 'getAll')->name('filter');
