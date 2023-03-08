@@ -17,7 +17,9 @@
                 Select the type of category.</br>
                 Upload the file and click on "Import" button.</br>
             </p>
-            <p class="text-sm text-red-600">Do not use special characters in the image names (', +, etc.).</p>
+            <p class="text-sm text-red-600">Do not use special characters in the image names [&nbsp;'&nbsp;, +&nbsp;, "&nbsp;]<br>
+            and don't forget the commas and spaces between each link.</p>
+            </p>
             <div class="flex">
                 <div class="mr-4">
                     <a href="{{ asset('img/masterplans_exemple_sheet.xlsx') }}">Masterplans sheet</a></br>
