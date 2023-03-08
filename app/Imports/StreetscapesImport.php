@@ -34,6 +34,7 @@ class StreetscapesImport implements ToModel, WithHeadingRow
                 'status' => !empty($row[11]) ? strtolower($row[11]) : 'No status',
                 'size' =>  !empty($row[12]) ? strtoupper($row[12]) : 'No size',
                 'tags' =>  !empty($row[13]) ? explode(", ", $row[13]) : ["No Tags"],
+                'active' => 0,
             ]);
         }
     }

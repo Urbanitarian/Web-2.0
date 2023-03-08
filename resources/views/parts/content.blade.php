@@ -1,6 +1,6 @@
 <div class="border-b border-gray-300"></div>
 
-@include('parts.home');
+@include('parts.home')
 @include('parts.streetscapes')
 @include('parts.masterplans')
 @include('parts.neighbourhoods')
@@ -87,9 +87,9 @@
 
         marker = L.marker([decimalString[0], decimalString[1]], {}).addTo(mymap).bindPopup(
             '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' + graffid + ',' + cat +
-            ')" class="mt-4" src="/storage/uploads/' + mydataca + '/' + pics +
+            ')" class="mt-4" loading="lazy" src="/storage/uploads/' + mydataca + '/' + pics +
             '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="graffnom">' + graffname +
-            '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500 pb-4" id="graffcity">' + graffcity + '</h1></div></div>'
+            '</h1><h1 class="pb-4 mt-1 mb-2 text-xs text-gray-500" id="graffcity">' + graffcity + '</h1></div></div>'
         );
         markers[graff.id] = marker;
 

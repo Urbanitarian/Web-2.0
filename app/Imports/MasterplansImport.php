@@ -46,6 +46,7 @@ class MasterplansImport implements ToModel, WithHeadingRow
                 'link' => !empty($row[26]) ? $row[26] : 'http://www.website.com',
                 'category' => "Masterplans",
                 'address' =>"address_dummy",
+                'active' => 0,
             ]);
         }
        

@@ -60,7 +60,7 @@
  <div id="mysearch" class="pt-4 pb-8 mx-2 bg-white md:mx-16">
 
      <div class="flex flex-wrap justify-between py-4 mx-4 md:mx-0">
-         <div class="hidden md:flex pb-4 md:pb-0">
+         <div class="hidden pb-4 md:flex md:pb-0">
              <select name="popular" id="pop_selector"
                  class=" px-4 h-[40px] text-sm bg-white border-gray-200 rounded-md  border focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">Popular</option>
@@ -93,7 +93,7 @@
          </fieldset>
 
          <div class="flex flex-col">
-             <div class=" py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
+             <div class="py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
                  <span id="change-layout" onclick="return false;"> <i
                          class="mx-2 text-gray-200 transition fa-solid fa-list fa-2x hover:text-gray-400"></i></span>
                  <span id="change-layout3" onclick="return false;"> <i
@@ -111,7 +111,7 @@
                  <p class="pb-2 font-bold text-black">Tags</p>
              </label>
              <select name="tags" id="tags_selector"
-                 class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                 class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                   <option value="">All</option>
                  <option value="Child-friendly">Child-friendly</option>
                  <option value="Healthy">Healthy</option>
@@ -175,7 +175,7 @@
                  <p class="pb-2 font-bold text-black">Size</p>
              </label>
              <select name="size" id="size_selector"
-                 class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                 class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">All</option>
                  <option value="XXXXL">XXXXL</option>
                  <option value="XXXL">XXXL</option>
@@ -195,7 +195,7 @@
                  <p class="pb-2 font-bold text-black">Status</p>
              </label>
              <select name="status" id="status_selector"
-                 class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                 class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">All</option>
                  <option value="built">Built</option>
                  <option value="future">Future</option>
@@ -210,7 +210,7 @@
                  <p class="pb-2 font-bold text-black">City</p>
              </label>
              <select name="city" id="city_selector"
-                 class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                 class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">All</option>
                  @foreach ($cities as $city)
                      <option value="{{ $city->name }}">
@@ -245,7 +245,7 @@
          </div>
          <div class="flex pt-10">
            <a href="#up">  <button id="prev"
-                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300  hover:bg-gray-200 active:text-white ">
+                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:text-white ">
                  <p class="text-sm font-medium">previous</p>
              </button></a>
 
@@ -320,8 +320,8 @@
                              let html = `
                       <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 saturate-120 animate__animated animate__backInLeft">
                          <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/uploads/masterplans/${item.image}"alt=""
-                                 onerror="this.src='./img/empty.png'" class="object-cover h-full  saturate-120 max-h-[480px]" />
+                             <img alt="Art" src="storage/uploads/thumbnails/masterplans/${item.image}"alt=""
+                                 onerror="this.src='storage/uploads/masterplans/${item.image}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
                              <div class="">
                                  <h3 class="mx-2 mt-2 text-sm font-bold text-center truncate">
                                      ${item.title} | ${item.author} | ${item.city}</h3>
@@ -338,8 +338,8 @@
                              let html = `
                       <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 saturate-120 animate__animated animate__backInRight">
                          <a href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/uploads/urbanscapes/${item.imagea}"alt=""
-                                 onerror="this.src='./img/empty.png'" class="object-cover h-full  saturate-120 max-h-[480px]" />
+                             <img alt="Art" src="storage/uploads/thumbnails/urbanscapes/${item.imagea}"alt=""
+                                 onerror="this.src='storage/uploads/urbanscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
                              <div class="">
                                  <h3 class="mx-2 mt-2 text-sm font-bold text-center truncate">
                                      ${item.title} | ${item.author} | ${item.city}</h3>
@@ -357,8 +357,8 @@
                      <div
                          class="relative col-span-2 transition border shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 saturate-120 animate__animated animate__backInUp">
                          <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
-                             <img alt="Art" src="storage/uploads/streetscapes/${item.imagea}"alt=""
-                                 onerror="this.src='./img/empty.png'" class="object-cover h-full  saturate-120 max-h-[480px]" />
+                             <img alt="Art" src="storage/uploads/thumbnails/streetscapes/${item.imagea}"alt=""
+                                 onerror="this.src='storage/uploads/streetscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
                              <div class="">
                                  <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
                                      ${item.title} | ${item.author} | ${item.city}</h3>
@@ -440,7 +440,7 @@
                                          mypics +
                                          '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="mydatanom">' +
                                          mydataname +
-                                         '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500 pb-4" id="mydatacity">' +
+                                         '</h1><h1 class="pb-4 mt-1 mb-2 text-xs text-gray-500" id="mydatacity">' +
                                          mydatacity + '</h1></div></div>'
                                      );
                                  amarkers[mydata.id] = markera;
@@ -704,7 +704,7 @@
                          ')" class="mt-4" src="/storage/uploads/' + mydatacat + '/' + mypics +
                          '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="mydatanom">' +
                          mydataname +
-                         '</h1><h1 class="mt-1 mb-2 text-xs text-gray-500 pb-4" id="mydatacity">' +
+                         '</h1><h1 class="pb-4 mt-1 mb-2 text-xs text-gray-500" id="mydatacity">' +
                          mydatacity + '</h1></div></div>'
                      );
                      amarkers[mydata.id] = markera;

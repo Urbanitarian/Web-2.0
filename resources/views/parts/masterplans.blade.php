@@ -2,10 +2,10 @@
     <div class="w-full pt-12">
         <a href="./masterplans"><h1 class="pt-4 pb-8 text-3xl font-bold text-center text-gray-900 md:text-5xl">Masterplans</h1></a>
         <div class="max-w-xl px-8 mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-4xl">
-                      <p class="text-sm font-bold text-gray-700 md:text-lg pt-4">
+                      <p class="pt-4 text-sm font-bold text-gray-700 md:text-lg">
                 Discover Urban Design's Hidden Gems: Explore The Urbanitarian Masterplan Archive
             </p>
-             <p class="text-ssm text-gray-500 md:text-lg">
+             <p class="text-gray-500 text-ssm md:text-lg">
                 Get your daily dose of inspiration in our curated list of urban design projects from all around the world. Each project contains key insights along with useful diagrams, measurements and data
             </p>
         </div>
@@ -56,7 +56,7 @@
                             <div class="flex-shrink-0">
                              @php $image0 =   $masterplan->image ?? null; @endphp
                                 <img class="h-[450px] w-full object-cover border-b saturate-120"
-                                    src="{{ asset('storage/uploads/masterplans/' . $image0) }}"alt=""  onerror="this.src='./img/empty.png'"/>
+                                    src="{{ asset('storage/uploads/thumbnails/masterplans/' . $image0) }}"alt="" loading="lazy" onerror="this.src='{{ asset('storage/uploads/masterplans/' . $image0) }}'"/>
                                 <h1 class="pt-3 mx-2 text-sm font-bold text-center truncate">{{ $masterplan->title }} | {{ $masterplan->author }} | {{ $masterplan->city }} </h1>
                                 <p class="pb-4 mx-8 text-xs text-center text-gray-700">
                                     {{ $masterplan->category }}, {{ $masterplan->size }}  

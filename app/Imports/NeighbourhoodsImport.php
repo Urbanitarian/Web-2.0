@@ -40,6 +40,7 @@ class NeighbourhoodsImport implements ToModel, WithHeadingRow
             'tags' =>  !empty($row[20]) ? explode(", ", $row[20]) : ["No Tags"],
             'category' => "Urbanscapes",
             'address' =>"address_dummy",
+            'active' => 0,
         ]);
     }
     }

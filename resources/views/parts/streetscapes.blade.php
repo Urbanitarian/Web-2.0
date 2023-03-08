@@ -11,15 +11,15 @@
                 Examples of streetscapes with description, measures and solutions to incorporate in your designs
             </p>
         </div>
-        <div class="grid gap-6 row-gap-5 lg:grid-cols-3">
+        <div class="grid gap-6 row-gap-5 md:grid-cols-3">
 
            @forelse ($streetscapes as $streetscape)
                <div>
                  <div class="juxtapose saturate-120">
                      @php $img0 = $streetscape->imagea ?? null; @endphp
                       @php $img1 = $streetscape->imageb ?? null; @endphp
-                    <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="{{ asset('storage/uploads/streetscapes/' . $img0) }}"alt="00"  onerror="this.src='./img/empty.png'"/>
-                     <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="{{ asset('storage/uploads/streetscapes/' . $img1) }}"alt="00"  onerror="this.src='./img/empty.png'"/>
+                    <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $img0) }}"alt="00" loading="lazy" onerror="this.src='{{ asset('storage/uploads/streetscapes/' . $img0) }}'"/>
+                     <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96" src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $img1) }}"alt="00" loading="lazy" onerror="this.src='{{ asset('storage/uploads/streetscapes/' . $img1) }}'"/>
                 </div>
                     <a href="streetscapes_post?id={{ $streetscape->id }}">
                     <h5 class="flex justify-center pt-1 mx-4 mb-2 text-xl font-bold leading-none sm:text-2xl">
