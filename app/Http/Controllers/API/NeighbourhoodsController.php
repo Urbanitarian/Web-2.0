@@ -24,7 +24,15 @@ class NeighbourhoodsController extends Controller
         } else {
             $neighbourhoods = Neighbourhood::where('active', 1)->inRandomOrder()->get();
         }
-        return response()->json($neighbourhoods);
+        $responsejson = json_encode($neighbourhoods);
+        $data = gzencode($responsejson, 5);
+        return response($data)->withHeaders([
+            'Access-Control-Allow-Origin' => '*',
+            'Access-Control-Allow-Methods' => 'GET',
+            'Content-type' => 'application/json; charset=utf-8',
+            'Content-Length' => strlen($data),
+            'Content-Encoding' => 'gzip',
+        ]);
     }
 
 }

@@ -12,7 +12,7 @@
                  Masterplans
              </h2>
 
-             <p class="text-sm font-bold text-gray-700 md:text-xl pt-4">
+             <p class="pt-4 text-sm font-bold text-gray-700 md:text-xl">
                  Discover Urban Design's Hidden Gems: Explore The Urbanitarian Masterplan Archive
              </p>
              <p class="text-sm text-gray-500 md:text-base">
@@ -74,13 +74,13 @@
              </button>
          </fieldset>
 
-         <div class="grid grid-cols-3 gap-2 mx-4 mt-8 md:grid-cols-5 md:mx-0 border-t">
+         <div class="grid grid-cols-3 gap-2 mx-4 mt-8 border-t md:grid-cols-5 md:mx-0">
              <div class="block pt-4">
                  <label for="DeliveryStandard" class="block">
                      <p class="pb-2 font-bold text-black">Tags</p>
                  </label>
                  <select name="tags" id="tags_selector"
-                     class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                     class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">All</option>
                  <option value="Child-friendly">Child-friendly</option>
                  <option value="Healthy">Healthy</option>
@@ -144,7 +144,7 @@
                      <p class="pb-2 font-bold text-black">Size</p>
                  </label>
                  <select name="size" id="size_selector"
-                     class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                     class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                      <option value="">All</option>
                      <option value="XXXXL">XXXXL</option>
                      <option value="XXXL">XXXL</option>
@@ -164,7 +164,7 @@
                      <p class="pb-2 font-bold text-black">Status</p>
                  </label>
                  <select name="status" id="status_selector"
-                     class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                     class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                      <option value="">All</option>
                      <option value="built">Built</option>
                      <option value="future">Future</option>
@@ -179,7 +179,7 @@
                      <p class="pb-2 font-bold text-black">City</p>
                  </label>
                  <select name="city" id="city_selector"
-                     class="w-full px-4 py-3 text-sm  border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                     class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                      <option value="">All</option>
                      @foreach ($cities as $city)
                      <option value="{{ $city->name }}">
@@ -217,10 +217,10 @@
          </div>
          <div class="flex pt-8">
              <button id="prev"
-                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200  peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                  <p class="text-sm font-medium">previous</p>
                  <button id="next"
-                     class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200  peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                     class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                      <p class="text-sm font-medium">Next</p>
          </div>
      </section>
@@ -279,8 +279,8 @@
                     <a href="masterplans_post?id=${item.id}">
                         <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110 saturate-120 ">
                             <div class="flex-shrink-0">
-                                <img class="object-cover w-full h-auto border-b saturate-120" src="storage/uploads/masterplans/${item.image}"alt=""  onerror="this.src='./img/empty.png'"/>
-                                <h1 class="pt-3 text-sm font-bold text-center truncate mx-2">${item.title} |${item.author} | ${item.city}</h1>
+                                <img class="object-cover w-full h-auto border-b saturate-120" src="storage/uploads/thumbnails/masterplans/${item.image}"alt=""  onerror="this.src='storage/uploads/masterplans/${item.image}'"/>
+                                <h1 class="pt-3 mx-2 text-sm font-bold text-center truncate">${item.title} |${item.author} | ${item.city}</h1>
                                 <p class="pb-2 mx-8 text-xs text-center text-gray-700">
                                    ${item.category}, ${item.size} 
                                 </p>

@@ -26,7 +26,15 @@ class MasterplansController extends Controller
         } else {
             $masters = Masterplan::where('active', 1)->inRandomOrder()->get();
         }
-        return response()->json($masters);
+        $responsejson = json_encode($masters);
+        $data = gzencode($responsejson, 5);
+        return response($data)->withHeaders([
+            'Access-Control-Allow-Origin' => '*',
+            'Access-Control-Allow-Methods' => 'GET',
+            'Content-type' => 'application/json; charset=utf-8',
+            'Content-Length' => strlen($data),
+            'Content-Encoding' => 'gzip',
+        ]);
     }
 
 }
