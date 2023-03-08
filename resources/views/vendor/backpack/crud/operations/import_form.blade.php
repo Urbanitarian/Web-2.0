@@ -10,13 +10,14 @@
 
 @section('content')
     <div class="">
-        <div class="mt-1 p-4 leading-normal text-white bg-green-400 rounded-lg w-1/2">
+        <div class="w-1/2 p-4 mt-1 leading-normal text-white bg-green-400 rounded-lg">
             <hi class="text-2xl">Instructions:</hi>
             <p class="text-sm">Download the exemple sheet and fill it with your data.</br>
                 Make sure that the file is in the correct format.</br>
                 Select the type of category.</br>
                 Upload the file and click on "Import" button.</br>
             </p>
+            <p class="text-sm text-red-600">Do not use special characters in the image names (', +, etc.).</p>
             <div class="flex">
                 <div class="mr-4">
                     <a href="{{ asset('img/masterplans_exemple_sheet.xlsx') }}">Masterplans sheet</a></br>
