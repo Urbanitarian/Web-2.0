@@ -54,6 +54,7 @@ class Masterplan extends Model
              'link',
              'category',
              'address',
+             'active',
       ];
  
      protected $casts = [

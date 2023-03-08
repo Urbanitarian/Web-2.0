@@ -43,6 +43,7 @@ class Mindscape extends Model
              'description',
              'credits',
              'category',
+                'active',
       ];
 
 

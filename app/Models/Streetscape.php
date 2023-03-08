@@ -44,6 +44,7 @@ class Streetscape extends Model
             'description',
             'credits',
             'category',
+            'active',
      ];
 
     protected $casts = [

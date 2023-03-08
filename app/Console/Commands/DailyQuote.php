@@ -32,7 +32,7 @@ class DailyQuote extends Command
      */
     public function handle()
     {
-        Masterplan::where("active", 0)->update(["active" => 1]);
+        Masterplan::where("active", 0)->limit(2)->update(["active" => 1]);
 
         $this->info('Successfully sent daily command.');
     }
