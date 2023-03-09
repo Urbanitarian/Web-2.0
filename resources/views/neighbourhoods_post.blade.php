@@ -35,7 +35,7 @@
                         <div class="grid grid-cols-1 gap-4">
                             <div class="w-full">
                                 @php $image0 =  $item->image ?? null; @endphp
-                                <img class="object-cover w-screen border  saturate-120"
+                                <img class="object-cover w-screen border saturate-120"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $image0) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image0) }}', 'Image', 'width=800,height=600')" />
@@ -95,7 +95,7 @@
                         <div class="grid grid-cols-1 gap-4  max-w-[1440px] mx-auto">
                             <div class="w-full mx-auto md:w-3/4">
                                 @php $image00 =  $item->imagea ?? null; @endphp
-                                <img class="object-cover w-full border  saturate-120"
+                                <img class="object-cover w-full border saturate-120"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $image00) }}" alt="" loading="lazy"
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image00) }}', 'Image', 'width=800,height=600')" />
@@ -116,19 +116,19 @@
                                      $pieces = explode(", ", $image1);
                                 @endphp
                             <div class="w-full mx-auto">
-                                <img class="object-cover w-full border  saturate-120"
+                                <img class="object-cover w-full border saturate-120"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces[0]) }}" alt="" loading="lazy"
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[0]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
-                                <img class="object-cover w-full border  saturate-120"
+                                <img class="object-cover w-full border saturate-120"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces[1]) }}" alt="" loading="lazy"
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[1]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
-                                <img class="object-cover w-full border  saturate-120"
+                                <img class="object-cover w-full border saturate-120"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces[2]) }}" alt="" loading="lazy"
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[2]) }}', 'Image', 'width=800,height=600')" />
@@ -148,13 +148,13 @@
                                  $pieces2 = explode(", ", $image2);
                                 @endphp
                             <div class="w-full mx-auto">
-                                <img class="object-cover w-full border  saturate-120"
+                                <img class="object-cover w-full border saturate-120"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces2[0]) }}" alt="" loading="lazy"
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces2[0]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
-                                <img class="object-cover w-full border  saturate-120"
+                                <img class="object-cover w-full border saturate-120"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces2[1]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces2[1]) }}', 'Image', 'width=800,height=600')" />
@@ -251,7 +251,7 @@
                                                 onerror="this.src='./img/empty.png'" />
                                             <h2 class="mb-1 text-lg font-medium text-gray-900 title-font clamp2">
                                                 {{ $neigh->title }}</h2>
-                                            <p class="text-xs font-semibold leading-relaxed text-gray-500">
+                                            <p class="text-xs font-semibold leading-relaxed text-gray-500 truncate clamp2">
                                                 @foreach ($neigh->tags as $tag)
                                                     {{ $tag }} &nbsp;
                                                 @endforeach

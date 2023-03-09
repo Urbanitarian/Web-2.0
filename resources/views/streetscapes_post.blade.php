@@ -101,7 +101,7 @@
                                 <h5 class="pt-1 mx-4 mb-2 text-xl font-bold leading-none sm:text-2xl">
                                     {{ $street->title }}
                                 </h5>
-                                <p class="mx-4 text-sm text-gray-700">
+                                <p class="mx-4 text-sm text-gray-700 truncate">
                                     {{ $street->address }} | {{ $street->city }} | {{ $street->country }}
                                 </p>
                             </a>
