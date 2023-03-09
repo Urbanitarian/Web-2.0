@@ -20,7 +20,7 @@
 
          </div>
 
-         <fieldset class="flex flex-wrap justify-center gap-3 pt-8 mx-auto">
+         <fieldset id="up"  class="flex flex-wrap justify-center gap-3 pt-8 mx-auto">
              <div>
                  <label for="ColorBlack" class="flex items-center justify-center gap-2 px-3 py-2 text-black ">
                      <p class="text-base font-medium">Trending searches:</p>
@@ -105,7 +105,7 @@
      </div>
 
 
-     <div id="up" class="grid grid-cols-3 gap-2 mx-4 mt-4 md:grid-cols-5 md:mx-0">
+     <div class="grid grid-cols-3 gap-2 mx-4 mt-4 md:grid-cols-5 md:mx-0">
          <div class="block">
              <label for="DeliveryStandard" class="block">
                  <p class="pb-2 font-bold text-black">Tags</p>

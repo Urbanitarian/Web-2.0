@@ -216,12 +216,15 @@
 
          </div>
          <div class="flex pt-8">
-             <button id="prev"
+             <button id="prev" onclick="window.scrollTo(0, 400);"
                  class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                  <p class="text-sm font-medium">previous</p>
-                 <button id="next"
+                 </button>
+
+              <button id="next" onclick="window.scrollTo(0, 400);"
                      class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
                      <p class="text-sm font-medium">Next</p>
+                      </button>
          </div>
      </section>
  </div>
