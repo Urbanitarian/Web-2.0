@@ -5,7 +5,7 @@
                 Urbanscapes
             </h2>
 
-              <p class="text-base font-bold text-gray-700 md:text-lg pt-4">
+              <p class="pt-4 text-base font-bold text-gray-700 md:text-lg">
                 Design the Future of Urban Living with our ultimate resource for Urbanscapes
             </p>
              <p class="text-base text-gray-500 md:text-lg">
@@ -173,13 +173,13 @@ $("#prev").click(function() {
 
         $.each(itemsToDisplay, function(i, item) {
                     let html = `
-                         <div class="border  animate__animated animate__backInUp">
+                         <div class="border animate__animated animate__backInUp">
                    <a href="./urbanscapes_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                    <img src="storage/uploads/urbanscapes/${item.imagea}" alt="" onerror="this.src=\'./img/empty.png\'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105  saturate-120" />
                    <div class="relative pt-3 bg-gray-100">
                    <p class="px-2 mx-2 text-base font-bold tracking-wider text-gray-900 clamp">${item.title}</p>
-                   <p class="my-1 pb-4">
-                   <span class="mx-4 text-xs font-semibold text-gray-500">${item.tags}</span>
+                   <p class="pb-4 my-1">
+                   <span class="mx-4 text-xs font-semibold text-gray-500 truncate">${item.tags}</span>
                    </p>
                    </div>
                    </a>

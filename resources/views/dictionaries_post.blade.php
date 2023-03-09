@@ -12,7 +12,7 @@
                                 <div class="w-full">
                                         @php $img12 = $item->image ?? null; @endphp
                                     <img class="object-cover w-full border"
-                                        src="{{ asset('storage/uploads/dictionaries/' . $img12) }}"alt=""
+                                        src="{{ asset('storage/uploads/dictionaries/' . $img12) }}" alt="" loading="lazy"
                                         onerror="this.src='./img/empty.png'" onclick="window.open('{{ asset('storage/' . $img12) }}', 'Image', 'width=800,height=600')"/>
                                 </div>
                             </div>
@@ -88,8 +88,8 @@
                         <div class="flex flex-col mx-auto">
                             <a href="dictionaries_post?id={{ $item->id }}">
                                 @php $img11 = $item->image ?? null; @endphp
-                                <img class="object-cover w-auto h-32  saturate-120" src="{{ asset('storage/uploads/dictionaries/' . $img11) }}"
-                                    alt="content" onerror="this.src='./img/empty.png'">
+                                <img class="object-cover w-auto h-32 saturate-120" src="{{ asset('storage/uploads/dictionaries/' . $img11) }}"
+                                    alt="content" loading="lazy" onerror="this.src='./img/empty.png'">
                                 <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
                                   {{ $item->name }}</p>
                                 <p class="pb-2 text-xs text-center text-gray-500">{{ $item->type }}</p>

@@ -23,7 +23,6 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('country') }}"><i class="nav-icon la la-atlas"></i> Countries</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('city') }}"><i class="nav-icon la la-map-signs"></i> Cities</a></li>
 <li class='nav-item'><a class='nav-link' href="{{ backpack_url('setting') }}"><i class='nav-icon la la-cogs'></i> <span>Advanced settings</span></a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('backup') }}"><i class="nav-icon la la-hdd-o"></i> Backup</a></li>
     </ul>
 </li>
 

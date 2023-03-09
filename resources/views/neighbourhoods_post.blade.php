@@ -26,7 +26,7 @@
                                 </button>
                                 @foreach ($item->tags as $tag)
                                     <button disabled
-                                        class="px-3 py-1 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md overflow-hidden">
+                                        class="px-3 py-1 mx-1 overflow-hidden text-xs font-medium tracking-wide text-white bg-black rounded-md">
                                         {{ $tag }}
                                     </button>
                                 @endforeach
@@ -35,7 +35,7 @@
                         <div class="grid grid-cols-1 gap-4">
                             <div class="w-full">
                                 @php $image0 =  $item->image ?? null; @endphp
-                                <img class=" object-cover w-screen border  saturate-120"
+                                <img class="object-cover w-screen border  saturate-120"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $image0) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image0) }}', 'Image', 'width=800,height=600')" />
@@ -50,7 +50,7 @@
                             <div class="sticky w-full pt-8 mx-auto">
 
                                 <div class="flex space-x-8">
-                                    <div class="flex flex-col w-full text-sm mx-16 md:pb-8">
+                                    <div class="flex flex-col w-full mx-16 text-sm md:pb-8">
                                         <div class="flex py-4 border-t border-gray-200">
                                             <span class="text-gray-500"> Author: </span>
                                             <span class="ml-auto text-gray-900"> {{ $item->author }}</span>
@@ -79,10 +79,10 @@
                             </div>
 
 
-                            <div class="block md:pt-4 pt-0">
+                            <div class="block pt-0 md:pt-4">
                                 <div class="flex flex-col">
                                     <div class="text-gray-700 max-w-none">
-                                        <p class="max-w-3xl text-gray-500 myparagraph text-center md:text-left mx-4 pb-8">
+                                        <p class="max-w-3xl pb-8 mx-4 text-center text-gray-500 myparagraph md:text-left">
                                             {{ $item->descriptiona }}
                                         </p>
                                     </div>
@@ -93,10 +93,10 @@
 
 
                         <div class="grid grid-cols-1 gap-4  max-w-[1440px] mx-auto">
-                            <div class="md:w-3/4 w-full  mx-auto">
+                            <div class="w-full mx-auto md:w-3/4">
                                 @php $image00 =  $item->imagea ?? null; @endphp
-                                <img class=" object-cover w-full border  saturate-120"
-                                    src="{{ asset('storage/uploads/urbanscapes/' . $image00) }}"alt=""
+                                <img class="object-cover w-full border  saturate-120"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $image00) }}" alt="" loading="lazy"
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $image00) }}', 'Image', 'width=800,height=600')" />
                             </div>
@@ -104,8 +104,8 @@
 
 
                         <div class="flex justify-center">
-                            <div class="text-gray-700 py-8">
-                                <p class="max-w-3xl text-gray-500 myparagraph text-center md:text-left mx-4 pb-8">
+                            <div class="py-8 text-gray-700">
+                                <p class="max-w-3xl pb-8 mx-4 text-center text-gray-500 myparagraph md:text-left">
                                     {{ $item->descriptionb }}
                                 </p>
                             </div>
@@ -116,28 +116,28 @@
                                      $pieces = explode(", ", $image1);
                                 @endphp
                             <div class="w-full mx-auto">
-                                <img class=" object-cover w-full border  saturate-120"
-                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces[0]) }}"alt=""
+                                <img class="object-cover w-full border  saturate-120"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces[0]) }}" alt="" loading="lazy"
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[0]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
-                                <img class=" object-cover w-full border  saturate-120"
-                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces[1]) }}"alt=""
+                                <img class="object-cover w-full border  saturate-120"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces[1]) }}" alt="" loading="lazy"
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[1]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
-                                <img class=" object-cover w-full border  saturate-120"
-                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces[2]) }}"alt=""
+                                <img class="object-cover w-full border  saturate-120"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces[2]) }}" alt="" loading="lazy"
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces[2]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                         </div>
 
                         <div class="flex justify-center">
-                            <div class="text-gray-700 py-8">
-                                <p class="max-w-3xl text-gray-500 myparagraph text-center md:text-left mx-4 pb-8">
+                            <div class="py-8 text-gray-700">
+                                <p class="max-w-3xl pb-8 mx-4 text-center text-gray-500 myparagraph md:text-left">
                                     {{ $item->descriptionc }}
                                 </p>
                             </div>
@@ -148,13 +148,13 @@
                                  $pieces2 = explode(", ", $image2);
                                 @endphp
                             <div class="w-full mx-auto">
-                                <img class=" object-cover w-full border  saturate-120"
-                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces2[0]) }}"alt=""
+                                <img class="object-cover w-full border  saturate-120"
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces2[0]) }}" alt="" loading="lazy"
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces2[0]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
-                                <img class=" object-cover w-full border  saturate-120"
+                                <img class="object-cover w-full border  saturate-120"
                                     src="{{ asset('storage/uploads/urbanscapes/' . $pieces2[1]) }}"alt=""
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces2[1]) }}', 'Image', 'width=800,height=600')" />
@@ -163,8 +163,8 @@
 
 
                         <div class="flex justify-center">
-                            <div class="text-gray-700 py-8">
-                                <p class="max-w-3xl text-gray-500 myparagraph text-center md:text-left mx-4 pb-8">
+                            <div class="py-8 text-gray-700">
+                                <p class="max-w-3xl pb-8 mx-4 text-center text-gray-500 myparagraph md:text-left">
                                     {{ $item->descriptiond }}
                                 </p>
                             </div>
@@ -176,26 +176,26 @@
                                 @endphp
                             <div class="w-full mx-auto">
                                 <img class=" object-cover w-full border h-[550px]  saturate-120"
-                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces3[0]) }}"alt=""
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces3[0]) }}" alt="" loading="lazy"
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces3[0]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
                                 <img class=" object-cover w-full border h-[550px]  saturate-120"
-                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces3[1]) }}"alt=""
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces3[1]) }}" alt="" loading="lazy"
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces3[1]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                              <div class="w-full mx-auto">
                                 <img class=" object-cover w-full border h-[550px]  saturate-120"
-                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces3[2]) }}"alt=""
+                                    src="{{ asset('storage/uploads/urbanscapes/' . $pieces3[2]) }}" alt="" loading="lazy"
                                     onerror="this.src='./img/empty.png'"
                                     onclick="window.open('{{ asset('storage/uploads/urbanscapes/' . $pieces3[2]) }}', 'Image', 'width=800,height=600')" />
                             </div>
                         </div>
                         <div class="flex justify-center pb-8">
-                            <div class="text-gray-700 py-8">
-                                  <p class="max-w-3xl text-black font-bold text-center mx-4 pt-4">
+                            <div class="py-8 text-gray-700">
+                                  <p class="max-w-3xl pt-4 mx-4 font-bold text-center text-black">
                                  Credits:
                                 </p>
                                   @php $credits = explode(',', $item->credits); @endphp
@@ -215,11 +215,11 @@
                                 $prev_id = $neighbourhood->where('id', '<', $item->id)->max('id');
                             @endphp
                             <a href="{{ route('urbanscapes_post', 'id=' . $prev_id) }}"
-                                class="px-4 py-2 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border border-gray-300  rounded-lg active:bg-gray-600 hover:bg-gray-400 hover:text-white focus:outline-none focus:shadow-outline-gray">
+                                class="px-4 py-2 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border border-gray-300 rounded-lg active:bg-gray-600 hover:bg-gray-400 hover:text-white focus:outline-none focus:shadow-outline-gray">
                                 Previous
                             </a>
                             <a href="{{ route('urbanscapes_post', 'id=' . $next_id) }}"
-                                class="px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border border-gray-300  rounded-lg active:bg-gray-600 hover:text-white hover:bg-gray-400 focus:outline-none focus:shadow-outline-gray">
+                                class="px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border border-gray-300 rounded-lg active:bg-gray-600 hover:text-white hover:bg-gray-400 focus:outline-none focus:shadow-outline-gray">
                                 Next
                             </a>
                         </div>
@@ -246,7 +246,7 @@
                                         <div
                                             class="p-4 transition shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110">
                                             @php $img08 = $neigh->imagea ?? null; @endphp
-                                            <img class="object-cover object-center w-full h-40 mb-3  saturate-120"
+                                            <img class="object-cover object-center w-full h-40 mb-3 saturate-120" loading="lazy"
                                                 src="{{ asset('storage/uploads/urbanscapes/' . $img08) }}"alt=""
                                                 onerror="this.src='./img/empty.png'" />
                                             <h2 class="mb-1 text-lg font-medium text-gray-900 title-font clamp2">

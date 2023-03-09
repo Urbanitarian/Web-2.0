@@ -14,16 +14,16 @@
                             {{ $streetscape->address }} | {{ $streetscape->city }} | {{ $streetscape->country }}
                         </p>
 
-                          <div class="flex flex-wrap mb-4 justify-center">
+                          <div class="flex flex-wrap justify-center mb-4">
                           @foreach ($streetscape->tags as $tag)
                                     <a
-                                        class="px-3 py-1 my-1 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
+                                        class="px-3 py-1 mx-1 my-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
                                         {{ $tag }}
                                     </a>
                                 @endforeach
                            </div>
                     </div>
-                    <div class="juxtapose  saturate-120">
+                    <div class="juxtapose saturate-120">
                      @php $img0 =$streetscape->imagea ?? null; @endphp
                       @php $img1 = $streetscape->imageb ?? null; @endphp
                         <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"
@@ -66,7 +66,7 @@
                         Previous
                     </a>
                     <a href="{{ route('streetscapes_post', 'id=' . $next_id) }}"
-                        class="px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border border-gray-300  rounded-lg active:bg-gray-600 hover:text-white hover:bg-gray-400 focus:outline-none focus:shadow-outline-gray">
+                        class="px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-500 transition-colors duration-150 bg-white border border-gray-300 rounded-lg active:bg-gray-600 hover:text-white hover:bg-gray-400 focus:outline-none focus:shadow-outline-gray">
                         Next
                     </a>
                 </div>
@@ -101,7 +101,7 @@
                                 <h5 class="pt-1 mx-4 mb-2 text-xl font-bold leading-none sm:text-2xl">
                                     {{ $street->title }}
                                 </h5>
-                                <p class="text-sm text-gray-700 mx-4">
+                                <p class="mx-4 text-sm text-gray-700">
                                     {{ $street->address }} | {{ $street->city }} | {{ $street->country }}
                                 </p>
                             </a>
@@ -110,9 +110,9 @@
                         <div>
                             <div class="juxtapose">
                                 <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"
-                                    src="./img/empty.png"alt="" onerror="this.src='./img/empty.png'" />
+                                    src="./img/empty.png" alt="" loading="lazy" onerror="this.src='./img/empty.png'" />
                                 <img class="object-cover h-64 mb-6 rounded shadow-lg lg:h-96"
-                                    src="./img/empty.png"alt="" onerror="this.src='./img/empty.png'" />
+                                    src="./img/empty.png" alt="" loading="lazy" onerror="this.src='./img/empty.png'" />
                             </div>
                             <a href="">
                                 <h5 class="mb-2 text-xl font-bold leading-none sm:text-2xl">
