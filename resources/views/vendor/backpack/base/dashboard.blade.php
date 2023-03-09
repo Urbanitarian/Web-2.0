@@ -12,32 +12,42 @@
             <div class="flex flex-col w-full">
                 <h3 class="m-4 text-xl font-bold text-gray-900">Welcome</h3>
 
-                  <div class="flex flex-wrap w-full px-3 justify-center lg:justify-start">
-                    <div class="w-36 md:w-64 h-24 p-3 m-2 bg-white border shadow">
-                        <h1 class="text-xs md:text-base font-bold text-gray-900">Masterplans:</h1>
+                  <div class="flex flex-wrap justify-center w-full px-3 lg:justify-start">
+                    <div class="h-24 p-3 m-2 bg-white border shadow w-36 md:w-64">
+                        <h1 class="text-xs font-bold text-gray-900 md:text-base">Masterplans:</h1>
                         <h1 class="text-2xl font-bold text-gray-900">{{$mastercount}}</h1>
                     </div>
 
-                     <div class="w-36 md:w-64 h-24 p-3 m-2 bg-white border shadow">
-                      <h1 class="text-xs md:text-base font-bold text-gray-900">Urbanscapes:</h1>
+                     <div class="h-24 p-3 m-2 bg-white border shadow w-36 md:w-64">
+                      <h1 class="text-xs font-bold text-gray-900 md:text-base">Urbanscapes:</h1>
                         <h1 class="text-2xl font-bold text-gray-900">{{$neighcount}}</h1>
                     </div>
 
-                    <div class="w-36 md:w-64 h-24 p-3 m-2 bg-white border shadow">
-                      <h1 class="text-xs md:text-base font-bold text-gray-900">Streetscapes:</h1>
+                    <div class="h-24 p-3 m-2 bg-white border shadow w-36 md:w-64">
+                      <h1 class="text-xs font-bold text-gray-900 md:text-base">Streetscapes:</h1>
                         <h1 class="text-2xl font-bold text-gray-900">{{$streetcount}}</h1>
                     </div>
 
-                     <div class="w-36 md:w-64 h-24 p-3 m-2 bg-white border shadow">
-                      <h1 class="text-xs md:text-base font-bold text-gray-900">Mindscapes:</h1>
+                     <div class="h-24 p-3 m-2 bg-white border shadow w-36 md:w-64">
+                      <h1 class="text-xs font-bold text-gray-900 md:text-base">Mindscapes:</h1>
                         <h1 class="text-2xl font-bold text-gray-900">{{$mindcount}}</h1>
                     </div>
+
+                    <div class="mt-1">
+                         <h1 class="mx-4 text-base font-bold">V_248 Changelog:</h1>
+                         <p class="mx-4 text-xs">
+                         -import scheduler (active 2 items daily)<br>
+                         -thumbnails images<br>
+                         -speed optimised<br>
+                         </p>
+                        </div>
                         </div>
                     <div class="flex md:mx-4">
                         <div id="map" class="mx-2 my-4 rounded h-[550px] w-screen">
                         </div>
+                       
                     </div>
-            
+                     
             </div>
 
     </section>
@@ -112,9 +122,9 @@ let count = 0;
 
             marker = L.marker([decimalString[0], decimalString[1]], {
             }).addTo(mymap).bindPopup(
-                '<div class="mappopup relative flex flex-col" onclick="myfunction(' + graffid + ',' + cat +
+                '<div class="relative flex flex-col mappopup" onclick="myfunction(' + graffid + ',' + cat +
                 ')"><img  class="mt-4" src="/storage/uploads/'+ category + '/' + pics +
-                '" /><div class="flex justify-between"><h5 class="font-bold text-sm mt-1 mb-2 truncate" id="graffnom">' + graffname + '</h5><h5 class="text-xs text-gray-500 mt-2 mb-2" id="graffcity">' + graffcity + '</h5></div></div>'
+                '" /><div class="flex justify-between"><h5 class="mt-1 mb-2 text-sm font-bold truncate" id="graffnom">' + graffname + '</h5><h5 class="mt-2 mb-2 text-xs text-gray-500" id="graffcity">' + graffcity + '</h5></div></div>'
             );
             markers[graff.id] = marker;
  
