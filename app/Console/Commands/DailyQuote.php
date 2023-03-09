@@ -2,6 +2,8 @@
 namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Models\Masterplan;
+use App\Models\Neighbourhood;
+use App\Models\Streetscape;
 class DailyQuote extends Command
 {
     /**
@@ -33,6 +35,8 @@ class DailyQuote extends Command
     public function handle()
     {
         Masterplan::where("active", 0)->limit(2)->update(["active" => 1]);
+        Neighbourhood::where("active", 0)->limit(2)->update(["active" => 1]);
+        Streetscape::where("active", 0)->limit(2)->update(["active" => 1]);
 
         $this->info('Successfully sent daily command.');
     }
