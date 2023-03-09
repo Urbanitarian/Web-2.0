@@ -199,9 +199,9 @@
                         <div class="flex flex-col mx-auto">
                             <a href="${item.link}" target="_blank">
                                 <img class="object-cover w-auto h-32 saturate-120" src="storage/uploads/webresources/${item.image}" alt="content" onerror="this.src='./img/empty.png'">
-                                <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
+                                <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t clamp2">
                                     ${item.name}</p>
-                                <p class="pb-2 text-xs text-center text-gray-500"> ${item.type}</p>
+                                <p class="pb-2 text-xs text-center text-gray-500 clamp2"> ${item.type}</p>
                             </a>
                         </div>
                     </div> `;
@@ -306,3 +306,13 @@
         fetchAndRenderData(url);
     });
 </script>
+
+ <style>
+     .clamp2 {
+         display: -webkit-box;
+         -webkit-line-clamp: 1;
+         -webkit-box-orient: vertical;
+         overflow: hidden;
+
+     }
+ </style>

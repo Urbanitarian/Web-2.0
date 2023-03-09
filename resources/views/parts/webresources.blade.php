@@ -20,9 +20,9 @@
                              @php $img = $item->image ?? null; @endphp
                                 <img class="object-cover w-auto h-32 saturate-120" src="{{ asset('storage/uploads/webresources/' . $img) }}" loading="lazy"
                                     alt="content" onerror="this.src='./img/empty.png'">
-                                <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
+                                <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t clamp2">
                                   {{ $item->name }}</p>
-                                <p class="pb-2 text-xs text-center text-gray-500">{{$item->type[0] ?? null; }} {{   $item->type[1] ?? null }} {{   $item->type[2] ?? null}}</p>
+                                <p class="pb-2 text-xs text-center text-gray-500 clamp2">{{$item->type[0] ?? null; }} {{   $item->type[1] ?? null }} {{   $item->type[2] ?? null}}</p>
                             </a>
                         </div>
                     </div>
@@ -50,3 +50,13 @@
         class="flex px-8 py-2 mx-auto mt-8 text-lg text-white bg-black border-0 rounded focus:outline-none hover:bg-gray-800"><a href="allwebresources">See
             All Web Resources</a></button>
 </section>
+
+ <style>
+     .clamp2 {
+         display: -webkit-box;
+         -webkit-line-clamp: 1;
+         -webkit-box-orient: vertical;
+         overflow: hidden;
+
+     }
+ </style>
