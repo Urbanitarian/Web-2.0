@@ -136,7 +136,7 @@ class GlobalController extends Controller
         //other parts
         $cities = City::all();
         $countries = Country::All();
-        $neighbourhoods = neighbourhood::where('id', '!=', null)->limit(8)->inRandomOrder()->get();
+        $neighbourhoods = neighbourhood::where('id', '!=', null)->limit(4)->inRandomOrder()->get();
         $masterplans = Masterplan::where('id', '!=', null)->limit(8)->inRandomOrder()->get();
         $streetscapes = Streetscape::where('id', '!=', null)->limit(3)->inRandomOrder()->get();
         $webresources = Webresource::where('id', '!=', null)->limit(5)->inRandomOrder()->get();
