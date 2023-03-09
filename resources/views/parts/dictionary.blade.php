@@ -1,8 +1,8 @@
 <section class="pb-16 mx-4 mb-4 border-b md:mx-16">
 
     <div class="w-full">
-      <a href="alldictionary"><h1 class="pb-8 text-3xl font-bold text-center text-gray-900 md:text-5xl">Dictionary</h1></a>
-        <div class="max-w-xl mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-4xl">
+     <h1 class="pb-8 text-3xl font-bold text-center text-gray-900 md:text-5xl  select-none">Dictionary</h1>
+        <div class="max-w-xl mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-4xl  select-none">
                           <p class="pt-4 text-sm font-bold text-gray-700 md:text-lg">
                 Unlock Your Urban Design Vocabulary: Join the Largest Urban Design Jargon Community Online.
             </p>

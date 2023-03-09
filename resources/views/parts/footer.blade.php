@@ -10,8 +10,8 @@
       <div class="flex justify-center text-teal-600">
         <img src="{{ asset('img/logo.png') }}" alt="logo" class="w-12 h-12" />
       </div>
-    <h1 class="py-4 text-base font-bold text-[#333333] tracking-widest text-center">URBANITARIAN</h1>
-      <p class="max-w-md mx-auto leading-relaxed text-center text-gray-500">
+    <h1 class="py-4 text-base font-bold text-[#333333] tracking-widest text-center select-none">URBANITARIAN</h1>
+      <p class="max-w-md mx-auto leading-relaxed text-center text-gray-500 select-none ">
        Unlocking the Power of Urban Design
       </p>
 

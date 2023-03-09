@@ -1,7 +1,7 @@
 <section>
     <div class="w-full pt-12">
-        <a href="./masterplans"><h1 class="pt-4 pb-8 text-3xl font-bold text-center text-gray-900 md:text-5xl">Masterplans</h1></a>
-        <div class="max-w-xl px-8 mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-4xl">
+        <h1 class="pt-4 pb-8 text-3xl font-bold text-center text-gray-900 select-none md:text-5xl">Masterplans</h1>
+        <div class="max-w-xl px-8 mb-6 select-none sm:mx-auto sm:text-center md:mb-10 lg:max-w-4xl ">
                       <p class="pt-4 text-sm font-bold text-gray-700 md:text-lg">
                 Discover Urban Design's Hidden Gems: Explore The Urbanitarian Masterplan Archive
             </p>

@@ -7,7 +7,7 @@
 
 <section class="pb-16 mx-4 mb-16 border-b md:mx-16">
     <div class="w-full">
-        <h1 class="pt-16 pb-16 text-3xl font-bold text-center text-gray-900 md:text-5xl">Search on the map</h1>
+        <h1 class="pt-16 pb-16 text-3xl font-bold text-center text-gray-900 select-none md:text-5xl">Search on the map</h1>
     </div>
     <div class="flex md:mx-4">
         <div id="map" class="mx-2 mt-4 rounded h-[650px] w-screen">

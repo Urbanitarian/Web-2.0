@@ -2,7 +2,7 @@
     <div class="px-4 py-8 pb-16 mx-8 max-w-screen-2xl md:py-16 md:mx-auto">
         <div class="flex flex-wrap w-full mb-8 md:mb-10">
             <div class="w-full">
-                <h1 class="pb-4 text-3xl font-bold text-center text-gray-900 md:text-5xl">Follow Us </h1>
+                <h1 class="pb-4 text-3xl font-bold text-center text-gray-900 select-none md:text-5xl">Follow Us </h1>
             </div>
         </div>
         <div class="py-8">

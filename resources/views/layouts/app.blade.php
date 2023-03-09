@@ -10,7 +10,7 @@
         $topbar_text = Setting::get('topbar_text');
     @endphp
     @if ($topbar_text != null)
-        <div class="marquee py-2 hidden">{{ $topbar_text }} &nbsp; &nbsp; {{ $topbar_text }} &nbsp; &nbsp; {{ $topbar_text }}
+        <div class="hidden py-2 select-none marquee">{{ $topbar_text }} &nbsp; &nbsp; {{ $topbar_text }} &nbsp; &nbsp; {{ $topbar_text }}
             &nbsp; &nbsp; {{ $topbar_text }} &nbsp; &nbsp; {{ $topbar_text }} &nbsp; &nbsp; {{ $topbar_text }} &nbsp;
             &nbsp; {{ $topbar_text }} &nbsp; &nbsp; {{ $topbar_text }}</div>
     @endif

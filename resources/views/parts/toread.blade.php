@@ -2,8 +2,8 @@
     <div class="px-4 py-8 pb-16 mx-8 max-w-screen-2xl md:py-16 md:mx-auto">
         <div class="flex flex-wrap w-full mb-8 md:mb-10">
             <div class="w-full">
-                 <a href="read"><h1 class="pb-4 text-3xl font-bold text-center text-gray-900 md:text-5xl">To Read</h1></a>
-                <div class="max-w-xl mb-6 sm:mx-auto sm:text-center lg:max-w-2xl">
+                <h1 class="pb-4 text-3xl font-bold text-center text-gray-900 select-none md:text-5xl">To Read</h1>
+                <div class="max-w-xl mb-6 select-none sm:mx-auto sm:text-center lg:max-w-2xl">
                     <p class="text-base text-gray-500 md:text-lg">
                         Rundown of a variety of printed/online planning magazines and books you might consider reading.
                     </p>

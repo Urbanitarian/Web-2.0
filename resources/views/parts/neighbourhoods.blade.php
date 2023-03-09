@@ -2,8 +2,8 @@
     <div class="container px-5 pt-12 pb-8 mx-auto">
         <div class="flex flex-wrap w-full mb-8 md:mb-20">
             <div class="w-full">
-                <a href="urbanscapes"><h1 class="pb-4 text-3xl font-bold text-center text-gray-900 md:text-5xl">Urbanscapes</h1></a>
-                <div class="max-w-xl mb-6 sm:mx-auto sm:text-center lg:max-w-4xl">
+                <h1 class="pb-4 text-3xl font-bold text-center text-gray-900 select-none md:text-5xl">Urbanscapes</h1>
+                <div class="max-w-xl mb-6 select-none sm:mx-auto sm:text-center lg:max-w-4xl">
                     <p class="pt-4 text-base font-bold text-gray-700 md:text-lg">
                 Design the Future of Urban Living with our ultimate resource for Urbanscapes
             </p>

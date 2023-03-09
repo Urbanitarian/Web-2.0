@@ -1,9 +1,9 @@
 <section class="mx-4 border-t border-b md:mx-16">
     <div class="block py-16 mx-4 md:mx-auto max-w-7xl">
         <div class="w-full">
-            <a href="streetscapes"><h1 class="pb-4 text-3xl font-bold text-center text-gray-900 md:text-5xl">Streetscapes</h1></a>
+            <h1 class="pb-4 text-3xl font-bold text-center text-gray-900 select-none md:text-5xl">Streetscapes</h1>
         </div>
-        <div class="max-w-xl mb-6 sm:mx-auto sm:text-center md:mb-10 lg:max-w-2xl">
+        <div class="max-w-xl mb-6 select-none sm:mx-auto sm:text-center md:mb-10 lg:max-w-2xl">
             <p class="text-sm font-bold text-gray-700 md:text-lg">
                 Redefine Streets: Get Inspired by Our Curated Streetscapes Collection
             </p>
