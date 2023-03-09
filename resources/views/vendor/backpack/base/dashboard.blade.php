@@ -39,6 +39,7 @@
                          -import scheduler (active 2 items daily)<br>
                          -thumbnails images<br>
                          -speed optimised<br>
+                         -text overflow fixed<br>
                          </p>
                         </div>
                         </div>
