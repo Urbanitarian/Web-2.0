@@ -33,7 +33,7 @@ class Calendar extends Component
             new DatabaseNotification(
                 ($type = 'info'), // info / success / warning / error
                 ($message = 'New Appointement saved'),
-                ($messageLong = 'New Appointement with: ' . $title . $formattedStartDate . ' to ' . $formattedEndDate)
+                ($messageLong = 'New Appointement with: ' . $title . ' ' . $formattedStartDate . ' to ' . $formattedEndDate)
                    // rand(1, 99999)), // optional
                 // ($href = '/some-custom-url'), // optional, e.g. backpack_url('/example')
                // ($hrefText = 'Go to custom URL') // optional

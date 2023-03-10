@@ -76,7 +76,6 @@
                 slotMaxTime: '19:00:00',
                 titleFormat: { year: 'numeric', month: 'long', day: '2-digit' },
                 events: JSON.parse(@this.events),
-
                 selectable: true,
                 select: arg => {
                     const title = prompt('Enter your phone number or meeting link:');

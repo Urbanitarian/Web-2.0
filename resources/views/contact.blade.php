@@ -93,7 +93,7 @@
             visibility: hidden; !important
             }
             .fc-event-time::before{
-            content: "not available";
+            content: " not available ";
             visibility: visible; !important
             }
      </style>
