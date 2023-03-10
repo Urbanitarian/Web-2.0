@@ -10,15 +10,17 @@
                      <div class="container px-5 py-8 mx-auto">
 
                          <div class="flex flex-col w-full mb-4 text-center">
-                             <h1 class="mb-2 text-3xl font-medium text-black select-none md:text-5xl title-font">Book an appointment</h1>
+                             <h1 class="mb-2 text-3xl font-medium text-black select-none md:text-5xl title-font">Book an
+                                 appointment</h1>
                          </div>
                          <h2 class="pt-2 text-base text-center text-gray-600 select-none">Or contact us</h2>
-                        <div class="flex justify-center pb-8">
-                        <a href="#sub">
-                        <i class="px-4 py-2 mt-2 text-2xl text-gray-900 border border-gray-400 rounded-full fas fa-arrow-down hover:bg-gray-200 active:bg-gray-300"></i>
-                       </a>
-                       </div>
-                   
+                         <div class="flex justify-center pb-8">
+                             <a href="#sub">
+                                 <i
+                                     class="px-4 py-2 mt-2 text-2xl text-gray-900 border border-gray-400 rounded-full fas fa-arrow-down hover:bg-gray-200 active:bg-gray-300"></i>
+                             </a>
+                         </div>
+
                          <div class="">
                              <livewire:calendar />
                              @livewireScripts
@@ -82,4 +84,17 @@
 
          }
      </script>
+     <style>
+         .fc-event-title{
+             visibility: hidden; !important
+             /* hides event title */
+         }
+            .fc-event-time{
+            visibility: hidden; !important
+            }
+            .fc-event-time::before{
+            content: "not available";
+            visibility: visible; !important
+            }
+     </style>
  @endsection

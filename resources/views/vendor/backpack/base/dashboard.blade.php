@@ -37,7 +37,8 @@
                          <h1 class="mx-4 text-xs font-bold">V_258 Changelog:</h1>
                          <p class="mx-4 text-xs">
                          -alphabetical sorting (tags, city, country)<br>
-                         -mobile layout fix
+                         -mobile layout fix<br>
+                         -appointement notification
                            </p>
                          <h1 class="mx-4 text-xs font-bold">In progress:</h1>
                          <p class="mx-4 text-xs">
