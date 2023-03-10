@@ -78,7 +78,7 @@
                 events: JSON.parse(@this.events),
                 selectable: true,
                 select: arg => {
-                    const title = prompt('Enter your phone number or meeting link:');
+                    const title = prompt('Enter your contact info or meeting link:');
                     const id = create_UUID();
                     if (title) {
                         calendar.addEvent({
