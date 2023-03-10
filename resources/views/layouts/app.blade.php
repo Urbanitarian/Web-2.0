@@ -10,9 +10,12 @@
         $topbar_text = Setting::get('topbar_text');
     @endphp
     @if ($topbar_text != null)
+    <div class="hidden md:block">
         <div class="hidden py-2 select-none marquee">{{ $topbar_text }} &nbsp; &nbsp; {{ $topbar_text }} &nbsp; &nbsp; {{ $topbar_text }}
             &nbsp; &nbsp; {{ $topbar_text }} &nbsp; &nbsp; {{ $topbar_text }} &nbsp; &nbsp; {{ $topbar_text }} &nbsp;
-            &nbsp; {{ $topbar_text }} &nbsp; &nbsp; {{ $topbar_text }}</div>
+            &nbsp; {{ $topbar_text }} &nbsp; &nbsp; {{ $topbar_text }}
+        </div>
+       </div>
     @endif
     @include('parts.navbar')
     <main>

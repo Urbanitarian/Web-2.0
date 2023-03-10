@@ -34,12 +34,14 @@
                     </div>
 
                     <div class="mt-1">
-                         <h1 class="mx-4 text-base font-bold">V_248 Changelog:</h1>
+                         <h1 class="mx-4 text-xs font-bold">V_250 Changelog:</h1>
                          <p class="mx-4 text-xs">
-                         -import scheduler (active 2 items daily)<br>
-                         -thumbnails images<br>
-                         -speed optimised<br>
-                         -text overflow fixed<br>
+                         -alphabetical sorting of list
+                           </p>
+                         <h1 class="mx-4 text-xs font-bold">In progress:</h1>
+                         <p class="mx-4 text-xs">
+                         -appointement calendar<br>
+                         -mobile layout fix<br>
                          </p>
                         </div>
                         </div>

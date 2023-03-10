@@ -20,7 +20,7 @@
 
          </div>
 
-         <fieldset id="up"  class="flex flex-wrap justify-center gap-3 pt-8 mx-auto">
+         <fieldset id="up" class="flex flex-wrap justify-center gap-3 pt-8 mx-auto">
              <div>
                  <label for="ColorBlack" class="flex items-center justify-center gap-2 px-3 py-2 text-black ">
                      <p class="text-base font-medium">Trending searches:</p>
@@ -112,61 +112,52 @@
              </label>
              <select name="tags" id="tags_selector"
                  class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                  <option value="">All</option>
-                 <option value="Child-friendly">Child-friendly</option>
-                 <option value="Healthy">Healthy</option>
-                 <option value="Safe">Safe</option>
-                 <option value="Inclusive and Diverse">Inclusive and Diverse</option>
-                 <option value="Green">Green</option>
-                 <option value="Reachable">Reachable</option>
-                 <option value="Affordable">Affordable</option>
-                 <option value="Self-sufficient">Self-sufficient</option>
-                 <option value="Car-free">Car-free</option>
-                 <option value="Walkable">Walkable</option>
-                 <option value="CBD">CBD</option>
-                 <option value="Eco-village">Eco-village</option>
-                 <option value="Nature-rich">Nature-rich</option>
-                 <option value="Courtyards">Courtyards</option>
-                 <option value="By the railway">By the railway</option>
-                <option value="By the water">By the water</option>
-                 <option value="Garden City">Garden City</option>
-                 <option value="Modular">Modular</option>
-                    <option value="Floating City">Floating City</option>
-                 <option value="DIY Urbanism">DIY Urbanism</option>
-                    <option value="Solar Powered">Solar Powered</option>
-                 <option value="Food-production">Food-production</option>
-                 <option value="Green wedges">Green wedges</option>
-                    <option value="Climate adaptation">Climate adaptation</option>
-                 <option value="Sustainable">Sustainable</option>
-                 <option value="Science Park">Science Park</option>
-                 <option value="Missing middle">Missing middle</option>
-                 <option value="Dense">Dense</option>
-                <option value="Greenfield">Greenfield</option>
-                 <option value="Science Park">Science Park</option>
-                 <option value="Business District">Business District</option>
-                 <option value="Missing Middle">Missing middle</option>
-                 <option value="Preventing Loneliness">Preventing Loneliness</option>
-                 <option value="Youth-friendly">Youth-friendly</option>
-                 <option value="Age-friendly">Age-friendly</option>
+                 <option value="">All</option>
                  <option value="Accessible and Connected">Accessible and connected</option>
-                 <option value="Climate-proof">Climate-proof</option>
-                 <option value="Playful">Playful</option>
-                 <option value="Self-sufficient">Self-sufficient</option>
-                 <option value="Houses in row">Houses in row</option>
-                 <option value="Circular">Circular</option>
-                 <option value="Climate-neutral">Climate-neutral</option>
-                  <option value="Net zero">Net zero</option>
-                 <option value="Zero Carbon">Zero carbon</option>
-                 <option value="Carbon negative">Carbon negative</option>
-                 <option value="WSUD">WSUD</option>
-                 <option value="Place-led">Place-led</option>
-                 <option value="Co-Housing">Co-housing</option>
-                 <option value="Timber">Timber</option>
-                 <option value="Social Housing">Social housing</option>
+                 <option value="Affordable">Affordable</option>
+                 <option value="Age-friendly">Age-friendly</option>
                  <option value="Biodiverse">Biodiverse</option>
-                 <option value="Low-rise">Low-rise</option>
+                 <option value="Business District">Business District</option>
+                 <option value="By the railway">By the railway</option>
+                 <option value="By the water">By the water</option>
+                 <option value="CBD">CBD</option>
+                 <option value="Carbon negative">Carbon negative</option>
+                 <option value="Circular">Circular</option>
+                 <option value="Climate adaptation">Climate adaptation</option>
+                 <option value="Climate-proof">Climate-proof</option>
+                 <option value="Climate-neutral">Climate-neutral</option>
+                 <option value="Co-Housing">Co-housing</option>
+                 <option value="Courtyards">Courtyards</option>
+                 <option value="DIY Urbanism">DIY Urbanism</option>
+                 <option value="Dense">Dense</option>
+                 <option value="Eco-village">Eco-village</option>
+                 <option value="Floating City">Floating City</option>
+                 <option value="Food-production">Food-production</option>
+                 <option value="Garden City">Garden City</option>
+                 <option value="Green">Green</option>
+                 <option value="Green wedges">Green wedges</option>
+                 <option value="Healthy">Healthy</option>
                  <option value="High-rise">High-rise </option>
+                 <option value="Houses in row">Houses in row</option>
+                 <option value="Inclusive and Diverse">Inclusive and Diverse</option>
+                 <option value="Low-rise">Low-rise</option>
                  <option value="Mixed-use">Mixed-use</option>
+                 <option value="Modular">Modular</option>
+                 <option value="Nature-rich">Nature-rich</option>
+                 <option value="Net zero">Net zero</option>
+                 <option value="Place-led">Place-led</option>
+                 <option value="Playful">Playful</option>
+                 <option value="Preventing Loneliness">Preventing Loneliness</option>
+                 <option value="Reachable">Reachable</option>
+                 <option value="Safe">Safe</option>
+                 <option value="Science Park">Science Park</option>
+                 <option value="Self-sufficient">Self-sufficient</option>
+                 <option value="Social Housing">Social housing</option>
+                 <option value="Solar Powered">Solar Powered</option>
+                 <option value="Timber">Timber</option>
+                 <option value="WSUD">WSUD</option>
+                 <option value="Youth-friendly">Youth-friendly</option>
+                 <option value="Zero carbon">Zero carbon</option>
              </select>
          </div>
 
@@ -212,7 +203,7 @@
              <select name="city" id="city_selector"
                  class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">All</option>
-                 @foreach ($cities as $city)
+                 @foreach ($cities->sortBy('name') as $city)
                      <option value="{{ $city->name }}">
                          {{ $city->name }}</option>
                  @endforeach
@@ -227,7 +218,7 @@
              <select name="country" id="country_selector"
                  class="w-full px-4 py-3 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                  <option value="">All</option>
-                 @foreach ($countries as $country)
+                 @foreach ($countries->sortBy('name') as $country)
                      <option value="{{ $country->name }}">
                          {{ $country->name }}</option>
                  @endforeach
@@ -244,10 +235,10 @@
 
          </div>
          <div class="flex pt-10">
-           <a href="#up">  <button id="prev"
-                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:text-white ">
-                 <p class="text-sm font-medium">previous</p>
-             </button></a>
+             <a href="#up"> <button id="prev"
+                     class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:text-white ">
+                     <p class="text-sm font-medium">previous</p>
+                 </button></a>
 
              <div
                  class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md">
@@ -256,10 +247,10 @@
              </div>
 
 
-            <a href="#up"> <button id="next"
-                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:text-white ">
-                 <p class="text-sm font-medium">Next</p>
-             </button></a>
+             <a href="#up"> <button id="next"
+                     class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:text-white ">
+                     <p class="text-sm font-medium">Next</p>
+                 </button></a>
          </div>
      </section>
  </div>

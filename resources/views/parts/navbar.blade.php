@@ -1,9 +1,9 @@
-<nav x-data="{ isOpen: false }" class="py-6 pl-2 pr-4 mx-12 lg:flex lg:justify-between lg:items-center">
+<nav x-data="{ isOpen: false }" class="py-6 pl-2 pr-4 mx-8 xl:mx-16 lg:flex lg:justify-between lg:items-center">
     <div class="flex items-center justify-between">
       <div>
         <a class="flex text-2xl font-bold text-gray-700 lg:text-3xl hover:text-gray-400 " href="/">
-          <img src="{{ asset('img/logo.png') }}" class="w-auto h-16">
-          <h1 class="py-4 pl-2 mt-1 text-xl font-bold text-[#333333] lg:mt-0 2xl:text-3xl hover:text-gray-400 tracking-widest ">URBANITARIAN</h1>
+          <img src="{{ asset('img/logo.png') }}" class="w-auto h-8 mt-4 md:h-16 md:mt-0">
+          <h1 class="py-4 pl-2 mt-1 text-base font-bold text-[#333333] lg:mt-1 xl:mt-0 2xl:text-3xl hover:text-gray-400 tracking-widest ">URBANITARIAN</h1>
         </a>
       </div>
 
