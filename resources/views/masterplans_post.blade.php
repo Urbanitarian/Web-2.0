@@ -17,18 +17,18 @@
                                        <i class="absolute text-gray-600 fa-solid fa-expand top-5 right-5 fa-2x hover:text-gray-500 active:text-gray-700"
                                            onclick="window.open('{{ asset('storage/uploads/masterplans/' . $image0) }}', 'Image', 'width=800,height=600')"></i>
                                    </div>
-                                   <fieldset class="pl-8">
+                                   <fieldset class="hidden lg:block pl-8">
                                        <legend class="pt-8 pb-2 mb-1 font-medium">Sources:</legend>
                                        <div class="flex flex-wrap overflow-x-hidden text-sm md:w-96 2xl:w-2/3">
-                                        @php $credits = explode(',', $item->credits); @endphp
-                                        @foreach ($credits as $source)
-                                            <a href="{{ $source }}" class="text-blue-600" target="_blank">
-                                                {{ $source }}</a>
-                                        @endforeach
+                                           @php $credits = explode(',', $item->credits); @endphp
+                                           @foreach ($credits as $source)
+                                               <a href="{{ $source }}" class="text-blue-600 truncate" target="_blank">
+                                                   {{ $source }}</a>
+                                           @endforeach
                                        </div>
                                    </fieldset>
                                </div>
-                               <div class="sticky top-0 mx-4 md:mx-auto">
+                               <div class="sticky top-0 mx-2 md:mx-auto">
                                    <div class="flex justify-between pb-8">
                                        <h1 class="text-2xl font-bold">
                                            {{ $item->title }} | {{ $item->author }} | {{ $item->city }}
@@ -55,9 +55,10 @@
                                            </button>
                                        @endforeach
                                    </div>
-                                   <div class="flex space-x-1 md:space-x-8">
-                                       <div class="flex w-1/2">
-                                           <div class="flex flex-col w-1/2 text-sm">
+                                   <div class="flex flex-col md:flex-row space-x-1 md:space-x-8">
+
+                                       <div class="flex w-full flex-col md:w-1/2">
+                                           <div class="flex flex-col text-sm">
                                                <div class="flex py-4 border-t border-gray-200">
                                                    <span class="pr-2 text-gray-500"> Author: </span>
                                                    <span class="ml-auto text-gray-900"> {{ $item->author }}</span>
@@ -84,77 +85,79 @@
                                        </div>
 
 
-                                       <div class="flex flex-col w-1/2 text-sm">
-                                           <div class="flex pt-2 pb-1 border-t border-gray-200">
-                                               <span class="text-base "> Site area: </span>
-                                               <span class="ml-auto text-base "> {{ $item->area }}<i
-                                                       class="text-base text-gray-500"> sqm</i></span>
-                                           </div>
-                                           <div class="flex py-1 border-gray-200">
-                                               <span class="text-base ">Gfa:</span>
-                                               <span class="ml-auto text-base text-gray-900"> {{ $item->gfa }}<i
-                                                       class="text-base text-gray-500 "> sqm</i></span>
-                                           </div>
-                                           <div class="flex py-1 border-gray-200">
-                                               <span class="text-basetext-gray-500"> Density:</span>
-                                               <span class="ml-auto text-base text-gray-900">{{ $item->density }}<i
-                                                       class="text-base text-gray-500"> far</i></span>
-                                           </div>
+                                       <div class="flex w-full flex-col md:w-1/2">
+                                           <div class="flex flex-col text-sm">
+                                               <div class="flex pt-2 pb-1 border-t border-gray-200">
+                                                   <span class="text-base "> Site area: </span>
+                                                   <span class="ml-auto text-base "> {{ $item->area }}<i
+                                                           class="text-base text-gray-500"> sqm</i></span>
+                                               </div>
+                                               <div class="flex py-1 border-gray-200">
+                                                   <span class="text-base ">Gfa:</span>
+                                                   <span class="ml-auto text-base text-gray-900"> {{ $item->gfa }}<i
+                                                           class="text-base text-gray-500 "> sqm</i></span>
+                                               </div>
+                                               <div class="flex py-1 border-gray-200">
+                                                   <span class="text-basetext-gray-500"> Density:</span>
+                                                   <span class="ml-auto text-base text-gray-900">{{ $item->density }}<i
+                                                           class="text-base text-gray-500"> far</i></span>
+                                               </div>
 
-                                           <div class="flex py-1 border-gray-200">
-                                               <span class="overflow-x-hidden text-base "> Population density:</span>
-                                               <span class="ml-auto text-base text-gray-900">{{ $item->popdensity }}<i
-                                                       class="text-base text-gray-500 "> inh/ha</i></span>
-                                           </div>
+                                               <div class="flex py-1 border-gray-200">
+                                                   <span class="overflow-x-hidden text-base "> Population density:</span>
+                                                   <span class="ml-auto text-base text-gray-900">{{ $item->popdensity }}<i
+                                                           class="text-base text-gray-500 "> inh/ha</i></span>
+                                               </div>
 
-                                           <div class="flex py-1 border-gray-200">
-                                               <span class="text-gray-500">Home Units: </span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->homeunit }}<i
-                                                       class="text-xs text-gray-500"></i></span>
-                                           </div>
-                                           <div class="flex py-1 border-gray-200">
-                                               <span class="text-gray-500">Jobs: </span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->jobs }}<i
-                                                       class="text-xs text-gray-500"></i></span>
-                                           </div>
-                                           <input type="hidden" name="id" value="">
+                                               <div class="flex py-1 border-gray-200">
+                                                   <span class="text-gray-500">Home Units: </span>
+                                                   <span class="ml-auto text-gray-900"> {{ $item->homeunit }}<i
+                                                           class="text-xs text-gray-500"></i></span>
+                                               </div>
+                                               <div class="flex py-1 border-gray-200">
+                                                   <span class="text-gray-500">Jobs: </span>
+                                                   <span class="ml-auto text-gray-900"> {{ $item->jobs }}<i
+                                                           class="text-xs text-gray-500"></i></span>
+                                               </div>
+                                               <input type="hidden" name="id" value="">
 
-                                           <div class="flex py-1 border-gray-200">
-                                               <span class="text-gray-500"> Streets/road: </span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->streetroad }}<i
-                                                       class="text-xs text-gray-500"> %</i></span>
-                                           </div>
-                                           <div class="flex py-1 border-gray-200">
-                                               <span class="text-gray-500">Build-up:</span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->buildup }}<i
-                                                       class="text-xs text-gray-500"> %</i></span>
-                                           </div>
-                                           <div class="flex py-1 border-gray-200">
-                                               <span class="text-gray-500"> Non Build-up:</span>
-                                               <span class="ml-auto text-gray-900">{{ $item->nonbuildup }}<i
-                                                       class="text-xs text-gray-500"> %</i></span>
-                                           </div>
+                                               <div class="flex py-1 border-gray-200">
+                                                   <span class="text-gray-500"> Streets/road: </span>
+                                                   <span class="ml-auto text-gray-900"> {{ $item->streetroad }}<i
+                                                           class="text-xs text-gray-500"> %</i></span>
+                                               </div>
+                                               <div class="flex py-1 border-gray-200">
+                                                   <span class="text-gray-500">Build-up:</span>
+                                                   <span class="ml-auto text-gray-900"> {{ $item->buildup }}<i
+                                                           class="text-xs text-gray-500"> %</i></span>
+                                               </div>
+                                               <div class="flex py-1 border-gray-200">
+                                                   <span class="text-gray-500"> Non Build-up:</span>
+                                                   <span class="ml-auto text-gray-900">{{ $item->nonbuildup }}<i
+                                                           class="text-xs text-gray-500"> %</i></span>
+                                               </div>
 
-                                           <div class="flex py-1 border-gray-200">
-                                               <span class="text-gray-500"> Residential:</span>
-                                               <span class="ml-auto text-gray-900">{{ $item->residential }}<i
-                                                       class="text-xs text-gray-500"> %</i></span>
-                                           </div>
+                                               <div class="flex py-1 border-gray-200">
+                                                   <span class="text-gray-500"> Residential:</span>
+                                                   <span class="ml-auto text-gray-900">{{ $item->residential }}<i
+                                                           class="text-xs text-gray-500"> %</i></span>
+                                               </div>
 
-                                           <div class="flex py-1 border-gray-200">
-                                               <span class="text-gray-500">Business: </span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->business }}<i
-                                                       class="text-xs text-gray-500"> %</i></span>
-                                           </div>
-                                           <div class="flex py-1 border-gray-200">
-                                               <span class="text-gray-500">Commercial: </span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->commercial }}<i
-                                                       class="text-xs text-gray-500"> %</i></span>
-                                           </div>
-                                           <div class="flex py-1 mb-6 border-b border-gray-200">
-                                               <span class="text-gray-500">Civic: </span>
-                                               <span class="ml-auto text-gray-900"> {{ $item->civic }}<i
-                                                       class="text-xs text-gray-500"> %</i></span>
+                                               <div class="flex py-1 border-gray-200">
+                                                   <span class="text-gray-500">Business: </span>
+                                                   <span class="ml-auto text-gray-900"> {{ $item->business }}<i
+                                                           class="text-xs text-gray-500"> %</i></span>
+                                               </div>
+                                               <div class="flex py-1 border-gray-200">
+                                                   <span class="text-gray-500">Commercial: </span>
+                                                   <span class="ml-auto text-gray-900"> {{ $item->commercial }}<i
+                                                           class="text-xs text-gray-500"> %</i></span>
+                                               </div>
+                                               <div class="flex py-1 mb-6 border-b border-gray-200">
+                                                   <span class="text-gray-500">Civic: </span>
+                                                   <span class="ml-auto text-gray-900"> {{ $item->civic }}<i
+                                                           class="text-xs text-gray-500"> %</i></span>
+                                               </div>
                                            </div>
                                        </div>
                                    </div>
@@ -183,6 +186,18 @@
                                    </div>
                                </div>
                            </div>
+
+                           <fieldset class="lg:hidden">
+                               <legend class="pt-8 pb-2 mb-1 font-medium">Sources:</legend>
+                               <div class="flex flex-wrap overflow-x-hidden text-sm w-64">
+                                   @php $credits = explode(',', $item->credits); @endphp
+                                   @foreach ($credits as $source)
+                                       <a href="{{ $source }}" class="text-blue-600 truncate" target="_blank">
+                                           {{ $source }}</a>
+                                   @endforeach
+                               </div>
+                           </fieldset>
+
                            <div class="max-w-6xl mx-auto">
 
                                <div id="mastermap" class="mt-16 rounded h-[550px] w-full">

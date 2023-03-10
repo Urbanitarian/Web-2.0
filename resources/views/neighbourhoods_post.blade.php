@@ -16,17 +16,17 @@
                             </div>
                             <div class="flex pb-8">
                                 <button disabled 
-                                    class="px-3 py-1 mx-1 text-xs font-medium tracking-wide text-white bg-blue-800 rounded-md">
+                                    class="px-3 py-1 mx-1 h-8 text-xs font-medium tracking-wide text-white bg-blue-800 rounded-md">
                                     {{ $item->status }}
                                 </button>
 
                                 <button disabled
-                                    class="px-3 py-1 mx-1 text-xs font-medium tracking-wide text-white bg-black rounded-md">
+                                    class="px-3 py-1 mx-1 h-8 text-xs font-medium tracking-wide text-white bg-black rounded-md">
                                     <a href="masterplans"> {{ $item->category }}</a>
                                 </button>
                                 @foreach ($item->tags as $tag)
                                     <button disabled
-                                        class="px-3 py-1 mx-1 overflow-hidden text-xs font-medium tracking-wide text-white bg-black rounded-md">
+                                        class="px-3 py-1 h-8 mx-1 truncate overflow-hidden text-xs font-medium tracking-wide text-white bg-black rounded-md">
                                         {{ $tag }}
                                     </button>
                                 @endforeach
@@ -50,10 +50,10 @@
                             <div class="sticky w-full pt-8 mx-auto">
 
                                 <div class="flex space-x-8">
-                                    <div class="flex flex-col w-full mx-16 text-sm md:pb-8">
+                                    <div class="flex flex-col w-full mx-8 md:mx-16 text-sm md:pb-8">
                                         <div class="flex py-4 border-t border-gray-200">
                                             <span class="text-gray-500"> Author: </span>
-                                            <span class="ml-auto text-gray-900"> {{ $item->author }}</span>
+                                            <span class="ml-auto text-gray-900"> &nbsp; {{ $item->author }}</span>
                                         </div>
                                       
                                         <div class="flex py-4 border-t border-gray-200">
@@ -72,7 +72,7 @@
 
                                         <div class="flex py-4 border-t border-b border-gray-200">
                                             <span class="text-gray-500">Program: </span>
-                                            <span class="ml-auto text-gray-900">  {{ $item->project_title }}</span>
+                                            <span class="ml-auto text-gray-900"> {{ $item->project_title }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -170,7 +170,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 gap-4  max-w-[1440px] mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4  max-w-[1440px] mx-auto">
                              @php $image3 =  $item->imaged ?? null; 
                                      $pieces3 = explode(", ", $image3);
                                 @endphp

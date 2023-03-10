@@ -1,5 +1,5 @@
-<section class="mx-4">
-    <div class="px-4 py-8 mx-8 max-w-screen-2xl md:mx-auto">
+<section class="mx-2 md:mx-4">
+    <div class="md:px-4 py-8 mx-8 max-w-screen-2xl md:mx-auto">
         <div class="flex flex-wrap w-full mb-8 md:mb-10">
             <div class="w-full">
                 <h1 class="pb-4 text-3xl font-bold text-center text-gray-900 md:text-5xl">Web Resources</h1>
@@ -195,11 +195,11 @@
 
                 $.each(itemsToDisplay, function(i, item) {
                     let html = `
-                        <div class="flex transition border shadow-md md:hover:scale-110">
+                    <div class="flex transition border shadow-md md:hover:scale-110 overflow-x-hidden">
                         <div class="flex flex-col mx-auto">
                             <a href="${item.link}" target="_blank">
                                 <img class="object-cover w-auto h-32 saturate-120" src="storage/uploads/webresources/${item.image}" alt="content" onerror="this.src='./img/empty.png'">
-                                <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t clamp2">
+                                <p class="w-full pt-2 text-xs md:text-base font-bold text-center text-black bg-white border-t clamp2">
                                     ${item.name}</p>
                                 <p class="pb-2 text-xs text-center text-gray-500 clamp2"> ${item.type}</p>
                             </a>

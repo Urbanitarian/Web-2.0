@@ -12,8 +12,8 @@
         </div>
     </div>
 
-    <div class="mx-4">
-        <div class="max-w-screen-xl pt-8 pb-4 mx-4 md:py-8 md:mx-auto ">
+    <div class="mx-2">
+        <div class="max-w-screen-xl pt-8 pb-4 mx-2 md:py-8 md:mx-auto ">
             <div class="grid grid-cols-2 gap-5 row-gap-5 lg:grid-cols-5">
 
                 @forelse ($dictionary as $item)
@@ -23,7 +23,7 @@
                                 @php $dictigimg = $item->image ?? null; @endphp
                                 <img class="object-cover w-auto h-32 saturate-120" src="{{ asset('storage/uploads/dictionaries/' . $dictigimg) }}" loading="lazy"
                                     alt="content" onerror="this.src='./img/empty.png'">
-                                <p class="w-full pt-2 text-base font-bold text-center text-black bg-white border-t">
+                                <p class="w-full pt-2 text-xs md:text-base font-bold text-center text-black bg-white border-t">
                                   {{ $item->name }}</p>
                                 <p class="pb-2 text-xs text-center text-gray-500">{{ $item->type }}</p>
                             </a>

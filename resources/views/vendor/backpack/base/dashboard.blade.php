@@ -34,14 +34,15 @@
                     </div>
 
                     <div class="mt-1">
-                         <h1 class="mx-4 text-xs font-bold">V_250 Changelog:</h1>
+                         <h1 class="mx-4 text-xs font-bold">V_258 Changelog:</h1>
                          <p class="mx-4 text-xs">
-                         -alphabetical sorting of list
+                         -alphabetical sorting (tags, city, country)<br>
+                         -mobile layout fix
                            </p>
                          <h1 class="mx-4 text-xs font-bold">In progress:</h1>
                          <p class="mx-4 text-xs">
                          -appointement calendar<br>
-                         -mobile layout fix<br>
+                         -auto thumbnails builder<br>
                          </p>
                         </div>
                         </div>

@@ -78,7 +78,7 @@
             </div>
         </section>
         <section class="mx-4 border-t md:mx-16">
-            <div class="block py-16 mx-4 md:mx-auto max-w-7xl">
+            <div class="block py-16 mx-2 md:mx-auto max-w-7xl">
                 <div class="w-full">
                     <h1 class="pt-4 pb-16 text-2xl font-bold text-center text-gray-900 md:text-4xl">See more Streetscapes
                     </h1>

@@ -3,7 +3,7 @@
       <div>
         <a class="flex text-2xl font-bold text-gray-700 lg:text-3xl hover:text-gray-400 " href="/">
           <img src="{{ asset('img/logo.png') }}" class="w-auto h-8 mt-4 md:h-16 md:mt-0">
-          <h1 class="py-4 pl-2 mt-1 text-base font-bold text-[#333333] lg:mt-1 xl:mt-0 2xl:text-3xl hover:text-gray-400 tracking-widest ">URBANITARIAN</h1>
+          <h1 class="py-4 pl-2 mt-1 text-base font-bold text-[#333333] lg:mt-1 2xl:mt-0 2xl:text-3xl hover:text-gray-400 tracking-widest ">URBANITARIAN</h1>
         </a>
       </div>
 

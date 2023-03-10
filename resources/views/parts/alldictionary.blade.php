@@ -12,8 +12,8 @@
         </div>
     </div>
 
-  <div class="mx-4">
-        <div class="max-w-screen-xl pt-8 pb-4 mx-4 md:py-8 md:mx-auto ">
+  <div class="mx-2">
+        <div class="max-w-screen-xl pt-8 pb-4 mx-2 md:py-8 md:mx-auto ">
             <div class="grid grid-cols-2 gap-5 row-gap-5 md:grid-cols-3 lg:grid-cols-5">
 
                 @forelse ($dictionary as $item)
