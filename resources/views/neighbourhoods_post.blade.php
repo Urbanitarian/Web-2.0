@@ -248,7 +248,7 @@
                                             @php $img08 = $neigh->imagea ?? null; @endphp
                                             <img class="object-cover object-center w-full h-40 mb-3 saturate-120" loading="lazy"
                                                 src="{{ asset('storage/uploads/thumbnails/urbanscapes/' . $img08) }}"alt=""
-                                                onerror="this.src='./img/empty.png'" />
+                                                onerror="this.src='{{ asset('storage/uploads/urbanscapes/' . $img08) }}'" />
                                             <h2 class="mb-1 text-lg font-medium text-gray-900 title-font clamp2">
                                                 {{ $neigh->title }}</h2>
                                             <p class="text-xs font-semibold leading-relaxed text-gray-500 truncate clamp2">
