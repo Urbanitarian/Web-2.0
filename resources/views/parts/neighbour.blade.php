@@ -133,7 +133,7 @@
 
     });
 
-    const itemsPerPage = 10;
+    const itemsPerPage = 9;
     let currentPage = 1;
 
     $(document).ready(function() {
