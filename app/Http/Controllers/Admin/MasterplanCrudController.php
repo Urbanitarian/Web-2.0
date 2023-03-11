@@ -38,7 +38,7 @@ class MasterplanCrudController extends CrudController
             'name' => 'image',
             'label' => 'Image',
             'type' => 'image',
-            'prefix' => 'storage/uploads/masterplans/',
+            'prefix' => 'storage/uploads/thumbnails/masterplans/',
             'height' => '80px',
             'width' => 'auto',
 

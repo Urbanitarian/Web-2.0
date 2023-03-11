@@ -39,7 +39,7 @@ class StreetscapeCrudController extends CrudController
             'name' => 'imagea',
             'label' => 'Image',
             'type' => 'image',
-            'prefix' => 'storage/uploads/streetscapes/',
+            'prefix' => 'storage/uploads/thumbnails/streetscapes/',
             'height' => '80px',
             'width' => 'auto',
 

@@ -39,7 +39,7 @@ class NeighbourhoodCrudController extends CrudController
             'name' => 'image',
             'label' => 'Image',
             'type' => 'image',
-            'prefix' => 'storage/uploads/urbanscapes/',
+            'prefix' => 'storage/uploads/thumbnails/urbanscapes/',
             'height' => '80px',
             'width' => 'auto',
 
