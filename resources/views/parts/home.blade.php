@@ -121,6 +121,7 @@
                  <option value="By the railway">By the railway</option>
                  <option value="By the water">By the water</option>
                  <option value="CBD">CBD</option>
+                 <option value="Car-free">Car-free</option>
                  <option value="Carbon negative">Carbon negative</option>
                  <option value="Circular">Circular</option>
                  <option value="Climate adaptation">Climate adaptation</option>
