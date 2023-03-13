@@ -41,7 +41,7 @@ class Calendar extends Component
         );
     }
     
-    public function deleteEvent($event){
+    public function eventDelete($event){
         $event = Event::find($event['id']);
         $event->delete();
     }

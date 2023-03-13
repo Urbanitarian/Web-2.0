@@ -26,7 +26,11 @@
                 hiddenDays: [0],
                 slotMinTime: '8:00:00',
                 slotMaxTime: '19:00:00',
-                titleFormat: { year: 'numeric', month: 'long', day: '2-digit' },
+                titleFormat: {
+                    year: 'numeric',
+                    month: 'long',
+                    day: '2-digit'
+                },
                 events: JSON.parse(@this.events),
 
                 selectable: true,
@@ -74,7 +78,11 @@
                 editable: true,
                 slotMinTime: '8:00:00',
                 slotMaxTime: '19:00:00',
-                titleFormat: { year: 'numeric', month: 'long', day: '2-digit' },
+                titleFormat: {
+                    year: 'numeric',
+                    month: 'long',
+                    day: '2-digit'
+                },
                 events: JSON.parse(@this.events),
                 selectable: true,
                 select: arg => {
@@ -92,6 +100,13 @@
                     };
                     calendar.unselect();
                 },
+                eventClick: info => {
+                    if (confirm("Are you sure you want to delete this event?")) {
+                        const id = info.event.id;
+                        calendar.getEventById(id).remove();
+                        this.eventDelete(id);
+                    }
+                }
             });
             calendar.render();
         });
