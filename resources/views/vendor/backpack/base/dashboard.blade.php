@@ -147,7 +147,7 @@
         marker = L.marker([decimalString[0], decimalString[1]], { icon: icon }).addTo(mymap).bindPopup(
             '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' + graffid + ',' + cat +
             ')" class="mt-4" loading="lazy" src="/storage/uploads/thumbnails/' + mydataca + '/' + pics +
-            '" onerror="/img/empty.png"/><div class="flex justify-between"><h5 class="mt-1 mb-2 text-xs font-bold clamp" id="graffnom">' + graffname +
+            '" onerror="/img/empty.png"/><div class="flex justify-between"><h5 class="mt-1 mb-2 text-xs font-bold clamp truncate" id="graffnom">' + graffname +
             '</h5><h5 class="pb-4 mt-1 mb-2 text-xs text-gray-500" id="graffcity">' + graffcity + '</h5></div></div>'
         );
         markers[graff.id] = marker;
