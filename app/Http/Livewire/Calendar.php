@@ -5,7 +5,9 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Event;
 use DateTime;
-use Illuminate\Support\Facades\Log; 
+use App\Mail\AppointementMail;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification;
 
 class Calendar extends Component
@@ -19,6 +21,8 @@ class Calendar extends Component
     
     public function eventAdd($event)
     {
+        $usermail = env('MAIL_USERNAME');
+
         Event::create($event);
         $title = $event['title'];
         $start = $event['start'];
@@ -27,7 +31,8 @@ class Calendar extends Component
         $end = $event['end'];
         $enddate = new DateTime($end);
         $formattedEndDate = $enddate->format('H:i');
-        
+        Mail::to($title)->queue(new AppointementMail('Your contact request has been registered, we will contact you shortly'));
+        Mail::to($usermail)->queue(new AppointementMail('New contact request from: ' . $title . ' ' . $formattedStartDate . ' to ' . $formattedEndDate));
 
         $admin = backpack_user()->where('id', 3)->first();
         $admin->notify(
@@ -44,7 +49,6 @@ class Calendar extends Component
     
     public function eventDelete($event){
         Event::destroy($event);
-     
     }
 
 
