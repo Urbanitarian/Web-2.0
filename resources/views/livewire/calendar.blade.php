@@ -31,7 +31,7 @@
 
                 selectable: true,
                 select: arg => {
-                    const title = prompt('Enter your phone number or meeting link:');
+                    const title = prompt('Enter your contact info:');
                     const id = create_UUID();
                     if (title) {
                         calendar.addEvent({
