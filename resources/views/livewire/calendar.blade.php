@@ -36,6 +36,8 @@
                 selectable: true,
                 select: arg => {
                     const title = prompt('Enter your email address, we will contact you shortly.');
+                    const emailRegex = /^\S+@\S+\.\S+$/;
+                    if (title && emailRegex.test(title)) {
                     const id = create_UUID();
                     if (title) {
                         calendar.addEvent({
@@ -47,6 +49,9 @@
                         @this.eventAdd(calendar.getEventById(id));
                     };
                     calendar.unselect();
+                    } else {
+                        alert('Please enter a valid email address.');
+                    }
                 },
             });
             calendar.render();
