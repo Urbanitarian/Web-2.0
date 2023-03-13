@@ -33,11 +33,9 @@
                     </div>
 
                     <div class="mt-1">
-                        <h1 class="mx-4 text-xs font-bold">V_258 Changelog:</h1>
+                        <h1 class="mx-4 text-xs font-bold">V_260 Changelog:</h1>
                         <p class="mx-4 text-xs">
-                            -alphabetical sorting (tags, city, country)<br>
-                            -mobile layout fix<br>
-                            -appointement notification</p>
+                            -missing tags fix<br>
                         <h1 class="mx-4 text-xs font-bold">In progress:</h1>
                         <p class="mx-4 text-xs">
                             -appointement calendar<br>

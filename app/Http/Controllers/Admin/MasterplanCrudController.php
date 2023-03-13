@@ -54,6 +54,7 @@ class MasterplanCrudController extends CrudController
     {
         CRUD::column('title');
         $this->getFieldsData();
+        CRUD::column('active');
         $this->crud->addColumn([
             'name'    => 'tags',
             'label'   => 'Tags',
@@ -67,7 +68,7 @@ class MasterplanCrudController extends CrudController
         ]);
         CRUD::column('city');
         CRUD::column('country');
-        CRUD::column('active');
+        
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -148,6 +149,7 @@ class MasterplanCrudController extends CrudController
                 'Climate-proof' => 'Climate-proof',
                 'Climate-neutral' => 'Climate-neutral',
                 'Co-housing' => 'Co-housing',
+                'Complete Street' => 'Complete Street',
                 'Courtyards' => 'Courtyards',
                 'Dense' => 'Dense',
                 'DIY Urbanism' => 'DIY Urbanism',
@@ -159,6 +161,7 @@ class MasterplanCrudController extends CrudController
                 'Garden City' => 'Garden City',
                 'Healthy' => 'Healthy',
                 'High-rise' => 'High-rise',
+                'Hi-Tech' => 'Hi-Tech',
                 'Houses in row' => 'Houses in row',
                 'Inclusive and Diverse' => 'Inclusive and Diverse',
                 'Grow your own food / Local food production' => 'Grow your own food / Local food production',
@@ -168,10 +171,14 @@ class MasterplanCrudController extends CrudController
                 'Missing middle' => 'Missing middle',
                 'Nature-rich' => 'Nature-rich',
                 'Net zero' => 'Net zero',
+                'Outdoor classroom' => 'Outdoor classroom',
                 'Place-led' => 'Place-led',
                 'Playful' => 'Playful',
                 'Preventing Loneliness' => 'Preventing Loneliness',
+                'Productive landscape' => 'Productive landscape',
                 'Reachable / Accessible' => 'Reachable / Accessible',
+                'Regeneration' => 'Regeneration',
+                'Resilient landscape' => 'Resilient landscape',
                 'Safe' => 'Safe',
                 'Science Park' => 'Science Park',
                 'Self-sufficient' => 'Self-sufficient',
@@ -179,7 +186,9 @@ class MasterplanCrudController extends CrudController
                 'Solar Powered' => 'Solar Powered',
                 'SUDS' => 'SUDS',
                 'Sustainable' => 'Sustainable',
+                'Transformation' => 'Transformation',
                 'Timber' => 'Timber',
+                'TOD' => 'TOD',
                 'WSUD' => 'WSUD',
                 'Walkable' => 'Walkable',
                 'Youth-friendly' => 'Youth-friendly',
@@ -515,6 +524,7 @@ class MasterplanCrudController extends CrudController
                 'Climate-proof' => 'Climate-proof',
                 'Climate-neutral' => 'Climate-neutral',
                 'Co-housing' => 'Co-housing',
+                'Complete Street' => 'Complete Street',
                 'Courtyards' => 'Courtyards',
                 'Dense' => 'Dense',
                 'DIY Urbanism' => 'DIY Urbanism',
@@ -526,6 +536,7 @@ class MasterplanCrudController extends CrudController
                 'Garden City' => 'Garden City',
                 'Healthy' => 'Healthy',
                 'High-rise' => 'High-rise',
+                'Hi-Tech' => 'Hi-Tech',
                 'Houses in row' => 'Houses in row',
                 'Inclusive and Diverse' => 'Inclusive and Diverse',
                 'Grow your own food / Local food production' => 'Grow your own food / Local food production',
@@ -535,10 +546,14 @@ class MasterplanCrudController extends CrudController
                 'Missing middle' => 'Missing middle',
                 'Nature-rich' => 'Nature-rich',
                 'Net zero' => 'Net zero',
+                'Outdoor classroom' => 'Outdoor classroom',
                 'Place-led' => 'Place-led',
                 'Playful' => 'Playful',
                 'Preventing Loneliness' => 'Preventing Loneliness',
+                'Productive landscape' => 'Productive landscape',
                 'Reachable / Accessible' => 'Reachable / Accessible',
+                'Regeneration' => 'Regeneration',
+                'Resilient landscape' => 'Resilient landscape',
                 'Safe' => 'Safe',
                 'Science Park' => 'Science Park',
                 'Self-sufficient' => 'Self-sufficient',
@@ -546,7 +561,9 @@ class MasterplanCrudController extends CrudController
                 'Solar Powered' => 'Solar Powered',
                 'SUDS' => 'SUDS',
                 'Sustainable' => 'Sustainable',
+                'Transformation' => 'Transformation',
                 'Timber' => 'Timber',
+                'TOD' => 'TOD',
                 'WSUD' => 'WSUD',
                 'Walkable' => 'Walkable',
                 'Youth-friendly' => 'Youth-friendly',
