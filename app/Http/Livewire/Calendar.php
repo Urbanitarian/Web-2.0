@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Event;
 use DateTime;
+use Illuminate\Support\Facades\Log; 
 use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification;
 
 class Calendar extends Component
@@ -42,8 +43,8 @@ class Calendar extends Component
     }
     
     public function eventDelete($event){
-        $event = Event::find($event['id']);
-        $event->delete();
+        Event::destroy($event);
+     
     }
 
 

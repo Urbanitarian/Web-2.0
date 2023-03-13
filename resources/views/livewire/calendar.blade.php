@@ -102,9 +102,8 @@
                 },
                 eventClick: info => {
                     if (confirm("Are you sure you want to delete this event?")) {
-                        const id = info.event.id;
-                        calendar.getEventById(id).remove();
-                        this.eventDelete(id);
+                        @this.eventDelete(info.event.id);
+                        info.event.remove();
                     }
                 }
             });
