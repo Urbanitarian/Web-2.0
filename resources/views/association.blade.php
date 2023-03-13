@@ -4,7 +4,7 @@
 @section('main')
     <div data-barba="container">
         <section class="text-gray-400 bg-black body-font">
-           <h2 class="text-2xl font-semibold text-white md:text-4xl text-center pt-10">
+           <h2 class="text-2xl font-semibold text-white md:text-5xl text-center pt-10">
                  ACTIVITIES
              </h2>
             <div class="container px-5 pb-24 pt-12 mx-auto">
