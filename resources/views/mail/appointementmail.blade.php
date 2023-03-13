@@ -1,5 +1,4 @@
 <div>
-<i>Message:
-{{ $mailData }}</i>
+<i> {{ $mailData }}</i>
 <p>
 </div>

@@ -35,10 +35,10 @@
                     <div class="mt-1">
                         <h1 class="mx-4 text-xs font-bold">V_265 Changelog:</h1>
                         <p class="mx-4 text-xs">
-                             -calendar delete event<br>
+                              -appointement email<br>
+                             -calendar delete event
                         <h1 class="mx-4 text-xs font-bold">In progress:</h1>
                         <p class="mx-4 text-xs">
-                        -calendar email<br>
                         -association</p>
                     </div>
                 </div>
