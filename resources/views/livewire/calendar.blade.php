@@ -35,7 +35,7 @@
 
                 selectable: true,
                 select: arg => {
-                    const title = prompt('Enter your contact info:');
+                    const title = prompt('Enter your email address, we will contact you shortly.');
                     const id = create_UUID();
                     if (title) {
                         calendar.addEvent({
@@ -87,7 +87,7 @@
                 selectable: true,
                 select: arg => {
                     // press button to validate
-                    const title = prompt('Enter information:');
+                    const title = prompt('Enter event name.');
                     const id = create_UUID();
                     if (title) {
                         calendar.addEvent({
