@@ -59,11 +59,11 @@
             </a>
           </li>
 
-            {{-- <li>
+            <li>
             <a class="text-gray-700 transition hover:text-gray-900" href="association">
               Association
             </a>
-          </li> --}}
+          </li> 
         </ul>
       </nav>
 
