@@ -102,32 +102,55 @@
             graff = data[i];
 
             graffid = graff.id;
-            category = graff.category.toLowerCase();
-            if (category == 'streetscapes') {
-                cat = 1;
-                pics = graff.imagea;
-            } else if (category == 'masterplans') {
-                cat = 2;
-                pics = graff.image;
-            } else if (category == 'neighbourhoods') {
-                cat = 3;
-                pics = graff.imagea;
-            }
-            graffcity = graff.city;
-            graffname = graff.title;
-            graffposition = graff.location;
-            var decimalString = graffposition.split(',');
-            decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
-            decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
+           mydataca = graff.category.toLowerCase();
+          if (mydataca == "masterplans") {
+                         pics = graff.image;
+                     } else {
+                         pics = graff.imagea;
+                     }
+        category = graff.category.toLowerCase();
+        if (category == 'streetscapes') {
+            cat = 1;
+            icon = L.icon({
+                iconUrl: '/img/markers.png',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40],
+                popupAnchor: [0, -40]
+            });
+        } else if (category == 'masterplans') {
+            cat = 2;
+             icon = L.icon({
+                iconUrl: '/img/markerm.png',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40],
+                popupAnchor: [0, -40]
+            });
+        } else if (category == 'urbanscapes') {
+            cat = 3;
+             icon = L.icon({
+                iconUrl: '/img/markeru.png',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40],
+                popupAnchor: [0, -40]
+            });
+        }
+        graffcity = graff.city;
+        graffname = graff.title;
+        graffposition = graff.location;
+        var decimalString = [0, 0];
+        if (graffposition != null) {
+            decimalString = graffposition.split(',');
+        }
+        decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
+        decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
 
-            marker = L.marker([decimalString[0], decimalString[1]], {}).addTo(mymap).bindPopup(
-                '<div class="relative flex flex-col mappopup" onclick="myfunction(' + graffid + ',' + cat +
-                ')"><img  class="mt-4" src="/storage/uploads/thumbnails/' + category + '/' + pics +
-                '" /><div class="flex justify-between"><h5 class="mt-1 mb-2 text-sm font-bold truncate" id="graffnom">' +
-                graffname + '</h5><h5 class="mt-2 mb-2 text-xs text-gray-500" id="graffcity">' + graffcity +
-                '</h5></div></div>'
-            );
-            markers[graff.id] = marker;
+        marker = L.marker([decimalString[0], decimalString[1]], { icon: icon }).addTo(mymap).bindPopup(
+            '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' + graffid + ',' + cat +
+            ')" class="mt-4" loading="lazy" src="/storage/uploads/thumbnails/' + mydataca + '/' + pics +
+            '" onerror="/img/empty.png"/><div class="flex justify-between"><h5 class="mt-1 mb-2 text-xs font-bold clamp" id="graffnom">' + graffname +
+            '</h5><h5 class="pb-4 mt-1 mb-2 text-xs text-gray-500" id="graffcity">' + graffcity + '</h5></div></div>'
+        );
+        markers[graff.id] = marker;
 
         }
 

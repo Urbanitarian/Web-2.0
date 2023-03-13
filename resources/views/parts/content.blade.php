@@ -70,10 +70,28 @@
         category = graff.category.toLowerCase();
         if (category == 'streetscapes') {
             cat = 1;
+            icon = L.icon({
+                iconUrl: '/img/markers.png',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40],
+                popupAnchor: [0, -40]
+            });
         } else if (category == 'masterplans') {
             cat = 2;
+             icon = L.icon({
+                iconUrl: '/img/markerm.png',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40],
+                popupAnchor: [0, -40]
+            });
         } else if (category == 'urbanscapes') {
             cat = 3;
+             icon = L.icon({
+                iconUrl: '/img/markeru.png',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40],
+                popupAnchor: [0, -40]
+            });
         }
         graffcity = graff.city;
         graffname = graff.title;
@@ -85,7 +103,7 @@
         decimalString[0] = parseFloat(decimalString[0]).toFixed(6);
         decimalString[1] = parseFloat(decimalString[1]).toFixed(6);
 
-        marker = L.marker([decimalString[0], decimalString[1]], {}).addTo(mymap).bindPopup(
+        marker = L.marker([decimalString[0], decimalString[1]], { icon: icon }).addTo(mymap).bindPopup(
             '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' + graffid + ',' + cat +
             ')" class="mt-4" loading="lazy" src="/storage/uploads/thumbnails/' + mydataca + '/' + pics +
             '" onerror="/img/empty.png"/><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="graffnom">' + graffname +
