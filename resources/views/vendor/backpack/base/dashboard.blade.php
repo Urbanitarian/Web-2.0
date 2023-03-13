@@ -163,7 +163,7 @@
             } else if (cat == 2) {
                 categ = "masterplan";
             } else if (cat == 3) {
-                categ = "neighbourhood";
+                categ = "urbanscapes";
             }
 
             let pageName = categ + "/" + id + "/edit";
