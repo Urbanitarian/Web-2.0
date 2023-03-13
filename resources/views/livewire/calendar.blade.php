@@ -78,7 +78,8 @@
                 events: JSON.parse(@this.events),
                 selectable: true,
                 select: arg => {
-                    const title = prompt('Enter your contact info:');
+                    // press button to validate
+                    const title = prompt('Enter information:');
                     const id = create_UUID();
                     if (title) {
                         calendar.addEvent({

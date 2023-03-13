@@ -33,13 +33,14 @@
                     </div>
 
                     <div class="mt-1">
-                        <h1 class="mx-4 text-xs font-bold">V_260 Changelog:</h1>
+                        <h1 class="mx-4 text-xs font-bold">V_264 Changelog:</h1>
                         <p class="mx-4 text-xs">
                             -missing tags fix<br>
                         <h1 class="mx-4 text-xs font-bold">In progress:</h1>
                         <p class="mx-4 text-xs">
-                            -appointement calendar<br>
-                            -auto thumbnails builder</p>
+                        -calendar email<br>
+                        -calendar delete<br>
+                            -association</p>
                     </div>
                 </div>
                 <div class="flex md:mx-4">

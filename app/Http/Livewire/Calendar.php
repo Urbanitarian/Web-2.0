@@ -40,6 +40,14 @@ class Calendar extends Component
             )
         );
     }
+    
+    public function deleteEvent($event){
+        $event = Event::find($event['id']);
+        $event->delete();
+    }
+
+
+
 
 
 }
