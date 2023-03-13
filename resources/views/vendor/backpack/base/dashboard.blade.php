@@ -36,7 +36,8 @@
                         <h1 class="mx-4 text-xs font-bold">V_265 Changelog:</h1>
                         <p class="mx-4 text-xs">
                               -appointement email<br>
-                             -calendar delete event
+                             -calendar delete event<br>
+                             -fix map
                         <h1 class="mx-4 text-xs font-bold">In progress:</h1>
                         <p class="mx-4 text-xs">
                         -association</p>

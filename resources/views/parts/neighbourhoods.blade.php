@@ -14,12 +14,12 @@
             </div>
         </div>
 
-        <div class="flex flex-wrap -m-4">
+        <div class="flex flex-wrap mx-auto">
 
 @forelse ($neighbourhoods as $neighbourhood)
       <div class="p-4 mx-auto xl:w-1/4 md:w-1/2">
                 <a href="urbanscapes_post?id={{ $neighbourhood->id }}">
-                    <div class="p-4 transition border shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110 max-w-[309px]">
+                    <div class="p-4 transition border shadow-lg bg-gray-50 hover:bg-gray-100 md:hover:scale-110 max-w-[309px] mx-auto">
                         @php $nimg = $neighbourhood->imagea ?? null; @endphp
                         <img class="object-cover object-center w-full h-40 mb-3 saturate-120" src="{{ asset('storage/uploads/thumbnails/urbanscapes/' . $nimg) }}" alt="" loading="lazy" onerror="this.src='{{ asset('storage/uploads/urbanscapes/' . $nimg) }}'"/>
                         <h2 class="mb-1 text-sm font-bold text-black title-font clamp1">{{ $neighbourhood->title }}</h2>
