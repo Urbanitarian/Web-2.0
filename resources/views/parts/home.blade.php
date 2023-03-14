@@ -318,8 +318,8 @@
                      $.each(itemsToDisplay, function(i, item) {
                          if (item.category == "Masterplans") {
                              let html = `
-                      <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 saturate-120 animate__animated animate__backInLeft">
-                         <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full">
+                      <div class="relative overflow-hidden transition border shadow-md bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInLeft">
+                         <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
                              <img alt="Art" src="storage/uploads/thumbnails/masterplans/${item.image}"alt=""
                                  onerror="this.src='storage/uploads/masterplans/${item.image}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
                              <div class="">
@@ -336,8 +336,8 @@
                              $('#boucle').append(html);
                          } else if (item.category == "Urbanscapes") {
                              let html = `
-                      <div class="relative transition border shadow-md bg-gray-50 hover:bg-gray-100 md:hover:scale-105 saturate-120 animate__animated animate__backInRight">
-                         <a href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full">
+                      <div class="relative overflow-hidden transition border shadow-md bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInRight">
+                         <a href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
                              <img alt="Art" src="storage/uploads/thumbnails/urbanscapes/${item.imagea}"alt=""
                                  onerror="this.src='storage/uploads/urbanscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
                              <div class="">
@@ -355,8 +355,8 @@
                          } else if (item.category == "Streetscapes") {
                              let html = `
                      <div
-                         class="relative col-span-2 transition border shadow-md element1 bg-gray-50 hover:bg-gray-100 md:hover:scale-105 saturate-120 animate__animated animate__backInUp">
-                         <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full">
+                         class="relative col-span-2 overflow-hidden transition border shadow-md element1 bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInUp">
+                         <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
                              <img alt="Art" src="storage/uploads/thumbnails/streetscapes/${item.imagea}"alt=""
                                  onerror="this.src='storage/uploads/streetscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
                              <div class="">
