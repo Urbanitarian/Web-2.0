@@ -44,7 +44,7 @@
   div.innerHTML += '<span class="relative"><span class="inline-block ml-6 font-bold">Masterplans</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#4863DA] top-1/2"></span></span><br>';
   div.innerHTML += '<span class="relative"><span class="inline-block ml-6 font-bold">Streetscapes</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#D95649] top-1/2"></span></span><br>';
   div.innerHTML += '<span class="relative"><span class="inline-block ml-6 font-bold">Urbanscapes</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#63D74B] top-1/2"></span></span><br>';
-  div.innerHTML += '<label class="block pt-2">Layer:</label><select name="Layer"class="h-4 px-2 mt-1 text-xs font-bold rounded focus:outline-none"id="selectfilter" onchange="layer(this.value)"><option id="optionx" value="1">MAP</option><option id="optionx" value="2" selected>OSM</option><option id="optionx" value="3">GEO</option><option id="optionx" value="4">TOPO</option><option id="optionx" value="5">CyclOSM</option></select>'
+  div.innerHTML += '<label class="block pt-2">Layer:</label><select name="Layer"class="h-4 px-2 mt-1 text-xs font-bold rounded focus:outline-none"id="selectfilter" onchange="layer(this.value)"><option id="optionx" value="1">OpenStreetMap</option><option id="optionx" value="2" selected>ArcGIS</option><option id="optionx" value="3">GeoPortail</option><option id="optionx" value="4">OpenTopoMap</option><option id="optionx" value="5">CyclOSM</option></select>'
     return div;
     };
     legend.addTo(mymap);
