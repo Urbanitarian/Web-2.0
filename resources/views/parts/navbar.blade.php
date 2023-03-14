@@ -27,24 +27,24 @@
     <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
     <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
       class="absolute inset-x-0 z-50 w-screen px-6 py-4 mt-12 transition-all duration-300 ease-in-out shadow-md bg-gray-50 lg:bg-transparent lg:shadow-none lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
-      <div class="mynav flex flex-col pb-4 space-y-4 align-baseline lg:mt-0 lg:flex-row lg:space-y-0 md:pb-0">
-        <a class="text-sm font-semibold text-gray-400 lg:mx-2 xl:mx-4 hover:text-black" href="/" 
+      <div class="flex flex-col pb-4 space-y-4 align-baseline mynav lg:mt-0 lg:flex-row lg:space-y-0 md:pb-0">
+        <a class="text-sm font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110" href="/" 
           @click="isOpen = false">&nbsp;HOME</a>
-        <a class="text-sm font-semibold text-gray-400 lg:mx-2 xl:mx-4 hover:text-black" href="/masterplans" 
+        <a class="text-sm font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110" href="/masterplans" 
           @click="isOpen = false">&nbsp;MASTERPLANS</a>
-        <a class="text-sm font-semibold text-gray-400 lg:mx-2 xl:mx-4 hover:text-black" href="/streetscapes"
+        <a class="text-sm font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110" href="/streetscapes"
           @click="isOpen = false">&nbsp;STREETSCAPES</a>
-           <a class="text-sm font-semibold text-gray-400 lg:mx-2 xl:mx-4 hover:text-black" href="/urbanscapes"
+           <a class="text-sm font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110" href="/urbanscapes"
           @click="isOpen = false">&nbsp;URBANSCAPES</a>
-           <a class="text-sm font-semibold text-gray-400 lg:mx-2 xl:mx-4 hover:text-black" href="/mindscapes"
+           <a class="text-sm font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110" href="/mindscapes"
           @click="isOpen = false">&nbsp;MINDSCAPES</a>
-        <a class="block text-sm font-semibold text-gray-400 lg:mx-2 lg:hidden xl:block xl:ml-4 hover:text-black" href="/about"
+        <a class="block text-sm font-semibold text-gray-400 duration-300 lg:mx-2 lg:hidden xl:block xl:ml-4 hover:text-black hover:scale-110" href="/about"
           @click="isOpen = false">&nbsp;ABOUT</a>
 
       </div>
       <div class="mt-8 lg:mt-0">
       <a href="submit_project"
-        class="relative flex w-[180px] h-12 px-5 py-4 my-2 text-center mt-2 font-bold text-white bg-black shadow-lg prevent lg:ml-4 group rounded-xl hover:bg-gray-800">
+        class="relative flex w-[180px] h-12 px-5 py-4 my-2 text-center mt-2 font-bold text-white bg-black shadow-lg prevent lg:ml-4 group rounded-xl hover:bg-gray-800 hover:scale-110 duration-300">
         <span class="text-xs">SUBMIT YOUR PROJECT</span>
       </a>
      </div>
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const menuLength = menuItem.length;
   for (let i = 0; i < menuLength; i++) {
     if (menuItem[i].href === currentLocation) {
-      menuItem[i].className = 'text-sm font-semibold lg:mx-2 xl:mx-4 text-black';
+      menuItem[i].className = 'text-sm font-semibold lg:mx-2 xl:mx-4 text-black hover:scale-110 duration-300';
     }
   }
 });
