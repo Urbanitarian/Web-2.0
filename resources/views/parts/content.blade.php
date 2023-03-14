@@ -56,7 +56,7 @@
     mymap.scrollWheelZoom.disable();
     var legend = L.control({ position: "topright" });
     legend.onAdd = function(mymap) {
-  var div = L.DomUtil.create("div", "legend bg-gray-200 p-4 border rounded");
+  var div = L.DomUtil.create("div", "legend bg-gray-200 p-2 border rounded");
   div.innerHTML += '<span class="relative"><span class="inline-block ml-6 font-bold">Masterplans</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#4863DA] top-1/2"></span></span><br>';
   div.innerHTML += '<span class="relative"><span class="inline-block ml-6 font-bold">Streetscapes</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#D95649] top-1/2"></span></span><br>';
   div.innerHTML += '<span class="relative"><span class="inline-block ml-6 font-bold">Urbanscapes</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#63D74B] top-1/2"></span></span><br>';
