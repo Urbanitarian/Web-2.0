@@ -1,92 +1,92 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 @php use \App\Http\Controllers\GlobalController; @endphp
 @php  $pages = GlobalController::pages();@endphp
 @section('main')
     <div data-barba="container">
         <section class="text-gray-400 bg-black body-font">
-           <h2 class="text-2xl font-semibold text-white md:text-5xl text-center pt-10">
+           <h2 id="activities" class="pt-10 text-2xl font-semibold text-center text-white md:text-5xl">
                  ACTIVITIES
              </h2>
-            <div class="container px-5 pb-24 pt-12 mx-auto">
+            <div class="container px-5 pt-12 pb-24 mx-auto">
                 <div class="flex flex-wrap mx-8">
-                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                        <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
+                        <a class="relative block h-48 overflow-hidden rounded">
+                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
                                 src="https://dummyimage.com/420x260">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-white title-font text-lg font-medium">The Catalyzer</h2>
+                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
+                            <h2 class="text-lg font-medium text-white title-font">The Catalyzer</h2>
                         </div>
                     </div>
-                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                        <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
+                        <a class="relative block h-48 overflow-hidden rounded">
+                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
                                 src="https://dummyimage.com/421x261">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-white title-font text-lg font-medium">Shooting Stars</h2>
+                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
+                            <h2 class="text-lg font-medium text-white title-font">Shooting Stars</h2>
                         </div>
                     </div>
-                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                        <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
+                        <a class="relative block h-48 overflow-hidden rounded">
+                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
                                 src="https://dummyimage.com/422x262">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-white title-font text-lg font-medium">Neptune</h2>
+                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
+                            <h2 class="text-lg font-medium text-white title-font">Neptune</h2>
                         </div>
                     </div>
-                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                        <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
+                        <a class="relative block h-48 overflow-hidden rounded">
+                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
                                 src="https://dummyimage.com/423x263">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-white title-font text-lg font-medium">The 400 Blows</h2>
+                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
+                            <h2 class="text-lg font-medium text-white title-font">The 400 Blows</h2>
                         </div>
                     </div>
-                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                        <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
+                        <a class="relative block h-48 overflow-hidden rounded">
+                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
                                 src="https://dummyimage.com/424x264">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-white title-font text-lg font-medium">The Catalyzer</h2>
+                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
+                            <h2 class="text-lg font-medium text-white title-font">The Catalyzer</h2>
                         </div>
                     </div>
-                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                        <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
+                        <a class="relative block h-48 overflow-hidden rounded">
+                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
                                 src="https://dummyimage.com/425x265">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-white title-font text-lg font-medium">Shooting Stars</h2>
+                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
+                            <h2 class="text-lg font-medium text-white title-font">Shooting Stars</h2>
                         </div>
                     </div>
-                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                        <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
+                        <a class="relative block h-48 overflow-hidden rounded">
+                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
                                 src="https://dummyimage.com/427x267">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-white title-font text-lg font-medium">Neptune</h2>
+                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
+                            <h2 class="text-lg font-medium text-white title-font">Neptune</h2>
                         </div>
                     </div>
-                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                        <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
+                        <a class="relative block h-48 overflow-hidden rounded">
+                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
                                 src="https://dummyimage.com/428x268">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-white title-font text-lg font-medium">The 400 Blows</h2>
+                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
+                            <h2 class="text-lg font-medium text-white title-font">The 400 Blows</h2>
                         </div>
                     </div>
                 </div>
