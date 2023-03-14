@@ -18,49 +18,49 @@
       <nav aria-label="Footer Nav" class="mt-12">
         <ul class="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
           <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="about">
+            <a class="text-gray-700 transition hover:text-black" href="about">
               About
             </a>
           </li>
 
            <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="subscribe">
+            <a class="text-gray-700 transition hover:text-black" href="subscribe">
               Subscribe
             </a>
           </li>
 
           <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="contact">
+            <a class="text-gray-700 transition hover:text-black" href="contact">
               Contact
             </a>
           </li>
 
          <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="people">
+            <a class="text-gray-700 transition hover:text-black" href="people">
               Team
             </a>
           </li>
 
          {{-- <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="legal">
+            <a class="text-gray-700 transition hover:text-black" href="legal">
               Terms of use
             </a>
           </li>
 
           <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="confidentialite">
+            <a class="text-gray-700 transition hover:text-black" href="confidentialite">
               Privacy policy
             </a>
           </li> --}}
 
           <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="cookies">
+            <a class="text-gray-700 transition hover:text-black" href="cookies">
               Cookie policy
             </a>
           </li>
 
             <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="association">
+            <a class="text-gray-700 transition hover:text-black" href="association">
               Association
             </a>
           </li> 
@@ -70,7 +70,7 @@
       <ul class="flex justify-center gap-6 mt-12 md:gap-8">
         <li class="duration-300 hover:scale-110">
           <a href="{{ $flickr_link }}" rel="noreferrer" target="_blank"
-            class="text-gray-700 transition hover:text-gray-900">
+            class="text-gray-700 transition hover:text-black">
             <span class="sr-only">Flickr</span>
            <i class="fa-brands fa-flickr"></i>
           </a>
@@ -78,7 +78,7 @@
 
         <li class="duration-300 hover:scale-110">
           <a href="{{ $instagram_link }}" rel="noreferrer" target="_blank"
-            class="text-gray-700 transition hover:text-gray-900">
+            class="text-gray-700 transition hover:text-black">
             <span class="sr-only">Instagram</span>
         <i class="fa-brands fa-instagram"></i>
           </a>
@@ -86,7 +86,7 @@
 
         <li class="duration-300 hover:scale-110">
           <a href="{{ $pinterest_link }}" rel="noreferrer" target="_blank"
-            class="text-gray-700 transition hover:text-gray-900">
+            class="text-gray-700 transition hover:text-black">
             <span class="sr-only">Pinterest</span>
           <i class="fa-brands fa-square-pinterest"></i>
           </a>
@@ -94,7 +94,7 @@
 
         <li class="duration-300 hover:scale-110">
           <a href="{{ $facebook_link }}" rel="noreferrer" target="_blank"
-            class="text-gray-700 transition hover:text-gray-900">
+            class="text-gray-700 transition hover:text-black">
             <span class="sr-only">Facebook</span>
         <i class="fa-brands fa-square-facebook"></i>
           </a>
@@ -102,7 +102,7 @@
 
         <li class="duration-300 hover:scale-110">
           <a href="{{ $linkedin_link }}" rel="noreferrer" target="_blank"
-            class="text-gray-700 transition hover:text-gray-900">
+            class="text-gray-700 transition hover:text-black">
             <span class="sr-only">Linkedin</span>
        <i class="fa-brands fa-linkedin"></i>
           </a>

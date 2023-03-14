@@ -20,49 +20,49 @@
       <nav aria-label="Footer Nav" class="mt-12">
         <ul class="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
           <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="about">
+            <a class="text-gray-700 transition hover:text-black" href="about">
               About
             </a>
           </li>
 
            <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="subscribe">
+            <a class="text-gray-700 transition hover:text-black" href="subscribe">
               Subscribe
             </a>
           </li>
 
           <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="contact">
+            <a class="text-gray-700 transition hover:text-black" href="contact">
               Contact
             </a>
           </li>
 
          <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="people">
+            <a class="text-gray-700 transition hover:text-black" href="people">
               Team
             </a>
           </li>
 
          {{-- <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="legal">
+            <a class="text-gray-700 transition hover:text-black" href="legal">
               Terms of use
             </a>
           </li>
 
           <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="confidentialite">
+            <a class="text-gray-700 transition hover:text-black" href="confidentialite">
               Privacy policy
             </a>
           </li> --}}
 
           <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="cookies">
+            <a class="text-gray-700 transition hover:text-black" href="cookies">
               Cookie policy
             </a>
           </li>
 
             <li class="duration-300 hover:scale-110">
-            <a class="text-gray-700 transition hover:text-gray-900" href="association">
+            <a class="text-gray-700 transition hover:text-black" href="association">
               Association
             </a>
           </li> 

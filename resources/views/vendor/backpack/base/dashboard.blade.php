@@ -35,9 +35,8 @@
                     <div class="mt-1">
                         <h1 class="mx-4 text-xs font-bold">V_265 Changelog:</h1>
                         <p class="mx-4 text-xs">
-                              -appointement email<br>
-                             -calendar delete event<br>
-                             -fix map
+                             -association top bar & footer<br>
+                             -map legend
                         <h1 class="mx-4 text-xs font-bold">In progress:</h1>
                         <p class="mx-4 text-xs">
                         -association</p>
@@ -96,7 +95,15 @@
         mymap.addLayer(osmLayer);
         mymap.touchZoom.enable();
         mymap.scrollWheelZoom.enable();
-
+    var legend = L.control({ position: "topright" });
+    legend.onAdd = function(mymap) {
+  var div = L.DomUtil.create("div", "legend bg-gray-200 p-4 border rounded");
+  div.innerHTML += '<span class="relative"><span class="inline-block ml-6 font-bold">Masterplans</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#4863DA] top-1/2"></span></span><br>';
+  div.innerHTML += '<span class="relative"><span class="inline-block ml-6 font-bold">Streetscapes</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#D95649] top-1/2"></span></span><br>';
+  div.innerHTML += '<span class="relative"><span class="inline-block ml-6 font-bold">Urbanscapes</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#63D74B] top-1/2"></span></span><br>';
+    return div;
+    };
+    legend.addTo(mymap);
         let count = 0;
         for (let i = 0; i < data.length; i++) {
             count = count + 1;
@@ -148,7 +155,7 @@
         marker = L.marker([decimalString[0], decimalString[1]], { icon: icon }).addTo(mymap).bindPopup(
             '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' + graffid + ',' + cat +
             ')" class="mt-4" loading="lazy" src="/storage/uploads/thumbnails/' + mydataca + '/' + pics +
-            '" onerror="/img/empty.png"/><div class="flex justify-between"><h5 class="mt-1 mb-2 text-xs font-bold clamp truncate" id="graffnom">' + graffname +
+            '" onerror="/img/empty.png"/><div class="flex justify-between"><h5 class="mt-1 mb-2 text-xs font-bold truncate clamp" id="graffnom">' + graffname +
             '</h5><h5 class="pb-4 mt-1 mb-2 text-xs text-gray-500" id="graffcity">' + graffcity + '</h5></div></div>'
         );
         markers[graff.id] = marker;
