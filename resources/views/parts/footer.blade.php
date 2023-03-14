@@ -17,49 +17,49 @@
 
       <nav aria-label="Footer Nav" class="mt-12">
         <ul class="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
-          <li>
+          <li class="duration-300 hover:scale-110">
             <a class="text-gray-700 transition hover:text-gray-900" href="about">
               About
             </a>
           </li>
 
-           <li>
+           <li class="duration-300 hover:scale-110">
             <a class="text-gray-700 transition hover:text-gray-900" href="subscribe">
               Subscribe
             </a>
           </li>
 
-          <li>
+          <li class="duration-300 hover:scale-110">
             <a class="text-gray-700 transition hover:text-gray-900" href="contact">
               Contact
             </a>
           </li>
 
-         <li>
+         <li class="duration-300 hover:scale-110">
             <a class="text-gray-700 transition hover:text-gray-900" href="people">
               Team
             </a>
           </li>
 
-         {{-- <li>
+         {{-- <li class="duration-300 hover:scale-110">
             <a class="text-gray-700 transition hover:text-gray-900" href="legal">
               Terms of use
             </a>
           </li>
 
-          <li>
+          <li class="duration-300 hover:scale-110">
             <a class="text-gray-700 transition hover:text-gray-900" href="confidentialite">
               Privacy policy
             </a>
           </li> --}}
 
-          <li>
+          <li class="duration-300 hover:scale-110">
             <a class="text-gray-700 transition hover:text-gray-900" href="cookies">
               Cookie policy
             </a>
           </li>
 
-            <li>
+            <li class="duration-300 hover:scale-110">
             <a class="text-gray-700 transition hover:text-gray-900" href="association">
               Association
             </a>
@@ -68,7 +68,7 @@
       </nav>
 
       <ul class="flex justify-center gap-6 mt-12 md:gap-8">
-        <li>
+        <li class="duration-300 hover:scale-110">
           <a href="{{ $flickr_link }}" rel="noreferrer" target="_blank"
             class="text-gray-700 transition hover:text-gray-900">
             <span class="sr-only">Flickr</span>
@@ -76,7 +76,7 @@
           </a>
         </li>
 
-        <li>
+        <li class="duration-300 hover:scale-110">
           <a href="{{ $instagram_link }}" rel="noreferrer" target="_blank"
             class="text-gray-700 transition hover:text-gray-900">
             <span class="sr-only">Instagram</span>
@@ -84,7 +84,7 @@
           </a>
         </li>
 
-        <li>
+        <li class="duration-300 hover:scale-110">
           <a href="{{ $pinterest_link }}" rel="noreferrer" target="_blank"
             class="text-gray-700 transition hover:text-gray-900">
             <span class="sr-only">Pinterest</span>
@@ -92,7 +92,7 @@
           </a>
         </li>
 
-        <li>
+        <li class="duration-300 hover:scale-110">
           <a href="{{ $facebook_link }}" rel="noreferrer" target="_blank"
             class="text-gray-700 transition hover:text-gray-900">
             <span class="sr-only">Facebook</span>
@@ -100,7 +100,7 @@
           </a>
         </li>
 
-        <li>
+        <li class="duration-300 hover:scale-110">
           <a href="{{ $linkedin_link }}" rel="noreferrer" target="_blank"
             class="text-gray-700 transition hover:text-gray-900">
             <span class="sr-only">Linkedin</span>
