@@ -323,9 +323,9 @@
                              <img alt="Art" src="storage/uploads/thumbnails/masterplans/${item.image}"alt=""
                                  onerror="this.src='storage/uploads/masterplans/${item.image}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
                              <div class="">
-                                 <h3 class="mx-2 mt-2 text-sm font-bold text-center truncate">
+                                 <h3 class="mx-4 mt-2 text-sm font-bold text-center truncate">
                                      ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mx-4 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
+                                 <p class="max-w-sm pb-2 mx-6 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
                                        ${item.category} &nbsp;
                                        ${item.tags.map(tag => `${tag}`).join(' &nbsp;')}
                                  </p>
@@ -341,9 +341,9 @@
                              <img alt="Art" src="storage/uploads/thumbnails/urbanscapes/${item.imagea}"alt=""
                                  onerror="this.src='storage/uploads/urbanscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
                              <div class="">
-                                 <h3 class="mx-2 mt-2 text-sm font-bold text-center truncate">
+                                 <h3 class="mx-4 mt-2 text-sm font-bold text-center truncate">
                                      ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="max-w-sm pb-2 mx-4 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
+                                 <p class="max-w-sm pb-2 mx-6 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
                                        ${item.category} &nbsp;
                                            ${item.tags.map(tag => `${tag}`).join(' &nbsp;')}
                                  </p>
@@ -360,9 +360,9 @@
                              <img alt="Art" src="storage/uploads/thumbnails/streetscapes/${item.imagea}"alt=""
                                  onerror="this.src='storage/uploads/streetscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
                              <div class="">
-                                 <h3 class="mt-2 font-bold text-center text-gray-900 uppercase ">
+                                 <h3 class="mt-4 font-bold text-center text-gray-900 uppercase ">
                                      ${item.title} | ${item.author} | ${item.city}</h3>
-                                 <p class="pb-2 mx-4 mt-1 mb-2 text-xs text-center text-gray-700 truncate ">
+                                 <p class="pb-2 mx-6 mt-1 mb-2 text-xs text-center text-gray-700 truncate ">
                                      ${item.category} &nbsp;
                                             ${item.tags.map(tag => `${tag}`).join(' &nbsp;')}
                                  </p>
