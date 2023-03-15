@@ -124,7 +124,7 @@
                                 <td>
                                     <table align="center" border="0" cellpadding="0" cellspacing="0"
                                         class="row-content" role="presentation"
-                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #1d2b33; color: #333; width: 650px;"
+                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #2e3c44; color: #333; width: 650px;"
                                         width="650">
                                         <tbody>
                                             <tr>
@@ -161,7 +161,7 @@
                                 <td>
                                     <table align="center" border="0" cellpadding="0" cellspacing="0"
                                         class="row-content stack" role="presentation"
-                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #1d2b33; color: #000000; width: 650px;"
+                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #2e3c44; color: #000000; width: 650px;"
                                         width="650">
                                         <tbody>
                                             <tr>

@@ -33,10 +33,11 @@
                     </div>
 
                     <div class="mt-1">
-                        <h1 class="mx-4 text-xs font-bold">V_270 Changelog:</h1>
+                        <h1 class="mx-4 text-xs font-bold">V_272 Changelog:</h1>
                         <p class="mx-4 text-xs">
                              -association top bar & footer<br>
                              -map legend + layer
+                             -search map
                         <h1 class="mx-4 text-xs font-bold">In progress:</h1>
                         <p class="mx-4 text-xs">
                         -association</p>

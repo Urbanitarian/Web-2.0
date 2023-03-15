@@ -36,7 +36,7 @@
     })" class="relative flex flex-row w-10/12 mx-auto">
         <div class="absolute inset-y-0 left-0 z-10 flex items-center mb-4">
             <button @click="swiper.slidePrev()"
-                class="flex items-center justify-center w-10 h-10 -ml-2 transition bg-black border rounded-full shadow lg:-ml-4 focus:outline-none hover:bg-gray-800 active:bg-black border-opacity-20">
+                class="flex items-center justify-center w-10 h-10 -ml-2 bg-black border rounded-full shadow transition-300 lg:-ml-4 focus:outline-none hover:bg-gray-800 active:bg-black border-opacity-20">
                 <svg viewBox="0 0 20 20" fill="white" class="w-6 h-6 chevron-left">
                     <path fill-rule="evenodd"
                         d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"

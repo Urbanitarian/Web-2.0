@@ -666,7 +666,20 @@
                  mymap2.addLayer(theosmLayer);
                  mymap2.touchZoom.enable();
                  mymap2.scrollWheelZoom.disable();
-
+                 var legend = L.control({
+                     position: "topright"
+                 });
+                 legend.onAdd = function(mymap2) {
+                     var div = L.DomUtil.create("div", "legend bg-gray-200 p-2 border rounded");
+                     div.innerHTML +=
+                         '<span class="relative"><span class="inline-block ml-6 font-bold">Masterplans</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#4863DA] top-1/2"></span></span><br>';
+                     div.innerHTML +=
+                         '<span class="relative"><span class="inline-block ml-6 font-bold">Streetscapes</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#D95649] top-1/2"></span></span><br>';
+                     div.innerHTML +=
+                         '<span class="relative"><span class="inline-block ml-6 font-bold">Urbanscapes</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#63D74B] top-1/2"></span></span><br>';
+                     return div;
+                 };
+                 legend.addTo(mymap2);
                  let counter = 0;
                  for (let i = 0; i < thedata.length; i++) {
                      counter = counter + 1;
@@ -681,10 +694,28 @@
                      category = mydata.category.toLowerCase();
                      if (category == 'streetscapes') {
                          cat = 1;
+                          icon = L.icon({
+                iconUrl: '/img/markers.png',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40],
+                popupAnchor: [0, -40]
+            });
                      } else if (category == 'masterplans') {
                          cat = 2;
+                          icon = L.icon({
+                iconUrl: '/img/markerm.png',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40],
+                popupAnchor: [0, -40]
+            });
                      } else if (category == 'urbanscapes') {
                          cat = 3;
+                                     icon = L.icon({
+                iconUrl: '/img/markeru.png',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40],
+                popupAnchor: [0, -40]
+            });
                      }
 
                      mydataid = mydata.id;
@@ -698,7 +729,7 @@
                      decimalStringa[0] = parseFloat(decimalStringa[0]).toFixed(6);
                      decimalStringa[1] = parseFloat(decimalStringa[1]).toFixed(6);
 
-                     markera = L.marker([decimalStringa[0], decimalStringa[1]], {}).addTo(mymap2).bindPopup(
+                     markera = L.marker([decimalStringa[0], decimalStringa[1]], { icon: icon}).addTo(mymap2).bindPopup(
                          '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' +
                          mydataid + ',' + cat +
                          ')" class="mt-4" src="/storage/uploads/' + mydatacat + '/' + mypics +
