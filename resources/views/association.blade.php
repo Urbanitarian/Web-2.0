@@ -300,7 +300,8 @@
                 class="text-blue-500 hover:text-blue-700">Zenodo</a> and GitHub
         </p>
 
-        <div class="grid h-full grid-cols-2 gap-4 px-4 py-8 mx-auto lg:grid-cols-3 xl:grid-cols-4 md:py-16 md:px-8 max-w-screen-2xl">
+        <div
+            class="grid h-full grid-cols-2 gap-4 px-4 py-4 mx-auto lg:grid-cols-3 xl:grid-cols-4 md:py-8 md:px-8 max-w-screen-2xl">
 
             <div
                 class="flex flex-col justify-center h-full p-4 border border-gray-800 sm:flex-row sm:justify-start sm:text-left">
@@ -313,33 +314,33 @@
                         </p>
                         <div class="text-xs">
                             link:<br>
-                            <a href="https://brussels2022.dryfta.com/themes-tracks/216-programme/banners/proceedings" target="_blank"
-                                class="text-blue-500 hover:text-blue-700">brussel2022</a>
-                         </div>
+                            <a href="https://brussels2022.dryfta.com/themes-tracks/216-programme/banners/proceedings"
+                                target="_blank" class="text-blue-500 hover:text-blue-700">brussel2022</a>
+                        </div>
                     </div>
                 </div>
 
             </div>
-
-     <div
+            <div
                 class="flex flex-col justify-center h-full p-4 border border-gray-800 sm:flex-row sm:justify-start sm:text-left">
                 <img alt="team" class="flex-shrink-0 object-cover object-center w-48 h-64 mb-4 sm:mb-0"
                     src="./img/resources02.jpg">
                 <div class="flex-grow pl-2">
                     <div class="flex flex-col font-bold">
-                        <p class="mb-4 text-xs">U-SCAT: Developing Methodology to Measure Social Capital in Urban Communities
+                        <p class="mb-4 text-xs">U-SCAT: Developing Methodology to Measure Social Capital in Urban
+                            Communities
                         </p>
                         <div class="text-xs">
                             link:<br>
                             <a href="https://auca.kg/en/silk_projects_social_capital/" target="_blank"
                                 class="text-blue-500 hover:text-blue-700">auca.kg</a>
-                         </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
 
-                 <div
+            <div
                 class="flex flex-col justify-center h-full p-4 border border-gray-800 sm:flex-row sm:justify-start sm:text-left">
                 <img alt="team" class="flex-shrink-0 object-cover object-center w-48 h-64 mb-4 sm:mb-0"
                     src="./img/resources03.jpg">
@@ -347,13 +348,82 @@
                     <div class="flex flex-col font-bold">
                         <p class="mb-4 text-xs">JUSThood masterplans in Katowice, Poland
                         </p>
-                       
+
                     </div>
                 </div>
-
             </div>
-
         </div>
+        <section class="text-gray-400 bg-[#6A539D] body-font mt-8">
+            <h2 id="about" class="py-2 text-2xl font-semibold text-center text-white md:text-3xl">
+                ABOUT URBANITARIAN
+            </h2>
+        </section>
+        <section class="mx-4 overflow-hidden text-gray-600 body-font">
+            <div class="container px-5 py-8 mx-auto md:py-16">
+                <div class="flex flex-wrap -m-12">
+                    <div class="flex flex-col items-start p-12 md:w-1/2">
+                        <p class="mb-8 leading-relaxed">Urbanitarian is a multilayered next-generation foundation that
+                            offers a range of services and expertise in the domain of urban design and community engagement.
+                            We are driven by creating actionable plans by translating findings to operational insights
+                            through expert knowledge. Urbanitarian offers an international value-led urban design
+                            consultancy practice operating at the forefront of today’s planetary-scale challenges by filling
+                            the gap between architecture and planning, through practicing equitable urban innovation and
+                            forward thinking across multiple design systems: participatory futures and design foresight,
+                            spatial equity and inclusive design, and democratized masterplanning.
+                        </p>
+
+
+                    </div>
+                    <div class="flex flex-col items-start p-12 md:w-1/2">
+                        <h2 class="text-xl font-bold text-gray-900">BOARD</h2><br>
+                        <h2 class="mt-2 font-bold text-gray-900"> Urban Design Principal & Masterplan Development:</h2>
+                        <h2 class="text-gray-900">Honorata Grzesikowskaa</h2>
+                        <h2 class="mt-2 font-bold text-gray-900"> Financial Principal & Foresight Design:</h2>
+                        <h2 class="text-gray-900">Tatiana Efremenko</h2>
+                        <h2 class="mt-2 font-bold text-gray-900"> Creative Technical Principal & Spatial Design:</h2>
+                        <h2 class="text-gray-900">Firas Safieddine</h2>
+                        <h2 class="mt-2 font-bold text-gray-900"> Strategic Principal & Ecosystem Orchestra:</h2>
+                        <h2 class="text-gray-900">Eveline Wandl-Vogt</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="text-gray-400 bg-[#6A539D] body-font mt-8">
+            <h2 id="contact" class="py-2 text-2xl font-semibold text-center text-white md:text-3xl">
+                CONTACT
+            </h2>
+        </section>
+        <section class="mx-4 overflow-hidden text-gray-600 body-font">
+            <div class="container px-5 py-8 mx-auto md:py-16">
+                <div class="flex flex-wrap -m-12">
+                    <div class="flex flex-col items-start p-12 md:w-1/2">
+                        <a href="mailto:info@urbanitarian.com"
+                            class="text-blue-500 hover:text-blue-700">info@urbanitarian.com</a>
+                        <p class="mb-8 leading-relaxed">
+                            tel: xxx<br>
+                            URBANITARIAN - Future Living as a Service<br>
+                            3021 Pressbaum, Fünkhgasse 14<br>
+                            Austria<br>
+                            Founded on 21.12.2022<br>
+                            ZVR-Nr: 1078367647<br>
+                        </p>
+
+                         <a href="https://www.instagram.com/urbanitarian/"
+                            class="text-blue-500 hover:text-blue-700">Instagram</a>
+
+                             <a href="https://www.linkedin.com/profile/preview?locale=en_US&trk=prof-0-sb-preview-primary-button"
+                            class="text-blue-500 hover:text-blue-700">Linkedin</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     <section class="text-gray-400 bg-[#6A539D] body-font mt-8">
+            <h2 id="ecosystem" class="py-2 text-2xl font-semibold text-center text-white md:text-3xl">
+                ECOSYSTEM
+            </h2>
+        </section>
+
 
     </div>
 @endsection
