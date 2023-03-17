@@ -3,95 +3,86 @@
 @php  $pages = GlobalController::pages();@endphp
 @section('main')
     <div data-barba="container">
-        <section class="text-gray-400 bg-black body-font">
-           <h2 id="activities" class="pt-10 text-2xl font-semibold text-center text-white md:text-5xl">
+        <section class="text-gray-400 bg-[#6A539D] body-font mt-8">
+           <h2 id="activities" class="py-2 text-2xl font-semibold text-center text-white md:text-3xl">
                  ACTIVITIES
              </h2>
-            <div class="container px-5 pt-12 pb-24 mx-auto">
-                <div class="flex flex-wrap mx-8">
-                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
-                        <a class="relative block h-48 overflow-hidden rounded">
-                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
-                                src="https://dummyimage.com/420x260">
-                        </a>
-                        <div class="mt-4">
-                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
-                            <h2 class="text-lg font-medium text-white title-font">The Catalyzer</h2>
-                        </div>
-                    </div>
-                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
-                        <a class="relative block h-48 overflow-hidden rounded">
-                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
-                                src="https://dummyimage.com/421x261">
-                        </a>
-                        <div class="mt-4">
-                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
-                            <h2 class="text-lg font-medium text-white title-font">Shooting Stars</h2>
-                        </div>
-                    </div>
-                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
-                        <a class="relative block h-48 overflow-hidden rounded">
-                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
-                                src="https://dummyimage.com/422x262">
-                        </a>
-                        <div class="mt-4">
-                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
-                            <h2 class="text-lg font-medium text-white title-font">Neptune</h2>
-                        </div>
-                    </div>
-                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
-                        <a class="relative block h-48 overflow-hidden rounded">
-                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
-                                src="https://dummyimage.com/423x263">
-                        </a>
-                        <div class="mt-4">
-                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
-                            <h2 class="text-lg font-medium text-white title-font">The 400 Blows</h2>
-                        </div>
-                    </div>
-                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
-                        <a class="relative block h-48 overflow-hidden rounded">
-                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
-                                src="https://dummyimage.com/424x264">
-                        </a>
-                        <div class="mt-4">
-                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
-                            <h2 class="text-lg font-medium text-white title-font">The Catalyzer</h2>
-                        </div>
-                    </div>
-                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
-                        <a class="relative block h-48 overflow-hidden rounded">
-                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
-                                src="https://dummyimage.com/425x265">
-                        </a>
-                        <div class="mt-4">
-                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
-                            <h2 class="text-lg font-medium text-white title-font">Shooting Stars</h2>
-                        </div>
-                    </div>
-                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
-                        <a class="relative block h-48 overflow-hidden rounded">
-                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
-                                src="https://dummyimage.com/427x267">
-                        </a>
-                        <div class="mt-4">
-                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
-                            <h2 class="text-lg font-medium text-white title-font">Neptune</h2>
-                        </div>
-                    </div>
-                    <div class="w-full p-4 lg:w-1/4 md:w-1/2">
-                        <a class="relative block h-48 overflow-hidden rounded">
-                            <img alt="ecommerce" class="block object-cover object-center w-full h-full"
-                                src="https://dummyimage.com/428x268">
-                        </a>
-                        <div class="mt-4">
-                            <h3 class="mb-1 text-xs tracking-widest text-gray-500 title-font">CATEGORY</h3>
-                            <h2 class="text-lg font-medium text-white title-font">The 400 Blows</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
+
+<section class="overflow-hidden text-gray-600 body-font">
+  <div class="container py-24 mx-auto lg:px-16">
+    <div class="flex flex-wrap -m-4">
+      <div class="w-full p-4 xl:w-1/4 md:w-1/2">
+        <div class="relative flex flex-col h-full p-6 overflow-hidden border-2 border-gray-300 rounded-lg">
+          <h1 class="pb-4 mb-4 text-2xl font-bold text-center text-gray-900 border-b border-gray-200">JUSTHood</h1>
+          <p class="flex items-center mb-2 text-gray-600">
+           Vexillologist pitchfork
+          </p>
+          <p class="flex items-center mb-2 text-gray-600">
+            Tumeric plaid portland
+          </p>
+          <p class="flex items-center mb-6 text-gray-600">
+            Mixtape chillwave tumeric
+          </p>
+         
+        </div>
+      </div>
+      <div class="w-full p-4 xl:w-1/4 md:w-1/2">
+         <div class="relative flex flex-col h-full p-6 overflow-hidden border-2 border-gray-300 rounded-lg">
+          <h1 class="pb-4 mb-4 text-2xl font-bold text-center text-gray-900 border-b border-gray-200">Urbanitarian Webspace</h1>
+          <p class="flex items-center mb-2 text-gray-600">
+           Vexillologist pitchfork
+          </p>
+          <p class="flex items-center mb-2 text-gray-600">
+            Tumeric plaid portland
+          </p>
+          <p class="flex items-center mb-6 text-gray-600">
+            Mixtape chillwave tumeric
+          </p>
+         
+        </div>
+      </div>
+      <div class="w-full p-4 xl:w-1/4 md:w-1/2">
+         <div class="relative flex flex-col h-full p-6 overflow-hidden border-2 border-gray-300 rounded-lg">
+          <h1 class="pb-4 mb-4 text-2xl font-bold text-center text-gray-900 border-b border-gray-200">U-SCAT</h1>
+          <p class="flex items-center mb-2 text-gray-600">
+           Vexillologist pitchfork
+          </p>
+          <p class="flex items-center mb-2 text-gray-600">
+            Tumeric plaid portland
+          </p>
+          <p class="flex items-center mb-6 text-gray-600">
+            Mixtape chillwave tumeric
+          </p>
+         
+        </div>
+      </div>
+      <div class="w-full p-4 xl:w-1/4 md:w-1/2">
+         <div class="relative flex flex-col h-full p-6 overflow-hidden border-2 border-gray-300 rounded-lg">
+          <h1 class="pb-4 mb-4 text-2xl font-bold text-center text-gray-900 border-b border-gray-200">Free</h1>
+          <p class="flex items-center mb-2 text-gray-600">
+           Vexillologist pitchfork
+          </p>
+          <p class="flex items-center mb-2 text-gray-600">
+            Tumeric plaid portland
+          </p>
+          <p class="flex items-center mb-6 text-gray-600">
+            Mixtape chillwave tumeric
+          </p>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+      <section class="text-gray-400 bg-[#6A539D] body-font mt-8">
+           <h2 id="activities" class="py-2 text-2xl font-semibold text-center text-white md:text-3xl">
+              MAP OF ACTIVITIES
+             </h2>
+        </section>
+
+
+
         <div class="p-5 mx-auto sm:p-10 md:px-16">
             <div class="flex flex-col max-w-5xl mx-auto overflow-hidden rounded">
                 <div class="page all-initial">

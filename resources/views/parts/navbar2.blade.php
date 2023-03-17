@@ -9,10 +9,16 @@
       <div class="flex flex-row justify-center pb-4 mx-auto mt-0 ml-12 align-baseline md:space-y-0 mynav md:pb-0">
         <a class="mx-2 text-base font-semibold text-gray-400 duration-300 xl:mx-4 hover:text-black hover:scale-110" href="#activities" 
           @click="isOpen = false">&nbsp;Activities</a>
+          <a class="mx-2 text-base font-semibold text-gray-400 duration-300 xl:mx-4 hover:text-black hover:scale-110" href="#activities" 
+          @click="isOpen = false">&nbsp;Services</a>
+          <a class="mx-2 text-base font-semibold text-gray-400 duration-300 xl:mx-4 hover:text-black hover:scale-110" href="#activities" 
+          @click="isOpen = false">&nbsp;Expertise</a>
+          <a class="mx-2 text-base font-semibold text-gray-400 duration-300 xl:mx-4 hover:text-black hover:scale-110" href="#activities" 
+          @click="isOpen = false">&nbsp;Resources</a>
         <a class="mx-2 text-base font-semibold text-gray-400 duration-300 xl:mx-4 hover:text-black hover:scale-110" href="#" 
-          @click="isOpen = false">&nbsp;Publication</a>
+          @click="isOpen = false">&nbsp;About Urbanitarian</a>
         <a class="mx-2 text-base font-semibold text-gray-400 duration-300 xl:mx-4 hover:text-black hover:scale-110" href="#"
-          @click="isOpen = false">&nbsp;Valiz Foundation</a>
+          @click="isOpen = false">&nbsp;Ecosystem</a>
       </div>
     </div>
   </nav>
