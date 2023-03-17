@@ -9,38 +9,55 @@
             </h2>
         </section>
 
-        <section class="overflow-hidden text-gray-600 body-font">
-            <div class="container py-24 mx-auto lg:px-16">
+        <section class="overflow-hidden text-gray-600">
+            <div class="container px-4 py-24 mx-auto lg:px-16">
                 <div class="flex flex-wrap -m-4">
                     <div class="w-full p-4 xl:w-1/4 md:w-1/2">
                         <div class="relative flex flex-col h-full p-6 overflow-hidden border-2 border-gray-300 rounded-lg">
                             <h1 class="pb-4 mb-4 text-2xl font-bold text-center text-gray-900 border-b border-gray-200">
                                 JUSTHood</h1>
-                            <p class="flex items-center mb-2 text-gray-600">
-                                Vexillologist pitchfork
+                            <h1 class="text-xs font-bold">JUSThood method®</h1>
+                            <p class="flex items-center mb-2 text-xs text-gray-600">
+                                is an innovative method developed by Urbanitarian
+                                that empowers inhabitants to envision the design of their neighborhoods in an equitable way.
+                                Based on a design-driven approach, JUSThood method is a game-based method, positioned at the
+                                intersection of three topics – masterplanning, spatial equity and participatory futures,
+                                where a
+                                set of cards (What-If, Persona, Design cards) is used to imagine scenarios and map ideas on
+                                the
+                                masterplans.
                             </p>
-                            <p class="flex items-center mb-2 text-gray-600">
-                                Tumeric plaid portland
+                            <h1 class="text-xs font-bold">JUSThood network </h1>
+                            <p class="flex items-center mb-2 text-xs text-gray-600">
+                                is a network of hubs and JUSThood mentors in
+                                different countries who are trained in spatial equity and participatory futures approaches
+                                in
+                                general, and in implementation of JUSThood method® in particular.
                             </p>
-                            <p class="flex items-center mb-6 text-gray-600">
-                                Mixtape chillwave tumeric
+                            <h1 class="text-xs font-bold">JUSThood index </h1>
+                            <p class="flex items-center mb-2 text-xs text-gray-600">
+                                is a tool which can be used to measure spatial equity
+                                of urban places. It allows to quantify and operationalize spatial equity concept to bring it
+                                to
+                                the table with authorities, and compare spatial equity of different places across
+                                geographies
+                                and contexts.
                             </p>
-
+                            <p class="flex items-center mt-2 text-xs text-gray-600">
+                                Links:
+                            </p>
+                            <a href="https://www.justhood.net/" class="text-xs text-blue-500 truncate hover:text-blue-700">
+                                https://www.justhood.net/</a>
+                            <a href="https://www.instagram.com/justhood_net/"
+                                class="text-xs text-blue-500 truncate hover:text-blue-700">https://www.instagram.com/justhood_net/</a>
                         </div>
                     </div>
                     <div class="w-full p-4 xl:w-1/4 md:w-1/2">
                         <div class="relative flex flex-col h-full p-6 overflow-hidden border-2 border-gray-300 rounded-lg">
                             <h1 class="pb-4 mb-4 text-2xl font-bold text-center text-gray-900 border-b border-gray-200">
                                 Urbanitarian Webspace</h1>
-                            <p class="flex items-center mb-2 text-gray-600">
-                                Vexillologist pitchfork
-                            </p>
-                            <p class="flex items-center mb-2 text-gray-600">
-                                Tumeric plaid portland
-                            </p>
-                            <p class="flex items-center mb-6 text-gray-600">
-                                Mixtape chillwave tumeric
-                            </p>
+
+
 
                         </div>
                     </div>
@@ -48,15 +65,19 @@
                         <div class="relative flex flex-col h-full p-6 overflow-hidden border-2 border-gray-300 rounded-lg">
                             <h1 class="pb-4 mb-4 text-2xl font-bold text-center text-gray-900 border-b border-gray-200">
                                 U-SCAT</h1>
-                            <p class="flex items-center mb-2 text-gray-600">
-                                Vexillologist pitchfork
+                            <p class="flex items-center mb-2 text-xs text-gray-600">
+                                U-SCAT (Urban Social Capital Assessment Tool) is a survey-based methodology to produce
+                                social capital index for urban places. The goal of U-SCAT is to bring a different type of
+                                metrics to measuring the well-being of our cities. The tool has been implemented in the city
+                                of Bishkek in Kyrgyzstan and the results will be uploaded in April 2023 on the Civic City
+                                Dashboard (https://citydata.kg/).<br>
                             </p>
-                            <p class="flex items-center mb-2 text-gray-600">
-                                Tumeric plaid portland
+                            <p class="flex items-center mt-2 text-xs text-gray-600">
+                                Links:
                             </p>
-                            <p class="flex items-center mb-6 text-gray-600">
-                                Mixtape chillwave tumeric
-                            </p>
+                            <a href="https://auca.kg/en/silk_projects_social_capital/"
+                                class="text-xs text-blue-500 truncate hover:text-blue-700">
+                                https://auca.kg/en/silk_projects_social_capital/</a>
 
                         </div>
                     </div>
@@ -64,15 +85,7 @@
                         <div class="relative flex flex-col h-full p-6 overflow-hidden border-2 border-gray-300 rounded-lg">
                             <h1 class="pb-4 mb-4 text-2xl font-bold text-center text-gray-900 border-b border-gray-200">Free
                             </h1>
-                            <p class="flex items-center mb-2 text-gray-600">
-                                Vexillologist pitchfork
-                            </p>
-                            <p class="flex items-center mb-2 text-gray-600">
-                                Tumeric plaid portland
-                            </p>
-                            <p class="flex items-center mb-6 text-gray-600">
-                                Mixtape chillwave tumeric
-                            </p>
+
 
                         </div>
                     </div>
@@ -90,7 +103,7 @@
         </div>
 
         <section class="text-gray-400 bg-[#6A539D] body-font mt-8">
-            <h2 id="activities" class="py-2 text-2xl font-semibold text-center text-white md:text-3xl">
+            <h2 id="services" class="py-2 text-2xl font-semibold text-center text-white md:text-3xl">
                 SERVICES
             </h2>
         </section>
@@ -98,7 +111,7 @@
             <div class="px-4 py-8 mx-auto max-w-screen-2xl sm:py-12 sm:px-6 lg:py-16 lg:px-8">
                 <div class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-8">
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="block p-4 border border-gray-400 rounded shadow-sm" href="/accountant">
+                        <div class="block p-4 border border-gray-400 rounded shadow-sm">
 
                             <h2 class="mt-2 text-2xl font-bold text-center">Speaking</h2>
 
@@ -107,7 +120,7 @@
                                 and organizations on the variety of topics based on our <a href="#expertise"
                                     class="text-blue-500 hover:text-blue-700">expertise</a> <br>
                             </p>
-                            <ul class="mx-2 text-xs list-disc md:mx-8">
+                            <ul class="pb-4 mx-2 text-xs list-disc md:mx-8">
                                 <li>
                                     2023 | Politecnico di Milano, Milan, Italy. Topic: Design Futures for Innovation
                                 </li>
@@ -143,15 +156,15 @@
                             </ul>
 
                         </div>
-                        <div class="block p-4 border border-gray-400 rounded shadow-sm" href="/accountant">
+                        <div class="block p-4 border border-gray-400 rounded shadow-sm">
 
                             <h2 class="mt-2 text-2xl font-bold text-center">Workshops</h2>
 
-                             <p class="block pb-4 mx-1 mt-4 text-xs md:mx-4">
+                            <p class="block pb-4 mx-1 mt-4 text-xs md:mx-4">
                                 We organize and facilitate workshops for a variety of actors with a participatory and
                                 creative approach.<br>
                             </p>
-                             <ul class="mx-2 text-xs list-disc md:mx-8">
+                            <ul class="mx-2 text-xs list-disc md:mx-8">
                                 <li>
                                     2023 | JUSThood workshop in the school Sant Marc Calldetenes, Barcelona, Spain
                                 </li>
@@ -180,19 +193,20 @@
 
                     </div>
 
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="block p-4 border border-gray-400 rounded shadow-sm" href="/accountant">
+                    <div class="grid h-full grid-cols-2 gap-4">
+                        <div class="block p-4 border border-gray-400 rounded shadow-sm">
 
                             <h2 class="mt-2 text-2xl font-bold text-center">Consultancy</h2>
 
-                           <p class="block pb-4 mx-1 mt-4 text-xs md:mx-4">
+                            <p class="block pb-4 mx-1 mt-4 text-xs md:mx-4">
                                 We provide consultancy and mentorship to a variety of public and private actors in the urban
-                                design field. We provide our <a href="#expertise" class="text-blue-500 hover:text-blue-700">expertise</a> for European and international
+                                design field. We provide our <a href="#expertise"
+                                    class="text-blue-500 hover:text-blue-700">expertise</a> for European and international
                                 projects.
                             </p>
                         </div>
 
-                        <div class="block p-4 border border-gray-400 rounded shadow-sm" href="/accountant">
+                        <div class="block p-4 border border-gray-400 rounded shadow-sm">
 
 
                             <h2 class="mt-2 text-2xl font-bold text-center">Rent our Metaverse space</h2>
@@ -202,7 +216,7 @@
                             </p>
                         </div>
 
-                        <div class="block p-4 border border-gray-400 rounded shadow-sm" href="/accountant">
+                        <div class="block p-4 border border-gray-400 rounded shadow-sm">
 
 
                             <h2 class="mt-2 text-2xl font-bold text-center">Artworks</h2>
@@ -212,7 +226,7 @@
                             </p>
                         </div>
 
-                        <div class="block p-4 border border-gray-400 rounded shadow-sm" href="/accountant">
+                        <div class="block p-4 border border-gray-400 rounded shadow-sm">
 
 
                             <h2 class="mt-2 text-2xl font-bold text-center">Partner/ Advertisement</h2>
@@ -226,8 +240,120 @@
                 </div>
             </div>
         </section>
+        <section class="text-gray-400 bg-[#6A539D] body-font mt-8">
+            <h2 id="expertise" class="py-2 text-2xl font-semibold text-center text-white md:text-3xl">
+                EXPERTISE
+            </h2>
+        </section>
+        <div class="grid h-full grid-cols-2 gap-4 px-4 py-8 mx-auto lg:grid-cols-5 md:py-16 md:px-8 max-w-screen-2xl">
+            <div class="flex flex-col p-4 align-middle border border-gray-400 rounded shadow-sm">
+                <h2 class="mt-2 text-xl font-bold text-center">spatial equity</h2>
+            </div>
 
+            <div class="flex flex-col p-4 align-middle border border-gray-400 rounded shadow-sm">
+                <h2 class="mt-2 text-xl font-bold text-center">urban design & masterplanning</h2>
+            </div>
 
+            <div class="flex flex-col p-4 align-middle border border-gray-400 rounded shadow-sm">
+                <h2 class="mt-2 text-xl font-bold text-center">participatory futures</h2>
+            </div>
+
+            <div class="flex flex-col p-4 align-middle border border-gray-400 rounded shadow-sm">
+                <h2 class="mt-2 text-xl font-bold text-center">design foresight</h2>
+            </div>
+
+            <div class="flex flex-col p-4 align-middle border border-gray-400 rounded shadow-sm">
+                <h2 class="mt-2 text-xl font-bold text-center">community engagement &
+                    actors’ involvement</h2>
+            </div>
+
+            <div class="flex flex-col p-4 align-middle border border-gray-400 rounded shadow-sm">
+                <h2 class="mt-2 text-xl font-bold text-center">creative technology</h2>
+            </div>
+
+            <div class="flex flex-col p-4 align-middle border border-gray-400 rounded shadow-sm">
+                <h2 class="mt-2 text-xl font-bold text-center">cultural knowledge</h2>
+            </div>
+
+            <div class="flex flex-col p-4 align-middle border border-gray-400 rounded shadow-sm">
+                <h2 class="mt-2 text-xl font-bold text-center">knowledge design & knowledge co-creation</h2>
+            </div>
+
+            <div class="flex flex-col p-4 align-middle border border-gray-400 rounded shadow-sm">
+                <h2 class="mt-2 text-xl font-bold text-center">art driven innovation &
+                    artistic activism</h2>
+            </div>
+
+            <div class="flex flex-col p-4 align-middle border border-gray-400 rounded shadow-sm">
+                <h2 class="mt-2 text-xl font-bold text-center">WeQ</h2>
+            </div>
+        </div>
+
+        <section class="text-gray-400 bg-[#6A539D] body-font mt-8">
+            <h2 id="resources" class="py-2 text-2xl font-semibold text-center text-white md:text-3xl">
+                RESOURCES
+            </h2>
+        </section>
+        <p class="py-8 text-sm text-center text-gray-500 md:text-lg">
+            All our resources are online available in our archives on <a
+                href="https://zenodo.org/communities/urbanitarian1assoc/edit/" target="_blank"
+                class="text-blue-500 hover:text-blue-700">Zenodo</a> and GitHub
+        </p>
+
+        <div class="grid h-full grid-cols-2 gap-4 px-4 py-8 mx-auto lg:grid-cols-3 xl:grid-cols-4 md:py-16 md:px-8 max-w-screen-2xl">
+
+            <div
+                class="flex flex-col justify-center h-full p-4 border border-gray-800 sm:flex-row sm:justify-start sm:text-left">
+                <img alt="team" class="flex-shrink-0 object-cover object-center w-48 h-64 mb-4 sm:mb-0"
+                    src="./img/resources01.jpg">
+                <div class="flex-grow pl-2">
+                    <div class="flex flex-col font-bold">
+                        <p class="mb-4 text-xs">JUSThood - Uncovering local knowledge and mapping visions of equitable
+                            neighborhood with participatory futures.
+                        </p>
+                        <div class="text-xs">
+                            link:<br>
+                            <a href="https://brussels2022.dryfta.com/themes-tracks/216-programme/banners/proceedings" target="_blank"
+                                class="text-blue-500 hover:text-blue-700">brussel2022</a>
+                         </div>
+                    </div>
+                </div>
+
+            </div>
+
+     <div
+                class="flex flex-col justify-center h-full p-4 border border-gray-800 sm:flex-row sm:justify-start sm:text-left">
+                <img alt="team" class="flex-shrink-0 object-cover object-center w-48 h-64 mb-4 sm:mb-0"
+                    src="./img/resources02.jpg">
+                <div class="flex-grow pl-2">
+                    <div class="flex flex-col font-bold">
+                        <p class="mb-4 text-xs">U-SCAT: Developing Methodology to Measure Social Capital in Urban Communities
+                        </p>
+                        <div class="text-xs">
+                            link:<br>
+                            <a href="https://auca.kg/en/silk_projects_social_capital/" target="_blank"
+                                class="text-blue-500 hover:text-blue-700">auca.kg</a>
+                         </div>
+                    </div>
+                </div>
+
+            </div>
+
+                 <div
+                class="flex flex-col justify-center h-full p-4 border border-gray-800 sm:flex-row sm:justify-start sm:text-left">
+                <img alt="team" class="flex-shrink-0 object-cover object-center w-48 h-64 mb-4 sm:mb-0"
+                    src="./img/resources03.jpg">
+                <div class="flex-grow pl-2">
+                    <div class="flex flex-col font-bold">
+                        <p class="mb-4 text-xs">JUSThood masterplans in Katowice, Poland
+                        </p>
+                       
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 @endsection
