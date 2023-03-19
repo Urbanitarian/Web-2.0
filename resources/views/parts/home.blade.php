@@ -158,6 +158,7 @@
                  <option value="Regeneration">Regeneration</option>
                  <option value="Safe">Safe</option>
                  <option value="Science Park">Science Park</option>
+                 <option value="Schoolyards">Schoolyards</option>
                  <option value="Self-sufficient">Self-sufficient</option>
                  <option value="Social Housing">Social housing</option>
                  <option value="Solar Powered">Solar Powered</option>
