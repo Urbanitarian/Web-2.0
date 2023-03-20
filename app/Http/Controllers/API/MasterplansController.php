@@ -24,7 +24,7 @@ class MasterplansController extends Controller
         }elseif ($status) {
             $masters = Masterplan::where('active', 1)->where('status','like','%' . $status . '%')->get();
         } else {
-            $masters = Masterplan::where('active', 1)->inRandomOrder()->get();
+            $masters = Masterplan::where('active', 1)->get();
         }
         $responsejson = json_encode($masters);
         $data = gzencode($responsejson, 5);
