@@ -128,13 +128,13 @@
 
 
 <script>
-    $('button').click(function() {
-        $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
+    $('#green, #climate, #age, #placemaking, #all, #child' ).click(function() {
+         $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
 
-    });
+     });
 
     const itemsPerPage = 9;
-    let currentPage = 1;
+    currentPage = 1;
 
     $(document).ready(function() {
         url = "api/neighbourhoods";
@@ -170,11 +170,21 @@
                 totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
                 const startIndex = (currentPage - 1) * itemsPerPage;
                 const endIndex = startIndex + itemsPerPage;
+                   if (currentPage == totalPages) {
+                     $('#next').hide();
+                 } else {
+                     $('#next').show();
+                 }
+                 if (currentPage == 1) {
+                     $('#prev').hide();
+                 } else {
+                     $('#prev').show();
+                 }
                 const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
 
                 $.each(itemsToDisplay, function(i, item) {
                     let html = `
-                  <div class="border animate__animated animate__backInUp w-[80vw] md:w-auto">
+                  <div class="animate__animated animate__backInUp w-[80vw] md:w-auto">
                     <a href="./urbanscapes_post?id=${item.id}" class="block overflow-hidden bg-gray-100 shadow-lg group">
                      <img src="storage/uploads/thumbnails/urbanscapes/${item.imagea}" alt="" onerror="this.src='storage/uploads/urbanscapes/${item.imagea}'" class="h-[400px] w-full object-cover transition duration-500 group-hover:scale-105  saturate-120" />
                        <div class="relative pt-3 bg-gray-100">
@@ -191,6 +201,7 @@
     };
 
     $('#child').click(function() {
+           currentPage = 1;
         url = "api/neighbourhoods?tags=Child-friendly";
         $('#searchbar').val('Child-friendly');
         $('#boucle').empty();
@@ -198,6 +209,7 @@
     });
 
     $('#green').click(function() {
+           currentPage = 1;
         url = "api/neighbourhoods?tags=Green";
         $('#searchbar').val('Green');
         $('#boucle').empty();
@@ -205,6 +217,7 @@
     });
 
     $('#climate').click(function() {
+           currentPage = 1;
         url = "api/neighbourhoods?tags=climate";
         $('#searchbar').val('Climate-proof');
         $('#boucle').empty();
@@ -212,6 +225,7 @@
     });
 
     $('#age').click(function() {
+           currentPage = 1;
         url = "api/neighbourhoods?tags=age";
         $('#searchbar').val('Age-friendly');
         $('#boucle').empty();
@@ -219,6 +233,7 @@
     });
 
     $('#placemaking').click(function() {
+           currentPage = 1;
         url = "api/neighbourhoods?tags=placemaking";
         $('#searchbar').val('Placemaking');
         $('#boucle').empty();
@@ -226,6 +241,7 @@
     });
 
     $('#all').click(function() {
+           currentPage = 1;
         url = "api/neighbourhoods";
         $('#searchbar').val('');
         $('#boucle').empty();
@@ -233,6 +249,7 @@
     });
 
     $('#Allsize').click(function() {
+           currentPage = 1;
         url = "api/neighbourhoods";
         $('#searchbar').val('');
         $('#boucle').empty();
@@ -240,6 +257,7 @@
     });
 
     $('#Large').click(function() {
+           currentPage = 1;
         url = "api/neighbourhoods?size=L";
         $('#searchbar').val('');
         $('#boucle').empty();
@@ -247,6 +265,7 @@
     });
 
     $('#Medium').click(function() {
+           currentPage = 1;
         url = "api/neighbourhoods?size=M";
         $('#searchbar').val('');
         $('#boucle').empty();
@@ -254,6 +273,7 @@
     });
 
     $('#Small').click(function() {
+           currentPage = 1;
         url = "api/neighbourhoods?size=S";
         $('#searchbar').val('');
         $('#boucle').empty();
@@ -261,6 +281,7 @@
     });
 
     $('#Xs').click(function() {
+           currentPage = 1;
         url = "api/neighbourhoods?size=XS";
         $('#searchbar').val('');
         $('#boucle').empty();

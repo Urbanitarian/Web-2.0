@@ -8,7 +8,7 @@
                 Streetscapes
             </h2>
 
-               <p class="text-sm font-bold text-gray-700 md:text-lg pt-4">
+               <p class="pt-4 text-sm font-bold text-gray-700 md:text-lg">
                 Redefine Streets: Get Inspired by Our Curated Streetscapes Collection
             </p>
              <p class="text-sm text-gray-500 md:text-lg">
@@ -108,7 +108,7 @@
                             <p class="mt-2 text-center text-gray-600 "> &nbsp; {{ $streetscape->country }} </p>
                         </div>
                         <div class="flex justify-center">
-                            <div class="flex flex-wrap justify-center mx-10 pt-4 w-3/4">
+                            <div class="flex flex-wrap justify-center w-3/4 pt-4 mx-10">
                                 @foreach ($streetscape->tags as $tag)
                                     <button disabled
                                         class="px-3 py-1 my-0.5 mx-1 text-xs font-light tracking-wide text-white bg-black rounded-md">

@@ -22,7 +22,7 @@ class NeighbourhoodsController extends Controller
         }elseif ($size) {
             $neighbourhoods = Neighbourhood::where('active', 1)->where('size','=', $size)->get();
         } else {
-            $neighbourhoods = Neighbourhood::where('active', 1)->inRandomOrder()->get();
+            $neighbourhoods = Neighbourhood::where('active', 1)->get();
         }
         $responsejson = json_encode($neighbourhoods);
         $data = gzencode($responsejson, 5);

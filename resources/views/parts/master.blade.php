@@ -1,6 +1,6 @@
  <section class="pt-8">
      @php
-  use \App\Http\Controllers\GlobalController;
+         use App\Http\Controllers\GlobalController;
          $city = GlobalController::pages();
          $country = GlobalController::pages();
          $size = urldecode(request()->get('size'));
@@ -16,8 +16,9 @@
                  Discover Urban Design's Hidden Gems: Explore The Urbanitarian Masterplan Archive
              </p>
              <p class="text-sm text-gray-500 md:text-base">
-                 Get your daily dose of inspiration in our curated list of urban design projects from all around the world.<br>
-                  Each project contains key insights along with useful diagrams, measurements and data
+                 Get your daily dose of inspiration in our curated list of urban design projects from all around the
+                 world.<br>
+                 Each project contains key insights along with useful diagrams, measurements and data
              </p>
          </div>
 
@@ -81,62 +82,62 @@
                  </label>
                  <select name="tags" id="tags_selector"
                      class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                 <option value="">All</option>
-                 <option value="Accessible and Connected">Accessible and connected</option>
-                 <option value="Affordable">Affordable</option>
-                 <option value="Age-friendly">Age-friendly</option>
-                 <option value="Biodiverse">Biodiverse</option>
-                 <option value="Business District">Business District</option>
-                 <option value="By the railway">By the railway</option>
-                 <option value="By the water">By the water</option>
-                 <option value="CBD">CBD</option>
-                 <option value="Car-free">Car-free</option>
-                 <option value="Carbon negative">Carbon negative</option>
-                 <option value="Circular">Circular</option>
-                 <option value="Climate adaptation">Climate adaptation</option>
-                 <option value="Climate-proof">Climate-proof</option>
-                 <option value="Climate-neutral">Climate-neutral</option>
-                 <option value="Co-Housing">Co-housing</option>
-                 <option value="Complete Street">Complete Street</option>
-                 <option value="Courtyards">Courtyards</option>
-                 <option value="DIY Urbanism">DIY Urbanism</option>
-                 <option value="Dense">Dense</option>
-                 <option value="Eco-village">Eco-village</option>
-                 <option value="Floating City">Floating City</option>
-                 <option value="Food-production">Food-production</option>
-                 <option value="Garden City">Garden City</option>
-                 <option value="Green">Green</option>
-                 <option value="Green wedges">Green wedges</option>
-                 <option value="Healthy">Healthy</option>
-                 <option value="High-rise">High-rise </option>
-                 <option value="Hi-Tech">Hi-Tech</option>
-                 <option value="Houses in row">Houses in row</option>
-                 <option value="Inclusive and Diverse">Inclusive and Diverse</option>
-                 <option value="Low-rise">Low-rise</option>
-                 <option value="Mixed-use">Mixed-use</option>
-                 <option value="Modular">Modular</option>
-                 <option value="Nature-rich">Nature-rich</option>
-                 <option value="Net zero">Net zero</option>
-                 <option value="Outdoor classroom">Outdoor classroom</option>
-                 <option value="Place-led">Place-led</option>
-                 <option value="Playful">Playful</option>
-                 <option value="Preventing Loneliness">Preventing Loneliness</option>
-                 <option value="Productive landscape">Productive landscape</option>
-                 <option value="Reachable">Reachable</option>
-                 <option value="Resilient landscape">Resilient landscape</option>
-                 <option value="Regeneration">Regeneration</option>
-                 <option value="Safe">Safe</option>
-                 <option value="Science Park">Science Park</option>
-                 <option value="Schoolyards">Schoolyards</option>
-                 <option value="Self-sufficient">Self-sufficient</option>
-                 <option value="Social Housing">Social housing</option>
-                 <option value="Solar Powered">Solar Powered</option>
-                 <option value="Timber">Timber</option>
-                 <option value="Transformation">Transformation</option>
-                 <option value="TOD">TOD</option>
-                 <option value="WSUD">WSUD</option>
-                 <option value="Youth-friendly">Youth-friendly</option>
-                 <option value="Zero carbon">Zero carbon</option>
+                     <option value="">All</option>
+                     <option value="Accessible and Connected">Accessible and connected</option>
+                     <option value="Affordable">Affordable</option>
+                     <option value="Age-friendly">Age-friendly</option>
+                     <option value="Biodiverse">Biodiverse</option>
+                     <option value="Business District">Business District</option>
+                     <option value="By the railway">By the railway</option>
+                     <option value="By the water">By the water</option>
+                     <option value="CBD">CBD</option>
+                     <option value="Car-free">Car-free</option>
+                     <option value="Carbon negative">Carbon negative</option>
+                     <option value="Circular">Circular</option>
+                     <option value="Climate adaptation">Climate adaptation</option>
+                     <option value="Climate-proof">Climate-proof</option>
+                     <option value="Climate-neutral">Climate-neutral</option>
+                     <option value="Co-Housing">Co-housing</option>
+                     <option value="Complete Street">Complete Street</option>
+                     <option value="Courtyards">Courtyards</option>
+                     <option value="DIY Urbanism">DIY Urbanism</option>
+                     <option value="Dense">Dense</option>
+                     <option value="Eco-village">Eco-village</option>
+                     <option value="Floating City">Floating City</option>
+                     <option value="Food-production">Food-production</option>
+                     <option value="Garden City">Garden City</option>
+                     <option value="Green">Green</option>
+                     <option value="Green wedges">Green wedges</option>
+                     <option value="Healthy">Healthy</option>
+                     <option value="High-rise">High-rise </option>
+                     <option value="Hi-Tech">Hi-Tech</option>
+                     <option value="Houses in row">Houses in row</option>
+                     <option value="Inclusive and Diverse">Inclusive and Diverse</option>
+                     <option value="Low-rise">Low-rise</option>
+                     <option value="Mixed-use">Mixed-use</option>
+                     <option value="Modular">Modular</option>
+                     <option value="Nature-rich">Nature-rich</option>
+                     <option value="Net zero">Net zero</option>
+                     <option value="Outdoor classroom">Outdoor classroom</option>
+                     <option value="Place-led">Place-led</option>
+                     <option value="Playful">Playful</option>
+                     <option value="Preventing Loneliness">Preventing Loneliness</option>
+                     <option value="Productive landscape">Productive landscape</option>
+                     <option value="Reachable">Reachable</option>
+                     <option value="Resilient landscape">Resilient landscape</option>
+                     <option value="Regeneration">Regeneration</option>
+                     <option value="Safe">Safe</option>
+                     <option value="Science Park">Science Park</option>
+                     <option value="Schoolyards">Schoolyards</option>
+                     <option value="Self-sufficient">Self-sufficient</option>
+                     <option value="Social Housing">Social housing</option>
+                     <option value="Solar Powered">Solar Powered</option>
+                     <option value="Timber">Timber</option>
+                     <option value="Transformation">Transformation</option>
+                     <option value="TOD">TOD</option>
+                     <option value="WSUD">WSUD</option>
+                     <option value="Youth-friendly">Youth-friendly</option>
+                     <option value="Zero carbon">Zero carbon</option>
                  </select>
              </div>
 
@@ -183,9 +184,9 @@
                      class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                      <option value="">All</option>
                      @foreach ($cities->sortBy('name') as $city)
-                     <option value="{{ $city->name }}">
-                         {{ $city->name }}</option>
-                 @endforeach
+                         <option value="{{ $city->name }}">
+                             {{ $city->name }}</option>
+                     @endforeach
 
                  </select>
              </div>
@@ -198,9 +199,9 @@
                      class="w-full px-4 py-3 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                      <option value="">All</option>
                      @foreach ($countries->sortBy('name') as $country)
-                     <option value="{{ $country->name }}">
-                         {{ $country->name }}</option>
-                 @endforeach
+                         <option value="{{ $country->name }}">
+                             {{ $country->name }}</option>
+                     @endforeach
 
                  </select>
              </div>
@@ -212,34 +213,34 @@
 
  <div class="mx-4">
      <section class="pb-16 md:mx-auto">
-         <div id="boucle" class="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 min-h-[640px]">
+         <div id="boucle"
+             class="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 min-h-[640px]">
 
 
          </div>
          <div class="flex pt-8">
              <button id="prev" onclick="window.scrollTo(0, 400);"
-                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
+                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:bg-gray-500 active:text-white peer-checked:text-white">
                  <p class="text-sm font-medium">previous</p>
-                 </button>
+             </button>
 
-              <button id="next" onclick="window.scrollTo(0, 400);"
-                     class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 peer-checked:border-gray-500 peer-checked:bg-gray-500 active:bg-gray-500 active:text-white peer-checked:text-white">
-                     <p class="text-sm font-medium">Next</p>
-                      </button>
+             <button id="next" onclick="window.scrollTo(0, 400);"
+                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:bg-gray-500 active:text-white peer-checked:text-white">
+                 <p class="text-sm font-medium">Next</p>
+             </button>
          </div>
      </section>
  </div>
 
  <script>
-     $('button').click(function() {
+     $('#green, #climate, #age, #placemaking, #all, #child' ).click(function() {
          $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
 
      });
 
      const itemsPerPage = 50;
-     let currentPage = 1;
-
-
+     currentPage = 1;
+     let totalPages = 0;
 
      $(document).ready(function() {
          url = "api/masterplans";
@@ -266,16 +267,26 @@
      });
 
 
-
      const fetchAndRenderData = (url) => {
          fetch(url)
              .then((res) => res.json())
              .then((out) => {
+                console.log(currentPage);
                  const obj = JSON.parse(JSON.stringify(out));
                  let textFromJSON = obj;
                  totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
                  const startIndex = (currentPage - 1) * itemsPerPage;
                  const endIndex = startIndex + itemsPerPage;
+                 if (currentPage == totalPages) {
+                     $('#next').hide();
+                 } else {
+                     $('#next').show();
+                 }
+                 if (currentPage == 1) {
+                     $('#prev').hide();
+                 } else {
+                     $('#prev').show();
+                 }
                  const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
                  $.each(itemsToDisplay, function(i, item) {
                      let html = `
@@ -298,6 +309,7 @@
      };
 
      $('#child').click(function() {
+        currentPage = 1;
          url = "api/masterplans?tags=Child-friendly";
          $('#searchbar').val('Child-friendly');
          $('#boucle').empty();
@@ -305,6 +317,7 @@
      });
 
      $('#green').click(function() {
+        currentPage = 1;
          url = "api/masterplans?tags=Green";
          $('#searchbar').val('Green');
          $('#boucle').empty();
@@ -312,6 +325,7 @@
      });
 
      $('#climate').click(function() {
+        currentPage = 1;
          url = "api/masterplans?tags=climate";
          $('#searchbar').val('climate');
          $('#boucle').empty();
@@ -319,6 +333,7 @@
      });
 
      $('#age').click(function() {
+        currentPage = 1;
          url = "api/masterplans?tags=age";
          $('#searchbar').val('Age-friendly');
          $('#boucle').empty();
@@ -332,7 +347,8 @@
          fetchAndRenderData(url);
      });
 
-      $('#tags_selector').change(function() {
+     $('#tags_selector').change(function() {
+        currentPage = 1;
          url = "api/masterplans?tags=" + $('#tags_selector').val();
          $('#boucle').empty();
          currentfilter = $('#tags_selector').val();
@@ -340,6 +356,7 @@
      });
 
      $('#size_selector').change(function() {
+        currentPage = 1;
          url = "api/masterplans?size=" + $('#size_selector').val();
          $('#boucle').empty();
          currentfilter = $('#size_selector').val();
@@ -347,6 +364,7 @@
      });
 
      $('#status_selector').change(function() {
+        currentPage = 1;
          url = "api/masterplans?status=" + $('#status_selector').val();
          $('#boucle').empty();
          currentfilter = $('#status_selector').val();
@@ -354,6 +372,7 @@
      });
 
      $('#city_selector').change(function() {
+        currentPage = 1;
          url = "api/masterplans?q=" + $('#city_selector').val();
          $('#boucle').empty();
          currentfilter = $('#city_selector').val();
@@ -361,6 +380,7 @@
      });
 
      $('#country_selector').change(function() {
+        currentPage = 1;
          url = "api/masterplans?q=" + $('#country_selector').val();
          $('#boucle').empty();
          currentfilter = $('#country_selector').val();
@@ -368,6 +388,7 @@
      });
 
      $('#searchbar').keyup(function() {
+        currentPage = 1;
          url = "api/masterplans?q=" + $('#searchbar').val();
          $('#boucle').empty();
          fetchAndRenderData(url);

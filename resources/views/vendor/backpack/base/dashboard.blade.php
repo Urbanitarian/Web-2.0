@@ -33,9 +33,9 @@
                     </div>
 
                     <div class="mt-1">
-                        <h1 class="mx-4 text-xs font-bold">V_272 Changelog:</h1>
+                        <h1 class="mx-4 text-xs font-bold">V_275 Changelog:</h1>
                         <p class="mx-4 text-xs">
-                             -fix masterplans random order<br>
+                             -fix masterplans,home,urbanscapes next/previous button<br>
                         <h1 class="mx-4 text-xs font-bold">In progress:</h1>
                         <p class="mx-4 text-xs">
                         -association</p>

@@ -244,23 +244,16 @@
          <div id="boucle" class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5 min-h-[640px]">
 
          </div>
-         <div class="flex pt-10">
-             <a href="#up"> <button id="prev"
-                     class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:text-white ">
-                     <p class="text-sm font-medium">previous</p>
-                 </button></a>
+    <div class="flex pt-10">
+             <button id="prev" onclick="window.scrollTo(0, 400);"
+                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:bg-gray-500 active:text-white peer-checked:text-white">
+                 <p class="text-sm font-medium">previous</p>
+             </button>
 
-             <div
-                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md">
-                 <p class="text-sm font-medium" id="currentpage">1</p>&nbsp; / &nbsp;<p class="text-sm font-medium"
-                     id="totalpage"></p>
-             </div>
-
-
-             <a href="#up"> <button id="next"
-                     class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:text-white ">
-                     <p class="text-sm font-medium">Next</p>
-                 </button></a>
+             <button id="next" onclick="window.scrollTo(0, 400);"
+                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:bg-gray-500 active:text-white peer-checked:text-white">
+                 <p class="text-sm font-medium">Next</p>
+             </button>
          </div>
      </section>
  </div>
@@ -270,7 +263,7 @@
      const itemsPerPage = 8;
      let categories = "all";
      let view = "grid";
-     let currentPage = 1;
+     currentPage = 1;
      let currentfilter = "";
      let url = "";
 
@@ -288,8 +281,7 @@
          if (currentPage > totalPages) {
              currentPage = totalPages;
          }
-         $('#currentpage').text(currentPage);
-         $('#totalpage').text(totalPages);
+
          fetchAndRenderData(url);
      });
 
@@ -299,8 +291,7 @@
          if (currentPage < 1) {
              currentPage = 1;
          }
-         $('#currentpage').text(currentPage);
-         $('#totalpage').text(totalPages);
+
          fetchAndRenderData(url);
      });
 
@@ -308,13 +299,23 @@
          fetch(url)
              .then((res) => res.json())
              .then((out) => {
+                console.log(currentPage);
                  const obj = JSON.parse(JSON.stringify(out));
                  let textFromJSON = obj;
                  totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
-                 $('#totalpage').text(totalPages);
                  const startIndex = (currentPage - 1) * itemsPerPage;
                  const endIndex = startIndex + itemsPerPage;
                  const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
+              if (currentPage == totalPages) {
+                $('#next').hide();
+                 } else {
+                $('#next').show();
+                 }
+              if (currentPage == 1) { 
+                $('#prev').hide();
+                    } else {
+                $('#prev').show();
+                    }   
                  if (view == "grid") {
                      $.each(itemsToDisplay, function(i, item) {
                          if (item.category == "Masterplans") {
@@ -454,12 +455,13 @@
              })
      };
 
-     $('button').click(function() {
+     $('#wsud, #playful, #carfree, #child, #all, #masterplans, #streetscapes, #urbanscapes' ).click(function() {
          $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
 
      });
 
      $('#child').click(function() {
+         currentPage = 1;
          resetLayout();
          url = "api/data?tags=Child-friendly";
 
@@ -469,6 +471,7 @@
      });
 
      $('#playful').click(function() {
+         currentPage = 1;
          resetLayout();
          url = "api/data?tags=Playful";
 
@@ -478,6 +481,7 @@
      });
 
      $('#wsud').click(function() {
+         currentPage = 1;
          resetLayout();
          url = "api/data?tags=wsud";
 
@@ -487,6 +491,7 @@
      });
 
      $('#carfree').click(function() {
+         currentPage = 1;
          resetLayout();
          url = "api/data?tags=car-free";
 
@@ -496,40 +501,41 @@
      });
 
      $('#masterplans').click(function() {
+         currentPage = 1;
          resetLayout();
          url = "api/data?category=masterplans";
-
+      
          $('#boucle').empty();
          currentfilter = "masterplans";
          category = "masterplans";
-
+       
          fetchAndRenderData(url);
      });
 
      $('#urbanscapes').click(function() {
+         currentPage = 1;
          resetLayout();
          url = "api/data?category=urbanscapes";
-
          $('#boucle').empty();
          currentfilter = "urbanscapes";
          category = "urbanscapes";
-
+   
          fetchAndRenderData(url);
      });
 
      $('#streetscapes').click(function() {
+         currentPage = 1;
          resetLayout();
          url = "api/data?category=streetscapes";
-
+  
          $('#boucle').empty();
          currentfilter = "streetscapes";
          category = "streetscapes";
-
          fetchAndRenderData(url);
      });
 
      $('#allcat').click(function() {
-
+         currentPage = 1;
          resetLayout();
          url = "api/data";
 
@@ -541,6 +547,7 @@
      });
 
      $('#tags_selector').change(function() {
+         currentPage = 1;
          url = "api/data?tags=" + $('#tags_selector').val();
          $('#boucle').empty();
          currentfilter = $('#tags_selector').val();
@@ -548,6 +555,7 @@
      });
 
      $('#size_selector').change(function() {
+         currentPage = 1;
          url = "api/data?size=" + $('#size_selector').val();
          $('#boucle').empty();
          currentfilter = $('#size_selector').val();
@@ -555,6 +563,7 @@
      });
 
      $('#status_selector').change(function() {
+         currentPage = 1;
          url = "api/data?status=" + $('#status_selector').val();
          $('#boucle').empty();
          currentfilter = $('#status_selector').val();
@@ -562,6 +571,7 @@
      });
 
      $('#city_selector').change(function() {
+         currentPage = 1;
          url = "api/data?q=" + $('#city_selector').val();
          $('#boucle').empty();
          currentfilter = $('#city_selector').val();
@@ -569,6 +579,7 @@
      });
 
      $('#country_selector').change(function() {
+         currentPage = 1;
          url = "api/data?q=" + $('#country_selector').val();
          $('#boucle').empty();
          currentfilter = $('#country_selector').val();
@@ -576,6 +587,7 @@
      });
 
      $('#pop_selector').change(function() {
+         currentPage = 1;
          url = "api/data?pop=" + $('#pop_selector').val();
          $('#boucle').empty();
          currentfilter = $('#pop_selector').val();
@@ -584,6 +596,7 @@
 
 
      $('#searchbar').keyup(function() {
+         currentPage = 1;
          resetLayout();
          url = "api/data?q=" + $('#searchbar').val();
          $('#boucle').empty();
@@ -593,6 +606,7 @@
 
 
      $('#searchtag').keyup(function() {
+         currentPage = 1;
          resetLayout();
          url = "api/data?tags=" + $('#searchtag').val();
          $('#boucle').empty();
@@ -604,10 +618,12 @@
      layout = null;
 
      function resetLayout() {
+      
          $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").addClass(
                  "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
              .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
          layout = "xl";
+     
      }
 
 
