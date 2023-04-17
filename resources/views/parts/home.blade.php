@@ -37,13 +37,13 @@
          <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category">
           
              <button id="masterplans" name="category" value="Masterplans">
-                 <p id="masterbtn" class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">Masterplans <a id="masternum" class="border-l pl-2"> &nbsp;{{ $masternum }}</a></p>
+                 <p id="masterbtn" class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300 ">Masterplans <a id="masternum" class="border-l border-gray-400 pl-2"> &nbsp;{{ $masternum }}</a></p>
              </button>
              <button id="streetscapes" name="category" value="Streetscapes">
-                 <p id="streetbtn" class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">Streetscapes <a id="streetnum" class="border-l pl-2"> &nbsp;{{ $streetnum }}</a></p>
+                 <p id="streetbtn" class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">Streetscapes <a id="streetnum" class="border-l border-gray-400 pl-2"> &nbsp;{{ $streetnum }}</a></p>
              </button>
              <button id="urbanscapes" name="category" value="Neighbourhoods">
-                 <p id="urbanbtn" class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">Urbanscapes <a id="urbannum" class="border-l pl-2"> &nbsp;{{ $urbannum }}</a></p>
+                 <p id="urbanbtn" class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">Urbanscapes <a id="urbannum" class="border-l border-gray-400 pl-2"> &nbsp;{{ $urbannum }}</a></p>
              </button>
          </fieldset>
 
@@ -276,6 +276,13 @@
                  if (view == "grid") {
                      $.each(itemsToDisplay, function(i, item) {
                          if (item.category == "Masterplans") {
+                            btn1 = document.getElementById("masterbtn");
+                            btn1.classList.add("bg-gray-200");
+                              btn2 = document.getElementById("streetbtn");
+                            btn2.classList.remove("bg-gray-200");
+                              btn3 = document.getElementById("urbanbtn");
+                            btn3.classList.remove("bg-gray-200");
+
                              let html = `
                       <div class="relative overflow-hidden transition border shadow-md bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInLeft">
                          <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
@@ -294,6 +301,12 @@
                       `;
                              $('#boucle').append(html);
                          } else if (item.category == "Urbanscapes") {
+                             btn1 = document.getElementById("masterbtn");
+                            btn1.classList.remove("bg-gray-200");
+                              btn2 = document.getElementById("streetbtn");
+                            btn2.classList.remove("bg-gray-200");
+                              btn3 = document.getElementById("urbanbtn");
+                            btn3.classList.add("bg-gray-200");
                              let html = `
                       <div class="relative overflow-hidden transition border shadow-md bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInRight">
                          <a href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
@@ -314,6 +327,12 @@
                          } else if (item.category == "Streetscapes") {
                             thegrid = document.getElementById("boucle");
                             thegrid.classList.remove("xl:grid-cols-5");
+                                btn1 = document.getElementById("masterbtn");
+                            btn1.classList.remove("bg-gray-200");
+                              btn2 = document.getElementById("streetbtn");
+                            btn2.classList.add("bg-gray-200");
+                              btn3 = document.getElementById("urbanbtn");
+                            btn3.classList.remove("bg-gray-200");
                              let html = `
                      <div
                          class="relative col-span-3 md:col-span-2  overflow-hidden transition border shadow-md element1 bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInUp">
@@ -413,6 +432,11 @@
 
              })
      };
+
+         $('button').click(function() {
+         $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
+
+     });
 
 
      $('#masterplans').click(function() {
