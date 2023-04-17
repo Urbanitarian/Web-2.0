@@ -20,41 +20,6 @@
 
          </div>
 
-         <fieldset id="up" class="flex flex-wrap justify-center gap-3 pt-8 mx-auto">
-             <div>
-                 <label for="ColorBlack" class="flex items-center justify-center gap-2 px-3 py-2 text-black ">
-                     <p class="text-base font-medium">Trending searches:</p>
-                 </label>
-             </div>
-
-             <button id="child">
-                 <label for="ColorBlack"
-                     class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
-                     <p class="text-sm font-medium">Child-friendly</p>
-                 </label>
-             </button>
-
-             <button id="wsud">
-                 <label for="ColorRed"
-                     class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
-                     <p class="text-sm font-medium">WSUD</p>
-                 </label>
-             </button>
-
-             <button id="playful">
-                 <label for="ColorBlue"
-                     class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
-                     <p class="text-sm font-medium">Playful</p>
-                 </label>
-             </button>
-
-             <button id="carfree">
-                 <label for="ColorGold"
-                     class="flex items-center justify-center gap-2 px-12 py-2 text-gray-700 border border-gray-100 rounded-md cursor-pointer hover:bg-gray-200 active:bg-gray-300 hover:text-black hover:border-gray-200 ">
-                     <p class="text-sm font-medium">car-free</p>
-                 </label>
-             </button>
-         </fieldset>
  </section>
 
  <div id="mysearch" class="pt-4 pb-8 mx-2 bg-white md:mx-16">
@@ -70,25 +35,15 @@
          </div>
 
          <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category">
-             <button id="allcat" name="category" value="All">
-                 <p id="allcatbtn"
-                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
-                     All</p>
-             </button>
+          
              <button id="masterplans" name="category" value="Masterplans">
-                 <p id="masterbtn"
-                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
-                     Masterplans</p>
+                 <p id="masterbtn" class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">Masterplans <a id="masternum" class="border-l pl-2"> &nbsp;{{ $masternum }}</a></p>
              </button>
              <button id="streetscapes" name="category" value="Streetscapes">
-                 <p id="streetbtn"
-                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
-                     Streetscapes</p>
+                 <p id="streetbtn" class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">Streetscapes <a id="streetnum" class="border-l pl-2"> &nbsp;{{ $streetnum }}</a></p>
              </button>
              <button id="urbanscapes" name="category" value="Neighbourhoods">
-                 <p id="urbanbtn"
-                     class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
-                     Urbanscapes</p>
+                 <p id="urbanbtn" class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">Urbanscapes <a id="urbannum" class="border-l pl-2"> &nbsp;{{ $urbannum }}</a></p>
              </button>
          </fieldset>
 
@@ -240,9 +195,10 @@
  </div>
  <div data-barba="container">
      <section class="block pb-8 mx-4 md:mx-16 tabset">
-
+        <div class="mx-auto">
          <div id="boucle" class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5 min-h-[640px]">
 
+         </div>
          </div>
     <div class="flex pt-10">
              <button id="prev" onclick="window.scrollTo(0, 400);"
@@ -260,7 +216,7 @@
  <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
      integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
  <script>
-     const itemsPerPage = 8;
+     const itemsPerPage = 10;
      let categories = "all";
      let view = "grid";
      currentPage = 1;
@@ -268,7 +224,7 @@
      let url = "";
 
      $(document).ready(function() {
-         url = "api/data";
+         url = "api/data?category=masterplans";
          $('#boucle').empty();
          currentfilter = "none";
          fetchAndRenderData(url);
@@ -302,6 +258,7 @@
                 console.log(currentPage);
                  const obj = JSON.parse(JSON.stringify(out));
                  let textFromJSON = obj;
+                 let num = textFromJSON.length;
                  totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
                  const startIndex = (currentPage - 1) * itemsPerPage;
                  const endIndex = startIndex + itemsPerPage;
@@ -355,9 +312,11 @@
                       `;
                              $('#boucle').append(html);
                          } else if (item.category == "Streetscapes") {
+                            thegrid = document.getElementById("boucle");
+                            thegrid.classList.remove("xl:grid-cols-5");
                              let html = `
                      <div
-                         class="relative col-span-2 overflow-hidden transition border shadow-md element1 bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInUp">
+                         class="relative col-span-3 md:col-span-2  overflow-hidden transition border shadow-md element1 bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInUp">
                          <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
                              <img alt="Art" src="storage/uploads/thumbnails/streetscapes/${item.imagea}"alt=""
                                  onerror="this.src='storage/uploads/streetscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
@@ -455,50 +414,6 @@
              })
      };
 
-     $('#wsud, #playful, #carfree, #child, #all, #masterplans, #streetscapes, #urbanscapes' ).click(function() {
-         $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
-
-     });
-
-     $('#child').click(function() {
-         currentPage = 1;
-         resetLayout();
-         url = "api/data?tags=Child-friendly";
-
-         $('#boucle').empty();
-         currentfilter = "child";
-         fetchAndRenderData(url);
-     });
-
-     $('#playful').click(function() {
-         currentPage = 1;
-         resetLayout();
-         url = "api/data?tags=Playful";
-
-         $('#boucle').empty();
-         currentfilter = "playful";
-         fetchAndRenderData(url);
-     });
-
-     $('#wsud').click(function() {
-         currentPage = 1;
-         resetLayout();
-         url = "api/data?tags=wsud";
-
-         $('#boucle').empty();
-         currentfilter = "wsud";
-         fetchAndRenderData(url);
-     });
-
-     $('#carfree').click(function() {
-         currentPage = 1;
-         resetLayout();
-         url = "api/data?tags=car-free";
-
-         $('#boucle').empty();
-         currentfilter = "carfree";
-         fetchAndRenderData(url);
-     });
 
      $('#masterplans').click(function() {
          currentPage = 1;
@@ -531,18 +446,6 @@
          $('#boucle').empty();
          currentfilter = "streetscapes";
          category = "streetscapes";
-         fetchAndRenderData(url);
-     });
-
-     $('#allcat').click(function() {
-         currentPage = 1;
-         resetLayout();
-         url = "api/data";
-
-         $('#boucle').empty();
-         currentfilter = "allcat";
-         category = "all";
-
          fetchAndRenderData(url);
      });
 

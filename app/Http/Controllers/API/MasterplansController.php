@@ -15,17 +15,32 @@ class MasterplansController extends Controller
         $size = request()->input('size');
         $status = request()->input('status');
 
+        $query = Masterplan::where('active', 1);
+
         if ($q) { 
-            $masters = Masterplan::where('active', 1)->where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
-        }elseif ($tags) {
-            $masters = Masterplan::where('active', 1)->where('tags','like','%' . $tags . '%')->get();
-        }elseif ($size) {
-            $masters = Masterplan::where('active', 1)->where('size','=', $size)->get();
-        }elseif ($status) {
-            $masters = Masterplan::where('active', 1)->where('status','like','%' . $status . '%')->get();
-        } else {
-            $masters = Masterplan::where('active', 1)->get();
+            $query->where(function($query) use ($q) {
+                $query->where('title', 'like', '%' . $q . '%')
+                      ->orWhere('tags', 'like', '%' . $q . '%')
+                      ->orWhere('category', 'like', '%' . $q . '%')
+                      ->orWhere('city', 'like', '%' . $q . '%')
+                      ->orWhere('country', 'like', '%' . $q . '%');
+            });
         }
+
+        if ($tags) {
+            $query->where('tags', 'like', '%' . $tags . '%');
+        }
+        
+        if ($size) {
+            $query->where('size', '=', $size);
+        }
+        
+        if ($status) {
+            $query->where('status', 'like', '%' . $status . '%');
+        }
+        
+        $masters = $query->get();
+        
         $responsejson = json_encode($masters);
         $data = gzencode($responsejson, 5);
         return response($data)->withHeaders([

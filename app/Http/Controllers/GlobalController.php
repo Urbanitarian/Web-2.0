@@ -117,6 +117,12 @@ class GlobalController extends Controller
             $streets = Streetscape::all();
             $neighbs = Neighbourhood::all();
         }
+ 
+         //count number of masterplan
+            $masternum = Masterplan::where('active', '1')->count();
+            $streetnum = Streetscape::where('active', '1')->count();
+            $urbannum = Neighbourhood::where('active', '1')->count();
+          
 
         $all_data = array_merge(
             $masters->toArray(),
@@ -146,7 +152,7 @@ class GlobalController extends Controller
 
         return view(
             'index',
-            compact('dictionary','magazines','webresources','insta','streetscapes','masterplans','countries','cities','neighbourhoods','units', 'all_data'
+            compact('dictionary','magazines','webresources','insta','streetscapes','masterplans','countries','cities','neighbourhoods','units', 'all_data', 'masternum', 'streetnum', 'urbannum'
             )
         );
     }
