@@ -200,7 +200,7 @@
  <div data-barba="container">
      <section class="block pb-8 mx-4 md:mx-16 tabset">
         <div class="mx-auto">
-         <div id="boucle" class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5 min-h-[640px]">
+         <div id="boucle" class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5">
 
          </div>
          </div>
