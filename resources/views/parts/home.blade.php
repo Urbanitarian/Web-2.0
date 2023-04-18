@@ -24,6 +24,10 @@
 
  <div id="mysearch" class="pt-4 pb-8 mx-2 bg-white md:mx-16">
 
+  <div class="flex flex-wrap justify-between py-4 mx-4 md:mx-0">
+
+  </div>
+
      <div class="flex flex-wrap justify-between py-4 mx-4 md:mx-0">
          <div class="hidden pb-4 md:flex md:pb-0">
              <select name="popular" id="pop_selector"
@@ -35,9 +39,8 @@
          </div>
 
          <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category">
-          
              <button id="masterplans" name="category" value="Masterplans">
-                 <p id="masterbtn" class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300 ">Masterplans <a id="masternum" class="border-l border-gray-400 pl-2"> &nbsp;{{ $masternum }}</a></p>
+                 <p id="masterbtn" class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">Masterplans <a id="masternum" class="border-l border-gray-400 pl-2"> &nbsp;{{ $masternum }}</a></p>
              </button>
              <button id="streetscapes" name="category" value="Streetscapes">
                  <p id="streetbtn" class="px-4 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">Streetscapes <a id="streetnum" class="border-l border-gray-400 pl-2"> &nbsp;{{ $streetnum }}</a></p>
@@ -82,6 +85,7 @@
                  <option value="Climate adaptation">Climate adaptation</option>
                  <option value="Climate-proof">Climate-proof</option>
                  <option value="Climate-neutral">Climate-neutral</option>
+                 <option value="Child-friendly">Child-friendly</option>
                  <option value="Co-Housing">Co-housing</option>
                  <option value="Complete Street">Complete Street</option>
                  <option value="Courtyards">Courtyards</option>
@@ -217,7 +221,9 @@
      integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
  <script>
      const itemsPerPage = 10;
-     let categories = "all";
+     let categories = "masterplans";
+     let currentcategory = "";
+     let currenturl = "";
      let view = "grid";
      currentPage = 1;
      let currentfilter = "";
@@ -225,9 +231,11 @@
 
      $(document).ready(function() {
          url = "api/data?category=masterplans";
+         currenturl = url;
          $('#boucle').empty();
          currentfilter = "none";
          fetchAndRenderData(url);
+         console.log(currenturl);
      });
 
 
@@ -252,6 +260,7 @@
      });
 
      const fetchAndRenderData = (url) => {
+       console.log(currenturl);
          fetch(url)
              .then((res) => res.json())
              .then((out) => {
@@ -278,11 +287,10 @@
                          if (item.category == "Masterplans") {
                             btn1 = document.getElementById("masterbtn");
                             btn1.classList.add("bg-gray-200");
-                              btn2 = document.getElementById("streetbtn");
+                            btn2 = document.getElementById("streetbtn");
                             btn2.classList.remove("bg-gray-200");
-                              btn3 = document.getElementById("urbanbtn");
+                            btn3 = document.getElementById("urbanbtn");
                             btn3.classList.remove("bg-gray-200");
-
                              let html = `
                       <div class="relative overflow-hidden transition border shadow-md bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInLeft">
                          <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
@@ -303,9 +311,9 @@
                          } else if (item.category == "Urbanscapes") {
                              btn1 = document.getElementById("masterbtn");
                             btn1.classList.remove("bg-gray-200");
-                              btn2 = document.getElementById("streetbtn");
+                            btn2 = document.getElementById("streetbtn");
                             btn2.classList.remove("bg-gray-200");
-                              btn3 = document.getElementById("urbanbtn");
+                            btn3 = document.getElementById("urbanbtn");
                             btn3.classList.add("bg-gray-200");
                              let html = `
                       <div class="relative overflow-hidden transition border shadow-md bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInRight">
@@ -325,14 +333,14 @@
                       `;
                              $('#boucle').append(html);
                          } else if (item.category == "Streetscapes") {
+                             btn1 = document.getElementById("masterbtn");
+                            btn1.classList.remove("bg-gray-200");
+                            btn2 = document.getElementById("streetbtn");
+                            btn2.classList.add("bg-gray-200");
+                            btn3 = document.getElementById("urbanbtn");
+                            btn3.classList.remove("bg-gray-200");
                             thegrid = document.getElementById("boucle");
                             thegrid.classList.remove("xl:grid-cols-5");
-                                btn1 = document.getElementById("masterbtn");
-                            btn1.classList.remove("bg-gray-200");
-                              btn2 = document.getElementById("streetbtn");
-                            btn2.classList.add("bg-gray-200");
-                              btn3 = document.getElementById("urbanbtn");
-                            btn3.classList.remove("bg-gray-200");
                              let html = `
                      <div
                          class="relative col-span-3 md:col-span-2  overflow-hidden transition border shadow-md element1 bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInUp">
@@ -433,17 +441,19 @@
              })
      };
 
-         $('button').click(function() {
-         $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
-
-     });
 
 
      $('#masterplans').click(function() {
+        //reset all selector to default values
+         $('#city_selector').val('');
+            $('#country_selector').val('');
+            $('#status_selector').val('');
+            $('#size_selector').val('');
+            $('#tags_selector').val('');
          currentPage = 1;
          resetLayout();
          url = "api/data?category=masterplans";
-      
+         currenturl = url;
          $('#boucle').empty();
          currentfilter = "masterplans";
          category = "masterplans";
@@ -452,9 +462,15 @@
      });
 
      $('#urbanscapes').click(function() {
+          $('#city_selector').val('');
+            $('#country_selector').val('');
+            $('#status_selector').val('');
+            $('#size_selector').val('');
+            $('#tags_selector').val('');
          currentPage = 1;
          resetLayout();
          url = "api/data?category=urbanscapes";
+         currenturl = url;
          $('#boucle').empty();
          currentfilter = "urbanscapes";
          category = "urbanscapes";
@@ -463,9 +479,15 @@
      });
 
      $('#streetscapes').click(function() {
+          $('#city_selector').val('');
+            $('#country_selector').val('');
+            $('#status_selector').val('');
+            $('#size_selector').val('');
+            $('#tags_selector').val('');
          currentPage = 1;
          resetLayout();
          url = "api/data?category=streetscapes";
+         currenturl = url;
   
          $('#boucle').empty();
          currentfilter = "streetscapes";
@@ -475,7 +497,9 @@
 
      $('#tags_selector').change(function() {
          currentPage = 1;
-         url = "api/data?tags=" + $('#tags_selector').val();
+         currentcategory = category;
+         url = "api/data?category=" + currentcategory + "&tags=" + $('#tags_selector').val();
+         currenturl = url;
          $('#boucle').empty();
          currentfilter = $('#tags_selector').val();
          fetchAndRenderData(url);
@@ -483,7 +507,9 @@
 
      $('#size_selector').change(function() {
          currentPage = 1;
-         url = "api/data?size=" + $('#size_selector').val();
+         currentcategory = category;
+         url = "api/data?category=" + currentcategory + "&size=" + $('#size_selector').val();
+         currenturl = url;
          $('#boucle').empty();
          currentfilter = $('#size_selector').val();
          fetchAndRenderData(url);
@@ -491,7 +517,9 @@
 
      $('#status_selector').change(function() {
          currentPage = 1;
-         url = "api/data?status=" + $('#status_selector').val();
+         currentcategory = category;
+         url = "api/data?category=" + currentcategory + "&status=" + $('#status_selector').val();
+         currenturl = url;
          $('#boucle').empty();
          currentfilter = $('#status_selector').val();
          fetchAndRenderData(url);
@@ -499,7 +527,9 @@
 
      $('#city_selector').change(function() {
          currentPage = 1;
-         url = "api/data?q=" + $('#city_selector').val();
+         currentcategory = category;
+         url = "api/data?category=" + currentcategory + "&city=" + $('#city_selector').val();
+         currenturl = url;
          $('#boucle').empty();
          currentfilter = $('#city_selector').val();
          fetchAndRenderData(url);
@@ -507,7 +537,9 @@
 
      $('#country_selector').change(function() {
          currentPage = 1;
-         url = "api/data?q=" + $('#country_selector').val();
+         currentcategory = category;
+         url = "api/data?category=" + currentcategory + "&country=" + $('#country_selector').val();
+         currenturl = url;
          $('#boucle').empty();
          currentfilter = $('#country_selector').val();
          fetchAndRenderData(url);
@@ -515,7 +547,9 @@
 
      $('#pop_selector').change(function() {
          currentPage = 1;
-         url = "api/data?pop=" + $('#pop_selector').val();
+         currentcategory = category;
+         url = "api/data?category=" + currentcategory + "&pop=" + $('#pop_selector').val();
+         currenturl = url;
          $('#boucle').empty();
          currentfilter = $('#pop_selector').val();
          fetchAndRenderData(url);
@@ -524,20 +558,12 @@
 
      $('#searchbar').keyup(function() {
          currentPage = 1;
+         currentcategory = category;
          resetLayout();
-         url = "api/data?q=" + $('#searchbar').val();
+         url = "api/data?cat=" + currentcategory + "&q=" + $('#searchbar').val();
+         currenturl = url;
          $('#boucle').empty();
          currentfilter = $('#searchbar').val();
-         fetchAndRenderData(url);
-     });
-
-
-     $('#searchtag').keyup(function() {
-         currentPage = 1;
-         resetLayout();
-         url = "api/data?tags=" + $('#searchtag').val();
-         $('#boucle').empty();
-         currentfilter = $('#searchtag').val();
          fetchAndRenderData(url);
      });
 
