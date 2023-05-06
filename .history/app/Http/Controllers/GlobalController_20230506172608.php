@@ -63,10 +63,9 @@ class GlobalController extends Controller
             $neighbs = Neighbourhood::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
         }
         elseif ($request->filled('tags')) { 
-            $tags = explode(',', $tags);
-            $masters = Masterplan::whereIn('tags', $tags)->get();
-            $streets = Streetscape::whereIn('tags', $tags)->get();
-            $neighbs = Neighbourhood::whereIn('tags', $tags)->get();
+            $masters = Masterplan::where('tags','like','%' . $tags . '%')->get();
+            $streets = Streetscape::where('tags','like','%' . $tags . '%')->get();
+            $neighbs = Neighbourhood::where('tags','like','%' . $tags . '%')->get();
         } elseif ($request->filled('size')) 
         { 
             $masters = Masterplan::where('size', '=', $size)->get();
@@ -137,6 +136,7 @@ class GlobalController extends Controller
             count($all_data),
             8
         );
+
 
 
         //other parts
