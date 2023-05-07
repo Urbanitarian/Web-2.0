@@ -10,6 +10,7 @@ class MasterplansController extends Controller
 {
     public function index(Request $request)
     {
+
         $q = request()->input('q');
         $tags = request()->input('tags');
         $size = request()->input('size');
@@ -18,8 +19,9 @@ class MasterplansController extends Controller
         $country = request()->input('country');
 
         $masters = Masterplan::where('active', 1)->get();
+
         $all_data = $masters->toArray();
-        
+
 
         if ($q) {
             $all_data = Masterplan::where('active', 1)

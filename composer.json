@@ -10,6 +10,7 @@
         "backpack/crud": "^5.4",
         "backpack/filemanager": "^2.0",
         "backpack/settings": "^3.0",
+        "cyrildewit/eloquent-viewable": "^7.0",
         "guzzlehttp/guzzle": "^7.2",
         "josiasmontag/laravel-recaptchav3": "^1.0",
         "laravel/framework": "^9.19",
