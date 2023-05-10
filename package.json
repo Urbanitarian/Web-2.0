@@ -23,6 +23,7 @@
         "@barba/core": "^2.9.7",
         "alpinejs": "^3.10.5",
         "juxtaposejs": "^1.1.6",
-        "tailwindcss-all": "^0.0.2"
+        "tailwindcss-all": "^0.0.2",
+        "tw-elements": "^1.0.0-beta2"
     }
 }

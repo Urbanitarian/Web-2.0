@@ -1,7 +1,8 @@
-<nav x-data="{ isOpen: false }" class="gap-6 py-6 pl-2 pr-4 mx-8 xl:mx-16 lg:flex lg:justify-between lg:items-center">
-    <div class="flex items-center justify-between gap-6">
+<nav x-data="{ isOpen: false }" class="gap-6 py-2 pl-2 pr-4 mx-8 xl:mx-16 lg:flex lg:justify-between lg:items-center">
+    <div class="flex items-center justify-between  gap-6 relative">
         <div>
-            <a class="flex text-2xl font-bold text-gray-700 lg:text-3xl hover:text-gray-400 " href="/">
+            <a class="flex justify-center items-center  text-2xl font-bold text-gray-700 lg:text-3xl hover:text-gray-400 "
+                href="/">
                 <img src="{{ asset('img/logo.png') }}" class="w-auto h-8 mt-4 md:h-16 md:mt-0">
                 <h1
                     class="py-4 pl-2 mt-1 text-base font-bold text-[#333333] lg:mt-1 2xl:mt-0 2xl:text-3xl hover:text-gray-400 tracking-widest ">
@@ -12,8 +13,8 @@
 
         <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
         <div
-            class="absolute inset-x-0 z-50 w-screen px-6 py-4 mt-12 transition-all duration-300 ease-in-out bg-transparent  lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0 flex items-center">
-            <div class="flex pb-4 space-y-0 gap-4 mt-12 md:mt-0 align-baseline mynav flex-row md:pb-0">
+            class="absolute inset-x-0 z-50 w-screen px-12 ml-40 py-6  transition-all duration-300 ease-in-out bg-transparent  lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0 flex items-center">
+            <div class="flex pb-4 space-y-0 gap-4 mt-24 md:mt-0 align-baseline mynav flex-row md:pb-0">
                 <a class="text-sm font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
                     href="/" @click="isOpen = false">&nbsp;Categories</a>
                 <a class="text-sm font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
@@ -27,7 +28,7 @@
 
 
     <div class="flex mt-8 lg:mt-0">
-        <div class="relative flex gap-6">
+        <div class=" flex gap-6">
             <div class="flex">
                 <button class="text-gray-500 hover:text-gray-400 focus:outline-none focus:text-gray-400 "
                     aria-label="toggle menu">
@@ -59,7 +60,7 @@
                 </button>
             </div>
             <div x-cloak x-show="isOpen"
-                class="absolute z-50 px-16 py-6 mt-16 transition-all duration-300 ease-in-out shadow-md bg-gray-50">
+                class=" z-50 px-16 py-6 mt-16 transition-all duration-300 ease-in-out shadow-md bg-gray-50">
                 <div class="flex flex-col items-end justify-end  pb-4 space-y-4 align-baseline mynav">
                     <a class="text-sm border-b font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
                         href="/" @click="isOpen = false">&nbsp;Categories</a>

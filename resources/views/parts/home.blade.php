@@ -140,7 +140,7 @@
                         <i class="fa fa-angle-up" aria-hidden="true"></i>
                         <span>Hide Filters</span>
                     </button>
-                    <button
+                    <button id="clear_all"
                         class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
                         <span>Clear All</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -159,7 +159,8 @@
                 <label for="DeliveryStandard" class="block">
                     <p class="pb-2 text-black">Tags</p>
                 </label>
-                <select name="tags" id="tags_selector" multiple="multiple"
+                <select name="tags" id="tags_selector" data-te-select-init data-te-select-clear-button="true"
+                    multiple multiple="multiple"
                     class="w-full px-4 py-3 text-sm border rounded-md js-select2 focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                     {{-- <option value="">All</option> --}}
                     <option value="Accessible and Connected">Accessible and connected</option>
@@ -225,7 +226,8 @@
                 <label for="DeliveryStandard" class="block">
                     <p class="pb-2 text-black">Size</p>
                 </label>
-                <select name="size" id="size_selector"
+                <select name="size" id="size_selector" data-te-select-init data-te-select-clear-button="true"
+                    multiple multiple="multiple"
                     class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                     <option value="">All</option>
                     <option value="XXXXL">XXXXL</option>
@@ -246,7 +248,7 @@
                     <p class="pb-2 text-black">Status</p>
                 </label>
                 <select name="status" id="status_selector"
-                    class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                    class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                     <option value="">All</option>
                     <option value="built">Built</option>
                     <option value="future">Future</option>
@@ -261,7 +263,7 @@
                     <p class="pb-2 text-black">City</p>
                 </label>
                 <select name="city" id="city_selector"
-                    class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                    class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                     <option value="">All</option>
                     @foreach ($cities->sortBy('name') as $city)
                         <option value="{{ $city->name }}">
@@ -276,7 +278,7 @@
                     <p class="pb-2 text-black">Country</p>
                 </label>
                 <select name="country" id="country_selector"
-                    class="w-full px-4 py-3 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                    class="w-full px-4 py-2 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                     <option value="">All</option>
                     @foreach ($countries->sortBy('name') as $country)
                         <option value="{{ $country->name }}">
@@ -325,11 +327,12 @@
 
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
 
 
 </div>
+
 <div data-barba="container">
     <section class="block pb-8 mx-4 md:mx-16 tabset">
         <div class="mx-auto">
@@ -418,13 +421,20 @@
                 }
                 if (view == "grid") {
                     $.each(itemsToDisplay, function(i, item) {
+
+                        console.log(item);
+
                         if (item.category == "Masterplans") {
+
                             btn1 = document.getElementById("masterbtn");
                             btn1.classList.add("bg-black", "text-white");
                             btn2 = document.getElementById("streetbtn");
                             btn2.classList.remove("bg-black", "text-white");
                             btn3 = document.getElementById("urbanbtn");
                             btn3.classList.remove("bg-black", "text-white");
+
+
+
                             let html = `
                      <div class="relative overflow-hidden transition border shadow-md bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInLeft">
                         <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
@@ -433,27 +443,25 @@
                             <div class="">
                                 <h3 class="mx-4 mt-2 text-sm font-bold text-center truncate">
                                     ${item.title} | ${item.author} | ${item.city}</h3>
-
-                            </div>
-                            <p class="max-w-sm pb-2 mx-6 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
+                                    <p class="max-w-sm pb-2 mx-6 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
                                       ${item.category} &nbsp;
                                       ${item.tags.map(tag => `${tag}`).join(' &nbsp;')}
                                 </p>
+
+                            </div>
+
                             <div class="text-sm text-gray-700 flex justify-between items-center px-2 py-2">
                                 <span>Copenhangen</span>
                                 <div class="flex gap-1 items-center justify-center">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
-                            @php
-                                foreach ($masterplans as $mas) {
-                                    echo views($mas)->count();
-                                }
-                            @endphp
+                            ${item.views}
                             </div>
                             </div>
                         </a>
 
                     </div>
                      `;
+
                             $('#boucle').append(html);
                         } else if (item.category == "Urbanscapes") {
                             btn1 = document.getElementById("masterbtn");
@@ -587,6 +595,15 @@
 
             })
     };
+
+    $('#clear_all').click(function() {
+        $('#city_selector').val('');
+        $('#country_selector').val('');
+        $('#status_selector').val('');
+        $('#size_selector').val('');
+        $('#tags_selector').val('');
+
+    });
 
 
 
@@ -755,23 +772,31 @@
 
 
 
-    $(".js-select2").select2({
-        closeOnSelect: false,
-        placeholder: "Click to select an option",
-        allowHtml: true,
-        templateSelection: formatOption,
-    });
+    // $(".js-select2").select2({
+    //     closeOnSelect: false,
+    //     placeholder: "Click to select an option",
+    //     allowHtml: true,
+    //     templateSelection: formatOption,
+    // });
 
-    $('.icons_select2').select2({
-        width: "100%",
-        templateSelection: iformat,
-        templateResult: iformat,
-        allowHtml: true,
-        placeholder: "Click to select an option",
-        dropdownParent: $('.select-icon'), //Ð¾Ð±Ð°Ð²Ð¸Ð»Ð¸ ÐºÐ»Ð°ÑÑ
-        allowClear: true,
-        multiple: false
-    });
+    // $('.icons_select2').select2({
+    //     width: "100%",
+    //     templateSelection: iformat,
+    //     templateResult: iformat,
+    //     allowHtml: true,
+    //     placeholder: "Click to select an option",
+    //     dropdownParent: $('.select-icon'), //Ð¾Ð±Ð°Ð²Ð¸Ð»Ð¸ ÐºÐ»Ð°ÑÑ
+    //     allowClear: true,
+    //     multiple: false
+    // });
+
+
+    const multiSelect = document.querySelector("#tags_selector");
+    const multiSelectInstance = te.Select.getInstance(multiSelect);
+    const multiSelect2 = document.querySelector("#size_selector");
+    const multiSelectInstance2 = te.Select.getInstance(multiSelect2);
+
+
 
 
     function iformat(icon, badge, ) {

@@ -55,7 +55,19 @@ class DataController extends Controller
 
         if ($category == 'masterplans') {
             $masters = Masterplan::where('active', 1)->get();
-            $all_data = $masters->toArray();
+            $all_data = $masters->map(function ($i) {
+                return [
+                    'views' => views($i)->count(),
+                    'title' => $i->title,
+                    'author' => $i->author,
+                    'city' => $i->city,
+                    'image' => $i->image,
+                    'id' => $i->id,
+                    'category' => $i->category,
+                    'size' => $i->size,
+                    'tags' => $i->tags
+                ];
+            })->toArray();
         }
         if ($category == 'streetscapes') {
             $streets = Streetscape::where('active', 1)->get();

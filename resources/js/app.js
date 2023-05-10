@@ -1,12 +1,11 @@
 import './bootstrap';
 import Alpine from 'alpinejs'
 import barba from '@barba/core';
+import { initTE } from 'tw-elements';
 
 
-
- 
 window.Alpine = Alpine
- 
+
 Alpine.start()
 
 
@@ -18,7 +17,7 @@ Alpine.start()
 
 
 //         barba.hooks.afterEnter((data) => {
-       
+
 //             const swiper = new Swiper('.swiper-container', {
 //                 loop: true,
 //                 slidesPerView: 1.5,
@@ -39,7 +38,7 @@ Alpine.start()
 //                     },
 //                 },
 //             })
-            
+
 //         });
 
 //         document.addEventListener('DOMContentLoaded', function() {

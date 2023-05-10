@@ -302,12 +302,6 @@
 
                          </div>
                     </a>
-                    @php
-                        foreach ($masterplans as $mas) {
-                            echo views($mas)->count();
-                        }
-
-                    @endphp
 
                 </div> `;
                      $('#boucle').append(html);
