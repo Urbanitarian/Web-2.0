@@ -1,6 +1,6 @@
 <div class="border-b border-gray-300"></div>
 
-@include('parts.home', ['masterplans' => $masterplans])
+@include('parts.home')
 @include('parts.streetscapes')
 @include('parts.masterplans')
 @include('parts.neighbourhoods')

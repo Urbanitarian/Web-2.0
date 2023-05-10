@@ -1,5 +1,5 @@
 <nav x-data="{ isOpen: false }" class="gap-6 py-2 pl-2 pr-4 mx-8 xl:mx-16 lg:flex lg:justify-between lg:items-center">
-    <div class="flex items-center justify-between  gap-6 relative">
+    <div class="flex items-center justify-between  gap-6 ">
         <div>
             <a class="flex justify-center items-center  text-2xl font-bold text-gray-700 lg:text-3xl hover:text-gray-400 "
                 href="/">
@@ -12,15 +12,14 @@
 
 
         <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-        <div
-            class="absolute inset-x-0 z-50 w-screen px-12 ml-40 py-6  transition-all duration-300 ease-in-out bg-transparent  lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0 flex items-center">
+        <div class="absolute z-50 ml-44  px-6 py-4  flex items-center">
             <div class="flex pb-4 space-y-0 gap-4 mt-24 md:mt-0 align-baseline mynav flex-row md:pb-0">
                 <a class="text-sm font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
-                    href="/" @click="isOpen = false">&nbsp;Categories</a>
+                    href="/">&nbsp;Categories</a>
                 <a class="text-sm font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
-                    href="/collections" @click="isOpen = false">&nbsp;Collections</a>
+                    href="/collections">&nbsp;Collections</a>
                 <a class="text-sm font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
-                    href="/how-it-works" @click="isOpen = false">&nbsp;How it works</a>
+                    href="/how-it-works">&nbsp;How it works</a>
             </div>
 
         </div>
@@ -60,7 +59,7 @@
                 </button>
             </div>
             <div x-cloak x-show="isOpen"
-                class=" z-50 px-16 py-6 mt-16 transition-all duration-300 ease-in-out shadow-md bg-gray-50">
+                class="absolute z-50 px-16 py-6 mt-16 transition-all duration-300 ease-in-out shadow-md bg-gray-50">
                 <div class="flex flex-col items-end justify-end  pb-4 space-y-4 align-baseline mynav">
                     <a class="text-sm border-b font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
                         href="/" @click="isOpen = false">&nbsp;Categories</a>
