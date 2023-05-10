@@ -57,39 +57,32 @@ class GlobalController extends Controller
 
 
 
-        if ($request->filled('q')) { 
-            $masters = Masterplan::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
-            $streets = Streetscape::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
-            $neighbs = Neighbourhood::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
-        }
-        elseif ($request->filled('tags')) { 
+        if ($request->filled('q')) {
+            $masters = Masterplan::where('title', 'like', '%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
+            $streets = Streetscape::where('title', 'like', '%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
+            $neighbs = Neighbourhood::where('title', 'like', '%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->get();
+        } elseif ($request->filled('tags')) {
             $tags = explode(',', $tags);
             $masters = Masterplan::whereIn('tags', $tags)->get();
             $streets = Streetscape::whereIn('tags', $tags)->get();
             $neighbs = Neighbourhood::whereIn('tags', $tags)->get();
-        } elseif ($request->filled('size')) 
-        { 
+        } elseif ($request->filled('size')) {
             $masters = Masterplan::where('size', '=', $size)->get();
             $streets = Streetscape::where('size', '=', $size)->get();
             $neighbs = Neighbourhood::where('size', '=', $size)->get();
-        } 
-        elseif ($request->filled('status')) 
-        { 
+        } elseif ($request->filled('status')) {
             $masters = Masterplan::where('status', '=', $status)->get();
             $streets = Streetscape::where('status', '=', $status)->get();
             $neighbs = Neighbourhood::where('status', '=', $status)->get();
-        } elseif ($request->filled('city')) 
-        { 
+        } elseif ($request->filled('city')) {
             $masters = Masterplan::where('city', '=', $city)->get();
             $streets = Streetscape::where('city', '=', $city)->get();
             $neighbs = Neighbourhood::where('city', '=', $city)->get();
-        } elseif ($request->filled('country')) 
-        { 
+        } elseif ($request->filled('country')) {
             $masters = Masterplan::where('country', '=', $country)->get();
             $streets = Streetscape::where('country', '=', $country)->get();
             $neighbs = Neighbourhood::where('country', '=', $country)->get();
-        }  elseif ($request->filled('category')) 
-        { 
+        } elseif ($request->filled('category')) {
             if ($category == 'All') {
                 $masters = Masterplan::all();
                 $streets = Streetscape::all();
@@ -99,31 +92,27 @@ class GlobalController extends Controller
                 $streets = Streetscape::where('category', '=', $category)->get();
                 $neighbs = Neighbourhood::where('category', '=', $category)->get();
             }
-        } elseif ($request->filled('popular')) 
-        { 
+        } elseif ($request->filled('popular')) {
             if ($popular == 'new') {
                 $masters = Masterplan::orderBy('id', 'desc')->get();
                 $streets = Streetscape::orderBy('id', 'desc')->get();
                 $neighbs = Neighbourhood::orderBy('id', 'desc')->get();
-            }
-            else if ($popular == 'old'){
+            } else if ($popular == 'old') {
                 $masters = Masterplan::orderBy('id', 'asc')->get();
                 $streets = Streetscape::orderBy('id', 'asc')->get();
                 $neighbs = Neighbourhood::orderBy('id', 'asc')->get();
             }
-           
-        } else
-        {
+        } else {
             $masters = Masterplan::all();
             $streets = Streetscape::all();
             $neighbs = Neighbourhood::all();
         }
- 
-         //count number of masterplan
-            $masternum = Masterplan::where('active', '1')->count();
-            $streetnum = Streetscape::where('active', '1')->count();
-            $urbannum = Neighbourhood::where('active', '1')->count();
-          
+
+        //count number of masterplan
+        $masternum = Masterplan::where('active', '1')->count();
+        $streetnum = Streetscape::where('active', '1')->count();
+        $urbannum = Neighbourhood::where('active', '1')->count();
+
 
         $all_data = array_merge(
             $masters->toArray(),
@@ -152,12 +141,27 @@ class GlobalController extends Controller
 
         return view(
             'index',
-            compact('dictionary','magazines','webresources','insta','streetscapes','masterplans','countries','cities','neighbourhoods','units', 'all_data', 'masternum', 'streetnum', 'urbannum'
+            compact(
+                'dictionary',
+                'magazines',
+                'webresources',
+                'insta',
+                'streetscapes',
+                'masterplans',
+                'countries',
+                'cities',
+                'neighbourhoods',
+                'units',
+                'all_data',
+                'masternum',
+                'streetnum',
+                'urbannum'
             )
         );
     }
 
-    static function alldata(){
+    static function alldata()
+    {
 
         $masters = Masterplan::all();
         $streets = Streetscape::all();
@@ -181,7 +185,7 @@ class GlobalController extends Controller
 
     public function about()
     {
-      
+
         return view('about');
     }
 
@@ -189,7 +193,7 @@ class GlobalController extends Controller
     {
         $team = Team::all()->sortByDesc('id');
 
-        return view('people' , compact('team'));
+        return view('people', compact('team'));
     }
 
     public function contact()
@@ -197,7 +201,7 @@ class GlobalController extends Controller
         return view('contact');
     }
 
-       public function submit()
+    public function submit()
     {
         return view('submit');
     }
@@ -227,7 +231,7 @@ class GlobalController extends Controller
         $tags = request()->input('tags');
 
         if ($q) {
-            $neighbourhoods = neighbourhood::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->paginate(8);
+            $neighbourhoods = neighbourhood::where('title', 'like', '%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->paginate(8);
         } elseif ($size) {
             $neighbourhoods = neighbourhood::where('size', 'like', '%' . $size . '%')->paginate(8);
         } elseif ($tags) {
@@ -255,9 +259,9 @@ class GlobalController extends Controller
         $tags = request()->input('tags');
 
         if ($q) {
-            $streetscapes = Streetscape::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->paginate(5);
+            $streetscapes = Streetscape::where('title', 'like', '%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->paginate(5);
         } elseif ($tags) {
-            $streetscapes = Streetscape::where('title','like','%' . $tags . '%')->orWhere('tags', 'like', '%' . $tags . '%')->orWhere('category', 'like', '%' . $tags . '%')->orWhere('city', 'like', '%' . $tags . '%')->orWhere('country', 'like', '%' . $tags . '%')->paginate(5);
+            $streetscapes = Streetscape::where('title', 'like', '%' . $tags . '%')->orWhere('tags', 'like', '%' . $tags . '%')->orWhere('category', 'like', '%' . $tags . '%')->orWhere('city', 'like', '%' . $tags . '%')->orWhere('country', 'like', '%' . $tags . '%')->paginate(5);
         } else {
             $streetscapes = Streetscape::paginate(5);
         }
@@ -279,18 +283,16 @@ class GlobalController extends Controller
         $size = request()->input('size');
         $city = request()->input('city');
         $country = request()->input('country');
-        
+
         if ($q) {
-            $masterplans = Masterplan::where('title','like','%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->paginate(10);
+            $masterplans = Masterplan::where('title', 'like', '%' . $q . '%')->orWhere('tags', 'like', '%' . $q . '%')->orWhere('category', 'like', '%' . $q . '%')->orWhere('city', 'like', '%' . $q . '%')->orWhere('country', 'like', '%' . $q . '%')->paginate(10);
         } elseif ($size) {
             $masterplans = Masterplan::where('size', 'like', '%' . $size . '%')->paginate(10);
-        }  elseif ($request->filled('city')) 
-        { 
+        } elseif ($request->filled('city')) {
             $masters = Masterplan::where('city', '=', $city)->paginate(10);
             $streets = Streetscape::where('city', '=', $city)->paginate(10);
             $neighbs = Neighbourhood::where('city', '=', $city)->paginate(10);
-        } elseif ($request->filled('country')) 
-        { 
+        } elseif ($request->filled('country')) {
             $masters = Masterplan::where('country', '=', $country)->paginate(10);
             $streets = Streetscape::where('country', '=', $country)->paginate(10);
             $neighbs = Neighbourhood::where('country', '=', $country)->paginate(10);
@@ -307,10 +309,14 @@ class GlobalController extends Controller
     public function masterplans_post(Request $request)
     {
         $id = $request->id;
+        $mas = Masterplan::find($id);
         $masterplan = Masterplan::all();
         $masterplans = Masterplan::where('id', '!=', null)
             ->inRandomOrder()
             ->get();
+
+
+        views($mas)->record();
 
 
         return view('masterplans_post', compact('masterplan', 'masterplans', 'id'));
@@ -446,7 +452,7 @@ class GlobalController extends Controller
         return view('legal');
     }
 
-    
+
     static function association()
     {
         return view('association');
@@ -472,7 +478,7 @@ class GlobalController extends Controller
         return view('work');
     }
 
-    public function import(Request $request) 
+    public function import(Request $request)
     {
         $request->validate([
             'file' => 'required|mimes:xls,xlsx'
@@ -480,17 +486,17 @@ class GlobalController extends Controller
 
         $file = $request->file('file');
 
-        if ($request->dataType == "masterplans"){
+        if ($request->dataType == "masterplans") {
             Excel::import(new MasterplansImport, $file);
-        } elseif ($request->dataType == "neighbourhoods"){
+        } elseif ($request->dataType == "neighbourhoods") {
             Excel::import(new NeighbourhoodsImport, $file);
-        } elseif ($request->dataType == "streetscapes"){
+        } elseif ($request->dataType == "streetscapes") {
             Excel::import(new StreetscapesImport, $file);
-        } elseif  ($request->dataType == "dictionaries"){
+        } elseif ($request->dataType == "dictionaries") {
             Excel::import(new DictionariesImport, $file);
-        } elseif  ($request->dataType == "magazines"){
+        } elseif ($request->dataType == "magazines") {
             Excel::import(new MagazinesImport, $file);
-        } elseif  ($request->dataType == "webresources"){
+        } elseif ($request->dataType == "webresources") {
             Excel::import(new WebresourcesImport, $file);
         } else {
             \Alert::success('Error.')->flash();
@@ -499,6 +505,4 @@ class GlobalController extends Controller
         \Alert::success('Excel data imported successfully.')->flash();
         return redirect('/admin')->with('success', 'Data imported successfully.');
     }
-
-
 }

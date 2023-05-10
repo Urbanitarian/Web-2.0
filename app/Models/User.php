@@ -15,13 +15,14 @@ class User extends Authenticatable
 
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasApiTokens, HasFactory, Notifiable;
-    
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
+        'google_id',
         'name',
         'email',
         'password',
@@ -56,6 +57,4 @@ class User extends Authenticatable
     {
         return 'notifications admin';
     }
-
-    
 }

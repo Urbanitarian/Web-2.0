@@ -216,7 +216,6 @@
          <div id="boucle"
              class="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 min-h-[640px]">
 
-
          </div>
          <div class="flex pt-8">
              <button id="prev" onclick="window.scrollTo(0, 400);"
@@ -233,7 +232,7 @@
  </div>
 
  <script>
-     $('#green, #climate, #age, #placemaking, #all, #child' ).click(function() {
+     $('#green, #climate, #age, #placemaking, #all, #child').click(function() {
          $(this).addClass('bg-gray-200 rounded').siblings().removeClass('bg-gray-200 rounded');
 
      });
@@ -271,7 +270,7 @@
          fetch(url)
              .then((res) => res.json())
              .then((out) => {
-                console.log(currentPage);
+                 console.log(currentPage);
                  const obj = JSON.parse(JSON.stringify(out));
                  let textFromJSON = obj;
                  totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
@@ -297,11 +296,13 @@
                                 <img class="object-cover w-full h-auto border-b saturate-120" src="storage/uploads/thumbnails/masterplans/${item.image}"alt=""  onerror="this.src='storage/uploads/masterplans/${item.image}'"/>
                                 <h1 class="pt-3 mx-2 text-sm font-bold text-center truncate">${item.title} |${item.author} | ${item.city}</h1>
                                 <p class="pb-2 mx-8 text-xs text-center text-gray-700">
-                                   ${item.category}, ${item.size} 
+                                   ${item.category}, ${item.size}
                                 </p>
                             </div>
-                        </div>
+
+                         </div>
                     </a>
+
                 </div> `;
                      $('#boucle').append(html);
                  });
@@ -309,7 +310,7 @@
      };
 
      $('#child').click(function() {
-        currentPage = 1;
+         currentPage = 1;
          url = "api/masterplans?tags=Child-friendly";
          $('#searchbar').val('Child-friendly');
          $('#boucle').empty();
@@ -317,7 +318,7 @@
      });
 
      $('#green').click(function() {
-        currentPage = 1;
+         currentPage = 1;
          url = "api/masterplans?tags=Green";
          $('#searchbar').val('Green');
          $('#boucle').empty();
@@ -325,7 +326,7 @@
      });
 
      $('#climate').click(function() {
-        currentPage = 1;
+         currentPage = 1;
          url = "api/masterplans?tags=climate";
          $('#searchbar').val('climate');
          $('#boucle').empty();
@@ -333,7 +334,7 @@
      });
 
      $('#age').click(function() {
-        currentPage = 1;
+         currentPage = 1;
          url = "api/masterplans?tags=age";
          $('#searchbar').val('Age-friendly');
          $('#boucle').empty();
@@ -348,7 +349,7 @@
      });
 
      $('#tags_selector').change(function() {
-        currentPage = 1;
+         currentPage = 1;
          url = "api/masterplans?tags=" + $('#tags_selector').val();
          $('#boucle').empty();
          currentfilter = $('#tags_selector').val();
@@ -356,7 +357,7 @@
      });
 
      $('#size_selector').change(function() {
-        currentPage = 1;
+         currentPage = 1;
          url = "api/masterplans?size=" + $('#size_selector').val();
          $('#boucle').empty();
          currentfilter = $('#size_selector').val();
@@ -364,7 +365,7 @@
      });
 
      $('#status_selector').change(function() {
-        currentPage = 1;
+         currentPage = 1;
          url = "api/masterplans?status=" + $('#status_selector').val();
          $('#boucle').empty();
          currentfilter = $('#status_selector').val();
@@ -372,7 +373,7 @@
      });
 
      $('#city_selector').change(function() {
-        currentPage = 1;
+         currentPage = 1;
          url = "api/masterplans?q=" + $('#city_selector').val();
          $('#boucle').empty();
          currentfilter = $('#city_selector').val();
@@ -380,7 +381,7 @@
      });
 
      $('#country_selector').change(function() {
-        currentPage = 1;
+         currentPage = 1;
          url = "api/masterplans?q=" + $('#country_selector').val();
          $('#boucle').empty();
          currentfilter = $('#country_selector').val();
@@ -388,7 +389,7 @@
      });
 
      $('#searchbar').keyup(function() {
-        currentPage = 1;
+         currentPage = 1;
          url = "api/masterplans?q=" + $('#searchbar').val();
          $('#boucle').empty();
          fetchAndRenderData(url);
