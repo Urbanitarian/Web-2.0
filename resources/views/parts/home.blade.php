@@ -138,8 +138,8 @@
                     <button @click="showFilter=false"
                         class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
                         <i class="fa fa-angle-up" aria-hidden="true"></i>
-                        <span class="mr-1">Hide Filters<span
-                                class="p-1 rounded-full bg-black text-white">5</span></span>
+                        <span class="">Hide Filters</span>
+                        <span class="p-0.5 rounded-full bg-black text-white w-6">5</span>
                     </button>
                     <button id="clear_all"
                         class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
@@ -149,6 +149,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
+
                 </div>
 
             </div>
