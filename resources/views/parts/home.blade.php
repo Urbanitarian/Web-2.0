@@ -249,7 +249,7 @@
                     <p class="pb-2 text-black">Status</p>
                 </label>
                 <select name="status" id="status_selector"
-                    class="w-full px-4 py-4 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                    class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                     <option value="">All</option>
                     <option value="built">Built</option>
                     <option value="future">Future</option>
@@ -264,7 +264,7 @@
                     <p class="pb-2 text-black">City</p>
                 </label>
                 <select name="city" id="city_selector"
-                    class="w-full px-4 py-4 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                    class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                     <option value="">All</option>
                     @foreach ($cities->sortBy('name') as $city)
                         <option value="{{ $city->name }}">
@@ -279,7 +279,7 @@
                     <p class="pb-2 text-black">Country</p>
                 </label>
                 <select name="country" id="country_selector"
-                    class="w-full px-4 py-4 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                    class="w-full px-4 py-2 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                     <option value="">All</option>
                     @foreach ($countries->sortBy('name') as $country)
                         <option value="{{ $country->name }}">
