@@ -1,6 +1,6 @@
 <div class="border-b border-gray-300"></div>
 
-@include('parts.home')
+@include('parts.home');
 @include('parts.streetscapes')
 @include('parts.masterplans')
 @include('parts.neighbourhoods')
@@ -16,10 +16,8 @@
     </div>
 </section>
 
-
 @include('parts.dictionary')
 @include('parts.webresources')
-
 @include('parts.toread')
 @include('parts.instagram')
 @include('parts.login')

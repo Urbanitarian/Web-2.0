@@ -60,22 +60,44 @@ class SocialiteController extends Controller
 
                 # 3. Si l'utilisateur n'existe pas, on l'enregistre
             } else {
-
                 // Enregistrement de l'utilisateur
-                $user = User::create([
-                    'google_id' => $user->id,
-                    'name' => $name,
-                    'email' => $email,
-                    'role' => 'user',
-                    'password' => bcrypt("12345678") // On attribue un mot de passe
-                ]);
+                switch ($provider) {
+                    case 'google':
+                        $user = User::create([
+                            'google_id' => $user->id,
+                            'name' => $name,
+                            'email' => $email,
+                            'role' => 'user',
+                            'password' => bcrypt("12345678") // On attribue un mot de passe
+                        ]);
+                        break;
+                    case 'twitter':
+                        $user = User::create([
+                            'twitter_id' => $user->id,
+                            'name' => $name,
+                            'email' => $email,
+                            'role' => 'user',
+                            'password' => bcrypt("12345678") // On attribue un mot de passe
+                        ]);
+                        break;
+
+                    default:
+                        $user = User::create([
+                            'linkedin_id' => $user->id,
+                            'name' => $name,
+                            'email' => $email,
+                            'role' => 'user',
+                            'password' => bcrypt("12345678") // On attribue un mot de passe
+                        ]);
+                        break;
+                }
             }
 
             # 4. On connecte l'utilisateur
             backpack_auth()->login($user);
 
             # 5. On redirige l'utilisateur vers /home
-            if (backpack_auth()->check()) return redirect('/');
+            if (backpack_auth()->check()){};
         }
         abort(404);
     }
