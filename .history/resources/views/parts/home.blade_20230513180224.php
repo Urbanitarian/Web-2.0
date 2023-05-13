@@ -26,13 +26,13 @@
             <div class="my-8 swiper-wrapper">
                 <div class="p-8 md:p-12 lg:px-12 lg:py-10 swiper-slide">
 
-                    <div class="mx-auto text-center select-none lg:max-w-xl">
+                    <div class="max-w-lg mx-auto text-center select-none lg:max-w-xl">
                         <h2 class="text-2xl font-bold text-gray-900 md:text-5xl">
                             Explore the database
                         </h2>
 
-                        <p class="mt-6 text-base text-gray-500">
-                            Save hours of research with our library of 1000+ fully searchable urban design resource
+                        <p class="mt-4 text-base text-gray-500">
+                            The Ultimate Urban Design Knowledge Hub - Urbanitarian
                         </p>
                     </div>
 
@@ -56,11 +56,11 @@
 
                     <div class="max-w-lg mx-auto text-center select-none lg:max-w-xl">
                         <h2 class="text-2xl font-bold text-gray-900 md:text-5xl">
-                            Explore the database
+                            The world's go to urban design online platform
                         </h2>
 
-                        <p class="mt-6 text-base text-gray-500">
-                            Save hours of research with our library of 1000+ fully searchable urban design resource
+                        <p class="mt-4 text-base text-gray-500">
+                            The Ultimate Urban Design Knowledge Hub - Urbanitarian
                         </p>
                     </div>
 
