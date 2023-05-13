@@ -39,12 +39,12 @@
                     <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
 
                         <a href="#"
-                            class="flex w-[140px] h-10 px-5 py-3 my-2 text-center mt-2 font-normal text-white bg-black shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-800 hover:scale-110 duration-300">
-                            <span class="text-xs">Log in or sign up</span>
+                            class="flex px-5 py-3 my-2 text-center mt-2 font-normal text-white bg-black shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-800 hover:scale-110 duration-300">
+                            <span class="text-sm">Log in or sign up</span>
                         </a>
                         <a href="#"
-                            class="flex w-[120px] h-10 px-5 py-3 my-2 text-center mt-2 font-normal text-black bg-white shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-100 hover:scale-110 duration-300">
-                            <span class="text-xs">Learn more</span>
+                            class="flex  px-5 py-3 my-2 text-center mt-2 font-normal text-black bg-white shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-100 hover:scale-110 duration-300">
+                            <span class="text-sm">Learn more</span>
                         </a>
 
                     </div>
@@ -67,7 +67,7 @@
                     <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
 
                         <a href="#"
-                            class="flex w-[140px] h-10 px-5 py-3 my-2 text-center mt-2 font-normal text-white bg-black shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-800 hover:scale-110 duration-300">
+                            class="flex px-5 py-3 my-2 text-center mt-2 font-normal text-white bg-black shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-800 hover:scale-110 duration-300">
                             <span class="text-xs">Log in or sign up</span>
                         </a>
                         <a href="#"
@@ -98,7 +98,7 @@
             <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category" x-data="{ active: 'masterplan' }">
                 <button id="masterplans" name="category" value="Masterplans" @click="active='masterplan'">
                     <p id="masterbtn"
-                        class="px-4 py-2 text-sm font-medium  rounded-md hover:bg-gray-200 active:bg-gray-300"
+                        class="px-4 py-2 text-md font-medium  rounded-md hover:bg-gray-200 active:bg-gray-300"
                         :class="active == 'masterplan' ? 'bg-black text-white hover:bg-gray-800' : ''">
                         Masterplans <a id="masternum" class="pl-2 border-l border-gray-400">
                             &nbsp;{{ $masternum }}</a>
@@ -106,7 +106,7 @@
                 </button>
                 <button id="streetscapes" name="category" value="Streetscapes" @click="active='streetscapes'">
                     <p id="streetbtn"
-                        class="px-4 py-2 text-sm font-medium  rounded-md hover:bg-gray-200 active:bg-gray-300"
+                        class="px-4 py-2 text-md font-medium  rounded-md hover:bg-gray-200 active:bg-gray-300"
                         :class="active == 'streetscapes' ? 'bg-black text-white hover:bg-gray-800' : ''">
                         Streetscapes <a id="streetnum" class="pl-2 border-l border-gray-400">
                             &nbsp;{{ $streetnum }}</a>
@@ -114,7 +114,7 @@
                 </button>
                 <button id="urbanscapes" name="category" value="Neighbourhoods" @click="active='neighbourhoods'">
                     <p id="urbanbtn"
-                        class="px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-200 active:bg-gray-300"
+                        class="px-4 py-2 text-md font-medium rounded-md hover:bg-gray-200 active:bg-gray-300"
                         :class="active == 'neighbourhoods' ? 'bg-black text-white hover:bg-gray-800' : ''">
                         Urbanscapes <a id="urbannum" class="pl-2 border-l border-gray-400">
                             &nbsp;{{ $urbannum }}</a>
@@ -138,7 +138,8 @@
                     <button @click="showFilter=false"
                         class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
                         <i class="fa fa-angle-up" aria-hidden="true"></i>
-                        <span>Hide Filters</span>
+                        <span class="">Hide Filters</span>
+                        <span class="p-0.5 rounded-full bg-black text-white w-6">5</span>
                     </button>
                     <button id="clear_all"
                         class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
@@ -148,20 +149,21 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
+
                 </div>
 
             </div>
 
         </div>
 
-        <div x-show="showFilter" class="grid grid-cols-3 gap-2 mx-4 mt-4 md:grid-cols-5 md:mx-0">
+        <div x-show="showFilter" class="grid grid-cols-5 gap-2 mx-4 mt-4 md:grid-cols-5 md:mx-0">
             <div class="block">
                 <label for="DeliveryStandard" class="block">
                     <p class="pb-2 text-black">Tags</p>
                 </label>
                 <select name="tags" id="tags_selector" data-te-select-init data-te-select-clear-button="true"
                     multiple multiple="multiple"
-                    class="w-full px-4 py-3 text-sm border rounded-md js-select2 focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                    class="w-full h-12 px-4 py-8 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                     {{-- <option value="">All</option> --}}
                     <option value="Accessible and Connected">Accessible and connected</option>
                     <option value="Affordable">Affordable</option>
@@ -228,7 +230,7 @@
                 </label>
                 <select name="size" id="size_selector" data-te-select-init data-te-select-clear-button="true"
                     multiple multiple="multiple"
-                    class="w-full px-4 py-3 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                    class="w-full px-4 pt-6 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                     <option value="">All</option>
                     <option value="XXXXL">XXXXL</option>
                     <option value="XXXL">XXXL</option>

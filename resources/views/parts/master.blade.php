@@ -299,7 +299,6 @@
                                    ${item.category}, ${item.size}
                                 </p>
                             </div>
-
                          </div>
                     </a>
 

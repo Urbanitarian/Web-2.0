@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('google_id')->nullable()->after('id');
+            $table->string('twitter_id')->nullable()->after('google_id');
+            $table->string('linkedin_id')->nullable()->after('twitter_id');
         });
     }
 

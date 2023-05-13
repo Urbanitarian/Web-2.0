@@ -2,6 +2,6 @@
 
 @section('main')
     <div data-barba="container">
-        @include('parts.content', ['masterplans' => $masterplans])
+        @include('parts.content', ['user' => $user ?? ''])
     </div>
 @endsection
