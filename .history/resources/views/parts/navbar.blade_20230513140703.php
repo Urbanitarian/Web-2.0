@@ -1,4 +1,4 @@
-<nav x-data="{ isOpen: false }" class="gap-6 py-3 px-6 lg:flex lg:justify-between lg:items-center">
+<nav x-data="{ isOpen: false }" class="gap-6 py-2 px-6 lg:flex lg:justify-between lg:items-center">
     <div class="flex items-center justify-between gap-6">
         <div>
             <a class="flex items-center text-2xl font-bold text-gray-700 lg:text-3xl hover:text-gray-400 " href="/">
