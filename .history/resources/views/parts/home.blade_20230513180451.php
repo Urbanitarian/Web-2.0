@@ -26,7 +26,7 @@
             <div class="my-8 swiper-wrapper">
                 <div class="p-8 md:p-12 lg:px-12 lg:py-10 swiper-slide">
 
-                    <div class="mx-auto text-center select-none lg:max-w-xl">
+                    <div class="max-w-lg mx-auto text-center select-none lg:max-w-xl">
                         <h2 class="text-2xl font-bold text-gray-900 md:text-5xl">
                             Explore the database
                         </h2>
