@@ -3,8 +3,7 @@
         <div>
             <a class="flex items-center text-2xl font-bold text-gray-700 lg:text-3xl hover:text-gray-400 " href="/">
                 <img src="{{ asset('img/logo.png') }}" class="w-auto h-8 md:h-16">
-                <h1
-                    class="pl-2 text-xl font-bold text-[#333333] lg:mt-1 2xl:mt-0 2xl:text-3xl hover:text-gray-400 mb-0">
+                <h1 class="pl-2 text-xl font-bold text-[#333333] lg:mt-1 2xl:mt-0 2xl:text-3xl hover:text-gray-400 mb-0">
                     Urbanitarian</h1>
             </a>
         </div>
@@ -25,9 +24,14 @@
     </div>
 
 
-    <div class="flex mt-8 lg:mt-0 relative">
+
+    <div class="flex mt-8 lg:mt-0 relative" x-data="{ showSearch: false }">
+        <div class="mx-2 flex" x-show="showSearch">
+            <input type="text" name="search" id="" placeholder="Search"
+                class="py-2 w-64 px-1 border-2 rounded border-gray-200 outline-none outline-2 outline-gray-600">
+        </div>
         <div class="flex justify-center items-center gap-6">
-            <div class="flex">
+            <div class="flex" @click="showSearch=!showSearch">
                 <button class="" aria-label="toggle menu">
 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
