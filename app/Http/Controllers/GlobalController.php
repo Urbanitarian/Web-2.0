@@ -511,7 +511,9 @@ class GlobalController extends Controller
         $user = User::where('email', $req->email)->orWhere('type', 'user')->get();
 
         if ($user) {
-            return view('index', compact('user'));
+            if ($user->password == $req->password) {
+                return view('index', compact('user'));
+            }
         } else {
             \Alert::error('User with this email does not exist.')->flash();
             return redirect('/')->with('error', 'User with this email does not exist.');

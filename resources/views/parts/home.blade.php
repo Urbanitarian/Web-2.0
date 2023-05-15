@@ -1,4 +1,4 @@
-<section class="py-10 border-b bg-gray-50 -z-20">
+<section class="pt-10 border-b bg-gray-50">
     <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper($refs.container, {
         loop: true,
         slidesPerView: 1,
@@ -22,116 +22,148 @@
             },
         },
     })">
-        <div class="flex justify-between gap-8">
-            <div class="flex flex-col">
-                <div class="flex gap-6">
-                    <img src="{{ asset('storage/uploads/streetscapes/3c287868e68a249684e91f982f8acdd4.jpg') }}"
-                        alt="" class="w-[30vh] h-[22vh] shadow-xl rounded-r-md mt-4">
-                    <img src="{{ asset('storage/uploads/masterplans/M_MVRDV_Ipai_00.jpg') }}" alt=""
-                        class="w-[25vh] h-[38vh] shadow-xl rounded-md z-50 mt-12">
-                </div>
-                <div class="flex gap-6">
-                    <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                        alt="" class="w-[48vh] h-[27vh] shadow-xl rounded-r-md -mt-[120px]">
-                    <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}" alt=""
-                        class="w-[25vh] h-[38vh] shadow-xl rounded-md">
-                </div>
+        <div class="swiper-container" x-ref="container">
+            <div class="swiper-wrapper">
+                <div class="flex justify-between gap-8 swiper-slide">
+                    <div class="flex flex-col">
+                        <div class="flex gap-6">
+                            <img src="{{ asset('storage/uploads/streetscapes/3c287868e68a249684e91f982f8acdd4.jpg') }}"
+                                alt="" class="w-[30vh] h-[22vh] shadow-xl rounded-r-md mt-4">
+                            <img src="{{ asset('storage/uploads/masterplans/M_MVRDV_Ipai_00.jpg') }}" alt=""
+                                class="w-[25vh] h-[38vh] shadow-xl rounded-md z-50 mt-12">
+                        </div>
+                        <div class="flex gap-6">
+                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
+                                alt="" class="w-[48vh] h-[27vh] shadow-xl rounded-r-md -mt-[120px]">
+                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
+                                alt="" class="w-[25vh] h-[38vh] shadow-xl rounded-md">
+                        </div>
 
+                    </div>
+                    <div class="my-8">
+                        <div class="p-8 md:p-12 lg:px-12 lg:py-10">
+
+                            <div class="mx-auto text-center select-none lg:max-w-xl">
+                                <h2 class="text-2xl font-bold text-gray-900 md:text-5xl whitespace-nowrap">
+                                    Explore the database
+                                </h2>
+
+                                <p class="mt-6 text-base text-gray-500">
+                                    Save hours of research with our library of 1000+ fully searchable urban design
+                                    resource
+                                </p>
+                            </div>
+
+                            <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
+
+                                <a href="#"
+                                    class="flex px-5 py-3 my-2 text-center mt-2 font-normal text-white bg-black shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-800 hover:scale-110 duration-300">
+                                    <span class="text-sm">Log in or sign up</span>
+                                </a>
+                                <a href="#"
+                                    class="flex  px-5 py-3 my-2 text-center mt-2 font-normal text-black bg-white shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-100 hover:scale-110 duration-300">
+                                    <span class="text-sm">Learn more</span>
+                                </a>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                    <div class="flex flex-col">
+
+                        <div class="flex mt-32 ">
+                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
+                                alt="" class="w-[24vh] h-[32vh] shadow-xl rounded-md -mr-56 ml-6 z-50">
+                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
+                                alt="" class="w-[95vh] h-[27vh] shadow-xl -mr-28 ml-8 rounded-l-md -mt-[120px]">
+                        </div>
+
+                        <div class="flex">
+                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
+                                alt="" class="w-[24vh] h-[32vh] shadow-xl rounded-md -ml-36 -mt-24">
+                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
+                                alt="" class="w-[45vh] h-[26vh] shadow-xl ml-8 rounded-l-md -mt-[120px] ">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="flex justify-between gap-8 swiper-slide">
+                    <div class="flex flex-col">
+                        <div class="flex gap-6">
+                            <img src="{{ asset('storage/uploads/streetscapes/3c287868e68a249684e91f982f8acdd4.jpg') }}"
+                                alt="" class="w-[30vh] h-[22vh] shadow-xl rounded-r-md mt-4">
+                            <img src="{{ asset('storage/uploads/masterplans/M_MVRDV_Ipai_00.jpg') }}" alt=""
+                                class="w-[25vh] h-[38vh] shadow-xl rounded-md z-50 mt-12">
+                        </div>
+                        <div class="flex gap-6">
+                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
+                                alt="" class="w-[48vh] h-[27vh] shadow-xl rounded-r-md -mt-[120px]">
+                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
+                                alt="" class="w-[25vh] h-[38vh] shadow-xl rounded-md">
+                        </div>
+
+                    </div>
+                    <div class="my-8">
+                        <div class="p-8 md:p-12 lg:px-12 lg:py-10">
+
+                            <div class="mx-auto text-center select-none lg:max-w-xl">
+                                <h2 class="text-2xl font-bold text-gray-900 md:text-5xl whitespace-nowrap">
+                                    Explore the database
+                                </h2>
+
+                                <p class="mt-6 text-base text-gray-500">
+                                    Save hours of research with our library of 1000+ fully searchable urban design
+                                    resource
+                                </p>
+                            </div>
+
+                            <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
+
+                                <a href="#"
+                                    class="flex px-5 py-3 my-2 text-center mt-2 font-normal text-white bg-black shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-800 hover:scale-110 duration-300">
+                                    <span class="text-sm">Log in or sign up</span>
+                                </a>
+                                <a href="#"
+                                    class="flex  px-5 py-3 my-2 text-center mt-2 font-normal text-black bg-white shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-100 hover:scale-110 duration-300">
+                                    <span class="text-sm">Learn more</span>
+                                </a>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                    <div class="flex flex-col">
+
+                        <div class="flex mt-32 ">
+                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
+                                alt="" class="w-[24vh] h-[32vh] shadow-xl rounded-md -mr-56 ml-6 z-50">
+                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
+                                alt="" class="w-[95vh] h-[27vh] shadow-xl -mr-28 ml-8 rounded-l-md -mt-[120px]">
+                        </div>
+
+                        <div class="flex">
+                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
+                                alt="" class="w-[24vh] h-[32vh] shadow-xl rounded-md -ml-36 -mt-24">
+                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
+                                alt="" class="w-[45vh] h-[26vh] shadow-xl ml-8 rounded-l-md -mt-[120px] ">
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="my-8">
-                <div class="p-8 md:p-12 lg:px-12 lg:py-10 swiper-slide">
-
-                    <div class="mx-auto text-center select-none lg:max-w-xl">
-                        <h2 class="text-2xl font-bold text-gray-900 md:text-5xl whitespace-nowrap">
-                            Explore the database
-                        </h2>
-
-                        <p class="mt-6 text-base text-gray-500">
-                            Save hours of research with our library of 1000+ fully searchable urban design resource
-                        </p>
-                    </div>
-
-                    <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
-
-                        <a href="#"
-                            class="flex px-5 py-3 my-2 text-center mt-2 font-normal text-white bg-black shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-800 hover:scale-110 duration-300">
-                            <span class="text-sm">Log in or sign up</span>
-                        </a>
-                        <a href="#"
-                            class="flex  px-5 py-3 my-2 text-center mt-2 font-normal text-black bg-white shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-100 hover:scale-110 duration-300">
-                            <span class="text-sm">Learn more</span>
-                        </a>
-
-                    </div>
-
-
-
-                </div>
-                {{-- <div class="p-8 md:p-12 lg:px-12 lg:py-10 swiper-slide">
-
-                    <div class="max-w-lg mx-auto text-center select-none lg:max-w-xl">
-                        <h2 class="text-2xl font-bold text-gray-900 md:text-5xl">
-                            Explore the database
-                        </h2>
-
-                        <p class="mt-6 text-base text-gray-500">
-                            Save hours of research with our library of 1000+ fully searchable urban design resource
-                        </p>
-                    </div>
-
-                    <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
-
-                        <a href="#"
-                            class="flex px-5 py-3 my-2 text-center mt-2 font-normal text-white bg-black shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-800 hover:scale-110 duration-300">
-                            <span class="text-xs">Log in or sign up</span>
-                        </a>
-                        <a href="#"
-                            class="flex w-[120px] h-10 px-5 py-3 my-2 text-center mt-2 font-normal text-black bg-white shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-100 hover:scale-110 duration-300">
-                            <span class="text-xs">Learn more</span>
-                        </a>
-
-                    </div>
-
-
-
-                </div> --}}
-            </div>
-            <div class="flex flex-col">
-
-                <div class="flex mt-32 ">
-                    <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}" alt=""
-                        class="w-[24vh] h-[32vh] shadow-xl rounded-md -mr-56 ml-6 z-50">
-                    <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                        alt="" class="w-[95vh] h-[27vh] shadow-xl -mr-28 ml-8 rounded-l-md -mt-[120px]">
-                </div>
-
-                <div class="flex">
-                    <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}" alt=""
-                        class="w-[24vh] h-[32vh] shadow-xl rounded-md -ml-36 -mt-24">
-                    <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                        alt="" class="w-[45vh] h-[26vh] shadow-xl ml-6 rounded-l-md -mt-[120px] ">
-                </div>
-
-                {{-- <div class="flex flex-col">
-
-
-
-                    <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                        alt="" class="w-[45vh] h-[24vh] shadow-xl rounded-l-md mt-6 ml-[35px]">
-                </div> --}}
-            </div>
-
         </div>
     </div>
-
-
 </section>
 
-<div class="bg-white z-40">
-    <div id="mysearch" class="pb-8 pt-4 mx-2  md:px-5 -mt-36">
-
-
-        <div class="flex flex-wrap flex-col gap-6 py-4 mx-4 md:mx-0" x-data="{ showFilter: false }">
+<div class="relative z-50 ">
+    <div id="mysearch" class="py-8 -mt-[104px]  md:px-7 bg-white border-t">
+        <div class="flex flex-wrap flex-col gap-6 mx-4 md:mx-0" x-data="{ showFilter: false }">
             <div class="flex justify-between items-center gap-8">
                 <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category" x-data="{ active: 'masterplan' }">
                     <button id="masterplans" name="category" value="Masterplans" @click="active='masterplan'">
@@ -150,7 +182,8 @@
                                 &nbsp;{{ $streetnum }}</a>
                         </p>
                     </button>
-                    <button id="urbanscapes" name="category" value="Neighbourhoods" @click="active='neighbourhoods'">
+                    <button id="urbanscapes" name="category" value="Neighbourhoods"
+                        @click="active='neighbourhoods'">
                         <p id="urbanbtn"
                             class="px-4 py-2 text-md font-medium rounded-md hover:bg-gray-200 active:bg-gray-300"
                             :class="active == 'neighbourhoods' ? 'bg-black text-white hover:bg-gray-800' : ''">
@@ -163,8 +196,8 @@
 
                     <button @click="showFilter=true" x-show="!showFilter"
                         class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-4 h-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
                         </svg>
@@ -196,8 +229,16 @@
 
             <div x-show="showFilter" class="grid grid-cols-5 gap-2 mx-4 mt-4 md:grid-cols-5 md:mx-0">
                 <div class="block">
-                    <label for="DeliveryStandard" class="block">
-                        <p class="pb-2 text-black">Tags</p>
+                    <label for="DeliveryStandard" class="flex justify-between text-sm">
+                        <p class="pb-1 text-black">Tags</p>
+                        <button class="flex justify-center items-center cursor-pointer">
+                            <p class="pb-1 text-black">Clear</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mb-1 font-semibold">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+
                     </label>
                     <select name="tags" id="tags_selector" data-te-select-init data-te-select-clear-button="true"
                         multiple multiple="multiple"
@@ -263,8 +304,16 @@
                 </div>
 
                 <div class="block">
-                    <label for="DeliveryStandard" class="block">
-                        <p class="pb-2 text-black">Size</p>
+                    <label for="DeliveryStandard" class="flex justify-between text-sm">
+                        <p class="pb-1 text-black">Size</p>
+                        <button class="flex justify-center items-center cursor-pointer">
+                            <p class="pb-1 text-black">Clear</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mb-1 font-semibold">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+
                     </label>
                     <select name="size" id="size_selector" data-te-select-init data-te-select-clear-button="true"
                         multiple multiple="multiple"
@@ -284,8 +333,8 @@
                 </div>
 
                 <div class="block">
-                    <label for="DeliveryStandard" class="block">
-                        <p class="pb-2 text-black">Status</p>
+                    <label for="DeliveryStandard" class="block text-sm">
+                        <p class="pb-1 text-black">Status</p>
                     </label>
                     <select name="status" id="status_selector"
                         class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
@@ -299,8 +348,8 @@
                 </div>
 
                 <div class="block">
-                    <label for="DeliveryStandard" class="block">
-                        <p class="pb-2 text-black">City</p>
+                    <label for="DeliveryStandard" class="block text-sm">
+                        <p class="pb-1 text-black">City</p>
                     </label>
                     <select name="city" id="city_selector"
                         class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
@@ -314,8 +363,8 @@
                 </div>
 
                 <div class="block">
-                    <label for="DeliveryStandard" class="block">
-                        <p class="pb-2 text-black">Country</p>
+                    <label for="DeliveryStandard" class="block text-sm">
+                        <p class="pb-1 text-black">Country</p>
                     </label>
                     <select name="country" id="country_selector"
                         class="w-full px-4 py-2 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
@@ -336,13 +385,18 @@
             <div class="flex justify-between items-center gap-8">
 
                 <div class="hidden pb-4 md:flex md:pb-0">
-                    <span class="mt-2 mr-2">Soty by:</span>
+                    <span class="mt-2 mr-2">Sort by:</span>
                     <select name="popular" id="pop_selector"
-                        class=" px-4 h-[40px] text-sm bg-white border-gray-200 rounded-md  border focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                        class="px-4 h-[40px] text-sm bg-white border-gray-200 rounded-md
+                         border focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                         <option value="">Popular</option>
                         <option value="new">The Newest</option>
                         <option value="old">The Oldest</option>
                     </select>
+                </div>
+
+                <div class="text-gray-400">
+                    Showing 10 items
                 </div>
 
                 <div class="py-4 md:flex md:py-0 md:mt-2 lg:mt-0 justify-between items-center">
@@ -374,9 +428,11 @@
     </div>
 </div>
 
+
+
 <div data-barba="container">
-    <section class="block pb-8 mx-4 md:mx-16 tabset">
-        <div class="mx-auto">
+    <section class="block pb-8 mx-4 md:mx-16 tabset ">
+        <div class="mx-auto ">
             <div id="boucle" class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5">
 
             </div>
@@ -477,23 +533,30 @@
 
 
                             let html = `
-                     <div class="relative overflow-hidden transition border shadow-md bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInLeft">
-                        <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
+                            <div class="flex flex-col relative " x-data="{visibleBtn: false}">
+                            <div @mouseleave="visibleBtn=false">
+                                <div x-cloak x-show="visibleBtn">
+                <button class="bg-black py-2 hover:bg-black flex gap-2 justify-center shadow items-center absolute mt-2 w-52 rounded ml-[90px] text-white px-3 z-50"><i class="fa fa-plus" aria-hidden="true"></i><span>Save to Collection</span></button>
+                </div>
+
+                     <div @mouseenter="visibleBtn=true"   class="relative overflow-hidden transition-all border  hover:shadow-xl  shadow rounded-md saturate-120 animate__animated animate__backInLeft">
+                        <a  href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
                             <img alt="Art" src="storage/uploads/thumbnails/masterplans/${item.image}"alt=""
-                                onerror="this.src='storage/uploads/masterplans/${item.image}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
+                                onerror="this.src='storage/uploads/masterplans/${item.image}'" class="object-cover  h-full saturate-120 max-h-[480px]" />
+                                <div class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50">${item.size}</div>
                             <div class="">
-                                <h3 class="mx-4 mt-2 text-sm font-bold text-center truncate">
-                                    ${item.title} | ${item.author} | ${item.city}</h3>
-                                    <p class="max-w-sm pb-2 mx-6 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
+                                <h3 class="mx-2 mt-1 text-sm font-bold truncate">
+                                    ${item.title}</h3>
+                                    <div class="max-w-sm  mx-2 mt-1 text-sm text-gray-500 truncate">
                                       ${item.category} &nbsp;
-                                      ${item.tags.map(tag => `${tag}`).join(' &nbsp;')}
-                                </p>
+
+                                </div>
 
                             </div>
 
-                            <div class="text-sm text-gray-700 flex justify-between items-center px-2 py-2">
-                                <span>Copenhangen</span>
-                                <div class="flex gap-1 items-center justify-center">
+                            <div class="text-sm text-gray-500 flex justify-between items-center px-2 pb-2">
+                                <span>Copenhangen, Denmark</span>
+                                <div class="flex gap-2 items-center justify-center">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             ${item.views}
                             </div>
@@ -501,6 +564,10 @@
                         </a>
 
                     </div>
+                    </div>
+                                </div>
+
+
                      `;
 
                             $('#boucle').append(html);
@@ -515,7 +582,8 @@
                      <div class="relative overflow-hidden transition border shadow-md bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInRight">
                         <a href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
                             <img alt="Art" src="storage/uploads/thumbnails/urbanscapes/${item.imagea}"alt=""
-                                onerror="this.src='storage/uploads/urbanscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
+                              onerror="this.src='storage/uploads/urbanscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
+
                             <div class="">
                                 <h3 class="mx-4 mt-2 text-sm font-bold text-center truncate">
                                     ${item.title} | ${item.author} | ${item.city}</h3>
@@ -543,6 +611,7 @@
                         <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
                             <img alt="Art" src="storage/uploads/thumbnails/streetscapes/${item.imagea}"alt=""
                                 onerror="this.src='storage/uploads/streetscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
+
                             <div class="">
                                 <h3 class="mt-4 font-bold text-center text-gray-900 uppercase ">
                                     ${item.title} | ${item.author} | ${item.city}</h3>
