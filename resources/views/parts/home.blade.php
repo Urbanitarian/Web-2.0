@@ -1,4 +1,4 @@
-<section class="py-16 border-b bg-gray-50">
+<section class="py-10 border-b bg-gray-50 -z-20">
     <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper($refs.container, {
         loop: true,
         slidesPerView: 1,
@@ -22,12 +22,27 @@
             },
         },
     })">
-        <div class="swiper-container" x-ref="container">
-            <div class="my-8 swiper-wrapper">
+        <div class="flex justify-between gap-8">
+            <div class="flex flex-col">
+                <div class="flex gap-6">
+                    <img src="{{ asset('storage/uploads/streetscapes/3c287868e68a249684e91f982f8acdd4.jpg') }}"
+                        alt="" class="w-[30vh] h-[22vh] shadow-xl rounded-r-md mt-4">
+                    <img src="{{ asset('storage/uploads/masterplans/M_MVRDV_Ipai_00.jpg') }}" alt=""
+                        class="w-[25vh] h-[38vh] shadow-xl rounded-md z-50 mt-12">
+                </div>
+                <div class="flex gap-6">
+                    <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
+                        alt="" class="w-[48vh] h-[27vh] shadow-xl rounded-r-md -mt-[120px]">
+                    <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}" alt=""
+                        class="w-[25vh] h-[38vh] shadow-xl rounded-md">
+                </div>
+
+            </div>
+            <div class="my-8">
                 <div class="p-8 md:p-12 lg:px-12 lg:py-10 swiper-slide">
 
                     <div class="mx-auto text-center select-none lg:max-w-xl">
-                        <h2 class="text-2xl font-bold text-gray-900 md:text-5xl">
+                        <h2 class="text-2xl font-bold text-gray-900 md:text-5xl whitespace-nowrap">
                             Explore the database
                         </h2>
 
@@ -52,7 +67,7 @@
 
 
                 </div>
-                <div class="p-8 md:p-12 lg:px-12 lg:py-10 swiper-slide">
+                {{-- <div class="p-8 md:p-12 lg:px-12 lg:py-10 swiper-slide">
 
                     <div class="max-w-lg mx-auto text-center select-none lg:max-w-xl">
                         <h2 class="text-2xl font-bold text-gray-900 md:text-5xl">
@@ -79,260 +94,284 @@
 
 
 
-                </div>
+                </div> --}}
             </div>
+            <div class="flex flex-col">
+
+                <div class="flex mt-32 ">
+                    <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}" alt=""
+                        class="w-[24vh] h-[32vh] shadow-xl rounded-md -mr-56 ml-6 z-50">
+                    <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
+                        alt="" class="w-[95vh] h-[27vh] shadow-xl -mr-28 ml-8 rounded-l-md -mt-[120px]">
+                </div>
+
+                <div class="flex">
+                    <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}" alt=""
+                        class="w-[24vh] h-[32vh] shadow-xl rounded-md -ml-36 -mt-24">
+                    <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
+                        alt="" class="w-[45vh] h-[26vh] shadow-xl ml-6 rounded-l-md -mt-[120px] ">
+                </div>
+
+                {{-- <div class="flex flex-col">
+
+
+
+                    <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
+                        alt="" class="w-[45vh] h-[24vh] shadow-xl rounded-l-md mt-6 ml-[35px]">
+                </div> --}}
+            </div>
+
         </div>
     </div>
 
 
 </section>
 
-<div id="mysearch" class="pt-4 pb-8 mx-2 bg-white md:mx-16">
-
-    <div class="flex flex-wrap justify-between py-4 mx-4 md:mx-0">
-
-    </div>
-
-    <div class="flex flex-wrap flex-col gap-6 py-4 mx-4 md:mx-0" x-data="{ showFilter: false }">
-        <div class="flex justify-between items-center gap-8">
-            <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category" x-data="{ active: 'masterplan' }">
-                <button id="masterplans" name="category" value="Masterplans" @click="active='masterplan'">
-                    <p id="masterbtn"
-                        class="px-4 py-2 text-md font-medium  rounded-md hover:bg-gray-200 active:bg-gray-300"
-                        :class="active == 'masterplan' ? 'bg-black text-white hover:bg-gray-800' : ''">
-                        Masterplans <a id="masternum" class="pl-2 border-l border-gray-400">
-                            &nbsp;{{ $masternum }}</a>
-                    </p>
-                </button>
-                <button id="streetscapes" name="category" value="Streetscapes" @click="active='streetscapes'">
-                    <p id="streetbtn"
-                        class="px-4 py-2 text-md font-medium  rounded-md hover:bg-gray-200 active:bg-gray-300"
-                        :class="active == 'streetscapes' ? 'bg-black text-white hover:bg-gray-800' : ''">
-                        Streetscapes <a id="streetnum" class="pl-2 border-l border-gray-400">
-                            &nbsp;{{ $streetnum }}</a>
-                    </p>
-                </button>
-                <button id="urbanscapes" name="category" value="Neighbourhoods" @click="active='neighbourhoods'">
-                    <p id="urbanbtn"
-                        class="px-4 py-2 text-md font-medium rounded-md hover:bg-gray-200 active:bg-gray-300"
-                        :class="active == 'neighbourhoods' ? 'bg-black text-white hover:bg-gray-800' : ''">
-                        Urbanscapes <a id="urbannum" class="pl-2 border-l border-gray-400">
-                            &nbsp;{{ $urbannum }}</a>
-                    </p>
-                </button>
-            </fieldset>
-            <div class="flex gap-2">
-
-                <button @click="showFilter=true" x-show="!showFilter"
-                    class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
-                    </svg>
-                    <span>Show Filter</span>
-                </button>
+<div class="bg-white z-40">
+    <div id="mysearch" class="pb-8 pt-4 mx-2  md:px-5 -mt-36">
 
 
-                <div class="flex gap-2" x-show="showFilter">
-                    <button @click="showFilter=false"
-                        class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
-                        <i class="fa fa-angle-up" aria-hidden="true"></i>
-                        <span class="">Hide Filters</span>
-                        <span class="p-0.5 rounded-full bg-black text-white w-6">5</span>
+        <div class="flex flex-wrap flex-col gap-6 py-4 mx-4 md:mx-0" x-data="{ showFilter: false }">
+            <div class="flex justify-between items-center gap-8">
+                <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category" x-data="{ active: 'masterplan' }">
+                    <button id="masterplans" name="category" value="Masterplans" @click="active='masterplan'">
+                        <p id="masterbtn"
+                            class="px-4 py-2 text-md font-medium  rounded-md hover:bg-gray-200 active:bg-gray-300"
+                            :class="active == 'masterplan' ? 'bg-black text-white hover:bg-gray-800' : ''">
+                            Masterplans <a id="masternum" class="pl-2 border-l border-gray-400">
+                                &nbsp;{{ $masternum }}</a>
+                        </p>
                     </button>
-                    <button id="clear_all"
+                    <button id="streetscapes" name="category" value="Streetscapes" @click="active='streetscapes'">
+                        <p id="streetbtn"
+                            class="px-4 py-2 text-md font-medium  rounded-md hover:bg-gray-200 active:bg-gray-300"
+                            :class="active == 'streetscapes' ? 'bg-black text-white hover:bg-gray-800' : ''">
+                            Streetscapes <a id="streetnum" class="pl-2 border-l border-gray-400">
+                                &nbsp;{{ $streetnum }}</a>
+                        </p>
+                    </button>
+                    <button id="urbanscapes" name="category" value="Neighbourhoods" @click="active='neighbourhoods'">
+                        <p id="urbanbtn"
+                            class="px-4 py-2 text-md font-medium rounded-md hover:bg-gray-200 active:bg-gray-300"
+                            :class="active == 'neighbourhoods' ? 'bg-black text-white hover:bg-gray-800' : ''">
+                            Urbanscapes <a id="urbannum" class="pl-2 border-l border-gray-400">
+                                &nbsp;{{ $urbannum }}</a>
+                        </p>
+                    </button>
+                </fieldset>
+                <div class="flex gap-2">
+
+                    <button @click="showFilter=true" x-show="!showFilter"
                         class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
-                        <span>Clear All</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-4 h-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
                         </svg>
+                        <span>Show Filter</span>
                     </button>
+
+
+                    <div class="flex gap-2" x-show="showFilter">
+                        <button @click="showFilter=false"
+                            class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
+                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                            <span class="">Hide Filters</span>
+                            <span class="p-0.5 rounded-full bg-black text-white w-6">5</span>
+                        </button>
+                        <button id="clear_all"
+                            class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
+                            <span>Clear All</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
+            <div x-show="showFilter" class="grid grid-cols-5 gap-2 mx-4 mt-4 md:grid-cols-5 md:mx-0">
+                <div class="block">
+                    <label for="DeliveryStandard" class="block">
+                        <p class="pb-2 text-black">Tags</p>
+                    </label>
+                    <select name="tags" id="tags_selector" data-te-select-init data-te-select-clear-button="true"
+                        multiple multiple="multiple"
+                        class="w-full h-12 px-4 py-8 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                        {{-- <option value="">All</option> --}}
+                        <option value="Accessible and Connected">Accessible and connected</option>
+                        <option value="Affordable">Affordable</option>
+                        <option value="Age-friendly">Age-friendly</option>
+                        <option value="Biodiverse">Biodiverse</option>
+                        <option value="Business District">Business District</option>
+                        <option value="By the railway">By the railway</option>
+                        <option value="By the water">By the water</option>
+                        <option value="CBD">CBD</option>
+                        <option value="Car-free">Car-free</option>
+                        <option value="Carbon negative">Carbon negative</option>
+                        <option value="Circular">Circular</option>
+                        <option value="Climate adaptation">Climate adaptation</option>
+                        <option value="Climate-proof">Climate-proof</option>
+                        <option value="Climate-neutral">Climate-neutral</option>
+                        <option value="Child-friendly">Child-friendly</option>
+                        <option value="Co-Housing">Co-housing</option>
+                        <option value="Complete Street">Complete Street</option>
+                        <option value="Courtyards">Courtyards</option>
+                        <option value="DIY Urbanism">DIY Urbanism</option>
+                        <option value="Dense">Dense</option>
+                        <option value="Eco-village">Eco-village</option>
+                        <option value="Floating City">Floating City</option>
+                        <option value="Food-production">Food-production</option>
+                        <option value="Garden City">Garden City</option>
+                        <option value="Green">Green</option>
+                        <option value="Green wedges">Green wedges</option>
+                        <option value="Healthy">Healthy</option>
+                        <option value="High-rise">High-rise </option>
+                        <option value="Hi-Tech">Hi-Tech</option>
+                        <option value="Houses in row">Houses in row</option>
+                        <option value="Inclusive and Diverse">Inclusive and Diverse</option>
+                        <option value="Low-rise">Low-rise</option>
+                        <option value="Mixed-use">Mixed-use</option>
+                        <option value="Modular">Modular</option>
+                        <option value="Nature-rich">Nature-rich</option>
+                        <option value="Net zero">Net zero</option>
+                        <option value="Outdoor classroom">Outdoor classroom</option>
+                        <option value="Place-led">Place-led</option>
+                        <option value="Playful">Playful</option>
+                        <option value="Preventing Loneliness">Preventing Loneliness</option>
+                        <option value="Productive landscape">Productive landscape</option>
+                        <option value="Reachable">Reachable</option>
+                        <option value="Resilient landscape">Resilient landscape</option>
+                        <option value="Regeneration">Regeneration</option>
+                        <option value="Safe">Safe</option>
+                        <option value="Science Park">Science Park</option>
+                        <option value="Schoolyards">Schoolyards</option>
+                        <option value="Self-sufficient">Self-sufficient</option>
+                        <option value="Social Housing">Social housing</option>
+                        <option value="Solar Powered">Solar Powered</option>
+                        <option value="Timber">Timber</option>
+                        <option value="Transformation">Transformation</option>
+                        <option value="TOD">TOD</option>
+                        <option value="WSUD">WSUD</option>
+                        <option value="Youth-friendly">Youth-friendly</option>
+                        <option value="Zero carbon">Zero carbon</option>
+                    </select>
+                </div>
 
-        <div x-show="showFilter" class="grid grid-cols-5 gap-2 mx-4 mt-4 md:grid-cols-5 md:mx-0">
-            <div class="block">
-                <label for="DeliveryStandard" class="block">
-                    <p class="pb-2 text-black">Tags</p>
-                </label>
-                <select name="tags" id="tags_selector" data-te-select-init data-te-select-clear-button="true"
-                    multiple multiple="multiple"
-                    class="w-full h-12 px-4 py-8 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                    {{-- <option value="">All</option> --}}
-                    <option value="Accessible and Connected">Accessible and connected</option>
-                    <option value="Affordable">Affordable</option>
-                    <option value="Age-friendly">Age-friendly</option>
-                    <option value="Biodiverse">Biodiverse</option>
-                    <option value="Business District">Business District</option>
-                    <option value="By the railway">By the railway</option>
-                    <option value="By the water">By the water</option>
-                    <option value="CBD">CBD</option>
-                    <option value="Car-free">Car-free</option>
-                    <option value="Carbon negative">Carbon negative</option>
-                    <option value="Circular">Circular</option>
-                    <option value="Climate adaptation">Climate adaptation</option>
-                    <option value="Climate-proof">Climate-proof</option>
-                    <option value="Climate-neutral">Climate-neutral</option>
-                    <option value="Child-friendly">Child-friendly</option>
-                    <option value="Co-Housing">Co-housing</option>
-                    <option value="Complete Street">Complete Street</option>
-                    <option value="Courtyards">Courtyards</option>
-                    <option value="DIY Urbanism">DIY Urbanism</option>
-                    <option value="Dense">Dense</option>
-                    <option value="Eco-village">Eco-village</option>
-                    <option value="Floating City">Floating City</option>
-                    <option value="Food-production">Food-production</option>
-                    <option value="Garden City">Garden City</option>
-                    <option value="Green">Green</option>
-                    <option value="Green wedges">Green wedges</option>
-                    <option value="Healthy">Healthy</option>
-                    <option value="High-rise">High-rise </option>
-                    <option value="Hi-Tech">Hi-Tech</option>
-                    <option value="Houses in row">Houses in row</option>
-                    <option value="Inclusive and Diverse">Inclusive and Diverse</option>
-                    <option value="Low-rise">Low-rise</option>
-                    <option value="Mixed-use">Mixed-use</option>
-                    <option value="Modular">Modular</option>
-                    <option value="Nature-rich">Nature-rich</option>
-                    <option value="Net zero">Net zero</option>
-                    <option value="Outdoor classroom">Outdoor classroom</option>
-                    <option value="Place-led">Place-led</option>
-                    <option value="Playful">Playful</option>
-                    <option value="Preventing Loneliness">Preventing Loneliness</option>
-                    <option value="Productive landscape">Productive landscape</option>
-                    <option value="Reachable">Reachable</option>
-                    <option value="Resilient landscape">Resilient landscape</option>
-                    <option value="Regeneration">Regeneration</option>
-                    <option value="Safe">Safe</option>
-                    <option value="Science Park">Science Park</option>
-                    <option value="Schoolyards">Schoolyards</option>
-                    <option value="Self-sufficient">Self-sufficient</option>
-                    <option value="Social Housing">Social housing</option>
-                    <option value="Solar Powered">Solar Powered</option>
-                    <option value="Timber">Timber</option>
-                    <option value="Transformation">Transformation</option>
-                    <option value="TOD">TOD</option>
-                    <option value="WSUD">WSUD</option>
-                    <option value="Youth-friendly">Youth-friendly</option>
-                    <option value="Zero carbon">Zero carbon</option>
-                </select>
-            </div>
+                <div class="block">
+                    <label for="DeliveryStandard" class="block">
+                        <p class="pb-2 text-black">Size</p>
+                    </label>
+                    <select name="size" id="size_selector" data-te-select-init data-te-select-clear-button="true"
+                        multiple multiple="multiple"
+                        class="w-full px-4 pt-6 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                        <option value="">All</option>
+                        <option value="XXXXL">XXXXL</option>
+                        <option value="XXXL">XXXL</option>
+                        <option value="XXL">XXL</option>
+                        <option value="XL">XL</option>
+                        <option value="L">L</option>
+                        <option value="M">M</option>
+                        <option value="S">S</option>
+                        <option value="XS">XS</option>
+                        <option value="XXS">XXS</option>
+                        <option value="XXXS">XXXS</option>
+                    </select>
+                </div>
 
-            <div class="block">
-                <label for="DeliveryStandard" class="block">
-                    <p class="pb-2 text-black">Size</p>
-                </label>
-                <select name="size" id="size_selector" data-te-select-init data-te-select-clear-button="true"
-                    multiple multiple="multiple"
-                    class="w-full px-4 pt-6 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                    <option value="">All</option>
-                    <option value="XXXXL">XXXXL</option>
-                    <option value="XXXL">XXXL</option>
-                    <option value="XXL">XXL</option>
-                    <option value="XL">XL</option>
-                    <option value="L">L</option>
-                    <option value="M">M</option>
-                    <option value="S">S</option>
-                    <option value="XS">XS</option>
-                    <option value="XXS">XXS</option>
-                    <option value="XXXS">XXXS</option>
-                </select>
-            </div>
+                <div class="block">
+                    <label for="DeliveryStandard" class="block">
+                        <p class="pb-2 text-black">Status</p>
+                    </label>
+                    <select name="status" id="status_selector"
+                        class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                        <option value="">All</option>
+                        <option value="built">Built</option>
+                        <option value="future">Future</option>
+                        <option value="under_development">Under
+                            development</option>
+                        <option value="regeneration">Regeneration</option>
+                    </select>
+                </div>
 
-            <div class="block">
-                <label for="DeliveryStandard" class="block">
-                    <p class="pb-2 text-black">Status</p>
-                </label>
-                <select name="status" id="status_selector"
-                    class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                    <option value="">All</option>
-                    <option value="built">Built</option>
-                    <option value="future">Future</option>
-                    <option value="under_development">Under
-                        development</option>
-                    <option value="regeneration">Regeneration</option>
-                </select>
-            </div>
+                <div class="block">
+                    <label for="DeliveryStandard" class="block">
+                        <p class="pb-2 text-black">City</p>
+                    </label>
+                    <select name="city" id="city_selector"
+                        class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                        <option value="">All</option>
+                        @foreach ($cities->sortBy('name') as $city)
+                            <option value="{{ $city->name }}">
+                                {{ $city->name }}</option>
+                        @endforeach
 
-            <div class="block">
-                <label for="DeliveryStandard" class="block">
-                    <p class="pb-2 text-black">City</p>
-                </label>
-                <select name="city" id="city_selector"
-                    class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                    <option value="">All</option>
-                    @foreach ($cities->sortBy('name') as $city)
-                        <option value="{{ $city->name }}">
-                            {{ $city->name }}</option>
-                    @endforeach
+                    </select>
+                </div>
 
-                </select>
-            </div>
+                <div class="block">
+                    <label for="DeliveryStandard" class="block">
+                        <p class="pb-2 text-black">Country</p>
+                    </label>
+                    <select name="country" id="country_selector"
+                        class="w-full px-4 py-2 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                        <option value="">All</option>
+                        @foreach ($countries->sortBy('name') as $country)
+                            <option value="{{ $country->name }}">
+                                {{ $country->name }}</option>
+                        @endforeach
 
-            <div class="block">
-                <label for="DeliveryStandard" class="block">
-                    <p class="pb-2 text-black">Country</p>
-                </label>
-                <select name="country" id="country_selector"
-                    class="w-full px-4 py-2 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                    <option value="">All</option>
-                    @foreach ($countries->sortBy('name') as $country)
-                        <option value="{{ $country->name }}">
-                            {{ $country->name }}</option>
-                    @endforeach
-
-                </select>
-            </div>
-
-        </div>
-
-
-
-
-        <div class="flex justify-between items-center gap-8">
-
-            <div class="hidden pb-4 md:flex md:pb-0">
-                <span class="mt-2 mr-2">Soty by:</span>
-                <select name="popular" id="pop_selector"
-                    class=" px-4 h-[40px] text-sm bg-white border-gray-200 rounded-md  border focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                    <option value="">Popular</option>
-                    <option value="new">The Newest</option>
-                    <option value="old">The Oldest</option>
-                </select>
-            </div>
-
-            <div class="py-4 md:flex md:py-0 md:mt-2 lg:mt-0 justify-between items-center">
-                <span class="mr-2">View by:</span>
-                <div class="flex gap-0">
-                    <button id="change-layout" onclick="return false;"
-                        class="px-2 py-2 text-sm font-medium rounded-l border border-r-0 hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
-                        <i class="transition fa-solid fa-th-large fa-1x hover:text-gray-400"></i>Grid
-                    </button>
-
-                    <button id="change-layout3" onclick="return false;"
-                        class="px-2 py-2 text-sm font-medium rounded-tr-md rounded-br-md border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
-                        <i class="transition fa-solid fa-map fa-1x hover:text-gray-400"></i>Map
-                    </button>
-
+                    </select>
                 </div>
 
             </div>
 
 
+
+
+            <div class="flex justify-between items-center gap-8">
+
+                <div class="hidden pb-4 md:flex md:pb-0">
+                    <span class="mt-2 mr-2">Soty by:</span>
+                    <select name="popular" id="pop_selector"
+                        class=" px-4 h-[40px] text-sm bg-white border-gray-200 rounded-md  border focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                        <option value="">Popular</option>
+                        <option value="new">The Newest</option>
+                        <option value="old">The Oldest</option>
+                    </select>
+                </div>
+
+                <div class="py-4 md:flex md:py-0 md:mt-2 lg:mt-0 justify-between items-center">
+                    <span class="mr-2">View by:</span>
+                    <div class="flex gap-0">
+                        <button id="change-layout" onclick="return false;"
+                            class="px-2 py-2 text-sm font-medium rounded-l border border-r-0 hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
+                            <i class="transition fa-solid fa-th-large fa-1x hover:text-gray-400"></i>Grid
+                        </button>
+
+                        <button id="change-layout3" onclick="return false;"
+                            class="px-2 py-2 text-sm font-medium rounded-tr-md rounded-br-md border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
+                            <i class="transition fa-solid fa-map fa-1x hover:text-gray-400"></i>Map
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
         </div>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+
 
     </div>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
-
-
 </div>
 
 <div data-barba="container">
