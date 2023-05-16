@@ -543,7 +543,7 @@
                         <a  href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
                             <img alt="Art" src="storage/uploads/thumbnails/masterplans/${item.image}"alt=""
                                 onerror="this.src='storage/uploads/masterplans/${item.image}'" class="object-cover  h-full saturate-120 max-h-[480px]" />
-                                <div class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">${item.size}</div>
+                                <div class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50">${item.size}</div>
                             <div class="">
                                 <h3 class="mx-2 mt-1 text-sm font-bold truncate">
                                     ${item.title}</h3>

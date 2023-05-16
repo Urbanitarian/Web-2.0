@@ -162,7 +162,7 @@
 </section>
 
 <div class="relative z-50 ">
-    <div id="mysearch" class="py-8 -mt-[104px] px-6 bg-white border-t">
+    <div id="mysearch" class="py-8 -mt-[104px]  md:px-7 bg-white border-t">
         <div class="flex flex-wrap flex-col gap-6 mx-4 md:mx-0" x-data="{ showFilter: false }">
             <div class="flex justify-between items-center gap-8">
                 <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category" x-data="{ active: 'masterplan' }">
@@ -433,7 +433,7 @@
 <div data-barba="container">
     <section class="block pb-8 px-6 tabset ">
         <div class="mx-auto ">
-            <div id="boucle" class="grid grid-cols-5 gap-5 mygrid lg:grid-cols-5 xl:grid-cols-5">
+            <div id="boucle" class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5">
 
             </div>
 
@@ -543,7 +543,7 @@
                         <a  href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
                             <img alt="Art" src="storage/uploads/thumbnails/masterplans/${item.image}"alt=""
                                 onerror="this.src='storage/uploads/masterplans/${item.image}'" class="object-cover  h-full saturate-120 max-h-[480px]" />
-                                <div class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">${item.size}</div>
+                                <div class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50">${item.size}</div>
                             <div class="">
                                 <h3 class="mx-2 mt-1 text-sm font-bold truncate">
                                     ${item.title}</h3>
