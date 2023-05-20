@@ -1,11 +1,12 @@
-<div class="flex justify-center items-center">
+<div class="flex items-center justify-center">
     <div class="my-12">
-        <p class="text-2xl font-semibold text-center">Log in or sign up</p><br>
-        <p class="text-2xl font-semibold text-center">to continue exploring Masterplans</p>
+        <span class="flex items-center justify-center text-2xl font-semibold">Log in or sign up</span>
+        <span class="flex items-center justify-center text-2xl pt-1 font-semibold">to continue exploring
+            Masterplans</span>
 
-        <div class="flex flex-col justify-center items-center mt-8">
+        <div class="flex flex-col items-center justify-center mt-8">
             <a type="button" href="{{ url('redirect/google') }}"
-                class="px-32 py-2 flex gap-2 rounded text-gray-500 transition-all border-gray-200 border-2 hover:bg-gray-200 outline-2 focus:ring-2 outline-gray-300">
+                class="flex gap-2 px-32 py-2 text-gray-500 transition-all border-2 border-gray-200 rounded hover:bg-gray-200 outline-2 focus:ring-2 outline-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px" height="25px">
                     <path fill="#FFC107"
                         d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" />
@@ -48,29 +49,29 @@
             </div>
         </div>
 
-        <div class="flex gap-3 mt-8 justify-center items-center">
+        <div class="flex items-center justify-center gap-3 mt-8">
             <hr class="w-44"> <span class="text-2xl font-semibold text-center">or</span>
             <hr class="w-44">
         </div>
 
-        <div class=" my-6 flex flex-col">
+        <div class="flex flex-col my-6 ">
             <form action="{{ url('user/login') }}" method="POST">
                 @csrf
 
                 <div class="flex flex-col gap-2">
                     <div class="flex flex-col">
                         <label for="">Email</label>
-                        <input type="email" name="email" class="px-2 py-2 border-gray-200 border-2 rounded "
+                        <input type="email" name="email" class="px-2 py-2 border-2 border-gray-200 rounded "
                             required />
                     </div>
                     <div class="flex flex-col">
                         <label for="">Password</label>
-                        <input type="password" name="password" class="px-2 py-2 border-gray-200 border-2 rounded "
+                        <input type="password" name="password" class="px-2 py-2 border-2 border-gray-200 rounded "
                             required />
                     </div>
 
                     <button
-                        class="px-32 py-2 rounded transition-all bg-black text-white border-gray-900 border-2 hover:bg-gray-900 outline-2 focus:ring-2 outline-gray-300">Continue
+                        class="px-32 py-2 text-white transition-all bg-gray-800 border-2 border-gray-900 rounded hover:bg-black outline-2 focus:ring-2 outline-gray-300">Continue
                         with
                         email</button>
                 </div>

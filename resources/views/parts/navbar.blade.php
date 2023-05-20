@@ -1,4 +1,4 @@
-<nav x-data="{ isOpen: false }" class="gap-6 py-3 px-6 lg:flex lg:justify-between lg:items-center">
+<nav x-data="{ isOpen: false }" class="gap-6 px-6 py-3 lg:flex lg:justify-between lg:items-center">
     <div class="flex items-center justify-between gap-6">
         <div>
             <a class="flex items-center text-2xl font-bold text-gray-700 lg:text-3xl hover:text-gray-400 " href="/">
@@ -10,13 +10,13 @@
 
 
         <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-        <div class="z-50 px-6 py-4flex items-center">
-            <div class="flex pb-4 space-y-0 gap-4 mt-20 md:mt-0 align-baseline mynav flex-row md:pb-0">
-                <a class="text-md text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
+        <div class="z-50 items-center px-6 py-4flex">
+            <div class="flex flex-row gap-4 pb-4 mt-20 space-y-0 align-baseline md:mt-0 mynav md:pb-0">
+                <a class="text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
                     href="/">&nbsp;Categories</a>
-                <a class="text-md text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
+                <a class="text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
                     href="/collections">&nbsp;Collections</a>
-                <a class="text-md text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
+                <a class="text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
                     href="/how-it-works">&nbsp;How it works</a>
             </div>
 
@@ -25,12 +25,12 @@
 
 
 
-    <div class="flex mt-8 lg:mt-0 relative" x-data="{ showSearch: false }">
-        <div class="mx-2 flex" x-show="showSearch">
+    <div class="relative flex mt-8 lg:mt-0" x-data="{ showSearch: false }">
+        <div class="flex mx-2" x-show="showSearch">
             <input type="text" name="search" id="" placeholder="Search"
-                class="py-2 w-64 px-1 border-2 rounded border-gray-200 outline-none outline-2 outline-gray-600">
+                class="w-64 px-1 py-2 border-2 border-gray-200 rounded outline-none outline-2 outline-gray-600">
         </div>
-        <div class="flex justify-center items-center gap-6">
+        <div class="flex items-center justify-center gap-6">
             <div class="flex" @click="showSearch=!showSearch">
                 <button class="" aria-label="toggle menu">
 
@@ -44,7 +44,7 @@
             </div>
 
             <a href=""
-                class="flex px-5 py-3 text-center font-normal text-white bg-black shadow-lg prevent group rounded-md hover:bg-gray-800 hover:scale-110 duration-300">
+                class="flex px-5 py-3 font-normal text-center text-white bg-gray-800 rounded shadow-lg hover:bg-black prevent group">
                 <span class="text-sm">Log in or sign up</span>
             </a>
             <!-- Mobile menu button -->
@@ -59,14 +59,14 @@
                 </button>
             </div>
             <div x-cloak x-show="isOpen"
-                class="absolute z-50 px-16 py-6 mt-52 transition-all duration-300 ease-in-out shadow-md bg-gray-50">
-                <div class="flex flex-col items-end justify-end  pb-4 space-y-4 align-baseline mynav">
-                    <a class="text-sm border-b font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
+                class="absolute z-50 px-16 py-6 transition-all duration-300 ease-in-out shadow-md mt-52 bg-gray-50">
+                <div class="flex flex-col items-end justify-end pb-4 space-y-4 align-baseline mynav">
+                    <a class="text-sm font-semibold text-gray-400 duration-300 border-b lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
                         href="/" @click="isOpen = false">&nbsp;Categories</a>
 
-                    <a class="text-sm border-b font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
+                    <a class="text-sm font-semibold text-gray-400 duration-300 border-b lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
                         href="/masterplans" @click="isOpen = false">&nbsp;Collections</a>
-                    <a class="text-sm border-b font-semibold text-gray-400 duration-300 lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
+                    <a class="text-sm font-semibold text-gray-400 duration-300 border-b lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
                         href="/streetscapes" @click="isOpen = false">&nbsp;How it works</a>
                 </div>
 
