@@ -25,6 +25,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Backpack\Settings\app\Models\Setting;
 use Carbon\Carbon;
 use App\Mail\MyMailsubmit;
+use App\Models\Collection;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification;
@@ -246,10 +247,12 @@ class GlobalController extends Controller
     public function neighbourhoods_post(Request $request)
     {
         $id = $request->id;
+        $nb = Neighbourhood::find($id);
         $neighbourhood = neighbourhood::all();
         $neighbourhoods = neighbourhood::where('id', '!=', null)->limit(4)
             ->inRandomOrder()
             ->get();
+        views($nb)->record();
         return view('neighbourhoods_post', compact('neighbourhood', 'neighbourhoods', 'id'));
     }
 
@@ -271,9 +274,14 @@ class GlobalController extends Controller
 
     public function streetscapes_post(Request $request)
     {
+
         $id = $request->id;
+        $st = Streetscape::find($id);
         $allstreetscapes = Streetscape::where('id', '!=', null)->limit(3)->inRandomOrder()->get();
         $streetscapes = Streetscape::all();
+
+        views($st)->record();
+
         return view('streetscapes_post', compact('streetscapes', 'allstreetscapes', 'id'));
     }
 
@@ -315,11 +323,14 @@ class GlobalController extends Controller
             ->inRandomOrder()
             ->get();
 
+        $streetscapes = Streetscape::where('country', $mas->country)->orWhere('city', $mas->city)->get();
+        $urbanscapes = Neighbourhood::where('country', $mas->country)->orWhere('city', $mas->city)->get();
+
 
         views($mas)->record();
 
 
-        return view('masterplans_post', compact('masterplan', 'masterplans', 'id'));
+        return view('masterplans_post', compact('masterplan', 'masterplans', 'streetscapes', 'urbanscapes', 'id'));
     }
 
     public function alldictionary()
@@ -517,6 +528,119 @@ class GlobalController extends Controller
         } else {
             \Alert::error('User with this email does not exist.')->flash();
             return redirect('/')->with('error', 'User with this email does not exist.');
+        }
+    }
+
+    public function saveCollection(Request $request)
+    {
+
+        $user = Auth::user();
+        if (!$user) {
+            return response()->json([
+                'status' => 'not_loggedin'
+            ]);
+        } else {
+            $collection_id = $_POST['id'];
+            $type = $_POST['type'];
+
+
+
+
+
+            switch ($type) {
+                case 'master':
+
+                    $master = Collection::create([
+                        'master_id' => $collection_id
+                    ]);
+                    return response()->json([
+                        'status' => 'yes',
+                        'id' => $master->id
+                    ]);
+
+
+                    break;
+                case 'street':
+                    $existing_street = Collection::where('street_id', $collection_id)->get();
+                    if ($existing_street) {
+                        return response()->json('yes');
+                    } else {
+                        Collection::create([
+                            'street_id' => $collection_id
+                        ]);
+                        return response()->json('no');
+                    }
+                    break;
+
+                case 'urban':
+                    $existing_urban = Collection::where('urban_id', $collection_id)->get();
+                    if ($existing_urban) {
+                        return response()->json('yes');
+                    } else {
+                        Collection::create([
+                            'urban_id' => $collection_id
+                        ]);
+                        return response()->json('no');
+                    }
+                    break;
+            }
+        }
+
+
+        // return response()->json('created');
+    }
+
+    public function checkCollection(Request $request)
+    {
+        $collection_id = $_POST['id'];
+        $type = $_POST['type'];
+
+        switch ($type) {
+            case 'master':
+                $existing_master = Collection::where('master_id', $collection_id)->get();
+                if (count($existing_master) > 0) {
+                    return response()->json([
+                        'status' => '<i class="fa fa-check" aria-hidden="true"></i>',
+                        'id' => $collection_id
+                    ]);
+                } else {
+                    return response()->json([
+                        'status' => '<i class="fa fa-plus" aria-hidden="true"></i>',
+                        'id' => $collection_id
+                    ]);
+                }
+                break;
+            case 'street':
+                $existing_street = Collection::where('street_id', $collection_id)->get();
+                if (count($existing_street) > 0) {
+                    return response()->json([
+                        'status' => '<i class="fa fa-check" aria-hidden="true"></i>',
+                        'id' => $collection_id
+                    ]);
+                } else {
+                    return response()->json([
+                        'status' => '<i class="fa fa-plus" aria-hidden="true"></i>',
+                        'id' => $collection_id
+                    ]);
+                }
+                break;
+
+
+            default:
+
+                $existing_street = Collection::where('urban_id', $collection_id)->get();
+                if (count($existing_street) > 0) {
+                    return response()->json([
+                        'status' => '<i class="fa fa-check" aria-hidden="true"></i>',
+                        'id' => $collection_id
+                    ]);
+                } else {
+                    return response()->json([
+                        'status' => '<i class="fa fa-plus" aria-hidden="true"></i>',
+                        'id' => $collection_id
+                    ]);
+                }
+                break;
         }
     }
 }

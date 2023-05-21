@@ -57,11 +57,11 @@
                             <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
 
                                 <a href="#"
-                                    class="flex px-5 py-3 my-2 text-center mt-2 font-normal text-white bg-black shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-800 hover:scale-110 duration-300">
+                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-white duration-300 bg-gray-800 rounded shadow-lg hover:bg-black prevent lg:ml-4 group ">
                                     <span class="text-sm">Log in or sign up</span>
                                 </a>
                                 <a href="#"
-                                    class="flex  px-5 py-3 my-2 text-center mt-2 font-normal text-black bg-white shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-100 hover:scale-110 duration-300">
+                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-black duration-300 bg-white border-2 rounded shadow-lg prevent lg:ml-4 group hover:bg-gray-100 ">
                                     <span class="text-sm">Learn more</span>
                                 </a>
 
@@ -123,11 +123,11 @@
                             <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
 
                                 <a href="#"
-                                    class="flex px-5 py-3 my-2 text-center mt-2 font-normal text-white bg-black shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-800 hover:scale-110 duration-300">
+                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-white duration-300 bg-gray-800 rounded shadow-lg hover:bg-black prevent lg:ml-4 group hover:scale-110">
                                     <span class="text-sm">Log in or sign up</span>
                                 </a>
                                 <a href="#"
-                                    class="flex  px-5 py-3 my-2 text-center mt-2 font-normal text-black bg-white shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-100 hover:scale-110 duration-300">
+                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-black duration-300 bg-white rounded shadow-lg prevent lg:ml-4 group hover:bg-gray-100 hover:scale-110">
                                     <span class="text-sm">Learn more</span>
                                 </a>
 
@@ -163,31 +163,34 @@
 
 <div class="relative z-50 ">
     <div id="mysearch" class="py-8 -mt-[104px] px-6 bg-white border-t">
-        <div class="flex flex-wrap flex-col gap-6 mx-4 md:mx-0" x-data="{ showFilter: false }">
-            <div class="flex justify-between items-center gap-8">
+        <div class="flex flex-col flex-wrap gap-6 mx-4 md:mx-0" x-data="{ showFilter: false }">
+            <div class="flex items-center justify-between gap-8">
                 <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category" x-data="{ active: 'masterplan' }">
                     <button id="masterplans" name="category" value="Masterplans" @click="active='masterplan'">
                         <p id="masterbtn"
-                            class="px-4 py-2 text-md font-medium  rounded-md hover:bg-gray-200 active:bg-gray-300"
-                            :class="active == 'masterplan' ? 'bg-black text-white hover:bg-gray-800' : ''">
-                            Masterplans <a id="masternum" class="pl-2 border-l border-gray-400">
+                            class="px-4 py-2 font-[400] flex justify-between items-center rounded text-md  active:bg-gray-300"
+                            :class="active == 'masterplan' ? ' text-white bg-gray-800' : 'hover:bg-gray-200 bg-white'">
+                            <span>Masterplans</span><span class="pl-2 pr-1 font-thin">|</span> <a id="masternum"
+                                class="border-gray-400">
                                 &nbsp;{{ $masternum }}</a>
                         </p>
                     </button>
                     <button id="streetscapes" name="category" value="Streetscapes" @click="active='streetscapes'">
                         <p id="streetbtn"
-                            class="px-4 py-2 text-md font-medium  rounded-md hover:bg-gray-200 active:bg-gray-300"
-                            :class="active == 'streetscapes' ? 'bg-black text-white hover:bg-gray-800' : ''">
-                            Streetscapes <a id="streetnum" class="pl-2 border-l border-gray-400">
+                            class="px-4 py-2 font-[400] flex justify-between items-center rounded text-md  active:bg-gray-300"
+                            :class="active == 'streetscapes' ? ' text-white bg-gray-800' : 'hover:bg-gray-200 bg-white'">
+                            <span>Streetscapes</span><span class="pl-2 pr-1 font-thin">|</span> <a id="streetnum"
+                                class="border-gray-400">
                                 &nbsp;{{ $streetnum }}</a>
                         </p>
                     </button>
                     <button id="urbanscapes" name="category" value="Neighbourhoods"
                         @click="active='neighbourhoods'">
                         <p id="urbanbtn"
-                            class="px-4 py-2 text-md font-medium rounded-md hover:bg-gray-200 active:bg-gray-300"
-                            :class="active == 'neighbourhoods' ? 'bg-black text-white hover:bg-gray-800' : ''">
-                            Urbanscapes <a id="urbannum" class="pl-2 border-l border-gray-400">
+                            class="px-4 py-2 font-[400] flex justify-between items-center rounded text-md  active:bg-gray-300"
+                            :class="active == 'neighbourhoods' ? ' text-white bg-gray-800' : 'hover:bg-gray-200 bg-white'">
+                            <span>Urbanscapes</span><span class="pl-2 pr-1 font-thin">|</span> <a id="urbannum"
+                                class="border-gray-400">
                                 &nbsp;{{ $urbannum }}</a>
                         </p>
                     </button>
@@ -195,7 +198,7 @@
                 <div class="flex gap-2">
 
                     <button @click="showFilter=true" x-show="!showFilter"
-                        class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
+                        class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -207,13 +210,13 @@
 
                     <div class="flex gap-2" x-show="showFilter">
                         <button @click="showFilter=false"
-                            class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
+                            class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                             <i class="fa fa-angle-up" aria-hidden="true"></i>
                             <span class="">Hide Filters</span>
                             <span class="p-0.5 rounded-full bg-black text-white w-6">5</span>
                         </button>
                         <button id="clear_all"
-                            class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
+                            class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                             <span>Clear All</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -231,7 +234,7 @@
                 <div class="block">
                     <label for="DeliveryStandard" class="flex justify-between text-sm">
                         <p class="pb-1 text-black">Tags</p>
-                        <button class="flex justify-center items-center cursor-pointer">
+                        <button class="flex items-center justify-center cursor-pointer">
                             <p class="pb-1 text-black">Clear</p>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mb-1 font-semibold">
@@ -306,7 +309,7 @@
                 <div class="block">
                     <label for="DeliveryStandard" class="flex justify-between text-sm">
                         <p class="pb-1 text-black">Size</p>
-                        <button class="flex justify-center items-center cursor-pointer">
+                        <button class="flex items-center justify-center cursor-pointer">
                             <p class="pb-1 text-black">Clear</p>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mb-1 font-semibold">
@@ -382,7 +385,7 @@
 
 
 
-            <div class="flex justify-between items-center gap-8">
+            <div class="flex items-center justify-between gap-8">
 
                 <div class="hidden pb-4 md:flex md:pb-0">
                     <span class="mt-2 mr-2">Sort by:</span>
@@ -399,16 +402,16 @@
                     Showing 10 items
                 </div>
 
-                <div class="py-4 md:flex md:py-0 md:mt-2 lg:mt-0 justify-between items-center">
+                <div class="items-center justify-between py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
                     <span class="mr-2">View by:</span>
                     <div class="flex gap-0">
                         <button id="change-layout" onclick="return false;"
-                            class="px-2 py-2 text-sm font-medium rounded-l border border-r-0 hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
+                            class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border border-r-0 rounded-l hover:bg-gray-200 active:bg-gray-300">
                             <i class="transition fa-solid fa-th-large fa-1x hover:text-gray-400"></i>Grid
                         </button>
 
                         <button id="change-layout3" onclick="return false;"
-                            class="px-2 py-2 text-sm font-medium rounded-tr-md rounded-br-md border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
+                            class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border rounded-tr-md rounded-br-md hover:bg-gray-200 active:bg-gray-300">
                             <i class="transition fa-solid fa-map fa-1x hover:text-gray-400"></i>Map
                         </button>
 
@@ -431,7 +434,7 @@
 
 
 <div data-barba="container">
-    <section class="block pb-8 px-6 tabset ">
+    <section class="block px-6 pb-8 tabset ">
         <div class="mx-auto ">
             <div id="boucle" class="grid grid-cols-5 gap-5 mygrid lg:grid-cols-5 xl:grid-cols-5">
 
@@ -518,9 +521,6 @@
                 }
                 if (view == "grid") {
                     $.each(itemsToDisplay, function(i, item) {
-
-                        console.log(item);
-
                         if (item.category == "Masterplans") {
 
                             btn1 = document.getElementById("masterbtn");
@@ -531,43 +531,46 @@
                             btn3.classList.remove("bg-black", "text-white");
 
 
+                            iconToShow(item.id, 'master');
 
-                            let html = `
-                            <div class="flex flex-col relative " x-data="{visibleBtn: false}">
-                            <div @mouseleave="visibleBtn=false">
-                                <div x-cloak x-show="visibleBtn">
-                <button class="bg-black py-2 hover:bg-black flex gap-2 justify-center shadow items-center absolute mt-2 w-52 rounded ml-[90px] text-white px-3 z-50"><i class="fa fa-plus" aria-hidden="true"></i><span>Save to Collection</span></button>
-                </div>
 
-                     <div @mouseenter="visibleBtn=true"   class="relative overflow-hidden transition-all border  hover:shadow-xl  shadow rounded-md saturate-120 animate__animated animate__backInLeft">
-                        <a  href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
+                            let html =
+                                `
+            <div class="relative flex flex-col " x-data="{visibleBtn: false}">
+                 <div @mouseleave="visibleBtn=false">
+                     <div x-cloak x-show="visibleBtn">
+                          <button onclick="saveCollection(${item.id}, 'master')"  class="bg-black py-2 hover:bg-black flex gap-2 justify-center shadow items-center absolute mt-2 w-38 rounded ml-[80px] text-white px-3 z-50">
+                            <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to Collection</span></button>
+                    </div>
+
+                    <div @mouseenter="visibleBtn=true" class="relative overflow-hidden transition-all border rounded-md shadow hover:shadow-xl saturate-120 animate__animated animate__backInLeft">
+                          <a  href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
                             <img alt="Art" src="storage/uploads/thumbnails/masterplans/${item.image}"alt=""
                                 onerror="this.src='storage/uploads/masterplans/${item.image}'" class="object-cover  h-full saturate-120 max-h-[480px]" />
                                 <div class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">${item.size}</div>
                             <div class="">
                                 <h3 class="mx-2 mt-1 text-sm font-bold truncate">
-                                    ${item.title}</h3>
-                                    <div class="max-w-sm  mx-2 mt-1 text-sm text-gray-500 truncate">
-                                      ${item.category} &nbsp;
+                                    ${item.title}
+
+                                </h3>
+                                <div class="max-w-sm mx-2 mt-1 text-sm text-gray-500 truncate">
+                                      ${item.author} &nbsp;
 
                                 </div>
 
-                            </div>
+                             </div>
 
-                            <div class="text-sm text-gray-500 flex justify-between items-center px-2 pb-2">
-                                <span>Copenhangen, Denmark</span>
-                                <div class="flex gap-2 items-center justify-center">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
+                    <div class="flex items-center justify-between px-2 pb-2 text-sm text-gray-500">
+                            <span> ${item.city},  ${item.country}</span>
+                            <div class="flex items-center justify-center gap-2">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
                             ${item.views}
-                            </div>
-                            </div>
-                        </a>
-
-                    </div>
-                    </div>
-                                </div>
-
-
+                        </div>
+                        </div>
+                    </a>
+                </div>
+                 </div>
+            </div>
                      `;
 
                             $('#boucle').append(html);
@@ -578,15 +581,24 @@
                             btn2.classList.remove("bg-black", "text-white");
                             btn3 = document.getElementById("urbanbtn");
                             btn3.classList.add("bg-black", "text-white");
+
+                            iconToShow(item.id, 'urban');
+
                             let html = `
-                     <div class="relative overflow-hidden transition border shadow-md bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInRight">
-                        <a href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
+                     <div class="relative overflow-hidden transition border shadow-sm rounded  saturate-120 animate__animated animate__backInRight hover:opacity-75 hover:shadow-xl hover:border-black"  x-data="{visibleBtn: false}">
+                        <div @mouseleave="visibleBtn=false">
+                     <div x-cloak x-show="visibleBtn">
+                          <button onclick="saveCollection(${item.id}, 'urban')"  class="bg-black py-2 hover:bg-black flex gap-2 justify-center shadow items-center absolute mt-2 w-38 rounded ml-[80px] text-white px-3 z-50">
+                            <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to Collection</span></button>
+                    </div>
+
+                        <a  @mouseenter="visibleBtn=true" href="urbanscapes_post?id=${item.id}" class="flex flex-col  h-full duration-300">
                             <img alt="Art" src="storage/uploads/thumbnails/urbanscapes/${item.imagea}"alt=""
                               onerror="this.src='storage/uploads/urbanscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
-
+                              <div class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">${item.size}</div>
                             <div class="">
                                 <h3 class="mx-4 mt-2 text-sm font-bold text-center truncate">
-                                    ${item.title} | ${item.author} | ${item.city}</h3>
+                                    ${item.title}</h3>
                                 <p class="max-w-sm pb-2 mx-6 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
                                       ${item.category} &nbsp;
                                           ${item.tags.map(tag => `${tag}`).join(' &nbsp;')}
@@ -605,20 +617,34 @@
                             btn3.classList.remove("bg-black", "text-white");
                             thegrid = document.getElementById("boucle");
                             thegrid.classList.remove("xl:grid-cols-5");
+
+                            iconToShow(item.id, 'street');
+
                             let html = `
                     <div
-                        class="relative col-span-3 overflow-hidden transition border shadow-md md:col-span-2 element1 bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInUp">
-                        <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
+                        class="relative overflow-hidden transition border col-span-2 rounded-md shadow-sm  element1 hover:border-black saturate-120 animate__animated animate__backInUp"  x-data="{visibleBtn: false}">
+                        <div @mouseleave="visibleBtn=false">
+                     <div x-cloak x-show="visibleBtn">
+                          <button onclick="saveCollection(${item.id}, 'street')"  class="bg-black py-2 hover:bg-black flex gap-2 justify-center shadow items-center absolute mt-2 w-38 rounded ml-[490px] text-white px-3 z-50">
+                            <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to Collection</span></button>
+                    </div>
+                        <a  @mouseenter="visibleBtn=true" href="streetscapes_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-50">
                             <img alt="Art" src="storage/uploads/thumbnails/streetscapes/${item.imagea}"alt=""
                                 onerror="this.src='storage/uploads/streetscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
+                                <div class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">${item.size}</div>
+                            <div class="flex items-center justify-between px-3">
+                                <h3 class="mt-4 text-sm font-semibold text-left text-gray-600">
+                                    ${item.title}</h3>
+                                    </div>
+                                    <div class="flex items-center justify-between px-3 pt-0.5 pb-1">
 
-                            <div class="">
-                                <h3 class="mt-4 font-bold text-center text-gray-900 uppercase ">
-                                    ${item.title} | ${item.author} | ${item.city}</h3>
-                                <p class="pb-2 mx-6 mt-1 mb-2 text-xs text-center text-gray-700 truncate ">
-                                    ${item.category} &nbsp;
-                                           ${item.tags.map(tag => `${tag}`).join(' &nbsp;')}
+                                <p class="text-sm text-left text-gray-500 truncate font-regular">
+                                   ${item.address}, ${item.city}, ${item.country}
                                 </p>
+                                <div class="flex items-end justify-end gap-2 text-xs text-gray-500">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                            ${item.views}
+                        </div>
 
                             </div>
                         </a>
@@ -900,6 +926,50 @@
     //     multiple: false
     // });
 
+    function saveCollection(id, type) {
+        $.ajax({
+            url: '{{ route('save.collection') }}',
+            type: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                id: id,
+                type: type
+            },
+            success: function(response) {
+
+                if (response.status == 'yes') {
+                    document.getElementById('card' + id).innerHTML =
+                        '<i class="fa fa-check" aria-hidden="true"></i>';
+                } else {
+                    alert('Please login first!');
+                }
+
+            }
+        })
+
+
+    }
+
+    function iconToShow(id, type) {
+
+        $.ajax({
+            url: '{{ route('check.collection') }}',
+            type: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                id: id,
+                type: type,
+            },
+            success: function(response) {
+
+                document.getElementById('card' + response.id).innerHTML = response.status;
+
+            }
+        })
+    }
+
+
+
 
     const multiSelect = document.querySelector("#tags_selector");
     const multiSelectInstance = te.Select.getInstance(multiSelect);
@@ -1032,9 +1102,7 @@
                     );
                     amarkers[mydata.id] = markera;
                 }
-
             })
-
     });
 </script>
 <style>

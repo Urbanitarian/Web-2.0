@@ -32,7 +32,19 @@ class DataController extends Controller
                         $query->where('title', 'like', '%' . $request->input('q') . '%')
                             ->orWhere('city', 'like', '%' . $request->input('q') . '%')
                             ->orWhere('country', 'like', '%' . $request->input('q') . '%');
-                    })->get();
+                    })->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'image' => $i->image,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags
+                        ];
+                    })->toArray();
             }
             if ($cat == 'streetscapes') {
                 $all_data = Streetscape::where('active', 1)
@@ -61,6 +73,7 @@ class DataController extends Controller
                     'title' => $i->title,
                     'author' => $i->author,
                     'city' => $i->city,
+                    'country' => $i->country,
                     'image' => $i->image,
                     'id' => $i->id,
                     'category' => $i->category,
@@ -71,7 +84,21 @@ class DataController extends Controller
         }
         if ($category == 'streetscapes') {
             $streets = Streetscape::where('active', 1)->get();
-            $all_data = $streets->toArray();
+            $all_data = $streets->map(function ($i) {
+                return [
+                    'views' => views($i)->count(),
+                    'title' => $i->title,
+                    'author' => $i->author,
+                    'city' => $i->city,
+                    'imagea' => $i->imagea,
+                    'country' => $i->country,
+                    'address' => $i->address,
+                    'id' => $i->id,
+                    'category' => $i->category,
+                    'size' => $i->size,
+                    'tags' => $i->tags
+                ];
+            })->toArray();
         }
         if ($category == 'urbanscapes') {
             $neighbs = Neighbourhood::where('active', 1)->get();
@@ -83,7 +110,19 @@ class DataController extends Controller
             if ($category == 'masterplans') {
                 $all_data = Masterplan::where('active', 1)
                     ->where('tags', 'like', '%' . $tags . '%')
-                    ->get();
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'image' => $i->image,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags
+                        ];
+                    })->toArray();
             }
             if ($category == 'streetscapes') {
                 $all_data = Streetscape::where('active', 1)
@@ -93,14 +132,38 @@ class DataController extends Controller
             if ($category == 'urbanscapes') {
                 $all_data = Neighbourhood::where('active', 1)
                     ->where('tags', 'like', '%' . $tags . '%')
-                    ->get();
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'image' => $i->image,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags
+                        ];
+                    })->toArray();
             }
         }
         if ($request->filled('status')) {
             if ($category == 'masterplans') {
                 $all_data = Masterplan::where('active', 1)
                     ->where('status', 'like', '%' . $status . '%')
-                    ->get();
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'image' => $i->image,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags
+                        ];
+                    })->toArray();
             }
             if ($category == 'streetscapes') {
                 $all_data = Streetscape::where('active', 1)
@@ -118,7 +181,19 @@ class DataController extends Controller
             if ($category == 'masterplans') {
                 $all_data = Masterplan::where('active', 1)
                     ->where('size', '=', $size)
-                    ->get();
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'image' => $i->image,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags
+                        ];
+                    })->toArray();
             }
             if ($category == 'streetscapes') {
                 $all_data = Streetscape::where('active', 1)
@@ -136,7 +211,19 @@ class DataController extends Controller
             if ($category == 'masterplans') {
                 $all_data = Masterplan::where('active', 1)
                     ->where('city', '=', $city)
-                    ->get();
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'image' => $i->image,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags
+                        ];
+                    })->toArray();
             }
             if ($category == 'streetscapes') {
                 $all_data = Streetscape::where('active', 1)
@@ -154,7 +241,19 @@ class DataController extends Controller
             if ($category == 'masterplans') {
                 $all_data = Masterplan::where('active', 1)
                     ->where('country', '=', $country)
-                    ->get();
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'image' => $i->image,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags
+                        ];
+                    })->toArray();
             }
             if ($category == 'streetscapes') {
                 $all_data = Streetscape::where('active', 1)

@@ -51,6 +51,9 @@ Route::controller(GlobalController::class)->middleware('cache.headers:public;max
     Route::post('import', 'import');
     Route::get('submit_project', 'submit');
     Route::post('submit_project', 'submit_project');
+    Route::post('save_collection', 'saveCollection')->name('save.collection');
+    Route::post('check_collection', 'checkCollection')->name('check.collection');
+    Route::get('login', 'login');
 });
 
 
