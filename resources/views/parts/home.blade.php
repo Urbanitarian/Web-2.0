@@ -441,18 +441,45 @@
             </div>
 
         </div>
-        <div class="flex pt-10">
-            <button id="load_more" onclick="window.scrollTo(0, 400);"
-                class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:bg-gray-500 active:text-white peer-checked:text-white">
-                <p class="text-sm font-medium">Load More</p>
-            </button>
+        <div class="flex pt-8">
+            <button id="load_more" onclick="loadMore()"
+                class="flex px-4 py-2 mx-auto mt-4 mb-8 text-lg text-black  border-2 rounded focus:outline-none bg-gray-100 hover:bg-gray-400 transition-all">
+                Load More Masterplans</button>
+
         </div>
     </section>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
     integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
 <script>
-    const itemsPerPage = 15;
+    let itemsPerPage = 15;
+
+    $(document).ready(function() {
+        $('#boucle').loadMoreResults({
+            displayedItems: 15,
+            button: {
+                'class': 'hidden',
+
+            }
+
+        });
+    })
+
+    function loadMore() {
+        $(document).ready(function() {
+            $('#boucle').loadMoreResults({
+                showItems: 15,
+                button: {
+                    'class': 'hidden',
+
+                }
+            });
+        })
+
+        fetchAndRenderData(url);
+    }
+
+
     let category = "masterplans";
     let currentcategory = "";
     let currenturl = "";
@@ -471,25 +498,25 @@
     });
 
 
-    $("#next").click(function() {
-        $('#boucle').empty();
-        currentPage++;
-        if (currentPage > totalPages) {
-            currentPage = totalPages;
-        }
+    // $("#next").click(function() {
+    //     $('#boucle').empty();
+    //     currentPage++;
+    //     if (currentPage > totalPages) {
+    //         currentPage = totalPages;
+    //     }
 
-        fetchAndRenderData(url);
-    });
+    //     fetchAndRenderData(url);
+    // });
 
-    $("#prev").click(function() {
-        $('#boucle').empty();
-        currentPage--;
-        if (currentPage < 1) {
-            currentPage = 1;
-        }
+    // $("#prev").click(function() {
+    //     $('#boucle').empty();
+    //     currentPage--;
+    //     if (currentPage < 1) {
+    //         currentPage = 1;
+    //     }
 
-        fetchAndRenderData(url);
-    });
+    //     fetchAndRenderData(url);
+    // });
 
     const fetchAndRenderData = (url) => {
         console.log(currenturl);
@@ -497,13 +524,17 @@
             .then((res) => res.json())
             .then((out) => {
                 console.log(currentPage);
+
                 const obj = JSON.parse(JSON.stringify(out));
+
                 let textFromJSON = obj;
                 let num = textFromJSON.length;
                 totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
                 const startIndex = (currentPage - 1) * itemsPerPage;
                 const endIndex = startIndex + itemsPerPage;
                 const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
+
+                console.log(totalPages);
                 if (currentPage == totalPages) {
                     $('#next').hide();
                 } else {
