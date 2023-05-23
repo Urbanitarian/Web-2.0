@@ -6,7 +6,7 @@
 
             @forelse ($masterplan->where('id', $id) as $item)
                 <section>
-                    <div class="relative">
+                    <div class="relative" x-data="{ sideBar: true }">
                         <div class="flex justify-between items-center px-8 py-2 border-b">
                             <div class="flex gap-6 text-lg">
                                 <div class="text-gray-800">
@@ -58,7 +58,7 @@
                                         </svg>
                                         <span class="text-sm whitespace-nowrap">Save to Collection</span></button>
                                 </div>
-                                <div class="">
+                                <div class="cursor-pointer">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -76,18 +76,43 @@
 
 
                         <div class="grid grid-cols-12 border-t ">
-                            <div class="col-span-9" style="background: url({{ asset('img/grap.jpg') }}) repeat">
-                                <div class="relative w-full flex justify-center items-center py-20">
+                            <div class="col-span-9" :class="sideBar == false ? 'col-span-12' : 'col-span-9'"
+                                style="background: url({{ asset('img/grap.jpg') }}) repeat">
+                                <div class="relative w-full flex justify-between items-center py-20">
+                                    <div class="flex flex-col gap-3">
+                                        <div class="" onclick="zoomIn()">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                                            </svg>
+                                        </div>
+                                        <div class="" onclick="zoomOut()">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM13.5 10.5h-6" />
+                                            </svg>
+                                        </div>
+
+
+
+                                    </div>
                                     @php $image0 =  $item->image ?? null; @endphp
-                                    <img class="object-cover w-[536px] max-h-[758px] border saturate-120"
-                                        src="{{ asset('storage/uploads/masterplans/' . $image0) }}"alt=""
-                                        onerror="this.src='./img/empty.png'" />
-                                    <i class="absolute text-gray-600 fa-solid fa-expand top-5 right-5 fa-2x hover:text-gray-500 active:text-gray-700"
-                                        onclick="window.open('{{ asset('storage/uploads/masterplans/' . $image0) }}', 'Image', 'width=800,height=600')"></i>
+                                    <div class="">
+                                        <img id="img"
+                                            class="object-cover z-50 w-[536px] max-h-[758px] border saturate-120"
+                                            src="{{ asset('storage/uploads/masterplans/' . $image0) }}"alt=""
+                                            onerror="this.src='./img/empty.png'" />
+                                        <i class="absolute text-gray-600 fa-solid fa-expand top-5 right-5 fa-2x hover:text-gray-500 active:text-gray-700"
+                                            onclick="window.open('{{ asset('storage/uploads/masterplans/' . $image0) }}', 'Image', 'width=800,height=600')"></i>
+                                    </div>
+                                    <div class=""></div>
+
                                 </div>
 
                             </div>
-                            <div class="mx-2 shadow-lg md:mx-auto bg-white col-span-3 px-4 py-4">
+                            <div class="mx-2 shadow-lg md:mx-auto bg-white col-span-3 px-4 py-4" x-show="sideBar==true">
                                 <div class="flex justify-between">
                                     <span class="text-xl font-semibold">
                                         Details
@@ -267,10 +292,16 @@
 
 
     <div class="w-full border-t pt-8">
-        <div class="text-2xl font-semibold text-center text-gray-800">
+        {{-- <div class="text-2xl font-semibold text-center text-gray-800">
             Interactive Map
         </div>
         <div id="mastermap" class="mt-12 h-[550px] w-full">
+        </div> --}}
+
+        <div class="embed-container">
+            <iframe width="940" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                title="Map_Urbanitarian_World"
+                src="https://barcelonatech.maps.arcgis.com/apps/Embed/index.html?webmap=c23c1380f11f43a18d3385764132abc9&extent=12.5502,55.6396,12.677,55.6791&zoom=true&previewImage=false&scale=true&basemap_gallery=true&disable_scroll=true&theme=light"></iframe>
         </div>
     </div>
 
@@ -286,13 +317,13 @@
             loop: true,
             slidesPerView: 1,
             spaceBetween: 0,
-
+        
             breakpoints: {
                 640: {
                     slidesPerView: 2,
                     spaceBetween: 0,
                 },
-
+        
             },
         })">
             <div class="pt-8 flex justify-between items-center px-8">
@@ -379,13 +410,13 @@
             loop: true,
             slidesPerView: 1,
             spaceBetween: 0,
-
+        
             breakpoints: {
                 640: {
                     slidesPerView: 5,
                     spaceBetween: 0,
                 },
-
+        
             },
         })">
             <div class="pt-8 flex justify-between items-center px-8">
@@ -480,13 +511,13 @@
             loop: true,
             slidesPerView: 1,
             spaceBetween: 0,
-
+        
             breakpoints: {
                 640: {
                     slidesPerView: 5,
                     spaceBetween: 0,
                 },
-
+        
             },
         })">
             <div class="pt-8 flex justify-between items-center px-8 ">
@@ -682,6 +713,34 @@
             white-space: pre-line;
 
         }
+
+        .embed-container {
+            position: relative;
+            padding-bottom: 64%;
+            height: 0;
+            max-width: 100%;
+        }
+
+        .embed-container iframe,
+        .embed-container object,
+        .embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        small {
+            position: absolute;
+            z-index: 40;
+            bottom: 0;
+            margin-bottom: -15px;
+        }
+
+        .zoom {
+            transform: scale(1.3)
+        }
     </style>
     <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
         integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
@@ -743,6 +802,18 @@
             })
 
 
+        }
+
+        function zoomOut() {
+            var img = document.getElementById('img');
+
+            img.classList.remove('zoom');
+        }
+
+        function zoomIn() {
+            var img = document.getElementById('img');
+
+            img.classList.add('zoom');
         }
     </script>
 

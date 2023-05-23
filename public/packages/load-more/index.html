@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery loadMoreResults Plugin Examples</title>
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="lib/css/style.css" />
+    <style>
+    body { background-color:#fafafa; font-family:'Roboto';}
+    .container {
+  max-width: 1170px;
+  padding: 0 15px;
+  margin: 150px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="https://www.jqueryscript.net/loading/Load-More-Pagination-jQuery-loadMoreResults.html">Download This Plugin</a></li>
+<li><a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+	<div class="container">
+
+		<h1>jQuery loadMoreResults Plugin Examples</h1>
+
+		<div class="list1">
+			<h2>List 1</h2>
+			<div class="loadMore">
+				<div class="item"><img src="https://picsum.photos/420/800?image=656"></div>
+				<div class="item"><img src="https://picsum.photos/420/800?image=657"></div>
+				<div class="item"><img src="https://picsum.photos/420/800?image=667"></div>
+				<div class="item"><img src="https://picsum.photos/420/800?image=646"></div>
+				<div class="item"><img src="https://picsum.photos/420/800?image=665"></div>
+				<div class="item"><img src="https://picsum.photos/420/800?image=664"></div>
+				<div class="item"><img src="https://picsum.photos/420/800?image=663"></div>
+				<div class="item"><img src="https://picsum.photos/420/800?image=662"></div>
+				<div class="item"><img src="https://picsum.photos/420/800?image=661"></div>
+				<div class="item"><img src="https://picsum.photos/420/800?image=660"></div>
+			</div>
+		</div>
+
+		<div class="list2">
+			<h2>List 2</h2>
+			<ul class="loadMore">
+<li class="thumbnail"><img src="https://picsum.photos/420/800?image=656"></li>
+				<li class="thumbnail"><img src="https://picsum.photos/420/800?image=657"></li>
+				<li class="thumbnail"><img src="https://picsum.photos/420/800?image=667"></li>
+				<li class="thumbnail"><img src="https://picsum.photos/420/800?image=646"></li>
+				<li class="thumbnail"><img src="https://picsum.photos/420/800?image=665"></li>
+				<li class="thumbnail"><img src="https://picsum.photos/420/800?image=664"></li>
+				<li class="thumbnail"><img src="https://picsum.photos/420/800?image=663"></li>
+				<li class="thumbnail"><img src="https://picsum.photos/420/800?image=662"></li>
+				<li class="thumbnail"><img src="https://picsum.photos/420/800?image=661"></li>
+				<li class="thumbnail"><img src="https://picsum.photos/420/800?image=660"></li>
+			</ul>
+		</div>
+
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+	<script src="lib/js/loadMoreResults.js"></script>
+	<script type="text/javascript">
+		$('.list1 .loadMore').loadMoreResults();
+		$('.list2 .loadMore').loadMoreResults({
+			tag: {
+				name: 'li',
+				'class': 'thumbnail'
+			},
+			displayedItems: 5,
+			showItems: 2
+		});
+	</script>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
