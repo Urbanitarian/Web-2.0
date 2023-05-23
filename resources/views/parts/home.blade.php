@@ -399,7 +399,7 @@
                 </div>
 
                 <div class="text-gray-400">
-                    Showing 10 items
+                    Showing 15 items
                 </div>
 
                 <div class="items-center justify-between py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
@@ -442,14 +442,9 @@
 
         </div>
         <div class="flex pt-10">
-            <button id="prev" onclick="window.scrollTo(0, 400);"
+            <button id="load_more" onclick="window.scrollTo(0, 400);"
                 class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:bg-gray-500 active:text-white peer-checked:text-white">
-                <p class="text-sm font-medium">previous</p>
-            </button>
-
-            <button id="next" onclick="window.scrollTo(0, 400);"
-                class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:bg-gray-500 active:text-white peer-checked:text-white">
-                <p class="text-sm font-medium">Next</p>
+                <p class="text-sm font-medium">Load More</p>
             </button>
         </div>
     </section>
@@ -457,7 +452,7 @@
 <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
     integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
 <script>
-    const itemsPerPage = 10;
+    const itemsPerPage = 15;
     let category = "masterplans";
     let currentcategory = "";
     let currenturl = "";
@@ -536,15 +531,15 @@
 
                             let html =
                                 `
-            <div class="relative flex flex-col " x-data="{visibleBtn: false}">
-                 <div @mouseleave="visibleBtn=false">
-                     <div x-cloak x-show="visibleBtn">
+                        <div class="relative flex flex-col " x-data="{visibleBtn: false}">
+                        <div @mouseleave="visibleBtn=false">
+                       <div x-cloak x-show="visibleBtn">
                           <button onclick="saveCollection(${item.id}, 'master')"  class="bg-black py-2 hover:bg-black flex gap-2 justify-center shadow items-center absolute mt-2 w-38 rounded ml-[80px] text-white px-3 z-50">
                             <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to Collection</span></button>
-                    </div>
+                     </div>
 
-                    <div @mouseenter="visibleBtn=true" class="relative overflow-hidden transition-all border rounded-md shadow hover:shadow-xl saturate-120 animate__animated animate__backInLeft">
-                          <a  href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
+                     <div @mouseenter="visibleBtn=true" class="relative overflow-hidden transition-all border rounded-md shadow hover:shadow-xl saturate-120 animate__animated animate__backInLeft">
+                           <a  href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
                             <img alt="Art" src="storage/uploads/thumbnails/masterplans/${item.image}"alt=""
                                 onerror="this.src='storage/uploads/masterplans/${item.image}'" class="object-cover  h-full saturate-120 max-h-[480px]" />
                                 <div class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">${item.size}</div>
