@@ -324,7 +324,7 @@
 
                         <div class="pt-8 border-t">
 
-                            <div class="text-2xl font-semibold text-center text-gray-800 shadow-xl z-9 pb-4 relative">
+                            <div class="text-2xl font-semibold text-center text-gray-800 shadow-xl z-10 pb-4 relative">
                                 Interactive map
                             </div>
                             <div class="">

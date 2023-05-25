@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 101,
+            "activePatchIndex": 103,
             "patches": [
                 {
                     "date": 1684991989711,
@@ -412,6 +412,14 @@
                 {
                     "date": 1685011819454,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -324,9 +324,9 @@\n \n                         <div class=\"pt-8 border-t\">\n \n                             <div class=\"text-2xl  font-semibold text-center text-gray-800\">\n-                                Interactive Map\n+                                Interactive map\n                             </div>\n                             <div class=\"py-4\">\n                                 <div class=\"h-[675px] w-full border-b\">\n                                     {{-- <div id=\"mastermap\" class=\"mt-12 h-[550px] w-full\"></div> --}}\n"
+                },
+                {
+                    "date": 1685012653045,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -323,12 +323,12 @@\n                         </div>\n \n                         <div class=\"pt-8 border-t\">\n \n-                            <div class=\"text-2xl  font-semibold text-center text-gray-800\">\n+                            <div class=\"text-2xl font-semibold text-center text-gray-800 shadow-xl z-100 pb-4 relative\">\n                                 Interactive map\n                             </div>\n-                            <div class=\"py-4\">\n+                            <div class=\"\">\n                                 <div class=\"h-[675px] w-full border-b\">\n                                     {{-- <div id=\"mastermap\" class=\"mt-12 h-[550px] w-full\"></div> --}}\n     \n                                     <iframe height=\"100%\" width=\"100%\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"\n"
+                },
+                {
+                    "date": 1685012686977,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -323,9 +323,9 @@\n                         </div>\n \n                         <div class=\"pt-8 border-t\">\n \n-                            <div class=\"text-2xl font-semibold text-center text-gray-800 shadow-xl z-100 pb-4 relative\">\n+                            <div class=\"text-2xl font-semibold text-center text-gray-800 shadow-xl z-9 pb-4 relative\">\n                                 Interactive map\n                             </div>\n                             <div class=\"\">\n                                 <div class=\"h-[675px] w-full border-b\">\n"
                 }
             ],
             "date": 1684991989711,
