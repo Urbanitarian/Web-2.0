@@ -51,7 +51,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="flex justify-center items-center flex-col pt-1">
+                                <div class="flex justify-center items-center flex-col pt-2">
                                     <span class="text-3xl text-center font-semibold text-gray-800">
                                         {{ $item->title }}
                                     </span>
@@ -64,16 +64,16 @@
                                     </div>
     
                                 </div>
-                                <div class="flex justify-center items-center gap-4">
+                                <div class="flex justify-center items-center gap-6">
                                     <div class="">
                                         <button onclick="saveCollection({{ $item->id }}, 'master')"
-                                            class="hover:bg-gray-800 font-semibold py-2 bg-gray-700 flex gap-2 justify-center shadow items-center w-38 rounded  text-white px-4 z-50">
+                                            class="hover:bg-gray-800 font-semibold py-2 bg-gray-700 flex gap-2 justify-center shadow items-center w-38 rounded  text-white px-3 z-50">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="2.3" stroke="currentColor" class="w-6 h-6">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                     d="M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
                                             </svg>
-                                            <span class="text-sm whitespace-nowrap">Save to collection</span></button>
+                                            <span class="text-sm whitespace-nowrap">Save to Collection</span></button>
                                     </div>
                                     <div class="cursor-pointer">
                                         <svg width="20" height="21" viewBox="0 0 5 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -164,7 +164,7 @@
 
                                 {{-- tags --}}
 
-                                <div class="mt-6">
+                                <div class="mt-4">
                                     <span class="font-semibold text-base text-gray-600">Tags</span>
                                     <div class="flex flex-wrap gap-2 mt-3 text-gray-700">
 
@@ -187,29 +187,29 @@
 
                                 {{-- data info --}}
 
-                                <div class="flex flex-col mt-6">
-                                    <span class="font-semibold text-base text-gray-600 mb-3">Data Info</span>
+                                <div class="flex flex-col mt-4">
+                                    <span class="font-semibold text-base text-gray-600 mb-2">Data Info</span>
 
                                     <div class="flex flex-col w-full text-gray-700">
-                                        <div class="flex gap-3 border-b py-1 items-center">
+                                        <div class="flex gap-3 border-b py-2">
                                             <span class="w-20 text-xs font-semibold"> Author</span>
                                             <span class="text-xs font-regular"> {{ $item->author }}</span>
                                         </div>
-                                        <div class="flex gap-3 border-b py-1 items-center">
+                                        <div class="flex gap-3 border-b py-2">
                                             <span class="w-20 text-xs font-semibold">City</span>
                                             <span class="text-xs font-regular"> {{ $item->city }}</span>
                                         </div>
-                                        <div class="flex gap-3 border-b py-1 items-center">
+                                        <div class="flex gap-3 border-b py-2">
                                             <span class="w-20 text-xs font-semibold"> Country</span>
                                             <span class="text-xs font-regular">{{ $item->country }}</span>
                                         </div>
 
-                                        <div class="flex gap-3 border-b py-1 items-center">
+                                        <div class="flex gap-3 border-b py-2">
                                             <span class="w-20 text-xs font-semibold"> Year</span>
                                             <span class="text-xs font-regular">{{ $item->year }}</span>
                                         </div>
 
-                                        <div class="flex gap-3 border-b py-1 items-center">
+                                        <div class="flex gap-3 border-b py-2">
                                             <span class="w-20 text-xs font-semibold">Program </span>
                                             <span class="text-xs font-regular"> {{ $item->program }}</span>
                                         </div>
@@ -217,27 +217,27 @@
 
                                     {{-- techincal info --}}
 
-                                    <div class="flex flex-col mt-6">
-                                        <span class="font-semibold text-base text-gray-600 mb-3">Technical Info</span>
+                                    <div class="flex flex-col mt-4">
+                                        <span class="font-semibold text-base text-gray-600 mb-2">Technical Info</span>
                                         <div class="flex flex-col w-full text-gray-700">
-                                            <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                            <div class="flex gap-3 justify-between border-b py-2">
                                                 <span class="text-xs font-semibold"> Site area </span>
                                                 <span class="text-xs font-regular "> {{ $item->area }}<span
                                                         class="text-sm font-regular text-gray-500"> sqm</span></span>
                                             </div>
-                                            <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                            <div class="flex gap-3 justify-between border-b py-2">
                                                 <span class="text-xs font-semibold">Gfa</span>
                                                 <span class="text-xs font-regular text-gray-500">
                                                     {{ $item->gfa }}<span class="text-sm font-regular text-gray-500 ">
                                                         sqm</span></span>
                                             </div>
-                                            <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                            <div class="flex gap-3 justify-between border-b py-2">
                                                 <span class="text-xs font-semibold"> Density</span>
                                                 <span class="text-xs font-regular text-gray-500">{{ $item->density }}<span
                                                         class="text-sm font-regular text-gray-500"> far</span></span>
                                             </div>
 
-                                            <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                            <div class="flex gap-3 justify-between border-b py-2">
                                                 <span class="text-xs font-semibold"> Population density</span>
                                                 <span
                                                     class="text-xs font-regular text-gray-500">{{ $item->popdensity }}<span
@@ -245,13 +245,13 @@
                                                         inh/ha</span></span>
                                             </div>
 
-                                            <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                            <div class="flex gap-3 justify-between border-b py-2">
                                                 <span class="text-xs font-regular">Home Units: </span>
                                                 <span class="text-xs font-regular text-gray-500">
                                                     {{ $item->homeunit }}<span
                                                         class="text-sm font-regular text-gray-500"></span></span>
                                             </div>
-                                            <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                            <div class="flex gap-3 justify-between border-b py-2">
                                                 <span class="text-xs font-regular">Jobs </span>
                                                 <span class="text-xs font-regular text-gray-500">
                                                     {{ $item->jobs }}<span
@@ -259,39 +259,39 @@
                                             </div>
                                             <spannput type="hidden" name="id" value="">
 
-                                                <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                                <div class="flex gap-3 justify-between border-b py-2">
                                                     <span class="text-xs font-regular"> Streetsroad: </span>
                                                     <span class="text-xs font-regular text-gray-500">
                                                         {{ $item->streetroad }}<span
                                                             class="text-sm font-regular text-gray-500"> %</span></span>
                                                 </div>
-                                                <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                                <div class="flex gap-3 justify-between border-b py-2">
                                                     <span class="text-xs font-regular">Buildup:</span>
                                                     <span class="text-xs font-regular text-gray-500">
                                                         {{ $item->buildup }}<span
                                                             class="text-sm font-regular text-gray-500"> %</span></span>
                                                 </div>
-                                                <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                                <div class="flex gap-3 justify-between border-b py-2">
                                                     <span class="text-xs font-regular"> NonBuild-up:</span>
                                                     <span
                                                         class="text-xs font-regular text-gray-500">{{ $item->nonbuildup }}<span
                                                             class="text-sm font-regular text-gray-500"> %</span></span>
                                                 </div>
 
-                                                <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                                <div class="flex gap-3 justify-between border-b py-2">
                                                     <span class="text-xs font-regular"> Residential</span>
                                                     <span
                                                         class="text-xs font-regular text-gray-500">{{ $item->residential }}<span
                                                             class="text-sm font-regular text-gray-500"> %</span></span>
                                                 </div>
 
-                                                <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                                <div class="flex gap-3 justify-between border-b py-2">
                                                     <span class="text-xs font-regular">Business </span>
                                                     <span class="text-xs font-regular text-gray-500">
                                                         {{ $item->business }}<span
                                                             class="text-sm font-regular text-gray-500"> %</span></span>
                                                 </div>
-                                                <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                                <div class="flex gap-3 justify-between border-b py-2">
                                                     <span class="text-xs font-regular">Commercial </span>
                                                     <span class="text-xs font-regular text-gray-500">
                                                         {{ $item->commercial }}<span
@@ -310,7 +310,7 @@
                             </div>
                         </div>
 
-                        <div class="pt-8 border-t">
+                        <div class="pt-8 border-t -mt-4" style="z-index: 99999">
 
                             <div class="text-2xl  font-semibold text-center text-gray-800">
                                 Description
@@ -321,6 +321,8 @@
                                 </p>
                             </div>
                         </div>
+
+
 
                     </div>
         </div>

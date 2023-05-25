@@ -310,7 +310,7 @@
                             </div>
                         </div>
 
-                        <div class="pt-8 border-t">
+                        <div class="pt-8 border-t -mt-4" style="z-index: 99999">
 
                             <div class="text-2xl  font-semibold text-center text-gray-800">
                                 Description
