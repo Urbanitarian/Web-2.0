@@ -325,16 +325,14 @@
                         <div class="pt-8 border-t">
 
                             <div class="text-2xl  font-semibold text-center text-gray-800">
-                                Interactive map
+                                Interactive Map
                             </div>
-                            <div class="py-4">
-                                <div class="h-[675px] w-full border-b">
-                                    {{-- <div id="mastermap" class="mt-12 h-[550px] w-full"></div> --}}
-    
-                                    <iframe height="100%" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                                        title="Map_Urbanitarian_World"
-                                        src="https://barcelonatech.maps.arcgis.com/apps/Embed/index.html?webmap=c23c1380f11f43a18d3385764132abc9&extent=12.5502,55.6396,12.677,55.6791&zoom=true&previewImage=false&scale=true&basemap_gallery=true&disable_scroll=true&theme=light"></iframe>
-                                </div>
+                            <div class="embed-container py-4">
+                                {{-- <div id="mastermap" class="mt-12 h-[550px] w-full"></div> --}}
+
+                                <iframe width="940" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                                    title="Map_Urbanitarian_World"
+                                    src="https://barcelonatech.maps.arcgis.com/apps/Embed/index.html?webmap=c23c1380f11f43a18d3385764132abc9&extent=12.5502,55.6396,12.677,55.6791&zoom=true&previewImage=false&scale=true&basemap_gallery=true&disable_scroll=true&theme=light"></iframe>
                             </div>
                         </div>
 

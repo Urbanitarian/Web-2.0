@@ -325,10 +325,10 @@
                         <div class="pt-8 border-t">
 
                             <div class="text-2xl  font-semibold text-center text-gray-800">
-                                Interactive map
+                                Interactive Map
                             </div>
                             <div class="py-4">
-                                <div class="h-[675px] w-full border-b">
+                                <div class="h-[690px] w-full border-b">
                                     {{-- <div id="mastermap" class="mt-12 h-[550px] w-full"></div> --}}
     
                                     <iframe height="100%" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"

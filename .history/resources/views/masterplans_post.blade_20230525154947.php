@@ -325,7 +325,7 @@
                         <div class="pt-8 border-t">
 
                             <div class="text-2xl  font-semibold text-center text-gray-800">
-                                Interactive map
+                                Interactive Map
                             </div>
                             <div class="py-4">
                                 <div class="h-[675px] w-full border-b">
