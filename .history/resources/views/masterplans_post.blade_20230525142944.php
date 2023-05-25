@@ -164,7 +164,7 @@
 
                                 {{-- tags --}}
 
-                                <div class="mt-6">
+                                <div class="mt-4">
                                     <span class="font-semibold text-base text-gray-600">Tags</span>
                                     <div class="flex flex-wrap gap-2 mt-3 text-gray-700">
 
@@ -187,8 +187,8 @@
 
                                 {{-- data info --}}
 
-                                <div class="flex flex-col mt-6">
-                                    <span class="font-semibold text-base text-gray-600 mb-3">Data Info</span>
+                                <div class="flex flex-col mt-4">
+                                    <span class="font-semibold text-base text-gray-600 mb-2">Data Info</span>
 
                                     <div class="flex flex-col w-full text-gray-700">
                                         <div class="flex gap-3 border-b py-1 items-center">
@@ -217,8 +217,8 @@
 
                                     {{-- techincal info --}}
 
-                                    <div class="flex flex-col mt-6">
-                                        <span class="font-semibold text-base text-gray-600 mb-3">Technical Info</span>
+                                    <div class="flex flex-col mt-4">
+                                        <span class="font-semibold text-base text-gray-600 mb-2">Technical Info</span>
                                         <div class="flex flex-col w-full text-gray-700">
                                             <div class="flex gap-3 justify-between border-b py-1 items-center">
                                                 <span class="text-xs font-semibold"> Site area </span>
@@ -310,7 +310,7 @@
                             </div>
                         </div>
 
-                        <div class="pt-8 border-t">
+                        <div class="pt-8 border-t -mt-4" style="z-index: 99999">
 
                             <div class="text-2xl  font-semibold text-center text-gray-800">
                                 Description

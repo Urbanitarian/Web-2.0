@@ -1,0 +1,50 @@
+{
+    "sourceFile": "tailwind.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1684993291122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1684993299047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,11 @@\n         \"./resources/**/*.js\",\n         \"./resources/**/*.vue\",],\n     theme: {\n         extend: {\n-            \n+            colors: {\n+                'custom-hover-color': '#FF0000',\n+              },\n         },\n     },\n     plugins: [\n         require(\"tw-elements/dist/plugin.cjs\")\n"
+                },
+                {
+                    "date": 1684993319829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n         \"./resources/**/*.vue\",],\n     theme: {\n         extend: {\n             colors: {\n-                'custom-hover-color': '#FF0000',\n+                'text-gray-900': '#FF0000',\n               },\n         },\n     },\n     plugins: [\n"
+                },
+                {
+                    "date": 1684993326656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n         \"./resources/**/*.vue\",],\n     theme: {\n         extend: {\n             colors: {\n-                'text-gray-900': '#FF0000',\n+                'text-gray-900': '#111827',\n               },\n         },\n     },\n     plugins: [\n"
+                },
+                {
+                    "date": 1684993459020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,13 +4,9 @@\n         \"./resources/**/*.blade.php\",\n         \"./resources/**/*.js\",\n         \"./resources/**/*.vue\",],\n     theme: {\n-        extend: {\n-            colors: {\n-                'text-gray-900': '#111827',\n-              },\n-        },\n+        extend: {},\n     },\n     plugins: [\n         require(\"tw-elements/dist/plugin.cjs\")\n     ]\n"
+                },
+                {
+                    "date": 1684993794782,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,13 @@\n         \"./resources/**/*.blade.php\",\n         \"./resources/**/*.js\",\n         \"./resources/**/*.vue\",],\n     theme: {\n-        extend: {},\n+        extend: {\n+            colors: {\n+                'custom-hover-color': '#FF0000',\n+              },\n+        },\n     },\n     plugins: [\n         require(\"tw-elements/dist/plugin.cjs\")\n     ]\n"
+                },
+                {
+                    "date": 1684993810738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n         \"./resources/**/*.vue\",],\n     theme: {\n         extend: {\n             colors: {\n-                'custom-hover-color': '#FF0000',\n+                'text-gray-900': '#FF0000',\n               },\n         },\n     },\n     plugins: [\n"
+                },
+                {
+                    "date": 1684993821194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n         \"./resources/**/*.vue\",],\n     theme: {\n         extend: {\n             colors: {\n-                'text-gray-900': '#FF0000',\n+                'text-gray-900': '#111827',\n               },\n         },\n     },\n     plugins: [\n"
+                },
+                {
+                    "date": 1684993872628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,13 +4,9 @@\n         \"./resources/**/*.blade.php\",\n         \"./resources/**/*.js\",\n         \"./resources/**/*.vue\",],\n     theme: {\n-        extend: {\n-            colors: {\n-                'text-gray-900': '#111827',\n-              },\n-        },\n+        extend: {},\n     },\n     plugins: [\n         require(\"tw-elements/dist/plugin.cjs\")\n     ]\n"
+                }
+            ],
+            "date": 1684993291122,
+            "name": "Commit-0",
+            "content": "/** @type {import('tailwindcss').Config} */\nmodule.exports = {\n    content: [\n        \"./resources/**/*.blade.php\",\n        \"./resources/**/*.js\",\n        \"./resources/**/*.vue\",],\n    theme: {\n        extend: {\n            \n        },\n    },\n    plugins: [\n        require(\"tw-elements/dist/plugin.cjs\")\n    ]\n}\n"
+        }
+    ]
+}

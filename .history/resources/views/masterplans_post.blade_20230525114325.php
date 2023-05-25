@@ -7,91 +7,73 @@
             @forelse ($masterplan->where('id', $id) as $item)
                 <section>
                     <div class="relative" x-data="{ sideBar: true }">
-                        <div class="sticky top-0 bg-white z-10">
-                            <div class="flex justify-between items-center px-8 py-2 pt-2 border-b">
-                                <div class="flex gap-6 text-lg items-center">
-                                    <div class="text-gray-800">
-                                        <a href="{{ url('/') }}">
-                                            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M16.5 4.5L4.5 16.5" stroke="#1F2937" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M4.5 4.5L16.5 16.5" stroke="#1F2937" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </a>
-                                    </div>
-    
-                                    <div class="">
-                                        <svg width="2" height="25" viewBox="0 0 2 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 0.5V24.5" stroke="#D2D5DA"/>
-                                        </svg>
-                                    </div>
-                                    @php
-                                        // next id and previous id from masterplans table
-                                        $next_id = $masterplans->where('id', '>', $item->id)->min('id');
-                                        $prev_id = $masterplans->where('id', '<', $item->id)->max('id');
-                                    @endphp
-    
-    
-                                    <div class="text-gray-800 flex gap-5">
-                                        <a href="{{ route('masterplans_post', 'id=' . $prev_id) }}">
-                                            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.5 16.5L7.5 10.5L13.5 4.5" stroke="#1F2937" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </a>
-                                        <a href="{{ route('masterplans_post', 'id=' . $next_id) }}">
-                                            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g clip-path="url(#clip0_525_17010)">
-                                                <path d="M7.5 16.5L13.5 10.5L7.5 4.5" stroke="#1F2937" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
-                                                </g>
-                                                <defs>
-                                                <clipPath id="clip0_525_17010">
-                                                <rect width="20" height="20" fill="white" transform="translate(0 0.5)"/>
-                                                </clipPath>
-                                                </defs>
-                                            </svg>
-                                        </a>
-                                    </div>
+                        <div class="flex justify-between items-center px-8 py-2 border-b">
+                            <div class="flex gap-6 text-lg">
+                                <div class="text-gray-800">
+                                    <a href="{{ url('/') }}">
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </a>
                                 </div>
-                                <div class="flex justify-center items-center flex-col pt-1">
-                                    <span class="text-3xl text-center font-semibold text-gray-800">
-                                        {{ $item->title }}
-                                    </span>
-                                    <div class="mt-1 text-sm font-regular">
-                                        <span class="text-gray-400">by</span>
-                                        <span class="text-gray-800">{{ $item->author }} </span>
-                                        <span class="text-gray-400">in</span>
-                                        <span class="text-gray-800">{{ $item->city }}, </span>
-                                        <span class="text-gray-800">{{ $item->country }} </span>
-                                    </div>
-    
+
+                                <div class="">
+                                    <span class="text-gray-300">|<span>
                                 </div>
-                                <div class="flex justify-center items-center gap-4">
-                                    <div class="">
-                                        <button onclick="saveCollection({{ $item->id }}, 'master')"
-                                            class="hover:bg-gray-800 font-semibold py-2 bg-gray-700 flex gap-2 justify-center shadow items-center w-38 rounded  text-white px-4 z-50">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="2.3" stroke="currentColor" class="w-6 h-6">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
-                                            </svg>
-                                            <span class="text-sm whitespace-nowrap">Save to collection</span></button>
-                                    </div>
-                                    <div class="cursor-pointer">
-                                        <svg width="20" height="21" viewBox="0 0 5 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10.0001 11.3334C10.4603 11.3334 10.8334 10.9603 10.8334 10.5001C10.8334 10.0398 10.4603 9.66675 10.0001 9.66675C9.53984 9.66675 9.16675 10.0398 9.16675 10.5001C9.16675 10.9603 9.53984 11.3334 10.0001 11.3334Z" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M10.0001 5.49992C10.4603 5.49992 10.8334 5.12682 10.8334 4.66659C10.8334 4.20635 10.4603 3.83325 10.0001 3.83325C9.53984 3.83325 9.16675 4.20635 9.16675 4.66659C9.16675 5.12682 9.53984 5.49992 10.0001 5.49992Z" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M10.0001 17.1667C10.4603 17.1667 10.8334 16.7936 10.8334 16.3333C10.8334 15.8731 10.4603 15.5 10.0001 15.5C9.53984 15.5 9.16675 15.8731 9.16675 16.3333C9.16675 16.7936 9.53984 17.1667 10.0001 17.1667Z" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-    
-                                    </div>
-    
+                                @php
+                                    // next id and previous id from masterplans table
+                                    $next_id = $masterplans->where('id', '>', $item->id)->min('id');
+                                    $prev_id = $masterplans->where('id', '<', $item->id)->max('id');
+                                @endphp
+
+
+                                <div class="text-gray-800 flex gap-5">
+                                    <a href="{{ route('masterplans_post', 'id=' . $prev_id) }}">
+                                        <i class="fa fa-chevron-left cursor-pointer" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="{{ route('masterplans_post', 'id=' . $next_id) }}">
+                                        <i class="fa fa-chevron-right cursor-pointer" aria-hidden="true"></i>
+                                    </a>
                                 </div>
-    
-    
                             </div>
-    
-                            @include('parts.navbar2')
-    
+                            <div class="flex justify-center items-center flex-col">
+                                <span class="text-3xl text-center font-semibold text-gray-800">
+                                    {{ $item->title }}
+                                </span>
+                                <div class="mt-1">
+                                    <span class="text-gray-400">by</span>
+                                    <span class="text-gray-800">{{ $item->author }} </span>
+                                    <span class="text-gray-400">in</span>
+                                    <span class="text-gray-800">{{ $item->city }}, </span>
+                                    <span class="text-gray-800">{{ $item->country }} </span>
+                                </div>
+
+                            </div>
+                            <div class="flex justify-center items-center gap-6">
+                                <div class="">
+                                    <button onclick="saveCollection({{ $item->id }}, 'master')"
+                                        class="hover:bg-black py-2 bg-gray-800 flex gap-2 justify-center shadow items-center w-38 rounded  text-white px-3 z-50">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+                                        </svg>
+                                        <span class="text-sm whitespace-nowrap">Save to Collection</span></button>
+                                </div>
+                                <div class="cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 5 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+                                    </svg>
+
+                                </div>
+
+                            </div>
+
+
                         </div>
+
+                        @include('parts.navbar2')
+
 
                         <div class="grid grid-cols-12 border-t ">
                             <div class="" :class="sideBar == false ? 'col-span-12' : 'col-span-9'"
@@ -140,45 +122,33 @@
 
                             </div>
                             <div class="mx-2 border-b md:mx-auto bg-white col-span-3 px-4 py-4" x-show="sideBar==true">
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xl font-semibold text-gray-600">
+                                <div class="flex justify-between">
+                                    <span class="text-xl font-semibold">
                                         Details
                                     </span>
                                     <span class="text-xs font-regular text-gray-500">
-                                        <svg class="inline" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <g clip-path="url(#clip0_525_17945)">
-                                            <path d="M0.666748 8.00008C0.666748 8.00008 3.33341 2.66675 8.00008 2.66675C12.6667 2.66675 15.3334 8.00008 15.3334 8.00008C15.3334 8.00008 12.6667 13.3334 8.00008 13.3334C3.33341 13.3334 0.666748 8.00008 0.666748 8.00008Z" stroke="#6D7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M8 10C9.10457 10 10 9.10457 10 8C10 6.89543 9.10457 6 8 6C6.89543 6 6 6.89543 6 8C6 9.10457 6.89543 10 8 10Z" stroke="#6D7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </g>
-                                            <defs>
-                                            <clipPath id="clip0_525_17945">
-                                            <rect width="16" height="16" fill="white"/>
-                                            </clipPath>
-                                            </defs>
-                                        </svg>
-                                        &nbsp; Views:&nbsp;
+                                        <i class="fa fa-eye" aria-hidden="true"></i>&nbsp; Views:&nbsp;
                                         {{ views($item)->count() }}
                                     </span>
                                 </div>
 
-
                                 {{-- tags --}}
 
                                 <div class="mt-6">
-                                    <span class="font-semibold text-base text-gray-600">Tags</span>
-                                    <div class="flex flex-wrap gap-2 mt-3 text-gray-700">
+                                    <span class="font-semibold text-base">Tags</span>
+                                    <div class="flex flex-wrap">
 
                                         <button disabled
-                                            class="px-2 py-1 text-xs font-medium border rounded-md">
+                                            class="px-3 py-1 mx-1 my-2 text-xs font-medium tracking-wide border rounded-md">
                                             <a href="masterplans"> {{ $item->category }}</a>
                                         </button>
                                         <button disabled
-                                            class="px-2 py-1 text-xs font-medium border rounded-md">
+                                            class="px-3 py-1 mx-1 my-2 text-xs font-medium tracking-wide border rounded-md">
                                             {{ $item->size }}
                                         </button>
                                         @foreach ($item->tags as $tag)
                                             <button disabled
-                                                class="px-2 py-1 text-xs font-medium border rounded-md">
+                                                class="px-3 py-1 mx-1 my-2 text-xs font-medium tracking-wide border rounded-md">
                                                 {{ $tag }}
                                             </button>
                                         @endforeach
@@ -187,29 +157,29 @@
 
                                 {{-- data info --}}
 
-                                <div class="flex flex-col mt-6">
-                                    <span class="font-semibold text-base text-gray-600 mb-3">Data Info</span>
+                                <div class="flex flex-col">
+                                    <span class="font-semibold text-base pt-4">Data Info</span>
 
-                                    <div class="flex flex-col w-full text-gray-700">
-                                        <div class="flex gap-3 border-b py-1 items-center">
+                                    <div class="flex flex-col w-full text-gray-700 py-3">
+                                        <div class="flex gap-3 border-b py-2">
                                             <span class="w-20 text-xs font-semibold"> Author</span>
                                             <span class="text-xs font-regular"> {{ $item->author }}</span>
                                         </div>
-                                        <div class="flex gap-3 border-b py-1 items-center">
+                                        <div class="flex gap-3 border-b py-2">
                                             <span class="w-20 text-xs font-semibold">City</span>
                                             <span class="text-xs font-regular"> {{ $item->city }}</span>
                                         </div>
-                                        <div class="flex gap-3 border-b py-1 items-center">
+                                        <div class="flex gap-3 border-b py-2">
                                             <span class="w-20 text-xs font-semibold"> Country</span>
                                             <span class="text-xs font-regular">{{ $item->country }}</span>
                                         </div>
 
-                                        <div class="flex gap-3 border-b py-1 items-center">
+                                        <div class="flex gap-3 border-b py-2">
                                             <span class="w-20 text-xs font-semibold"> Year</span>
                                             <span class="text-xs font-regular">{{ $item->year }}</span>
                                         </div>
 
-                                        <div class="flex gap-3 border-b py-1 items-center">
+                                        <div class="flex gap-3 border-b py-2">
                                             <span class="w-20 text-xs font-semibold">Program </span>
                                             <span class="text-xs font-regular"> {{ $item->program }}</span>
                                         </div>
@@ -217,27 +187,27 @@
 
                                     {{-- techincal info --}}
 
-                                    <div class="flex flex-col mt-6">
-                                        <span class="font-semibold text-base text-gray-600 mb-3">Technical Info</span>
-                                        <div class="flex flex-col w-full text-gray-700">
-                                            <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                    <div class="flex flex-col">
+                                        <span class="font-semibold text-base">Technical Info</span>
+                                        <div class="flex flex-col w-full text-gray-700 py-2">
+                                            <div class="flex gap-3 justify-between border-b py-2">
                                                 <span class="text-xs font-semibold"> Site area </span>
                                                 <span class="text-xs font-regular "> {{ $item->area }}<span
                                                         class="text-sm font-regular text-gray-500"> sqm</span></span>
                                             </div>
-                                            <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                            <div class="flex gap-3 justify-between border-b py-2">
                                                 <span class="text-xs font-semibold">Gfa</span>
                                                 <span class="text-xs font-regular text-gray-500">
                                                     {{ $item->gfa }}<span class="text-sm font-regular text-gray-500 ">
                                                         sqm</span></span>
                                             </div>
-                                            <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                            <div class="flex gap-3 justify-between border-b py-2">
                                                 <span class="text-xs font-semibold"> Density</span>
                                                 <span class="text-xs font-regular text-gray-500">{{ $item->density }}<span
                                                         class="text-sm font-regular text-gray-500"> far</span></span>
                                             </div>
 
-                                            <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                            <div class="flex gap-3 justify-between border-b py-2">
                                                 <span class="text-xs font-semibold"> Population density</span>
                                                 <span
                                                     class="text-xs font-regular text-gray-500">{{ $item->popdensity }}<span
@@ -245,13 +215,13 @@
                                                         inh/ha</span></span>
                                             </div>
 
-                                            <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                            <div class="flex gap-3 justify-between border-b py-2">
                                                 <span class="text-xs font-regular">Home Units: </span>
                                                 <span class="text-xs font-regular text-gray-500">
                                                     {{ $item->homeunit }}<span
                                                         class="text-sm font-regular text-gray-500"></span></span>
                                             </div>
-                                            <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                            <div class="flex gap-3 justify-between border-b py-2">
                                                 <span class="text-xs font-regular">Jobs </span>
                                                 <span class="text-xs font-regular text-gray-500">
                                                     {{ $item->jobs }}<span
@@ -259,39 +229,39 @@
                                             </div>
                                             <spannput type="hidden" name="id" value="">
 
-                                                <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                                <div class="flex gap-3 justify-between border-b py-2">
                                                     <span class="text-xs font-regular"> Streetsroad: </span>
                                                     <span class="text-xs font-regular text-gray-500">
                                                         {{ $item->streetroad }}<span
                                                             class="text-sm font-regular text-gray-500"> %</span></span>
                                                 </div>
-                                                <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                                <div class="flex gap-3 justify-between border-b py-2">
                                                     <span class="text-xs font-regular">Buildup:</span>
                                                     <span class="text-xs font-regular text-gray-500">
                                                         {{ $item->buildup }}<span
                                                             class="text-sm font-regular text-gray-500"> %</span></span>
                                                 </div>
-                                                <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                                <div class="flex gap-3 justify-between border-b py-2">
                                                     <span class="text-xs font-regular"> NonBuild-up:</span>
                                                     <span
                                                         class="text-xs font-regular text-gray-500">{{ $item->nonbuildup }}<span
                                                             class="text-sm font-regular text-gray-500"> %</span></span>
                                                 </div>
 
-                                                <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                                <div class="flex gap-3 justify-between border-b py-2">
                                                     <span class="text-xs font-regular"> Residential</span>
                                                     <span
                                                         class="text-xs font-regular text-gray-500">{{ $item->residential }}<span
                                                             class="text-sm font-regular text-gray-500"> %</span></span>
                                                 </div>
 
-                                                <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                                <div class="flex gap-3 justify-between border-b py-2">
                                                     <span class="text-xs font-regular">Business </span>
                                                     <span class="text-xs font-regular text-gray-500">
                                                         {{ $item->business }}<span
                                                             class="text-sm font-regular text-gray-500"> %</span></span>
                                                 </div>
-                                                <div class="flex gap-3 justify-between border-b py-1 items-center">
+                                                <div class="flex gap-3 justify-between border-b py-2">
                                                     <span class="text-xs font-regular">Commercial </span>
                                                     <span class="text-xs font-regular text-gray-500">
                                                         {{ $item->commercial }}<span
@@ -310,23 +280,23 @@
                             </div>
                         </div>
 
-                        <div class="pt-8 border-t">
 
-                            <div class="text-2xl  font-semibold text-center text-gray-800">
-                                Description
-                            </div>
-                            <div class="px-8  py-4">
-                                <p class="text-gray-800 text-base font-normal tracking-wide">
-                                    {{ $item->description }}
-                                </p>
-                            </div>
-                        </div>
 
                     </div>
         </div>
     </div>
 
- 
+    <div class="pt-8 border-t -mt-4" style="z-index: 99999">
+
+        <div class="text-2xl  font-semibold text-center text-gray-800">
+            Description
+        </div>
+        <div class="px-8  py-4">
+            <p class="text-gray-800 text-base font-normal tracking-wide">
+                {{ $item->description }}
+            </p>
+        </div>
+    </div>
 
 
 
