@@ -443,12 +443,36 @@
         </div>
         <div class="flex pt-8">
             <button id="load_more" onclick="loadMore()"
-                class="flex px-4 py-2 mx-auto mt-4 mb-8 text-lg text-black  border-2 rounded focus:outline-none bg-gray-100 hover:bg-gray-400 transition-all">
+                class="flex px-4 py-2 mx-auto mt-4 mb-8 text-lg text-black transition-all bg-gray-100 border-2 rounded focus:outline-none hover:bg-gray-400">
                 Load More Masterplans</button>
 
         </div>
     </section>
 </div>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+<script>
+    var $juxtapose = $('.juxtapose');
+
+    $juxtapose.each(function(index, element) {
+        var $juxtaposeContainer = $juxtapose.parent();
+        var juxtaposeRatio;
+
+        $(window).on('load', function(event) {
+            juxtaposeRatio = $(element).outerHeight() / $(element).outerWidth();
+        });
+
+        $(window).on('resize', function(event) {
+            var newWidth = $juxtaposeContainer.outerWidth();
+            var newHeight = newWidth * juxtaposeRatio;
+            $(element).css({
+                width: newWidth,
+                height: newHeight
+            });
+        });
+
+    });
+</script>
 <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
     integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
 <script>
@@ -611,14 +635,14 @@
                             iconToShow(item.id, 'urban');
 
                             let html = `
-                     <div class="relative overflow-hidden transition border shadow-sm rounded  saturate-120 animate__animated animate__backInRight hover:opacity-75 hover:shadow-xl hover:border-black"  x-data="{visibleBtn: false}">
+                     <div class="relative overflow-hidden transition border rounded shadow-sm saturate-120 animate__animated animate__backInRight hover:opacity-75 hover:shadow-xl hover:border-black"  x-data="{visibleBtn: false}">
                         <div @mouseleave="visibleBtn=false">
                      <div x-cloak x-show="visibleBtn">
                           <button onclick="saveCollection(${item.id}, 'urban')"  class="bg-black py-2 hover:bg-black flex gap-2 justify-center shadow items-center absolute mt-2 w-38 rounded ml-[80px] text-white px-3 z-50">
                             <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to Collection</span></button>
                     </div>
 
-                        <a  @mouseenter="visibleBtn=true" href="urbanscapes_post?id=${item.id}" class="flex flex-col  h-full duration-300">
+                        <a  @mouseenter="visibleBtn=true" href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full duration-300">
                             <img alt="Art" src="storage/uploads/thumbnails/urbanscapes/${item.imagea}"alt=""
                               onerror="this.src='storage/uploads/urbanscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
                               <div class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">${item.size}</div>
@@ -648,15 +672,19 @@
 
                             let html = `
                     <div
-                        class="relative overflow-hidden transition border col-span-2 rounded-md shadow-sm  element1 hover:border-black saturate-120 animate__animated animate__backInUp"  x-data="{visibleBtn: false}">
+                        class="relative col-span-2 overflow-hidden transition border rounded-md shadow-sm element1 hover:border-black saturate-120 animate__animated animate__backInUp"  x-data="{visibleBtn: false}">
                         <div @mouseleave="visibleBtn=false">
                      <div x-cloak x-show="visibleBtn">
                           <button onclick="saveCollection(${item.id}, 'street')"  class="bg-black py-2 hover:bg-black flex gap-2 justify-center shadow items-center absolute mt-2 w-38 rounded ml-[490px] text-white px-3 z-50">
                             <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to Collection</span></button>
                     </div>
                         <a  @mouseenter="visibleBtn=true" href="streetscapes_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-50">
+                            <div class="juxtapose" style="height: 360px; width: 700px;">
                             <img alt="Art" src="storage/uploads/thumbnails/streetscapes/${item.imagea}"alt=""
                                 onerror="this.src='storage/uploads/streetscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
+                                <img alt="Art" src="storage/uploads/thumbnails/streetscapes/${item.imageb}"alt=""
+                                onerror="this.src='storage/uploads/streetscapes/${item.imageb}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
+                                </div>
                                 <div class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">${item.size}</div>
                             <div class="flex items-center justify-between px-3">
                                 <h3 class="mt-4 text-sm font-semibold text-left text-gray-600">
