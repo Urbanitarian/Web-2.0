@@ -42,11 +42,33 @@
 
                 </button>
             </div>
+            @if (session()->has('FRONT_USER_LOGIN'))
+                <div class="flex items-center justify-center gap-4">
+                    <a href=""
+                        class="flex items-center justify-center gap-1 px-3 py-2 font-normal text-center border rounded hover:bg-gray-300 prevent group">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                        </svg>
 
-            <a href=""
-                class="flex px-5 py-3 font-normal text-center text-white bg-gray-800 rounded shadow-lg hover:bg-black prevent group">
-                <span class="text-sm">Log in or sign up</span>
-            </a>
+                        <span class="text-gray-800 text-md">
+                            Request new Project
+                        </span>
+                    </a>
+                    <div class="flex items-center justify-center w-8 p-1 text-white uppercase bg-gray-400 rounded-full">
+
+                        {{ substr(session()->get('FRONT_USER_NAME'), 0, 2) }}
+
+                    </div>
+                </div>
+            @else
+                <a href="/login"
+                    class="flex px-5 py-3 font-normal text-center text-white bg-gray-800 rounded shadow-lg hover:bg-black prevent group">
+                    <span class="text-sm">Log in or sign up</span>
+                </a>
+            @endif
+
+
             <!-- Mobile menu button -->
             <div class="flex">
                 <button x-cloak @click="isOpen = !isOpen" type="button" class="" aria-label="toggle menu">
@@ -59,8 +81,8 @@
                 </button>
             </div>
             <div x-cloak x-show="isOpen"
-                class="absolute z-50 px-16 py-6 transition-all duration-300 ease-in-out shadow-md mt-52 bg-gray-50">
-                <div class="flex flex-col items-end justify-end pb-4 space-y-4 align-baseline mynav">
+                class="absolute z-50 px-16 py-6 transition-all duration-300 ease-in-out rounded shadow-md ml-36 mt-52 bg-gray-50">
+                <div class="flex flex-col pb-4 space-y-4 align-baseline mynav">
                     <a class="text-sm font-semibold text-gray-400 duration-300 border-b lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
                         href="/" @click="isOpen = false">&nbsp;Categories</a>
 

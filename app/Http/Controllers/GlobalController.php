@@ -34,6 +34,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
@@ -323,8 +324,12 @@ class GlobalController extends Controller
             ->inRandomOrder()
             ->get();
 
-        $streetscapes = Streetscape::where('country', $mas->country)->orWhere('city', $mas->city)->get();
-        $urbanscapes = Neighbourhood::where('country', $mas->country)->orWhere('city', $mas->city)->get();
+        $streetscapes = Streetscape::where('id', '!=', null)
+            ->inRandomOrder()
+            ->get();
+        $urbanscapes =  Neighbourhood::where('id', '!=', null)
+            ->inRandomOrder()
+            ->get();
 
 
         views($mas)->record();
@@ -519,11 +524,13 @@ class GlobalController extends Controller
 
     public function userLogin(Request $req)
     {
-        $user = User::where('email', $req->email)->orWhere('type', 'user')->get();
-
+        $user = User::where('email', $req->email)->orWhere('role', 'user')->first();
         if ($user) {
-            if ($user->password == $req->password) {
-                return view('index', compact('user'));
+            if (Hash::make($user->password == $req->password)) {
+                $req->session()->put('FRONT_USER_LOGIN', true);
+                $req->session()->put('FRONT_USER_ID', $user->id);
+                $req->session()->put('FRONT_USER_NAME', $user->name);
+                return redirect('/');
             }
         } else {
             \Alert::error('User with this email does not exist.')->flash();
@@ -533,12 +540,8 @@ class GlobalController extends Controller
 
     public function saveCollection(Request $request)
     {
-
-        $user = Auth::user();
-        if (!$user) {
-            return response()->json([
-                'status' => 'not_loggedin'
-            ]);
+        if (!session()->has('FRONT_USER_LOGIN')) {
+            return view('parts.login');
         } else {
             $collection_id = $_POST['id'];
             $type = $_POST['type'];
@@ -642,5 +645,10 @@ class GlobalController extends Controller
                 }
                 break;
         }
+    }
+
+    public function login()
+    {
+        return view('parts.login');
     }
 }

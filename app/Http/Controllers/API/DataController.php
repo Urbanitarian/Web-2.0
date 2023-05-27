@@ -91,6 +91,7 @@ class DataController extends Controller
                     'author' => $i->author,
                     'city' => $i->city,
                     'imagea' => $i->imagea,
+                    'imageb' => $i->imageb,
                     'country' => $i->country,
                     'address' => $i->address,
                     'id' => $i->id,
@@ -102,7 +103,22 @@ class DataController extends Controller
         }
         if ($category == 'urbanscapes') {
             $neighbs = Neighbourhood::where('active', 1)->get();
-            $all_data = $neighbs->toArray();
+            $all_data = $neighbs->map(function ($i) {
+                return [
+                    'views' => views($i)->count(),
+                    'title' => $i->title,
+                    'author' => $i->author,
+                    'city' => $i->city,
+                    'imagea' => $i->imagea,
+                    'imageb' => $i->imageb,
+                    'country' => $i->country,
+                    'address' => $i->address,
+                    'id' => $i->id,
+                    'category' => $i->category,
+                    'size' => $i->size,
+                    'tags' => $i->tags
+                ];
+            })->toArray();
         }
 
 
