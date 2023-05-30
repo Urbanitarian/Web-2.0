@@ -84,7 +84,11 @@
 
         </div>
 
-
+        <p class="text-xs tracking-wider text-center text-gray-400">
+            By continuing, you acknowledge that you have read and understood,<br> and agree to Urbanitarian <span
+                class="text-gray-800">Terms of Service</span> and <span class="text-gray-800">Privacy Policy</span>
+            .
+        </p>
 
     </div>
 </div>

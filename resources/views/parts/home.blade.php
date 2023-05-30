@@ -644,6 +644,7 @@
                             ${item.views}
                         </div>
                             </div>
+                            </div>
                         </a>
                     </div>
                      `;
