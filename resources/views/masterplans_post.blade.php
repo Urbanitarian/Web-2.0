@@ -659,17 +659,17 @@
                 <div class="flex items-center justify-center gap-4 my-8 swiper-wrapper">
                     @forelse ($masterplans as $master)
                         <div
-                            class="overflow-hidden transition-all bg-white border rounded-md shadow swiper-slide hover:shadow-xl saturate-120 animate__animated animate__backInLeft">
+                            class="overflow-hidden h-[438px] transition-all bg-white border rounded-md shadow swiper-slide hover:shadow-xl saturate-120 animate__animated animate__backInLeft">
                             <a href="masterplans_post?id={{ $master->id }}"
                                 class="flex flex-col h-full duration-300 hover:opacity-75">
                                 <img alt="Art"
                                     src="{{ 'storage/uploads/thumbnails/masterplans/' . $master->image }}"alt=""
-                                    class="object-cover  h-full saturate-120 max-h-[480px]" />
+                                    class="object-cover  h-full saturate-120 max-h-[350.24px]" />
                                 <div
                                     class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">
                                     {{ $master->size }}</div>
                                 <div class="">
-                                    <h3 class="mx-2 mt-1 text-sm font-bold truncate">
+                                    <h3 class="mx-2 text-sm font-bold truncate">
                                         {{ $master->title }}
 
                                     </h3>
