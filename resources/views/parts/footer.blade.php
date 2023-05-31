@@ -146,9 +146,17 @@
                                 <li>Association</li>
                             </ul>
                             <ul class="flex flex-col gap-4 text-base font-normal">
-                                <li>Twitter</li>
-                                <li>Instagram</li>
-                                <li>Linkedin</li>
+                                <li>
+                                    <a href=""> Twitter</a>
+
+                                </li>
+                                <li>
+                                    <a href="{{ $instagram_link }}"> Instagram</a>
+                                </li>
+                                <li>
+                                    <a href="{{ $linkedin_link }}"> Linkedin</a>
+
+                                </li>
                             </ul>
                         </div>
                     </div>

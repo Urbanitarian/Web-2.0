@@ -124,7 +124,7 @@
                                                     d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
                                             </svg> --}}
 
-                                            <svg width="28" height="28" viewBox="0 0 20 20" fill="none"
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z"
@@ -140,7 +140,7 @@
 
                                         </div>
                                         <div class="p-2" onclick="zoomOut()">
-                                            <svg width="28" height="28" viewBox="0 0 20 20" fill="none"
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z"
@@ -346,15 +346,26 @@
                             </div>
                         </div>
 
-                        <div class="container pt-8 mx-auto border-t">
+                        <div class="flex flex-col items-center justify-center pt-8 border-t ">
 
-                            <div class="text-2xl font-semibold text-center text-gray-800">
+                            <div class="text-2xl font-semibold text-gray-800">
                                 Description
                             </div>
-                            <div class="px-8 py-4">
-                                <p class="text-base font-normal tracking-wide text-gray-800">
-                                    {{ $item->description }}
-                                </p>
+                            <div class="flex items-center justify-center px-8 py-8">
+                                @php
+                                    
+                                    $des = str_replace('- ', '<li>', $item->description);
+                                    $des = str_replace('-', '<li>', $des);
+                                    $des = str_replace('.', '</li>', $des);
+                                    $des = str_replace("'", '', $des);
+                                    
+                                @endphp
+
+                                <ul
+                                    class="flex flex-col text-gray-800 w-[915px] justify-center items-start text-base list-disc">
+                                    {!! $des !!}
+                                </ul>
+
                             </div>
                         </div>
 
@@ -520,23 +531,35 @@
             <div class="swiper-container" x-ref="container">
                 <div class="flex items-center justify-center gap-4 my-8 swiper-wrapper">
                     @forelse ($urbanscapes as $urban)
-                        <div
-                            class="h-[500px] swiper-slide overflow-hidden transition border shadow-sm rounded  saturate-120 animate__animated animate__backInRight hover:opacity-75 hover:shadow-xl hover:border-black">
+                        <div class="h-[438px] swiper-slide slide-w overflow-hidden transition border shadow-sm rounded  saturate-120  hover:opacity-75 hover:shadow-xl hover:border-black"
+                            style="width: 260px">
 
                             <a href="urbanscapes_post?id={{ $urban->id }}" class="flex flex-col h-full duration-300">
                                 <img alt="Art"
                                     src="{{ asset('storage/uploads/thumbnails/urbanscapes/' . $urban->image) }}"alt=""
                                     class="object-cover h-full  saturate-120 max-h-[480px]" />
-                                <div
-                                    class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">
-                                    {{ $urban->size }}</div>
-                                <div class="">
-                                    <h3 class="mx-4 mt-2 text-sm font-bold text-center truncate">
-                                        {{ $urban->title }}</h3>
-                                    <p class="max-w-sm pb-2 mx-6 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
-                                        {{ $urban->category }}
-                                    </p>
+                                <div class="flex">
+                                    @foreach ($urban->tags as $tag)
+                                        <div
+                                            class="bg-white rounded text-sm font-medium p-0.5 whitespace-nowrap border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">
+                                            {{ $tag }}
+                                        </div>
+                                    @endforeach
                                 </div>
+
+                                <div class="">
+                                    <p class="mx-4 mt-2 text-sm font-bold">
+                                        {{ $urban->title }}
+                                    </p>
+                                    <div class="flex items-center justify-between px-2 pb-2 text-sm text-gray-500">
+                                        <span> {{ $urban->city }}, {{ $urban->country }}</span>
+                                        <div class="flex items-center justify-center gap-2">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                            {{ views($urban)->count() }}
+                                        </div>
+                                    </div>
+                                </div>
+
                             </a>
                         </div>
                     @empty
@@ -571,13 +594,27 @@
         </div>
 
         <div class="w-full py-8">
-            <div class="flex items-center justify-center">
+            <div class="flex items-center justify-start">
                 @php $credits = explode(',', $item->credits); @endphp
-                <ul class="flex flex-col text-base list-disc">
+                <ul class="flex flex-col gap-2 text-base list-disc px-80">
                     @foreach ($credits as $source)
-                        <li class="py-3">
-                            <a href="{{ $source }}" class="text-gray-800 truncate" target="_blank">
-                                {{ $source }}</a>
+                        <li class="py-2">
+                            <div class="flex gap-2">
+                                <a href="{{ $source }}" class="text-gray-800 truncate" target="_blank">
+                                    {{ $source }}</a>
+                                <svg class="w-[20px] h-[20px] border-gray-800" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11"
+                                        stroke="#1F2937" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M15 3H21V9" stroke="#1F2937" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M10 14L21 3" stroke="#1F2937" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+
                         </li>
                     @endforeach
                 </ul>
@@ -589,7 +626,7 @@
 
     {{-- masterplans --}}
 
-    <section class="bg-gray-200 border-t">
+    <section class="bg-gray-100 border-t">
         <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper($refs.container, {
             loop: true,
             slidesPerView: 1,
@@ -622,17 +659,17 @@
                 <div class="flex items-center justify-center gap-4 my-8 swiper-wrapper">
                     @forelse ($masterplans as $master)
                         <div
-                            class="overflow-hidden transition-all bg-white border rounded-md shadow swiper-slide hover:shadow-xl saturate-120 animate__animated animate__backInLeft">
+                            class="overflow-hidden h-[438px] transition-all bg-white border rounded-md shadow swiper-slide hover:shadow-xl saturate-120 animate__animated animate__backInLeft">
                             <a href="masterplans_post?id={{ $master->id }}"
                                 class="flex flex-col h-full duration-300 hover:opacity-75">
                                 <img alt="Art"
                                     src="{{ 'storage/uploads/thumbnails/masterplans/' . $master->image }}"alt=""
-                                    class="object-cover  h-full saturate-120 max-h-[480px]" />
+                                    class="object-cover  h-full saturate-120 max-h-[350.24px]" />
                                 <div
                                     class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">
-                                    {{ $item->size }}</div>
+                                    {{ $master->size }}</div>
                                 <div class="">
-                                    <h3 class="mx-2 mt-1 text-sm font-bold truncate">
+                                    <h3 class="mx-2 text-sm font-bold truncate">
                                         {{ $master->title }}
 
                                     </h3>
@@ -717,6 +754,10 @@
 
         .zoom {
             transform: scale(1.3)
+        }
+
+        .slide-w {
+            width: 260px;
         }
     </style>
     <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>

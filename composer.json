@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
@@ -40,12 +43,12 @@
             "pestopancake\\laravel-backpack-database-notifications\\src\\Http\\Controllers\\NotificationCrudController",
             "Backpack\\settings\\src\\app\\Http\\Controllers\\SettingCrudController"
         ],
-        "files": [ 
+        "files": [
             "overrides/Read.php",
             "overrides/BackpackProRequiredException.php",
             "overrides/NotificationCrudController.php",
             "overrides/SettingCrudController.php"
-        ], 
+        ],
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",

@@ -20,7 +20,7 @@
 @include('parts.webresources')
 @include('parts.toread')
 @include('parts.instagram') --}}
-@include('parts.login')
+@include('parts.headless-login')
 
 
 <script>

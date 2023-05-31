@@ -433,7 +433,7 @@
 
 
 
-<div data-barba="container">
+<div data-barba="container" class="">
     <section class="block px-6 pb-8 tabset ">
         <div class="mx-auto ">
             <div id="boucle" class="grid grid-cols-5 gap-5 mygrid lg:grid-cols-5 xl:grid-cols-5">
@@ -441,38 +441,17 @@
             </div>
 
         </div>
-        <div class="flex pt-8">
-            <button id="load_more" onclick="loadMore()"
-                class="flex px-4 py-2 mx-auto mt-4 mb-8 text-lg text-black transition-all bg-gray-100 border-2 rounded focus:outline-none hover:bg-gray-400">
-                Load More Masterplans</button>
+        @if (session()->has('FRONT_USER_LOGIN'))
+            <div class="flex pt-8">
+                <button id="load_more" onclick="loadMore()"
+                    class="flex px-2 py-2 mx-auto mt-4 mb-8 text-black transition-all bg-gray-100 border-2 rounded text-md focus:outline-none hover:bg-gray-400">
+                    Load More Masterplans</button>
 
-        </div>
+            </div>
+        @endif
     </section>
 </div>
-<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
-<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
-<script>
-    var $juxtapose = $('.juxtapose');
 
-    $juxtapose.each(function(index, element) {
-        var $juxtaposeContainer = $juxtapose.parent();
-        var juxtaposeRatio;
-
-        $(window).on('load', function(event) {
-            juxtaposeRatio = $(element).outerHeight() / $(element).outerWidth();
-        });
-
-        $(window).on('resize', function(event) {
-            var newWidth = $juxtaposeContainer.outerWidth();
-            var newHeight = newWidth * juxtaposeRatio;
-            $(element).css({
-                width: newWidth,
-                height: newHeight
-            });
-        });
-
-    });
-</script>
 <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
     integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
 <script>
@@ -541,6 +520,12 @@
 
     //     fetchAndRenderData(url);
     // });
+
+    function limitWords(str, limit) {
+        const words = str.split(' ');
+        const limitedWords = words.slice(0, limit);
+        return limitedWords.join(' ');
+    }
 
     const fetchAndRenderData = (url) => {
         console.log(currenturl);
@@ -644,15 +629,21 @@
 
                         <a  @mouseenter="visibleBtn=true" href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full duration-300">
                             <img alt="Art" src="storage/uploads/thumbnails/urbanscapes/${item.imagea}"alt=""
-                              onerror="this.src='storage/uploads/urbanscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
-                              <div class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">${item.size}</div>
+                              onerror="this.src='storage/uploads/urbanscapes/${item.imagea}'" class="object-cover saturate-120" style="height:480px" />
+                              <div class="flex">
+                             ${item.tags.map(tag =>  `<div class="bg-white rounded text-sm font-medium p-0.5 whitespace-nowrap border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">${tag}</div>`).join(' &nbsp;')}
+                             </div>
                             <div class="">
-                                <h3 class="mx-4 mt-2 text-sm font-bold text-center truncate">
-                                    ${item.title}</h3>
-                                <p class="max-w-sm pb-2 mx-6 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
-                                      ${item.category} &nbsp;
-                                          ${item.tags.map(tag => `${tag}`).join(' &nbsp;')}
+                                <p class="mx-4 mt-2 text-sm font-bold">
+                                    ${item.title}
                                 </p>
+                                <div class="flex items-center justify-between px-2 pb-2 text-sm text-gray-500">
+                            <span> ${item.city},  ${item.country}</span>
+                            <div class="flex items-center justify-center gap-2">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                            ${item.views}
+                        </div>
+                            </div>
                             </div>
                         </a>
                     </div>
@@ -682,8 +673,7 @@
                             <div class="juxtapose" style="height: 360px; width: 700px;">
                             <img alt="Art" src="storage/uploads/thumbnails/streetscapes/${item.imagea}"alt=""
                                 onerror="this.src='storage/uploads/streetscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
-                                <img alt="Art" src="storage/uploads/thumbnails/streetscapes/${item.imageb}"alt=""
-                                onerror="this.src='storage/uploads/streetscapes/${item.imageb}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
+
                                 </div>
                                 <div class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">${item.size}</div>
                             <div class="flex items-center justify-between px-3">
@@ -994,8 +984,9 @@
                 if (response.status == 'yes') {
                     document.getElementById('card' + id).innerHTML =
                         '<i class="fa fa-check" aria-hidden="true"></i>';
+                    alert('Added to Collection!');
                 } else {
-                    alert('Please login first!');
+                    window.location = "/login";
                 }
 
             }
@@ -1157,6 +1148,30 @@
                     amarkers[mydata.id] = markera;
                 }
             })
+    });
+</script>
+<script defer src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+<script>
+    var $juxtapose = $('.juxtapose');
+
+    $juxtapose.each(function(index, element) {
+        var $juxtaposeContainer = $juxtapose.parent();
+        var juxtaposeRatio;
+
+        $(window).on('load', function(event) {
+            juxtaposeRatio = $(element).outerHeight() / $(element).outerWidth();
+        });
+
+        $(window).on('resize', function(event) {
+            var newWidth = $juxtaposeContainer.outerWidth();
+            var newHeight = newWidth * juxtaposeRatio;
+            $(element).css({
+                width: newWidth,
+                height: newHeight
+            });
+        });
+
     });
 </script>
 <style>
