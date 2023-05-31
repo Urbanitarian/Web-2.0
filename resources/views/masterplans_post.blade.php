@@ -171,7 +171,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-span-3 px-4 py-4 mx-2 bg-white border-b md:mx-auto" x-show="sideBar==true">
+                            <div class="col-span-3 px-2 py-4 mx-2 bg-white border-b" x-show="sideBar==true">
                                 <div class="flex items-center justify-between">
                                     <span class="text-xl font-semibold text-gray-600">
                                         Details
@@ -399,14 +399,14 @@
     {{-- sreetscapes section --}}
 
     <section>
-        <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper($refs.container, {
+        <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper('.swiper-st', {
             loop: true,
             slidesPerView: 1,
             spaceBetween: 0,
-        
+            allowTouchMove: false,
             breakpoints: {
                 640: {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                     spaceBetween: 0,
                 },
         
@@ -431,16 +431,17 @@
             </div>
 
 
-            <div class="swiper-container" x-ref="container">
-                <div class="flex items-center justify-center gap-4 my-8 swiper-wrapper">
+            <div class="swiper-container swiper-st">
+                <div class=" my-8 swiper-wrapper h-[398px]">
 
 
                     @forelse ($streetscapes as $street)
-                        <div class="overflow-hidden transition border rounded-md shadow-sm swiper-slide w-72">
+                        <div class="overflow-hidden transition border rounded-md shadow-sm swiper-slide"
+                            style="width: 687px">
 
                             <div class="flex flex-col h-full duration-300">
 
-                                <div class="juxtapose" style="height: 360px; width: 700px;">
+                                <div class="juxtapose">
                                     <img alt="Art"
                                         src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $street->imagea) }}"alt=""
                                         class="object-cover h-full  saturate-120 max-h-[480px]" />
@@ -450,7 +451,7 @@
                                 </div>
 
                                 <div
-                                    class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">
+                                    class="bg-white absolute bottom-[68px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">
                                     {{ $street->size }}</div>
                                 <div class="flex items-center justify-between px-3">
                                     <h3 class="mt-4 text-sm font-semibold text-left text-gray-600">
@@ -497,14 +498,14 @@
     {{-- urbanscpaes --}}
 
     <section class="border-t">
-        <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper($refs.container, {
+        <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper('.swiper-ur', {
             loop: true,
             slidesPerView: 1,
             spaceBetween: 0,
         
             breakpoints: {
                 640: {
-                    slidesPerView: 5,
+                    slidesPerView: 1,
                     spaceBetween: 0,
                 },
         
@@ -528,10 +529,10 @@
                 </div>
             </div>
 
-            <div class="swiper-container" x-ref="container">
-                <div class="flex items-center justify-center gap-4 my-8 swiper-wrapper">
+            <div class="swiper-container swiper-ur">
+                <div class="my-8 swiper-wrapper">
                     @forelse ($urbanscapes as $urban)
-                        <div class="h-[438px] swiper-slide slide-w overflow-hidden transition border shadow-sm rounded  saturate-120  hover:opacity-75 hover:shadow-xl hover:border-black"
+                        {{-- <div class="h-[438px] relative swiper-slide slide-w overflow-hidden transition border shadow-sm rounded  saturate-120  hover:opacity-75 hover:shadow-xl hover:border-black"
                             style="width: 260px">
 
                             <a href="urbanscapes_post?id={{ $urban->id }}" class="flex flex-col h-full duration-300">
@@ -541,25 +542,57 @@
                                 <div class="flex">
                                     @foreach ($urban->tags as $tag)
                                         <div
-                                            class="bg-white rounded text-sm font-medium p-0.5 whitespace-nowrap border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">
+                                            class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">
                                             {{ $tag }}
                                         </div>
                                     @endforeach
                                 </div>
 
-                                <div class="">
-                                    <p class="mx-4 mt-2 text-sm font-bold">
+                                <div class="relative">
+                                    <p class="px-2 mt-2 text-sm font-bold">
                                         {{ $urban->title }}
                                     </p>
-                                    <div class="flex items-center justify-between px-2 pb-2 text-sm text-gray-500">
-                                        <span> {{ $urban->city }}, {{ $urban->country }}</span>
-                                        <div class="flex items-center justify-center gap-2">
+                                    <div
+                                        class="fixed flex items-center justify-between px-2 text-sm text-gray-500 bottom-2">
+                                        <span>{{ $urban->city }},{{ $urban->country }}</span>
+                                        <div class="flex items-center justify-center gap-2 ">
                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                             {{ views($urban)->count() }}
                                         </div>
                                     </div>
                                 </div>
 
+                            </a>
+                        </div> --}}
+                        <div
+                            class="relative swiper-slide h-[438px] overflow-hidden transition border rounded shadow-sm saturate-120 animate__animated animate__backInRight hover:opacity-75 hover:shadow-xl hover:border-black">
+
+                            <a href="urbanscapes_post?id={{ $urban->id }}" class="flex flex-col h-full duration-300">
+                                <img alt="Art"
+                                    src="{{ asset('storage/uploads/thumbnails/urbanscapes/' . $urban->image) }}"alt=""
+                                    class="object-cover saturate-120" style="height:332px" />
+                                <div class="flex gap-1  bottom-[110px] absolute ml-2 whitespace-nowrap">
+                                    @foreach ($urban->tags as $tag)
+                                        <div
+                                            class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">
+                                            {{ $tag }}
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="absolute bottom-1">
+                                    <p class="px-2 mt-2 text-sm font-bold h-[70px]">
+                                        {{ $urban->title }}
+                                    </p>
+                                    <div class="flex  items-center  justify-between px-2 text-sm text-gray-500">
+                                        <div class="">
+                                            <span>{{ $urban->city }},{{ $urban->country }}</span>
+                                        </div>
+                                        <div class="flex items-center justify-center gap-2 ">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                            {{ views($urban)->count() }}
+                                        </div>
+                                    </div>
+                                </div>
                             </a>
                         </div>
                     @empty
@@ -758,6 +791,14 @@
 
         .slide-w {
             width: 260px;
+        }
+
+        .swiper-st {
+            width: 687px;
+        }
+
+        .swiper-ur {
+            width: 270px;
         }
     </style>
     <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
