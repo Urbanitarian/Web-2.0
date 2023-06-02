@@ -545,226 +545,255 @@
 
                 console.log(totalPages);
                 if (currentPage == totalPages) {
-                    if (view == "grid") {
-                        $.each(itemsToDisplay, function(i, item) {
-                            if (item.category == "Masterplans") {
+                    $('#next').hide();
+                } else {
+                    $('#next').show();
+                }
+                if (currentPage == 1) {
+                    $('#prev').hide();
+                } else {
+                    $('#prev').show();
+                }
+                if (view == "grid") {
+                    $.each(itemsToDisplay, function(i, item) {
+                        if (item.category == "Masterplans") {
 
-                                btn1 = document.getElementById("masterbtn");
-                                btn1.classList.add("bg-black", "text-white");
-                                btn2 = document.getElementById("streetbtn");
-                                btn2.classList.remove("bg-black", "text-white");
-                                btn3 = document.getElementById("urbanbtn");
-                                btn3.classList.remove("bg-black", "text-white");
+                            btn1 = document.getElementById("masterbtn");
+                            btn1.classList.add("bg-black", "text-white");
+                            btn2 = document.getElementById("streetbtn");
+                            btn2.classList.remove("bg-black", "text-white");
+                            btn3 = document.getElementById("urbanbtn");
+                            btn3.classList.remove("bg-black", "text-white");
 
 
-                                iconToShow(item.id, 'master');
+                            iconToShow(item.id, 'master');
 
 
-                                let html =
-                                    `
-                        <div class="relative flex flex-col " x-data="{visibleBtn: false}">
-                        <div @mouseleave="visibleBtn=false">
-                       <div x-cloak x-show="visibleBtn">
-                          <button onclick="saveCollection(${item.id}, 'master')"  class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
-                            <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to Collection</span></button>
-                     </div>
+                            let html = `
+                            <div class="relative flex flex-col " x-data="{ visibleBtn: false }">
+    <div @mouseleave="visibleBtn=false">
+        <div x-cloak x-show="visibleBtn">
+            <button onclick="saveCollection(${item.id}, 'master')"
+                class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
+                <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to
+                    Collection</span></button>
+        </div>
 
-                     <div @mouseenter="visibleBtn=true" class="relative h-[438px] overflow-hidden transition-all border rounded-md shadow hover:shadow-xl hover:border-black saturate-120 animate__animated animate__backInLeft">
-                           <a  href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
-                            <img alt="Art" src="storage/uploads/thumbnails/masterplans/${item.image}"alt=""
-                                onerror="this.src='storage/uploads/masterplans/${item.image}'" class="object-cover  h-full saturate-120 max-h-[368px]" />
-                                <div class="bg-white absolute bottom-[88px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">${item.size}</div>
-                            <div class="">
-                                <h3 class="mx-2 mt-1 text-sm font-bold truncate">
-                                    ${item.title}
+        <div @mouseenter="visibleBtn=true"
+            class="relative h-[438px] overflow-hidden transition-all border rounded-md shadow hover:shadow-xl hover:border-black saturate-120 animate__animated animate__backInLeft">
+            <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
+                <img alt="Art" src="storage/uploads/thumbnails/masterplans/${item.image}"alt=""
+                    onerror="this.src='storage/uploads/masterplans/${item.image}'"
+                    class="object-cover  h-full saturate-120 max-h-[368px]" />
+                <div
+                    class="bg-white absolute bottom-[88px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">
+                    ${item.size}</div>
+                <div class="">
+                    <h3 class="mx-2 mt-1 text-sm font-bold truncate">
+                        ${item.title}
 
-                                </h3>
-                                <div class="max-w-sm mx-2 mt-1 text-sm text-gray-500 truncate">
-                                      ${item.author} &nbsp;
+                    </h3>
+                    <div class="max-w-sm mx-2 mt-1 text-sm text-gray-500 truncate">
+                        ${item.author} &nbsp;
 
-                                </div>
+                    </div>
 
-                             </div>
-
-                    <div class="flex items-center justify-between px-2 pb-2 text-sm text-gray-500">
-                            <span> ${item.city},  ${item.country}</span>
-                            <div class="flex items-center justify-center gap-2">
-                            <i class="fa fa-eye" aria-hidden="true"></i>
-                            <span class="text-xs">  ${item.views}</sapn>
-
-                        </div>
-                        </div>
-                    </a>
                 </div>
-                 </div>
+
+                <div class="flex items-center justify-between px-2 pb-2 text-sm text-gray-500">
+                    <span> ${item.city}, ${item.country}</span>
+                    <div class="flex items-center justify-center gap-2">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <span class="text-xs"> ${item.views}</sapn>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+                     `;
+
+                            $('#boucle').append(html);
+                        } else if (item.category == "Urbanscapes") {
+                            btn1 = document.getElementById("masterbtn");
+                            btn1.classList.remove("bg-black", "text-white");
+                            btn2 = document.getElementById("streetbtn");
+                            btn2.classList.remove("bg-black", "text-white");
+                            btn3 = document.getElementById("urbanbtn");
+                            btn3.classList.add("bg-black", "text-white");
+
+                            iconToShow(item.id, 'urban');
+
+                            let html = `
+
+                            <div class="relative h-[438px] overflow-hidden transition border rounded shadow-sm saturate-120 animate__animated animate__backInRight hover:opacity-75 hover:shadow-xl hover:border-black"
+    x-data="{ visibleBtn: false }">
+    <div @mouseleave="visibleBtn=false">
+        <div x-cloak x-show="visibleBtn">
+            <button onclick="saveCollection(${item.id}, 'urban')"
+                class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
+                <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to
+                    Collection</span></button>
+        </div>
+
+        <a @mouseenter="visibleBtn=true" href="urbanscapes_post?id=${item.id}"
+            class="flex flex-col h-full duration-300">
+            <img alt="Art" src="storage/uploads/thumbnails/urbanscapes/${item.imagea}"alt=""
+                onerror="this.src='storage/uploads/urbanscapes/${item.imagea}'" class="object-cover saturate-120"
+                style="height:332px" />
+            <div class="flex  bottom-[110px] absolute ml-2 whitespace-nowrap">
+                ${item.tags.map(tag => `<div
+                    class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">
+                    ${tag}</div>`).join(' &nbsp;')}
             </div>
+            <div class="absolute bottom-1">
+                <p class="px-2 mt-2 text-sm font-bold h-[70px]">
+                    ${item.title}
+                </p>
+                <div class="flex items-center justify-between px-2 text-sm text-gray-500 bottom-2">
+                    <span> ${item.city}, ${item.country}</span>
+                    <div class="flex items-center justify-center gap-2 ">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        ${item.views}
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
                      `;
+                            $('#boucle').append(html);
+                        } else if (item.category == "Streetscapes") {
+                            btn1 = document.getElementById("masterbtn");
+                            btn1.classList.remove("bg-black", "text-white");
+                            btn2 = document.getElementById("streetbtn");
+                            btn2.classList.add("bg-black", "text-white");
+                            btn3 = document.getElementById("urbanbtn");
+                            btn3.classList.remove("bg-black", "text-white");
+                            thegrid = document.getElementById("boucle");
+                            thegrid.classList.remove("xl:grid-cols-5");
 
-                                $('#boucle').append(html);
-                            } else if (item.category == "Urbanscapes") {
-                                btn1 = document.getElementById("masterbtn");
-                                btn1.classList.remove("bg-black", "text-white");
-                                btn2 = document.getElementById("streetbtn");
-                                btn2.classList.remove("bg-black", "text-white");
-                                btn3 = document.getElementById("urbanbtn");
-                                btn3.classList.add("bg-black", "text-white");
+                            iconToShow(item.id, 'street');
 
-                                iconToShow(item.id, 'urban');
+                            let html = `
+                            <div class="relative col-span-2 overflow-hidden transition border rounded-md shadow-sm element1 hover:border-black saturate-120 animate__animated animate__backInUp"
+    x-data="{ visibleBtn: false }">
+    <div @mouseleave="visibleBtn=false">
+        <div x-cloak x-show="visibleBtn">
+            <button onclick="saveCollection(${item.id}, 'street')"
+                class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
+                <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to
+                    Collection</span></button>
+        </div>
+        <a @mouseenter="visibleBtn=true" href="streetscapes_post?id=${item.id}"
+            class="flex flex-col h-full duration-300 hover:opacity-50">
+            <div class="juxtapose" style="height: 360px; width: 700px;">
+                <img alt="Art" src="storage/uploads/thumbnails/streetscapes/${item.imagea}"alt=""
+                    onerror="this.src='storage/uploads/streetscapes/${item.imagea}'"
+                    class="object-cover h-full  saturate-120 max-h-[480px]" />
 
-                                let html = `
-                     <div class="relative h-[438px] overflow-hidden transition border rounded shadow-sm saturate-120 animate__animated animate__backInRight hover:opacity-75 hover:shadow-xl hover:border-black"  x-data="{visibleBtn: false}">
-                        <div @mouseleave="visibleBtn=false">
-                     <div x-cloak x-show="visibleBtn">
-                        <button onclick="saveCollection(${item.id}, 'urban')"  class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
-                            <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to Collection</span></button>
-                    </div>
+            </div>
+            <div
+                class="bg-white absolute bottom-[68px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">
+                ${item.size}</div>
+            <div class="flex items-center justify-between px-3">
+                <h3 class="mt-4 text-sm font-semibold text-left text-gray-600">
+                    ${item.title}</h3>
+            </div>
+            <div class="flex items-center justify-between px-3 pt-0.5 pb-1">
 
-                        <a  @mouseenter="visibleBtn=true" href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full duration-300">
-                            <img alt="Art" src="storage/uploads/thumbnails/urbanscapes/${item.imagea}"alt=""
-                              onerror="this.src='storage/uploads/urbanscapes/${item.imagea}'" class="object-cover saturate-120" style="height:332px" />
-                              <div class="flex  bottom-[110px] absolute ml-2 whitespace-nowrap">
-                             ${item.tags.map(tag =>  `<div class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">${tag}</div>`).join(' &nbsp;')}
-                             </div>
-                            <div class="absolute bottom-1">
-                                <p class="px-2 mt-2 text-sm font-bold h-[70px]">
-                                    ${item.title}
-                                </p>
-                            <div class="fixed flex items-center justify-between px-2 text-sm text-gray-500 bottom-2">
-                            <span> ${item.city},  ${item.country}</span>
-                            <div class="flex items-center justify-center gap-2 ">
-                            <i class="fa fa-eye" aria-hidden="true"></i>
-                            ${item.views}
-                        </div>
-                            </div>
-                            </div>
-                        </a>
-                    </div>
-                     `;
-                                $('#boucle').append(html);
-                            } else if (item.category == "Streetscapes") {
-                                btn1 = document.getElementById("masterbtn");
-                                btn1.classList.remove("bg-black", "text-white");
-                                btn2 = document.getElementById("streetbtn");
-                                btn2.classList.add("bg-black", "text-white");
-                                btn3 = document.getElementById("urbanbtn");
-                                btn3.classList.remove("bg-black", "text-white");
-                                thegrid = document.getElementById("boucle");
-                                thegrid.classList.remove("xl:grid-cols-5");
+                <p class="text-sm text-left text-gray-500 truncate font-regular">
+                    ${item.address}, ${item.city}, ${item.country}
+                </p>
+                <div class="flex items-end justify-end gap-2 text-xs text-gray-500">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    ${item.views}
+                </div>
 
-                                iconToShow(item.id, 'street');
+            </div>
+        </a>
+    </div>
+</div>
+                    `;
+                            $('#boucle').append(html);
+                        }
+                    })
+                } else {
+                    $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass(
+                        "grid-cols-3").removeClass("grid-cols-2").addClass("grid-cols-1").addClass(
+                        "lg:grid-cols-1").addClass("xl:grid-cols-1").removeClass("gap-5");
+                    let html =
+                        `<section id='themap' class='flex w-full pb-16 mx-auto border-b'><div id='map2' class='mx-2 mt-4 rounded h-[650px] w-screen'></div></section>`;
+                    $('#boucle').append(html);
 
-                                let html = `
-                    <div
-                        class="relative col-span-2 overflow-hidden transition border rounded-md shadow-sm element1 hover:border-black saturate-120 animate__animated animate__backInUp"  x-data="{visibleBtn: false}">
-                        <div @mouseleave="visibleBtn=false">
-                     <div x-cloak x-show="visibleBtn">
-                        <button onclick="saveCollection(${item.id}, 'street')"  class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
-                            <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to Collection</span></button>
-                    </div>
-                        <a  @mouseenter="visibleBtn=true" href="streetscapes_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-50">
-                            <div class="juxtapose" style="height: 360px; width: 700px;">
-                            <img alt="Art" src="storage/uploads/thumbnails/streetscapes/${item.imagea}"alt=""
-                                onerror="this.src='storage/uploads/streetscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
+                    fetch(url)
+                        .then((resa) => resa.json())
+                        .then((outa) => {
+                            const obja = JSON.parse(JSON.stringify(outa));
+                            let thedata = obja;
 
-                                </div>
-                                <div class="bg-white absolute bottom-[68px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">${item.size}</div>
-                            <div class="flex items-center justify-between px-3">
-                                <h3 class="mt-4 text-sm font-semibold text-left text-gray-600">
-                                    ${item.title}</h3>
-                                    </div>
-                                    <div class="flex items-center justify-between px-3 pt-0.5 pb-1">
+                            amarkers = {};
 
-                                <p class="text-sm text-left text-gray-500 truncate font-regular">
-                                   ${item.address}, ${item.city}, ${item.country}
-                                </p>
-                                <div class="flex items-end justify-end gap-2 text-xs text-gray-500">
-                            <i class="fa fa-eye" aria-hidden="true"></i>
-                            ${item.views}
-                        </div>
+                            let mymap2 = L.map('map2').setView([48.6890, 11.14086], 2);
+                            theosmLayer = L.tileLayer(
+                                'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                                    maxZoom: 19,
+                                    apikey: 'choisirgeoportail',
+                                    format: 'image/jpeg',
+                                    style: 'normal'
+                                }).addTo(mymap2);
+                            mymap2.addLayer(theosmLayer);
+                            mymap2.touchZoom.enable();
+                            mymap2.scrollWheelZoom.disable();
 
-                            </div>
-                        </a>
-                    </div>`;
-                                $('#boucle').append(html);
-                            }
-                        })
-                    } else {
-                        $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass(
-                            "grid-cols-3").removeClass("grid-cols-2").addClass("grid-cols-1").addClass(
-                            "lg:grid-cols-1").addClass("xl:grid-cols-1").removeClass("gap-5");
-                        let html =
-                            `<section id='themap' class='flex w-full pb-16 mx-auto border-b'><div id='map2' class='mx-2 mt-4 rounded h-[650px] w-screen'></div></section>`;
-                        $('#boucle').append(html);
-
-                        fetch(url)
-                            .then((resa) => resa.json())
-                            .then((outa) => {
-                                const obja = JSON.parse(JSON.stringify(outa));
-                                let thedata = obja;
-
-                                amarkers = {};
-
-                                let mymap2 = L.map('map2').setView([48.6890, 11.14086], 2);
-                                theosmLayer = L.tileLayer(
-                                    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                                        maxZoom: 19,
-                                        apikey: 'choisirgeoportail',
-                                        format: 'image/jpeg',
-                                        style: 'normal'
-                                    }).addTo(mymap2);
-                                mymap2.addLayer(theosmLayer);
-                                mymap2.touchZoom.enable();
-                                mymap2.scrollWheelZoom.disable();
-
-                                let counter = 0;
-                                for (let i = 0; i < thedata.length; i++) {
-                                    counter = counter + 1;
-                                    mydata = thedata[i];
-                                    mydatacat = mydata.category.toLowerCase();
-                                    //mydatacat to lower case
-                                    if (mydatacat == "masterplans") {
-                                        mypics = mydata.image;
-                                    } else {
-                                        mypics = mydata.imagea;
-                                    }
-                                    category = mydata.category.toLowerCase();
-                                    if (category == 'streetscapes') {
-                                        cat = 1;
-                                    } else if (category == 'masterplans') {
-                                        cat = 2;
-                                    } else if (category == 'urbanscapes') {
-                                        cat = 3;
-                                    }
-
-                                    mydataid = mydata.id;
-                                    mydatacity = mydata.city;
-                                    mydataname = mydata.title;
-                                    mydataposition = mydata.location;
-                                    var decimalStringa = [0, 0];
-                                    if (mydataposition != null) {
-                                        decimalStringa = mydataposition.split(',');
-                                    }
-                                    decimalStringa[0] = parseFloat(decimalStringa[0]).toFixed(6);
-                                    decimalStringa[1] = parseFloat(decimalStringa[1]).toFixed(6);
-
-                                    markera = L.marker([decimalStringa[0], decimalStringa[1]], {}).addTo(
-                                            mymap2)
-                                        .bindPopup(
-                                            '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' +
-                                            mydataid + ',' + cat +
-                                            ')" class="mt-4" src="/storage/uploads/' + mydatacat + '/' +
-                                            mypics +
-                                            '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="mydatanom">' +
-                                            mydataname +
-                                            '</h1><h1 class="pb-4 mt-1 mb-2 text-xs text-gray-500" id="mydatacity">' +
-                                            mydatacity + '</h1></div></div>'
-                                        );
-                                    amarkers[mydata.id] = markera;
+                            let counter = 0;
+                            for (let i = 0; i < thedata.length; i++) {
+                                counter = counter + 1;
+                                mydata = thedata[i];
+                                mydatacat = mydata.category.toLowerCase();
+                                //mydatacat to lower case
+                                if (mydatacat == "masterplans") {
+                                    mypics = mydata.image;
+                                } else {
+                                    mypics = mydata.imagea;
+                                }
+                                category = mydata.category.toLowerCase();
+                                if (category == 'streetscapes') {
+                                    cat = 1;
+                                } else if (category == 'masterplans') {
+                                    cat = 2;
+                                } else if (category == 'urbanscapes') {
+                                    cat = 3;
                                 }
 
-                            })
+                                mydataid = mydata.id;
+                                mydatacity = mydata.city;
+                                mydataname = mydata.title;
+                                mydataposition = mydata.location;
+                                var decimalStringa = [0, 0];
+                                if (mydataposition != null) {
+                                    decimalStringa = mydataposition.split(',');
+                                }
+                                decimalStringa[0] = parseFloat(decimalStringa[0]).toFixed(6);
+                                decimalStringa[1] = parseFloat(decimalStringa[1]).toFixed(6);
 
-                    }
+                                markera = L.marker([decimalStringa[0], decimalStringa[1]], {}).addTo(mymap2)
+                                    .bindPopup(
+                                        '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' +
+                                        mydataid + ',' + cat +
+                                        ')" class="mt-4" src="/storage/uploads/' + mydatacat + '/' +
+                                        mypics +
+                                        '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="mydatanom">' +
+                                        mydataname +
+                                        '</h1><h1 class="pb-4 mt-1 mb-2 text-xs text-gray-500" id="mydatacity">' +
+                                        mydatacity + '</h1></div></div>'
+                                    );
+                                amarkers[mydata.id] = markera;
+                            }
+
+                        })
+
                 }
 
             })
@@ -925,10 +954,8 @@
         view = "grid";
         $("#themap").remove();
         fetchAndRenderData(url);
-        $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3")
-            .addClass(
-                "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass(
-                "grid-cols-2")
+        $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").addClass(
+                "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
             .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
 
         layout = "xl";
@@ -938,10 +965,8 @@
     $("#change-layout2").click(function() {
         $("#themap").remove();
         fetchAndRenderData(url);
-        $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass(
-                "grid-cols-3")
-            .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1")
-            .addClass(
+        $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3")
+            .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1").addClass(
                 "grid-cols-2").addClass("lg:grid-cols-2").addClass("xl:grid-cols-3").addClass("gap-5");
 
         layout = "medium";
@@ -1040,8 +1065,7 @@
     $("#change-layout3").click(function() {
         view = "map";
         $("#boucle").empty();
-        $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass(
-                "grid-cols-3")
+        $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3")
             .removeClass("grid-cols-2").addClass("grid-cols-1").addClass("lg:grid-cols-1").addClass(
                 "xl:grid-cols-1").removeClass("gap-5");
         $("#boucle").html(
