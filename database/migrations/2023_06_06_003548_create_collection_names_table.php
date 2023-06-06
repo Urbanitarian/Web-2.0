@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('collections', function (Blueprint $table) {
+        Schema::create('collection_names', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('master_id')->nullable();
-            $table->bigInteger('street_id')->nullable();
-            $table->bigInteger('urban_id')->nullable();
-            $table->bigInteger('collection_name_id')->nullable();
+            $table->string('name');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('collections');
+        Schema::dropIfExists('collection_names');
     }
 };

@@ -249,12 +249,18 @@ class GlobalController extends Controller
     {
         $id = $request->id;
         $nb = Neighbourhood::find($id);
-        $neighbourhood = neighbourhood::all();
-        $neighbourhoods = neighbourhood::where('id', '!=', null)->limit(4)
+        $urbanscape = neighbourhood::all();
+        $urbanscapes = neighbourhood::where('id', '!=', null)->limit(4)
+            ->inRandomOrder()
+            ->get();
+        $streetscapes = Streetscape::where('id', '!=', null)
+            ->inRandomOrder()
+            ->get();
+        $masterplans = Masterplan::where('id', '!=', null)
             ->inRandomOrder()
             ->get();
         views($nb)->record();
-        return view('neighbourhoods_post', compact('neighbourhood', 'neighbourhoods', 'id'));
+        return view('neighbourhoods_post', compact('urbanscape', 'urbanscapes', 'streetscapes', 'masterplans',  'id'));
     }
 
     public function streetscapes(Request $request)
@@ -278,12 +284,23 @@ class GlobalController extends Controller
 
         $id = $request->id;
         $st = Streetscape::find($id);
-        $allstreetscapes = Streetscape::where('id', '!=', null)->limit(3)->inRandomOrder()->get();
+
         $streetscapes = Streetscape::all();
+
+        $masterplans = Masterplan::where('id', '!=', null)
+            ->inRandomOrder()
+            ->get();
+
+        $allstreetscapes = Streetscape::where('id', '!=', null)
+            ->inRandomOrder()
+            ->get();
+        $urbanscapes =  Neighbourhood::where('id', '!=', null)
+            ->inRandomOrder()
+            ->get();
 
         views($st)->record();
 
-        return view('streetscapes_post', compact('streetscapes', 'allstreetscapes', 'id'));
+        return view('streetscapes_post', compact('streetscapes', 'allstreetscapes', 'urbanscapes', 'masterplans', 'id'));
     }
 
     public function masterplans(Request $request)
@@ -540,21 +557,27 @@ class GlobalController extends Controller
 
     public function saveCollection(Request $request)
     {
+
+
+
         if (!session()->has('FRONT_USER_LOGIN')) {
             return view('parts.login');
         } else {
+
+
             $collection_id = $_POST['id'];
+
             $type = $_POST['type'];
 
-
-
+            $c_name = $_POST['c_name'];
 
 
             switch ($type) {
                 case 'master':
 
                     $master = Collection::create([
-                        'master_id' => $collection_id
+                        'master_id' => $collection_id,
+                        'collection_name_id' => $c_name
                     ]);
                     return response()->json([
                         'status' => 'yes',

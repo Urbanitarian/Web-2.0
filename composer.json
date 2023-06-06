@@ -24,7 +24,8 @@
         "nesbot/carbon": "^2.64",
         "pestopancake/laravel-backpack-database-notifications": "^1.0",
         "spatie/laravel-cookie-consent": "^3.2",
-        "stripe/stripe-php": "^9.9"
+        "stripe/stripe-php": "^9.9",
+        "wire-elements/modal": "^1.0"
     },
     "require-dev": {
         "backpack/generators": "^3.3",

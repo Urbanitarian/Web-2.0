@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\CollectionName;
 use Illuminate\Http\Request;
 use App\Models\Masterplan;
 use App\Models\Neighbourhood;
@@ -42,7 +43,8 @@ class DataController extends Controller
                             'id' => $i->id,
                             'category' => $i->category,
                             'size' => $i->size,
-                            'tags' => $i->tags
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
                         ];
                     })->toArray();
             }
@@ -78,7 +80,8 @@ class DataController extends Controller
                     'id' => $i->id,
                     'category' => $i->category,
                     'size' => $i->size,
-                    'tags' => $i->tags
+                    'tags' => $i->tags,
+                    'collections' =>  CollectionName::all()->toArray()
                 ];
             })->toArray();
         }
@@ -329,8 +332,15 @@ class DataController extends Controller
 
 
 
+
+
+
+
         $responsejson = json_encode($all_data);
+
         $data = gzencode($responsejson, 5);
+
+
         return response($data)->withHeaders([
             'Access-Control-Allow-Origin' => '*',
             'Access-Control-Allow-Methods' => 'GET',

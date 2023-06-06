@@ -17,7 +17,7 @@
         $pinterest_link = Setting::get('pinterest_link');
     @endphp
 
-    <div class="bg-gray-100" aria-label="Site Footer">
+    <div class="bg-gray-100 border-t" aria-label="Site Footer">
 
         <div class="px-16 pt-12 pb-8">
             <span class="text-2xl font-bold text-gray-700">

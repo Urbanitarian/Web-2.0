@@ -369,7 +369,7 @@
                             </div>
                         </div>
 
-                        <div class="pt-8 border-t">
+                        <div class="pt-8 pb-4 border">
 
                             <div class="relative pb-4 text-2xl font-semibold text-center text-gray-800 shadow-xl z-9">
                                 Interactive map
@@ -438,37 +438,38 @@
                     @forelse ($streetscapes as $street)
                         <div class="overflow-hidden transition border rounded-md shadow-sm swiper-slide"
                             style="width: 687px">
+                            <a href="streetscapes_post?id={{ $street->id }}">
+                                <div class="flex flex-col h-full duration-300">
 
-                            <div class="flex flex-col h-full duration-300">
-
-                                <div class="juxtapose">
-                                    <img alt="Art"
-                                        src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $street->imagea) }}"alt=""
-                                        class="object-cover h-full  saturate-120 max-h-[480px]" />
-                                    <img alt="Art"
-                                        src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $street->imageb) }}"alt=""
-                                        class="object-cover h-full  saturate-120 max-h-[480px]" />
-                                </div>
-
-                                <div
-                                    class="bg-white absolute bottom-[68px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">
-                                    {{ $street->size }}</div>
-                                <div class="flex items-center justify-between px-3">
-                                    <h3 class="mt-4 text-sm font-semibold text-left text-gray-600">
-                                        {{ $street->title }}</h3>
-                                </div>
-                                <div class="flex items-center justify-between px-3 pt-0.5 pb-1">
-
-                                    <p class="text-sm text-left text-gray-500 truncate font-regular">
-                                        {{ $street->address }}, {{ $street->city }}, {{ $street->country }}
-                                    </p>
-                                    <div class="flex items-end justify-end gap-2 text-xs text-gray-500">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                        {{ views($street)->count() }}
+                                    <div class="juxtapose">
+                                        <img alt="Art"
+                                            src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $street->imagea) }}"alt=""
+                                            class="object-cover h-full  saturate-120 max-h-[480px]" />
+                                        <img alt="Art"
+                                            src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $street->imageb) }}"alt=""
+                                            class="object-cover h-full  saturate-120 max-h-[480px]" />
                                     </div>
 
+                                    <div
+                                        class="bg-white absolute bottom-[68px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">
+                                        {{ $street->size }}</div>
+                                    <div class="flex items-center justify-between px-3">
+                                        <h3 class="mt-4 text-sm font-semibold text-left text-gray-600">
+                                            {{ $street->title }}</h3>
+                                    </div>
+                                    <div class="flex items-center justify-between px-3 pt-0.5 pb-1">
+
+                                        <p class="text-sm text-left text-gray-500 truncate font-regular">
+                                            {{ $street->address }}, {{ $street->city }}, {{ $street->country }}
+                                        </p>
+                                        <div class="flex items-end justify-end gap-2 text-xs text-gray-500">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                            {{ views($street)->count() }}
+                                        </div>
+
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     @empty
                         <div class="p-4 swiper-slide">
@@ -532,40 +533,8 @@
             <div class="swiper-container swiper-ur">
                 <div class="my-8 swiper-wrapper">
                     @forelse ($urbanscapes as $urban)
-                        {{-- <div class="h-[438px] relative swiper-slide slide-w overflow-hidden transition border shadow-sm rounded  saturate-120  hover:opacity-75 hover:shadow-xl hover:border-black"
-                            style="width: 260px">
-
-                            <a href="urbanscapes_post?id={{ $urban->id }}" class="flex flex-col h-full duration-300">
-                                <img alt="Art"
-                                    src="{{ asset('storage/uploads/thumbnails/urbanscapes/' . $urban->image) }}"alt=""
-                                    class="object-cover h-full  saturate-120 max-h-[480px]" />
-                                <div class="flex">
-                                    @foreach ($urban->tags as $tag)
-                                        <div
-                                            class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">
-                                            {{ $tag }}
-                                        </div>
-                                    @endforeach
-                                </div>
-
-                                <div class="relative">
-                                    <p class="px-2 mt-2 text-sm font-bold">
-                                        {{ $urban->title }}
-                                    </p>
-                                    <div
-                                        class="fixed flex items-center justify-between px-2 text-sm text-gray-500 bottom-2">
-                                        <span>{{ $urban->city }},{{ $urban->country }}</span>
-                                        <div class="flex items-center justify-center gap-2 ">
-                                            <i class="fa fa-eye" aria-hidden="true"></i>
-                                            {{ views($urban)->count() }}
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </a>
-                        </div> --}}
                         <div
-                            class="relative swiper-slide h-[438px] overflow-hidden transition border rounded shadow-sm saturate-120 animate__animated animate__backInRight hover:opacity-75 hover:shadow-xl hover:border-black">
+                            class="relative swiper-slide h-[438px] overflow-hidden transition border rounded shadow-sm saturate-120 animate__animated animate__backInRight">
 
                             <a href="urbanscapes_post?id={{ $urban->id }}" class="flex flex-col h-full duration-300">
                                 <img alt="Art"
@@ -621,15 +590,15 @@
 
 
     {{-- soucrces --}}
-    <section>
-        <div class="text-2xl font-semibold text-center text-gray-800">
+    <section class="border-t ">
+        <div class="text-2xl pt-8 font-semibold text-center text-gray-800">
             Sources
         </div>
 
         <div class="w-full py-8">
             <div class="flex items-center justify-start">
                 @php $credits = explode(',', $item->credits); @endphp
-                <ul class="flex flex-col gap-2 text-base list-disc px-80">
+                <ul class="flex flex-col gap-2 text-base list-disc px-60">
                     @foreach ($credits as $source)
                         <li class="py-2">
                             <div class="flex gap-2">
@@ -664,7 +633,7 @@
             loop: true,
             slidesPerView: 1,
             spaceBetween: 0,
-        
+            centeredSlides: true,
             breakpoints: {
                 640: {
                     slidesPerView: 5,
@@ -689,20 +658,19 @@
             </div>
 
             <div class="swiper-container" x-ref="container">
-                <div class="flex items-center justify-center gap-4 my-8 swiper-wrapper">
+                <div class="flex items-center justify-center gap-4 my-8 swiper-wrapper ">
                     @forelse ($masterplans as $master)
                         <div
-                            class="overflow-hidden h-[438px] transition-all bg-white border rounded-md shadow swiper-slide hover:shadow-xl saturate-120 animate__animated animate__backInLeft">
-                            <a href="masterplans_post?id={{ $master->id }}"
-                                class="flex flex-col h-full duration-300 hover:opacity-75">
+                            class="overflow-hidden relative h-[442px] max-w-[260px] transition-all bg-white border rounded-md shadow swiper-slide  saturate-120 animate__animated animate__backInLeft">
+                            <a href="masterplans_post?id={{ $master->id }}" class="flex flex-col h-full duration-300">
                                 <img alt="Art"
                                     src="{{ 'storage/uploads/thumbnails/masterplans/' . $master->image }}"alt=""
-                                    class="object-cover  h-full saturate-120 max-h-[350.24px]" />
+                                    class="object-cover  h-full saturate-120 max-h-[368.24px] " />
                                 <div
-                                    class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50 text-center">
+                                    class="bg-white absolute bottom-[80px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">
                                     {{ $master->size }}</div>
-                                <div class="">
-                                    <h3 class="mx-2 text-sm font-bold truncate">
+                                <div class="pt-1">
+                                    <h3 class="mx-2 mt-1 text-sm font-bold truncate">
                                         {{ $master->title }}
 
                                     </h3>
@@ -717,7 +685,8 @@
                                     <span> {{ $master->city }}, {{ $master->country }}</span>
                                     <div class="flex items-center justify-center gap-2">
                                         <i class="fa fa-eye" aria-hidden="true"></i>
-                                        {{ views($master)->count() }}
+                                        <span class="text-xs"> {{ views($master)->count() }}</span>
+
                                     </div>
                                 </div>
                             </a>

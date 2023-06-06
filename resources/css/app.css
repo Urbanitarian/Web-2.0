@@ -33,3 +33,17 @@ img {
 [v-cloak] {
     display: none;
 }
+
+.form-control {
+    @apply py-2 px-2 outline-none;
+    @apply rounded w-full;
+    @apply border border-[#667080];
+}
+
+label {
+    @apply text-[#667080] text-sm;
+}
+
+.form-group {
+    @apply flex flex-col space-y-1;
+}
