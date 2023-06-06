@@ -1,166 +1,3 @@
-<section class="pt-10 border-b bg-gray-50">
-    <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper($refs.container, {
-        loop: true,
-        slidesPerView: 1,
-        spaceBetween: 0,
-        breakpoints: {
-            640: {
-                slidesPerView: 1,
-                spaceBetween: 0,
-            },
-            768: {
-                slidesPerView: 1,
-                spaceBetween: 0,
-            },
-            1024: {
-                slidesPerView: 1,
-                spaceBetween: 0,
-            },
-            1440: {
-                slidesPerView: 1,
-                spaceBetween: 0,
-            },
-        },
-    })">
-        <div class="swiper-container" x-ref="container">
-            <div class="swiper-wrapper">
-                <div class="flex justify-between gap-8 swiper-slide">
-                    <div class="flex flex-col">
-                        <div class="flex gap-6">
-                            <img src="{{ asset('storage/uploads/streetscapes/3c287868e68a249684e91f982f8acdd4.jpg') }}"
-                                alt="" class="w-[30vh] h-[22vh] shadow-xl rounded-r-md mt-4">
-                            <img src="{{ asset('storage/uploads/masterplans/M_MVRDV_Ipai_00.jpg') }}" alt=""
-                                class="w-[25vh] h-[38vh] shadow-xl rounded-md z-50 mt-12">
-                        </div>
-                        <div class="flex gap-6">
-                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                                alt="" class="w-[48vh] h-[27vh] shadow-xl rounded-r-md -mt-[120px]">
-                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
-                                alt="" class="w-[25vh] h-[38vh] shadow-xl rounded-md">
-                        </div>
-
-                    </div>
-                    <div class="my-8">
-                        <div class="p-8 md:p-12 lg:px-12 lg:py-10">
-
-                            <div class="mx-auto text-center select-none lg:max-w-xl">
-                                <h2 class="text-2xl font-bold text-gray-900 md:text-5xl whitespace-nowrap">
-                                    Explore the database
-                                </h2>
-
-                                <p class="mt-6 text-base text-gray-500">
-                                    Save hours of research with our library of 1000+ fully searchable urban design
-                                    resource
-                                </p>
-                            </div>
-
-                            <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
-
-                                <a href="#"
-                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-white duration-300 bg-gray-800 rounded shadow-lg hover:bg-black prevent lg:ml-4 group ">
-                                    <span class="text-sm">Log in or sign up</span>
-                                </a>
-                                <a href="#"
-                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-black duration-300 bg-white border-2 rounded shadow-lg prevent lg:ml-4 group hover:bg-gray-100 ">
-                                    <span class="text-sm">Learn more</span>
-                                </a>
-
-                            </div>
-
-
-
-                        </div>
-
-                    </div>
-                    <div class="flex flex-col">
-
-                        <div class="flex mt-32 ">
-                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
-                                alt="" class="w-[24vh] h-[32vh] shadow-xl rounded-md -mr-56 ml-6 z-50">
-                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                                alt="" class="w-[95vh] h-[27vh] shadow-xl -mr-28 ml-8 rounded-l-md -mt-[120px]">
-                        </div>
-
-                        <div class="flex">
-                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
-                                alt="" class="w-[24vh] h-[32vh] shadow-xl rounded-md -ml-36 -mt-24">
-                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                                alt="" class="w-[45vh] h-[26vh] shadow-xl ml-8 rounded-l-md -mt-[120px] ">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="flex justify-between gap-8 swiper-slide">
-                    <div class="flex flex-col">
-                        <div class="flex gap-6">
-                            <img src="{{ asset('storage/uploads/streetscapes/3c287868e68a249684e91f982f8acdd4.jpg') }}"
-                                alt="" class="w-[30vh] h-[22vh] shadow-xl rounded-r-md mt-4">
-                            <img src="{{ asset('storage/uploads/masterplans/M_MVRDV_Ipai_00.jpg') }}" alt=""
-                                class="w-[25vh] h-[38vh] shadow-xl rounded-md z-50 mt-12">
-                        </div>
-                        <div class="flex gap-6">
-                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                                alt="" class="w-[48vh] h-[27vh] shadow-xl rounded-r-md -mt-[120px]">
-                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
-                                alt="" class="w-[25vh] h-[38vh] shadow-xl rounded-md">
-                        </div>
-
-                    </div>
-                    <div class="my-8">
-                        <div class="p-8 md:p-12 lg:px-12 lg:py-10">
-
-                            <div class="mx-auto text-center select-none lg:max-w-xl">
-                                <h2 class="text-2xl font-bold text-gray-900 md:text-5xl whitespace-nowrap">
-                                    Explore the database
-                                </h2>
-
-                                <p class="mt-6 text-base text-gray-500">
-                                    Save hours of research with our library of 1000+ fully searchable urban design
-                                    resource
-                                </p>
-                            </div>
-
-                            <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
-
-                                <a href="#"
-                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-white duration-300 bg-gray-800 rounded shadow-lg hover:bg-black prevent lg:ml-4 group hover:scale-110">
-                                    <span class="text-sm">Log in or sign up</span>
-                                </a>
-                                <a href="#"
-                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-black duration-300 bg-white rounded shadow-lg prevent lg:ml-4 group hover:bg-gray-100 hover:scale-110">
-                                    <span class="text-sm">Learn more</span>
-                                </a>
-
-                            </div>
-
-
-
-                        </div>
-
-                    </div>
-                    <div class="flex flex-col">
-
-                        <div class="flex mt-32 ">
-                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
-                                alt="" class="w-[24vh] h-[32vh] shadow-xl rounded-md -mr-56 ml-6 z-50">
-                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                                alt="" class="w-[95vh] h-[27vh] shadow-xl -mr-28 ml-8 rounded-l-md -mt-[120px]">
-                        </div>
-
-                        <div class="flex">
-                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
-                                alt="" class="w-[24vh] h-[32vh] shadow-xl rounded-md -ml-36 -mt-24">
-                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                                alt="" class="w-[45vh] h-[26vh] shadow-xl ml-8 rounded-l-md -mt-[120px] ">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <div class="relative z-50 ">
     <div id="mysearch" class="py-8 -mt-[104px] px-6 bg-white border-t">
         <div class="flex flex-col flex-wrap gap-6 mx-4 md:mx-0" x-data="{ showFilter: false }">
@@ -184,8 +21,7 @@
                                 &nbsp;{{ $streetnum }}</a>
                         </p>
                     </button>
-                    <button id="urbanscapes" name="category" value="Neighbourhoods"
-                        @click="active='neighbourhoods'">
+                    <button id="urbanscapes" name="category" value="Neighbourhoods" @click="active='neighbourhoods'">
                         <p id="urbanbtn"
                             class="px-4 py-2 font-[400] flex justify-between items-center rounded text-md  active:bg-gray-300"
                             :class="active == 'neighbourhoods' ? ' text-white bg-gray-800' : 'hover:bg-gray-200 bg-white'">
@@ -199,8 +35,8 @@
 
                     <button @click="showFilter=true" x-show="!showFilter"
                         class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
                         </svg>
@@ -591,7 +427,7 @@
 
                 ${item.collections.map( collection => `<div onclick="saveCollection(${item.id}, 'master', ${collection.id})"
                         class="flex items-start justify-start gap-x-3.5 py-2 px-12 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
-                        ${collection.name} </div>`).join('')}
+                        ${collection.name} </div>`).join()}
                 </div>
             </div>
         </div>
@@ -1086,9 +922,6 @@
 
         return $('<span>' + option.text + '</span>');
     }
-
-
-
     $("#change-layout3").click(function() {
         view = "map";
         $("#boucle").empty();
@@ -1224,98 +1057,3 @@
 
     });
 </script>
-<style>
-    .clamp {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-
-    }
-
-
-    .select2-container--default .select2-results>.select2-results__options {
-        max-height: 400px;
-    }
-
-    .select2-container--default .select2-selection--multiple {
-        padding: 5px 5px;
-        border: 1px solid #e5e7eb;
-        border-radius: 0.375rem;
-    }
-
-    .select2-container--default.select2-container--focus .select2-selection--multiple {
-        border: none;
-        --tw-ring-opacity: 1;
-        --tw-ring-color: rgb(156 163 175 / var(--tw-ring-opacity));
-        --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-        --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-    }
-
-    .select2-container--default.select2-container--focus .select2-selection--multiple:focus {
-        --tw-ring-opacity: 1;
-        --tw-ring-color: rgb(156 163 175 / var(--tw-ring-opacity));
-        --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-        --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-    }
-
-    .select2-results__option[aria-selected=true]:before {
-        font-family: 'fontAwesome';
-        content: "\f00c";
-        color: #fff;
-        background-color: #0a0a0a;
-        border: 0;
-        display: inline-block;
-        padding: 0;
-        line-height: 1.2;
-        padding-left: 2px;
-    }
-
-    .select2-results__option:before {
-        content: "";
-        display: inline-block;
-        position: relative;
-        height: 20px;
-        width: 20px;
-        border: 2px solid rgba(0, 0, 0, 0.2);
-        border-radius: 4px;
-        background-color: transparent;
-        margin-right: 15px;
-        margin-left: 10px;
-        vertical-align: middle;
-    }
-
-    .select2-container--open .select2-dropdown--below {
-        padding: 10px 0;
-        border-radius: 4px;
-        border: none;
-        -webkit-box-shadow: 0px 3px 22px -15px rgba(0, 0, 0, 0.63);
-        -moz-box-shadow: 0px 3px 22px -15px rgba(0, 0, 0, 0.63);
-        box-shadow: 0px 3px 22px -15px rgba(0, 0, 0, 0.63);
-    }
-
-    .select2-results__option {
-        padding-right: 20px;
-        vertical-align: middle;
-    }
-
-    .select2-container--default .select2-results__option--highlighted[aria-selected] {
-        background-color: #fff;
-        color: #000;
-    }
-
-    .select2-container--default .select2-results__option[aria-selected=true] {
-        background-color: transparent;
-        color: #000;
-    }
-
-    .select2-results__option[aria-selected] {
-        color: #616161;
-    }
-
-    .select2-container--default .select2-selection--multiple .select2-selection__clear {
-        color: red;
-    }
-</style>

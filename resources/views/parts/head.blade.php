@@ -40,6 +40,8 @@
 <title>Urbanitarian</title>
 @vite('resources/css/app.css')
 <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}">
+
 <script>
     myToken = <?php echo json_encode(['csrfToken' => csrf_token()]); ?>
 </script>
+@livewireStyles

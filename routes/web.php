@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\CollectionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GlobalController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\TestController;
 use App\Http\Middleware\Cors;
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,8 @@ use App\Http\Middleware\Cors;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/test', [TestController::class, 'test']);
 
 Route::controller(GlobalController::class)->middleware('cache.headers:public;max_age=2628000;etag')->group(function () {
     // Route::get('/', 'getAll')->name('getAll')->middleware('App\Http\Middleware\MyMiddleware');
@@ -76,4 +80,9 @@ Route::get("callback/{provider}", [SocialiteController::class, 'callback'])->nam
 Route::get('schedule', function () {
     Artisan::call('quote:daily');
     return "successfully!";
+});
+
+Route::controller(CollectionController::class)->middleware('cache.headers:public;max_age=2628000;etag')->group(function () {
+
+    Route::get('/collections', 'collections')->name('collections');
 });

@@ -256,7 +256,7 @@ class GlobalController extends Controller
         $streetscapes = Streetscape::where('id', '!=', null)
             ->inRandomOrder()
             ->get();
-            $masterplans = Masterplan::where('id', '!=', null)
+        $masterplans = Masterplan::where('id', '!=', null)
             ->inRandomOrder()
             ->get();
         views($nb)->record();
@@ -557,21 +557,27 @@ class GlobalController extends Controller
 
     public function saveCollection(Request $request)
     {
+
+
+
         if (!session()->has('FRONT_USER_LOGIN')) {
             return view('parts.login');
         } else {
+
+
             $collection_id = $_POST['id'];
+
             $type = $_POST['type'];
 
-
-
+            $c_name = $_POST['c_name'];
 
 
             switch ($type) {
                 case 'master':
 
                     $master = Collection::create([
-                        'master_id' => $collection_id
+                        'master_id' => $collection_id,
+                        'collection_name_id' => $c_name
                     ]);
                     return response()->json([
                         'status' => 'yes',

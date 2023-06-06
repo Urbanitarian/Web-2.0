@@ -26,9 +26,18 @@
     <footer>
         @include('parts.footer')
     </footer>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script defer src="https://unpkg.com/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
 
     @vite('resources/js/app.js')
     <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
+
+
+
+    @livewire('livewire-ui-modal')
+
+    @livewireScripts
 
 
 </body>

@@ -2,7 +2,7 @@
     <div class="flex items-center justify-between gap-6">
         <div>
             <a class="flex items-center text-2xl font-bold text-gray-700 lg:text-3xl hover:text-gray-400 " href="/">
-                <img src="{{ asset('img/logo.png') }}" class="w-auto h-8 md:h-16">
+                <img src="{{ asset('img/logo.png') }}" class="w-auto h-8">
                 <h1 class="pl-2 text-xl font-bold text-[#333333] lg:mt-1 2xl:mt-0 2xl:text-3xl hover:text-gray-400 mb-0">
                     Urbanitarian</h1>
             </a>
