@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Http/Controllers/BlogController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1686133439244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1686133439243,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers;\n\nuse Illuminate\\Http\\Request;\n\nclass BlogController extends Controller\n{\n    public function index()\n    {\n    \n        return view('blog.index');\n    }\n}\n"
+        }
+    ]
+}
