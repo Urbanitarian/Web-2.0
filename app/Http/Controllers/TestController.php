@@ -10,8 +10,25 @@ class TestController extends Controller
     public function test()
     {
 
-        $cl = CollectionName::with('collections')->find(1);
+        $masters = CollectionName::with('collections')->find(1);
 
-        dd($cl);
+
+        $all_data = $masters->collections->map(function ($i) {
+            $views = views($i->masterplan)->count();
+            return [
+                'views' => $views,
+                'title' => $i->masterplan->title,
+                'author' => $i->masterplan->author,
+                'city' => $i->masterplan->city,
+                'country' => $i->masterplan->country,
+                'image' => $i->masterplan->image,
+                'id' => $i->masterplan->id,
+                'category' => $i->masterplan->category,
+                'size' => $i->masterplan->size,
+                'tags' => $i->masterplan->tags,
+            ];
+        })->toArray();
+
+        dd($all_data);
     }
 }

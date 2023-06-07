@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CollectionController;
 use App\Http\Controllers\API\DataController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource("data", DataController::class);
 
-Route::apiResource("neighbourhoods", NeighbourhoodsController::class); 
+Route::apiResource("neighbourhoods", NeighbourhoodsController::class);
 
 Route::apiResource("masterplans", MasterplansController::class);
 
@@ -34,3 +35,5 @@ Route::apiResource("streetscapes", StreetscapesController::class);
 Route::apiResource("webresources", WebresourcesController::class);
 
 Route::apiResource("promo", PromoController::class);
+
+Route::apiResource("collection_data", CollectionController::class);

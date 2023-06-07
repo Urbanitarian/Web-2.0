@@ -3,7 +3,7 @@
         <h1 class="text-5xl font-bold  text-[#667080]">Collection</h1>
         <div class="pt-6">
             <div class="grid grid-cols-12 gap-6">
-                <div class="relative col-span-7">
+                <div class="relative col-span-8">
                     <div class="absolute px-3 py-2">
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +18,7 @@
                         class="bg-[#EEF1F4] py-3 w-full rounded-md h-[40px] px-12" wire:model='search'
                         placeholder="Find collections">
                 </div>
-                <div class="col-span-5">
+                <div class="col-span-4">
                     <div>
 
                         <button onclick="Livewire.emit('openModal', 'modal.add-collection')"
@@ -35,35 +35,39 @@
 
         </div>
         <div class="grid grid-cols-8">
-            <div class="pt-6 pb-4">
-                <div
-                    class="px-6 py-4 text-[#667080] text-lg flex justify-between items-center w-[861px] whitespace-nowrap">
-                    <span>Collection Name</span>
-                    <span>Last modified</span>
-                    <span>Created</span>
-                    <span>Sources</span>
-                </div>
-                @foreach ($collections as $collection)
-                    <div
-                        class="py-4 px-6 w-[861px] shadow border-t bg-[#EEF1F4] flex justify-between items-center whitespace-nowrap">
-                        <div class="px-3  text-[#667080] font-bold text-base">
-                            {{ $collection->name }}
-                        </div>
-                        <div class="px-3  text-[#667080] font-bold text-base">
-                            10 min ago
-                        </div>
-                        <div class="px-3  text-[#667080] font-bold text-base">
-                            10 min ago
-                        </div>
-                        <div class="px-3  text-[#667080] font-bold text-base">
-                            0
-                        </div>
-                    </div>
-                @endforeach
+            <table class="pt-6 pb-4 mb-4">
+                <tbody>
+                    <tr
+                        class="px-6 py-4 text-[#667080] text-lg flex justify-between items-center w-[861px] whitespace-nowrap">
+                        <td class="w-[20%]">Collection Name</td>
+                        <td class="w-[20%]">Last modified</td>
+                        <td class="w-[20%]">Created</td>
+                        <td class="w-[20%]">Sources</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    @foreach ($collections as $collection)
+                        <tr
+                            class="w-[861px] shadow border-t bg-[#EEF1F4] flex justify-between items-center whitespace-nowrap">
+                            <td class="px-4  w-[20%] py-4 text-[#667080] font-bold text-base">
+                                <a href="{{ url('collection/detail/' . $collection->id) }}">{{ $collection->name }}</a>
+                            </td>
+                            <td class="px-4  w-[20%] py-4 text-[#667080] font-bold text-base">
+                                10 min ago
+                            </td>
+                            <td class="px-4  w-[20%] py-4 text-[#667080] font-bold text-base">
+                                10 min ago
+                            </td>
+                            <td class="px-4  w-[20%] py-4 text-[#667080] font-bold text-base">
+                                0
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
 
 
 
-            </div>
+            </table>
         </div>
 
     </div>

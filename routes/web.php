@@ -85,4 +85,5 @@ Route::get('schedule', function () {
 Route::controller(CollectionController::class)->middleware('cache.headers:public;max_age=2628000;etag')->group(function () {
 
     Route::get('/collections', 'collections')->name('collections');
+    Route::get('/collection/detail/{id}', 'collectionDetail')->name('collections.detail');
 });
