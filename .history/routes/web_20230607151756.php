@@ -8,7 +8,6 @@ use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\TestController;
-use App\Http\Controllers\BlogController;
 use App\Http\Middleware\Cors;
 /*
 |--------------------------------------------------------------------------
@@ -60,9 +59,6 @@ Route::controller(GlobalController::class)->middleware('cache.headers:public;max
     Route::post('check_collection', 'checkCollection')->name('check.collection');
     Route::get('login', 'login');
 });
-
-
-Route::get('blog', [BlogController::class, 'index']);
 
 
 

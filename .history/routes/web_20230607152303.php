@@ -62,9 +62,7 @@ Route::controller(GlobalController::class)->middleware('cache.headers:public;max
 });
 
 
-Route::get('blog', [BlogController::class, 'index']);
-
-
+Route::get('/blog', 'App\Http\Controllers\BlogController@index')->name('blog.index');
 
 Route::get('legal', [GlobalController::class, 'getLegal']);
 Route::get('confidentialite', [GlobalController::class, 'getConf']);

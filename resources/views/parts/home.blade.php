@@ -532,11 +532,8 @@
         fetch(url)
             .then((res) => res.json())
             .then((out) => {
-                console.log(out);
 
                 const obj = JSON.parse(JSON.stringify(out));
-
-
 
                 let textFromJSON = obj;
                 let num = textFromJSON.length;
@@ -586,18 +583,15 @@
             <div x-show="showDropDown" id="save_dd_${item.id}" class="absolute z-50 top-12 right-2">
 
 
-                <div class="px-2 py-2 bg-white rounded shadow">
+                <div class="py-2 bg-white rounded shadow">
 
 
-                ${item.collections.map( collection => `<div onclick="saveCollection(${item.id}, 'master', ${collection.id})"
-                        class="flex items-start justify-start gap-x-3.5 py-2 px-12 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
-                        ${collection.name} </div>`).join('')}
+                ${item.collections.map( collection => `<div
+                        class="flex justify-between py-3 pl-6 pr-8 text-sm text-gray-800 rounded-md w-[350px] hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
+                        ${collection.name} <span class="p-2 text-white bg-gray-800 rounded-lg cursor-pointer" onclick="saveCollection(${item.id}, 'master', ${collection.id})">Save</span> </div>`).join('<hr>')}
                 </div>
             </div>
         </div>
-
-
-
 
         <div @mouseenter="visibleBtn=true"
             class="relative h-[438px] overflow-hidden transition-all border rounded-md shadow hover:shadow-xl hover:border-black saturate-120 animate__animated animate__backInLeft">

@@ -39,6 +39,8 @@
 
     @livewireScripts
 
+    @stack('scripts')
+
 
 </body>
 <style>
