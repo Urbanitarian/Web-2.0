@@ -8,9 +8,12 @@ use App\Models\Masterplan;
 use App\Models\Neighbourhood;
 use App\Models\Streetscape;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CollectionController extends Controller
 {
+
 
     public function index()
     {
@@ -18,10 +21,8 @@ class CollectionController extends Controller
 
         $request = request();
 
-
         $q = request()->input('q');
         $id = request()->input('id');
-
         $size = request()->input('size');
         $category = request()->input('category');
         $cat = request()->input('cat');
@@ -29,6 +30,9 @@ class CollectionController extends Controller
         $pop = request()->input('pop');
         $city = request()->input('city');
         $country = request()->input('country');
+
+
+        $cls = CollectionName::with('collections')->find($id);
 
         if ($request->filled('q')) {
             $all_data = null;
@@ -71,13 +75,11 @@ class CollectionController extends Controller
             }
         }
 
-        $count = 0;
 
         if ($category == 'masterplans') {
 
-            $masters = CollectionName::with('collections')->find($id);
 
-            $all_data = $masters->collections->map(function ($i) {
+            $all_data = $cls?->collections->map(function ($i) {
                 $views = 0;
                 if ($i->masterplan != null) {
                     $views =  views($i->masterplan)->count();
@@ -99,9 +101,8 @@ class CollectionController extends Controller
         }
         if ($category == 'streetscapes') {
 
-            $streets = CollectionName::with('collections')->find($id);
 
-            $all_data = $streets->collections->map(function ($i) {
+            $all_data = $cls?->collections->map(function ($i) {
 
                 $views = 0;
                 if ($i->streetscape != null) {
@@ -110,27 +111,23 @@ class CollectionController extends Controller
 
                 return [
                     'views' => $views,
-                    'title' => $i->streetcape?->title,
-                    'author' => $i->streetcape?->author,
-                    'city' => $i->streetcape?->city,
-                    'imagea' => $i->streetcape?->imagea,
-                    'imageb' => $i->streetcape?->imageb,
-                    'country' => $i->streetcape?->country,
-                    'address' => $i->streetcape?->address,
-                    'id' => $i->streetcape?->id,
-                    'category' => $i->streetcape?->category,
-                    'size' => $i->streetcape?->size,
-                    'tags' => $i->streetcape?->tags
+                    'title' => $i->streetscape?->title,
+                    'author' => $i->streetscape?->author,
+                    'city' => $i->streetscape?->city,
+                    'imagea' => $i->streetscape?->imagea,
+                    'imageb' => $i->streetscape?->imageb,
+                    'country' => $i->streetscape?->country,
+                    'address' => $i->streetscape?->address,
+                    'id' => $i->streetscape?->id,
+                    'category' => $i->streetscape?->category,
+                    'size' => $i->streetscape?->size,
+                    'tags' => $i->streetscape?->tags
                 ];
             })->toArray();
         }
         if ($category == 'urbanscapes') {
 
-            $neighbs = CollectionName::with('collections')->find($id);
-
-
-
-            $all_data = $neighbs->collections->map(function ($i) {
+            $all_data = $cls?->collections->map(function ($i) {
                 $views = 0;
                 if ($i->urbanscape != null) {
                     $views =  views($i->urbanscape)->count();
@@ -155,74 +152,88 @@ class CollectionController extends Controller
 
         if ($request->filled('tags')) {
             if ($category == 'masterplans') {
-
-                $all_data = CollectionName::with('collections')->find($id);
-
-                $all_data = $all_data->collections->map(function ($i) {
+                $all_data = $cls->collections->map(function ($i) {
                     $tags = request()->input('tags');
                     $i->masterplan
                         ->where('tags', 'like', '%' . $tags . '%')
+                        ->get()
                         ->map(function ($i) {
+                            $views = 0;
+                            if ($i->masterplan != null) {
+                                $views =  views($i->masterplan)->count();
+                            }
+
                             return [
-                                'views' => views($i->masterplan)->count(),
-                                'title' => $i->masterplan->title,
-                                'author' => $i->masterplan->author,
-                                'city' => $i->masterplan->city,
-                                'image' => $i->masterplan->image,
-                                'id' => $i->masterplan->id,
-                                'category' => $i->masterplan->category,
-                                'size' => $i->masterplan->size,
-                                'tags' => $i->masterplan->tags
+                                'views' => $views,
+                                'title' => $i->masterplan?->title,
+                                'author' => $i->masterplan?->author,
+                                'city' => $i->masterplan?->city,
+                                'country' => $i->masterplan?->country,
+                                'image' => $i->masterplan?->image,
+                                'id' => $i->masterplan?->id,
+                                'category' => $i->masterplan?->category,
+                                'size' => $i->masterplan?->size,
+                                'tags' => $i->masterplan?->tags,
                             ];
                         })->toArray();
                 });
             }
             if ($category == 'streetscapes') {
-                $all_data = CollectionName::with('collections')->find($id);
 
-                $all_data = $all_data->collections->map(function ($i) {
+                $all_data = $cls->collections->map(function ($i) {
                     $tags = request()->input('tags');
                     $i->streetscape
                         ->where('tags', 'like', '%' . $tags . '%')
+                        ->get()
                         ->map(function ($i) {
+
+                            $views = 0;
+                            if ($i->streetscape != null) {
+                                $views =  views($i->streetscape)->count();
+                            }
+
                             return [
-                                'views' => views($i->streetscape)->count(),
-                                'title' => $i->streetcape->title,
-                                'author' => $i->streetcape->author,
-                                'city' => $i->streetcape->city,
-                                'imagea' => $i->streetcape->imagea,
-                                'imageb' => $i->streetcape->imageb,
-                                'country' => $i->streetcape->country,
-                                'address' => $i->streetcape->address,
-                                'id' => $i->streetcape->id,
-                                'category' => $i->streetcape->category,
-                                'size' => $i->streetcape->size,
-                                'tags' => $i->streetcape->tags
+                                'views' => $views,
+                                'title' => $i->streetscape?->title,
+                                'author' => $i->streetscape?->author,
+                                'city' => $i->streetscape?->city,
+                                'imagea' => $i->streetscape?->imagea,
+                                'imageb' => $i->streetscape?->imageb,
+                                'country' => $i->streetscape?->country,
+                                'address' => $i->streetscape?->address,
+                                'id' => $i->streetscape?->id,
+                                'category' => $i->streetscape?->category,
+                                'size' => $i->streetscape?->size,
+                                'tags' => $i->streetscape?->tags
                             ];
                         })->toArray();
                 });
             }
             if ($category == 'urbanscapes') {
-                $all_data = CollectionName::with('collections')->find($id);
 
-                $all_data = $all_data->collections->map(function ($i) {
+                $all_data = $cls->collections->map(function ($i) {
                     $tags = request()->input('tags');
                     $i->urbanscape
                         ->where('tags', 'like', '%' . $tags . '%')
+                        ->get()
                         ->map(function ($i) {
+                            $views = 0;
+                            if ($i->urbanscape != null) {
+                                $views =  views($i->urbanscape)->count();
+                            }
                             return [
-                                'views' => views($i->urbanscape)->count(),
-                                'title' => $i->urbanscape->title,
-                                'author' => $i->urbanscape->author,
-                                'city' => $i->urbanscape->city,
-                                'imagea' => $i->urbanscape->imagea,
-                                'imageb' => $i->urbanscape->imageb,
-                                'country' => $i->urbanscape->country,
-                                'address' => $i->urbanscape->address,
-                                'id' => $i->urbanscape->id,
-                                'category' => $i->urbanscape->category,
-                                'size' => $i->urbanscape->size,
-                                'tags' => $i->urbanscape->tags
+                                'views' => $views,
+                                'title' => $i->urbanscape?->title,
+                                'author' => $i->urbanscape?->author,
+                                'city' => $i->urbanscape?->city,
+                                'imagea' => $i->urbanscape?->imagea,
+                                'imageb' => $i->urbanscape?->imageb,
+                                'country' => $i->urbanscape?->country,
+                                'address' => $i->urbanscape?->address,
+                                'id' => $i->urbanscape?->id,
+                                'category' => $i->urbanscape?->category,
+                                'size' => $i->urbanscape?->size,
+                                'tags' => $i->urbanscape?->tags
                             ];
                         })->toArray();
                 });
@@ -230,121 +241,365 @@ class CollectionController extends Controller
         }
         if ($request->filled('status')) {
             if ($category == 'masterplans') {
-                $all_data = Masterplan::where('active', 1)
-                    ->where('status', 'like', '%' . $status . '%')
-                    ->map(function ($i) {
-                        return [
-                            'views' => views($i)->count(),
-                            'title' => $i->title,
-                            'author' => $i->author,
-                            'city' => $i->city,
-                            'image' => $i->image,
-                            'id' => $i->id,
-                            'category' => $i->category,
-                            'size' => $i->size,
-                            'tags' => $i->tags
-                        ];
-                    })->toArray();
+
+                $all_data = $cls->collections->map(function ($i) {
+                    $status = request()->input('status');
+                    $i->masterplan
+                        ->where('status', 'like', '%' . $status . '%')
+                        ->get()
+                        ->map(function ($i) {
+                            $views = 0;
+                            if ($i->masterplan != null) {
+                                $views =  views($i->masterplan)->count();
+                            }
+
+                            return [
+                                'views' => $views,
+                                'title' => $i->masterplan?->title,
+                                'author' => $i->masterplan?->author,
+                                'city' => $i->masterplan?->city,
+                                'country' => $i->masterplan?->country,
+                                'image' => $i->masterplan?->image,
+                                'id' => $i->masterplan?->id,
+                                'category' => $i->masterplan?->category,
+                                'size' => $i->masterplan?->size,
+                                'tags' => $i->masterplan?->tags,
+                            ];
+                        })->toArray();
+                });
             }
             if ($category == 'streetscapes') {
-                $all_data = Streetscape::where('active', 1)
-                    ->where('status', 'like', '%' . $status . '%')
-                    ->get();
+
+                $all_data = $cls->collections->map(function ($i) {
+                    $status = request()->input('status');
+                    $i->streetscape
+                        ->where('status', 'like', '%' . $status . '%')
+                        ->get()
+                        ->map(function ($i) {
+
+                            $views = 0;
+                            if ($i->streetscape != null) {
+                                $views =  views($i->streetscape)->count();
+                            }
+
+                            return [
+                                'views' => $views,
+                                'title' => $i->streetscape?->title,
+                                'author' => $i->streetscape?->author,
+                                'city' => $i->streetscape?->city,
+                                'imagea' => $i->streetscape?->imagea,
+                                'imageb' => $i->streetscape?->imageb,
+                                'country' => $i->streetscape?->country,
+                                'address' => $i->streetscape?->address,
+                                'id' => $i->streetscape?->id,
+                                'category' => $i->streetscape?->category,
+                                'size' => $i->streetscape?->size,
+                                'tags' => $i->streetscape?->tags
+                            ];
+                        })->toArray();
+                });
             }
             if ($category == 'urbanscapes') {
-                $all_data = Neighbourhood::where('active', 1)
-                    ->where('status', 'like', '%' . $status . '%')
-                    ->get();
+
+                $all_data = $cls->collections->map(function ($i) {
+                    $status = request()->input('status');
+                    $i->urbanscape
+                        ->where('status', 'like', '%' . $status . '%')
+                        ->get()
+                        ->map(function ($i) {
+                            $views = 0;
+                            if ($i->urbanscape != null) {
+                                $views =  views($i->urbanscape)->count();
+                            }
+                            return [
+                                'views' => $views,
+                                'title' => $i->urbanscape?->title,
+                                'author' => $i->urbanscape?->author,
+                                'city' => $i->urbanscape?->city,
+                                'imagea' => $i->urbanscape?->imagea,
+                                'imageb' => $i->urbanscape?->imageb,
+                                'country' => $i->urbanscape?->country,
+                                'address' => $i->urbanscape?->address,
+                                'id' => $i->urbanscape?->id,
+                                'category' => $i->urbanscape?->category,
+                                'size' => $i->urbanscape?->size,
+                                'tags' => $i->urbanscape?->tags
+                            ];
+                        })->toArray();
+                });
             }
         }
 
         if ($request->filled('size')) {
             if ($category == 'masterplans') {
-                $all_data = Masterplan::where('active', 1)
-                    ->where('size', '=', $size)
-                    ->map(function ($i) {
-                        return [
-                            'views' => views($i)->count(),
-                            'title' => $i->title,
-                            'author' => $i->author,
-                            'city' => $i->city,
-                            'image' => $i->image,
-                            'id' => $i->id,
-                            'category' => $i->category,
-                            'size' => $i->size,
-                            'tags' => $i->tags
-                        ];
-                    })->toArray();
+
+                $all_data = $cls->collections->map(function ($i) {
+                    $size = request()->input('size');
+                    $i->masterplan
+                        ->where('size', '=', $size)
+                        ->get()
+                        ->map(function ($i) {
+                            $views = 0;
+                            if ($i->masterplan != null) {
+                                $views =  views($i->masterplan)->count();
+                            }
+
+                            return [
+                                'views' => $views,
+                                'title' => $i->masterplan?->title,
+                                'author' => $i->masterplan?->author,
+                                'city' => $i->masterplan?->city,
+                                'country' => $i->masterplan?->country,
+                                'image' => $i->masterplan?->image,
+                                'id' => $i->masterplan?->id,
+                                'category' => $i->masterplan?->category,
+                                'size' => $i->masterplan?->size,
+                                'tags' => $i->masterplan?->tags,
+                            ];
+                        })->toArray();
+                });
             }
             if ($category == 'streetscapes') {
-                $all_data = Streetscape::where('active', 1)
-                    ->where('size', '=', $size)
-                    ->get();
+
+                $all_data = $cls->collections->map(function ($i) {
+                    $size = request()->input('size');
+                    $i->streetscape
+                        ->where('size', '=', $size)
+                        ->get()
+                        ->map(function ($i) {
+
+                            $views = 0;
+                            if ($i->streetscape != null) {
+                                $views =  views($i->streetscape)->count();
+                            }
+
+                            return [
+                                'views' => $views,
+                                'title' => $i->streetscape?->title,
+                                'author' => $i->streetscape?->author,
+                                'city' => $i->streetscape?->city,
+                                'imagea' => $i->streetscape?->imagea,
+                                'imageb' => $i->streetscape?->imageb,
+                                'country' => $i->streetscape?->country,
+                                'address' => $i->streetscape?->address,
+                                'id' => $i->streetscape?->id,
+                                'category' => $i->streetscape?->category,
+                                'size' => $i->streetscape?->size,
+                                'tags' => $i->streetscape?->tags
+                            ];
+                        })->toArray();
+                });
             }
             if ($category == 'urbanscapes') {
-                $all_data = Neighbourhood::where('active', 1)
-                    ->where('size', '=', $size)
-                    ->get();
+
+                $all_data = $cls->collections->map(function ($i) {
+                    $size = request()->input('size');
+                    $i->urbanscape
+                        ->where('size', '=', $size)
+                        ->get()
+                        ->map(function ($i) {
+                            $views = 0;
+                            if ($i->urbanscape != null) {
+                                $views =  views($i->urbanscape)->count();
+                            }
+                            return [
+                                'views' => $views,
+                                'title' => $i->urbanscape?->title,
+                                'author' => $i->urbanscape?->author,
+                                'city' => $i->urbanscape?->city,
+                                'imagea' => $i->urbanscape?->imagea,
+                                'imageb' => $i->urbanscape?->imageb,
+                                'country' => $i->urbanscape?->country,
+                                'address' => $i->urbanscape?->address,
+                                'id' => $i->urbanscape?->id,
+                                'category' => $i->urbanscape?->category,
+                                'size' => $i->urbanscape?->size,
+                                'tags' => $i->urbanscape?->tags
+                            ];
+                        })->toArray();
+                });
             }
         }
 
         if ($request->filled('city')) {
             if ($category == 'masterplans') {
-                $all_data = Masterplan::where('active', 1)
-                    ->where('city', '=', $city)
-                    ->map(function ($i) {
-                        return [
-                            'views' => views($i)->count(),
-                            'title' => $i->title,
-                            'author' => $i->author,
-                            'city' => $i->city,
-                            'image' => $i->image,
-                            'id' => $i->id,
-                            'category' => $i->category,
-                            'size' => $i->size,
-                            'tags' => $i->tags
-                        ];
-                    })->toArray();
+
+                $all_data = $cls->collections->map(function ($i) {
+                    $city = request()->input('city');
+                    $i->masterplan
+                        ->where('city', '=', $city)
+                        ->get()
+                        ->map(function ($i) {
+                            $views = 0;
+                            if ($i->masterplan != null) {
+                                $views =  views($i->masterplan)->count();
+                            }
+
+                            return [
+                                'views' => $views,
+                                'title' => $i->masterplan?->title,
+                                'author' => $i->masterplan?->author,
+                                'city' => $i->masterplan?->city,
+                                'country' => $i->masterplan?->country,
+                                'image' => $i->masterplan?->image,
+                                'id' => $i->masterplan?->id,
+                                'category' => $i->masterplan?->category,
+                                'size' => $i->masterplan?->size,
+                                'tags' => $i->masterplan?->tags,
+                            ];
+                        })->toArray();
+                });
             }
             if ($category == 'streetscapes') {
-                $all_data = Streetscape::where('active', 1)
-                    ->where('city', '=', $city)
-                    ->get();
+
+                $all_data = $cls->collections->map(function ($i) {
+                    $city = request()->input('city');
+                    $i->streetscape
+                        ->where('city', '=', $city)
+                        ->get()
+                        ->map(function ($i) {
+
+                            $views = 0;
+                            if ($i->streetscape != null) {
+                                $views =  views($i->streetscape)->count();
+                            }
+
+                            return [
+                                'views' => $views,
+                                'title' => $i->streetscape?->title,
+                                'author' => $i->streetscape?->author,
+                                'city' => $i->streetscape?->city,
+                                'imagea' => $i->streetscape?->imagea,
+                                'imageb' => $i->streetscape?->imageb,
+                                'country' => $i->streetscape?->country,
+                                'address' => $i->streetscape?->address,
+                                'id' => $i->streetscape?->id,
+                                'category' => $i->streetscape?->category,
+                                'size' => $i->streetscape?->size,
+                                'tags' => $i->streetscape?->tags
+                            ];
+                        })->toArray();
+                });
             }
             if ($category == 'urbanscapes') {
-                $all_data = Neighbourhood::where('active', 1)
-                    ->where('city', '=', $city)
-                    ->get();
+
+                $all_data = $cls->collections->map(function ($i) {
+                    $city = request()->input('city');
+                    $i->urbanscape
+                        ->where('city', '=', $city)
+                        ->get()
+                        ->map(function ($i) {
+                            $views = 0;
+                            if ($i->urbanscape != null) {
+                                $views =  views($i->urbanscape)->count();
+                            }
+                            return [
+                                'views' => $views,
+                                'title' => $i->urbanscape?->title,
+                                'author' => $i->urbanscape?->author,
+                                'city' => $i->urbanscape?->city,
+                                'imagea' => $i->urbanscape?->imagea,
+                                'imageb' => $i->urbanscape?->imageb,
+                                'country' => $i->urbanscape?->country,
+                                'address' => $i->urbanscape?->address,
+                                'id' => $i->urbanscape?->id,
+                                'category' => $i->urbanscape?->category,
+                                'size' => $i->urbanscape?->size,
+                                'tags' => $i->urbanscape?->tags
+                            ];
+                        })->toArray();
+                });
             }
         }
 
         if ($request->filled('country')) {
             if ($category == 'masterplans') {
-                $all_data = Masterplan::where('active', 1)
-                    ->where('country', '=', $country)
-                    ->map(function ($i) {
-                        return [
-                            'views' => views($i)->count(),
-                            'title' => $i->title,
-                            'author' => $i->author,
-                            'city' => $i->city,
-                            'image' => $i->image,
-                            'id' => $i->id,
-                            'category' => $i->category,
-                            'size' => $i->size,
-                            'tags' => $i->tags
-                        ];
-                    })->toArray();
+
+                $all_data = $cls->collections->map(function ($i) {
+                    $country = request()->input('country');
+                    $i->masterplan
+                        ->where('country', '=', $country)
+                        ->get()
+                        ->map(function ($i) {
+                            $views = 0;
+                            if ($i->masterplan != null) {
+                                $views =  views($i->masterplan)->count();
+                            }
+
+                            return [
+                                'views' => $views,
+                                'title' => $i->masterplan?->title,
+                                'author' => $i->masterplan?->author,
+                                'city' => $i->masterplan?->city,
+                                'country' => $i->masterplan?->country,
+                                'image' => $i->masterplan?->image,
+                                'id' => $i->masterplan?->id,
+                                'category' => $i->masterplan?->category,
+                                'size' => $i->masterplan?->size,
+                                'tags' => $i->masterplan?->tags,
+                            ];
+                        })->toArray();
+                });
             }
             if ($category == 'streetscapes') {
-                $all_data = Streetscape::where('active', 1)
-                    ->where('country', '=', $country)
-                    ->get();
+
+                $all_data = $cls->collections->map(function ($i) {
+                    $country = request()->input('country');
+                    $i->streetscape
+                        ->where('country', '=', $country)
+                        ->get()
+                        ->map(function ($i) {
+
+                            $views = 0;
+                            if ($i->streetscape != null) {
+                                $views =  views($i->streetscape)->count();
+                            }
+
+                            return [
+                                'views' => $views,
+                                'title' => $i->streetscape?->title,
+                                'author' => $i->streetscape?->author,
+                                'city' => $i->streetscape?->city,
+                                'imagea' => $i->streetscape?->imagea,
+                                'imageb' => $i->streetscape?->imageb,
+                                'country' => $i->streetscape?->country,
+                                'address' => $i->streetscape?->address,
+                                'id' => $i->streetscape?->id,
+                                'category' => $i->streetscape?->category,
+                                'size' => $i->streetscape?->size,
+                                'tags' => $i->streetscape?->tags
+                            ];
+                        })->toArray();
+                });
             }
             if ($category == 'urbanscapes') {
-                $all_data = Neighbourhood::where('active', 1)
-                    ->where('country', '=', $country)
-                    ->get();
+
+                $all_data = $cls->collections->map(function ($i) {
+                    $country = request()->input('country');
+                    $i->urbanscape
+                        ->where('country', '=', $country)
+                        ->get()
+                        ->map(function ($i) {
+                            $views = 0;
+                            if ($i->urbanscape != null) {
+                                $views =  views($i->urbanscape)->count();
+                            }
+                            return [
+                                'views' => $views,
+                                'title' => $i->urbanscape?->title,
+                                'author' => $i->urbanscape?->author,
+                                'city' => $i->urbanscape?->city,
+                                'imagea' => $i->urbanscape?->imagea,
+                                'imageb' => $i->urbanscape?->imageb,
+                                'country' => $i->urbanscape?->country,
+                                'address' => $i->urbanscape?->address,
+                                'id' => $i->urbanscape?->id,
+                                'category' => $i->urbanscape?->category,
+                                'size' => $i->urbanscape?->size,
+                                'tags' => $i->urbanscape?->tags
+                            ];
+                        })->toArray();
+                });
             }
         }
 

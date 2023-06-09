@@ -1,9 +1,9 @@
-<nav x-data="{ isOpen: false }" class="gap-6 px-6 py-3 lg:flex lg:justify-between lg:items-center">
+<nav x-data="{ isOpen: false }" class="gap-6 px-6 py-3 lg:flex lg:justify-between border-b lg:items-center">
     <div class="flex items-center justify-between gap-6">
         <div>
             <a class="flex items-center text-2xl font-bold text-gray-700 lg:text-3xl hover:text-gray-400 " href="/">
                 <img src="{{ asset('img/logo.png') }}" class="w-auto h-8">
-                <h1 class="pl-2 text-xl font-bold text-[#333333] lg:mt-1 2xl:mt-0 2xl:text-3xl hover:text-gray-400 mb-0">
+                <h1 class="pl-2 text-xl font-bold text-[#333333] lg:mt-1 2xl:mt-0  hover:text-gray-400 mb-0">
                     Urbanitarian</h1>
             </a>
         </div>
@@ -13,9 +13,9 @@
         <div class="z-50 items-center px-6 py-4flex">
             <div class="flex flex-row gap-4 pb-4 mt-20 space-y-0 align-baseline md:mt-0 mynav md:pb-0">
                 <a class="text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
-                    href="/">&nbsp;Categories</a>
+                    href="/categories">&nbsp;Categories</a>
                 <a class="text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
-                    href="/collections">&nbsp;Collections</a>
+                    href="{{ url('/collections') }}">&nbsp;Collections</a>
                 <a class="text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
                     href="/how-it-works">&nbsp;How it works</a>
             </div>

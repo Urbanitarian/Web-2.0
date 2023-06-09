@@ -10,13 +10,13 @@ class TestController extends Controller
     public function test()
     {
 
-        $masters = CollectionName::with('collections')->find(1);
+        $masters = CollectionName::where('user_id', session()->get('FRONT_USER_ID'))->with('collections')->find(1);
 
 
         $all_data = $masters->collections->map(function ($i) {
-            $views = views($i->masterplan)->count();
+
             return [
-                'views' => $views,
+                //  'views' => $views,
                 'title' => $i->masterplan->title,
                 'author' => $i->masterplan->author,
                 'city' => $i->masterplan->city,

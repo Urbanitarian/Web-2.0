@@ -1,5 +1,5 @@
 <div>
-    <div class="px-10 pt-12">
+    <div class="px-10 pt-12 ">
         <h1 class="text-5xl font-bold  text-[#667080]">Collection</h1>
         <div class="pt-6">
             <div class="grid grid-cols-12 gap-6">
@@ -34,35 +34,37 @@
             </div>
 
         </div>
-        <div class="grid grid-cols-8">
-            <table class="pt-6 pb-4 mb-4">
+        <div class="grid grid-cols-12">
+            <table class="pt-6 pb-2 mb-4 table-auto col-span-8">
                 <tbody>
                     <tr
-                        class="px-6 py-4 text-[#667080] text-lg flex justify-between items-center w-[861px] whitespace-nowrap">
-                        <td class="w-[20%]">Collection Name</td>
-                        <td class="w-[20%]">Last modified</td>
-                        <td class="w-[20%]">Created</td>
-                        <td class="w-[20%]">Sources</td>
+                        class="px-6 pt-5 pb-2 text-[#667080] text-lg flex justify-between items-center w-[861px] whitespace-nowrap">
+                        <td class="w-[50vh]">Collection Name</td>
+                        <td class="w-[50vh]">Last modified</td>
+                        <td class="w-[50vh]">Created</td>
+                        <td class="w-[50vh]">Sources</td>
                     </tr>
                 </tbody>
                 <tbody>
-                    @foreach ($collections as $collection)
+                    @forelse ($collections as $collection)
                         <tr
                             class="w-[861px] shadow border-t bg-[#EEF1F4] flex justify-between items-center whitespace-nowrap">
-                            <td class="px-4  w-[20%] py-4 text-[#667080] font-bold text-base">
+                            <td class="px-4 w-[50vh] py-4 text-[#667080] font-bold text-base">
                                 <a href="{{ url('collection/detail/' . $collection->id) }}">{{ $collection->name }}</a>
                             </td>
-                            <td class="px-4  w-[20%] py-4 text-[#667080] font-bold text-base">
-                                10 min ago
+                            <td class="px-4 w-[50vh] py-4 text-[#667080] font-bold text-base">
+                                {{ $collection->updated_at->diffForHumans() }}
                             </td>
-                            <td class="px-4  w-[20%] py-4 text-[#667080] font-bold text-base">
-                                10 min ago
+                            <td class="px-4 w-[50vh] py-4 text-[#667080] font-bold text-base">
+                                {{ $collection->created_at->diffForHumans() }}
                             </td>
-                            <td class="px-4  w-[20%] py-4 text-[#667080] font-bold text-base">
-                                0
+                            <td class="px-4 w-[50vh] py-4 text-[#667080] font-bold text-base">
+                                {{ count($collection->collections) }}
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                    @endforelse
+
                 </tbody>
 
 

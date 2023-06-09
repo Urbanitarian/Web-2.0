@@ -9,6 +9,8 @@ class Collection extends Component
 {
     public $search;
 
+    public $user_id;
+
     protected $listeners = [
         'collection-reset' => 'fetchAll'
     ];
@@ -18,11 +20,19 @@ class Collection extends Component
         $this->reset();
     }
 
+    public function mount()
+    {
+        $this->user_id = session()->get('FRONT_USER_ID');
+    }
+
 
 
     public function render()
     {
-        $collections = CollectionName::where('name', 'like', '%' . $this->search . '%')->get();
+
+        $collections = CollectionName::where('name', 'like', '%' . $this->search . '%')
+            ->where('user_id', $this->user_id)
+            ->get();
 
         return view('livewire.collection', compact('collections'));
     }

@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
-@include('parts.navbar')
+
 
 @section('main')
-    <div class="relative z-50 mt-12">
-        <div id="mysearch" class="py-8 -mt-[104px] px-6 bg-white border-t">
+    <div class="relative">
+        <div class="px-10  text-[#667080]">
+            <h1 class="text-5xl font-bold ">{{ $cls->name }}</h1>
+            <p class="font-normal text-base">{{ $cls->description }}</p>
+        </div>
+
+        <div id="mysearch" class="py-8 px-8  bg-white">
             <div class="flex flex-col flex-wrap gap-6 mx-4 md:mx-0" x-data="{ showFilter: false }">
                 <div class="flex items-center justify-between gap-8">
                     <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category" x-data="{ active: 'masterplan' }">
@@ -430,7 +435,7 @@
 
         <div @mouseenter="visibleBtn=true"
             class="relative h-[438px] overflow-hidden transition-all border rounded-md shadow hover:shadow-xl hover:border-black saturate-120 animate__animated animate__backInLeft">
-            <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
+            <a href="/masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
                 <img alt="Art" src="/storage/uploads/thumbnails/masterplans/${item.image}"alt=""
                     onerror="this.src='/storage/uploads/masterplans/${item.image}'"
                     class="object-cover  h-full saturate-120 max-h-[368px]" />
@@ -480,21 +485,20 @@
 x-data="{ visibleBtn: false }">
 <div @mouseleave="visibleBtn=false">
     <div x-cloak x-show="visibleBtn">
-        <button onclick="saveCollection(${item.id}, 'urban')"
-            class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
-            <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to
-                Collection</span></button>
+        <button onclick="removeCollection(${item.id}, 'urban')"
+                class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
+                <span><i class="fa fa-times" aria-hidden="true"></i></span><span class="text-sm whitespace-nowrap">Remove
+</span></button>
     </div>
 
-    <a @mouseenter="visibleBtn=true" href="urbanscapes_post?id=${item.id}"
+    <a @mouseenter="visibleBtn=true" href="/urbanscapes_post?id=${item.id}"
         class="flex flex-col h-full duration-300">
         <img alt="Art" src="/storage/uploads/thumbnails/urbanscapes/${item.imagea}"alt=""
             onerror="this.src='/storage/uploads/urbanscapes/${item.imagea}'" class="object-cover saturate-120"
             style="height:332px" />
         <div class="flex  bottom-[110px] absolute ml-2 whitespace-nowrap">
             ${item.tags.map(tag => `<div
-                                                                                                                    class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">
-                                                                                                                    ${tag}</div>`).join(' &nbsp;')}
+                                                                                    class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">                                                                                                                                                                  ${tag}</div>`).join(' &nbsp;')}
         </div>
         <div class="absolute bottom-1">
             <p class="px-2 mt-2 text-sm font-bold h-[70px]">
@@ -530,12 +534,12 @@ x-data="{ visibleBtn: false }">
 x-data="{ visibleBtn: false }">
 <div @mouseleave="visibleBtn=false">
     <div x-cloak x-show="visibleBtn">
-        <button onclick="saveCollection(${item.id}, 'street')"
-            class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
-            <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to
-                Collection</span></button>
+        <button onclick="removeCollection(${item.id}, 'street')"
+                class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
+                <span><i class="fa fa-times" aria-hidden="true"></i></span><span class="text-sm whitespace-nowrap">Remove
+</span></button>
     </div>
-    <a @mouseenter="visibleBtn=true" href="streetscapes_post?id=${item.id}"
+    <a @mouseenter="visibleBtn=true" href="/streetscapes_post?id=${item.id}"
         class="flex flex-col h-full duration-300 hover:opacity-50">
         <div class="juxtapose" style="height: 360px; width: 700px;">
             <img alt="Art" src="/storage/uploads/thumbnails/streetscapes/${item.imagea}"alt=""
@@ -702,7 +706,7 @@ x-data="{ visibleBtn: false }">
             $('#tags_selector').val('');
             currentPage = 1;
             resetLayout();
-            url = "/api/collection_data?category=streetscape&id=" + c_id;
+            url = "/api/collection_data?category=streetscapes&id=" + c_id;
             currenturl = url;
 
             $('#boucle').empty();
@@ -854,30 +858,27 @@ x-data="{ visibleBtn: false }">
         //     multiple: false
         // });
 
-        function saveCollection(id, type, c_name) {
+        function removeCollection(id, type) {
+
 
 
 
             $.ajax({
-                url: '{{ route('save.collection') }}',
+                url: '{{ route('remove.collection') }}',
                 type: 'POST',
                 data: {
                     _token: '{{ csrf_token() }}',
                     id: id,
-                    type: type,
-                    c_name: c_name
+                    type: type
                 },
                 success: function(response) {
 
                     if (response.status == 'yes') {
-
-
-                        document.getElementById('card' + id).innerHTML =
-                            '<i class="fa fa-check" aria-hidden="true"></i>';
-                        alert('Added to Collection!');
+                        alert('Collection removed');
+                        window.location = "/collection/detail/" + c_id;
 
                     } else {
-                        window.location = "/login";
+                        alert('Something went wrong. Please try again!');
                     }
 
                 }

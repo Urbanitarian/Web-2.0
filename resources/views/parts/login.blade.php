@@ -71,7 +71,6 @@
                 <div class="flex flex-col my-6 ">
                     <form action="{{ url('user/login') }}" method="POST">
                         @csrf
-
                         <div class="flex flex-col gap-2">
                             <div class="flex flex-col">
                                 <label for="">Email</label>

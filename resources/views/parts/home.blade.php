@@ -56,6 +56,7 @@
 
                             <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
 
+
                                 <a href="#"
                                     class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-white duration-300 bg-gray-800 rounded shadow-lg hover:bg-black prevent lg:ml-4 group ">
                                     <span class="text-sm">Log in or sign up</span>
@@ -445,7 +446,7 @@
             <div class="flex pt-8">
                 <button id="load_more" onclick="loadMore()"
                     class="flex px-2 py-2 mx-auto mt-4 mb-8 text-black transition-all bg-gray-100 border-2 rounded text-md focus:outline-none hover:bg-gray-400">
-                    Load More Masterplans</button>
+                </button>
 
             </div>
         @endif
@@ -564,6 +565,8 @@
                             btn3 = document.getElementById("urbanbtn");
                             btn3.classList.remove("bg-black", "text-white");
 
+                            document.getElementById('load_more').innerHTML = 'Load More Masterplans';
+
 
                             iconToShow(item.id, 'master');
 
@@ -587,7 +590,7 @@
 
 
                 ${item.collections.map( collection => `<div
-                        class="flex justify-between py-3 pl-6 pr-8 text-sm text-gray-800 rounded-md w-[350px] hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
+                        class="flex justify-between py-3 pl-6 pr-8 text-sm text-gray-800 rounded-md w-[250px] hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
                         ${collection.name} <span class="p-2 text-white bg-gray-800 rounded-lg cursor-pointer" onclick="saveCollection(${item.id}, 'master', ${collection.id})">Save</span> </div>`).join('<hr>')}
                 </div>
             </div>
@@ -639,16 +642,35 @@
 
                             iconToShow(item.id, 'urban');
 
+                            document.getElementById('load_more').innerHTML = 'Load More Urbanscapes';
+
                             let html = `
 
                             <div class="relative h-[438px] overflow-hidden transition border rounded shadow-sm saturate-120 animate__animated animate__backInRight hover:opacity-75 hover:shadow-xl hover:border-black"
     x-data="{ visibleBtn: false }">
-    <div @mouseleave="visibleBtn=false">
+    <div @mouseleave="visibleBtn=false"  x-data="{showDropDown: false}">
         <div x-cloak x-show="visibleBtn">
-            <button onclick="saveCollection(${item.id}, 'urban')"
-                class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
-                <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to
-                    Collection</span></button>
+            <div  @mouseleave="showDropDown=false">
+            <div x-cloak x-show="visibleBtn" >
+                <button @click="showDropDown=!showDropDown"
+                    class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
+                    <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to
+                        Collection</span></button>
+            </div>
+
+
+            <div x-show="showDropDown" id="save_dd_${item.id}" class="absolute z-50 top-12 right-2">
+
+
+                <div class="py-2 bg-white rounded shadow">
+
+
+                ${item.collections.map( collection => `<div
+                        class="flex justify-between py-3 z-50 pl-6 pr-8 text-sm text-gray-800 rounded-md w-[250px] hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
+                        ${collection.name} <span class="p-2 text-white bg-gray-800 rounded-lg cursor-pointer" onclick="saveCollection(${item.id}, 'urban', ${collection.id})">Save</span> </div>`).join('<hr>')}
+                </div>
+            </div>
+        </div>
         </div>
 
         <a @mouseenter="visibleBtn=true" href="urbanscapes_post?id=${item.id}"
@@ -688,17 +710,36 @@
                             thegrid = document.getElementById("boucle");
                             thegrid.classList.remove("xl:grid-cols-5");
 
+                            document.getElementById('load_more').innerHTML = 'Load More Streetscapes';
+
                             iconToShow(item.id, 'street');
 
                             let html = `
                             <div class="relative col-span-2 overflow-hidden transition border rounded-md shadow-sm element1 hover:border-black saturate-120 animate__animated animate__backInUp"
     x-data="{ visibleBtn: false }">
-    <div @mouseleave="visibleBtn=false">
+    <div @mouseleave="visibleBtn=false"  x-data="{showDropDown: false}">
         <div x-cloak x-show="visibleBtn">
-            <button onclick="saveCollection(${item.id}, 'street')"
-                class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
-                <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to
-                    Collection</span></button>
+            <div  @mouseleave="showDropDown=false">
+            <div x-cloak x-show="visibleBtn" >
+                <button @click="showDropDown=!showDropDown"
+                    class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
+                    <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to
+                        Collection</span></button>
+            </div>
+
+
+            <div x-show="showDropDown" id="save_dd_${item.id}" class="absolute z-50 top-12 right-2">
+
+
+                <div class="py-2 bg-white rounded shadow">
+
+
+                ${item.collections.map( collection => `<div
+                        class="flex justify-between py-3 pl-6 pr-8 text-sm text-gray-800 rounded-md w-[250px] hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
+                        ${collection.name} <span class="p-2 text-white bg-gray-800 rounded-lg cursor-pointer" onclick="saveCollection(${item.id}, 'street', ${collection.id})">Save</span> </div>`).join('<hr>')}
+                </div>
+            </div>
+        </div>
         </div>
         <a @mouseenter="visibleBtn=true" href="streetscapes_post?id=${item.id}"
             class="flex flex-col h-full duration-300 hover:opacity-50">
@@ -1009,8 +1050,6 @@
 
     function saveCollection(id, type, c_name) {
 
-
-
         $.ajax({
             url: '{{ route('save.collection') }}',
             type: 'POST',
@@ -1021,16 +1060,14 @@
                 c_name: c_name
             },
             success: function(response) {
-
                 if (response.status == 'yes') {
-
 
                     document.getElementById('card' + id).innerHTML =
                         '<i class="fa fa-check" aria-hidden="true"></i>';
-                    alert('Added to Collection!');
+                    alert(response.msg);
 
                 } else {
-                    window.location = "/login";
+                    alert(response.msg);
                 }
 
             }
@@ -1051,7 +1088,14 @@
             },
             success: function(response) {
 
-                document.getElementById('card' + response.id).innerHTML = response.status;
+                if (response.status == 'yes') {
+                    document.getElementById('card' + response.id).innerHTML =
+                        '<i class="fa fa-check" aria-hidden="true"></i>';
+                } else {
+                    document.getElementById('card' + response.id).innerHTML =
+                        '<i class="fa fa-plus" aria-hidden="true"></i>';
+                }
+
 
             }
         })
