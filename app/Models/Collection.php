@@ -15,7 +15,7 @@ class Collection extends Model
         'street_id',
         'urban_id',
         'collection_name_id',
-        'user_id'
+
     ];
 
     protected $table = 'collections';

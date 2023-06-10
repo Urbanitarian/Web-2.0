@@ -86,8 +86,8 @@ Route::get('schedule', function () {
 
 Route::controller(CollectionController::class)->group(function () {
 
-    Route::get('/collections', 'cols')->name('collections');
-    Route::get('/collection/detail/{id}', 'collectionDetail')->name('collections.detail');
+    Route::get('collection', 'cols')->name('collection');
+    Route::get('collection/detail/{id}', 'collectionDetail')->name('collections.detail');
     Route::post('save_collection', 'saveCollection')->name('save.collection');
     Route::post('remove_collection', 'removeCollection')->name('remove.collection');
     Route::post('check_collection', 'checkCollection')->name('check.collection');

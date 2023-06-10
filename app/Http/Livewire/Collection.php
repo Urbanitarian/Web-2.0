@@ -4,21 +4,19 @@ namespace App\Http\Livewire;
 
 use App\Models\CollectionName;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Collection extends Component
 {
     public $search;
 
+    use WithPagination;
+
     public $user_id;
 
     protected $listeners = [
-        'collection-reset' => 'fetchAll'
+        'collection-reset' => '$refresh'
     ];
-
-    public function  fetchAll()
-    {
-        $this->reset();
-    }
 
     public function mount()
     {
@@ -32,7 +30,8 @@ class Collection extends Component
 
         $collections = CollectionName::where('name', 'like', '%' . $this->search . '%')
             ->where('user_id', $this->user_id)
-            ->get();
+            ->latest()
+            ->paginate(10);
 
         return view('livewire.collection', compact('collections'));
     }

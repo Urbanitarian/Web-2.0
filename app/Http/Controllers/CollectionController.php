@@ -20,15 +20,14 @@ class CollectionController extends Controller
 
     public function cols()
     {
-
-        echo "sdsdsd";
-
-        // if (session()->has('FRONT_USER_LOGIN')) {
-        //     return view('collections');
-        // } else {
-        //     return redirect('/login');
-        // }
+        if (session()->has('FRONT_USER_LOGIN')) {
+            return view('collections');
+        } else {
+            return redirect('/login');
+        }
     }
+
+
 
     public function saveCollection(Request $request)
     {
@@ -39,24 +38,15 @@ class CollectionController extends Controller
 
             $type = $_POST['type'];
 
-            $c_name = $_POST['c_name'];
+            $c_id = $_POST['c_id'];
 
-            $user_id = session()->get('FRONT_USER_ID');
-
+            $user_id = $request->session()->get('FRONT_USER_ID');
 
             switch ($type) {
-                case 'master':
-                    $existing_master = Collection::where('master_id', $collection_id)->first();
-                    if ($existing_master) {
-                        return response()->json([
-                            'status' => 'no',
-                            'msg' => 'Collection already exist!'
-                        ]);
-                    } else {
+                case 'master': {
                         Collection::create([
                             'master_id' => $collection_id,
-                            'collection_name_id' => $c_name,
-                            'user_id' => $user_id
+                            'collection_name_id' => $c_id
                         ]);
                         return response()->json([
                             'status' => 'yes',
@@ -66,18 +56,10 @@ class CollectionController extends Controller
 
 
                     break;
-                case 'street':
-                    $existing_street = Collection::where('street_id', $collection_id)->first();
-                    if ($existing_street) {
-                        return response()->json([
-                            'status' => 'no',
-                            'msg' => 'Collection already exist!'
-                        ]);
-                    } else {
+                case 'street': {
                         Collection::create([
                             'street_id' => $collection_id,
-                            'collection_name_id' => $c_name,
-                            'user_id' => $user_id
+                            'collection_name_id' => $c_id
                         ]);
                         return response()->json([
                             'status' => 'yes',
@@ -86,18 +68,10 @@ class CollectionController extends Controller
                     }
                     break;
 
-                case 'urban':
-                    $existing_urban = Collection::where('urban_id', $collection_id)->first();
-                    if ($existing_urban) {
-                        return response()->json([
-                            'status' => 'no',
-                            'msg' => 'Collection already exist!'
-                        ]);
-                    } else {
+                case 'urban': {
                         Collection::create([
                             'urban_id' => $collection_id,
-                            'collection_name_id' => $c_name,
-                            'user_id' => $user_id
+                            'collection_name_id' => $c_id
                         ]);
                         return response()->json([
                             'status' => 'yes',
@@ -219,7 +193,7 @@ class CollectionController extends Controller
 
         $user_id = session()->get('FRONT_USER_ID');
 
-        $masters = $cls->collections->where('user_id', $user_id)->map(function ($q) {
+        $masters = $cls->collections->map(function ($q) {
             if ($q->masterplan != null) {
                 return   $this->masternum++;
             }

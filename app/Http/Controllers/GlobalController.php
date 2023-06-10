@@ -557,8 +557,10 @@ class GlobalController extends Controller
 
 
 
-    public function login()
+    public function login(Request $req)
     {
-        return view('parts.login');
+        if (!$req->session()->get('FRON_USER_LOGIN')) {
+            return view('parts.login');
+        }
     }
 }

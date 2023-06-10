@@ -28,7 +28,6 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
                             <span class="text-base">New Collection</span></button>
-
                     </div>
                 </div>
             </div>
@@ -38,27 +37,26 @@
             <table class="pt-6 pb-2 mb-4 table-auto col-span-8">
                 <tbody>
                     <tr
-                        class="px-6 pt-5 pb-2 text-[#667080] text-lg flex justify-between items-center w-[861px] whitespace-nowrap">
-                        <td class="w-[50vh]">Collection Name</td>
-                        <td class="w-[50vh]">Last modified</td>
-                        <td class="w-[50vh]">Created</td>
-                        <td class="w-[50vh]">Sources</td>
+                        class="px-6 pt-5 pb-2 text-[#667080] text-lg flex justify-between items-center  whitespace-nowrap">
+                        <td class="w-[160px]">Collection Name</td>
+                        <td class="w-[160px]">Last modified</td>
+                        <td class="w-[160px]">Created</td>
+                        <td class="w-[160px]">Sources</td>
                     </tr>
                 </tbody>
                 <tbody>
                     @forelse ($collections as $collection)
-                        <tr
-                            class="w-[861px] shadow border-t bg-[#EEF1F4] flex justify-between items-center whitespace-nowrap">
-                            <td class="px-4 w-[50vh] py-4 text-[#667080] font-bold text-base">
+                        <tr class="px-4 shadow  bg-[#EEF1F4] flex justify-between items-center whitespace-nowrap">
+                            <td class=" w-[160px]  py-4 text-[#667080] font-bold text-base">
                                 <a href="{{ url('collection/detail/' . $collection->id) }}">{{ $collection->name }}</a>
                             </td>
-                            <td class="px-4 w-[50vh] py-4 text-[#667080] font-bold text-base">
+                            <td class=" w-[160px]  py-4 text-[#667080] font-bold text-base">
                                 {{ $collection->updated_at->diffForHumans() }}
                             </td>
-                            <td class="px-4 w-[50vh] py-4 text-[#667080] font-bold text-base">
+                            <td class=" w-[160px]  py-4 text-[#667080] font-bold text-base">
                                 {{ $collection->created_at->diffForHumans() }}
                             </td>
-                            <td class="px-4 w-[50vh] py-4 text-[#667080] font-bold text-base">
+                            <td class=" w-[160px]  py-4 text-[#667080] font-bold text-base">
                                 {{ count($collection->collections) }}
                             </td>
                         </tr>
@@ -70,7 +68,12 @@
 
 
             </table>
+
         </div>
+        @if ($collections->isNotEmpty())
+            {{ $collections->links() }}
+        @endif
+
 
     </div>
 

@@ -442,48 +442,41 @@
             </div>
 
         </div>
-        @if (session()->has('FRONT_USER_LOGIN'))
-            <div class="flex pt-8">
-                <button id="load_more" onclick="loadMore()"
-                    class="flex px-2 py-2 mx-auto mt-4 mb-8 text-black transition-all bg-gray-100 border-2 rounded text-md focus:outline-none hover:bg-gray-400">
-                </button>
+        <div class="flex pt-8">
+            <button id="load_more" onclick="loadMore()" style="display: none"
+                class="flex px-2 py-2 mx-auto mt-4 mb-8 text-black transition-all bg-gray-100 border-2 rounded text-md focus:outline-none hover:bg-gray-400">
+            </button>
 
+        </div>
+
+        <div class="loader flex justify-center items-center" style="display: none">
+            <div class="inline-block h-8 w-8 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current align-[-0.125em] opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]"
+                role="status">
+                <span
+                    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
             </div>
-        @endif
+        </div>
+
     </section>
 </div>
+
+<input type="hidden" id="user_id" value="{{ session()->get('FRONT_USER_ID') }}" />
 
 <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
     integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
 <script>
     let itemsPerPage = 15;
 
-    $(document).ready(function() {
-        $('#boucle').loadMoreResults({
-            displayedItems: 15,
-            button: {
-                'class': 'hidden',
-
-            }
-
-        });
-    })
-
     function loadMore() {
-        $(document).ready(function() {
-            $('#boucle').loadMoreResults({
-                showItems: 15,
-                button: {
-                    'class': 'hidden',
 
-                }
-            });
-        })
-
+        currentPage++;
+        if (currentPage > totalPages) {
+            $('#load_more').hide();
+        }
         fetchAndRenderData(url);
     }
 
-
+    let user_id = $('#user_id').val();
     let category = "masterplans";
     let currentcategory = "";
     let currenturl = "";
@@ -529,7 +522,7 @@
     }
 
     const fetchAndRenderData = (url) => {
-        console.log(currenturl);
+        $('.loader').show();
         fetch(url)
             .then((res) => res.json())
             .then((out) => {
@@ -538,6 +531,9 @@
 
                 let textFromJSON = obj;
                 let num = textFromJSON.length;
+                if (num < 15) {
+                    $('#total_count').html("Showing " + num + " items");
+                }
                 totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
                 const startIndex = (currentPage - 1) * itemsPerPage;
                 const endIndex = startIndex + itemsPerPage;
@@ -565,11 +561,14 @@
                             btn3 = document.getElementById("urbanbtn");
                             btn3.classList.remove("bg-black", "text-white");
 
-                            document.getElementById('load_more').innerHTML = 'Load More Masterplans';
-
+                            if (user_id) {
+                                $('#load_more').show();
+                                $('#load_more').html('Load More Masterplans');
+                            } else {
+                                $('#load_more').hide();
+                            }
 
                             iconToShow(item.id, 'master');
-
 
                             let html = `
                             <div class="relative flex flex-col " x-data="{ visibleBtn: false }">
@@ -583,15 +582,17 @@
             </div>
 
 
-            <div x-show="showDropDown" id="save_dd_${item.id}" class="absolute z-50 top-12 right-2">
+            <div x-show="showDropDown" id="save_dd_${item.id}" class="absolute z-50 top-12 right-2"">
 
 
-                <div class="py-2 bg-white rounded shadow">
+                <div class="bg-white rounded shadow">
 
 
-                ${item.collections.map( collection => `<div
+                ${item.collections.map( collection => `<div onmouseenter="showSaveBtn(${collection.id}, ${item.id})" onmouseleave="hideSaveBtn(${collection.id}, ${item.id})"
                         class="flex justify-between py-3 pl-6 pr-8 text-sm text-gray-800 rounded-md w-[250px] hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
-                        ${collection.name} <span class="p-2 text-white bg-gray-800 rounded-lg cursor-pointer" onclick="saveCollection(${item.id}, 'master', ${collection.id})">Save</span> </div>`).join('<hr>')}
+                        ${collection.name}
+                            <span id="save_btn_${collection.id}${item.id}" class="p-1.5 hidden text-white bg-gray-800 rounded-md cursor-pointer" onclick="saveCollection(${item.id}, 'master', ${collection.id})" >Save</span>
+                            </div>`).join('<hr>')}
                 </div>
             </div>
         </div>
@@ -642,8 +643,12 @@
 
                             iconToShow(item.id, 'urban');
 
-                            document.getElementById('load_more').innerHTML = 'Load More Urbanscapes';
-
+                            if (user_id) {
+                                document.getElementById('load_more').innerHTML =
+                                    'Load More Urbanscapes';
+                            } else {
+                                document.getElementById('load_more').innerHTML = '';
+                            }
                             let html = `
 
                             <div class="relative h-[438px] overflow-hidden transition border rounded shadow-sm saturate-120 animate__animated animate__backInRight hover:opacity-75 hover:shadow-xl hover:border-black"
@@ -710,7 +715,12 @@
                             thegrid = document.getElementById("boucle");
                             thegrid.classList.remove("xl:grid-cols-5");
 
-                            document.getElementById('load_more').innerHTML = 'Load More Streetscapes';
+                            if (user_id) {
+                                document.getElementById('load_more').innerHTML =
+                                    'Load More Streetscapes';
+                            } else {
+                                document.getElementById('load_more').innerHTML = '';
+                            }
 
                             iconToShow(item.id, 'street');
 
@@ -852,6 +862,10 @@
                 }
 
             })
+            .finally(() => {
+                $('.loader').hide();
+            })
+
     };
 
     $('#clear_all').click(function() {
@@ -1048,7 +1062,8 @@
     //     multiple: false
     // });
 
-    function saveCollection(id, type, c_name) {
+    function saveCollection(id, type, c_id) {
+
 
         $.ajax({
             url: '{{ route('save.collection') }}',
@@ -1057,17 +1072,17 @@
                 _token: '{{ csrf_token() }}',
                 id: id,
                 type: type,
-                c_name: c_name
+                c_id: c_id
             },
             success: function(response) {
                 if (response.status == 'yes') {
 
                     document.getElementById('card' + id).innerHTML =
                         '<i class="fa fa-check" aria-hidden="true"></i>';
-                    alert(response.msg);
+                    document.getElementById('save_btn_' + c_id + id).innerHTML = 'Saved';
 
                 } else {
-                    alert(response.msg);
+                    window.location.href = '/login';
                 }
 
             }
@@ -1099,6 +1114,15 @@
 
             }
         })
+    }
+
+
+    function showSaveBtn(id, item_id) {
+        $('#save_btn_' + id + item_id).removeClass('hidden');
+    }
+
+    function hideSaveBtn(id, item_id) {
+        $('#save_btn_' + id + item_id).addClass('hidden');
     }
 
 
