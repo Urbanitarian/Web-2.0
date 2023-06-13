@@ -26,6 +26,7 @@ use Backpack\Settings\app\Models\Setting;
 use Carbon\Carbon;
 use App\Mail\MyMailsubmit;
 use App\Models\Collection;
+use App\Models\CollectionName;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification;
@@ -260,7 +261,10 @@ class GlobalController extends Controller
             ->inRandomOrder()
             ->get();
         views($nb)->record();
-        return view('neighbourhoods_post', compact('urbanscape', 'urbanscapes', 'streetscapes', 'masterplans',  'id'));
+
+        $collections = CollectionName::all();
+
+        return view('neighbourhoods_post', compact('urbanscape', 'collections', 'urbanscapes', 'streetscapes', 'masterplans',  'id'));
     }
 
     public function streetscapes(Request $request)
@@ -300,7 +304,9 @@ class GlobalController extends Controller
 
         views($st)->record();
 
-        return view('streetscapes_post', compact('streetscapes', 'allstreetscapes', 'urbanscapes', 'masterplans', 'id'));
+        $collections = CollectionName::all();
+
+        return view('streetscapes_post', compact('streetscapes', 'collections', 'allstreetscapes', 'urbanscapes', 'masterplans', 'id'));
     }
 
     public function masterplans(Request $request)
@@ -351,8 +357,10 @@ class GlobalController extends Controller
 
         views($mas)->record();
 
+        $collections = CollectionName::all();
 
-        return view('masterplans_post', compact('masterplan', 'masterplans', 'streetscapes', 'urbanscapes', 'id'));
+
+        return view('masterplans_post', compact('masterplan', 'masterplans', 'collections', 'streetscapes', 'urbanscapes', 'id'));
     }
 
     public function alldictionary()

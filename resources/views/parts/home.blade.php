@@ -523,6 +523,7 @@
 
     const fetchAndRenderData = (url) => {
         $('.loader').show();
+        $('#load_more').hide();
         fetch(url)
             .then((res) => res.json())
             .then((out) => {
@@ -541,14 +542,9 @@
 
                 console.log(totalPages);
                 if (currentPage == totalPages) {
-                    $('#next').hide();
+                    $('#load_more').hide();
                 } else {
-                    $('#next').show();
-                }
-                if (currentPage == 1) {
-                    $('#prev').hide();
-                } else {
-                    $('#prev').show();
+                    $('#load_more').show();
                 }
                 if (view == "grid") {
                     $.each(itemsToDisplay, function(i, item) {
@@ -644,10 +640,10 @@
                             iconToShow(item.id, 'urban');
 
                             if (user_id) {
-                                document.getElementById('load_more').innerHTML =
-                                    'Load More Urbanscapes';
+                                $('#load_more').show();
+                                $('#load_more').html('Load More Urbanscapes');
                             } else {
-                                document.getElementById('load_more').innerHTML = '';
+                                $('#load_more').hide();
                             }
                             let html = `
 
@@ -670,9 +666,9 @@
                 <div class="py-2 bg-white rounded shadow">
 
 
-                ${item.collections.map( collection => `<div
+                ${item.collections.map( collection => `<div onmouseenter="showSaveBtn(${collection.id}, ${item.id})" onmouseleave="hideSaveBtn(${collection.id}, ${item.id})"
                         class="flex justify-between py-3 z-50 pl-6 pr-8 text-sm text-gray-800 rounded-md w-[250px] hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
-                        ${collection.name} <span class="p-2 text-white bg-gray-800 rounded-lg cursor-pointer" onclick="saveCollection(${item.id}, 'urban', ${collection.id})">Save</span> </div>`).join('<hr>')}
+                        ${collection.name} <span id="save_btn_${collection.id}${item.id}" class="p-1.5 hidden text-white bg-gray-800 rounded-lg cursor-pointer" onclick="saveCollection(${item.id}, 'urban', ${collection.id})">Save</span> </div>`).join('<hr>')}
                 </div>
             </div>
         </div>
@@ -716,12 +712,11 @@
                             thegrid.classList.remove("xl:grid-cols-5");
 
                             if (user_id) {
-                                document.getElementById('load_more').innerHTML =
-                                    'Load More Streetscapes';
+                                $('#load_more').show();
+                                $('#load_more').html('Load More Streetscapes');
                             } else {
-                                document.getElementById('load_more').innerHTML = '';
+                                $('#load_more').hide();
                             }
-
                             iconToShow(item.id, 'street');
 
                             let html = `
@@ -744,9 +739,9 @@
                 <div class="py-2 bg-white rounded shadow">
 
 
-                ${item.collections.map( collection => `<div
+                ${item.collections.map( collection => `<div onmouseenter="showSaveBtn(${collection.id}, ${item.id})" onmouseleave="hideSaveBtn(${collection.id}, ${item.id})"
                         class="flex justify-between py-3 pl-6 pr-8 text-sm text-gray-800 rounded-md w-[250px] hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
-                        ${collection.name} <span class="p-2 text-white bg-gray-800 rounded-lg cursor-pointer" onclick="saveCollection(${item.id}, 'street', ${collection.id})">Save</span> </div>`).join('<hr>')}
+                        ${collection.name} <span id="save_btn_${collection.id}${item.id}" class="p-1.5  hidden text-white bg-gray-800 rounded-lg cursor-pointer" onclick="saveCollection(${item.id}, 'street', ${collection.id})">Save</span> </div>`).join('<hr>')}
                 </div>
             </div>
         </div>
@@ -864,6 +859,7 @@
             })
             .finally(() => {
                 $('.loader').hide();
+
             })
 
     };
@@ -887,7 +883,7 @@
         $('#size_selector').val('');
         $('#tags_selector').val('');
         currentPage = 1;
-        resetLayout();
+        // resetLayout();
         url = "api/data?category=masterplans";
         currenturl = url;
         $('#boucle').empty();
@@ -904,7 +900,7 @@
         $('#size_selector').val('');
         $('#tags_selector').val('');
         currentPage = 1;
-        resetLayout();
+        // resetLayout();
         url = "api/data?category=urbanscapes";
         currenturl = url;
         $('#boucle').empty();
@@ -921,7 +917,7 @@
         $('#size_selector').val('');
         $('#tags_selector').val('');
         currentPage = 1;
-        resetLayout();
+        // resetLayout();
         url = "api/data?category=streetscapes";
         currenturl = url;
 
@@ -1064,7 +1060,7 @@
 
     function saveCollection(id, type, c_id) {
 
-
+        $('#card' + id).html('<i class="fa fa-spinner" aria-hidden="true"></i>');
         $.ajax({
             url: '{{ route('save.collection') }}',
             type: 'POST',
@@ -1077,19 +1073,30 @@
             success: function(response) {
                 if (response.status == 'yes') {
 
-                    document.getElementById('card' + id).innerHTML =
-                        '<i class="fa fa-check" aria-hidden="true"></i>';
-                    document.getElementById('save_btn_' + c_id + id).innerHTML = 'Saved';
+                    $('#card' + id).html('<i class="fa fa-check" aria-hidden="true"></i>');
 
-                } else {
+                    $('#save_btn_' + c_id + id).html('Saved');
+
+                    notyf.success(response.msg);
+
+                }
+                if (response.status == 'exist') {
+                    $('#card' + id).html('<i class="fa fa-check" aria-hidden="true"></i>');
+                    notyf.error(response.msg);
+                }
+                if (response.status == 'no') {
                     window.location.href = '/login';
                 }
+
 
             }
         })
 
 
     }
+
+
+
 
     function iconToShow(id, type) {
 

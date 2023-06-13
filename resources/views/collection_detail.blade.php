@@ -282,7 +282,7 @@
     <div data-barba="container" class="">
         <section class="block px-6 pb-8 tabset ">
             <div class="relative mx-auto">
-                <div id="boucle" class="grid grid-cols-5 gap-5 mygrid lg:grid-cols-5 xl:grid-cols-5">
+                <div id="boucle" class="grid grid-cols-5 mygrid gap-5">
 
                 </div>
 
@@ -337,8 +337,6 @@
         let street_c = $('#street_id').val();
         let urban_c = $('#urban_id').val();
 
-
-
         let category = "masterplans";
         let currentcategory = "";
         let currenturl = "";
@@ -377,11 +375,6 @@
         //     fetchAndRenderData(url);
         // });
 
-        function limitWords(str, limit) {
-            const words = str.split(' ');
-            const limitedWords = words.slice(0, limit);
-            return limitedWords.join(' ');
-        }
 
         const fetchAndRenderData = (url) => {
             $('.loader').show();
@@ -409,6 +402,7 @@
                     if (view == "grid") {
                         $.each(itemsToDisplay, function(i, item) {
                             if (item.category == "Masterplans") {
+                                let master_c = $('#master_id').val();
                                 if (master_c < 15) {
                                     $('#load_more').hide();
                                     $('#total_count').html("Showing " + master_c + " items");
@@ -473,12 +467,14 @@
 
                                 $('#boucle').append(html);
                             } else if (item.category == "Urbanscapes") {
+
                                 btn1 = document.getElementById("masterbtn");
                                 btn1.classList.remove("bg-black", "text-white");
                                 btn2 = document.getElementById("streetbtn");
                                 btn2.classList.remove("bg-black", "text-white");
                                 btn3 = document.getElementById("urbanbtn");
                                 btn3.classList.add("bg-black", "text-white");
+                                let urban_c = $('#urban_id').val();
                                 if (urban_c < 15) {
                                     $('#load_more').hide()
                                     $('#total_count').html("Showing " + urban_c + " items");
@@ -507,7 +503,7 @@ x-data="{ visibleBtn: false }">
             style="height:332px" />
         <div class="flex  bottom-[110px] absolute ml-2 whitespace-nowrap">
             ${item.tags.map(tag => `<div
-                                                                                                                                                                                                                                                                class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">                                                                                                                                                                  ${tag}</div>`).join(' &nbsp;')}
+                                                                                                                                                                                                                                                                                                                                    class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">                                                                                                                                                                  ${tag}</div>`).join(' &nbsp;')}
         </div>
         <div class="absolute bottom-1">
             <p class="px-2 mt-2 text-sm font-bold h-[70px]">
@@ -528,6 +524,7 @@ x-data="{ visibleBtn: false }">
                                 $('#boucle').append(html);
                             } else if (item.category == "Streetscapes") {
 
+
                                 btn1 = document.getElementById("masterbtn");
                                 btn1.classList.remove("bg-black", "text-white");
                                 btn2 = document.getElementById("streetbtn");
@@ -535,10 +532,9 @@ x-data="{ visibleBtn: false }">
                                 btn3 = document.getElementById("urbanbtn");
                                 btn3.classList.remove("bg-black", "text-white");
                                 thegrid = document.getElementById("boucle");
-
-                                if (street_c < 15) {
+                                let street_c = $('#street_id').val();
+                                if (street_c = 0) {
                                     $('#load_more').hide();
-                                    $('#total_count').empty();
                                     $('#total_count').html("Showing " + street_c + " items");
                                 } else {
                                     $('#total_count').html("Showing 15 items");
@@ -590,7 +586,7 @@ x-data="{ visibleBtn: false }">
                             }
                         })
                     } else {
-                        $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass(
+                        $(".mygrid").removeClass("grid-cols-5").removeClass("xl:grid-cols-5").removeClass(
                             "grid-cols-3").removeClass("grid-cols-2").addClass("grid-cols-1").addClass(
                             "lg:grid-cols-1").addClass("xl:grid-cols-1").removeClass("gap-5");
                         let html =
@@ -894,11 +890,11 @@ x-data="{ visibleBtn: false }">
                 success: function(response) {
 
                     if (response.status == 'yes') {
-                        alert('Collection removed');
+                        notyf.success('Collection removed');
                         window.location = "/collection/detail/" + c_id;
 
                     } else {
-                        alert('Something went wrong. Please try again!');
+                        notyf.error('Something went wrong!');
                     }
 
                 }

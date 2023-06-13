@@ -44,38 +44,62 @@ class CollectionController extends Controller
 
             switch ($type) {
                 case 'master': {
+                        $existing_master = Collection::where('master_id', $collection_id)
+                            ->where('collection_name_id', $c_id)->first();
+                        if ($existing_master) {
+                            return response()->json([
+                                'status' => 'exist',
+                                'msg' => 'Collection already exist!'
+                            ]);
+                        }
                         Collection::create([
                             'master_id' => $collection_id,
                             'collection_name_id' => $c_id
                         ]);
                         return response()->json([
                             'status' => 'yes',
-                            'msg' => 'Collection added!'
+                            'msg' => 'Collection added successfully!'
                         ]);
                     }
 
 
                     break;
                 case 'street': {
+                        $existing_street = Collection::where('street_id', $collection_id)
+                            ->where('collection_name_id', $c_id)->first();
+                        if ($existing_street) {
+                            return response()->json([
+                                'status' => 'exist',
+                                'msg' => 'Collection already exist!'
+                            ]);
+                        }
                         Collection::create([
                             'street_id' => $collection_id,
                             'collection_name_id' => $c_id
                         ]);
                         return response()->json([
                             'status' => 'yes',
-                            'msg' => 'Collection added!'
+                            'msg' => 'Collection added successfully!'
                         ]);
                     }
                     break;
 
                 case 'urban': {
+                        $existing_urban = Collection::where('urban_id', $collection_id)
+                            ->where('collection_name_id', $c_id)->first();
+                        if ($existing_urban) {
+                            return response()->json([
+                                'status' => 'exist',
+                                'msg' => 'Collection already exist!'
+                            ]);
+                        }
                         Collection::create([
                             'urban_id' => $collection_id,
                             'collection_name_id' => $c_id
                         ]);
                         return response()->json([
                             'status' => 'yes',
-                            'msg' => 'Collection added!'
+                            'msg' => 'Collection added successfully!'
                         ]);
                     }
                     break;
