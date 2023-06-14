@@ -3,8 +3,10 @@
 namespace App\Http\Livewire\Modal;
 
 use App\Models\CollectionName;
+
 use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
+
 
 class AddCollection extends ModalComponent
 {
@@ -17,6 +19,7 @@ class AddCollection extends ModalComponent
     {
         CollectionName::create([
             'name' => $this->name,
+            'user_id' => session()->get('FRONT_USER_ID'),
             'description' => $this->description
         ]);
 

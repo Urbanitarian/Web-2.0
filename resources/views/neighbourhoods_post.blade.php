@@ -74,15 +74,36 @@
 
                                 </div>
                                 <div class="flex items-center justify-center gap-4">
-                                    <div class="">
-                                        <button onclick="saveCollection({{ $item->id }}, 'master')"
-                                            class="z-50 flex items-center justify-center gap-2 px-4 py-2 font-semibold text-white bg-gray-700 rounded shadow hover:bg-gray-800 w-38">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="2.3" stroke="currentColor" class="w-6 h-6">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
-                                            </svg>
-                                            <span class="text-sm whitespace-nowrap">Save to collection</span></button>
+                                    <div class="" x-data="{ showDropDown: false }">
+                                        <div class="">
+                                            <button @click="showDropDown=!showDropDown"
+                                                class="z-50 flex items-center justify-center gap-2 px-4 py-2 font-semibold text-white bg-gray-700 rounded shadow hover:bg-gray-800 w-38">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="2.3" stroke="currentColor" class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+                                                </svg>
+                                                <span class="text-sm whitespace-nowrap">Save to collection</span></button>
+                                        </div>
+                                        <div x-show="showDropDown" id="" class="absolute z-50 top-16 right-12">
+
+
+                                            <div class="bg-white rounded shadow">
+
+                                                @foreach ($collections as $col)
+                                                    <div onmouseenter="showSaveBtn({{ $col->id }})"
+                                                        onmouseleave="hideSaveBtn({{ $col->id }})"
+                                                        class="flex justify-between py-3 pl-6 pr-8 text-sm text-gray-800 rounded-md w-[250px] hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
+                                                        {{ $col->name }}
+                                                        <span id="save_btn_{{ $col->id }}"
+                                                            class="p-1.5 hidden text-white bg-gray-800 rounded-md cursor-pointer"
+                                                            onclick="saveCollection({{ $item->id }}, 'urban', {{ $col->id }})">Save</span>
+                                                    </div>
+                                                    <hr>
+                                                @endforeach
+
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="cursor-pointer">
                                         <svg width="20" height="21" viewBox="0 0 5 21" fill="none"
@@ -839,22 +860,30 @@
             $("#parag").html(newLines.join(""));
         });
 
-        function saveCollection(id, type) {
+        function saveCollection(id, type, c_id) {
+
             $.ajax({
                 url: '{{ route('save.collection') }}',
                 type: 'POST',
                 data: {
                     _token: '{{ csrf_token() }}',
                     id: id,
-                    type: type
+                    type: type,
+                    c_id: c_id
                 },
                 success: function(response) {
-
                     if (response.status == 'yes') {
-                        document.getElementById('card' + id).innerHTML =
-                            '<i class="fa fa-check" aria-hidden="true"></i>';
-                    } else {
-                        alert('Please login first!');
+
+                        $('#save_btn_' + c_id).html('Saved');
+                        notyf.success(response.msg);
+
+                    }
+                    if (response.status == 'exist') {
+
+                        notyf.error(response.msg);
+                    }
+                    if (response.status == 'no') {
+                        window.location.href = '/login';
                     }
 
                 }
@@ -873,6 +902,14 @@
             var img = document.getElementById('img');
 
             img.classList.add('zoom');
+        }
+
+        function showSaveBtn(id) {
+            $('#save_btn_' + id).removeClass('hidden')
+        }
+
+        function hideSaveBtn(id) {
+            $('#save_btn_' + id).addClass('hidden')
         }
     </script>
 

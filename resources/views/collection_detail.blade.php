@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
-@include('parts.navbar')
+
 
 @section('main')
-    <div class="relative z-50 mt-12">
-        <div id="mysearch" class="py-8 -mt-[104px] px-6 bg-white border-t">
+    <div class="relative">
+        <div class="px-10  text-[#667080]">
+            <h1 class="text-5xl font-bold ">{{ $cls->name }}</h1>
+            <p class="font-normal text-base">{{ $cls->description }}</p>
+        </div>
+
+        <div id="mysearch" class="py-8 px-8  bg-white">
             <div class="flex flex-col flex-wrap gap-6 mx-4 md:mx-0" x-data="{ showFilter: false }">
                 <div class="flex items-center justify-between gap-8">
                     <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category" x-data="{ active: 'masterplan' }">
@@ -239,8 +244,8 @@
                         </select>
                     </div>
 
-                    <div class="text-gray-400">
-                        Showing 15 items
+                    <div class="text-gray-400" id="total_count">
+
                     </div>
 
                     <div class="items-center justify-between py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
@@ -277,24 +282,36 @@
     <div data-barba="container" class="">
         <section class="block px-6 pb-8 tabset ">
             <div class="relative mx-auto">
-                <div id="boucle" class="grid grid-cols-5 gap-5 mygrid lg:grid-cols-5 xl:grid-cols-5">
+                <div id="boucle" class="grid grid-cols-5 mygrid gap-5">
 
                 </div>
 
             </div>
-            @if (session()->has('FRONT_USER_LOGIN'))
-                <div class="flex pt-8">
-                    <button id="load_more" onclick="loadMore()"
-                        class="flex px-2 py-2 mx-auto mt-4 mb-8 text-black transition-all bg-gray-100 border-2 rounded text-md focus:outline-none hover:bg-gray-400">
-                        Load More Masterplans</button>
+            <div class="flex pt-8">
+                <button id="load_more" onclick="loadMore()" style="display: none"
+                    class="flex px-2 py-2 mx-auto mt-4 mb-8 text-black transition-all bg-gray-100 border-2 rounded text-md focus:outline-none hover:bg-gray-400">
+                </button>
 
+            </div>
+
+            <div class="loader flex justify-center items-center" style="display: none">
+                <div class="inline-block h-8 w-8 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current align-[-0.125em] opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]"
+                    role="status">
+                    <span
+                        class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
                 </div>
-            @endif
+            </div>
+
         </section>
     </div>
 
     <div class="">
         <input type="hidden" value="{{ $id }}" id="cl_id">
+
+        <input type="hidden" id="user_id" value="{{ session()->get('FRONT_USER_ID') }}" />
+        <input type="hidden" id="master_id" value="{{ $mastercount }}" />
+        <input type="hidden" id="urban_id" value="{{ $urbancount }}" />
+        <input type="hidden" id="street_id" value="{{ $streetcount }}" />
     </div>
 @endsection
 
@@ -306,32 +323,19 @@
 
         let c_id = $("#cl_id").val();
 
-
-        $(document).ready(function() {
-            $('#boucle').loadMoreResults({
-                displayedItems: 15,
-                button: {
-                    'class': 'hidden',
-
-                }
-
-            });
-        })
-
         function loadMore() {
-            $(document).ready(function() {
-                $('#boucle').loadMoreResults({
-                    showItems: 15,
-                    button: {
-                        'class': 'hidden',
 
-                    }
-                });
-            })
-
+            currentPage++;
+            if (currentPage > totalPages) {
+                $('#load_more').hide();
+            }
             fetchAndRenderData(url);
         }
 
+        let user_id = $('#user_id').val();
+        let master_c = $('#master_id').val();
+        let street_c = $('#street_id').val();
+        let urban_c = $('#urban_id').val();
 
         let category = "masterplans";
         let currentcategory = "";
@@ -371,14 +375,9 @@
         //     fetchAndRenderData(url);
         // });
 
-        function limitWords(str, limit) {
-            const words = str.split(' ');
-            const limitedWords = words.slice(0, limit);
-            return limitedWords.join(' ');
-        }
 
         const fetchAndRenderData = (url) => {
-            console.log(currenturl);
+            $('.loader').show();
             fetch(url)
                 .then((res) => res.json())
                 .then((out) => {
@@ -387,6 +386,7 @@
 
                     let textFromJSON = obj;
                     let num = textFromJSON.length;
+
                     totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
                     const startIndex = (currentPage - 1) * itemsPerPage;
                     const endIndex = startIndex + itemsPerPage;
@@ -394,19 +394,22 @@
 
                     console.log(totalPages);
                     if (currentPage == totalPages) {
-                        $('#next').hide();
+                        $('#load_more').hide();
                     } else {
-                        $('#next').show();
+                        $('#load_more').show();
                     }
-                    if (currentPage == 1) {
-                        $('#prev').hide();
-                    } else {
-                        $('#prev').show();
-                    }
+
                     if (view == "grid") {
                         $.each(itemsToDisplay, function(i, item) {
                             if (item.category == "Masterplans") {
-
+                                let master_c = $('#master_id').val();
+                                if (master_c < 15) {
+                                    $('#load_more').hide();
+                                    $('#total_count').html("Showing " + master_c + " items");
+                                } else {
+                                    $('#total_count').html("Showing 15 items");
+                                    $('#load_more').html('Load More Masterplans');
+                                }
                                 btn1 = document.getElementById("masterbtn");
                                 btn1.classList.add("bg-black", "text-white");
                                 btn2 = document.getElementById("streetbtn");
@@ -415,7 +418,6 @@
                                 btn3.classList.remove("bg-black", "text-white");
 
 
-                                iconToShow(item.id, 'master');
 
 
                                 let html = `
@@ -430,7 +432,7 @@
 
         <div @mouseenter="visibleBtn=true"
             class="relative h-[438px] overflow-hidden transition-all border rounded-md shadow hover:shadow-xl hover:border-black saturate-120 animate__animated animate__backInLeft">
-            <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
+            <a href="/masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
                 <img alt="Art" src="/storage/uploads/thumbnails/masterplans/${item.image}"alt=""
                     onerror="this.src='/storage/uploads/masterplans/${item.image}'"
                     class="object-cover  h-full saturate-120 max-h-[368px]" />
@@ -465,14 +467,22 @@
 
                                 $('#boucle').append(html);
                             } else if (item.category == "Urbanscapes") {
+
                                 btn1 = document.getElementById("masterbtn");
                                 btn1.classList.remove("bg-black", "text-white");
                                 btn2 = document.getElementById("streetbtn");
                                 btn2.classList.remove("bg-black", "text-white");
                                 btn3 = document.getElementById("urbanbtn");
                                 btn3.classList.add("bg-black", "text-white");
+                                let urban_c = $('#urban_id').val();
+                                if (urban_c < 15) {
+                                    $('#load_more').hide()
+                                    $('#total_count').html("Showing " + urban_c + " items");
+                                } else {
+                                    $('#total_count').html("Showing 15 items");
+                                    $('#load_more').html('Load More Urbanscapes');
+                                }
 
-                                iconToShow(item.id, 'urban');
 
                                 let html = `
 
@@ -480,21 +490,20 @@
 x-data="{ visibleBtn: false }">
 <div @mouseleave="visibleBtn=false">
     <div x-cloak x-show="visibleBtn">
-        <button onclick="saveCollection(${item.id}, 'urban')"
-            class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
-            <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to
-                Collection</span></button>
+        <button onclick="removeCollection(${item.id}, 'urban')"
+                class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
+                <span><i class="fa fa-times" aria-hidden="true"></i></span><span class="text-sm whitespace-nowrap">Remove
+</span></button>
     </div>
 
-    <a @mouseenter="visibleBtn=true" href="urbanscapes_post?id=${item.id}"
+    <a @mouseenter="visibleBtn=true" href="/urbanscapes_post?id=${item.id}"
         class="flex flex-col h-full duration-300">
         <img alt="Art" src="/storage/uploads/thumbnails/urbanscapes/${item.imagea}"alt=""
             onerror="this.src='/storage/uploads/urbanscapes/${item.imagea}'" class="object-cover saturate-120"
             style="height:332px" />
         <div class="flex  bottom-[110px] absolute ml-2 whitespace-nowrap">
             ${item.tags.map(tag => `<div
-                                                                                                                    class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">
-                                                                                                                    ${tag}</div>`).join(' &nbsp;')}
+                                                                                                                                                                                                                                                                                                                                    class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">                                                                                                                                                                  ${tag}</div>`).join(' &nbsp;')}
         </div>
         <div class="absolute bottom-1">
             <p class="px-2 mt-2 text-sm font-bold h-[70px]">
@@ -514,6 +523,8 @@ x-data="{ visibleBtn: false }">
                  `;
                                 $('#boucle').append(html);
                             } else if (item.category == "Streetscapes") {
+
+
                                 btn1 = document.getElementById("masterbtn");
                                 btn1.classList.remove("bg-black", "text-white");
                                 btn2 = document.getElementById("streetbtn");
@@ -521,21 +532,27 @@ x-data="{ visibleBtn: false }">
                                 btn3 = document.getElementById("urbanbtn");
                                 btn3.classList.remove("bg-black", "text-white");
                                 thegrid = document.getElementById("boucle");
-                                thegrid.classList.remove("xl:grid-cols-5");
+                                let street_c = $('#street_id').val();
+                                if (street_c = 0) {
+                                    $('#load_more').hide();
+                                    $('#total_count').html("Showing " + street_c + " items");
+                                } else {
+                                    $('#total_count').html("Showing 15 items");
+                                    $('#load_more').html('Load More Streetscapes');
+                                }
 
-                                iconToShow(item.id, 'street');
 
                                 let html = `
                         <div class="relative col-span-2 overflow-hidden transition border rounded-md shadow-sm element1 hover:border-black saturate-120 animate__animated animate__backInUp"
 x-data="{ visibleBtn: false }">
 <div @mouseleave="visibleBtn=false">
     <div x-cloak x-show="visibleBtn">
-        <button onclick="saveCollection(${item.id}, 'street')"
-            class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
-            <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to
-                Collection</span></button>
+        <button onclick="removeCollection(${item.id}, 'street')"
+                class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
+                <span><i class="fa fa-times" aria-hidden="true"></i></span><span class="text-sm whitespace-nowrap">Remove
+</span></button>
     </div>
-    <a @mouseenter="visibleBtn=true" href="streetscapes_post?id=${item.id}"
+    <a @mouseenter="visibleBtn=true" href="/streetscapes_post?id=${item.id}"
         class="flex flex-col h-full duration-300 hover:opacity-50">
         <div class="juxtapose" style="height: 360px; width: 700px;">
             <img alt="Art" src="/storage/uploads/thumbnails/streetscapes/${item.imagea}"alt=""
@@ -569,7 +586,7 @@ x-data="{ visibleBtn: false }">
                             }
                         })
                     } else {
-                        $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass(
+                        $(".mygrid").removeClass("grid-cols-5").removeClass("xl:grid-cols-5").removeClass(
                             "grid-cols-3").removeClass("grid-cols-2").addClass("grid-cols-1").addClass(
                             "lg:grid-cols-1").addClass("xl:grid-cols-1").removeClass("gap-5");
                         let html =
@@ -646,6 +663,9 @@ x-data="{ visibleBtn: false }">
                     }
 
                 })
+                .finally(() => {
+                    $('.loader').hide();
+                })
         };
 
         $('#clear_all').click(function() {
@@ -702,7 +722,7 @@ x-data="{ visibleBtn: false }">
             $('#tags_selector').val('');
             currentPage = 1;
             resetLayout();
-            url = "/api/collection_data?category=streetscape&id=" + c_id;
+            url = "/api/collection_data?category=streetscapes&id=" + c_id;
             currenturl = url;
 
             $('#boucle').empty();
@@ -854,30 +874,27 @@ x-data="{ visibleBtn: false }">
         //     multiple: false
         // });
 
-        function saveCollection(id, type, c_name) {
+        function removeCollection(id, type) {
+
 
 
 
             $.ajax({
-                url: '{{ route('save.collection') }}',
+                url: '{{ route('remove.collection') }}',
                 type: 'POST',
                 data: {
                     _token: '{{ csrf_token() }}',
                     id: id,
-                    type: type,
-                    c_name: c_name
+                    type: type
                 },
                 success: function(response) {
 
                     if (response.status == 'yes') {
-
-
-                        document.getElementById('card' + id).innerHTML =
-                            '<i class="fa fa-check" aria-hidden="true"></i>';
-                        alert('Added to Collection!');
+                        notyf.success('Collection removed');
+                        window.location = "/collection/detail/" + c_id;
 
                     } else {
-                        window.location = "/login";
+                        notyf.error('Something went wrong!');
                     }
 
                 }
@@ -886,23 +903,6 @@ x-data="{ visibleBtn: false }">
 
         }
 
-        function iconToShow(id, type) {
-
-            $.ajax({
-                url: '{{ route('check.collection') }}',
-                type: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    id: id,
-                    type: type,
-                },
-                success: function(response) {
-
-                    document.getElementById('card' + response.id).innerHTML = response.status;
-
-                }
-            })
-        }
 
 
 

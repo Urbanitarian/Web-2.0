@@ -13,6 +13,8 @@ class DataController extends Controller
 {
     public function index()
     {
+
+
         $request = request();
         $q = request()->input('q');
         $tags = request()->input('tags');
@@ -33,12 +35,15 @@ class DataController extends Controller
                         $query->where('title', 'like', '%' . $request->input('q') . '%')
                             ->orWhere('city', 'like', '%' . $request->input('q') . '%')
                             ->orWhere('country', 'like', '%' . $request->input('q') . '%');
-                    })->map(function ($i) {
+                    })
+                    ->get()
+                    ->map(function ($i) {
                         return [
                             'views' => views($i)->count(),
                             'title' => $i->title,
                             'author' => $i->author,
                             'city' => $i->city,
+                            'country' => $i->country,
                             'image' => $i->image,
                             'id' => $i->id,
                             'category' => $i->category,
@@ -54,7 +59,24 @@ class DataController extends Controller
                         $query->where('title', 'like', '%' . $request->input('q') . '%')
                             ->orWhere('city', 'like', '%' . $request->input('q') . '%')
                             ->orWhere('country', 'like', '%' . $request->input('q') . '%');
-                    })->get();
+                    })->get()
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'imagea' => $i->imagea,
+                            'imageb' => $i->imageb,
+                            'country' => $i->country,
+                            'address' => $i->address,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
+                        ];
+                    })->toArray();
             }
             if ($cat == 'urbanscapes') {
                 $all_data = Neighbourhood::where('active', 1)
@@ -62,7 +84,24 @@ class DataController extends Controller
                         $query->where('title', 'like', '%' . $request->input('q') . '%')
                             ->orWhere('city', 'like', '%' . $request->input('q') . '%')
                             ->orWhere('country', 'like', '%' . $request->input('q') . '%');
-                    })->get();
+                    })->get()
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'imagea' => $i->imagea,
+                            'imageb' => $i->imageb,
+                            'country' => $i->country,
+                            'address' => $i->address,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
+                        ];
+                    })->toArray();
             }
         }
 
@@ -100,7 +139,8 @@ class DataController extends Controller
                     'id' => $i->id,
                     'category' => $i->category,
                     'size' => $i->size,
-                    'tags' => $i->tags
+                    'tags' => $i->tags,
+                    'collections' =>  CollectionName::all()->toArray()
                 ];
             })->toArray();
         }
@@ -119,7 +159,8 @@ class DataController extends Controller
                     'id' => $i->id,
                     'category' => $i->category,
                     'size' => $i->size,
-                    'tags' => $i->tags
+                    'tags' => $i->tags,
+                    'collections' =>  CollectionName::all()->toArray()
                 ];
             })->toArray();
         }
@@ -129,6 +170,7 @@ class DataController extends Controller
             if ($category == 'masterplans') {
                 $all_data = Masterplan::where('active', 1)
                     ->where('tags', 'like', '%' . $tags . '%')
+                    ->get()
                     ->map(function ($i) {
                         return [
                             'views' => views($i)->count(),
@@ -139,29 +181,52 @@ class DataController extends Controller
                             'id' => $i->id,
                             'category' => $i->category,
                             'size' => $i->size,
-                            'tags' => $i->tags
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
                         ];
                     })->toArray();
             }
             if ($category == 'streetscapes') {
                 $all_data = Streetscape::where('active', 1)
                     ->where('tags', 'like', '%' . $tags . '%')
-                    ->get();
-            }
-            if ($category == 'urbanscapes') {
-                $all_data = Neighbourhood::where('active', 1)
-                    ->where('tags', 'like', '%' . $tags . '%')
+                    ->get()
                     ->map(function ($i) {
                         return [
                             'views' => views($i)->count(),
                             'title' => $i->title,
                             'author' => $i->author,
                             'city' => $i->city,
-                            'image' => $i->image,
+                            'imagea' => $i->imagea,
+                            'imageb' => $i->imageb,
+                            'country' => $i->country,
+                            'address' => $i->address,
                             'id' => $i->id,
                             'category' => $i->category,
                             'size' => $i->size,
-                            'tags' => $i->tags
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
+                        ];
+                    })->toArray();
+            }
+            if ($category == 'urbanscapes') {
+                $all_data = Neighbourhood::where('active', 1)
+                    ->where('tags', 'like', '%' . $tags . '%')
+                    ->get()
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'imagea' => $i->imagea,
+                            'imageb' => $i->imageb,
+                            'country' => $i->country,
+                            'address' => $i->address,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
                         ];
                     })->toArray();
             }
@@ -170,6 +235,7 @@ class DataController extends Controller
             if ($category == 'masterplans') {
                 $all_data = Masterplan::where('active', 1)
                     ->where('status', 'like', '%' . $status . '%')
+                    ->get()
                     ->map(function ($i) {
                         return [
                             'views' => views($i)->count(),
@@ -180,19 +246,54 @@ class DataController extends Controller
                             'id' => $i->id,
                             'category' => $i->category,
                             'size' => $i->size,
-                            'tags' => $i->tags
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
                         ];
-                    })->toArray();
+                    });
             }
             if ($category == 'streetscapes') {
                 $all_data = Streetscape::where('active', 1)
                     ->where('status', 'like', '%' . $status . '%')
-                    ->get();
+                    ->get()
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'imagea' => $i->imagea,
+                            'imageb' => $i->imageb,
+                            'country' => $i->country,
+                            'address' => $i->address,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
+                        ];
+                    })->toArray();;
             }
             if ($category == 'urbanscapes') {
                 $all_data = Neighbourhood::where('active', 1)
                     ->where('status', 'like', '%' . $status . '%')
-                    ->get();
+                    ->get()
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'imagea' => $i->imagea,
+                            'imageb' => $i->imageb,
+                            'country' => $i->country,
+                            'address' => $i->address,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
+                        ];
+                    })->toArray();
             }
         }
 
@@ -200,6 +301,7 @@ class DataController extends Controller
             if ($category == 'masterplans') {
                 $all_data = Masterplan::where('active', 1)
                     ->where('size', '=', $size)
+                    ->get()
                     ->map(function ($i) {
                         return [
                             'views' => views($i)->count(),
@@ -210,19 +312,54 @@ class DataController extends Controller
                             'id' => $i->id,
                             'category' => $i->category,
                             'size' => $i->size,
-                            'tags' => $i->tags
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
                         ];
-                    })->toArray();
+                    });
             }
             if ($category == 'streetscapes') {
                 $all_data = Streetscape::where('active', 1)
                     ->where('size', '=', $size)
-                    ->get();
+                    ->get()
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'imagea' => $i->imagea,
+                            'imageb' => $i->imageb,
+                            'country' => $i->country,
+                            'address' => $i->address,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
+                        ];
+                    })->toArray();;
             }
             if ($category == 'urbanscapes') {
                 $all_data = Neighbourhood::where('active', 1)
                     ->where('size', '=', $size)
-                    ->get();
+                    ->get()
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'imagea' => $i->imagea,
+                            'imageb' => $i->imageb,
+                            'country' => $i->country,
+                            'address' => $i->address,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
+                        ];
+                    })->toArray();
             }
         }
 
@@ -230,6 +367,7 @@ class DataController extends Controller
             if ($category == 'masterplans') {
                 $all_data = Masterplan::where('active', 1)
                     ->where('city', '=', $city)
+                    ->get()
                     ->map(function ($i) {
                         return [
                             'views' => views($i)->count(),
@@ -240,19 +378,54 @@ class DataController extends Controller
                             'id' => $i->id,
                             'category' => $i->category,
                             'size' => $i->size,
-                            'tags' => $i->tags
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
                         ];
-                    })->toArray();
+                    });
             }
             if ($category == 'streetscapes') {
                 $all_data = Streetscape::where('active', 1)
                     ->where('city', '=', $city)
-                    ->get();
+                    ->get()
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'imagea' => $i->imagea,
+                            'imageb' => $i->imageb,
+                            'country' => $i->country,
+                            'address' => $i->address,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
+                        ];
+                    })->toArray();;
             }
             if ($category == 'urbanscapes') {
                 $all_data = Neighbourhood::where('active', 1)
                     ->where('city', '=', $city)
-                    ->get();
+                    ->get()
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'imagea' => $i->imagea,
+                            'imageb' => $i->imageb,
+                            'country' => $i->country,
+                            'address' => $i->address,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
+                        ];
+                    })->toArray();
             }
         }
 
@@ -260,6 +433,7 @@ class DataController extends Controller
             if ($category == 'masterplans') {
                 $all_data = Masterplan::where('active', 1)
                     ->where('country', '=', $country)
+                    ->get()
                     ->map(function ($i) {
                         return [
                             'views' => views($i)->count(),
@@ -270,19 +444,54 @@ class DataController extends Controller
                             'id' => $i->id,
                             'category' => $i->category,
                             'size' => $i->size,
-                            'tags' => $i->tags
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
                         ];
-                    })->toArray();
+                    });
             }
             if ($category == 'streetscapes') {
                 $all_data = Streetscape::where('active', 1)
                     ->where('country', '=', $country)
-                    ->get();
+                    ->get()
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'imagea' => $i->imagea,
+                            'imageb' => $i->imageb,
+                            'country' => $i->country,
+                            'address' => $i->address,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
+                        ];
+                    })->toArray();;
             }
             if ($category == 'urbanscapes') {
                 $all_data = Neighbourhood::where('active', 1)
                     ->where('country', '=', $country)
-                    ->get();
+                    ->get()
+                    ->map(function ($i) {
+                        return [
+                            'views' => views($i)->count(),
+                            'title' => $i->title,
+                            'author' => $i->author,
+                            'city' => $i->city,
+                            'imagea' => $i->imagea,
+                            'imageb' => $i->imageb,
+                            'country' => $i->country,
+                            'address' => $i->address,
+                            'id' => $i->id,
+                            'category' => $i->category,
+                            'size' => $i->size,
+                            'tags' => $i->tags,
+                            'collections' =>  CollectionName::all()->toArray()
+                        ];
+                    })->toArray();
             }
         }
 

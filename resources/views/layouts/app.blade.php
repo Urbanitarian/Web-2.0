@@ -30,11 +30,9 @@
 
     <script defer src="https://unpkg.com/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
 
-    @vite('resources/js/app.js')
     <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
 
-
-
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     @livewire('livewire-ui-modal')
 
     @livewireScripts
@@ -68,6 +66,31 @@
         });
 
     }, false);
+
+    var notyf = new Notyf({
+        duration: 3000,
+        position: {
+            x: 'right',
+            y: 'top',
+        },
+        dismissible: true
+    });
+
+    Livewire.on('success', message => {
+        notyf.success(message);
+    })
 </script>
+@if (session()->has('success'))
+    <script>
+        // console.log('ssdsd');
+        notyf.success("{{ session()->get('success') }}");
+    </script>
+@endif
+@if (session()->has('error'))
+    <script>
+        notyf.error("{{ session()->get('error') }}");
+    </script>
+@endif
+
 
 </html>

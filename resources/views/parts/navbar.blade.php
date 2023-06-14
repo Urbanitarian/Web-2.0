@@ -1,9 +1,9 @@
-<nav x-data="{ isOpen: false }" class="gap-6 px-6 py-3 lg:flex lg:justify-between lg:items-center">
+<nav x-data="{ isOpen: false }" class="gap-6 px-6 py-3 lg:flex lg:justify-between border-b lg:items-center">
     <div class="flex items-center justify-between gap-6">
         <div>
             <a class="flex items-center text-2xl font-bold text-gray-700 lg:text-3xl hover:text-gray-400 " href="/">
                 <img src="{{ asset('img/logo.png') }}" class="w-auto h-8">
-                <h1 class="pl-2 text-xl font-bold text-[#333333] lg:mt-1 2xl:mt-0 2xl:text-3xl hover:text-gray-400 mb-0">
+                <h1 class="pl-2 text-xl font-bold text-[#333333] lg:mt-1 2xl:mt-0  hover:text-gray-400 mb-0">
                     Urbanitarian</h1>
             </a>
         </div>
@@ -13,9 +13,11 @@
         <div class="z-50 items-center px-6 py-4flex">
             <div class="flex flex-row gap-4 pb-4 mt-20 space-y-0 align-baseline md:mt-0 mynav md:pb-0">
                 <a class="text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
-                    href="/">&nbsp;Categories</a>
+                    href="/categories">&nbsp;Categories</a>
                 <a class="text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
-                    href="/collections">&nbsp;Collections</a>
+                    href="/blog">&nbsp;Blog</a>
+                <a class="text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
+                    href="/collection">&nbsp;Collections</a>
                 <a class="text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
                     href="/how-it-works">&nbsp;How it works</a>
             </div>
@@ -26,10 +28,12 @@
 
 
     <div class="relative flex mt-8 lg:mt-0" x-data="{ showSearch: false }">
-        <div class="flex mx-2" x-show="showSearch">
-            <input type="text" name="search" id="" placeholder="Search"
-                class="w-64 px-1 py-2 border-2 border-gray-200 rounded outline-none outline-2 outline-gray-600">
-        </div>
+        @if (session()->has('FRONT_USER_LOGIN'))
+            <div class="flex mx-2" x-show="showSearch">
+                <input type="text" name="search" id="" placeholder="Search"
+                    class="w-64 px-2 py-1.5 border-2 border-gray-200 rounded outline-none outline-2 outline-gray-600">
+            </div>
+        @endif
         <div class="flex items-center justify-center gap-6">
             <div class="flex" @click="showSearch=!showSearch">
                 <button class="" aria-label="toggle menu">
@@ -55,7 +59,8 @@
                             Request new Project
                         </span>
                     </a>
-                    <div class="flex items-center justify-center w-8 p-1 text-white uppercase bg-gray-400 rounded-full">
+                    <div class="flex items-center justify-center w-8 p-1 text-white uppercase bg-gray-400 rounded-full"
+                        data-toggle="{{ session()->get('FRONT_USER_NAME') }}">
 
                         {{ substr(session()->get('FRONT_USER_NAME'), 0, 2) }}
 
@@ -80,19 +85,25 @@
 
                 </button>
             </div>
-            <div x-cloak x-show="isOpen"
-                class="absolute z-50 px-16 py-6 transition-all duration-300 ease-in-out rounded shadow-md ml-36 mt-52 bg-gray-50">
-                <div class="flex flex-col pb-4 space-y-4 align-baseline mynav">
-                    <a class="text-sm font-semibold text-gray-400 duration-300 border-b lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
-                        href="/" @click="isOpen = false">&nbsp;Categories</a>
 
-                    <a class="text-sm font-semibold text-gray-400 duration-300 border-b lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
-                        href="/masterplans" @click="isOpen = false">&nbsp;Collections</a>
-                    <a class="text-sm font-semibold text-gray-400 duration-300 border-b lg:mx-2 xl:mx-4 hover:text-black hover:scale-110"
-                        href="/streetscapes" @click="isOpen = false">&nbsp;How it works</a>
+            <div x-cloak x-show="isOpen" @click.outside="isOpen=false"
+                class="absolute right-0 z-10 top-12 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                <div class="py-1" role="none">
+                    <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                        id="menu-item-0">Categories</a>
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                        id="menu-item-1">Collections</a>
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                        id="menu-item-2">How it works</a>
+                    <form method="POST" action="#" role="none">
+                        <button type="submit" class="text-gray-700 block w-full px-4 py-2 text-left text-sm"
+                            role="menuitem" tabindex="-1" id="menu-item-3">Sign out</button>
+                    </form>
                 </div>
-
             </div>
+
         </div>
 
     </div>

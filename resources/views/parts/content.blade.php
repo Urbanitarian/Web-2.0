@@ -20,7 +20,9 @@
 @include('parts.webresources')
 @include('parts.toread')
 @include('parts.instagram') --}}
-@include('parts.headless-login')
+@if (!session()->has('FRONT_USER_LOGIN'))
+    @include('parts.headless-login')
+@endif
 
 
 <script>

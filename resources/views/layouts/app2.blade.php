@@ -79,6 +79,32 @@
     </div>
 
     @vite('resources/js/app.js')
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script>
+        var notyf = new Notyf({
+            duration: 3000,
+            position: {
+                x: 'right',
+                y: 'top',
+            },
+            dismissible: true
+        });
+
+        Livewire.on('success', message => {
+            notyf.success(message);
+        })
+    </script>
+    @if (session()->has('success'))
+        <script>
+            // console.log('ssdsd');
+            notyf.success("{{ session()->get('success') }}");
+        </script>
+    @endif
+    @if (session()->has('error'))
+        <script>
+            notyf.error("{{ session()->get('error') }}");
+        </script>
+    @endif
 </body>
 
 

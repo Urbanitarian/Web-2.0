@@ -26,6 +26,7 @@ use Backpack\Settings\app\Models\Setting;
 use Carbon\Carbon;
 use App\Mail\MyMailsubmit;
 use App\Models\Collection;
+use App\Models\CollectionName;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification;
@@ -260,7 +261,10 @@ class GlobalController extends Controller
             ->inRandomOrder()
             ->get();
         views($nb)->record();
-        return view('neighbourhoods_post', compact('urbanscape', 'urbanscapes', 'streetscapes', 'masterplans',  'id'));
+
+        $collections = CollectionName::all();
+
+        return view('neighbourhoods_post', compact('urbanscape', 'collections', 'urbanscapes', 'streetscapes', 'masterplans',  'id'));
     }
 
     public function streetscapes(Request $request)
@@ -300,7 +304,9 @@ class GlobalController extends Controller
 
         views($st)->record();
 
-        return view('streetscapes_post', compact('streetscapes', 'allstreetscapes', 'urbanscapes', 'masterplans', 'id'));
+        $collections = CollectionName::all();
+
+        return view('streetscapes_post', compact('streetscapes', 'collections', 'allstreetscapes', 'urbanscapes', 'masterplans', 'id'));
     }
 
     public function masterplans(Request $request)
@@ -351,8 +357,10 @@ class GlobalController extends Controller
 
         views($mas)->record();
 
+        $collections = CollectionName::all();
 
-        return view('masterplans_post', compact('masterplan', 'masterplans', 'streetscapes', 'urbanscapes', 'id'));
+
+        return view('masterplans_post', compact('masterplan', 'masterplans', 'collections', 'streetscapes', 'urbanscapes', 'id'));
     }
 
     public function alldictionary()
@@ -555,123 +563,12 @@ class GlobalController extends Controller
         }
     }
 
-    public function saveCollection(Request $request)
+
+
+    public function login(Request $req)
     {
-
-
-
-        if (!session()->has('FRONT_USER_LOGIN')) {
+        if (!$req->session()->get('FRON_USER_LOGIN')) {
             return view('parts.login');
-        } else {
-
-
-            $collection_id = $_POST['id'];
-
-            $type = $_POST['type'];
-
-            $c_name = $_POST['c_name'];
-
-
-            switch ($type) {
-                case 'master':
-
-                    $master = Collection::create([
-                        'master_id' => $collection_id,
-                        'collection_name_id' => $c_name
-                    ]);
-                    return response()->json([
-                        'status' => 'yes',
-                        'id' => $master->id
-                    ]);
-
-
-                    break;
-                case 'street':
-                    $existing_street = Collection::where('street_id', $collection_id)->get();
-                    if ($existing_street) {
-                        return response()->json('yes');
-                    } else {
-                        Collection::create([
-                            'street_id' => $collection_id
-                        ]);
-                        return response()->json('no');
-                    }
-                    break;
-
-                case 'urban':
-                    $existing_urban = Collection::where('urban_id', $collection_id)->get();
-                    if ($existing_urban) {
-                        return response()->json('yes');
-                    } else {
-                        Collection::create([
-                            'urban_id' => $collection_id
-                        ]);
-                        return response()->json('no');
-                    }
-                    break;
-            }
         }
-
-
-        // return response()->json('created');
-    }
-
-    public function checkCollection(Request $request)
-    {
-        $collection_id = $_POST['id'];
-        $type = $_POST['type'];
-
-        switch ($type) {
-            case 'master':
-                $existing_master = Collection::where('master_id', $collection_id)->get();
-                if (count($existing_master) > 0) {
-                    return response()->json([
-                        'status' => '<i class="fa fa-check" aria-hidden="true"></i>',
-                        'id' => $collection_id
-                    ]);
-                } else {
-                    return response()->json([
-                        'status' => '<i class="fa fa-plus" aria-hidden="true"></i>',
-                        'id' => $collection_id
-                    ]);
-                }
-                break;
-            case 'street':
-                $existing_street = Collection::where('street_id', $collection_id)->get();
-                if (count($existing_street) > 0) {
-                    return response()->json([
-                        'status' => '<i class="fa fa-check" aria-hidden="true"></i>',
-                        'id' => $collection_id
-                    ]);
-                } else {
-                    return response()->json([
-                        'status' => '<i class="fa fa-plus" aria-hidden="true"></i>',
-                        'id' => $collection_id
-                    ]);
-                }
-                break;
-
-
-            default:
-
-                $existing_street = Collection::where('urban_id', $collection_id)->get();
-                if (count($existing_street) > 0) {
-                    return response()->json([
-                        'status' => '<i class="fa fa-check" aria-hidden="true"></i>',
-                        'id' => $collection_id
-                    ]);
-                } else {
-                    return response()->json([
-                        'status' => '<i class="fa fa-plus" aria-hidden="true"></i>',
-                        'id' => $collection_id
-                    ]);
-                }
-                break;
-        }
-    }
-
-    public function login()
-    {
-        return view('parts.login');
     }
 }
