@@ -49,16 +49,19 @@ class CollectionController extends Controller
                         if ($existing_master) {
                             return response()->json([
                                 'status' => 'exist',
-                                'msg' => 'Collection already exist!'
+                                'msg' => 'Already saved!'
                             ]);
                         }
                         Collection::create([
                             'master_id' => $collection_id,
                             'collection_name_id' => $c_id
                         ]);
+                        CollectionName::find($c_id)->update([
+                            'user_id' => session()->get('FRONT_USER_ID')
+                        ]);
                         return response()->json([
                             'status' => 'yes',
-                            'msg' => 'Collection added successfully!'
+                            'msg' => 'Saved to Collections!'
                         ]);
                     }
 
@@ -70,16 +73,19 @@ class CollectionController extends Controller
                         if ($existing_street) {
                             return response()->json([
                                 'status' => 'exist',
-                                'msg' => 'Collection already exist!'
+                                'msg' => 'Already saved!'
                             ]);
                         }
                         Collection::create([
                             'street_id' => $collection_id,
                             'collection_name_id' => $c_id
                         ]);
+                        CollectionName::find($c_id)->update([
+                            'user_id' => session()->get('FRONT_USER_ID')
+                        ]);
                         return response()->json([
                             'status' => 'yes',
-                            'msg' => 'Collection added successfully!'
+                            'msg' => 'Saved to Collections!'
                         ]);
                     }
                     break;
@@ -90,16 +96,19 @@ class CollectionController extends Controller
                         if ($existing_urban) {
                             return response()->json([
                                 'status' => 'exist',
-                                'msg' => 'Collection already exist!'
+                                'msg' => 'Already saved!'
                             ]);
                         }
                         Collection::create([
                             'urban_id' => $collection_id,
                             'collection_name_id' => $c_id
                         ]);
+                        CollectionName::find($c_id)->update([
+                            'user_id' => session()->get('FRONT_USER_ID')
+                        ]);
                         return response()->json([
                             'status' => 'yes',
-                            'msg' => 'Collection added successfully!'
+                            'msg' => 'Saved to Collections!'
                         ]);
                     }
                     break;

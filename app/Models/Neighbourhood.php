@@ -7,6 +7,7 @@ use CyrildeWit\EloquentViewable\InteractsWithViews;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Neighbourhood extends Model implements Viewable
 {
@@ -66,8 +67,11 @@ class Neighbourhood extends Model implements Viewable
         'link',
         'category',
         'address',
+        'masterplan_id',
         'active',
     ];
+
+
 
     protected $casts = [
         'tags' => 'array',
@@ -83,6 +87,16 @@ class Neighbourhood extends Model implements Viewable
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    /**
+     * Get the masterpan that owns the Streetscape
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    // public function masterplan(): BelongsTo
+    // {
+    //     return $this->belongsTo(Masterplan::class, 'masterplan_id');
+    // }
 
     /*
     |--------------------------------------------------------------------------

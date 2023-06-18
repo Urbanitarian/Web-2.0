@@ -34,6 +34,7 @@ return new class extends Migration
             $table->text('link')->nullable();
             $table->string('category')->default('Streetscapes');
             $table->text('address')->nullable();
+            $table->bigInteger('masterplan_id')->nullable();
             $table->integer('active')->default('1');
             $table->timestamps();
         });

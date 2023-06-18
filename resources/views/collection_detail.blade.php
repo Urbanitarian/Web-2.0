@@ -377,27 +377,20 @@
 
 
         const fetchAndRenderData = (url) => {
+            $('#total_count').html("Showing 0 items");
             $('.loader').show();
             fetch(url)
                 .then((res) => res.json())
                 .then((out) => {
 
                     const obj = JSON.parse(JSON.stringify(out));
-
                     let textFromJSON = obj;
                     let num = textFromJSON.length;
-
                     totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
                     const startIndex = (currentPage - 1) * itemsPerPage;
                     const endIndex = startIndex + itemsPerPage;
                     const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
 
-                    console.log(totalPages);
-                    if (currentPage == totalPages) {
-                        $('#load_more').hide();
-                    } else {
-                        $('#load_more').show();
-                    }
 
                     if (view == "grid") {
                         $.each(itemsToDisplay, function(i, item) {
@@ -416,7 +409,6 @@
                                 btn2.classList.remove("bg-black", "text-white");
                                 btn3 = document.getElementById("urbanbtn");
                                 btn3.classList.remove("bg-black", "text-white");
-
 
 
 
@@ -468,20 +460,22 @@
                                 $('#boucle').append(html);
                             } else if (item.category == "Urbanscapes") {
 
+                                let urban_c = $('#urban_id').val();
+                                if (urban_c < 15) {
+                                    $('#load_more').hide();
+                                    $('#total_count').html("Showing " + urban_c + " items");
+                                } else {
+                                    $('#total_count').html("Showing 15 items");
+                                    $('#load_more').html('Load More Urbanscapes');
+                                }
+
+
                                 btn1 = document.getElementById("masterbtn");
                                 btn1.classList.remove("bg-black", "text-white");
                                 btn2 = document.getElementById("streetbtn");
                                 btn2.classList.remove("bg-black", "text-white");
                                 btn3 = document.getElementById("urbanbtn");
                                 btn3.classList.add("bg-black", "text-white");
-                                let urban_c = $('#urban_id').val();
-                                if (urban_c < 15) {
-                                    $('#load_more').hide()
-                                    $('#total_count').html("Showing " + urban_c + " items");
-                                } else {
-                                    $('#total_count').html("Showing 15 items");
-                                    $('#load_more').html('Load More Urbanscapes');
-                                }
 
 
                                 let html = `
@@ -503,7 +497,7 @@ x-data="{ visibleBtn: false }">
             style="height:332px" />
         <div class="flex  bottom-[110px] absolute ml-2 whitespace-nowrap">
             ${item.tags.map(tag => `<div
-                                                                                                                                                                                                                                                                                                                                    class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">                                                                                                                                                                  ${tag}</div>`).join(' &nbsp;')}
+                                                                                                                                                                                                                                                                                                                                                                class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">                                                                                                                                                                  ${tag}</div>`).join(' &nbsp;')}
         </div>
         <div class="absolute bottom-1">
             <p class="px-2 mt-2 text-sm font-bold h-[70px]">
@@ -525,21 +519,23 @@ x-data="{ visibleBtn: false }">
                             } else if (item.category == "Streetscapes") {
 
 
+
                                 btn1 = document.getElementById("masterbtn");
                                 btn1.classList.remove("bg-black", "text-white");
                                 btn2 = document.getElementById("streetbtn");
                                 btn2.classList.add("bg-black", "text-white");
                                 btn3 = document.getElementById("urbanbtn");
                                 btn3.classList.remove("bg-black", "text-white");
-                                thegrid = document.getElementById("boucle");
+
                                 let street_c = $('#street_id').val();
-                                if (street_c = 0) {
+                                if (street_c < 15) {
                                     $('#load_more').hide();
                                     $('#total_count').html("Showing " + street_c + " items");
                                 } else {
                                     $('#total_count').html("Showing 15 items");
                                     $('#load_more').html('Load More Streetscapes');
                                 }
+
 
 
                                 let html = `
@@ -662,6 +658,12 @@ x-data="{ visibleBtn: false }">
 
                     }
 
+                    if (currentPage == totalPages) {
+                        $('#load_more').hide();
+                    } else {
+                        $('#load_more').show();
+                    }
+
                 })
                 .finally(() => {
                     $('.loader').hide();
@@ -731,7 +733,58 @@ x-data="{ visibleBtn: false }">
             fetchAndRenderData(url);
         });
 
-        console.log(c_id);
+        $('#load_more').click(function() {
+
+            currentPage++;
+            if (currentPage > totalPages) {
+                $('#load_more').hide();
+            } else {
+
+
+                if (category == "masterplans") {
+
+                    master_c = master_c - 15;
+                    if (master_c > 15) {
+                        x = x + 15;
+                        $('#total_count').html("Showing " + x + " items");
+                    } else {
+                        $('#total_count').html("Showing " + (x + master_c) + " items");
+                    }
+                }
+
+                if (category == "urbanscapes") {
+                    urban_c = urban_c - 15;
+
+                    if (urban_c > 15) {
+                        y = y + 15;
+                        $('#total_count').html("Showing " + y + " items");
+                    } else {
+                        $('#total_count').html("Showing " + (y + urban_c) + " items");
+                    }
+                }
+
+                if (category == "streetscapes") {
+
+                    street_c = street_c - 15;
+
+                    if (street_c > 15) {
+                        z = z + 15;
+                        $('#total_count').html("Showing " + z + " items");
+                    } else {
+                        $('#total_count').html("Showing " + (z + street_c) + " items");
+                    }
+
+                }
+
+
+
+                //   x = x+15;
+
+
+            }
+            fetchAndRenderData(url);
+
+        })
 
         $('#tags_selector').change(function() {
 
