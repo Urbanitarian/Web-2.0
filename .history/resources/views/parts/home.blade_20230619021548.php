@@ -56,12 +56,13 @@
 
                             <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
 
+
                                 <a href="#"
-                                    class="flex px-5 py-3 my-2 text-center mt-2 font-normal text-white bg-black shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-800 hover:scale-110 duration-300">
+                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-white duration-300 bg-gray-800 rounded shadow-lg hover:bg-black prevent lg:ml-4 group ">
                                     <span class="text-sm">Log in or sign up</span>
                                 </a>
                                 <a href="#"
-                                    class="flex  px-5 py-3 my-2 text-center mt-2 font-normal text-black bg-white shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-100 hover:scale-110 duration-300">
+                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-black duration-300 bg-white border-2 rounded shadow-lg prevent lg:ml-4 group hover:bg-gray-100 ">
                                     <span class="text-sm">Learn more</span>
                                 </a>
 
@@ -123,11 +124,11 @@
                             <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
 
                                 <a href="#"
-                                    class="flex px-5 py-3 my-2 text-center mt-2 font-normal text-white bg-black shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-800 hover:scale-110 duration-300">
+                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-white duration-300 bg-gray-800 rounded shadow-lg hover:bg-black prevent lg:ml-4 group hover:scale-110">
                                     <span class="text-sm">Log in or sign up</span>
                                 </a>
                                 <a href="#"
-                                    class="flex  px-5 py-3 my-2 text-center mt-2 font-normal text-black bg-white shadow-lg prevent lg:ml-4 group rounded-md hover:bg-gray-100 hover:scale-110 duration-300">
+                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-black duration-300 bg-white rounded shadow-lg prevent lg:ml-4 group hover:bg-gray-100 hover:scale-110">
                                     <span class="text-sm">Learn more</span>
                                 </a>
 
@@ -162,32 +163,35 @@
 </section>
 
 <div class="relative z-50 ">
-    <div id="mysearch" class="py-8 -mt-[104px]  md:px-7 bg-white border-t">
-        <div class="flex flex-wrap flex-col gap-6 mx-4 md:mx-0" x-data="{ showFilter: false }">
-            <div class="flex justify-between items-center gap-8">
+    <div id="mysearch" class="py-8 -mt-[104px] px-6 bg-white border-t">
+        <div class="flex flex-col flex-wrap gap-6 mx-4 md:mx-0" x-data="{ showFilter: false }">
+            <div class="flex items-center justify-between gap-8">
                 <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category" x-data="{ active: 'masterplan' }">
                     <button id="masterplans" name="category" value="Masterplans" @click="active='masterplan'">
                         <p id="masterbtn"
-                            class="px-4 py-2 text-md font-medium  rounded-md hover:bg-gray-200 active:bg-gray-300"
-                            :class="active == 'masterplan' ? 'bg-black text-white hover:bg-gray-800' : ''">
-                            Masterplans <a id="masternum" class="pl-2 border-l border-gray-400">
+                            class="px-4 py-2 font-[400] flex justify-between items-center rounded text-md  active:bg-gray-300"
+                            :class="active == 'masterplan' ? ' text-white bg-gray-800' : 'hover:bg-gray-200 bg-white'">
+                            <span>Masterplans</span><span class="pl-2 pr-1 font-thin">|</span> <a id="masternum"
+                                class="border-gray-400">
                                 &nbsp;{{ $masternum }}</a>
                         </p>
                     </button>
                     <button id="streetscapes" name="category" value="Streetscapes" @click="active='streetscapes'">
                         <p id="streetbtn"
-                            class="px-4 py-2 text-md font-medium  rounded-md hover:bg-gray-200 active:bg-gray-300"
-                            :class="active == 'streetscapes' ? 'bg-black text-white hover:bg-gray-800' : ''">
-                            Streetscapes <a id="streetnum" class="pl-2 border-l border-gray-400">
+                            class="px-4 py-2 font-[400] flex justify-between items-center rounded text-md  active:bg-gray-300"
+                            :class="active == 'streetscapes' ? ' text-white bg-gray-800' : 'hover:bg-gray-200 bg-white'">
+                            <span>Streetscapes</span><span class="pl-2 pr-1 font-thin">|</span> <a id="streetnum"
+                                class="border-gray-400">
                                 &nbsp;{{ $streetnum }}</a>
                         </p>
                     </button>
                     <button id="urbanscapes" name="category" value="Neighbourhoods"
                         @click="active='neighbourhoods'">
                         <p id="urbanbtn"
-                            class="px-4 py-2 text-md font-medium rounded-md hover:bg-gray-200 active:bg-gray-300"
-                            :class="active == 'neighbourhoods' ? 'bg-black text-white hover:bg-gray-800' : ''">
-                            Urbanscapes <a id="urbannum" class="pl-2 border-l border-gray-400">
+                            class="px-4 py-2 font-[400] flex justify-between items-center rounded text-md  active:bg-gray-300"
+                            :class="active == 'neighbourhoods' ? ' text-white bg-gray-800' : 'hover:bg-gray-200 bg-white'">
+                            <span>Urbanscapes</span><span class="pl-2 pr-1 font-thin">|</span> <a id="urbannum"
+                                class="border-gray-400">
                                 &nbsp;{{ $urbannum }}</a>
                         </p>
                     </button>
@@ -195,7 +199,7 @@
                 <div class="flex gap-2">
 
                     <button @click="showFilter=true" x-show="!showFilter"
-                        class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
+                        class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -207,13 +211,13 @@
 
                     <div class="flex gap-2" x-show="showFilter">
                         <button @click="showFilter=false"
-                            class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
+                            class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                             <i class="fa fa-angle-up" aria-hidden="true"></i>
                             <span class="">Hide Filters</span>
                             <span class="p-0.5 rounded-full bg-black text-white w-6">5</span>
                         </button>
                         <button id="clear_all"
-                            class="px-2 py-2 text-sm font-medium rounded border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
+                            class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                             <span>Clear All</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -231,7 +235,7 @@
                 <div class="block">
                     <label for="DeliveryStandard" class="flex justify-between text-sm">
                         <p class="pb-1 text-black">Tags</p>
-                        <button class="flex justify-center items-center cursor-pointer">
+                        <button class="flex items-center justify-center cursor-pointer">
                             <p class="pb-1 text-black">Clear</p>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mb-1 font-semibold">
@@ -306,7 +310,7 @@
                 <div class="block">
                     <label for="DeliveryStandard" class="flex justify-between text-sm">
                         <p class="pb-1 text-black">Size</p>
-                        <button class="flex justify-center items-center cursor-pointer">
+                        <button class="flex items-center justify-center cursor-pointer">
                             <p class="pb-1 text-black">Clear</p>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mb-1 font-semibold">
@@ -382,7 +386,7 @@
 
 
 
-            <div class="flex justify-between items-center gap-8">
+            <div class="flex items-center justify-between gap-8">
 
                 <div class="hidden pb-4 md:flex md:pb-0">
                     <span class="mt-2 mr-2">Sort by:</span>
@@ -395,20 +399,22 @@
                     </select>
                 </div>
 
-                <div class="text-gray-400">
-                    Showing 10 items
+                <div class="text-gray-400" id="total_count">
+                    Showing 15 items
                 </div>
 
-                <div class="py-4 md:flex md:py-0 md:mt-2 lg:mt-0 justify-between items-center">
+
+
+                <div class="items-center justify-between py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
                     <span class="mr-2">View by:</span>
                     <div class="flex gap-0">
                         <button id="change-layout" onclick="return false;"
-                            class="px-2 py-2 text-sm font-medium rounded-l border border-r-0 hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
+                            class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border border-r-0 rounded-l hover:bg-gray-200 active:bg-gray-300">
                             <i class="transition fa-solid fa-th-large fa-1x hover:text-gray-400"></i>Grid
                         </button>
 
                         <button id="change-layout3" onclick="return false;"
-                            class="px-2 py-2 text-sm font-medium rounded-tr-md rounded-br-md border hover:bg-gray-200 active:bg-gray-300 flex gap-2 justify-center items-center">
+                            class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border rounded-tr-md rounded-br-md hover:bg-gray-200 active:bg-gray-300">
                             <i class="transition fa-solid fa-map fa-1x hover:text-gray-400"></i>Map
                         </button>
 
@@ -430,31 +436,65 @@
 
 
 
-<div data-barba="container">
-    <section class="block pb-8 md:px-7 tabset ">
-        <div class="mx-auto ">
-            <div id="boucle" class="grid grid-cols-2 gap-5 mygrid lg:grid-cols-4 xl:grid-cols-5">
+<div data-barba="container" class="">
+    <section class="block px-6 pb-8 tabset ">
+        <div class="relative mx-auto">
+            <div id="boucle" class="grid grid-cols-5 gap-5 mygrid lg:grid-cols-5 xl:grid-cols-5">
 
             </div>
 
         </div>
-        <div class="flex pt-10">
-            <button id="prev" onclick="window.scrollTo(0, 400);"
-                class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:bg-gray-500 active:text-white peer-checked:text-white">
-                <p class="text-sm font-medium">previous</p>
+        <div class="flex pt-8">
+            <button id="load_more" style="display: none"
+                class="flex px-2 py-2 mx-auto mt-4 mb-8 text-black transition-all bg-gray-100 border-2 rounded text-md focus:outline-none hover:bg-gray-400">
             </button>
 
-            <button id="next" onclick="window.scrollTo(0, 400);"
-                class="flex items-center justify-center px-3 py-2 mx-auto text-gray-900 border border-gray-300 rounded-md cursor-pointer hover:border-gray-300 hover:bg-gray-200 active:bg-gray-500 active:text-white peer-checked:text-white">
-                <p class="text-sm font-medium">Next</p>
-            </button>
         </div>
+
+        <div class="loader flex justify-center items-center" style="display: none">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                style="margin: auto; background: rgb(255, 255, 255); display: block; shape-rendering: auto;"
+                width="178px" height="178px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <circle cx="50" cy="50" r="0" fill="none" stroke="#0a0a0a"
+                    stroke-width="3">
+                    <animate attributeName="r" repeatCount="indefinite" dur="2.127659574468085s" values="0;23"
+                        keyTimes="0;1" keySplines="0 0.2 0.8 1" calcMode="spline" begin="0s"></animate>
+                    <animate attributeName="opacity" repeatCount="indefinite" dur="2.127659574468085s"
+                        values="1;0" keyTimes="0;1" keySplines="0.2 0 0.8 1" calcMode="spline" begin="0s">
+                    </animate>
+                </circle>
+                <circle cx="50" cy="50" r="0" fill="none" stroke="#28292f"
+                    stroke-width="3">
+                    <animate attributeName="r" repeatCount="indefinite" dur="2.127659574468085s" values="0;23"
+                        keyTimes="0;1" keySplines="0 0.2 0.8 1" calcMode="spline" begin="-1.0638297872340425s">
+                    </animate>
+                    <animate attributeName="opacity" repeatCount="indefinite" dur="2.127659574468085s"
+                        values="1;0" keyTimes="0;1" keySplines="0.2 0 0.8 1" calcMode="spline"
+                        begin="-1.0638297872340425s"></animate>
+                </circle>
+                <!-- [ldio] generated by https://loading.io/ -->
+            </svg>
+        </div>
+
     </section>
 </div>
+
+<input type="hidden" id="user_id" value="{{ session()->get('FRONT_USER_ID') }}" />
+<input type="hidden" id="master_id" value="{{ $masternum }}" />
+<input type="hidden" id="urban_id" value="{{ $urbannum }}" />
+<input type="hidden" id="street_id" value="{{ $streetnum }}" />
+
 <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
     integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
 <script>
-    const itemsPerPage = 10;
+    let itemsPerPage = 15;
+
+
+
+    let user_id = $('#user_id').val();
+    let master_c = $('#master_id').val();
+    let street_c = $('#street_id').val();
+    let urban_c = $('#urban_id').val();
     let category = "masterplans";
     let currentcategory = "";
     let currenturl = "";
@@ -463,65 +503,75 @@
     let currentfilter = "";
     let url = "";
 
+
+    let x = 15;
+    let y = 15;
+    let z = 15;
+
+
+
+
     $(document).ready(function() {
         url = "api/data?category=masterplans";
         currenturl = url;
         $('#boucle').empty();
         currentfilter = "none";
         fetchAndRenderData(url);
-        console.log(currenturl);
     });
 
 
-    $("#next").click(function() {
-        $('#boucle').empty();
-        currentPage++;
-        if (currentPage > totalPages) {
-            currentPage = totalPages;
-        }
+    // $("#next").click(function() {
+    //     $('#boucle').empty();
+    //     currentPage++;
+    //     if (currentPage > totalPages) {
+    //         currentPage = totalPages;
+    //     }
 
-        fetchAndRenderData(url);
-    });
+    //     fetchAndRenderData(url);
+    // });
 
-    $("#prev").click(function() {
-        $('#boucle').empty();
-        currentPage--;
-        if (currentPage < 1) {
-            currentPage = 1;
-        }
+    // $("#prev").click(function() {
+    //     $('#boucle').empty();
+    //     currentPage--;
+    //     if (currentPage < 1) {
+    //         currentPage = 1;
+    //     }
 
-        fetchAndRenderData(url);
-    });
+    //     fetchAndRenderData(url);
+    // });
+
+    function limitWords(str, limit) {
+        const words = str.split(' ');
+        const limitedWords = words.slice(0, limit);
+        return limitedWords.join(' ');
+    }
 
     const fetchAndRenderData = (url) => {
-        console.log(currenturl);
+        $('.loader').show();
+        $('#load_more').hide();
         fetch(url)
             .then((res) => res.json())
             .then((out) => {
-                console.log(currentPage);
+
                 const obj = JSON.parse(JSON.stringify(out));
+
                 let textFromJSON = obj;
                 let num = textFromJSON.length;
+                if (num < 15) {
+                    $('#total_count').html("Showing " + num + " items");
+                }
                 totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
                 const startIndex = (currentPage - 1) * itemsPerPage;
                 const endIndex = startIndex + itemsPerPage;
                 const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
-                if (currentPage == totalPages) {
-                    $('#next').hide();
-                } else {
-                    $('#next').show();
-                }
-                if (currentPage == 1) {
-                    $('#prev').hide();
-                } else {
-                    $('#prev').show();
-                }
+
+                console.log(totalPages);
+
                 if (view == "grid") {
                     $.each(itemsToDisplay, function(i, item) {
-
-                        console.log(item);
-
                         if (item.category == "Masterplans") {
+
+
 
                             btn1 = document.getElementById("masterbtn");
                             btn1.classList.add("bg-black", "text-white");
@@ -530,73 +580,155 @@
                             btn3 = document.getElementById("urbanbtn");
                             btn3.classList.remove("bg-black", "text-white");
 
+                            if (user_id) {
+                                $('#load_more').html('Load More Masterplans');
+                            } else {
+                                $('#load_more').hide();
+                            }
 
+                            iconToShow(item.id, 'master');
 
                             let html = `
-                            <div class="flex flex-col relative " x-data="{visibleBtn: false}">
-                            <div @mouseleave="visibleBtn=false">
-                                <div x-cloak x-show="visibleBtn">
-                <button class="bg-black py-2 hover:bg-black flex gap-2 justify-center shadow items-center absolute mt-2 w-52 rounded ml-[90px] text-white px-3 z-50"><i class="fa fa-plus" aria-hidden="true"></i><span>Save to Collection</span></button>
+                            <div class="relative flex flex-col " x-data="{ visibleBtn: false }">
+    <div @mouseleave="visibleBtn=false" x-data="{showDropDown: false}">
+        <div  @mouseleave="showDropDown=false">
+            <div x-cloak x-show="visibleBtn" >
+                <button @click="showDropDown=!showDropDown"
+                    class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
+                    <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to
+                        Collection</span></button>
+            </div>
+
+
+            <div x-show="showDropDown" id="save_dd_${item.id}" class="absolute z-50 top-12 right-2"">
+
+
+                <div class="bg-white rounded shadow">
+
+
+                ${item.collections.map( collection => `<div onmouseenter="showSaveBtn(${collection.id}, ${item.id})" onmouseleave="hideSaveBtn(${collection.id}, ${item.id})"
+                        class="flex justify-between py-3 pl-6 pr-8 text-sm text-gray-800 rounded-md w-[250px] hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
+                        ${collection.name}
+                            <span id="save_btn_${collection.id}${item.id}" class="p-1.5 hidden text-white bg-gray-800 rounded-md cursor-pointer" onclick="saveCollection(${item.id}, 'master', ${collection.id})" >Save</span>
+                            </div>`).join('<hr>')}
+                </div>
+            </div>
+        </div>
+
+        <div @mouseenter="visibleBtn=true"
+            class="relative h-[438px] overflow-hidden transition-all border rounded-md shadow hover:shadow-xl hover:border-black saturate-120 animate__animated animate__backInLeft">
+            <a href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
+                <img alt="Art" src="storage/uploads/thumbnails/masterplans/${item.image}"alt=""
+                    onerror="this.src='storage/uploads/masterplans/${item.image}'"
+                    class="object-cover  h-full saturate-120 max-h-[368px]" />
+                <div
+                    class="bg-white absolute bottom-[88px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">
+                    ${item.size}</div>
+                <div class="">
+                    <h3 class="mx-2 mt-1 text-sm font-bold truncate">
+                        ${item.title}
+
+                    </h3>
+                    <div class="max-w-sm mx-2 mt-1 text-sm text-gray-500 truncate">
+                        ${item.author} &nbsp;
+
+                    </div>
+
                 </div>
 
-                     <div @mouseenter="visibleBtn=true"   class="relative overflow-hidden transition-all border  hover:shadow-xl  shadow rounded-md saturate-120 animate__animated animate__backInLeft">
-                        <a  href="masterplans_post?id=${item.id}" class="flex flex-col h-full duration-300 hover:opacity-75">
-                            <img alt="Art" src="storage/uploads/thumbnails/masterplans/${item.image}"alt=""
-                                onerror="this.src='storage/uploads/masterplans/${item.image}'" class="object-cover  h-full saturate-120 max-h-[480px]" />
-                                <div class="bg-white rounded text-sm font-medium p-0.5 w-8 border-2 ml-4 text-black -mt-10 mb-8 z-50">${item.size}</div>
-                            <div class="">
-                                <h3 class="mx-2 mt-1 text-sm font-bold truncate">
-                                    ${item.title}</h3>
-                                    <div class="max-w-sm  mx-2 mt-1 text-sm text-gray-500 truncate">
-                                      ${item.category} &nbsp;
-
-                                </div>
-
-                            </div>
-
-                            <div class="text-sm text-gray-500 flex justify-between items-center px-2 pb-2">
-                                <span>Copenhangen, Denmark</span>
-                                <div class="flex gap-2 items-center justify-center">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                            ${item.views}
-                            </div>
-                            </div>
-                        </a>
+                <div class="flex items-center justify-between px-2 pb-2 text-sm text-gray-500">
+                    <span> ${item.city}, ${item.country}</span>
+                    <div class="flex items-center justify-center gap-2">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <span class="text-xs"> ${item.views}</sapn>
 
                     </div>
-                    </div>
-                                </div>
-
-
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
                      `;
 
                             $('#boucle').append(html);
                         } else if (item.category == "Urbanscapes") {
+
+
                             btn1 = document.getElementById("masterbtn");
                             btn1.classList.remove("bg-black", "text-white");
                             btn2 = document.getElementById("streetbtn");
                             btn2.classList.remove("bg-black", "text-white");
                             btn3 = document.getElementById("urbanbtn");
                             btn3.classList.add("bg-black", "text-white");
-                            let html = `
-                     <div class="relative overflow-hidden transition border shadow-md bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInRight">
-                        <a href="urbanscapes_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
-                            <img alt="Art" src="storage/uploads/thumbnails/urbanscapes/${item.imagea}"alt=""
-                              onerror="this.src='storage/uploads/urbanscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
 
-                            <div class="">
-                                <h3 class="mx-4 mt-2 text-sm font-bold text-center truncate">
-                                    ${item.title} | ${item.author} | ${item.city}</h3>
-                                <p class="max-w-sm pb-2 mx-6 mt-1 mb-2 text-xs text-center text-gray-700 truncate">
-                                      ${item.category} &nbsp;
-                                          ${item.tags.map(tag => `${tag}`).join(' &nbsp;')}
-                                </p>
-                            </div>
-                        </a>
+                            iconToShow(item.id, 'urban');
+
+                            if (user_id) {
+                                $('#load_more').show();
+                                $('#load_more').html('Load More Urbanscapes');
+                            } else {
+                                $('#load_more').hide();
+                            }
+                            let html = `
+
+                            <div class="relative h-[438px] overflow-hidden transition border rounded shadow-sm saturate-120 animate__animated animate__backInRight hover:opacity-75 hover:shadow-xl hover:border-black"
+    x-data="{ visibleBtn: false }">
+    <div @mouseleave="visibleBtn=false"  x-data="{showDropDown: false}">
+        <div x-cloak x-show="visibleBtn">
+            <div  @mouseleave="showDropDown=false">
+            <div x-cloak x-show="visibleBtn" >
+                <button @click="showDropDown=!showDropDown"
+                    class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
+                    <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to
+                        Collection</span></button>
+            </div>
+
+
+            <div x-show="showDropDown" id="save_dd_${item.id}" class="absolute z-50 top-12 right-2">
+
+
+                <div class="py-2 bg-white rounded shadow">
+
+
+                ${item.collections.map( collection => `<div onmouseenter="showSaveBtn(${collection.id}, ${item.id})" onmouseleave="hideSaveBtn(${collection.id}, ${item.id})"
+                        class="flex justify-between py-3 z-50 pl-6 pr-8 text-sm text-gray-800 rounded-md w-[250px] hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
+                        ${collection.name} <span id="save_btn_${collection.id}${item.id}" class="p-1.5 hidden text-white bg-gray-800 rounded-lg cursor-pointer" onclick="saveCollection(${item.id}, 'urban', ${collection.id})">Save</span> </div>`).join('<hr>')}
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <a @mouseenter="visibleBtn=true" href="urbanscapes_post?id=${item.id}"
+            class="flex flex-col h-full duration-300">
+            <img alt="Art" src="storage/uploads/thumbnails/urbanscapes/${item.imagea}"alt=""
+                onerror="this.src='storage/uploads/urbanscapes/${item.imagea}'" class="object-cover saturate-120"
+                style="height:332px" />
+            <div class="flex  bottom-[110px] absolute ml-2 whitespace-nowrap">
+                ${item.tags.map(tag => `<div
+                    class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">
+                    ${tag}</div>`).join(' &nbsp;')}
+            </div>
+            <div class="absolute bottom-1">
+                <p class="px-2 mt-2 text-sm font-bold h-[70px]">
+                    ${item.title}
+                </p>
+                <div class="flex items-center justify-between px-2 text-sm text-gray-500 bottom-2">
+                    <span> ${item.city}, ${item.country}</span>
+                    <div class="flex items-center justify-center gap-2 ">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        ${item.views}
                     </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
                      `;
                             $('#boucle').append(html);
                         } else if (item.category == "Streetscapes") {
+
+
+
                             btn1 = document.getElementById("masterbtn");
                             btn1.classList.remove("bg-black", "text-white");
                             btn2 = document.getElementById("streetbtn");
@@ -605,24 +737,72 @@
                             btn3.classList.remove("bg-black", "text-white");
                             thegrid = document.getElementById("boucle");
                             thegrid.classList.remove("xl:grid-cols-5");
+
+                            if (user_id) {
+                                $('#load_more').show();
+                                $('#load_more').html('Load More Streetscapes');
+                            } else {
+                                $('#load_more').hide();
+                            }
+                            iconToShow(item.id, 'street');
+
                             let html = `
-                    <div
-                        class="relative col-span-3 overflow-hidden transition border shadow-md md:col-span-2 element1 bg-gray-50 hover:bg-gray-100 saturate-120 animate__animated animate__backInUp">
-                        <a href="streetscapes_post?id=${item.id}" class="flex flex-col h-full duration-300 md:hover:scale-105">
-                            <img alt="Art" src="storage/uploads/thumbnails/streetscapes/${item.imagea}"alt=""
-                                onerror="this.src='storage/uploads/streetscapes/${item.imagea}'" class="object-cover h-full  saturate-120 max-h-[480px]" />
+                            <div class="relative col-span-2 overflow-hidden transition border rounded-md shadow-sm element1 hover:border-black saturate-120 animate__animated animate__backInUp"
+    x-data="{ visibleBtn: false }">
+    <div @mouseleave="visibleBtn=false"  x-data="{showDropDown: false}">
+        <div x-cloak x-show="visibleBtn">
+            <div  @mouseleave="showDropDown=false">
+            <div x-cloak x-show="visibleBtn" >
+                <button @click="showDropDown=!showDropDown"
+                    class="absolute z-50 flex items-center justify-center gap-2 px-3 py-2 mt-2 text-white bg-black rounded shadow hover:bg-black right-2 w-38">
+                    <span id="card${item.id}"></span><span class="text-sm whitespace-nowrap">Save to
+                        Collection</span></button>
+            </div>
 
-                            <div class="">
-                                <h3 class="mt-4 font-bold text-center text-gray-900 uppercase ">
-                                    ${item.title} | ${item.author} | ${item.city}</h3>
-                                <p class="pb-2 mx-6 mt-1 mb-2 text-xs text-center text-gray-700 truncate ">
-                                    ${item.category} &nbsp;
-                                           ${item.tags.map(tag => `${tag}`).join(' &nbsp;')}
-                                </p>
 
-                            </div>
-                        </a>
-                    </div>`;
+            <div x-show="showDropDown" id="save_dd_${item.id}" class="absolute z-50 top-12 right-2">
+
+
+                <div class="py-2 bg-white rounded shadow">
+
+
+                ${item.collections.map( collection => `<div onmouseenter="showSaveBtn(${collection.id}, ${item.id})" onmouseleave="hideSaveBtn(${collection.id}, ${item.id})"
+                        class="flex justify-between py-3 pl-6 pr-8 text-sm text-gray-800 rounded-md w-[250px] hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
+                        ${collection.name} <span id="save_btn_${collection.id}${item.id}" class="p-1.5  hidden text-white bg-gray-800 rounded-lg cursor-pointer" onclick="saveCollection(${item.id}, 'street', ${collection.id})">Save</span> </div>`).join('<hr>')}
+                </div>
+            </div>
+        </div>
+        </div>
+        <a @mouseenter="visibleBtn=true" href="streetscapes_post?id=${item.id}"
+            class="flex flex-col h-full duration-300 hover:opacity-50">
+            <div class="juxtapose" style="height: 360px; width: 700px;">
+                <img alt="Art" src="storage/uploads/thumbnails/streetscapes/${item.imagea}"alt=""
+                    onerror="this.src='storage/uploads/streetscapes/${item.imagea}'"
+                    class="object-cover h-full  saturate-120 max-h-[480px]" />
+
+            </div>
+            <div
+                class="bg-white absolute bottom-[68px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">
+                ${item.size}</div>
+            <div class="flex items-center justify-between px-3">
+                <h3 class="mt-4 text-sm font-semibold text-left text-gray-600">
+                    ${item.title}</h3>
+            </div>
+            <div class="flex items-center justify-between px-3 pt-0.5 pb-1">
+
+                <p class="text-sm text-left text-gray-500 truncate font-regular">
+                    ${item.address}, ${item.city}, ${item.country}
+                </p>
+                <div class="flex items-end justify-end gap-2 text-xs text-gray-500">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    ${item.views}
+                </div>
+
+            </div>
+        </a>
+    </div>
+</div>
+                    `;
                             $('#boucle').append(html);
                         }
                     })
@@ -703,8 +883,21 @@
 
                 }
 
+                if (currentPage == totalPages) {
+                    $('#load_more').hide();
+                } else {
+                    $('#load_more').show();
+                }
+
             })
+            .finally(() => {
+                $('.loader').hide();
+
+            })
+
     };
+
+
 
     $('#clear_all').click(function() {
         $('#city_selector').val('');
@@ -719,6 +912,7 @@
 
     $('#masterplans').click(function() {
         //reset all selector to default values
+
         $('#city_selector').val('');
         $('#country_selector').val('');
         $('#status_selector').val('');
@@ -731,11 +925,13 @@
         $('#boucle').empty();
         currentfilter = "masterplans";
         category = "masterplans";
+        $('#total_count').html('Showing 15 items');
 
         fetchAndRenderData(url);
     });
 
     $('#urbanscapes').click(function() {
+
         $('#city_selector').val('');
         $('#country_selector').val('');
         $('#status_selector').val('');
@@ -748,26 +944,83 @@
         $('#boucle').empty();
         currentfilter = "urbanscapes";
         category = "urbanscapes";
+        $('#total_count').html('Showing 15 items');
 
         fetchAndRenderData(url);
     });
 
     $('#streetscapes').click(function() {
+
         $('#city_selector').val('');
         $('#country_selector').val('');
         $('#status_selector').val('');
         $('#size_selector').val('');
         $('#tags_selector').val('');
         currentPage = 1;
-        resetLayout();
+        resetLayout_1();
         url = "api/data?category=streetscapes";
         currenturl = url;
-
         $('#boucle').empty();
         currentfilter = "streetscapes";
         category = "streetscapes";
+        $('#total_count').html('Showing 15 items');
+
         fetchAndRenderData(url);
     });
+
+
+    $('#load_more').click(function() {
+
+        currentPage++;
+        if (currentPage > totalPages) {
+            $('#load_more').hide();
+        } else {
+
+
+            if (category == "masterplans") {
+
+                master_c = master_c - 15;
+                if (master_c > 15) {
+                    x = x + 15;
+                    $('#total_count').html("Showing " + x + " items");
+                } else {
+                    $('#total_count').html("Showing " + (x + master_c) + " items");
+                }
+            }
+
+            if (category == "urbanscapes") {
+                urban_c = urban_c - 15;
+
+                if (urban_c > 15) {
+                    y = y + 15;
+                    $('#total_count').html("Showing " + y + " items");
+                } else {
+                    $('#total_count').html("Showing " + (y + urban_c) + " items");
+                }
+            }
+
+            if (category == "streetscapes") {
+
+                street_c = street_c - 15;
+
+                if (street_c > 15) {
+                    z = z + 15;
+                    $('#total_count').html("Showing " + z + " items");
+                } else {
+                    $('#total_count').html("Showing " + (z + street_c) + " items");
+                }
+
+            }
+
+
+
+            //   x = x+15;
+
+
+        }
+        fetchAndRenderData(url);
+
+    })
 
     $('#tags_selector').change(function() {
         console.log('asda');
@@ -848,7 +1101,17 @@
 
     function resetLayout() {
 
-        $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").addClass(
+        $(".mygrid").addClass("lg:grid-cols-5").addClass("xl:grid-cols-5").addClass("grid-cols-5").addClass(
+                "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
+            .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
+        layout = "xl";
+
+    }
+
+
+    function resetLayout_1() {
+
+        $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-5").addClass(
                 "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
             .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
         layout = "xl";
@@ -899,6 +1162,84 @@
     //     allowClear: true,
     //     multiple: false
     // });
+
+    function saveCollection(id, type, c_id) {
+
+        console.log(c_id)
+
+        $('#card' + id).html('<i class="fa fa-spinner" aria-hidden="true"></i>');
+        $.ajax({
+            url: '{{ route('save.collection') }}',
+            type: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                id: id,
+                type: type,
+                c_id: c_id
+            },
+            success: function(response) {
+                if (response.status == 'yes') {
+
+                    $('#card' + id).html('<i class="fa fa-check" aria-hidden="true"></i>');
+
+                    $('#save_btn_' + c_id + id).html('Saved');
+
+                    notyf.success(response.msg);
+
+                }
+                if (response.status == 'exist') {
+                    $('#card' + id).html('<i class="fa fa-check" aria-hidden="true"></i>');
+                    notyf.error(response.msg);
+                }
+                if (response.status == 'no') {
+                    window.location.href = '/login';
+                }
+
+
+            }
+        })
+
+
+    }
+
+
+
+
+    function iconToShow(id, type) {
+
+        $.ajax({
+            url: '{{ route('check.collection') }}',
+            type: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                id: id,
+                type: type,
+            },
+            success: function(response) {
+
+                if (response.status == 'yes') {
+                    document.getElementById('card' + response.id).innerHTML =
+                        '<i class="fa fa-check" aria-hidden="true"></i>';
+                } else {
+                    document.getElementById('card' + response.id).innerHTML =
+                        '<i class="fa fa-plus" aria-hidden="true"></i>';
+                }
+
+
+            }
+        })
+    }
+
+
+    function showSaveBtn(id, item_id) {
+        $('#save_btn_' + id + item_id).removeClass('hidden');
+    }
+
+    function hideSaveBtn(id, item_id) {
+        $('#save_btn_' + id + item_id).addClass('hidden');
+    }
+
+
 
 
     const multiSelect = document.querySelector("#tags_selector");
@@ -1032,103 +1373,30 @@
                     );
                     amarkers[mydata.id] = markera;
                 }
-
             })
+    });
+</script>
+<script defer src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+<script>
+    var $juxtapose = $('.juxtapose');
+
+    $juxtapose.each(function(index, element) {
+        var $juxtaposeContainer = $juxtapose.parent();
+        var juxtaposeRatio;
+
+        $(window).on('load', function(event) {
+            juxtaposeRatio = $(element).outerHeight() / $(element).outerWidth();
+        });
+
+        $(window).on('resize', function(event) {
+            var newWidth = $juxtaposeContainer.outerWidth();
+            var newHeight = newWidth * juxtaposeRatio;
+            $(element).css({
+                width: newWidth,
+                height: newHeight
+            });
+        });
 
     });
 </script>
-<style>
-    .clamp {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-
-    }
-
-
-    .select2-container--default .select2-results>.select2-results__options {
-        max-height: 400px;
-    }
-
-    .select2-container--default .select2-selection--multiple {
-        padding: 5px 5px;
-        border: 1px solid #e5e7eb;
-        border-radius: 0.375rem;
-    }
-
-    .select2-container--default.select2-container--focus .select2-selection--multiple {
-        border: none;
-        --tw-ring-opacity: 1;
-        --tw-ring-color: rgb(156 163 175 / var(--tw-ring-opacity));
-        --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-        --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-    }
-
-    .select2-container--default.select2-container--focus .select2-selection--multiple:focus {
-        --tw-ring-opacity: 1;
-        --tw-ring-color: rgb(156 163 175 / var(--tw-ring-opacity));
-        --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-        --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-    }
-
-    .select2-results__option[aria-selected=true]:before {
-        font-family: 'fontAwesome';
-        content: "\f00c";
-        color: #fff;
-        background-color: #0a0a0a;
-        border: 0;
-        display: inline-block;
-        padding: 0;
-        line-height: 1.2;
-        padding-left: 2px;
-    }
-
-    .select2-results__option:before {
-        content: "";
-        display: inline-block;
-        position: relative;
-        height: 20px;
-        width: 20px;
-        border: 2px solid rgba(0, 0, 0, 0.2);
-        border-radius: 4px;
-        background-color: transparent;
-        margin-right: 15px;
-        margin-left: 10px;
-        vertical-align: middle;
-    }
-
-    .select2-container--open .select2-dropdown--below {
-        padding: 10px 0;
-        border-radius: 4px;
-        border: none;
-        -webkit-box-shadow: 0px 3px 22px -15px rgba(0, 0, 0, 0.63);
-        -moz-box-shadow: 0px 3px 22px -15px rgba(0, 0, 0, 0.63);
-        box-shadow: 0px 3px 22px -15px rgba(0, 0, 0, 0.63);
-    }
-
-    .select2-results__option {
-        padding-right: 20px;
-        vertical-align: middle;
-    }
-
-    .select2-container--default .select2-results__option--highlighted[aria-selected] {
-        background-color: #fff;
-        color: #000;
-    }
-
-    .select2-container--default .select2-results__option[aria-selected=true] {
-        background-color: transparent;
-        color: #000;
-    }
-
-    .select2-results__option[aria-selected] {
-        color: #616161;
-    }
-
-    .select2-container--default .select2-selection--multiple .select2-selection__clear {
-        color: red;
-    }
-</style>
