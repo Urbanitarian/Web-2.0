@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('collection_names', function (Blueprint $table) {
-            $table->string('user_id')->after('description');
+        Schema::table('neighbourhoods', function (Blueprint $table) {
+            //
+
+            $table->bigInteger('masterplan_id')->nullable()->after('address');
         });
     }
 
@@ -25,7 +27,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('collection_names', function (Blueprint $table) {
+        Schema::table('neighbourhoods', function (Blueprint $table) {
             //
         });
     }

@@ -130,7 +130,43 @@
 
                             </div>
 
-                            @include('parts.navbar2')
+                            <div class="flex items-center justify-between px-8 py-3 shadow" x-data="{ active: 'ac' }">
+                                <div class=""></div>
+                                <div
+                                    class="relative inset-x-0 top-0 z-50 flex items-center w-auto p-0 px-6 mt-0 transition-all duration-300 ease-in-out translate-x-0 bg-transparent shadow-none opacity-100 bg-gray-50">
+                                    <div
+                                        class="flex flex-col justify-center pb-4 mx-auto mt-0 align-baseline md:flex-row md:space-y-0  md:pb-0">
+                                        <a
+                                            class="mx-2 text-base font-light cursor-pointer text-gray-400 duration-300 xl:mx-4 hover:text-black
+                                            href="#masterplan">&nbsp;Masterplan</a>
+                                        <a
+                                            class="mx-2 text-base font-light cursor-pointer text-gray-400 duration-300 xl:mx-4 hover:text-black
+                                            href="#description">&nbsp;Description</a>
+                                        <a
+                                            class="mx-2 text-base font-light cursor-pointer text-gray-400 duration-300 xl:mx-4 hover:text-black
+                                            href="#map">&nbsp;Map</a>
+                                        <a
+                                            class="mx-2 text-base font-light cursor-pointer text-gray-400 duration-300 xl:mx-4 hover:text-black
+                                            href="#streetscaps">&nbsp;Streetscaps</a>
+                                        <a
+                                            class="mx-2 text-base font-light cursor-pointer text-gray-400 duration-300 xl:mx-4 hover:text-black
+                                            href="#urbanscaps">&nbsp;Urbanscaps</a>
+                                        <a
+                                            class="mx-2 text-base font-light cursor-pointer text-gray-400 duration-300 xl:mx-4 hover:text-black
+                                            href="#resources">&nbsp;Resources</a>
+                                    </div>
+                                </div>
+                                <div class="" @click="sideBar=!sideBar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="18" height="18"
+                                            rx="2" ry="2" />
+                                        <line x1="9" y1="3" x2="9" y2="21" />
+                                    </svg>
+                                </div>
+                            </div>
+
 
                         </div>
 
@@ -368,382 +404,400 @@
                             </div>
                         </div>
 
-                        <div class="flex flex-col items-center justify-center pt-8 border-t ">
 
-                            <div class="text-2xl font-semibold text-gray-800">
-                                Description
-                            </div>
-                            <div class="flex items-center justify-center px-8 py-8">
-                                @php
-                                    
-                                    $des = str_replace('- ', '<li>', $item->description);
-                                    $des = str_replace('-', '<li>', $des);
-                                    $des = str_replace('.', '</li>', $des);
-                                    $des = str_replace("'", '', $des);
-                                    
-                                @endphp
 
-                                <ul
-                                    class="flex flex-col text-gray-800 w-[915px] justify-center items-start text-base list-disc">
-                                    {!! $des !!}
-                                </ul>
-
-                            </div>
-                        </div>
-
-                        <div class="pt-8 pb-4 border">
-
-                            <div class="relative pb-4 text-2xl font-semibold text-center text-gray-800 shadow-xl z-9">
-                                Interactive map
-                            </div>
-                            <div class="">
-                                <div class="h-[675px] w-full border-b">
-                                    {{-- <div id="mastermap" class="mt-12 h-[550px] w-full"></div> --}}
-
-                                    <iframe height="100%" width="100%" frameborder="0" scrolling="no"
-                                        marginheight="0" marginwidth="0" title="Map_Urbanitarian_World"
-                                        src="https://barcelonatech.maps.arcgis.com/apps/Embed/index.html?webmap=c23c1380f11f43a18d3385764132abc9&extent=12.5502,55.6396,12.677,55.6791&zoom=true&previewImage=false&scale=true&basemap_gallery=true&disable_scroll=true&theme=light"></iframe>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
-        </div>
-    </div>
 
 
 
-    </section>
-@empty
-    @endforelse
+
+                </section>
+            @empty
+            @endforelse
+
+            {{-- description --}}
+
+            <section id="description">
+
+                <div class="flex flex-col items-center justify-center pt-8 border-t ">
+
+                    <div class="text-2xl font-semibold text-gray-800">
+                        Description
+                    </div>
+                    <div class="flex items-center justify-center px-8 py-8">
+                        @php
+                            
+                            $des = str_replace('- ', '<li>', $item->description);
+                            $des = str_replace('-', '<li>', $des);
+                            $des = str_replace('.', '</li>', $des);
+                            $des = str_replace("'", '', $des);
+                            
+                        @endphp
+
+                        <ul class="flex flex-col text-gray-800 w-[915px] justify-center items-start text-base list-disc">
+                            {!! $des !!}
+                        </ul>
+
+                    </div>
+                </div>
+            </section>
 
 
-    {{-- sreetscapes section --}}
+            {{-- map --}}
 
-    <section>
-        <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper('.swiper-st', {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 0,
-            allowTouchMove: false,
-            breakpoints: {
-                640: {
+            <section id="map">
+                <div class="pt-8 pb-4 border">
+
+                    <div class="relative pb-4 text-2xl font-semibold text-center text-gray-800 shadow-xl z-9">
+                        Interactive map
+                    </div>
+                    <div class="">
+                        <div class="h-[675px] w-full border-b">
+                            <div id="mastermap" class="h-[550px] w-full"></div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {{-- sreetscapes section --}}
+
+            <section>
+                <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper('.swiper-st', {
+                    loop: true,
                     slidesPerView: 1,
                     spaceBetween: 0,
-                },
-        
-            },
-        })">
-            <div class="flex items-center justify-between px-8 pt-8">
-                <div class=""></div>
-                <div class="">
-                    <div class="text-2xl font-semibold text-center text-gray-800">
-                        Streetscapes
+                    allowTouchMove: false,
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        },
+                
+                    },
+                })">
+                    <div class="flex items-center justify-between px-8 pt-8">
+                        <div class=""></div>
+                        <div class="">
+                            <div class="text-2xl font-semibold text-center text-gray-800">
+                                Streetscapes
+                            </div>
+                            <div class="text-base font-normal text-center text-gray-400">
+                                Explore the streetscapes related to this project
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between gap-4 text-gray-800">
+                            <i class="cursor-pointer fa fa-chevron-left" @click="swiper.slidePrev()"
+                                aria-hidden="true"></i>
+                            <span class="font-thin text-gray-300">|</span>
+                            <i class="cursor-pointer fa fa-chevron-right" @click="swiper.slideNext()"
+                                aria-hidden="true"></i>
+                        </div>
                     </div>
-                    <div class="text-base font-normal text-center text-gray-400">
-                        Explore the streetscapes related to this project
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-between gap-4 text-gray-800">
-                    <i class="cursor-pointer fa fa-chevron-left" @click="swiper.slidePrev()" aria-hidden="true"></i>
-                    <span class="font-thin text-gray-300">|</span>
-                    <i class="cursor-pointer fa fa-chevron-right" @click="swiper.slideNext()" aria-hidden="true"></i>
-                </div>
-            </div>
 
 
-            <div class="swiper-container swiper-st">
-                <div class=" my-8 swiper-wrapper h-[398px]">
+                    <div class="swiper-container swiper-st">
+                        <div class=" my-8 swiper-wrapper h-[398px]">
 
 
-                    @forelse ($streetscapes as $street)
-                        <div class="overflow-hidden transition border rounded-md shadow-sm swiper-slide"
-                            style="width: 687px">
-                            <a href="streetscapes_post?id={{ $street->id }}">
-                                <div class="flex flex-col h-full duration-300">
+                            @forelse ($streetscapes as $street)
+                                <div class="overflow-hidden transition border rounded-md shadow-sm swiper-slide"
+                                    style="width: 687px">
+                                    <a href="streetscapes_post?id={{ $street->id }}">
+                                        <div class="flex flex-col h-full duration-300">
 
-                                    <div class="juxtapose">
-                                        <img alt="Art"
-                                            src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $street->imagea) }}"alt=""
-                                            class="object-cover h-full  saturate-120 max-h-[480px]" />
-                                        <img alt="Art"
-                                            src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $street->imageb) }}"alt=""
-                                            class="object-cover h-full  saturate-120 max-h-[480px]" />
-                                    </div>
+                                            <div class="juxtapose">
+                                                <img alt="Art"
+                                                    src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $street->imagea) }}"alt=""
+                                                    class="object-cover h-full  saturate-120 max-h-[480px]" />
+                                                <img alt="Art"
+                                                    src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $street->imageb) }}"alt=""
+                                                    class="object-cover h-full  saturate-120 max-h-[480px]" />
+                                            </div>
 
-                                    <div
-                                        class="bg-white absolute bottom-[68px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">
-                                        {{ $street->size }}</div>
-                                    <div class="flex items-center justify-between px-3">
-                                        <h3 class="mt-4 text-sm font-semibold text-left text-gray-600">
-                                            {{ $street->title }}</h3>
-                                    </div>
-                                    <div class="flex items-center justify-between px-3 pt-0.5 pb-1">
+                                            <div
+                                                class="bg-white absolute bottom-[68px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">
+                                                {{ $street->size }}</div>
+                                            <div class="flex items-center justify-between px-3">
+                                                <h3 class="mt-4 text-sm font-semibold text-left text-gray-600">
+                                                    {{ $street->title }}</h3>
+                                            </div>
+                                            <div class="flex items-center justify-between px-3 pt-0.5 pb-1">
 
-                                        <p class="text-sm text-left text-gray-500 truncate font-regular">
-                                            {{ $street->address }}, {{ $street->city }}, {{ $street->country }}
-                                        </p>
-                                        <div class="flex items-end justify-end gap-2 text-xs text-gray-500">
-                                            <i class="fa fa-eye" aria-hidden="true"></i>
-                                            {{ views($street)->count() }}
+                                                <p class="text-sm text-left text-gray-500 truncate font-regular">
+                                                    {{ $street->address }}, {{ $street->city }}, {{ $street->country }}
+                                                </p>
+                                                <div class="flex items-end justify-end gap-2 text-xs text-gray-500">
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    {{ views($street)->count() }}
+                                                </div>
+
+                                            </div>
                                         </div>
-
-                                    </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-                    @empty
-                        <div class="p-4 swiper-slide">
-                            <a href="">
-                                <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                                    <div class="flex-shrink-0">
-                                        <img class="h-[450px] w-full object-cover border-b" src="./img/empty.png"
-                                            alt="" loading="lazy">
-                                        <h1 class="pt-4 mx-8 font-bold text-center text-black">Empty</h1>
-                                        <p class="pb-4 mx-8 text-xs text-center text-gray-700">
-                                            dummy
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    @endforelse
-                </div>
-            </div>
-
-        </div>
-
-
-    </section>
-
-
-    {{-- urbanscpaes --}}
-
-    <section class="border-t">
-        <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper('.swiper-ur', {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 0,
-        
-            breakpoints: {
-                640: {
-                    slidesPerView: 1,
-                    spaceBetween: 0,
-                },
-        
-            },
-        })">
-            <div class="flex items-center justify-between px-8 pt-8">
-                <div class=""></div>
-                <div class="">
-                    <div class="text-2xl font-semibold text-center text-gray-800">
-                        Urbanscapes
-                    </div>
-                    <div class="text-base font-normal text-center text-gray-400">
-                        Explore the urbanscapes related to this project
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-between gap-4 text-gray-800">
-                    <i class="cursor-pointer fa fa-chevron-left" @click="swiper.slidePrev()" aria-hidden="true"></i>
-                    <span class="font-thin text-gray-300">|</span>
-                    <i class="cursor-pointer fa fa-chevron-right" @click="swiper.slideNext()" aria-hidden="true"></i>
-                </div>
-            </div>
-
-            <div class="swiper-container swiper-ur">
-                <div class="my-8 swiper-wrapper">
-                    @forelse ($urbanscapes as $urban)
-                        <div
-                            class="relative swiper-slide h-[438px] overflow-hidden transition border rounded shadow-sm saturate-120 animate__animated animate__backInRight">
-
-                            <a href="urbanscapes_post?id={{ $urban->id }}" class="flex flex-col h-full duration-300">
-                                <img alt="Art"
-                                    src="{{ asset('storage/uploads/thumbnails/urbanscapes/' . $urban->image) }}"alt=""
-                                    class="object-cover saturate-120" style="height:332px" />
-                                <div class="flex gap-1  bottom-[110px] absolute ml-2 whitespace-nowrap">
-                                    @foreach ($urban->tags as $tag)
+                            @empty
+                                <div class="p-4 swiper-slide">
+                                    <a href="">
                                         <div
-                                            class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">
-                                            {{ $tag }}
+                                            class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
+                                            <div class="flex-shrink-0">
+                                                <img class="h-[450px] w-full object-cover border-b" src="./img/empty.png"
+                                                    alt="" loading="lazy">
+                                                <h1 class="pt-4 mx-8 font-bold text-center text-black">Empty</h1>
+                                                <p class="pb-4 mx-8 text-xs text-center text-gray-700">
+                                                    dummy
+                                                </p>
+                                            </div>
                                         </div>
-                                    @endforeach
+                                    </a>
                                 </div>
-                                <div class="absolute bottom-1">
-                                    <p class="px-2 mt-2 text-sm font-bold h-[70px]">
-                                        {{ $urban->title }}
-                                    </p>
-                                    <div class="flex  items-center  justify-between px-2 text-sm text-gray-500">
-                                        <div class="">
-                                            <span>{{ $urban->city }},{{ $urban->country }}</span>
-                                        </div>
-                                        <div class="flex items-center justify-center gap-2 ">
-                                            <i class="fa fa-eye" aria-hidden="true"></i>
-                                            {{ views($urban)->count() }}
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                            @endforelse
                         </div>
-                    @empty
-                        <div class="p-4 swiper-slide">
-                            <a href="">
-                                <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                                    <div class="flex-shrink-0">
-                                        <img class="h-[450px] w-full object-cover border-b" src="./img/empty.png"
-                                            alt="" loading="lazy">
-                                        <h1 class="pt-4 mx-8 font-bold text-center text-black">Empty</h1>
-                                        <p class="pb-4 mx-8 text-xs text-center text-gray-700">
-                                            dummy
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    @endforelse
+                    </div>
+
                 </div>
-            </div>
-        </div>
 
 
-    </section>
+            </section>
 
 
+            {{-- urbanscpaes --}}
 
-    {{-- soucrces --}}
-    <section class="border-t ">
-        <div class="text-2xl pt-8 font-semibold text-center text-gray-800">
-            Sources
-        </div>
-
-        <div class="w-full py-8">
-            <div class="flex items-center justify-start">
-                @php $credits = explode(',', $item->credits); @endphp
-                <ul class="flex flex-col gap-2 text-base list-disc px-60">
-                    @foreach ($credits as $source)
-                        <li class="py-2">
-                            <div class="flex gap-2">
-                                <a href="{{ $source }}" class="text-gray-800 truncate" target="_blank">
-                                    {{ $source }}</a>
-                                <svg class="w-[20px] h-[20px] border-gray-800" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11"
-                                        stroke="#1F2937" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path d="M15 3H21V9" stroke="#1F2937" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path d="M10 14L21 3" stroke="#1F2937" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-
-        </div>
-    </section>
-
-
-    {{-- masterplans --}}
-
-    <section class="bg-gray-100 border-t">
-        <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper($refs.container, {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 0,
-            centeredSlides: true,
-            breakpoints: {
-                640: {
-                    slidesPerView: 5,
+            <section class="border-t">
+                <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper('.swiper-ur', {
+                    loop: true,
+                    slidesPerView: 1,
                     spaceBetween: 0,
-                },
-        
-            },
-        })">
-            <div class="flex items-center justify-between px-8 pt-8 ">
-                <div class=""></div>
-                <div class="">
-                    <div class="text-2xl font-semibold text-center text-gray-800">
-                        Explore more Masterplans
+                
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        },
+                
+                    },
+                })">
+                    <div class="flex items-center justify-between px-8 pt-8">
+                        <div class=""></div>
+                        <div class="">
+                            <div class="text-2xl font-semibold text-center text-gray-800">
+                                Urbanscapes
+                            </div>
+                            <div class="text-base font-normal text-center text-gray-400">
+                                Explore the urbanscapes related to this project
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between gap-4 text-gray-800">
+                            <i class="cursor-pointer fa fa-chevron-left" @click="swiper.slidePrev()"
+                                aria-hidden="true"></i>
+                            <span class="font-thin text-gray-300">|</span>
+                            <i class="cursor-pointer fa fa-chevron-right" @click="swiper.slideNext()"
+                                aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="swiper-container swiper-ur">
+                        <div class="my-8 swiper-wrapper">
+                            @forelse ($urbanscapes as $urban)
+                                <div
+                                    class="relative swiper-slide h-[438px] overflow-hidden transition border rounded shadow-sm saturate-120 animate__animated animate__backInRight">
+
+                                    <a href="urbanscapes_post?id={{ $urban->id }}"
+                                        class="flex flex-col h-full duration-300">
+                                        <img alt="Art"
+                                            src="{{ asset('storage/uploads/thumbnails/urbanscapes/' . $urban->image) }}"alt=""
+                                            class="object-cover saturate-120" style="height:332px" />
+                                        <div class="flex gap-1  bottom-[110px] absolute ml-2 whitespace-nowrap">
+                                            @foreach ($urban->tags as $tag)
+                                                <div
+                                                    class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">
+                                                    {{ $tag }}
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                        <div class="absolute bottom-1">
+                                            <p class="px-2 mt-2 text-sm font-bold h-[70px]">
+                                                {{ $urban->title }}
+                                            </p>
+                                            <div class="flex  items-center  justify-between px-2 text-sm text-gray-500">
+                                                <div class="">
+                                                    <span>{{ $urban->city }},{{ $urban->country }}</span>
+                                                </div>
+                                                <div class="flex items-center justify-center gap-2 ">
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    {{ views($urban)->count() }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            @empty
+                                <div class="p-4 swiper-slide">
+                                    <a href="">
+                                        <div
+                                            class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
+                                            <div class="flex-shrink-0">
+                                                <img class="h-[450px] w-full object-cover border-b" src="./img/empty.png"
+                                                    alt="" loading="lazy">
+                                                <h1 class="pt-4 mx-8 font-bold text-center text-black">Empty</h1>
+                                                <p class="pb-4 mx-8 text-xs text-center text-gray-700">
+                                                    dummy
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforelse
+                        </div>
                     </div>
                 </div>
 
-                <div class="flex items-center justify-between gap-4 text-gray-800">
-                    <i class="cursor-pointer fa fa-chevron-left" @click="swiper.slidePrev()" aria-hidden="true"></i>
-                    <span class="font-thin text-gray-300">|</span>
-                    <i class="cursor-pointer fa fa-chevron-right" @click="swiper.slideNext()" aria-hidden="true"></i>
-                </div>
-            </div>
 
-            <div class="swiper-container" x-ref="container">
-                <div class="flex items-center justify-center gap-4 my-8 swiper-wrapper ">
-                    @forelse ($masterplans as $master)
-                        <div
-                            class="overflow-hidden relative h-[442px] max-w-[260px] transition-all bg-white border rounded-md shadow swiper-slide  saturate-120 animate__animated animate__backInLeft">
-                            <a href="masterplans_post?id={{ $master->id }}" class="flex flex-col h-full duration-300">
-                                <img alt="Art"
-                                    src="{{ 'storage/uploads/thumbnails/masterplans/' . $master->image }}"alt=""
-                                    class="object-cover  h-full saturate-120 max-h-[368.24px] " />
+            </section>
+
+
+
+            {{-- soucrces --}}
+            <section class="border-t ">
+                <div class="text-2xl pt-8 font-semibold text-center text-gray-800">
+                    Sources
+                </div>
+
+                <div class="w-full py-8">
+                    <div class="flex items-center justify-start">
+                        @php $credits = explode(',', $item->credits); @endphp
+                        <ul class="flex flex-col gap-2 text-base list-disc px-60">
+                            @foreach ($credits as $source)
+                                <li class="py-2">
+                                    <div class="flex gap-2">
+                                        <a href="{{ $source }}" class="text-gray-800 truncate" target="_blank">
+                                            {{ $source }}</a>
+                                        <svg class="w-[20px] h-[20px] border-gray-800" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11"
+                                                stroke="#1F2937" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M15 3H21V9" stroke="#1F2937" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M10 14L21 3" stroke="#1F2937" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+
+            {{-- masterplans --}}
+
+            <section class="bg-gray-100 border-t">
+                <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper($refs.container, {
+                    loop: true,
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    centeredSlides: true,
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 5,
+                            spaceBetween: 0,
+                        },
+                
+                    },
+                })">
+                    <div class="flex items-center justify-between px-8 pt-8 ">
+                        <div class=""></div>
+                        <div class="">
+                            <div class="text-2xl font-semibold text-center text-gray-800">
+                                Explore more Masterplans
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between gap-4 text-gray-800">
+                            <i class="cursor-pointer fa fa-chevron-left" @click="swiper.slidePrev()"
+                                aria-hidden="true"></i>
+                            <span class="font-thin text-gray-300">|</span>
+                            <i class="cursor-pointer fa fa-chevron-right" @click="swiper.slideNext()"
+                                aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="swiper-container" x-ref="container">
+                        <div class="flex items-center justify-center gap-4 my-8 swiper-wrapper ">
+                            @forelse ($masterplans as $master)
                                 <div
-                                    class="bg-white absolute bottom-[80px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">
-                                    {{ $master->size }}</div>
-                                <div class="pt-1">
-                                    <h3 class="mx-2 mt-1 text-sm font-bold truncate">
-                                        {{ $master->title }}
+                                    class="overflow-hidden relative h-[442px] max-w-[260px] transition-all bg-white border rounded-md shadow swiper-slide  saturate-120 animate__animated animate__backInLeft">
+                                    <a href="masterplans_post?id={{ $master->id }}"
+                                        class="flex flex-col h-full duration-300">
+                                        <img alt="Art"
+                                            src="{{ 'storage/uploads/thumbnails/masterplans/' . $master->image }}"alt=""
+                                            class="object-cover  h-full saturate-120 max-h-[368.24px] " />
+                                        <div
+                                            class="bg-white absolute bottom-[80px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">
+                                            {{ $master->size }}</div>
+                                        <div class="pt-1">
+                                            <h3 class="mx-2 mt-1 text-sm font-bold truncate">
+                                                {{ $master->title }}
 
-                                    </h3>
-                                    <div class="max-w-sm mx-2 mt-1 text-sm text-gray-500 truncate">
-                                        {{ $master->author }} &nbsp;
+                                            </h3>
+                                            <div class="max-w-sm mx-2 mt-1 text-sm text-gray-500 truncate">
+                                                {{ $master->author }} &nbsp;
 
-                                    </div>
+                                            </div>
 
+                                        </div>
+
+                                        <div class="flex items-center justify-between px-2 pb-2 text-sm text-gray-500">
+                                            <span> {{ $master->city }}, {{ $master->country }}</span>
+                                            <div class="flex items-center justify-center gap-2">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                <span class="text-xs"> {{ views($master)->count() }}</span>
+
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-
-                                <div class="flex items-center justify-between px-2 pb-2 text-sm text-gray-500">
-                                    <span> {{ $master->city }}, {{ $master->country }}</span>
-                                    <div class="flex items-center justify-center gap-2">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                        <span class="text-xs"> {{ views($master)->count() }}</span>
-
-                                    </div>
+                            @empty
+                                <div class="p-4 swiper-slide">
+                                    <a href="">
+                                        <div
+                                            class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
+                                            <div class="flex-shrink-0">
+                                                <img class="h-[450px] w-full object-cover border-b" src="./img/empty.png"
+                                                    alt="" loading="lazy">
+                                                <h1 class="pt-4 mx-8 font-bold text-center text-black">Empty</h1>
+                                                <p class="pb-4 mx-8 text-xs text-center text-gray-700">
+                                                    dummy
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
+                            @endforelse
                         </div>
-                    @empty
-                        <div class="p-4 swiper-slide">
-                            <a href="">
-                                <div class="flex flex-col overflow-hidden transition border shadow-lg md:hover:scale-110">
-                                    <div class="flex-shrink-0">
-                                        <img class="h-[450px] w-full object-cover border-b" src="./img/empty.png"
-                                            alt="" loading="lazy">
-                                        <h1 class="pt-4 mx-8 font-bold text-center text-black">Empty</h1>
-                                        <p class="pb-4 mx-8 text-xs text-center text-gray-700">
-                                            dummy
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    @endforelse
+                        <button
+                            class="flex px-8 py-2 mx-auto mt-4 mb-8 text-lg text-black bg-white border-2 rounded focus:outline-none hover:bg-gray-300"><a
+                                href="./masterplans">
+                                See all Masterplans</a></button>
+                    </div>
+
+
                 </div>
-                <button
-                    class="flex px-8 py-2 mx-auto mt-4 mb-8 text-lg text-black bg-white border-2 rounded focus:outline-none hover:bg-gray-300"><a
-                        href="./masterplans">
-                        See all Masterplans</a></button>
-            </div>
 
 
+            </section>
+
+            <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
         </div>
-
-
-    </section>
-
-    <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
-    </div>
     </div>
 
     <style>
@@ -780,6 +834,10 @@
             transform: scale(1.3)
         }
 
+        #mastermap {
+            height: 100%;
+        }
+
         .slide-w {
             width: 260px;
         }
@@ -792,6 +850,7 @@
             width: 270px;
         }
     </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
     <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
     <script>
@@ -816,8 +875,41 @@
 
         });
     </script>
-    <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
-        integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+
+
+
+    <script>
+        (g => {
+            var h, a, k, p = "The Google Maps JavaScript API",
+                c = "google",
+                l = "importLibrary",
+                q = "__ib__",
+                m = document,
+                b = window;
+            b = b[c] || (b[c] = {});
+            var d = b.maps || (b.maps = {}),
+                r = new Set,
+                e = new URLSearchParams,
+                u = () => h || (h = new Promise(async (f, n) => {
+                    await (a = m.createElement("script"));
+                    e.set("libraries", [...r] + "");
+                    for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                    e.set("callback", c + ".maps." + q);
+                    a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+                    d[q] = f;
+                    a.onerror = () => h = n(Error(p + " could not load."));
+                    a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                    m.head.append(a)
+                }));
+            d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() =>
+                d[l](f, ...n))
+        })
+        ({
+            key: @js(env('GOOGLE_MAP_API_KEY')),
+            v: "weekly"
+        });
+    </script>
+
     <script>
         var gps = {!! json_encode($item->location ?? [0.0, 0.0]) !!};
         var decimalString = gps.split(',');
@@ -828,18 +920,21 @@
         console.log(decimalString[0]);
         console.log(decimalString[1]);
 
-        let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1]], 18);
-        osmLayer = L.tileLayer(
-            'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                maxZoom: 19,
-                apikey: 'choisirgeoportail',
-                format: 'image/jpeg',
-                style: 'normal'
-            }).addTo(mymap);
-        mymap.addLayer(osmLayer);
-        L.marker([decimalString[0], decimalString[1]]).addTo(mymap);
-        mymap.touchZoom.enable();
-        mymap.scrollWheelZoom.disable();
+
+        async function initMap() {
+            const {
+                Map
+            } = await google.maps.importLibrary("maps");
+            map = new Map(document.getElementById("mastermap"), {
+                center: {
+                    lat: decimalString[0],
+                    lng: decimalString[1],
+                },
+                zoom: 8,
+            });
+        }
+
+        initMap();
 
 
         $(document).ready(function() {

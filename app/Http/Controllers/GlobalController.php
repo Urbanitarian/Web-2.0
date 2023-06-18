@@ -260,7 +260,13 @@ class GlobalController extends Controller
         $masterplans = Masterplan::where('id', '!=', null)
             ->inRandomOrder()
             ->get();
+
+
+        // dd($masterplans);
+
         views($nb)->record();
+
+
 
         $collections = CollectionName::all();
 
@@ -288,6 +294,7 @@ class GlobalController extends Controller
 
         $id = $request->id;
         $st = Streetscape::find($id);
+
 
         $streetscapes = Streetscape::all();
 

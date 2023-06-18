@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             // AdminUserSeeder::class,
             // GlobalSeeder::class,
             EventSeeder::class,
+            CollectionSeeder::class,
+            RelationManagerSeeder::class
         ]);
     }
 }

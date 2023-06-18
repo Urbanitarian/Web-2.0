@@ -134,7 +134,7 @@
                                 <div
                                     class="relative inset-x-0 top-0 z-50 flex items-center w-auto p-0 px-6 mt-0 transition-all duration-300 ease-in-out translate-x-0 bg-transparent shadow-none opacity-100 bg-gray-50">
                                     <div
-                                        class="flex flex-col justify-center pb-4 mx-auto mt-0 align-baseline md:flex-row md:space-y-0  md:pb-0">
+                                        class="flex flex-col justify-center pb-4 mx-auto mt-0 align-baseline md:flex-row md:space-y-0 md:pb-0">
                                         <a class="mx-2 text-base font-light cursor-pointer text-gray-400 duration-300 xl:mx-4 hover:text-black
                                             href="#urbanscape"
                                             @click="active = ac">&nbsp;Urbanscape</a>
@@ -320,7 +320,7 @@
                             </div>
                             <div class="flex items-center flex-col z-10 w-[915px] justify-center px-8 py-8">
 
-                                <p class="flex flex-col text-gray-800 justify-center items-start text-base ">
+                                <p class="flex flex-col items-start justify-center text-base text-gray-800 ">
                                     {!! $item->descriptiona !!}
                                 </p>
 
@@ -328,7 +328,7 @@
                                     src="{{ asset('storage/uploads/urbanscapes/' . $item->imagea) }}"alt=""
                                     onerror="this.src='./img/empty.png'" />
 
-                                <p class="flex flex-col text-gray-800 justify-center items-start text-base ">
+                                <p class="flex flex-col items-start justify-center text-base text-gray-800 ">
                                     {!! $item->descriptionb !!}
                                 </p>
 
@@ -337,7 +337,7 @@
                                     $pieces = explode(', ', $image1);
                                 @endphp
 
-                                <div class="flex justify-center items-center gap-3 ">
+                                <div class="flex items-center justify-center gap-3 ">
                                     <img id="img" class="object-cover py-4 z-50 h-[348px] w-[290px] saturate-120"
                                         src="{{ asset('storage/uploads/urbanscapes/' . $pieces[0]) }}"alt=""
                                         onerror="this.src='./img/empty.png'" />
@@ -349,7 +349,7 @@
                                         onerror="this.src='./img/empty.png'" />
                                 </div>
 
-                                <p class="flex flex-col text-gray-800 justify-center items-start text-base ">
+                                <p class="flex flex-col items-start justify-center text-base text-gray-800 ">
                                     {!! $item->descriptionc !!}
                                 </p>
 
@@ -358,7 +358,7 @@
                                     $pieces = explode(', ', $image1);
                                 @endphp
 
-                                <div class="flex justify-center items-center gap-3 ">
+                                <div class="flex items-center justify-center gap-3 ">
                                     <img id="img" class="object-cover py-4 z-50 h-[396px] w-[270px] saturate-120"
                                         src="{{ asset('storage/uploads/urbanscapes/' . $pieces[0]) }}"alt=""
                                         onerror="this.src='./img/empty.png'" />
@@ -367,7 +367,7 @@
                                         onerror="this.src='./img/empty.png'" />
                                 </div>
 
-                                <p class="flex flex-col text-gray-800 justify-center items-start text-base ">
+                                <p class="flex flex-col items-start justify-center text-base text-gray-800 ">
                                     {!! $item->descriptiond !!}
                                 </p>
 
@@ -376,7 +376,7 @@
                                     $pieces = explode(', ', $image1);
                                 @endphp
 
-                                <div class="flex justify-center items-center gap-3 ">
+                                <div class="flex items-center justify-center gap-3 ">
                                     <img id="img" class="object-cover py-4 z-50 h-[398px] w-[270px] saturate-120"
                                         src="{{ asset('storage/uploads/urbanscapes/' . $pieces[0]) }}"alt=""
                                         onerror="this.src='./img/empty.png'" />
@@ -399,11 +399,7 @@
                             </div>
                             <div class="">
                                 <div class="h-[675px] w-full border-b">
-                                    {{-- <div id="mastermap" class="mt-12 h-[550px] w-full"></div> --}}
-
-                                    <iframe height="100%" width="100%" frameborder="0" scrolling="no"
-                                        marginheight="0" marginwidth="0" title="Map_Urbanitarian_World"
-                                        src="https://barcelonatech.maps.arcgis.com/apps/Embed/index.html?webmap=c23c1380f11f43a18d3385764132abc9&extent=12.5502,55.6396,12.677,55.6791&zoom=true&previewImage=false&scale=true&basemap_gallery=true&disable_scroll=true&theme=light"></iframe>
+                                    <div id="urbanmap" class=" h-[550px] w-full"></div>
                                 </div>
                             </div>
                         </div>
@@ -615,7 +611,7 @@
 
     {{-- soucrces --}}
     <section class="border-t ">
-        <div class="text-2xl pt-8 font-semibold text-center text-gray-800">
+        <div class="pt-8 text-2xl font-semibold text-center text-gray-800">
             Sources
         </div>
 
@@ -703,7 +699,7 @@
                                     <p class="px-2 mt-2 text-sm font-bold h-[70px]">
                                         {{ $urban->title }}
                                     </p>
-                                    <div class="flex  items-center  justify-between px-2 text-sm text-gray-500">
+                                    <div class="flex items-center justify-between px-2 text-sm text-gray-500">
                                         <div class="">
                                             <span>{{ $urban->city }},{{ $urban->country }}</span>
                                         </div>
@@ -782,6 +778,10 @@
             transform: scale(1.3)
         }
 
+        #urbanmap {
+            height: 100%;
+        }
+
         .slide-w {
             width: 260px;
         }
@@ -822,8 +822,39 @@
 
         });
     </script>
-    <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
-        integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+
+    <script>
+        (g => {
+            var h, a, k, p = "The Google Maps JavaScript API",
+                c = "google",
+                l = "importLibrary",
+                q = "__ib__",
+                m = document,
+                b = window;
+            b = b[c] || (b[c] = {});
+            var d = b.maps || (b.maps = {}),
+                r = new Set,
+                e = new URLSearchParams,
+                u = () => h || (h = new Promise(async (f, n) => {
+                    await (a = m.createElement("script"));
+                    e.set("libraries", [...r] + "");
+                    for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                    e.set("callback", c + ".maps." + q);
+                    a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+                    d[q] = f;
+                    a.onerror = () => h = n(Error(p + " could not load."));
+                    a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                    m.head.append(a)
+                }));
+            d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(
+                () =>
+                d[l](f, ...n))
+        })
+        ({
+            key: @js(env('GOOGLE_MAP_API_KEY')),
+            v: "weekly"
+        });
+    </script>
     <script>
         var gps = {!! json_encode($item->location ?? [0.0, 0.0]) !!};
         var decimalString = gps.split(',');
@@ -834,18 +865,34 @@
         console.log(decimalString[0]);
         console.log(decimalString[1]);
 
-        let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1]], 18);
-        osmLayer = L.tileLayer(
-            'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                maxZoom: 19,
-                apikey: 'choisirgeoportail',
-                format: 'image/jpeg',
-                style: 'normal'
-            }).addTo(mymap);
-        mymap.addLayer(osmLayer);
-        L.marker([decimalString[0], decimalString[1]]).addTo(mymap);
-        mymap.touchZoom.enable();
-        mymap.scrollWheelZoom.disable();
+        // let mymap = L.map('mastermap').setView([decimalString[0], decimalString[1]], 18);
+        // osmLayer = L.tileLayer(
+        //     'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        //         maxZoom: 19,
+        //         apikey: 'choisirgeoportail',
+        //         format: 'image/jpeg',
+        //         style: 'normal'
+        //     }).addTo(mymap);
+        // mymap.addLayer(osmLayer);
+        // L.marker([decimalString[0], decimalString[1]]).addTo(mymap);
+        // mymap.touchZoom.enable();
+        // mymap.scrollWheelZoom.disable();
+
+
+        async function initMap() {
+            const {
+                Map
+            } = await google.maps.importLibrary("maps");
+            map = new Map(document.getElementById("urbanmap"), {
+                center: {
+                    lat: decimalString[0],
+                    lng: decimalString[1],
+                },
+                zoom: 8,
+            });
+        }
+
+        initMap();
 
 
         $(document).ready(function() {

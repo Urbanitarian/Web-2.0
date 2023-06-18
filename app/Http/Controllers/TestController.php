@@ -3,16 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Models\CollectionName;
+use App\Models\Neighbourhood;
+use App\Models\Streetscape;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TestController extends Controller
 {
+
+    public function readCsv()
+    {
+
+
+        // return view('users.index', compact('users'));
+    }
+
     public function test()
     {
 
-        session()->forget('FRONT_USER_ID');
-        session()->forget('FRONT_USER_LOGIN');
-        session()->forget('FRONT_USER_NAME');
+
+
+        dd(Streetscape::find(1)->masterplan);
+
+
+        // session()->forget('FRONT_USER_ID');
+        // session()->forget('FRONT_USER_LOGIN');
+        // session()->forget('FRONT_USER_NAME');
 
         // $masters = CollectionName::where('user_id', session()->get('FRONT_USER_ID'))->with('collections')->find(1);
 

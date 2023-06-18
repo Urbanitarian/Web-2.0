@@ -7,6 +7,7 @@ use CyrildeWit\EloquentViewable\InteractsWithViews;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Streetscape extends Model implements Viewable
 {
@@ -48,6 +49,7 @@ class Streetscape extends Model implements Viewable
         'credits',
         'category',
         'active',
+        'masterplan_id'
     ];
 
     protected $casts = [
@@ -68,6 +70,17 @@ class Streetscape extends Model implements Viewable
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    /**
+     * Get the masterpan that owns the Streetscape
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+
+    public function masterplan(): BelongsTo
+    {
+        return $this->belongsTo(Masterplan::class, 'masterplan_id', 'id');
+    }
 
     /*
     |--------------------------------------------------------------------------
