@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 8,
             "patches": [
                 {
                     "date": 1686133576605,
@@ -36,6 +36,10 @@
                 {
                     "date": 1686140381812,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n                         Blog\n                     </h2>\n                     \n \n-                    <div class=\"flex justify-center mt-10\">\n+                    <div class=\"flex justify-center mt-6\">\n                         <div class='sk-ww-medium-publication-feed' data-embed-id='151478'></div><script src='https://widgets.sociablekit.com/medium-publication-feed/widget.js' async defer></script>\n                     </div>\n \n                 </div>\n"
+                },
+                {
+                    "date": 1687123126972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n                     </h2>\n                     \n \n                     <div class=\"flex justify-center mt-6\">\n-                        <div class='sk-ww-medium-publication-feed' data-embed-id='151478'></div><script src='https://widgets.sociablekit.com/medium-publication-feed/widget.js' async defer></script>\n+                        <div class='sk-ww-medium-publication-feed' data-embed-id='153320'></div><script src='https://widgets.sociablekit.com/medium-publication-feed/widget.js' async defer></script>\n                     </div>\n \n                 </div>\n \n"
                 }
             ],
             "date": 1686133576605,

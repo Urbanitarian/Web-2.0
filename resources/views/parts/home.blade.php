@@ -452,7 +452,6 @@
         </div>
 
         <div class="loader flex justify-center items-center" style="display: none">
-            <?xml version="1.0" encoding="utf-8"?>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                 style="margin: auto; background: rgb(255, 255, 255); display: block; shape-rendering: auto;"
                 width="178px" height="178px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">

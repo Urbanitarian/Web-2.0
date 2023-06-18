@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Http/Livewire/Modal/AddCollection.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1686334853887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1686334853887,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Livewire\\Modal;\n\nuse App\\Models\\CollectionName;\nuse Livewire\\Component;\nuse LivewireUI\\Modal\\ModalComponent;\n\nclass AddCollection extends ModalComponent\n{\n\n    public $name;\n    public $description;\n\n\n    public function addCollection()\n    {\n        CollectionName::create([\n            'name' => $this->name,\n            'user_id' => session()->get('FRONT_USER_ID'),\n            'description' => $this->description\n        ]);\n\n        $this->emit('collection-reset');\n\n        $this->closeModal();\n    }\n\n\n    public static function closeModalOnClickAway(): bool\n    {\n        return true;\n    }\n\n\n    public static function modalMaxWidth(): string\n    {\n        return 'xl';\n    }\n\n    public function render()\n    {\n        return view('livewire.modal.add-collection');\n    }\n}\n"
+        }
+    ]
+}
