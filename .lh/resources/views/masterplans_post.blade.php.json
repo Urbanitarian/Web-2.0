@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 242,
+            "activePatchIndex": 244,
             "patches": [
                 {
                     "date": 1684991989711,
@@ -976,6 +976,14 @@
                 {
                     "date": 1687173884060,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,9 +77,9 @@\n                                         d=\"M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z\" />\n                                 </svg>\n                                 <span class=\"text-sm whitespace-nowrap\">Save to collection</span></button>\n                         </div>\n-                        <div x-show=\"showDropDown\" id=\"\" class=\"absolute z-50 top-16 right-12 \" style=\"display: nonel;\">\n+                        <div x-show=\"showDropDown\" id=\"\" class=\"absolute z-50 top-16 right-12 \" style=\"display: none;\">\n \n \n                             <div class=\"bg-white rounded shadow\">\n \n"
+                },
+                {
+                    "date": 1687197641254,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -129,9 +129,9 @@\n                     class=\"relative inset-x-0 top-0 z-50 flex items-center w-auto p-0 px-6 mt-0 transition-all duration-300 ease-in-out translate-x-0 bg-transparent shadow-none opacity-100 bg-gray-50\">\n                     <div\n                         class=\"flex flex-col justify-center pb-4 mx-auto mt-0 align-baseline md:flex-row md:space-y-0  md:pb-0\">\n                         <a\n-                            class=\"link-scroll mx-2 text-base font-light cursor-pointer text-gray-400 duration-300 xl:mx-4 hover:text-black\"\n+                            class=\"link-scroll mx-2 text-base font-light cursor-pointer text-gray-400 duration-300 xl:mx-4 hover:text-black\n                             href=\"#masterplan\">&nbsp;Masterplan</a>\n                         <a\n                             class=\"mx-2 text-base font-light cursor-pointer text-gray-400 duration-300 xl:mx-4 hover:text-black\"\n                             href=\"#description\">&nbsp;Description</a>\n"
+                },
+                {
+                    "date": 1687197652745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -129,9 +129,9 @@\n                     class=\"relative inset-x-0 top-0 z-50 flex items-center w-auto p-0 px-6 mt-0 transition-all duration-300 ease-in-out translate-x-0 bg-transparent shadow-none opacity-100 bg-gray-50\">\n                     <div\n                         class=\"flex flex-col justify-center pb-4 mx-auto mt-0 align-baseline md:flex-row md:space-y-0  md:pb-0\">\n                         <a\n-                            class=\"link-scroll mx-2 text-base font-light cursor-pointer text-gray-400 duration-300 xl:mx-4 hover:text-black\n+                            class=\"link-scroll mx-2 text-base font-light cursor-pointer text-gray-400 duration-300 xl:mx-4 hover:text-black\"\n                             href=\"#masterplan\">&nbsp;Masterplan</a>\n                         <a\n                             class=\"mx-2 text-base font-light cursor-pointer text-gray-400 duration-300 xl:mx-4 hover:text-black\"\n                             href=\"#description\">&nbsp;Description</a>\n"
                 }
             ],
             "date": 1684991989711,
