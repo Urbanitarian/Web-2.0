@@ -15,7 +15,7 @@
                         fully searchable urban design resources
 
                     </span>
-                    <span class="text-xl font-light">
+                    <span class="text-xl font-light text-gray-500">
                         Trusted by global institutions:
                     </span>
                 </div>
