@@ -1,8 +1,17 @@
-<section class="pt-10 border-b bg-gray-50">
+<section class="">
     <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper($refs.container, {
         loop: true,
         slidesPerView: 1,
         spaceBetween: 0,
+        speed:1000,
+        
+        autoplay: 
+        {
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+        
+        },
         breakpoints: {
             640: {
                 slidesPerView: 1,
@@ -22,148 +31,117 @@
             },
         },
     })">
-        <div class="swiper-container" x-ref="container">
-            <div class="swiper-wrapper">
-                <div class="flex justify-between gap-8 swiper-slide">
-                    <div class="flex flex-col">
-                        <div class="flex gap-6">
-                            <img src="{{ asset('storage/uploads/streetscapes/3c287868e68a249684e91f982f8acdd4.jpg') }}"
-                                alt="" class="w-[30vh] h-[22vh] shadow-xl rounded-r-md mt-4">
-                            <img src="{{ asset('storage/uploads/masterplans/M_MVRDV_Ipai_00.jpg') }}" alt=""
-                                class="w-[25vh] h-[38vh] shadow-xl rounded-md z-50 mt-12">
-                        </div>
-                        <div class="flex gap-6">
-                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                                alt="" class="w-[48vh] h-[27vh] shadow-xl rounded-r-md -mt-[120px]">
-                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
-                                alt="" class="w-[25vh] h-[38vh] shadow-xl rounded-md">
-                        </div>
+        <div class="swiper-container" x-ref="container" style="background-image: url('{{ asset('img/pattern.png') }}'); background-repeat: repeat; background-size: 100%; background-position: bottom;">
+            <div class="swiper-wrapper h-[512px]"  style="background-image: linear-gradient(90deg, #ffffff,70%, #f3f4f6);">
+                
+                <div class="swiper-slide ">
+                    <div class="h-full">
+                        <div class="bg-contain bg-no-repeat	h-full" style="background-position: right; background-image: url('{{ asset('img/slide2.png') }}')">
+                            
+                            <div class="flex items-center justify-start h-full p-[100px] w-7/12">
+                                <div class="select-none">
+                                    <h2 class="text-5xl font-bold text-gray-800 leading-snug">
+                                        Get inspired and solve specific urban design challenges
+                                    </h2>
+                                    <p class="text-xl font-semibold mt-6 text-base text-gray-700 leading-[1.5]">
+                                        Save hours of research with our library of<br>500+ fully searchable urban design resources
+                                    </p>
 
-                    </div>
-                    <div class="my-8">
-                        <div class="p-8 md:p-12 lg:px-12 lg:py-10">
-
-                            <div class="mx-auto text-center select-none lg:max-w-xl">
-                                <h2 class="text-2xl font-bold text-gray-900 md:text-5xl whitespace-nowrap">
-                                    Explore the database
-                                </h2>
-
-                                <p class="mt-6 text-base text-gray-500">
-                                    Save hours of research with our library of 1000+ fully searchable urban design
-                                    resource
-                                </p>
+                                    <div class="mt-20">
+                                        @if (!session()->has('FRONT_USER_LOGIN'))
+                                        <a href="/login" class="px-5 py-3 font-normal text-center text-white bg-gray-700 rounded hover:bg-black">
+                                            Log in or sign up
+                                        </a>
+                                        @endif
+                                        <a href="/how-it-works" class="ml-5 px-5 py-3 font-normal text-center text-gray-600 bg-white border-2 rounded hover:bg-gray-100">
+                                            Learn more
+                                        </a>
+                                    </div>
+                                </div>
+                                
                             </div>
-
-                            <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
-
-
-                                <a href="#"
-                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-white duration-300 bg-gray-800 rounded shadow-lg hover:bg-black prevent lg:ml-4 group ">
-                                    <span class="text-sm">Log in or sign up</span>
-                                </a>
-                                <a href="#"
-                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-black duration-300 bg-white border-2 rounded shadow-lg prevent lg:ml-4 group hover:bg-gray-100 ">
-                                    <span class="text-sm">Learn more</span>
-                                </a>
-
-                            </div>
-
-
-
-                        </div>
-
-                    </div>
-                    <div class="flex flex-col">
-
-                        <div class="flex mt-32 ">
-                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
-                                alt="" class="w-[24vh] h-[32vh] shadow-xl rounded-md -mr-56 ml-6 z-50">
-                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                                alt="" class="w-[95vh] h-[27vh] shadow-xl -mr-28 ml-8 rounded-l-md -mt-[120px]">
-                        </div>
-
-                        <div class="flex">
-                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
-                                alt="" class="w-[24vh] h-[32vh] shadow-xl rounded-md -ml-36 -mt-24">
-                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                                alt="" class="w-[45vh] h-[26vh] shadow-xl ml-8 rounded-l-md -mt-[120px] ">
+                            
                         </div>
                     </div>
-
                 </div>
-                <div class="flex justify-between gap-8 swiper-slide">
-                    <div class="flex flex-col">
-                        <div class="flex gap-6">
-                            <img src="{{ asset('storage/uploads/streetscapes/3c287868e68a249684e91f982f8acdd4.jpg') }}"
-                                alt="" class="w-[30vh] h-[22vh] shadow-xl rounded-r-md mt-4">
-                            <img src="{{ asset('storage/uploads/masterplans/M_MVRDV_Ipai_00.jpg') }}" alt=""
-                                class="w-[25vh] h-[38vh] shadow-xl rounded-md z-50 mt-12">
-                        </div>
-                        <div class="flex gap-6">
-                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                                alt="" class="w-[48vh] h-[27vh] shadow-xl rounded-r-md -mt-[120px]">
-                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
-                                alt="" class="w-[25vh] h-[38vh] shadow-xl rounded-md">
-                        </div>
 
-                    </div>
-                    <div class="my-8">
-                        <div class="p-8 md:p-12 lg:px-12 lg:py-10">
 
-                            <div class="mx-auto text-center select-none lg:max-w-xl">
-                                <h2 class="text-2xl font-bold text-gray-900 md:text-5xl whitespace-nowrap">
-                                    Explore the database
-                                </h2>
+                <div class="swiper-slide ">
+                    <div class="h-full">
+                        <div class="bg-contain bg-no-repeat	h-full" style="background-position: right; background-image: url('{{ asset('img/slide1.png') }}')">
+                            
+                            <div class="flex items-center justify-start h-full p-[100px] w-7/12">
+                                <div class="select-none">
+                                    <h2 class="text-5xl font-bold text-gray-800 leading-snug">
+                                        Explore the database
+                                    </h2>
+                                    <p class="text-xl font-semibold mt-6 text-base text-gray-700 leading-[1.5]">
+                                        Create collections and bookmark your favorite<br>
+                                        Masterplans, Streetscapes and Urbanscapes.<br>
+                                        Share it with your team for collaboration.
+                                    </p>
 
-                                <p class="mt-6 text-base text-gray-500">
-                                    Save hours of research with our library of 1000+ fully searchable urban design
-                                    resource
-                                </p>
+                                    <div class="mt-20">
+                                        @if (!session()->has('FRONT_USER_LOGIN'))
+                                        <a href="/login" class="px-5 py-3 font-normal text-center text-white bg-gray-700 rounded hover:bg-black">
+                                            Log in or sign up
+                                        </a>
+                                        @endif
+                                        <a href="/how-it-works" class="ml-5 px-5 py-3 font-normal text-center text-gray-600 bg-white border-2 rounded hover:bg-gray-100">
+                                            Learn more
+                                        </a>
+                                    </div>
+                                </div>
+                                
                             </div>
-
-                            <div class="flex items-center justify-center max-w-2xl mx-auto mt-8">
-
-                                <a href="#"
-                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-white duration-300 bg-gray-800 rounded shadow-lg hover:bg-black prevent lg:ml-4 group hover:scale-110">
-                                    <span class="text-sm">Log in or sign up</span>
-                                </a>
-                                <a href="#"
-                                    class="flex px-5 py-3 my-2 mt-2 font-normal text-center text-black duration-300 bg-white rounded shadow-lg prevent lg:ml-4 group hover:bg-gray-100 hover:scale-110">
-                                    <span class="text-sm">Learn more</span>
-                                </a>
-
-                            </div>
-
-
-
-                        </div>
-
-                    </div>
-                    <div class="flex flex-col">
-
-                        <div class="flex mt-32 ">
-                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
-                                alt="" class="w-[24vh] h-[32vh] shadow-xl rounded-md -mr-56 ml-6 z-50">
-                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                                alt="" class="w-[95vh] h-[27vh] shadow-xl -mr-28 ml-8 rounded-l-md -mt-[120px]">
-                        </div>
-
-                        <div class="flex">
-                            <img src="{{ asset('storage/uploads/masterplans/S_KPF_HudsonYards_00.jpg') }}"
-                                alt="" class="w-[24vh] h-[32vh] shadow-xl rounded-md -ml-36 -mt-24">
-                            <img src="{{ asset('storage/uploads/streetscapes/62e224afb66814e82be5eb68bde36650.jpg') }}"
-                                alt="" class="w-[45vh] h-[26vh] shadow-xl ml-8 rounded-l-md -mt-[120px] ">
+                            
                         </div>
                     </div>
-
                 </div>
+
+
+                <div class="swiper-slide ">
+                    <div class="h-full">
+                        <div class="bg-contain bg-no-repeat	h-full" style="background-position: right; background-image: url('{{ asset('img/slide3.png') }}')">
+                            
+                            <div class="flex items-center justify-start h-full p-[100px] w-7/12">
+                                <div class="select-none">
+                                    <h2 class="text-5xl font-bold text-gray-800 leading-snug">
+                                        Take a deep-dive & learn compare, measure and collect
+                                    </h2>
+                                    <p class="text-xl font-semibold mt-6 text-base text-gray-700 leading-[1.5]">
+                                        Find your reference project with our rich search experience.<br>
+                                        Filter projects by specific categories such as tags, sizes,<br>
+                                        status and location.
+                                    </p>
+
+                                    <div class="mt-20">
+                                        @if (!session()->has('FRONT_USER_LOGIN'))
+                                        <a href="/login" class="px-5 py-3 font-normal text-center text-white bg-gray-700 rounded hover:bg-black">
+                                            Log in or sign up
+                                        </a>
+                                        @endif
+                                        <a href="/how-it-works" class="ml-5 px-5 py-3 font-normal text-center text-gray-600 bg-white border-2 rounded hover:bg-gray-100">
+                                            Learn more
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                
             </div>
         </div>
     </div>
 </section>
 
 <div class="relative z-50 ">
-    <div id="mysearch" class="py-4 -mt-[104px] px-6 bg-white border-t shadow">
+    <div id="mysearch" class="py-4 px-6 bg-white border-t shadow">
         <div class="flex flex-col flex-wrap gap-2 mx-4 md:mx-0" x-data="{ showFilter: true }">
             <div class="flex items-center justify-between gap-8">
                 <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category" x-data="{ active: 'masterplan' }">
