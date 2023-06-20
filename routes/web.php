@@ -64,6 +64,11 @@ Route::get('blog', [BlogController::class, 'index']);
 
 
 
+Route::get('/how-it-works', function () {
+
+    return view('how-it-works');
+});
+
 Route::get('legal', [GlobalController::class, 'getLegal']);
 Route::get('confidentialite', [GlobalController::class, 'getConf']);
 Route::get('cookies', [GlobalController::class, 'cookies']);
