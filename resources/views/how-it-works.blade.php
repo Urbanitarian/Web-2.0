@@ -163,25 +163,49 @@
 
         </section>
 
-        <section class="pt-6">
+        <section class="py-6">
 
             <h1 class="text-gray-800 text-center py-4 font-bold line-clamp-3 text-5xl  leading-[140%]">
                 Save references that inspire you
             </h1>
 
-            <div class="bg-gray-100 px-[48px] pt-[60px] rounded-3xl">
-                <ul class="text-3xl font-bold list-disc text-gray-700 leading-[150%]">
-                    <li>
-                        Copy
-                        Collect, Organize, and <br> Create Your Ultimate<br> Project Inspiration Lists</li>
-                    <li>
-                        Build Your Personal <br> Reference Library </li>
-                    <li>
-                        Curate Your Personalized <br>Lists of Projects
-                    </li>
+            <div class="bg-gray-100 pt-[60px] rounded-3xl">
+                <div class="flex justify-between">
+                    <div class="">
+                        <ul class="text-3xl pl-24 w-[500px]  font-bold list-disc text-gray-700 leading-[150%]">
+                            <li>
+                                Copy
+                                Collect, Organize, and Create Your Ultimate Project Inspiration Lists</li>
+                            <li>
+                                Build Your Personal Reference Library </li>
+                            <li>
+                                Curate Your Personalized Lists of Projects
+                            </li>
+                        </ul>
 
+                        <p class="text-base text-start pt-6 text-gray-500 pl-12">
+                            Create collections and bookmark your favorite Masterplans,<br> Streetscapes and Urbanscapes.
+                            Share the collections with<br> your team for collaboration.
+                        </p>
 
-                </ul>
+                    </div>
+
+                    <div class="py-16">
+                        <div class="pl-[180px]">
+                            <img src="{{ asset('img/how-it-works/image 3.png') }}" class="w-[550px] pt-6 pl-5"
+                                style="background: #000000;
+                border-radius: 22px 0px 0px 0px;"
+                                alt="">
+                        </div>
+
+                        <img src="{{ asset('img/how-it-works/Bottom.png') }}" class="w-[730px] pl-28" alt="">
+                        <div class="h-2 pl-28">
+                            <div class="h-2 w-[600px]"
+                                style="background: #000000;
+                            filter: blur(22px);"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
