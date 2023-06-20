@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 24,
+            "activePatchIndex": 53,
             "patches": [
                 {
                     "date": 1683377145690,
@@ -104,6 +104,122 @@
                 {
                     "date": 1687167961720,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -382,9 +382,9 @@\n         $prev_id = $prev ? $prev->id : null;\n \n \n \n-        return view('masterplans_post', compact('item','next','prev','masterplans', 'collections', 'streetscapes', 'urbanscapes', 'id'));\n+        return view('masterplans_post', compact('item','next_id','prev_id','masterplans', 'collections', 'streetscapes', 'urbanscapes', 'id'));\n     }\n \n     public function alldictionary()\n     {\n"
+                },
+                {
+                    "date": 1687204859932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -292,9 +292,9 @@\n     public function streetscapes_post(Request $request)\n     {\n \n         $id = $request->id;\n-        $st = Streetscape::find($id);\n+        $item = Streetscape::find($id);\n \n \n         $streetscapes = Streetscape::all();\n \n@@ -308,13 +308,13 @@\n         $urbanscapes =  Neighbourhood::where('id', '!=', null)\n             ->inRandomOrder()\n             ->get();\n \n-        views($st)->record();\n+        views($item)->record();\n \n         $collections = CollectionName::all();\n \n-        return view('streetscapes_post', compact('streetscapes', 'collections', 'allstreetscapes', 'urbanscapes', 'masterplans', 'id'));\n+        return view('streetscapes_post', compact('item','streetscapes', 'collections', 'allstreetscapes', 'urbanscapes', 'masterplans', 'id'));\n     }\n \n     public function masterplans(Request $request)\n     {\n"
+                },
+                {
+                    "date": 1687204928504,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -292,9 +292,9 @@\n     public function streetscapes_post(Request $request)\n     {\n \n         $id = $request->id;\n-        $item = Streetscape::find($id);\n+        $st = Streetscape::find($id);\n \n \n         $streetscapes = Streetscape::all();\n \n@@ -308,13 +308,13 @@\n         $urbanscapes =  Neighbourhood::where('id', '!=', null)\n             ->inRandomOrder()\n             ->get();\n \n-        views($item)->record();\n+        views($st)->record();\n \n         $collections = CollectionName::all();\n \n-        return view('streetscapes_post', compact('item','streetscapes', 'collections', 'allstreetscapes', 'urbanscapes', 'masterplans', 'id'));\n+        return view('streetscapes_post', compact('streetscapes', 'collections', 'allstreetscapes', 'urbanscapes', 'masterplans', 'id'));\n     }\n \n     public function masterplans(Request $request)\n     {\n"
+                },
+                {
+                    "date": 1687205160463,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -292,9 +292,9 @@\n     public function streetscapes_post(Request $request)\n     {\n \n         $id = $request->id;\n-        $st = Streetscape::find($id);\n+        $item = Streetscape::find($id);\n \n \n         $streetscapes = Streetscape::all();\n \n"
+                },
+                {
+                    "date": 1687205190148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -297,9 +297,9 @@\n \n \n         $streetscapes = Streetscape::all();\n \n-        $masterplans = Masterplan::where('id', '!=', null)\n+        $masterplans = Masterplan::where('id',$item->masterplan_id)\n             ->inRandomOrder()\n             ->get();\n \n         $allstreetscapes = Streetscape::where('id', '!=', null)\n@@ -308,9 +308,9 @@\n         $urbanscapes =  Neighbourhood::where('id', '!=', null)\n             ->inRandomOrder()\n             ->get();\n \n-        views($st)->record();\n+        views($item)->record();\n \n         $collections = CollectionName::all();\n \n         return view('streetscapes_post', compact('streetscapes', 'collections', 'allstreetscapes', 'urbanscapes', 'masterplans', 'id'));\n"
+                },
+                {
+                    "date": 1687205195299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -297,11 +297,9 @@\n \n \n         $streetscapes = Streetscape::all();\n \n-        $masterplans = Masterplan::where('id',$item->masterplan_id)\n-            ->inRandomOrder()\n-            ->get();\n+        $masterplans = Masterplan::where('id',$item->masterplan_id)->get();\n \n         $allstreetscapes = Streetscape::where('id', '!=', null)\n             ->inRandomOrder()\n             ->get();\n"
+                },
+                {
+                    "date": 1687205211216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -297,9 +297,9 @@\n \n \n         $streetscapes = Streetscape::all();\n \n-        $masterplans = Masterplan::where('id',$item->masterplan_id)->get();\n+        $masterplans = Masterplan::where('id',$item->masterplan_id)->first();\n \n         $allstreetscapes = Streetscape::where('id', '!=', null)\n             ->inRandomOrder()\n             ->get();\n"
+                },
+                {
+                    "date": 1687205296814,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -297,9 +297,9 @@\n \n \n         $streetscapes = Streetscape::all();\n \n-        $masterplans = Masterplan::where('id',$item->masterplan_id)->first();\n+        $master = Masterplan::where('id',$item->masterplan_id)->first();\n \n         $allstreetscapes = Streetscape::where('id', '!=', null)\n             ->inRandomOrder()\n             ->get();\n@@ -310,9 +310,9 @@\n         views($item)->record();\n \n         $collections = CollectionName::all();\n \n-        return view('streetscapes_post', compact('streetscapes', 'collections', 'allstreetscapes', 'urbanscapes', 'masterplans', 'id'));\n+        return view('streetscapes_post', compact('master','streetscapes', 'collections', 'allstreetscapes', 'urbanscapes', 'id'));\n     }\n \n     public function masterplans(Request $request)\n     {\n"
+                },
+                {
+                    "date": 1687205493432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -293,20 +293,24 @@\n     {\n \n         $id = $request->id;\n         $item = Streetscape::find($id);\n+        $master = Masterplan::where('id',$item->masterplan_id)->first();\n+        $urbanscapes =  Neighbourhood::where('id', '!=', null)\n+            ->inRandomOrder()\n+            ->get();\n \n \n+        \n+\n         $streetscapes = Streetscape::all();\n \n-        $master = Masterplan::where('id',$item->masterplan_id)->first();\n+       \n \n         $allstreetscapes = Streetscape::where('id', '!=', null)\n             ->inRandomOrder()\n             ->get();\n-        $urbanscapes =  Neighbourhood::where('id', '!=', null)\n-            ->inRandomOrder()\n-            ->get();\n+        \n \n         views($item)->record();\n \n         $collections = CollectionName::all();\n"
+                },
+                {
+                    "date": 1687205518952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -294,11 +294,9 @@\n \n         $id = $request->id;\n         $item = Streetscape::find($id);\n         $master = Masterplan::where('id',$item->masterplan_id)->first();\n-        $urbanscapes =  Neighbourhood::where('id', '!=', null)\n-            ->inRandomOrder()\n-            ->get();\n+        $urbanscapes =  Neighbourhood::where('id',$item->masterplan_id)->get();\n \n \n         \n \n"
+                },
+                {
+                    "date": 1687205548746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -312,9 +312,9 @@\n         views($item)->record();\n \n         $collections = CollectionName::all();\n \n-        return view('streetscapes_post', compact('master','streetscapes', 'collections', 'allstreetscapes', 'urbanscapes', 'id'));\n+        return view('streetscapes_post', compact('master','streetscapes', 'collections', 'allstreetscapes', 'id'));\n     }\n \n     public function masterplans(Request $request)\n     {\n"
+                },
+                {
+                    "date": 1687205836234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -303,18 +303,19 @@\n         $streetscapes = Streetscape::all();\n \n        \n \n-        $allstreetscapes = Streetscape::where('id', '!=', null)\n+        $streetscapes = Streetscape::where('id', '!=', null)\n             ->inRandomOrder()\n+            ->take(12)\n             ->get();\n         \n \n         views($item)->record();\n \n         $collections = CollectionName::all();\n \n-        return view('streetscapes_post', compact('master','streetscapes', 'collections', 'allstreetscapes', 'id'));\n+        return view('streetscapes_post', compact('master','urbanscapes','streetscapes', 'collections',, 'id'));\n     }\n \n     public function masterplans(Request $request)\n     {\n"
+                },
+                {
+                    "date": 1687205843537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -295,16 +295,8 @@\n         $id = $request->id;\n         $item = Streetscape::find($id);\n         $master = Masterplan::where('id',$item->masterplan_id)->first();\n         $urbanscapes =  Neighbourhood::where('id',$item->masterplan_id)->get();\n-\n-\n-        \n-\n-        $streetscapes = Streetscape::all();\n-\n-       \n-\n         $streetscapes = Streetscape::where('id', '!=', null)\n             ->inRandomOrder()\n             ->take(12)\n             ->get();\n@@ -313,9 +305,9 @@\n         views($item)->record();\n \n         $collections = CollectionName::all();\n \n-        return view('streetscapes_post', compact('master','urbanscapes','streetscapes', 'collections',, 'id'));\n+        return view('streetscapes_post', compact('master','urbanscapes','streetscapes', 'collections', 'id'));\n     }\n \n     public function masterplans(Request $request)\n     {\n"
+                },
+                {
+                    "date": 1687205876380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -295,9 +295,9 @@\n         $id = $request->id;\n         $item = Streetscape::find($id);\n         $master = Masterplan::where('id',$item->masterplan_id)->first();\n         $urbanscapes =  Neighbourhood::where('id',$item->masterplan_id)->get();\n-        $streetscapes = Streetscape::where('id', '!=', null)\n+        $streetscapes = Streetscape::where('id', '!=', null)->where('id', '!=', $id)\n             ->inRandomOrder()\n             ->take(12)\n             ->get();\n         \n"
+                },
+                {
+                    "date": 1687205909666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -295,9 +295,9 @@\n         $id = $request->id;\n         $item = Streetscape::find($id);\n         $master = Masterplan::where('id',$item->masterplan_id)->first();\n         $urbanscapes =  Neighbourhood::where('id',$item->masterplan_id)->get();\n-        $streetscapes = Streetscape::where('id', '!=', null)->where('id', '!=', $id)\n+        $streetscapes = Streetscape::where('id', '!=', null)\n             ->inRandomOrder()\n             ->take(12)\n             ->get();\n         \n"
+                },
+                {
+                    "date": 1687205940677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -299,9 +299,8 @@\n         $streetscapes = Streetscape::where('id', '!=', null)\n             ->inRandomOrder()\n             ->take(12)\n             ->get();\n-        \n \n         views($item)->record();\n \n         $collections = CollectionName::all();\n"
+                },
+                {
+                    "date": 1687205960031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -304,8 +304,34 @@\n         views($item)->record();\n \n         $collections = CollectionName::all();\n \n+\n+        $next = Masterplan::where('id', '>', $item->id)\n+        ->orderBy('id', 'asc')\n+        ->select('id')\n+        ->first();\n+\n+        if (!$next) {\n+            Masterplan::orderBy('id', 'asc')\n+                    ->select('id')\n+                    ->first();\n+        }\n+\n+        $prev = Masterplan::where('id', '<', $item->id)\n+            ->orderBy('id', 'desc')\n+            ->select('id')\n+            ->first();\n+        if (!$prev) {\n+            $prev = Masterplan::orderBy('id', 'desc')\n+                    ->select('id')\n+                    ->first();\n+        }\n+        $next_id= $next ? $next->id : null;\n+        $prev_id = $prev ? $prev->id : null;\n+\n+\n+\n         return view('streetscapes_post', compact('master','urbanscapes','streetscapes', 'collections', 'id'));\n     }\n \n     public function masterplans(Request $request)\n"
+                },
+                {
+                    "date": 1687205980774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -305,25 +305,25 @@\n \n         $collections = CollectionName::all();\n \n \n-        $next = Masterplan::where('id', '>', $item->id)\n+        $next = Streetscape::where('id', '>', $item->id)\n         ->orderBy('id', 'asc')\n         ->select('id')\n         ->first();\n \n         if (!$next) {\n-            Masterplan::orderBy('id', 'asc')\n+            Streetscape::orderBy('id', 'asc')\n                     ->select('id')\n                     ->first();\n         }\n \n-        $prev = Masterplan::where('id', '<', $item->id)\n+        $prev = Streetscape::where('id', '<', $item->id)\n             ->orderBy('id', 'desc')\n             ->select('id')\n             ->first();\n         if (!$prev) {\n-            $prev = Masterplan::orderBy('id', 'desc')\n+            $prev = Streetscape::orderBy('id', 'desc')\n                     ->select('id')\n                     ->first();\n         }\n         $next_id= $next ? $next->id : null;\n"
+                },
+                {
+                    "date": 1687205995844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -330,9 +330,9 @@\n         $prev_id = $prev ? $prev->id : null;\n \n \n \n-        return view('streetscapes_post', compact('master','urbanscapes','streetscapes', 'collections', 'id'));\n+        return view('streetscapes_post', compact('master','next_id','prev_id','urbanscapes','streetscapes', 'collections', 'id'));\n     }\n \n     public function masterplans(Request $request)\n     {\n"
+                },
+                {
+                    "date": 1687206097298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -330,9 +330,9 @@\n         $prev_id = $prev ? $prev->id : null;\n \n \n \n-        return view('streetscapes_post', compact('master','next_id','prev_id','urbanscapes','streetscapes', 'collections', 'id'));\n+        return view('streetscapes_post', compact('item','master','next_id','prev_id','urbanscapes','streetscapes', 'collections', 'id'));\n     }\n \n     public function masterplans(Request $request)\n     {\n"
+                },
+                {
+                    "date": 1687209169116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -261,10 +261,8 @@\n             ->inRandomOrder()\n             ->get();\n \n \n-        // dd($masterplans);\n-\n         views($nb)->record();\n \n \n \n"
+                },
+                {
+                    "date": 1687209203020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -248,9 +248,11 @@\n \n     public function neighbourhoods_post(Request $request)\n     {\n         $id = $request->id;\n-        $nb = Neighbourhood::find($id);\n+        $item = Neighbourhood::find($id);\n+\n+        \n         $urbanscape = neighbourhood::all();\n         $urbanscapes = neighbourhood::where('id', '!=', null)->limit(4)\n             ->inRandomOrder()\n             ->get();\n@@ -261,9 +263,9 @@\n             ->inRandomOrder()\n             ->get();\n \n \n-        views($nb)->record();\n+        views($item)->record();\n \n \n \n         $collections = CollectionName::all();\n"
+                },
+                {
+                    "date": 1687209310130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -249,17 +249,15 @@\n     public function neighbourhoods_post(Request $request)\n     {\n         $id = $request->id;\n         $item = Neighbourhood::find($id);\n+        $streetscapes = Streetscape::where('id',$item->masterplan_id)->get();\n \n-        \n         $urbanscape = neighbourhood::all();\n         $urbanscapes = neighbourhood::where('id', '!=', null)->limit(4)\n             ->inRandomOrder()\n             ->get();\n-        $streetscapes = Streetscape::where('id', '!=', null)\n-            ->inRandomOrder()\n-            ->get();\n+        \n         $masterplans = Masterplan::where('id', '!=', null)\n             ->inRandomOrder()\n             ->get();\n \n@@ -269,9 +267,9 @@\n \n \n         $collections = CollectionName::all();\n \n-        return view('neighbourhoods_post', compact('urbanscape', 'collections', 'urbanscapes', 'streetscapes', 'masterplans',  'id'));\n+        return view('neighbourhoods_post', compact('streetscapes', 'urbanscape', 'collections', 'urbanscapes', 'masterplans',  'id'));\n     }\n \n     public function streetscapes(Request $request)\n     {\n"
+                },
+                {
+                    "date": 1687209570208,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -256,9 +256,9 @@\n         $urbanscapes = neighbourhood::where('id', '!=', null)->limit(4)\n             ->inRandomOrder()\n             ->get();\n         \n-        $masterplans = Masterplan::where('id', '!=', null)\n+        $master = Masterplan::where('id', '!=', null)\n             ->inRandomOrder()\n             ->get();\n \n \n@@ -267,9 +267,9 @@\n \n \n         $collections = CollectionName::all();\n \n-        return view('neighbourhoods_post', compact('streetscapes', 'urbanscape', 'collections', 'urbanscapes', 'masterplans',  'id'));\n+        return view('neighbourhoods_post', compact('streetscapes', 'master', 'urbanscape', 'collections', 'urbanscapes',  'id'));\n     }\n \n     public function streetscapes(Request $request)\n     {\n"
+                },
+                {
+                    "date": 1687209591940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -250,19 +250,19 @@\n     {\n         $id = $request->id;\n         $item = Neighbourhood::find($id);\n         $streetscapes = Streetscape::where('id',$item->masterplan_id)->get();\n+        $master = Masterplan::where('id',$item->masterplan_id)->first();\n \n+\n         $urbanscape = neighbourhood::all();\n         $urbanscapes = neighbourhood::where('id', '!=', null)->limit(4)\n             ->inRandomOrder()\n             ->get();\n         \n-        $master = Masterplan::where('id', '!=', null)\n-            ->inRandomOrder()\n-            ->get();\n \n \n+\n         views($item)->record();\n \n \n \n"
+                },
+                {
+                    "date": 1687209707905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -254,9 +254,10 @@\n         $master = Masterplan::where('id',$item->masterplan_id)->first();\n \n \n         $urbanscape = neighbourhood::all();\n-        $urbanscapes = neighbourhood::where('id', '!=', null)->limit(4)\n+        $urbanscapes = neighbourhood::where('id', '!=', null)\n+            ->limit(12)\n             ->inRandomOrder()\n             ->get();\n         \n \n"
+                },
+                {
+                    "date": 1687209733274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -255,10 +255,10 @@\n \n \n         $urbanscape = neighbourhood::all();\n         $urbanscapes = neighbourhood::where('id', '!=', null)\n-            ->limit(12)\n             ->inRandomOrder()\n+            ->take(12)\n             ->get();\n         \n \n \n"
+                },
+                {
+                    "date": 1687209767507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -251,16 +251,16 @@\n         $id = $request->id;\n         $item = Neighbourhood::find($id);\n         $streetscapes = Streetscape::where('id',$item->masterplan_id)->get();\n         $master = Masterplan::where('id',$item->masterplan_id)->first();\n+        $urbanscapes = neighbourhood::where('id', '!=', null)\n+        ->inRandomOrder()\n+        ->take(12)\n+        ->get();\n \n-\n         $urbanscape = neighbourhood::all();\n-        $urbanscapes = neighbourhood::where('id', '!=', null)\n-            ->inRandomOrder()\n-            ->take(12)\n-            ->get();\n         \n+        \n \n \n \n         views($item)->record();\n@@ -268,9 +268,9 @@\n \n \n         $collections = CollectionName::all();\n \n-        return view('neighbourhoods_post', compact('streetscapes', 'master', 'urbanscape', 'collections', 'urbanscapes',  'id'));\n+        return view('neighbourhoods_post', compact('streetscapes', 'master', 'collections', 'urbanscapes',  'id','urbanscape'));\n     }\n \n     public function streetscapes(Request $request)\n     {\n"
+                },
+                {
+                    "date": 1687209805451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -268,9 +268,9 @@\n \n \n         $collections = CollectionName::all();\n \n-        return view('neighbourhoods_post', compact('streetscapes', 'master', 'collections', 'urbanscapes',  'id','urbanscape'));\n+        return view('neighbourhoods_post', compact('item','streetscapes', 'master', 'collections', 'urbanscapes',  'id','urbanscape'));\n     }\n \n     public function streetscapes(Request $request)\n     {\n"
+                },
+                {
+                    "date": 1687209878647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -256,21 +256,39 @@\n         ->inRandomOrder()\n         ->take(12)\n         ->get();\n \n-        $urbanscape = neighbourhood::all();\n-        \n-        \n \n+        views($item)->record();\n \n+        $collections = CollectionName::all();\n \n-        views($item)->record();\n \n+        $next = Neighbourhood::where('id', '>', $item->id)\n+        ->orderBy('id', 'asc')\n+        ->select('id')\n+        ->first();\n \n+        if (!$next) {\n+            Neighbourhood::orderBy('id', 'asc')\n+                    ->select('id')\n+                    ->first();\n+        }\n \n-        $collections = CollectionName::all();\n+        $prev = Neighbourhood::where('id', '<', $item->id)\n+            ->orderBy('id', 'desc')\n+            ->select('id')\n+            ->first();\n+        if (!$prev) {\n+            $prev = Neighbourhood::orderBy('id', 'desc')\n+                    ->select('id')\n+                    ->first();\n+        }\n+        $next_id= $next ? $next->id : null;\n+        $prev_id = $prev ? $prev->id : null;\n \n-        return view('neighbourhoods_post', compact('item','streetscapes', 'master', 'collections', 'urbanscapes',  'id','urbanscape'));\n+\n+        return view('neighbourhoods_post', compact('item','next_id','prev_id','streetscapes', 'master', 'collections', 'urbanscapes',  'id'));\n     }\n \n     public function streetscapes(Request $request)\n     {\n"
                 }
             ],
             "date": 1683377145690,
