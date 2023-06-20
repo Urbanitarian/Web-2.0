@@ -163,7 +163,7 @@
 
         </section>
 
-        <section class="py-6">
+        <section class="pt-6 pb-16">
 
             <h1 class="text-gray-800 text-center py-4 font-bold line-clamp-3 text-5xl  leading-[140%]">
                 Save references that inspire you
