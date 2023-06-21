@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 290,
+            "activePatchIndex": 297,
             "patches": [
                 {
                     "date": 1683377254579,
@@ -1168,6 +1168,34 @@
                 {
                     "date": 1687331089057,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1000,9 +1000,9 @@\n     });\n \n \n     function loadJuxtapose(){\n-        $.getScript(\"{{ asset('juxtapose.js') }}\");\n+        $.getScript(\"{{ asset('js/juxtapose.js') }}\");\n     }\n \n     $('#load_more').click(function() {\n \n"
+                },
+                {
+                    "date": 1687332684253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -986,15 +986,14 @@\n         $('#boucle').parent().hide();\n         fetchAndRenderData(url,'streetscapes');\n         \n \n-        setTimeout(loadJuxtapose, 1000);\n-        setTimeout(function(){\n+        $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n             $('#boucle').parent().show();\n-        }, 1000);\n-        setTimeout(function(){\n-           $('.loader').hide();\n-        }, 1000);\n+            $('.loader').hide();\n+        });\n+\n+    \n         \n         \n         \n     });\n@@ -1419,9 +1418,9 @@\n                 }\n             })\n     });\n </script>\n-<script defer src=\"{{ asset('juxtapose.js') }}\"></script>\n+<script defer src=\"{{ asset('js/juxtapose.js') }}\"></script>\n <link rel=\"stylesheet\" href=\"https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css\">\n <script>\n     var $juxtapose = $('.juxtapose');\n \n"
+                },
+                {
+                    "date": 1687332715288,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -987,8 +987,9 @@\n         fetchAndRenderData(url,'streetscapes');\n         \n \n         $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n+            alert('loaded');\n             $('#boucle').parent().show();\n             $('.loader').hide();\n         });\n \n"
+                },
+                {
+                    "date": 1687332736550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -985,12 +985,12 @@\n         \n         $('#boucle').parent().hide();\n         fetchAndRenderData(url,'streetscapes');\n         \n-\n+        $('#boucle').parent().show();\n         $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n             alert('loaded');\n-            $('#boucle').parent().show();\n+            \n             $('.loader').hide();\n         });\n \n     \n"
+                },
+                {
+                    "date": 1687332807077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -982,12 +982,12 @@\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n         \n-        $('#boucle').parent().hide();\n+        // $('#boucle').parent().hide();\n         fetchAndRenderData(url,'streetscapes');\n         \n-        $('#boucle').parent().show();\n+        // $('#boucle').parent().show();\n         $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n             alert('loaded');\n             \n             $('.loader').hide();\n"
+                },
+                {
+                    "date": 1687332848542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -986,13 +986,16 @@\n         // $('#boucle').parent().hide();\n         fetchAndRenderData(url,'streetscapes');\n         \n         // $('#boucle').parent().show();\n-        $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n+        \n+        setTimeout(() => {\n+            $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n             alert('loaded');\n             \n             $('.loader').hide();\n         });\n+        }, 1000);\n \n     \n         \n         \n"
+                },
+                {
+                    "date": 1687332855159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -989,12 +989,12 @@\n         // $('#boucle').parent().show();\n         \n         setTimeout(() => {\n             $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n-            alert('loaded');\n-            \n-            $('.loader').hide();\n-        });\n+                alert('loaded');\n+                \n+                $('.loader').hide();\n+            });\n         }, 1000);\n \n     \n         \n"
+                },
+                {
+                    "date": 1687332869057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -989,10 +989,10 @@\n         // $('#boucle').parent().show();\n         \n         setTimeout(() => {\n             $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n-                alert('loaded');\n                 \n+                \n                 $('.loader').hide();\n             });\n         }, 1000);\n \n"
                 }
             ],
             "date": 1683377254579,
