@@ -17,11 +17,11 @@
                         <span class="text-lg font-normal">
                             Unlocking the Power of Urban Design
                         </span>
-                        {{-- <p class="w-[45%] pt-3 text-sm font-normal">
+                        <p class="w-[45%] pt-3 text-sm font-normal">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus lobortis sem, eu
                             imperdiet dui venenatis ac. Fusce consequat interdum justo, pharetra convallis enim rutrum
                             ut.
-                        </p> --}}
+                        </p>
                     </div>
                     <div class="float-right col-span-3">
                         <div class="flex space-x-28">

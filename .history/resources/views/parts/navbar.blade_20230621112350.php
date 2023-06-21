@@ -12,8 +12,8 @@
         <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
         <div class="z-50 items-center px-6 py-4flex">
             <div class="flex flex-row gap-4 pb-4 mt-20 space-y-0 align-baseline md:mt-0 mynav md:pb-0">
-                {{-- <a class="text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-gray-900"
-                    href="/categories">&nbsp;Categories</a> --}}
+                <a class="text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-gray-900"
+                    href="/categories">&nbsp;Categories</a>
                 <a class="text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-gray-900"
                     href="/blog">&nbsp;Blog</a>
                 <a class="text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-gray-900"
