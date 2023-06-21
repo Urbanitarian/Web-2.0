@@ -986,17 +986,14 @@
         $('#boucle').parent().hide();
         fetchAndRenderData(url,'streetscapes');
         
-        
-        
-        setTimeout(() => {
-            $.getScript("{{ asset('js/juxtapose.js') }}",function(){
-                
-                $('#boucle').parent().show();
-                $('.loader').hide();
-            });
-        }, 1000);
 
-    
+        setTimeout(loadJuxtapose, 1000);
+        setTimeout(function(){
+            $('#boucle').parent().show();
+        }, 1000);
+        setTimeout(function(){
+           $('.loader').hide();
+        }, 1000);
         
         
         

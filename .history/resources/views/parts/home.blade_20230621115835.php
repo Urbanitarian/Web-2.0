@@ -897,19 +897,12 @@
                 if (currentPage == totalPages) {
                     $('#load_more').hide();
                 } else {
-                    if (user_id) {
-                        $('#load_more').show();
-                    }
-
+                    $('#load_more').show();
                 }
 
             })
             .finally(() => {
-                if(categoryCheck=='streetscapes'){
-
-                }else{
-                    $('.loader').hide();
-                }
+                $('.loader').hide();
             })
 
     };
@@ -986,25 +979,16 @@
         $('#boucle').parent().hide();
         fetchAndRenderData(url,'streetscapes');
         
-        
-        
-        setTimeout(() => {
-            $.getScript("{{ asset('js/juxtapose.js') }}",function(){
-                
-                $('#boucle').parent().show();
-                $('.loader').hide();
-            });
-        }, 1000);
 
-    
+        setTimeout(loadJuxtapose, 1000);
         
-        
+        // $('#boucle').parent().show();
         
     });
 
 
     function loadJuxtapose(){
-        $.getScript("{{ asset('js/juxtapose.js') }}");
+        $.getScript("{{ asset('juxtapose.js') }}");
     }
 
     $('#load_more').click(function() {
@@ -1423,7 +1407,7 @@
             })
     });
 </script>
-<script defer src="{{ asset('js/juxtapose.js') }}"></script>
+<script defer src="{{ asset('juxtapose.js') }}"></script>
 <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
 <script>
     var $juxtapose = $('.juxtapose');

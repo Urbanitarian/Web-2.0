@@ -986,17 +986,14 @@
         $('#boucle').parent().hide();
         fetchAndRenderData(url,'streetscapes');
         
-        
-        
-        setTimeout(() => {
-            $.getScript("{{ asset('js/juxtapose.js') }}",function(){
-                
-                $('#boucle').parent().show();
-                $('.loader').hide();
-            });
-        }, 1000);
 
-    
+        setTimeout(loadJuxtapose, 1000);
+        setTimeout(function(){
+            $('#boucle').parent().show();
+        }, 1000);
+        setTimeout(function(){
+           $('.loader').hide();
+        }, 1000);
         
         
         
@@ -1423,7 +1420,7 @@
             })
     });
 </script>
-<script defer src="{{ asset('js/juxtapose.js') }}"></script>
+<script defer src="{{ asset('juxtapose.js') }}"></script>
 <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
 <script>
     var $juxtapose = $('.juxtapose');

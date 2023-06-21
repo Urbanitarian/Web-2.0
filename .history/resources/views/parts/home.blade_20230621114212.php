@@ -527,7 +527,7 @@
         return limitedWords.join(' ');
     }
 
-    const fetchAndRenderData = (url,categoryCheck='') => {
+    const fetchAndRenderData = (url) => {
 
         filterCounter=0;
         if ($('#city_selector').val()) {
@@ -897,19 +897,13 @@
                 if (currentPage == totalPages) {
                     $('#load_more').hide();
                 } else {
-                    if (user_id) {
-                        $('#load_more').show();
-                    }
-
+                    $('#load_more').show();
                 }
 
             })
             .finally(() => {
-                if(categoryCheck=='streetscapes'){
+                $('.loader').hide();
 
-                }else{
-                    $('.loader').hide();
-                }
             })
 
     };
@@ -982,29 +976,18 @@
         category = "streetscapes";
         $('#total_count').html('Showing 15 items');
 
-        
-        $('#boucle').parent().hide();
-        fetchAndRenderData(url,'streetscapes');
-        
-        
-        
-        setTimeout(() => {
-            $.getScript("{{ asset('js/juxtapose.js') }}",function(){
-                
-                $('#boucle').parent().show();
-                $('.loader').hide();
-            });
-        }, 1000);
+       
+        fetchAndRenderData(url);
+        // $('#boucle').hide();
+        $('.loader').show();
 
-    
-        
-        
-        
+        // setTimeout(loadJuxtapose, 1000);
+        // $('#boucle').show();
     });
 
 
     function loadJuxtapose(){
-        $.getScript("{{ asset('js/juxtapose.js') }}");
+        $.getScript("https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js");
     }
 
     $('#load_more').click(function() {
@@ -1423,7 +1406,7 @@
             })
     });
 </script>
-<script defer src="{{ asset('js/juxtapose.js') }}"></script>
+<script defer src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
 <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
 <script>
     var $juxtapose = $('.juxtapose');

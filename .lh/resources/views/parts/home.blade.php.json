@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 241,
+            "activePatchIndex": 297,
             "patches": [
                 {
                     "date": 1683377254579,
@@ -972,6 +972,230 @@
                 {
                     "date": 1687260557719,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         autoplay: \n         {\n         delay: 5000,\n         disableOnInteraction: false,\n-    pauseOnMouseEnter: true,\n+        pauseOnMouseEnter: true,\n         \n         },\n         breakpoints: {\n             640: {\n"
+                },
+                {
+                    "date": 1687329013209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -976,9 +976,9 @@\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n         fetchAndRenderData(url);\n-        loadJuxtapose();\n+        setTimeout(loadJuxtapose, 1000);\n         \n     });\n \n \n"
+                },
+                {
+                    "date": 1687329235740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -976,9 +976,9 @@\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n         fetchAndRenderData(url);\n-        setTimeout(loadJuxtapose, 1000);\n+        setTimeout(loadJuxtapose, 2000);\n         \n     });\n \n \n"
+                },
+                {
+                    "date": 1687329247321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -976,9 +976,9 @@\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n         fetchAndRenderData(url);\n-        setTimeout(loadJuxtapose, 2000);\n+        setTimeout(loadJuxtapose, 1000);\n         \n     });\n \n \n"
+                },
+                {
+                    "date": 1687329334940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -975,8 +975,9 @@\n         currentfilter = \"streetscapes\";\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n+        $('#boucle').hide();\n         fetchAndRenderData(url);\n         setTimeout(loadJuxtapose, 1000);\n         \n     });\n"
+                },
+                {
+                    "date": 1687329342808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -978,9 +978,9 @@\n \n         $('#boucle').hide();\n         fetchAndRenderData(url);\n         setTimeout(loadJuxtapose, 1000);\n-        \n+        $('#boucle').show();\n     });\n \n \n     function loadJuxtapose(){\n"
+                },
+                {
+                    "date": 1687329382379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -978,9 +978,9 @@\n \n         $('#boucle').hide();\n         fetchAndRenderData(url);\n         setTimeout(loadJuxtapose, 1000);\n-        $('#boucle').show();\n+        // $('#boucle').show();\n     });\n \n \n     function loadJuxtapose(){\n"
+                },
+                {
+                    "date": 1687329618137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -976,8 +976,9 @@\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n         $('#boucle').hide();\n+        $('.loader').show();\n         fetchAndRenderData(url);\n         setTimeout(loadJuxtapose, 1000);\n         // $('#boucle').show();\n     });\n"
+                },
+                {
+                    "date": 1687329638548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -975,11 +975,12 @@\n         currentfilter = \"streetscapes\";\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n+       \n+        fetchAndRenderData(url);\n         $('#boucle').hide();\n         $('.loader').show();\n-        fetchAndRenderData(url);\n         setTimeout(loadJuxtapose, 1000);\n         // $('#boucle').show();\n     });\n \n"
+                },
+                {
+                    "date": 1687329650644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -980,9 +980,9 @@\n         fetchAndRenderData(url);\n         $('#boucle').hide();\n         $('.loader').show();\n         setTimeout(loadJuxtapose, 1000);\n-        // $('#boucle').show();\n+        $('#boucle').show();\n     });\n \n \n     function loadJuxtapose(){\n"
+                },
+                {
+                    "date": 1687329720013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -979,10 +979,11 @@\n        \n         fetchAndRenderData(url);\n         $('#boucle').hide();\n         $('.loader').show();\n-        setTimeout(loadJuxtapose, 1000);\n-        $('#boucle').show();\n+\n+        // setTimeout(loadJuxtapose, 1000);\n+        // $('#boucle').show();\n     });\n \n \n     function loadJuxtapose(){\n"
+                },
+                {
+                    "date": 1687329732809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -977,9 +977,9 @@\n         $('#total_count').html('Showing 15 items');\n \n        \n         fetchAndRenderData(url);\n-        $('#boucle').hide();\n+        // $('#boucle').hide();\n         $('.loader').show();\n \n         // setTimeout(loadJuxtapose, 1000);\n         // $('#boucle').show();\n"
+                },
+                {
+                    "date": 1687329753669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -978,9 +978,9 @@\n \n        \n         fetchAndRenderData(url);\n         // $('#boucle').hide();\n-        $('.loader').show();\n+        // $('.loader').show();\n \n         // setTimeout(loadJuxtapose, 1000);\n         // $('#boucle').show();\n     });\n"
+                },
+                {
+                    "date": 1687329839276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -901,9 +901,9 @@\n                 }\n \n             })\n             .finally(() => {\n-                $('.loader').hide();\n+                // $('.loader').hide();\n \n             })\n \n     };\n"
+                },
+                {
+                    "date": 1687329881755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -901,9 +901,9 @@\n                 }\n \n             })\n             .finally(() => {\n-                // $('.loader').hide();\n+                $('.loader').hide();\n \n             })\n \n     };\n"
+                },
+                {
+                    "date": 1687329915961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -978,9 +978,9 @@\n \n        \n         fetchAndRenderData(url);\n         // $('#boucle').hide();\n-        // $('.loader').show();\n+        $('.loader').show();\n \n         // setTimeout(loadJuxtapose, 1000);\n         // $('#boucle').show();\n     });\n"
+                },
+                {
+                    "date": 1687329997889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -526,9 +526,9 @@\n         const limitedWords = words.slice(0, limit);\n         return limitedWords.join(' ');\n     }\n \n-    const fetchAndRenderData = (url) => {\n+    const fetchAndRenderData = (url,categoryCheck='') => {\n \n         filterCounter=0;\n         if ($('#city_selector').val()) {\n             filterCounter++;\n@@ -976,9 +976,9 @@\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n        \n-        fetchAndRenderData(url);\n+        fetchAndRenderData(url,'streetscapes');\n         // $('#boucle').hide();\n         $('.loader').show();\n \n         // setTimeout(loadJuxtapose, 1000);\n"
+                },
+                {
+                    "date": 1687330019062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -901,10 +901,15 @@\n                 }\n \n             })\n             .finally(() => {\n-                $('.loader').hide();\n+                if(categoryCheck=='streetscapes'){\n \n+                }else{\n+                    $('.loader').hide();\n+                }\n+               \n+\n             })\n \n     };\n \n"
+                },
+                {
+                    "date": 1687330046154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -983,9 +983,8 @@\n \n        \n         fetchAndRenderData(url,'streetscapes');\n         // $('#boucle').hide();\n-        $('.loader').show();\n \n         // setTimeout(loadJuxtapose, 1000);\n         // $('#boucle').show();\n     });\n"
+                },
+                {
+                    "date": 1687330101839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -982,9 +982,9 @@\n         $('#total_count').html('Showing 15 items');\n \n        \n         fetchAndRenderData(url,'streetscapes');\n-        // $('#boucle').hide();\n+        $('#boucle').hide();\n \n         // setTimeout(loadJuxtapose, 1000);\n         // $('#boucle').show();\n     });\n"
+                },
+                {
+                    "date": 1687330112406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -984,10 +984,10 @@\n        \n         fetchAndRenderData(url,'streetscapes');\n         $('#boucle').hide();\n \n-        // setTimeout(loadJuxtapose, 1000);\n-        // $('#boucle').show();\n+        setTimeout(loadJuxtapose, 1000);\n+        $('#boucle').show();\n     });\n \n \n     function loadJuxtapose(){\n"
+                },
+                {
+                    "date": 1687330134894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -984,9 +984,11 @@\n        \n         fetchAndRenderData(url,'streetscapes');\n         $('#boucle').hide();\n \n-        setTimeout(loadJuxtapose, 1000);\n+        setTimeout(function(){\n+            loadJuxtapose\n+        }, 1000);\n         $('#boucle').show();\n     });\n \n \n"
+                },
+                {
+                    "date": 1687330140933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -985,9 +985,9 @@\n         fetchAndRenderData(url,'streetscapes');\n         $('#boucle').hide();\n \n         setTimeout(function(){\n-            loadJuxtapose\n+            loadJuxtapose();\n         }, 1000);\n         $('#boucle').show();\n     });\n \n"
+                },
+                {
+                    "date": 1687330178183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -984,12 +984,14 @@\n        \n         fetchAndRenderData(url,'streetscapes');\n         $('#boucle').hide();\n \n+        \n         setTimeout(function(){\n             loadJuxtapose();\n         }, 1000);\n         $('#boucle').show();\n+        \n     });\n \n \n     function loadJuxtapose(){\n"
+                },
+                {
+                    "date": 1687330199360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -988,10 +988,13 @@\n         \n         setTimeout(function(){\n             loadJuxtapose();\n         }, 1000);\n-        $('#boucle').show();\n+        setTimeout(function(){\n+            $('#boucle').show();\n+        }, 2000);\n         \n+        \n     });\n \n \n     function loadJuxtapose(){\n"
+                },
+                {
+                    "date": 1687330217258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -980,11 +980,11 @@\n         currentfilter = \"streetscapes\";\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n-       \n+        $('#boucle').hide();\n         fetchAndRenderData(url,'streetscapes');\n-        $('#boucle').hide();\n+        \n \n         \n         setTimeout(function(){\n             loadJuxtapose();\n"
+                },
+                {
+                    "date": 1687330237598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -980,9 +980,9 @@\n         currentfilter = \"streetscapes\";\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n-        $('#boucle').hide();\n+        \n         fetchAndRenderData(url,'streetscapes');\n         \n \n         \n"
+                },
+                {
+                    "date": 1687330254209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -980,9 +980,9 @@\n         currentfilter = \"streetscapes\";\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n-        \n+        $('#boucle').hide();\n         fetchAndRenderData(url,'streetscapes');\n         \n \n         \n"
+                },
+                {
+                    "date": 1687330257472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -990,9 +990,9 @@\n             loadJuxtapose();\n         }, 1000);\n         setTimeout(function(){\n             $('#boucle').show();\n-        }, 2000);\n+        }, 1000);\n         \n         \n     });\n \n"
+                },
+                {
+                    "date": 1687330472170,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -997,9 +997,9 @@\n     });\n \n \n     function loadJuxtapose(){\n-        $.getScript(\"https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js\");\n+        $.getScript(\"{{ asset('juxtapose.js') }}\");\n     }\n \n     $('#load_more').click(function() {\n \n"
+                },
+                {
+                    "date": 1687330496263,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1416,9 +1416,9 @@\n                 }\n             })\n     });\n </script>\n-<script defer src=\"https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js\"></script>\n+<script defer src=\"{{ asset('juxtapose.js') }}\"></script>\n <link rel=\"stylesheet\" href=\"https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css\">\n <script>\n     var $juxtapose = $('.juxtapose');\n \n"
+                },
+                {
+                    "date": 1687330539363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -901,15 +901,9 @@\n                 }\n \n             })\n             .finally(() => {\n-                if(categoryCheck=='streetscapes'){\n-\n-                }else{\n-                    $('.loader').hide();\n-                }\n-               \n-\n+                $('.loader').hide();\n             })\n \n     };\n \n"
+                },
+                {
+                    "date": 1687330557754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -976,19 +976,12 @@\n         $('#total_count').html('Showing 15 items');\n \n         $('#boucle').hide();\n         fetchAndRenderData(url,'streetscapes');\n+        loadJuxtapose();\n         \n-\n         \n-        setTimeout(function(){\n-            loadJuxtapose();\n-        }, 1000);\n-        setTimeout(function(){\n-            $('#boucle').show();\n-        }, 1000);\n         \n-        \n     });\n \n \n     function loadJuxtapose(){\n"
+                },
+                {
+                    "date": 1687330594590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -974,11 +974,12 @@\n         currentfilter = \"streetscapes\";\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n-        $('#boucle').hide();\n+        \n         fetchAndRenderData(url,'streetscapes');\n         loadJuxtapose();\n+        loadJuxtapose();\n         \n         \n         \n     });\n"
+                },
+                {
+                    "date": 1687330617571,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -977,9 +977,9 @@\n \n         \n         fetchAndRenderData(url,'streetscapes');\n         loadJuxtapose();\n-        loadJuxtapose();\n+        setTimeout(loadJuxtapose, 1000);\n         \n         \n         \n     });\n"
+                },
+                {
+                    "date": 1687330621992,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -977,8 +977,9 @@\n \n         \n         fetchAndRenderData(url,'streetscapes');\n         loadJuxtapose();\n+        \n         setTimeout(loadJuxtapose, 1000);\n         \n         \n         \n"
+                },
+                {
+                    "date": 1687330648932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -974,12 +974,12 @@\n         currentfilter = \"streetscapes\";\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n-        \n+        loadJuxtapose();\n         fetchAndRenderData(url,'streetscapes');\n-        loadJuxtapose();\n         \n+\n         setTimeout(loadJuxtapose, 1000);\n         \n         \n         \n"
+                },
+                {
+                    "date": 1687330663870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -974,9 +974,9 @@\n         currentfilter = \"streetscapes\";\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n-        loadJuxtapose();\n+        \n         fetchAndRenderData(url,'streetscapes');\n         \n \n         setTimeout(loadJuxtapose, 1000);\n"
+                },
+                {
+                    "date": 1687330711222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -975,15 +975,16 @@\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n         \n+        $('#boucle').parent().hide();\n         fetchAndRenderData(url,'streetscapes');\n         \n \n         setTimeout(loadJuxtapose, 1000);\n         \n+        $('#boucle').parent().show();\n         \n-        \n     });\n \n \n     function loadJuxtapose(){\n"
+                },
+                {
+                    "date": 1687330736949,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -980,11 +980,14 @@\n         fetchAndRenderData(url,'streetscapes');\n         \n \n         setTimeout(loadJuxtapose, 1000);\n+        setTimeout(function(){\n+            $('#boucle').parent().show();\n+        }, 1000);\n         \n-        $('#boucle').parent().show();\n         \n+        \n     });\n \n \n     function loadJuxtapose(){\n"
+                },
+                {
+                    "date": 1687330751844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -982,9 +982,9 @@\n \n         setTimeout(loadJuxtapose, 1000);\n         setTimeout(function(){\n             $('#boucle').parent().show();\n-        }, 1000);\n+        }, 500);\n         \n         \n         \n     });\n"
+                },
+                {
+                    "date": 1687330769375,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -982,9 +982,9 @@\n \n         setTimeout(loadJuxtapose, 1000);\n         setTimeout(function(){\n             $('#boucle').parent().show();\n-        }, 500);\n+        }, 1000);\n         \n         \n         \n     });\n"
+                },
+                {
+                    "date": 1687330773851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -979,9 +979,9 @@\n         $('#boucle').parent().hide();\n         fetchAndRenderData(url,'streetscapes');\n         \n \n-        setTimeout(loadJuxtapose, 1000);\n+        setTimeout(loadJuxtapose, 500);\n         setTimeout(function(){\n             $('#boucle').parent().show();\n         }, 1000);\n         \n"
+                },
+                {
+                    "date": 1687330845355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -901,9 +901,13 @@\n                 }\n \n             })\n             .finally(() => {\n-                $('.loader').hide();\n+                if(categoryCheck=='streetscapes'){\n+\n+                }else{\n+                    $('.loader').hide();\n+                }\n             })\n \n     };\n \n@@ -979,9 +983,9 @@\n         $('#boucle').parent().hide();\n         fetchAndRenderData(url,'streetscapes');\n         \n \n-        setTimeout(loadJuxtapose, 500);\n+        setTimeout(loadJuxtapose, 1000);\n         setTimeout(function(){\n             $('#boucle').parent().show();\n         }, 1000);\n         \n"
+                },
+                {
+                    "date": 1687330864378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -987,11 +987,11 @@\n         setTimeout(loadJuxtapose, 1000);\n         setTimeout(function(){\n             $('#boucle').parent().show();\n         }, 1000);\n+        // $('.loader').hide();\n         \n         \n-        \n     });\n \n \n     function loadJuxtapose(){\n"
+                },
+                {
+                    "date": 1687330885389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -987,11 +987,14 @@\n         setTimeout(loadJuxtapose, 1000);\n         setTimeout(function(){\n             $('#boucle').parent().show();\n         }, 1000);\n-        // $('.loader').hide();\n+        setTimeout(function(){\n+           $('.loader').hide();\n+        }, 1000);\n         \n         \n+        \n     });\n \n \n     function loadJuxtapose(){\n"
+                },
+                {
+                    "date": 1687330907016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -985,9 +985,9 @@\n         \n \n         setTimeout(loadJuxtapose, 1000);\n         setTimeout(function(){\n-            $('#boucle').parent().show();\n+            // $('#boucle').parent().show();\n         }, 1000);\n         setTimeout(function(){\n            $('.loader').hide();\n         }, 1000);\n"
+                },
+                {
+                    "date": 1687331021627,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -896,9 +896,12 @@\n \n                 if (currentPage == totalPages) {\n                     $('#load_more').hide();\n                 } else {\n-                    $('#load_more').show();\n+                    if (user_id) {\n+                        $('#load_more').show();\n+                    }\n+\n                 }\n \n             })\n             .finally(() => {\n@@ -983,11 +986,12 @@\n         $('#boucle').parent().hide();\n         fetchAndRenderData(url,'streetscapes');\n         \n \n+        $('#load_more').hide();\n         setTimeout(loadJuxtapose, 1000);\n         setTimeout(function(){\n-            // $('#boucle').parent().show();\n+            $('#boucle').parent().show();\n         }, 1000);\n         setTimeout(function(){\n            $('.loader').hide();\n         }, 1000);\n"
+                },
+                {
+                    "date": 1687331048039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -986,9 +986,8 @@\n         $('#boucle').parent().hide();\n         fetchAndRenderData(url,'streetscapes');\n         \n \n-        $('#load_more').hide();\n         setTimeout(loadJuxtapose, 1000);\n         setTimeout(function(){\n             $('#boucle').parent().show();\n         }, 1000);\n"
+                },
+                {
+                    "date": 1687331089057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1000,9 +1000,9 @@\n     });\n \n \n     function loadJuxtapose(){\n-        $.getScript(\"{{ asset('juxtapose.js') }}\");\n+        $.getScript(\"{{ asset('js/juxtapose.js') }}\");\n     }\n \n     $('#load_more').click(function() {\n \n"
+                },
+                {
+                    "date": 1687332684253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -986,15 +986,14 @@\n         $('#boucle').parent().hide();\n         fetchAndRenderData(url,'streetscapes');\n         \n \n-        setTimeout(loadJuxtapose, 1000);\n-        setTimeout(function(){\n+        $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n             $('#boucle').parent().show();\n-        }, 1000);\n-        setTimeout(function(){\n-           $('.loader').hide();\n-        }, 1000);\n+            $('.loader').hide();\n+        });\n+\n+    \n         \n         \n         \n     });\n@@ -1419,9 +1418,9 @@\n                 }\n             })\n     });\n </script>\n-<script defer src=\"{{ asset('juxtapose.js') }}\"></script>\n+<script defer src=\"{{ asset('js/juxtapose.js') }}\"></script>\n <link rel=\"stylesheet\" href=\"https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css\">\n <script>\n     var $juxtapose = $('.juxtapose');\n \n"
+                },
+                {
+                    "date": 1687332715288,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -987,8 +987,9 @@\n         fetchAndRenderData(url,'streetscapes');\n         \n \n         $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n+            alert('loaded');\n             $('#boucle').parent().show();\n             $('.loader').hide();\n         });\n \n"
+                },
+                {
+                    "date": 1687332736550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -985,12 +985,12 @@\n         \n         $('#boucle').parent().hide();\n         fetchAndRenderData(url,'streetscapes');\n         \n-\n+        $('#boucle').parent().show();\n         $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n             alert('loaded');\n-            $('#boucle').parent().show();\n+            \n             $('.loader').hide();\n         });\n \n     \n"
+                },
+                {
+                    "date": 1687332807077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -982,12 +982,12 @@\n         category = \"streetscapes\";\n         $('#total_count').html('Showing 15 items');\n \n         \n-        $('#boucle').parent().hide();\n+        // $('#boucle').parent().hide();\n         fetchAndRenderData(url,'streetscapes');\n         \n-        $('#boucle').parent().show();\n+        // $('#boucle').parent().show();\n         $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n             alert('loaded');\n             \n             $('.loader').hide();\n"
+                },
+                {
+                    "date": 1687332848542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -986,13 +986,16 @@\n         // $('#boucle').parent().hide();\n         fetchAndRenderData(url,'streetscapes');\n         \n         // $('#boucle').parent().show();\n-        $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n+        \n+        setTimeout(() => {\n+            $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n             alert('loaded');\n             \n             $('.loader').hide();\n         });\n+        }, 1000);\n \n     \n         \n         \n"
+                },
+                {
+                    "date": 1687332855159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -989,12 +989,12 @@\n         // $('#boucle').parent().show();\n         \n         setTimeout(() => {\n             $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n-            alert('loaded');\n-            \n-            $('.loader').hide();\n-        });\n+                alert('loaded');\n+                \n+                $('.loader').hide();\n+            });\n         }, 1000);\n \n     \n         \n"
+                },
+                {
+                    "date": 1687332869057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -989,10 +989,10 @@\n         // $('#boucle').parent().show();\n         \n         setTimeout(() => {\n             $.getScript(\"{{ asset('js/juxtapose.js') }}\",function(){\n-                alert('loaded');\n                 \n+                \n                 $('.loader').hide();\n             });\n         }, 1000);\n \n"
                 }
             ],
             "date": 1683377254579,
