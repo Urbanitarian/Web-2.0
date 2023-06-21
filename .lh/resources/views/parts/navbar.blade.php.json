@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 11,
+            "activePatchIndex": 13,
             "patches": [
                 {
                     "date": 1683968680630,
@@ -52,6 +52,14 @@
                 {
                     "date": 1687186079972,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n     <div class=\"relative flex mt-8 lg:mt-0\" x-data=\"{ showSearch: false }\">\n         @if (session()->has('FRONT_USER_LOGIN'))\n             <div class=\"flex mx-2\" x-show=\"showSearch\" style=\"display: none;\">\n                 <input type=\"text\" name=\"search\" id=\"\" placeholder=\"Search\"\n-                    class=\"w-64 px-2 py-1.5 border-2 border-gray-200 rounded outline-none outline-2 outline-gray-600\">\n+                    class=\"w-64 px-2 py-1.5 border border-gray-200 rounded outline-none outline-2 outline-gray-600\">\n             </div>\n         @endif\n         <div class=\"flex items-center justify-center gap-6\">\n             <div class=\"flex\" @click=\"showSearch=!showSearch\">\n"
+                },
+                {
+                    "date": 1687328616826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,11 +90,11 @@\n                 class=\"absolute right-0 z-10 top-12 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none\"\n                 role=\"menu\" aria-orientation=\"vertical\" aria-labelledby=\"menu-button\" tabindex=\"-1\">\n                 <div class=\"py-1\" role=\"none\">\n                     <!-- Active: \"bg-gray-100 text-gray-900\", Not Active: \"text-gray-700\" -->\n+                    {{-- <a href=\"#\" class=\"text-gray-700 block px-4 py-2 text-sm\" role=\"menuitem\" tabindex=\"-1\"\n+                        id=\"menu-item-0\">Categories</a> --}}\n                     <a href=\"#\" class=\"text-gray-700 block px-4 py-2 text-sm\" role=\"menuitem\" tabindex=\"-1\"\n-                        id=\"menu-item-0\">Categories</a>\n-                    <a href=\"#\" class=\"text-gray-700 block px-4 py-2 text-sm\" role=\"menuitem\" tabindex=\"-1\"\n                         id=\"menu-item-1\">Collections</a>\n                     <a href=\"#\" class=\"text-gray-700 block px-4 py-2 text-sm\" role=\"menuitem\" tabindex=\"-1\"\n                         id=\"menu-item-2\">How it works</a>\n                     <form method=\"POST\" action=\"#\" role=\"none\">\n"
+                },
+                {
+                    "date": 1687328639620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,11 @@\n \n         <!-- Mobile Menu open: \"block\", Menu closed: \"hidden\" -->\n         <div class=\"z-50 items-center px-6 py-4flex\">\n             <div class=\"flex flex-row gap-4 pb-4 mt-20 space-y-0 align-baseline md:mt-0 mynav md:pb-0\">\n+                {{-- <a class=\"text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-gray-900\"\n+                    href=\"/categories\">&nbsp;Categories</a> --}}\n                 <a class=\"text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-gray-900\"\n-                    href=\"/categories\">&nbsp;Categories</a>\n-                <a class=\"text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-gray-900\"\n                     href=\"/blog\">&nbsp;Blog</a>\n                 <a class=\"text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-gray-900\"\n                     href=\"/collection\">&nbsp;Collections</a>\n                 <a class=\"text-gray-400 duration-300 text-md lg:mx-2 xl:mx-4 hover:text-gray-900\"\n"
                 }
             ],
             "date": 1683968680630,

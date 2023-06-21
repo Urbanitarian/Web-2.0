@@ -1420,7 +1420,7 @@
             })
     });
 </script>
-<script defer src="{{ asset('js/juxtapose.js') }}"></script>
+<script defer src="{{ asset('juxtapose.js') }}"></script>
 <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
 <script>
     var $juxtapose = $('.juxtapose');

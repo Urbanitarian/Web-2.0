@@ -1,0 +1,18 @@
+{
+    "sourceFile": "resources/views/parts/footer.blade.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1687328731557,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1687328731557,
+            "name": "Commit-0",
+            "content": "        @php\n            $instagram_link = Setting::get('instagram_link');\n            $facebook_link = Setting::get('facebook_link');\n            $flickr_link = Setting::get('flickr_link');\n            $linkedin_link = Setting::get('linkedin_link');\n            $pinterest_link = Setting::get('pinterest_link');\n        @endphp\n\n        <div class=\"bg-gray-100\" aria-label=\"Site Footer\">\n\n            <div class=\"px-16 pt-12 pb-8\">\n                <span class=\"text-2xl font-bold text-gray-700\">\n                    Urbanitarian\n                </span>\n                <div class=\"grid grid-cols-12 pt-8 \">\n                    <div class=\"col-span-9 text-gray-500\">\n                        <span class=\"text-lg font-normal\">\n                            Unlocking the Power of Urban Design\n                        </span>\n                        {{-- <p class=\"w-[45%] pt-3 text-sm font-normal\">\n                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus lobortis sem, eu\n                            imperdiet dui venenatis ac. Fusce consequat interdum justo, pharetra convallis enim rutrum\n                            ut.\n                        </p> --}}\n                    </div>\n                    <div class=\"float-right col-span-3\">\n                        <div class=\"flex space-x-28\">\n                            <ul class=\"flex flex-col gap-4 text-base font-normal\">\n                                <li>How it works</li>\n                                <li>About</li>\n                                <li>Subscribe</li>\n                                <li>\n                                    Contact\n                                </li>\n                                <li>Feedback</li>\n                                <li>Cookies Policy</li>\n                                <li>Association</li>\n                            </ul>\n                            <ul class=\"flex flex-col gap-4 text-base font-normal\">\n                                <li>\n                                    <a href=\"\"> Twitter</a>\n\n                                </li>\n                                <li>\n                                    <a href=\"{{ $instagram_link }}\"> Instagram</a>\n                                </li>\n                                <li>\n                                    <a href=\"{{ $linkedin_link }}\"> Linkedin</a>\n\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n            <div class=\"px-8\">\n                <div class=\"flex items-center justify-start gap-2 py-4 border-t\">\n                    <div class=\"\">\n                        <img src=\"{{ asset('img/logo.png') }}\" class=\"w-auto h-8 md:h-16\">\n                    </div>\n                    <div class=\"text-xs font-normal text-gray-500\">\n                        © 2023 Urbanitarian. All rights reserved. All images are © each office/photographer mentioned.\n                    </div>\n                </div>\n            </div>\n\n        </div>\n"
+        }
+    ]
+}
