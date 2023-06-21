@@ -983,15 +983,15 @@
         $('#total_count').html('Showing 15 items');
 
         
-        $('#boucle').parent().hide();
+        // $('#boucle').parent().hide();
         fetchAndRenderData(url,'streetscapes');
         
-        
+        // $('#boucle').parent().show();
         
         setTimeout(() => {
             $.getScript("{{ asset('js/juxtapose.js') }}",function(){
                 
-                $('#boucle').parent().show();
+                
                 $('.loader').hide();
             });
         }, 1000);
