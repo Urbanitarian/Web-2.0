@@ -2,9 +2,9 @@
 
 @section('main')
     <div class="mx-[46px]">
-        <div data-barba="container" class="bg-gradient-to-r from-white to-gray-200 ">
-            <div class="z-20 h-[540px] w-[1312px]"
-                style="background-image: url('{{ asset('img/how-it-works/masterplans.png') }}')">
+        <div data-barba="container" class="bg-gradient-to-r from-white to-gray-100 ">
+            <div class="bg-contain bg-no-repeat	h-[540px]"
+                style="background-position: right; background-image: url('{{ asset('img/how-it-works/masterplans.png') }}')">
                 <h1 class="text-gray-800 py-4 font-bold line-clamp-3 text-5xl pt-[30px] leading-[140%]">
                     Find practical urban design inspiration<br> from real projects that solve real<br> urban design
                     problems.
@@ -20,22 +20,23 @@
                     </span>
                 </div>
 
-                <div class="flex pt-12">
-                    <img src="{{ asset('img/how-it-works/FWF_Logo 1.png') }}" class="h-[46px] w-[109px]" alt="">
+                <div class="flex pt-12 gap-1">
+                    <img src="{{ asset('img/how-it-works/FWF_Logo 1.png') }}" class="h-[46px] w-[167px]" alt="">
                     <img src="{{ asset('img/how-it-works/logo-lang-de 1.png') }}" class="h-[46px] w-[109px]" alt="">
-                    <img src="{{ asset('img/how-it-works/IaaC 1.png') }}" class="h-[46px] w-[109px]" alt="">
-                    <img src="{{ asset('img/how-it-works/GMetri_B_W 1.png') }}" class="h-[46px] w-[109px]" alt="">
-                    <img src="{{ asset('img/how-it-works/ISOCARP-logoFea copy 1.png') }}" class="h-[46px] w-[109px]"
+                    <img src="{{ asset('img/how-it-works/IaaC 1.png') }}" class="h-[46px] w-[94px]" alt="">
+                    <img src="{{ asset('img/how-it-works/GMetri_B_W 1.png') }}" class="h-[46px] w-[90px]" alt="">
+                    <img src="{{ asset('img/how-it-works/ISOCARP-logoFea copy 1.png') }}" class="h-[46px] w-[125px]"
                         alt="">
 
-                    <img src="{{ asset('img/how-it-works/logo-oebb-og copy 1@2x.png') }}" class="h-[46px] w-[109px]"
+                    <img src="{{ asset('img/how-it-works/logo-oebb-og copy 1@2x.png') }}" class="h-[46px] w-[98px]"
                         alt="">
                 </div>
             </div>
 
         </div>
 
-        <section class="bg-gray-800  py-20 flex flex-col text-white justify-center items-center gap-8 rounded-3xl">
+        <section
+            class="bg-gray-800 z-10 -mt-6  py-20 flex flex-col text-white justify-center items-center gap-8 rounded-3xl">
 
             <h2 class="text-5xl font-bold text-center">
                 Urbanitarian is the world's largest urban design reference library.
@@ -67,7 +68,7 @@
                 An ever-growing library, curated by experts.
             </span>
 
-            <p class="text-xl font-normal pt-6 text-center">
+            <p class="text-xl font-normal pt-6 text-center text-gray-300">
                 New Masterplans, Streetscapes and Urbanscapes are added to Urbanitarian<br> every week, and there's always
                 something new to check out.<br>
                 You will find the references you need, save time and get inspired.
@@ -76,10 +77,10 @@
         </section>
 
         <section class="pt-6">
-            <h1 class="text-gray-800 text-center py-4 font-bold line-clamp-3 text-5xl  leading-[140%]">
+            <h1 class="text-gray-800 text-center py-6 font-bold text-5xl  leading-[140%]">
                 Solve specific urban design challenges
             </h1>
-            <div class="bg-gray-100 rounded-3xl pt-[60px] flex flex-col justify-center items-center">
+            <div class="bg-gray-100 rounded-3xl pt-[70px] flex flex-col justify-center items-center">
                 <span class="text-4xl font-bold text-center text-gray-700 leading-[140%]">
                     Find your reference project<br>
                     with our rich search experience.
@@ -107,7 +108,7 @@
                     Compare by scales & data,<br>
                     deep-dive, read or measure.
                 </span>
-                <div class="flex">
+                <div class="flex justify-between">
                     <div class="pt-6 flex flex-col gap-6 text-xl font-normal text-gray-300">
                         <span>
                             Filter 500 Masterplans by specific<br> categories such as tags sizes, status<br> and
@@ -165,7 +166,7 @@
 
         <section class="pt-6 pb-16">
 
-            <h1 class="text-gray-800 text-center py-4 font-bold line-clamp-3 text-5xl  leading-[140%]">
+            <h1 class="text-gray-800 text-center py-6 font-bold line-clamp-3 text-5xl  leading-[140%]">
                 Save references that inspire you
             </h1>
 
@@ -190,7 +191,7 @@
 
                     </div>
 
-                    <div class="py-16">
+                    <div class="pb-16">
                         <div class="pl-[180px]">
                             <img src="{{ asset('img/how-it-works/image 3.png') }}" class="w-[550px] pt-6 pl-5"
                                 style="background: #000000;
