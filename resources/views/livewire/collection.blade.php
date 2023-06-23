@@ -1,8 +1,8 @@
 <div>
-    <div class="px-10 pt-12 ">
+    <div class="md:px-10 px-4 pt-12 ">
         <h1 class="text-5xl font-bold  text-[#667080]">Collection</h1>
         <div class="pt-6">
-            <div class="grid grid-cols-12 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
                 <div class="relative col-span-8">
                     <div class="absolute px-3 py-2">
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none"

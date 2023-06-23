@@ -120,10 +120,12 @@
 
                             </div>
                         @else
-                            <a href="/login"
-                                class="md:px-5 px-2 md:hidden block py-3 font-normal text-center text-white bg-gray-800 rounded shadow-lg hover:bg-black prevent group">
-                                <span class="text-sm">Log in or sign up</span>
-                            </a>
+                            <div class="px-4 py-2">
+                                <a href="/login"
+                                    class="md:px-5 px-2 md:hidden block py-3 font-normal text-center text-white bg-gray-800 rounded shadow-lg hover:bg-black prevent group">
+                                    <span class="text-sm">Log in or sign up</span>
+                                </a>
+                            </div>
                         @endif
 
 

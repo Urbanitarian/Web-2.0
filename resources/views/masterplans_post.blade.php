@@ -343,52 +343,50 @@
                                                 {{ $item->jobs }}<span
                                                     class="text-sm text-gray-500 font-regular"></span></span>
                                         </div>
-                                        <spannput type="hidden" name="id" value="">
 
-                                            <div class="flex items-center justify-between gap-3 py-1 border-b">
-                                                <span class="text-xs font-regular"> Streetsroad: </span>
-                                                <span class="text-xs text-gray-500 font-regular">
-                                                    {{ $item->streetroad }}<span
-                                                        class="text-sm text-gray-500 font-regular"> %</span></span>
-                                            </div>
-                                            <div class="flex items-center justify-between gap-3 py-1 border-b">
-                                                <span class="text-xs font-regular">Buildup:</span>
-                                                <span class="text-xs text-gray-500 font-regular">
-                                                    {{ $item->buildup }}<span class="text-sm text-gray-500 font-regular">
-                                                        %</span></span>
-                                            </div>
-                                            <div class="flex items-center justify-between gap-3 py-1 border-b">
-                                                <span class="text-xs font-regular"> NonBuild-up:</span>
-                                                <span
-                                                    class="text-xs text-gray-500 font-regular">{{ $item->nonbuildup }}<span
-                                                        class="text-sm text-gray-500 font-regular"> %</span></span>
-                                            </div>
 
-                                            <div class="flex items-center justify-between gap-3 py-1 border-b">
-                                                <span class="text-xs font-regular"> Residential</span>
-                                                <span
-                                                    class="text-xs text-gray-500 font-regular">{{ $item->residential }}<span
-                                                        class="text-sm text-gray-500 font-regular"> %</span></span>
-                                            </div>
+                                        <div class="flex items-center justify-between gap-3 py-1 border-b">
+                                            <span class="text-xs font-regular"> Streetsroad: </span>
+                                            <span class="text-xs text-gray-500 font-regular">
+                                                {{ $item->streetroad }}<span class="text-sm text-gray-500 font-regular">
+                                                    %</span></span>
+                                        </div>
+                                        <div class="flex items-center justify-between gap-3 py-1 border-b">
+                                            <span class="text-xs font-regular">Buildup:</span>
+                                            <span class="text-xs text-gray-500 font-regular">
+                                                {{ $item->buildup }}<span class="text-sm text-gray-500 font-regular">
+                                                    %</span></span>
+                                        </div>
+                                        <div class="flex items-center justify-between gap-3 py-1 border-b">
+                                            <span class="text-xs font-regular"> NonBuild-up:</span>
+                                            <span class="text-xs text-gray-500 font-regular">{{ $item->nonbuildup }}<span
+                                                    class="text-sm text-gray-500 font-regular"> %</span></span>
+                                        </div>
 
-                                            <div class="flex items-center justify-between gap-3 py-1 border-b">
-                                                <span class="text-xs font-regular">Business </span>
-                                                <span class="text-xs text-gray-500 font-regular">
-                                                    {{ $item->business }}<span class="text-sm text-gray-500 font-regular">
-                                                        %</span></span>
-                                            </div>
-                                            <div class="flex items-center justify-between gap-3 py-1 border-b">
-                                                <span class="text-xs font-regular">Commercial </span>
-                                                <span class="text-xs text-gray-500 font-regular">
-                                                    {{ $item->commercial }}<span
-                                                        class="text-sm text-gray-500 font-regular"> %</span></span>
-                                            </div>
-                                            <div class="flex justify-between gap-3 py-2">
-                                                <span class="text-xs font-regular">Civic </span>
-                                                <span class="text-xs text-gray-500 font-regular">
-                                                    {{ $item->civic }}<span class="text-sm text-gray-500 font-regular">
-                                                        %</span></span>
-                                            </div>
+                                        <div class="flex items-center justify-between gap-3 py-1 border-b">
+                                            <span class="text-xs font-regular"> Residential</span>
+                                            <span class="text-xs text-gray-500 font-regular">{{ $item->residential }}<span
+                                                    class="text-sm text-gray-500 font-regular"> %</span></span>
+                                        </div>
+
+                                        <div class="flex items-center justify-between gap-3 py-1 border-b">
+                                            <span class="text-xs font-regular">Business </span>
+                                            <span class="text-xs text-gray-500 font-regular">
+                                                {{ $item->business }}<span class="text-sm text-gray-500 font-regular">
+                                                    %</span></span>
+                                        </div>
+                                        <div class="flex items-center justify-between gap-3 py-1 border-b">
+                                            <span class="text-xs font-regular">Commercial </span>
+                                            <span class="text-xs text-gray-500 font-regular">
+                                                {{ $item->commercial }}<span class="text-sm text-gray-500 font-regular">
+                                                    %</span></span>
+                                        </div>
+                                        <div class="flex justify-between gap-3 py-2">
+                                            <span class="text-xs font-regular">Civic </span>
+                                            <span class="text-xs text-gray-500 font-regular">
+                                                {{ $item->civic }}<span class="text-sm text-gray-500 font-regular">
+                                                    %</span></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
