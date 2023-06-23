@@ -23,12 +23,12 @@
             <span class="text-2xl font-bold text-gray-700">
                 Urbanitarian
             </span>
-            <div class="grid grid-cols-12 pt-8 ">
+            <div class="grid md:grid-cols-12 grid-cols-1 gap-2 pt-8 ">
                 <div class="col-span-9 text-gray-500">
                     <span class="text-lg font-normal">
                         Unlocking the Power of Urban Design
                     </span>
-                    <p class="w-[45%] pt-3 text-sm font-normal">
+                    <p class="md:w-[45%] w-[100%] pt-3 text-sm font-normal">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus lobortis sem, eu
                         imperdiet dui venenatis ac. Fusce consequat interdum justo, pharetra convallis enim rutrum
                         ut.

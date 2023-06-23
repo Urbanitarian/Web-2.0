@@ -1,12 +1,12 @@
-<nav x-data="{ isOpen: false }" class="gap-6 px-6 py-3 lg:flex lg:justify-between border-b lg:items-center">
+<nav x-data="{ isOpen: false }" class="gap-6 md:px-6 px-2 py-3 flex justify-between border-b lg:items-center">
     <div class="flex items-center justify-between gap-6">
         <div>
             <a class="flex justify-center items-center  font-bold text-gray-700 lg:text-3xl hover:text-gray-400 "
                 href="/">
                 <img src="{{ asset('img/logo.png') }}" class="w-auto h-9">
-                <h1
-                    class="md:pl-2 pl-0 md:text-xl text-lg font-bold text-[#333333] lg:mt-1 2xl:mt-0  hover:text-gray-400 mb-0">
-                    Urbanitarian</h1>
+                <span
+                    class="pl-2 md:block hidden md:text-xl text-lg font-bold text-[#333333] lg:mt-1 2xl:mt-0  hover:text-gray-400 mb-0">
+                    Urbanitarian</span>
             </a>
         </div>
 
@@ -33,10 +33,10 @@
         @if (session()->has('FRONT_USER_LOGIN'))
             <div class="flex mx-2" x-show="showSearch" style="display: none;">
                 <input type="text" name="search" id="" placeholder="Search"
-                    class="w-64 px-2 py-1.5 border border-gray-200 rounded outline-none outline-2 outline-gray-600">
+                    class="md:w-64 w-48 px-2 py-1.5 border border-gray-200 rounded outline-none outline-2 outline-gray-600">
             </div>
         @endif
-        <div class="flex flex-col-reverse md:flex-row md:justify-between gap-6">
+        <div class="flex md:justify-between md:gap-6 gap-2">
             <div class="flex" @click="showSearch=!showSearch">
                 <button class="" aria-label="toggle menu">
 
@@ -48,11 +48,11 @@
 
                 </button>
             </div>
-            <div class="flex gap-6">
+            <div class="flex md:gap-6 gap-2">
                 @if (session()->has('FRONT_USER_LOGIN'))
                     <div class="flex items-center justify-center gap-4">
                         <a href=""
-                            class="flex items-center justify-center gap-1 px-3 py-2 font-normal text-center border rounded hover:bg-gray-300 prevent group">
+                            class="md:flex hidden items-center justify-center gap-1 px-3 py-2 font-normal text-center border rounded hover:bg-gray-300 prevent group">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
@@ -71,7 +71,7 @@
                     </div>
                 @else
                     <a href="/login"
-                        class="flex px-5  py-3 font-normal text-center text-white bg-gray-800 rounded shadow-lg hover:bg-black prevent group">
+                        class="px-5 hidden md:block py-3 font-normal text-center text-white bg-gray-800 rounded shadow-lg hover:bg-black prevent group">
                         <span class="text-sm">Log in or sign up</span>
                     </a>
                 @endif
@@ -92,7 +92,7 @@
 
 
             <div x-cloak x-show="isOpen" @click.outside="isOpen=false"
-                class="absolute right-0 z-10 top-12 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                class="absolute right-0 z-10 top-12 w-64 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                 role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                 <div class="py-1" role="none">
                     <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
@@ -102,10 +102,39 @@
                         id="menu-item-1">Collections</a>
                     <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
                         id="menu-item-2">How it works</a>
-                    <form method="POST" action="#" role="none">
+
+                    <div class="flex md:gap-6 gap-2">
+                        @if (session()->has('FRONT_USER_LOGIN'))
+                            <div class="flex items-center px-4 py-2 justify-center gap-4">
+                                <a href=""
+                                    class="flex md:hidden items-center justify-center gap-1 md:px-3 px-1 py-2 font-normal text-center border rounded hover:bg-gray-300 prevent group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+
+                                    <span class="text-gray-800 text-md">
+                                        Request new Project
+                                    </span>
+                                </a>
+
+                            </div>
+                        @else
+                            <a href="/login"
+                                class="md:px-5 px-2 md:hidden block py-3 font-normal text-center text-white bg-gray-800 rounded shadow-lg hover:bg-black prevent group">
+                                <span class="text-sm">Log in or sign up</span>
+                            </a>
+                        @endif
+
+
+                        <!-- Mobile menu button -->
+
+                    </div>
+
+                    {{-- <form method="POST" action="#" role="none">
                         <button type="submit" class="text-gray-700 block w-full px-4 py-2 text-left text-sm"
                             role="menuitem" tabindex="-1" id="menu-item-3">Sign out</button>
-                    </form>
+                    </form> --}}
                 </div>
             </div>
 
