@@ -4,8 +4,8 @@
     background: linear-gradient(0.04deg, #FFFFFF 57.96%, rgba(255, 255, 255, 0) 90.46%);
     " @endif>
     <div class="my-12">
-        <span class="flex items-center justify-center text-2xl font-semibold">Log in or sign up</span>
-        <span class="flex items-center justify-center pt-1 text-2xl font-semibold">to continue exploring
+        <span class="flex items-center justify-center md:text-2xl text-lg font-semibold">Log in or sign up</span>
+        <span class="flex items-center justify-center pt-1 md:text-2xl text-lg font-semibold">to continue exploring
             Masterplans</span>
 
         <div class="flex flex-col items-center justify-center mt-8">
@@ -58,7 +58,7 @@
             <hr class="w-44">
         </div>
 
-        <div class="flex flex-col my-6 mx-12 md:mx-0">
+        <div class="flex flex-col my-6 mx-10 md:mx-0">
             <form action="{{ url('user/login') }}" method="POST">
                 @csrf
 

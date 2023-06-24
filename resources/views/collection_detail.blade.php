@@ -283,7 +283,7 @@
 
         <div data-barba="container" class="">
             <section class="block px-6 pb-8 tabset ">
-                <div class="relative mx-auto">
+                <div class="relative mx-auto mt-4">
                     <div id="boucle" class="grid md:grid-cols-5 sm:grid-cols-2 xs:grid-cols-1  gap-5 mygrid">
 
                     </div>
@@ -499,7 +499,7 @@ x-data="{ visibleBtn: false }">
             style="height:332px" />
         <div class="flex  bottom-[110px] absolute ml-2 whitespace-nowrap">
             ${item.tags.map(tag => `<div
-                                                                                                                                                                                                                                                                                                                                                                                            class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">                                                                                                                                                                  ${tag}</div>`).join(' &nbsp;')}
+                                                                                                                                                                                                                                                                                                                                                                                                    class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">                                                                                                                                                                  ${tag}</div>`).join(' &nbsp;')}
         </div>
         <div class="absolute bottom-1">
             <p class="px-2 mt-2 text-sm font-bold h-[70px]">
