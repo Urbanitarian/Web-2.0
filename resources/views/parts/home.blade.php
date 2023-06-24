@@ -3,14 +3,13 @@
         loop: true,
         slidesPerView: 1,
         spaceBetween: 0,
-        speed:1000,
-        
-        autoplay: 
-        {
-        delay: 5000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-        
+        speed: 1000,
+    
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+    
         },
         breakpoints: {
             640: {
@@ -31,36 +30,41 @@
             },
         },
     })">
-        <div class="swiper-container" x-ref="container" style="background-image: url('{{ asset('img/pattern.png') }}'); background-repeat: repeat; background-size: 100%; background-position: bottom;">
-            <div class="swiper-wrapper h-[512px]"  style="background-image: linear-gradient(90deg, #ffffff,70%, #f3f4f6);">
-                
+        <div class="swiper-container" x-ref="container"
+            style="background-image: url('{{ asset('img/pattern.png') }}'); background-repeat: repeat; background-size: 100%; background-position: bottom;">
+            <div class="swiper-wrapper md:h-[512px] h-[570px]"
+                style="background-image: linear-gradient(90deg, #ffffff,70%, #f3f4f6);">
+
                 <div class="swiper-slide ">
                     <div class="h-full">
-                        <div class="bg-contain bg-no-repeat	h-full" style="background-position: right; background-image: url('{{ asset('img/slide2.png') }}')">
-                            
-                            <div class="flex items-center justify-start h-full p-[100px] w-7/12">
+                        <div class="md:bg-contain md:bg-no-repeat h-full bgimg0" style="">
+
+                            <div class="flex items-center justify-start h-full md:p-[100px] p-[50px]  md:w-7/12 w-full">
                                 <div class="select-none">
-                                    <h2 class="text-5xl font-bold text-gray-800 leading-snug">
+                                    <h2 class="md:text-5xl text-3xl font-bold text-gray-800 leading-snug">
                                         Get inspired and solve specific urban design challenges
                                     </h2>
                                     <p class="text-xl font-semibold mt-6 text-base text-gray-700 leading-[1.5]">
-                                        Save hours of research with our library of<br>500+ fully searchable urban design resources
+                                        Save hours of research with our library of<br>500+ fully searchable urban design
+                                        resources
                                     </p>
 
-                                    <div class="mt-20">
+                                    <div class="mt-20 flex flex-col md:flex-row md:gap-0 gap-2">
                                         @if (!session()->has('FRONT_USER_LOGIN'))
-                                        <a href="/login" class="px-5 py-3 font-normal text-center text-white bg-gray-700 rounded hover:bg-black">
-                                            Log in or sign up
-                                        </a>
+                                            <a href="/login"
+                                                class="md:px-5 w-40 px-2  py-3 font-normal text-center text-white bg-gray-700 rounded hover:bg-black">
+                                                Log in or sign up
+                                            </a>
                                         @endif
-                                        <a href="/how-it-works" class="ml-5 px-5 py-3 font-normal text-center text-gray-600 bg-white border-2 rounded hover:bg-gray-100">
+                                        <a href="/how-it-works"
+                                            class="md:ml-5 ml-0 md:px-5 w-36 px-2 py-3 font-normal text-center text-gray-600 bg-white border-2 rounded hover:bg-gray-100">
                                             Learn more
                                         </a>
                                     </div>
                                 </div>
-                                
+
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -68,11 +72,11 @@
 
                 <div class="swiper-slide ">
                     <div class="h-full">
-                        <div class="bg-contain bg-no-repeat	h-full" style="background-position: right; background-image: url('{{ asset('img/slide1.png') }}')">
-                            
-                            <div class="flex items-center justify-start h-full p-[100px] w-7/12">
+                        <div class="bg-contain bg-no-repeat	h-full bgimg1" style="">
+
+                            <div class="flex items-center justify-start h-full md:p-[100px] p-[50px]  md:w-7/12 w-full">
                                 <div class="select-none">
-                                    <h2 class="text-5xl font-bold text-gray-800 leading-snug">
+                                    <h2 class="md:text-5xl text-3xl font-bold text-gray-800 leading-snug">
                                         Explore the database
                                     </h2>
                                     <p class="text-xl font-semibold mt-6 text-base text-gray-700 leading-[1.5]">
@@ -81,20 +85,22 @@
                                         Share it with your team for collaboration.
                                     </p>
 
-                                    <div class="mt-20">
+                                    <div class="mt-20 flex flex-col md:flex-row md:gap-0 gap-2">
                                         @if (!session()->has('FRONT_USER_LOGIN'))
-                                        <a href="/login" class="px-5 py-3 font-normal text-center text-white bg-gray-700 rounded hover:bg-black">
-                                            Log in or sign up
-                                        </a>
+                                            <a href="/login"
+                                                class="md:px-5 w-40 px-2  py-3 font-normal text-center text-white bg-gray-700 rounded hover:bg-black">
+                                                Log in or sign up
+                                            </a>
                                         @endif
-                                        <a href="/how-it-works" class="ml-5 px-5 py-3 font-normal text-center text-gray-600 bg-white border-2 rounded hover:bg-gray-100">
+                                        <a href="/how-it-works"
+                                            class="md:ml-5 ml-0 md:px-5 w-36 px-2 py-3 font-normal text-center text-gray-600 bg-white border-2 rounded hover:bg-gray-100">
                                             Learn more
                                         </a>
                                     </div>
                                 </div>
-                                
+
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -102,11 +108,11 @@
 
                 <div class="swiper-slide ">
                     <div class="h-full">
-                        <div class="bg-contain bg-no-repeat	h-full" style="background-position: right; background-image: url('{{ asset('img/slide3.png') }}')">
-                            
-                            <div class="flex items-center justify-start h-full p-[100px] w-7/12">
+                        <div class="bg-contain bg-no-repeat	h-full bgimg2" style="">
+
+                            <div class="flex items-center justify-start h-full md:p-[100px] p-[50px]  md:w-7/12 w-full">
                                 <div class="select-none">
-                                    <h2 class="text-5xl font-bold text-gray-800 leading-snug">
+                                    <h2 class="md:text-5xl text-3xl font-bold text-gray-800 leading-snug">
                                         Take a deep-dive & learn compare, measure and collect
                                     </h2>
                                     <p class="text-xl font-semibold mt-6 text-base text-gray-700 leading-[1.5]">
@@ -115,26 +121,28 @@
                                         status and location.
                                     </p>
 
-                                    <div class="mt-20">
+                                    <div class="mt-20 flex flex-col md:flex-row md:gap-0 gap-2">
                                         @if (!session()->has('FRONT_USER_LOGIN'))
-                                        <a href="/login" class="px-5 py-3 font-normal text-center text-white bg-gray-700 rounded hover:bg-black">
-                                            Log in or sign up
-                                        </a>
+                                            <a href="/login"
+                                                class="md:px-5 w-40 px-2  py-3 font-normal text-center text-white bg-gray-700 rounded hover:bg-black">
+                                                Log in or sign up
+                                            </a>
                                         @endif
-                                        <a href="/how-it-works" class="ml-5 px-5 py-3 font-normal text-center text-gray-600 bg-white border-2 rounded hover:bg-gray-100">
+                                        <a href="/how-it-works"
+                                            class="md:ml-5 ml-0 md:px-5 w-36 px-2 py-3 font-normal text-center text-gray-600 bg-white border-2 rounded hover:bg-gray-100">
                                             Learn more
                                         </a>
                                     </div>
                                 </div>
-                                
+
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
 
-                
-                
+
+
             </div>
         </div>
     </div>
@@ -143,8 +151,9 @@
 <div class="relative z-50 ">
     <div id="mysearch" class="py-4 px-6 bg-white border-t shadow">
         <div class="flex flex-col flex-wrap gap-2 mx-4 md:mx-0" x-data="{ showFilter: true }">
-            <div class="flex items-center justify-between gap-8">
-                <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category" x-data="{ active: 'masterplan' }">
+            <div class="flex items-center md:justify-between flex-col md:flex-row gap-4 md:gap-8">
+                <fieldset class="flex flex-wrap gap-2 sm:justify-center  md:gap-4" name="category"
+                    x-data="{ active: 'masterplan' }">
                     <button id="masterplans" name="category" value="Masterplans" @click="active='masterplan'">
                         <p id="masterbtn"
                             class="px-4 py-2 font-[400] flex justify-between items-center rounded text-md  active:bg-gray-300"
@@ -163,8 +172,7 @@
                                 &nbsp;{{ $streetnum }}</a>
                         </p>
                     </button>
-                    <button id="urbanscapes" name="category" value="Neighbourhoods"
-                        @click="active='neighbourhoods'">
+                    <button id="urbanscapes" name="category" value="Neighbourhoods" @click="active='neighbourhoods'">
                         <p id="urbanbtn"
                             class="px-4 py-2 font-[400] flex justify-between items-center rounded text-md  active:bg-gray-300"
                             :class="active == 'neighbourhoods' ? ' text-white bg-gray-800' : 'hover:bg-gray-200 bg-white'">
@@ -177,9 +185,9 @@
                 <div class="flex gap-2">
 
                     <button @click="showFilter=true" x-show="!showFilter"
-                        class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        class="flex items-center justify-center w-32 gap-2 px-2 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
                         </svg>
@@ -209,7 +217,7 @@
 
             </div>
 
-            <div x-show="showFilter" class="grid grid-cols-5 gap-2 mx-4 md:grid-cols-5 md:mx-0">
+            <div x-show="showFilter" class="grid sm:grid-cols-1 mt-4  gap-2 mx-4 md:grid-cols-5 md:mx-0">
                 <div class="block">
                     <label for="DeliveryStandard" class="flex justify-between text-sm">
                         <p class="pb-1 text-black">Tags</p>
@@ -222,10 +230,10 @@
                         </button>
 
                     </label>
-                    <select name="tags" id="tags_selector" data-te-select-init data-te-select-clear-button="true" data-te-select-placeholder="All Tags"
-                        multiple multiple="multiple"
+                    <select name="tags" id="tags_selector" data-te-select-init data-te-select-clear-button="true"
+                        data-te-select-placeholder="All Tags" multiple multiple="multiple"
                         class="w-full h-12 px-4 py-8 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                        
+
                         <option value="Accessible and Connected">Accessible and connected</option>
                         <option value="Affordable">Affordable</option>
                         <option value="Age-friendly">Age-friendly</option>
@@ -297,10 +305,10 @@
                         </button>
 
                     </label>
-                    <select name="size" id="size_selector" data-te-select-init data-te-select-clear-button="true" data-te-select-placeholder="All Sizes"
-                        multiple multiple="multiple"
+                    <select name="size" id="size_selector" data-te-select-init data-te-select-clear-button="true"
+                        data-te-select-placeholder="All Sizes" multiple multiple="multiple"
                         class="w-full px-4 pt-6 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                       
+
                         <option value="XXXXL">XXXXL</option>
                         <option value="XXXL">XXXL</option>
                         <option value="XXL">XXL</option>
@@ -319,7 +327,8 @@
                         <p class="pb-1 text-black">Status</p>
                     </label>
                     <select name="status" id="status_selector"
-                        class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400" data-te-select-init data-te-select-placeholder="All Status">
+                        class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400"
+                        data-te-select-init data-te-select-placeholder="All Status">
                         <option value="" hidden selected></option>
                         <option value="built">Built</option>
                         <option value="future">Future</option>
@@ -327,16 +336,17 @@
                         <option value="regeneration">Regeneration</option>
                     </select>
 
-                    
+
                 </div>
 
-                
+
 
                 <div class="block">
                     <label for="DeliveryStandard" class="block text-sm">
                         <p class="pb-1 text-black">Country</p>
                     </label>
-                    <select name="country" id="country_selector" data-te-select-init data-te-select-placeholder="All Countries"
+                    <select name="country" id="country_selector" data-te-select-init
+                        data-te-select-placeholder="All Countries"
                         class="w-full px-4 py-2 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                         <option value="" hidden selected></option>
                         @foreach ($countries->sortBy('name') as $country)
@@ -351,7 +361,8 @@
                     <label for="DeliveryStandard" class="block text-sm">
                         <p class="pb-1 text-black">City</p>
                     </label>
-                    <select name="city" id="city_selector" data-te-select-init data-te-select-placeholder="All Cities"
+                    <select name="city" id="city_selector" data-te-select-init
+                        data-te-select-placeholder="All Cities"
                         class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
                         <option value="" hidden selected></option>
                         @foreach ($cities->sortBy('name') as $city)
@@ -367,9 +378,9 @@
 
 
 
-            <div class="flex items-center justify-between gap-8 mt-2">
+            <div class="flex items-center flex-col md:flex-row justify-between md:gap-8 gap-2 mt-2">
 
-                <div class="hidden pb-4 md:flex md:pb-0">
+                <div class=" pb-4 md:flex md:pb-0">
                     <span class="mt-2 mr-2">Sort by:</span>
                     <select name="popular" id="pop_selector"
                         class="px-4 h-[40px] text-sm bg-white border-gray-200 rounded-md
@@ -386,7 +397,7 @@
 
 
 
-                <div class="items-center justify-between py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
+                <div class="py-4 justify-center items-center flex md:py-0 md:mt-2 lg:mt-0">
                     <span class="mr-2">View by:</span>
                     <div class="flex gap-0">
                         <button id="change-layout" onclick="return false;"
@@ -420,7 +431,7 @@
 <div data-barba="container" class="mt-5">
     <section class="block px-6 pb-8 tabset ">
         <div class="relative mx-auto">
-            <div id="boucle" class="grid grid-cols-5 gap-5 mygrid lg:grid-cols-5 xl:grid-cols-5">
+            <div id="boucle" class="grid md:grid-cols-5 sm:grid-cols-2 xs:grid-cols-1  gap-5 mygrid">
 
             </div>
 
@@ -470,7 +481,7 @@
 <script>
     let itemsPerPage = 15;
 
-    let filterCounter=0;
+    let filterCounter = 0;
 
     let user_id = $('#user_id').val();
     let master_c = $('#master_id').val();
@@ -527,9 +538,9 @@
         return limitedWords.join(' ');
     }
 
-    const fetchAndRenderData = (url,categoryCheck='') => {
+    const fetchAndRenderData = (url, categoryCheck = '') => {
 
-        filterCounter=0;
+        filterCounter = 0;
         if ($('#city_selector').val()) {
             filterCounter++;
         }
@@ -792,7 +803,7 @@
             <div
                 class="bg-white absolute bottom-[68px] rounded border-gray-300  text-sm font-medium px-1  border ml-3 text-gray-700 z-50 text-center">
                 ${item.size}</div>
-            
+
             <a href="streetscapes_post?id=${item.id}">
                 <div class="flex items-center justify-between px-3">
                     <h3 class="mt-4 text-sm font-semibold text-left text-gray-600">
@@ -905,9 +916,9 @@
 
             })
             .finally(() => {
-                if(categoryCheck=='streetscapes'){
+                if (categoryCheck == 'streetscapes') {
 
-                }else{
+                } else {
                     $('.loader').hide();
                 }
             })
@@ -982,28 +993,28 @@
         category = "streetscapes";
         $('#total_count').html('Showing 15 items');
 
-        
+
         $('#boucle').parent().hide();
-        fetchAndRenderData(url,'streetscapes');
-        
-        
-        
+        fetchAndRenderData(url, 'streetscapes');
+
+
+
         setTimeout(() => {
-            $.getScript("{{ asset('js/juxtapose.js') }}",function(){
-                
+            $.getScript("{{ asset('js/juxtapose.js') }}", function() {
+
                 $('#boucle').parent().show();
                 $('.loader').hide();
             });
         }, 1000);
 
-    
-        
-        
-        
+
+
+
+
     });
 
 
-    function loadJuxtapose(){
+    function loadJuxtapose() {
         $.getScript("{{ asset('js/juxtapose.js') }}");
     }
 
@@ -1057,7 +1068,7 @@
 
         }
         fetchAndRenderData(url);
-       
+
         if (category == "streetscapes") {
             $.getScript("https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js");
         }
@@ -1148,8 +1159,10 @@
 
     function resetLayout() {
 
-        $(".mygrid").addClass("lg:grid-cols-5").addClass("xl:grid-cols-5").addClass("grid-cols-5").addClass(
-                "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2").removeClass("lg:grid-cols-4")
+        $(".mygrid").addClass("lg:grid-cols-5").addClass("xl:grid-cols-5").addClass("md:grid-cols-5").addClass(
+                "grid-cols-1").addClass(
+                "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
+            .removeClass("lg:grid-cols-4")
             .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
         layout = "xl";
 
@@ -1158,7 +1171,8 @@
 
     function resetLayout_1() {
 
-        $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-5").addClass(
+        $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("md:grid-cols-5").addClass(
+                "grid-cols-1").addClass(
                 "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
             .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
         layout = "xl";
@@ -1447,3 +1461,44 @@
 
     });
 </script>
+
+<style>
+    .bgimg0 {
+        background-position: right;
+        background-image: url('img/slide2.png');
+    }
+
+    .bgimg1 {
+        background-position: right;
+        background-image: url('img/slide1.png');
+    }
+
+    .bgimg2 {
+        background-position: right;
+        background-image: url('img/slide3.png');
+    }
+
+    @media (max-width: 1300px) {
+
+        .bgimg0 {
+            background-image: none;
+        }
+
+    }
+
+    @media (max-width: 1300px) {
+
+        .bgimg1 {
+            background-image: none;
+        }
+
+    }
+
+    @media (max-width: 1300px) {
+
+        .bgimg2 {
+            background-image: none;
+        }
+
+    }
+</style>

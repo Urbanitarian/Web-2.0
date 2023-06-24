@@ -1,8 +1,8 @@
 <div>
-    <div class="px-10 pt-12 ">
+    <div class="md:px-10 px-4 pt-12 ">
         <h1 class="text-5xl font-bold  text-[#667080]">Collection</h1>
         <div class="pt-6">
-            <div class="grid grid-cols-12 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
                 <div class="relative col-span-8">
                     <div class="absolute px-3 py-2">
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
@@ -39,8 +39,8 @@
                     <tr
                         class="px-6 pt-5 pb-2 text-[#667080] text-lg flex justify-between items-center  whitespace-nowrap">
                         <td class="w-[160px]">Collection Name</td>
-                        <td class="w-[160px]">Last modified</td>
-                        <td class="w-[160px]">Created</td>
+                        <td class="w-[160px] md:block hidden">Last modified</td>
+                        <td class="w-[160px] md:block hidden">Created</td>
                         <td class="w-[160px]">Sources</td>
                     </tr>
                 </tbody>
@@ -50,10 +50,10 @@
                             <td class=" w-[160px]  py-4 text-[#667080] font-bold text-base">
                                 <a href="{{ url('collection/detail/' . $collection->id) }}">{{ $collection->name }}</a>
                             </td>
-                            <td class=" w-[160px]  py-4 text-[#667080] font-bold text-base">
+                            <td class="md:block hidden md:w-[160px] w-[100px]  py-4 text-[#667080] font-bold text-base">
                                 {{ $collection->updated_at->diffForHumans() }}
                             </td>
-                            <td class=" w-[160px]  py-4 text-[#667080] font-bold text-base">
+                            <td class="md:block hidden md:w-[160px] w-[100px]  py-4 text-[#667080] font-bold text-base">
                                 {{ $collection->created_at->diffForHumans() }}
                             </td>
                             <td class=" w-[160px]  py-4 text-[#667080] font-bold text-base">

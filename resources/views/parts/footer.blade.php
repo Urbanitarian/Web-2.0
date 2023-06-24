@@ -12,7 +12,7 @@
                 <span class="text-2xl font-bold text-gray-700">
                     Urbanitarian
                 </span>
-                <div class="grid grid-cols-12 pt-8 ">
+                <div class="grid sm:grid-cols-1 md:grid-cols-12 pt-8 ">
                     <div class="col-span-9 text-gray-500">
                         <span class="text-lg font-normal">
                             Unlocking the Power of Urban Design
@@ -23,9 +23,9 @@
                             ut.
                         </p> --}}
                     </div>
-                    <div class="float-right col-span-3">
+                    <div class="float-right col-span-3 md:mt-0 mt-4">
                         <div class="flex space-x-28">
-                            <ul class="flex flex-col gap-4 text-base font-normal">
+                            <ul class="flex flex-col  gap-4 text-base font-normal">
                                 <li>How it works</li>
                                 <li>About</li>
                                 <li>Subscribe</li>
@@ -54,12 +54,12 @@
                 </div>
 
             </div>
-            <div class="px-8">
-                <div class="flex items-center justify-start gap-2 py-4 border-t">
+            <div class="md:px-8 px-4">
+                <div class="flex items-center flex-wrap justify-start gap-2 py-4 border-t">
                     <div class="">
                         <img src="{{ asset('img/logo.png') }}" class="w-auto h-8 md:h-16">
                     </div>
-                    <div class="text-xs font-normal text-gray-500">
+                    <div class="text-xs w-[85%] font-normal text-gray-500">
                         © 2023 Urbanitarian. All rights reserved. All images are © each office/photographer mentioned.
                     </div>
                 </div>

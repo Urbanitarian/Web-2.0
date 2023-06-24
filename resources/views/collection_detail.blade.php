@@ -3,20 +3,15 @@
 
 
 @section('main')
-    <div class="relative">
-        <div class="px-10  text-[#667080]">
-            <h1 class="text-5xl font-bold ">{{ $cls->name }}</h1>
-            <p class="font-normal text-base">{{ $cls->description }}</p>
-        </div>
-
-        <div id="mysearch" class="py-8 px-8  bg-white">
-            <div class="flex flex-col flex-wrap gap-6 mx-4 md:mx-0" x-data="{ showFilter: false }">
-                <div class="flex items-center justify-between gap-8">
-                    <fieldset class="flex flex-wrap gap-2 md:gap-4" name="category" x-data="{ active: 'masterplan' }">
+    <div class="relative z-50 ">
+        <div id="mysearch" class="py-4 px-6 bg-white border-t shadow">
+            <div class="flex flex-col flex-wrap gap-2 mx-4 md:mx-0" x-data="{ showFilter: true }">
+                <div class="flex items-center md:justify-between flex-col md:flex-row gap-4 md:gap-8">
+                    <fieldset class="flex flex-wrap gap-2 sm:justify-center  md:gap-4" name="category" x-data="{ active: 'masterplan' }">
                         <button id="masterplans" name="category" value="Masterplans" @click="active='masterplan'">
                             <p id="masterbtn"
                                 class="px-4 py-2 font-[400] flex justify-between items-center rounded text-md  active:bg-gray-300"
-                                :class="active == 'masterplan' ? ' text-white bg-gray-800' : 'hover:bg-gray-200 bg-white'">
+                                :class="active == 'masterplan' ? ' text-white bg-gray-700' : 'hover:bg-gray-200 bg-white'">
                                 <span>Masterplans</span><span class="pl-2 pr-1 font-thin">|</span> <a id="masternum"
                                     class="border-gray-400">
                                     &nbsp;{{ $mastercount }}</a>
@@ -44,7 +39,7 @@
                     <div class="flex gap-2">
 
                         <button @click="showFilter=true" x-show="!showFilter"
-                            class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
+                            class="flex items-center justify-center w-32 gap-2 px-2 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-4 h-4">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -59,7 +54,7 @@
                                 class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
                                 <i class="fa fa-angle-up" aria-hidden="true"></i>
                                 <span class="">Hide Filters</span>
-                                <span class="p-0.5 rounded-full bg-black text-white w-6">5</span>
+                                <span class="p-0.5 rounded-full bg-black text-white w-6 filter-counter">0</span>
                             </button>
                             <button id="clear_all"
                                 class="flex items-center justify-center gap-2 px-2 py-2 text-sm font-medium border rounded hover:bg-gray-200 active:bg-gray-300">
@@ -76,11 +71,11 @@
 
                 </div>
 
-                <div x-show="showFilter" class="grid grid-cols-5 gap-2 mx-4 mt-4 md:grid-cols-5 md:mx-0">
+                <div x-show="showFilter" class="grid sm:grid-cols-1 mt-4  gap-2 mx-4 md:grid-cols-5 md:mx-0">
                     <div class="block">
                         <label for="DeliveryStandard" class="flex justify-between text-sm">
                             <p class="pb-1 text-black">Tags</p>
-                            <button class="flex items-center justify-center cursor-pointer">
+                            <button class="flex items-center justify-center cursor-pointer select-clear-btn">
                                 <p class="pb-1 text-black">Clear</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mb-1 font-semibold">
@@ -90,9 +85,9 @@
 
                         </label>
                         <select name="tags" id="tags_selector" data-te-select-init data-te-select-clear-button="true"
-                            multiple multiple="multiple"
+                            data-te-select-placeholder="All Tags" multiple multiple="multiple"
                             class="w-full h-12 px-4 py-8 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                            {{-- <option value="">All</option> --}}
+
                             <option value="Accessible and Connected">Accessible and connected</option>
                             <option value="Affordable">Affordable</option>
                             <option value="Age-friendly">Age-friendly</option>
@@ -155,7 +150,7 @@
                     <div class="block">
                         <label for="DeliveryStandard" class="flex justify-between text-sm">
                             <p class="pb-1 text-black">Size</p>
-                            <button class="flex items-center justify-center cursor-pointer">
+                            <button class="flex items-center justify-center cursor-pointer select-clear-btn">
                                 <p class="pb-1 text-black">Clear</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mb-1 font-semibold">
@@ -165,9 +160,9 @@
 
                         </label>
                         <select name="size" id="size_selector" data-te-select-init data-te-select-clear-button="true"
-                            multiple multiple="multiple"
+                            data-te-select-placeholder="All Sizes" multiple multiple="multiple"
                             class="w-full px-4 pt-6 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                            <option value="">All</option>
+
                             <option value="XXXXL">XXXXL</option>
                             <option value="XXXL">XXXL</option>
                             <option value="XXL">XXL</option>
@@ -186,26 +181,31 @@
                             <p class="pb-1 text-black">Status</p>
                         </label>
                         <select name="status" id="status_selector"
-                            class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                            <option value="">All</option>
+                            class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400"
+                            data-te-select-init data-te-select-placeholder="All Status">
+                            <option value="" hidden selected></option>
                             <option value="built">Built</option>
                             <option value="future">Future</option>
-                            <option value="under_development">Under
-                                development</option>
+                            <option value="under_development">Under development</option>
                             <option value="regeneration">Regeneration</option>
                         </select>
+
+
                     </div>
+
+
 
                     <div class="block">
                         <label for="DeliveryStandard" class="block text-sm">
-                            <p class="pb-1 text-black">City</p>
+                            <p class="pb-1 text-black">Country</p>
                         </label>
-                        <select name="city" id="city_selector"
-                            class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                            <option value="">All</option>
-                            @foreach ($cities->sortBy('name') as $city)
-                                <option value="{{ $city->name }}">
-                                    {{ $city->name }}</option>
+                        <select name="country" id="country_selector" data-te-select-init
+                            data-te-select-placeholder="All Countries"
+                            class="w-full px-4 py-2 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                            <option value="" hidden selected></option>
+                            @foreach ($countries->sortBy('name') as $country)
+                                <option value="{{ $country->name }}">
+                                    {{ $country->name }}</option>
                             @endforeach
 
                         </select>
@@ -213,14 +213,15 @@
 
                     <div class="block">
                         <label for="DeliveryStandard" class="block text-sm">
-                            <p class="pb-1 text-black">Country</p>
+                            <p class="pb-1 text-black">City</p>
                         </label>
-                        <select name="country" id="country_selector"
-                            class="w-full px-4 py-2 text-sm transition bg-white border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
-                            <option value="">All</option>
-                            @foreach ($countries->sortBy('name') as $country)
-                                <option value="{{ $country->name }}">
-                                    {{ $country->name }}</option>
+                        <select name="city" id="city_selector" data-te-select-init
+                            data-te-select-placeholder="All Cities"
+                            class="w-full px-4 py-2 text-sm border rounded-md focus:border-white focus:outline-none focus:ring focus:ring-gray-400">
+                            <option value="" hidden selected></option>
+                            @foreach ($cities->sortBy('name') as $city)
+                                <option value="{{ $city->name }}">
+                                    {{ $city->name }}</option>
                             @endforeach
 
                         </select>
@@ -231,9 +232,9 @@
 
 
 
-                <div class="flex items-center justify-between gap-8">
+                <div class="flex items-center flex-col md:flex-row justify-between md:gap-8 gap-2 mt-2">
 
-                    <div class="hidden pb-4 md:flex md:pb-0">
+                    <div class=" pb-4 md:flex md:pb-0">
                         <span class="mt-2 mr-2">Sort by:</span>
                         <select name="popular" id="pop_selector"
                             class="px-4 h-[40px] text-sm bg-white border-gray-200 rounded-md
@@ -244,11 +245,13 @@
                         </select>
                     </div>
 
-                    <div class="text-gray-400" id="total_count">
-
+                    <div class="text-gray-500" id="total_count">
+                        Showing 15 items
                     </div>
 
-                    <div class="items-center justify-between py-4 md:flex md:py-0 md:mt-2 lg:mt-0">
+
+
+                    <div class="py-4 justify-center items-center flex md:py-0 md:mt-2 lg:mt-0">
                         <span class="mr-2">View by:</span>
                         <div class="flex gap-0">
                             <button id="change-layout" onclick="return false;"
@@ -275,144 +278,143 @@
 
 
         </div>
-    </div>
 
 
 
-    <div data-barba="container" class="">
-        <section class="block px-6 pb-8 tabset ">
-            <div class="relative mx-auto">
-                <div id="boucle" class="grid grid-cols-5 mygrid gap-5">
+        <div data-barba="container" class="">
+            <section class="block px-6 pb-8 tabset ">
+                <div class="relative mx-auto mt-4">
+                    <div id="boucle" class="grid md:grid-cols-5 sm:grid-cols-2 xs:grid-cols-1  gap-5 mygrid">
+
+                    </div>
+
+                </div>
+                <div class="flex pt-8">
+                    <button id="load_more" onclick="loadMore()" style="display: none"
+                        class="flex px-2 py-2 mx-auto mt-4 mb-8 text-black transition-all bg-gray-100 border-2 rounded text-md focus:outline-none hover:bg-gray-400">
+                    </button>
 
                 </div>
 
-            </div>
-            <div class="flex pt-8">
-                <button id="load_more" onclick="loadMore()" style="display: none"
-                    class="flex px-2 py-2 mx-auto mt-4 mb-8 text-black transition-all bg-gray-100 border-2 rounded text-md focus:outline-none hover:bg-gray-400">
-                </button>
-
-            </div>
-
-            <div class="loader flex justify-center items-center" style="display: none">
-                <div class="inline-block h-8 w-8 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current align-[-0.125em] opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]"
-                    role="status">
-                    <span
-                        class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+                <div class="loader flex justify-center items-center" style="display: none">
+                    <div class="inline-block h-8 w-8 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current align-[-0.125em] opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]"
+                        role="status">
+                        <span
+                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+                    </div>
                 </div>
-            </div>
 
-        </section>
-    </div>
+            </section>
+        </div>
 
-    <div class="">
-        <input type="hidden" value="{{ $id }}" id="cl_id">
+        <div class="">
+            <input type="hidden" value="{{ $id }}" id="cl_id">
 
-        <input type="hidden" id="user_id" value="{{ session()->get('FRONT_USER_ID') }}" />
-        <input type="hidden" id="master_id" value="{{ $mastercount }}" />
-        <input type="hidden" id="urban_id" value="{{ $urbancount }}" />
-        <input type="hidden" id="street_id" value="{{ $streetcount }}" />
-    </div>
-@endsection
+            <input type="hidden" id="user_id" value="{{ session()->get('FRONT_USER_ID') }}" />
+            <input type="hidden" id="master_id" value="{{ $mastercount }}" />
+            <input type="hidden" id="urban_id" value="{{ $urbancount }}" />
+            <input type="hidden" id="street_id" value="{{ $streetcount }}" />
+        </div>
+    @endsection
 
-@push('scripts')
-    <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
-        integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
-    <script>
-        let itemsPerPage = 15;
+    @push('scripts')
+        <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+            integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+        <script>
+            let itemsPerPage = 15;
 
-        let c_id = $("#cl_id").val();
+            let c_id = $("#cl_id").val();
 
-        function loadMore() {
+            function loadMore() {
 
-            currentPage++;
-            if (currentPage > totalPages) {
-                $('#load_more').hide();
+                currentPage++;
+                if (currentPage > totalPages) {
+                    $('#load_more').hide();
+                }
+                fetchAndRenderData(url);
             }
-            fetchAndRenderData(url);
-        }
 
-        let user_id = $('#user_id').val();
-        let master_c = $('#master_id').val();
-        let street_c = $('#street_id').val();
-        let urban_c = $('#urban_id').val();
+            let user_id = $('#user_id').val();
+            let master_c = $('#master_id').val();
+            let street_c = $('#street_id').val();
+            let urban_c = $('#urban_id').val();
 
-        let category = "masterplans";
-        let currentcategory = "";
-        let currenturl = "";
-        let view = "grid";
-        currentPage = 1;
-        let currentfilter = "";
-        let url = "";
+            let category = "masterplans";
+            let currentcategory = "";
+            let currenturl = "";
+            let view = "grid";
+            currentPage = 1;
+            let currentfilter = "";
+            let url = "";
 
-        $(document).ready(function() {
-            url = "/api/collection_data?category=masterplans&id=" + c_id;
-            currenturl = url;
-            $('#boucle').empty();
-            currentfilter = "none";
-            fetchAndRenderData(url);
-            console.log(currenturl);
-        });
+            $(document).ready(function() {
+                url = "/api/collection_data?category=masterplans&id=" + c_id;
+                currenturl = url;
+                $('#boucle').empty();
+                currentfilter = "none";
+                fetchAndRenderData(url);
+                console.log(currenturl);
+            });
 
 
-        // $("#next").click(function() {
-        //     $('#boucle').empty();
-        //     currentPage++;
-        //     if (currentPage > totalPages) {
-        //         currentPage = totalPages;
-        //     }
+            // $("#next").click(function() {
+            //     $('#boucle').empty();
+            //     currentPage++;
+            //     if (currentPage > totalPages) {
+            //         currentPage = totalPages;
+            //     }
 
-        //     fetchAndRenderData(url);
-        // });
+            //     fetchAndRenderData(url);
+            // });
 
-        // $("#prev").click(function() {
-        //     $('#boucle').empty();
-        //     currentPage--;
-        //     if (currentPage < 1) {
-        //         currentPage = 1;
-        //     }
+            // $("#prev").click(function() {
+            //     $('#boucle').empty();
+            //     currentPage--;
+            //     if (currentPage < 1) {
+            //         currentPage = 1;
+            //     }
 
-        //     fetchAndRenderData(url);
-        // });
-
-
-        const fetchAndRenderData = (url) => {
-            $('#total_count').html("Showing 0 items");
-            $('.loader').show();
-            fetch(url)
-                .then((res) => res.json())
-                .then((out) => {
-
-                    const obj = JSON.parse(JSON.stringify(out));
-                    let textFromJSON = obj;
-                    let num = textFromJSON.length;
-                    totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
-                    const startIndex = (currentPage - 1) * itemsPerPage;
-                    const endIndex = startIndex + itemsPerPage;
-                    const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
+            //     fetchAndRenderData(url);
+            // });
 
 
-                    if (view == "grid") {
-                        $.each(itemsToDisplay, function(i, item) {
-                            if (item.category == "Masterplans") {
-                                let master_c = $('#master_id').val();
-                                if (master_c < 15) {
-                                    $('#load_more').hide();
-                                    $('#total_count').html("Showing " + master_c + " items");
-                                } else {
-                                    $('#total_count').html("Showing 15 items");
-                                    $('#load_more').html('Load More Masterplans');
-                                }
-                                btn1 = document.getElementById("masterbtn");
-                                btn1.classList.add("bg-black", "text-white");
-                                btn2 = document.getElementById("streetbtn");
-                                btn2.classList.remove("bg-black", "text-white");
-                                btn3 = document.getElementById("urbanbtn");
-                                btn3.classList.remove("bg-black", "text-white");
+            const fetchAndRenderData = (url) => {
+                $('#total_count').html("Showing 0 items");
+                $('.loader').show();
+                fetch(url)
+                    .then((res) => res.json())
+                    .then((out) => {
+
+                        const obj = JSON.parse(JSON.stringify(out));
+                        let textFromJSON = obj;
+                        let num = textFromJSON.length;
+                        totalPages = Math.ceil(textFromJSON.length / itemsPerPage);
+                        const startIndex = (currentPage - 1) * itemsPerPage;
+                        const endIndex = startIndex + itemsPerPage;
+                        const itemsToDisplay = textFromJSON.slice(startIndex, endIndex);
+
+
+                        if (view == "grid") {
+                            $.each(itemsToDisplay, function(i, item) {
+                                if (item.category == "Masterplans") {
+                                    let master_c = $('#master_id').val();
+                                    if (master_c < 15) {
+                                        $('#load_more').hide();
+                                        $('#total_count').html("Showing " + master_c + " items");
+                                    } else {
+                                        $('#total_count').html("Showing 15 items");
+                                        $('#load_more').html('Load More Masterplans');
+                                    }
+                                    btn1 = document.getElementById("masterbtn");
+                                    btn1.classList.add("bg-black", "text-white");
+                                    btn2 = document.getElementById("streetbtn");
+                                    btn2.classList.remove("bg-black", "text-white");
+                                    btn3 = document.getElementById("urbanbtn");
+                                    btn3.classList.remove("bg-black", "text-white");
 
 
 
-                                let html = `
+                                    let html = `
                                 <div class="relative flex flex-col " x-data="{ visibleBtn: false }">
     <div @mouseleave="visibleBtn=false">
         <div x-cloak x-show="visibleBtn">
@@ -457,28 +459,28 @@
 </div>
                  `;
 
-                                $('#boucle').append(html);
-                            } else if (item.category == "Urbanscapes") {
+                                    $('#boucle').append(html);
+                                } else if (item.category == "Urbanscapes") {
 
-                                let urban_c = $('#urban_id').val();
-                                if (urban_c < 15) {
-                                    $('#load_more').hide();
-                                    $('#total_count').html("Showing " + urban_c + " items");
-                                } else {
-                                    $('#total_count').html("Showing 15 items");
-                                    $('#load_more').html('Load More Urbanscapes');
-                                }
-
-
-                                btn1 = document.getElementById("masterbtn");
-                                btn1.classList.remove("bg-black", "text-white");
-                                btn2 = document.getElementById("streetbtn");
-                                btn2.classList.remove("bg-black", "text-white");
-                                btn3 = document.getElementById("urbanbtn");
-                                btn3.classList.add("bg-black", "text-white");
+                                    let urban_c = $('#urban_id').val();
+                                    if (urban_c < 15) {
+                                        $('#load_more').hide();
+                                        $('#total_count').html("Showing " + urban_c + " items");
+                                    } else {
+                                        $('#total_count').html("Showing 15 items");
+                                        $('#load_more').html('Load More Urbanscapes');
+                                    }
 
 
-                                let html = `
+                                    btn1 = document.getElementById("masterbtn");
+                                    btn1.classList.remove("bg-black", "text-white");
+                                    btn2 = document.getElementById("streetbtn");
+                                    btn2.classList.remove("bg-black", "text-white");
+                                    btn3 = document.getElementById("urbanbtn");
+                                    btn3.classList.add("bg-black", "text-white");
+
+
+                                    let html = `
 
                         <div class="relative h-[438px] overflow-hidden transition border rounded shadow-sm saturate-120 animate__animated animate__backInRight hover:opacity-75 hover:shadow-xl hover:border-black"
 x-data="{ visibleBtn: false }">
@@ -497,7 +499,7 @@ x-data="{ visibleBtn: false }">
             style="height:332px" />
         <div class="flex  bottom-[110px] absolute ml-2 whitespace-nowrap">
             ${item.tags.map(tag => `<div
-                                                                                                                                                                                                                                                                                                                                                                class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">                                                                                                                                                                  ${tag}</div>`).join(' &nbsp;')}
+                                                                                                                                                                                                                                                                                                                                                                                                    class="z-50 px-1 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded">                                                                                                                                                                  ${tag}</div>`).join(' &nbsp;')}
         </div>
         <div class="absolute bottom-1">
             <p class="px-2 mt-2 text-sm font-bold h-[70px]">
@@ -515,30 +517,30 @@ x-data="{ visibleBtn: false }">
 </div>
 </div>
                  `;
-                                $('#boucle').append(html);
-                            } else if (item.category == "Streetscapes") {
+                                    $('#boucle').append(html);
+                                } else if (item.category == "Streetscapes") {
 
 
 
-                                btn1 = document.getElementById("masterbtn");
-                                btn1.classList.remove("bg-black", "text-white");
-                                btn2 = document.getElementById("streetbtn");
-                                btn2.classList.add("bg-black", "text-white");
-                                btn3 = document.getElementById("urbanbtn");
-                                btn3.classList.remove("bg-black", "text-white");
+                                    btn1 = document.getElementById("masterbtn");
+                                    btn1.classList.remove("bg-black", "text-white");
+                                    btn2 = document.getElementById("streetbtn");
+                                    btn2.classList.add("bg-black", "text-white");
+                                    btn3 = document.getElementById("urbanbtn");
+                                    btn3.classList.remove("bg-black", "text-white");
 
-                                let street_c = $('#street_id').val();
-                                if (street_c < 15) {
-                                    $('#load_more').hide();
-                                    $('#total_count').html("Showing " + street_c + " items");
-                                } else {
-                                    $('#total_count').html("Showing 15 items");
-                                    $('#load_more').html('Load More Streetscapes');
-                                }
+                                    let street_c = $('#street_id').val();
+                                    if (street_c < 15) {
+                                        $('#load_more').hide();
+                                        $('#total_count').html("Showing " + street_c + " items");
+                                    } else {
+                                        $('#total_count').html("Showing 15 items");
+                                        $('#load_more').html('Load More Streetscapes');
+                                    }
 
 
 
-                                let html = `
+                                    let html = `
                         <div class="relative col-span-2 overflow-hidden transition border rounded-md shadow-sm element1 hover:border-black saturate-120 animate__animated animate__backInUp"
 x-data="{ visibleBtn: false }">
 <div @mouseleave="visibleBtn=false">
@@ -578,555 +580,568 @@ x-data="{ visibleBtn: false }">
 </div>
 </div>
                 `;
-                                $('#boucle').append(html);
-                            }
-                        })
-                    } else {
-                        $(".mygrid").removeClass("grid-cols-5").removeClass("xl:grid-cols-5").removeClass(
-                            "grid-cols-3").removeClass("grid-cols-2").addClass("grid-cols-1").addClass(
-                            "lg:grid-cols-1").addClass("xl:grid-cols-1").removeClass("gap-5");
-                        let html =
-                            `<section id='themap' class='flex w-full pb-16 mx-auto border-b'><div id='map2' class='mx-2 mt-4 rounded h-[650px] w-screen'></div></section>`;
-                        $('#boucle').append(html);
-
-                        fetch(url)
-                            .then((resa) => resa.json())
-                            .then((outa) => {
-                                const obja = JSON.parse(JSON.stringify(outa));
-                                let thedata = obja;
-
-                                amarkers = {};
-
-                                let mymap2 = L.map('map2').setView([48.6890, 11.14086], 2);
-                                theosmLayer = L.tileLayer(
-                                    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                                        maxZoom: 19,
-                                        apikey: 'choisirgeoportail',
-                                        format: 'image/jpeg',
-                                        style: 'normal'
-                                    }).addTo(mymap2);
-                                mymap2.addLayer(theosmLayer);
-                                mymap2.touchZoom.enable();
-                                mymap2.scrollWheelZoom.disable();
-
-                                let counter = 0;
-                                for (let i = 0; i < thedata.length; i++) {
-                                    counter = counter + 1;
-                                    mydata = thedata[i];
-                                    mydatacat = mydata.category.toLowerCase();
-                                    //mydatacat to lower case
-                                    if (mydatacat == "masterplans") {
-                                        mypics = mydata.image;
-                                    } else {
-                                        mypics = mydata.imagea;
-                                    }
-                                    category = mydata.category.toLowerCase();
-                                    if (category == 'streetscapes') {
-                                        cat = 1;
-                                    } else if (category == 'masterplans') {
-                                        cat = 2;
-                                    } else if (category == 'urbanscapes') {
-                                        cat = 3;
-                                    }
-
-                                    mydataid = mydata.id;
-                                    mydatacity = mydata.city;
-                                    mydataname = mydata.title;
-                                    mydataposition = mydata.location;
-                                    var decimalStringa = [0, 0];
-                                    if (mydataposition != null) {
-                                        decimalStringa = mydataposition.split(',');
-                                    }
-                                    decimalStringa[0] = parseFloat(decimalStringa[0]).toFixed(6);
-                                    decimalStringa[1] = parseFloat(decimalStringa[1]).toFixed(6);
-
-                                    markera = L.marker([decimalStringa[0], decimalStringa[1]], {}).addTo(mymap2)
-                                        .bindPopup(
-                                            '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' +
-                                            mydataid + ',' + cat +
-                                            ')" class="mt-4" src="/storage/uploads/' + mydatacat + '/' +
-                                            mypics +
-                                            '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="mydatanom">' +
-                                            mydataname +
-                                            '</h1><h1 class="pb-4 mt-1 mb-2 text-xs text-gray-500" id="mydatacity">' +
-                                            mydatacity + '</h1></div></div>'
-                                        );
-                                    amarkers[mydata.id] = markera;
+                                    $('#boucle').append(html);
                                 }
-
                             })
+                        } else {
+                            $(".mygrid").removeClass("grid-cols-5").removeClass("xl:grid-cols-5").removeClass(
+                                "grid-cols-3").removeClass("grid-cols-2").addClass("grid-cols-1").addClass(
+                                "lg:grid-cols-1").addClass("xl:grid-cols-1").removeClass("gap-5");
+                            let html =
+                                `<section id='themap' class='flex w-full pb-16 mx-auto border-b'><div id='map2' class='mx-2 mt-4 rounded h-[650px] w-screen'></div></section>`;
+                            $('#boucle').append(html);
+
+                            fetch(url)
+                                .then((resa) => resa.json())
+                                .then((outa) => {
+                                    const obja = JSON.parse(JSON.stringify(outa));
+                                    let thedata = obja;
+
+                                    amarkers = {};
+
+                                    let mymap2 = L.map('map2').setView([48.6890, 11.14086], 2);
+                                    theosmLayer = L.tileLayer(
+                                        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                                            maxZoom: 19,
+                                            apikey: 'choisirgeoportail',
+                                            format: 'image/jpeg',
+                                            style: 'normal'
+                                        }).addTo(mymap2);
+                                    mymap2.addLayer(theosmLayer);
+                                    mymap2.touchZoom.enable();
+                                    mymap2.scrollWheelZoom.disable();
+
+                                    let counter = 0;
+                                    for (let i = 0; i < thedata.length; i++) {
+                                        counter = counter + 1;
+                                        mydata = thedata[i];
+                                        mydatacat = mydata.category.toLowerCase();
+                                        //mydatacat to lower case
+                                        if (mydatacat == "masterplans") {
+                                            mypics = mydata.image;
+                                        } else {
+                                            mypics = mydata.imagea;
+                                        }
+                                        category = mydata.category.toLowerCase();
+                                        if (category == 'streetscapes') {
+                                            cat = 1;
+                                        } else if (category == 'masterplans') {
+                                            cat = 2;
+                                        } else if (category == 'urbanscapes') {
+                                            cat = 3;
+                                        }
+
+                                        mydataid = mydata.id;
+                                        mydatacity = mydata.city;
+                                        mydataname = mydata.title;
+                                        mydataposition = mydata.location;
+                                        var decimalStringa = [0, 0];
+                                        if (mydataposition != null) {
+                                            decimalStringa = mydataposition.split(',');
+                                        }
+                                        decimalStringa[0] = parseFloat(decimalStringa[0]).toFixed(6);
+                                        decimalStringa[1] = parseFloat(decimalStringa[1]).toFixed(6);
+
+                                        markera = L.marker([decimalStringa[0], decimalStringa[1]], {}).addTo(mymap2)
+                                            .bindPopup(
+                                                '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' +
+                                                mydataid + ',' + cat +
+                                                ')" class="mt-4" src="/storage/uploads/' + mydatacat + '/' +
+                                                mypics +
+                                                '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="mydatanom">' +
+                                                mydataname +
+                                                '</h1><h1 class="pb-4 mt-1 mb-2 text-xs text-gray-500" id="mydatacity">' +
+                                                mydatacity + '</h1></div></div>'
+                                            );
+                                        amarkers[mydata.id] = markera;
+                                    }
+
+                                })
+
+                        }
+
+                        if (currentPage == totalPages) {
+                            $('#load_more').hide();
+                        } else {
+                            $('#load_more').show();
+                        }
+
+                    })
+                    .finally(() => {
+                        $('.loader').hide();
+                    })
+            };
+
+            $('#clear_all').click(function() {
+                $('#city_selector').val('');
+                $('#country_selector').val('');
+                $('#status_selector').val('');
+                $('#size_selector').val('');
+                $('#tags_selector').val('');
+
+            });
+
+
+
+            $('#masterplans').click(function() {
+                //reset all selector to default values
+                $('#city_selector').val('');
+                $('#country_selector').val('');
+                $('#status_selector').val('');
+                $('#size_selector').val('');
+                $('#tags_selector').val('');
+                currentPage = 1;
+                resetLayout();
+                url = "/api/collection_data?category=masterplans&id=" + c_id;
+                currenturl = url;
+                $('#boucle').empty();
+                currentfilter = "masterplans";
+                category = "masterplans";
+
+                fetchAndRenderData(url);
+            });
+
+            $('#urbanscapes').click(function() {
+                $('#city_selector').val('');
+                $('#country_selector').val('');
+                $('#status_selector').val('');
+                $('#size_selector').val('');
+                $('#tags_selector').val('');
+                currentPage = 1;
+                resetLayout();
+                url = "/api/collection_data?category=urbanscapes&id=" + c_id;
+                currenturl = url;
+                $('#boucle').empty();
+                currentfilter = "urbanscapes";
+                category = "urbanscapes";
+
+                fetchAndRenderData(url);
+            });
+
+            $('#streetscapes').click(function() {
+                $('#city_selector').val('');
+                $('#country_selector').val('');
+                $('#status_selector').val('');
+                $('#size_selector').val('');
+                $('#tags_selector').val('');
+                currentPage = 1;
+                resetLayout_1();
+                url = "/api/collection_data?category=streetscapes&id=" + c_id;
+                currenturl = url;
+
+                $('#boucle').empty();
+                currentfilter = "streetscapes";
+                category = "streetscapes";
+                fetchAndRenderData(url);
+            });
+
+            $('#load_more').click(function() {
+
+                currentPage++;
+                if (currentPage > totalPages) {
+                    $('#load_more').hide();
+                } else {
+
+
+                    if (category == "masterplans") {
+
+                        master_c = master_c - 15;
+                        if (master_c > 15) {
+                            x = x + 15;
+                            $('#total_count').html("Showing " + x + " items");
+                        } else {
+                            $('#total_count').html("Showing " + (x + master_c) + " items");
+                        }
+                    }
+
+                    if (category == "urbanscapes") {
+                        urban_c = urban_c - 15;
+
+                        if (urban_c > 15) {
+                            y = y + 15;
+                            $('#total_count').html("Showing " + y + " items");
+                        } else {
+                            $('#total_count').html("Showing " + (y + urban_c) + " items");
+                        }
+                    }
+
+                    if (category == "streetscapes") {
+
+                        street_c = street_c - 15;
+
+                        if (street_c > 15) {
+                            z = z + 15;
+                            $('#total_count').html("Showing " + z + " items");
+                        } else {
+                            $('#total_count').html("Showing " + (z + street_c) + " items");
+                        }
 
                     }
 
-                    if (currentPage == totalPages) {
-                        $('#load_more').hide();
-                    } else {
-                        $('#load_more').show();
-                    }
 
+
+                    //   x = x+15;
+
+
+                }
+                fetchAndRenderData(url);
+
+            })
+
+            $('#tags_selector').change(function() {
+
+                currentPage = 1;
+
+                currentcategory = category;
+
+                url = "/api/collection_data?category=" + currentcategory + "&tags=" + $('#tags_selector')
+                    .val() + "&id=" + c_id;
+
+                currenturl = url;
+
+                $('#boucle').empty();
+                currentfilter = $('#tags_selector').val();
+                fetchAndRenderData(url);
+            });
+
+            $('#size_selector').change(function() {
+                currentPage = 1;
+                currentcategory = category;
+                url = "/api/collection_data?category=" + currentcategory + "&size=" + $('#size_selector')
+                    .val() + "&id=" + c_id;
+                currenturl = url;
+                $('#boucle').empty();
+                currentfilter = $('#size_selector').val();
+                fetchAndRenderData(url);
+            });
+
+            $('#status_selector').change(function() {
+                currentPage = 1;
+                currentcategory = category;
+                url = "/api/collection_data?category=" + currentcategory + "&status=" + $('#status_selector')
+                    .val() + "&id=" + c_id;
+                currenturl = url;
+                $('#boucle').empty();
+                currentfilter = $('#status_selector').val();
+                fetchAndRenderData(url);
+            });
+
+            $('#city_selector').change(function() {
+                currentPage = 1;
+                currentcategory = category;
+                url = "/api/collection_data?category=" + currentcategory + "&city=" + $('#city_selector')
+                    .val() + "&id=" + c_id;
+                currenturl = url;
+                $('#boucle').empty();
+                currentfilter = $('#city_selector').val();
+                fetchAndRenderData(url);
+            });
+
+            $('#country_selector').change(function() {
+                currentPage = 1;
+                currentcategory = category;
+                url = "/api/collection_data?category=" + currentcategory + "&country=" + $('#country_selector')
+                    .val() + "&id=" + c_id;
+                currenturl = url;
+                $('#boucle').empty();
+                currentfilter = $('#country_selector').val();
+                fetchAndRenderData(url);
+            });
+
+            $('#pop_selector').change(function() {
+                currentPage = 1;
+                currentcategory = category;
+                url = "/api/collection_data?category=" + currentcategory + "&pop=" + $('#pop_selector').val() +
+                    "&id=" + c_id;
+                currenturl = url;
+                $('#boucle').empty();
+                currentfilter = $('#pop_selector').val();
+                fetchAndRenderData(url);
+            });
+
+
+            $('#searchbar').keyup(function() {
+                currentPage = 1;
+                currentcategory = category;
+                resetLayout();
+                url = "/api/collection_data?cat=" + currentcategory + "&q=" + $('#searchbar').val() + "&id=" +
+                    c_id;
+                currenturl = url;
+                $('#boucle').empty();
+                currentfilter = $('#searchbar').val();
+                fetchAndRenderData(url);
+            });
+
+
+            layout = null;
+
+            function resetLayout() {
+
+                $(".mygrid").addClass("lg:grid-cols-5").addClass("xl:grid-cols-5").addClass("md:grid-cols-5").addClass(
+                        "grid-cols-1").addClass(
+                        "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
+                    .removeClass("lg:grid-cols-4")
+                    .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
+                layout = "xl";
+
+            }
+
+
+            function resetLayout_1() {
+
+                $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("md:grid-cols-5").addClass(
+                        "grid-cols-1").addClass(
+                        "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
+                    .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
+                layout = "xl";
+
+            }
+
+
+
+            $("#change-layout").click(function() {
+                view = "grid";
+                $("#themap").remove();
+                fetchAndRenderData(url);
+                $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").addClass(
+                        "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
+                    .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
+
+                layout = "xl";
+                console.log(layout);
+            });
+
+            $("#change-layout2").click(function() {
+                $("#themap").remove();
+                fetchAndRenderData(url);
+                $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3")
+                    .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1").addClass(
+                        "grid-cols-2").addClass("lg:grid-cols-2").addClass("xl:grid-cols-3").addClass("gap-5");
+
+                layout = "medium";
+                console.log(layout);
+            });
+
+
+
+            // $(".js-select2").select2({
+            //     closeOnSelect: false,
+            //     placeholder: "Click to select an option",
+            //     allowHtml: true,
+            //     templateSelection: formatOption,
+            // });
+
+            // $('.icons_select2').select2({
+            //     width: "100%",
+            //     templateSelection: iformat,
+            //     templateResult: iformat,
+            //     allowHtml: true,
+            //     placeholder: "Click to select an option",
+            //     dropdownParent: $('.select-icon'), //Ð¾Ð±Ð°Ð²Ð¸Ð»Ð¸ ÐºÐ»Ð°ÑÑ
+            //     allowClear: true,
+            //     multiple: false
+            // });
+
+            function removeCollection(id, type) {
+
+
+
+
+                $.ajax({
+                    url: '{{ route('remove.collection') }}',
+                    type: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        id: id,
+                        type: type
+                    },
+                    success: function(response) {
+
+                        if (response.status == 'yes') {
+                            notyf.success('Collection removed');
+                            window.location = "/collection/detail/" + c_id;
+
+                        } else {
+                            notyf.error('Something went wrong!');
+                        }
+
+                    }
                 })
-                .finally(() => {
-                    $('.loader').hide();
-                })
-        };
-
-        $('#clear_all').click(function() {
-            $('#city_selector').val('');
-            $('#country_selector').val('');
-            $('#status_selector').val('');
-            $('#size_selector').val('');
-            $('#tags_selector').val('');
-
-        });
-
-
-
-        $('#masterplans').click(function() {
-            //reset all selector to default values
-            $('#city_selector').val('');
-            $('#country_selector').val('');
-            $('#status_selector').val('');
-            $('#size_selector').val('');
-            $('#tags_selector').val('');
-            currentPage = 1;
-            resetLayout();
-            url = "/api/collection_data?category=masterplans&id=" + c_id;
-            currenturl = url;
-            $('#boucle').empty();
-            currentfilter = "masterplans";
-            category = "masterplans";
-
-            fetchAndRenderData(url);
-        });
-
-        $('#urbanscapes').click(function() {
-            $('#city_selector').val('');
-            $('#country_selector').val('');
-            $('#status_selector').val('');
-            $('#size_selector').val('');
-            $('#tags_selector').val('');
-            currentPage = 1;
-            resetLayout();
-            url = "/api/collection_data?category=urbanscapes&id=" + c_id;
-            currenturl = url;
-            $('#boucle').empty();
-            currentfilter = "urbanscapes";
-            category = "urbanscapes";
-
-            fetchAndRenderData(url);
-        });
-
-        $('#streetscapes').click(function() {
-            $('#city_selector').val('');
-            $('#country_selector').val('');
-            $('#status_selector').val('');
-            $('#size_selector').val('');
-            $('#tags_selector').val('');
-            currentPage = 1;
-            resetLayout();
-            url = "/api/collection_data?category=streetscapes&id=" + c_id;
-            currenturl = url;
-
-            $('#boucle').empty();
-            currentfilter = "streetscapes";
-            category = "streetscapes";
-            fetchAndRenderData(url);
-        });
-
-        $('#load_more').click(function() {
-
-            currentPage++;
-            if (currentPage > totalPages) {
-                $('#load_more').hide();
-            } else {
-
-
-                if (category == "masterplans") {
-
-                    master_c = master_c - 15;
-                    if (master_c > 15) {
-                        x = x + 15;
-                        $('#total_count').html("Showing " + x + " items");
-                    } else {
-                        $('#total_count').html("Showing " + (x + master_c) + " items");
-                    }
-                }
-
-                if (category == "urbanscapes") {
-                    urban_c = urban_c - 15;
-
-                    if (urban_c > 15) {
-                        y = y + 15;
-                        $('#total_count').html("Showing " + y + " items");
-                    } else {
-                        $('#total_count').html("Showing " + (y + urban_c) + " items");
-                    }
-                }
-
-                if (category == "streetscapes") {
-
-                    street_c = street_c - 15;
-
-                    if (street_c > 15) {
-                        z = z + 15;
-                        $('#total_count').html("Showing " + z + " items");
-                    } else {
-                        $('#total_count').html("Showing " + (z + street_c) + " items");
-                    }
-
-                }
-
-
-
-                //   x = x+15;
 
 
             }
-            fetchAndRenderData(url);
-
-        })
-
-        $('#tags_selector').change(function() {
-
-            currentPage = 1;
-
-            currentcategory = category;
-
-            url = "/api/collection_data?category=" + currentcategory + "&tags=" + $('#tags_selector')
-                .val() + "&id=" + c_id;
-
-            currenturl = url;
-
-            $('#boucle').empty();
-            currentfilter = $('#tags_selector').val();
-            fetchAndRenderData(url);
-        });
-
-        $('#size_selector').change(function() {
-            currentPage = 1;
-            currentcategory = category;
-            url = "/api/collection_data?category=" + currentcategory + "&size=" + $('#size_selector')
-                .val() + "&id=" + c_id;
-            currenturl = url;
-            $('#boucle').empty();
-            currentfilter = $('#size_selector').val();
-            fetchAndRenderData(url);
-        });
-
-        $('#status_selector').change(function() {
-            currentPage = 1;
-            currentcategory = category;
-            url = "/api/collection_data?category=" + currentcategory + "&status=" + $('#status_selector')
-                .val() + "&id=" + c_id;
-            currenturl = url;
-            $('#boucle').empty();
-            currentfilter = $('#status_selector').val();
-            fetchAndRenderData(url);
-        });
-
-        $('#city_selector').change(function() {
-            currentPage = 1;
-            currentcategory = category;
-            url = "/api/collection_data?category=" + currentcategory + "&city=" + $('#city_selector')
-                .val() + "&id=" + c_id;
-            currenturl = url;
-            $('#boucle').empty();
-            currentfilter = $('#city_selector').val();
-            fetchAndRenderData(url);
-        });
-
-        $('#country_selector').change(function() {
-            currentPage = 1;
-            currentcategory = category;
-            url = "/api/collection_data?category=" + currentcategory + "&country=" + $('#country_selector')
-                .val() + "&id=" + c_id;
-            currenturl = url;
-            $('#boucle').empty();
-            currentfilter = $('#country_selector').val();
-            fetchAndRenderData(url);
-        });
-
-        $('#pop_selector').change(function() {
-            currentPage = 1;
-            currentcategory = category;
-            url = "/api/collection_data?category=" + currentcategory + "&pop=" + $('#pop_selector').val() +
-                "&id=" + c_id;
-            currenturl = url;
-            $('#boucle').empty();
-            currentfilter = $('#pop_selector').val();
-            fetchAndRenderData(url);
-        });
-
-
-        $('#searchbar').keyup(function() {
-            currentPage = 1;
-            currentcategory = category;
-            resetLayout();
-            url = "/api/collection_data?cat=" + currentcategory + "&q=" + $('#searchbar').val() + "&id=" +
-                c_id;
-            currenturl = url;
-            $('#boucle').empty();
-            currentfilter = $('#searchbar').val();
-            fetchAndRenderData(url);
-        });
-
-
-        layout = null;
-
-        function resetLayout() {
-
-            $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").addClass(
-                    "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
-                .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
-            layout = "xl";
-
-        }
-
-
-
-        $("#change-layout").click(function() {
-            view = "grid";
-            $("#themap").remove();
-            fetchAndRenderData(url);
-            $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("grid-cols-3").addClass(
-                    "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
-                .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
-
-            layout = "xl";
-            console.log(layout);
-        });
-
-        $("#change-layout2").click(function() {
-            $("#themap").remove();
-            fetchAndRenderData(url);
-            $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3")
-                .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1").addClass(
-                    "grid-cols-2").addClass("lg:grid-cols-2").addClass("xl:grid-cols-3").addClass("gap-5");
-
-            layout = "medium";
-            console.log(layout);
-        });
-
-
-
-        // $(".js-select2").select2({
-        //     closeOnSelect: false,
-        //     placeholder: "Click to select an option",
-        //     allowHtml: true,
-        //     templateSelection: formatOption,
-        // });
-
-        // $('.icons_select2').select2({
-        //     width: "100%",
-        //     templateSelection: iformat,
-        //     templateResult: iformat,
-        //     allowHtml: true,
-        //     placeholder: "Click to select an option",
-        //     dropdownParent: $('.select-icon'), //Ð¾Ð±Ð°Ð²Ð¸Ð»Ð¸ ÐºÐ»Ð°ÑÑ
-        //     allowClear: true,
-        //     multiple: false
-        // });
-
-        function removeCollection(id, type) {
-
-
-
-
-            $.ajax({
-                url: '{{ route('remove.collection') }}',
-                type: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    id: id,
-                    type: type
-                },
-                success: function(response) {
-
-                    if (response.status == 'yes') {
-                        notyf.success('Collection removed');
-                        window.location = "/collection/detail/" + c_id;
-
-                    } else {
-                        notyf.error('Something went wrong!');
-                    }
-
-                }
-            })
-
-
-        }
 
 
 
 
 
-        const multiSelect = document.querySelector("#tags_selector");
-        const multiSelectInstance = te.Select.getInstance(multiSelect);
-        const multiSelect2 = document.querySelector("#size_selector");
-        const multiSelectInstance2 = te.Select.getInstance(multiSelect2);
+            const multiSelect = document.querySelector("#tags_selector");
+            const multiSelectInstance = te.Select.getInstance(multiSelect);
+            const multiSelect2 = document.querySelector("#size_selector");
+            const multiSelectInstance2 = te.Select.getInstance(multiSelect2);
 
 
 
 
-        function iformat(icon, badge, ) {
-            var originalOption = icon.element;
-            var originalOptionBadge = $(originalOption).data('badge');
+            function iformat(icon, badge, ) {
+                var originalOption = icon.element;
+                var originalOptionBadge = $(originalOption).data('badge');
 
-            return $('<span><i class="fa ' + $(originalOption).data('icon') + '"></i> ' + icon.text +
-                '<span class="badge">' + originalOptionBadge + '</span></span>');
-        }
+                return $('<span><i class="fa ' + $(originalOption).data('icon') + '"></i> ' + icon.text +
+                    '<span class="badge">' + originalOptionBadge + '</span></span>');
+            }
 
-        function formatOption(option) {
+            function formatOption(option) {
 
-            return $('<span>' + option.text + '</span>');
-        }
-
-
-
-        $("#change-layout3").click(function() {
-            view = "map";
-            $("#boucle").empty();
-            $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3")
-                .removeClass("grid-cols-2").addClass("grid-cols-1").addClass("lg:grid-cols-1").addClass(
-                    "xl:grid-cols-1").removeClass("gap-5");
-            $("#boucle").html(
-                "<section id='themap' class='flex w-full pb-16 mx-auto border-b'><div id='map2' class='mx-2 mt-4 rounded h-[650px] w-screen'></div></section>"
-            );
+                return $('<span>' + option.text + '</span>');
+            }
 
 
-            layout = "map";
 
-            fetch(url)
-                .then((resa) => resa.json())
-                .then((outa) => {
-                    const obja = JSON.parse(JSON.stringify(outa));
-                    let thedata = obja;
+            $("#change-layout3").click(function() {
+                view = "map";
+                $("#boucle").empty();
+                $(".mygrid").removeClass("lg:grid-cols-4").removeClass("xl:grid-cols-5").removeClass("grid-cols-3")
+                    .removeClass("grid-cols-2").addClass("grid-cols-1").addClass("lg:grid-cols-1").addClass(
+                        "xl:grid-cols-1").removeClass("gap-5");
+                $("#boucle").html(
+                    "<section id='themap' class='flex w-full pb-16 mx-auto border-b'><div id='map2' class='mx-2 mt-4 rounded h-[650px] w-screen'></div></section>"
+                );
 
-                    amarkers = {};
 
-                    let mymap2 = L.map('map2').setView([48.6890, 11.14086], 2);
-                    theosmLayer = L.tileLayer(
-                        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                            maxZoom: 19,
-                            apikey: 'choisirgeoportail',
-                            format: 'image/jpeg',
-                            style: 'normal'
-                        }).addTo(mymap2);
-                    mymap2.addLayer(theosmLayer);
-                    mymap2.touchZoom.enable();
-                    mymap2.scrollWheelZoom.disable();
-                    var legend = L.control({
-                        position: "topright"
-                    });
-                    legend.onAdd = function(mymap2) {
-                        var div = L.DomUtil.create("div", "legend bg-gray-200 p-2 border rounded");
-                        div.innerHTML +=
-                            '<span class="relative"><span class="inline-block ml-6 font-bold">Masterplans</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#4863DA] top-1/2"></span></span><br>';
-                        div.innerHTML +=
-                            '<span class="relative"><span class="inline-block ml-6 font-bold">Streetscapes</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#D95649] top-1/2"></span></span><br>';
-                        div.innerHTML +=
-                            '<span class="relative"><span class="inline-block ml-6 font-bold">Urbanscapes</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#63D74B] top-1/2"></span></span><br>';
-                        return div;
-                    };
-                    legend.addTo(mymap2);
-                    let counter = 0;
-                    for (let i = 0; i < thedata.length; i++) {
-                        counter = counter + 1;
-                        mydata = thedata[i];
-                        mydatacat = mydata.category.toLowerCase();
-                        //mydatacat to lower case
-                        if (mydatacat == "masterplans") {
-                            mypics = mydata.image;
-                        } else {
-                            mypics = mydata.imagea;
+                layout = "map";
+
+                fetch(url)
+                    .then((resa) => resa.json())
+                    .then((outa) => {
+                        const obja = JSON.parse(JSON.stringify(outa));
+                        let thedata = obja;
+
+                        amarkers = {};
+
+                        let mymap2 = L.map('map2').setView([48.6890, 11.14086], 2);
+                        theosmLayer = L.tileLayer(
+                            'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                                maxZoom: 19,
+                                apikey: 'choisirgeoportail',
+                                format: 'image/jpeg',
+                                style: 'normal'
+                            }).addTo(mymap2);
+                        mymap2.addLayer(theosmLayer);
+                        mymap2.touchZoom.enable();
+                        mymap2.scrollWheelZoom.disable();
+                        var legend = L.control({
+                            position: "topright"
+                        });
+                        legend.onAdd = function(mymap2) {
+                            var div = L.DomUtil.create("div", "legend bg-gray-200 p-2 border rounded");
+                            div.innerHTML +=
+                                '<span class="relative"><span class="inline-block ml-6 font-bold">Masterplans</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#4863DA] top-1/2"></span></span><br>';
+                            div.innerHTML +=
+                                '<span class="relative"><span class="inline-block ml-6 font-bold">Streetscapes</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#D95649] top-1/2"></span></span><br>';
+                            div.innerHTML +=
+                                '<span class="relative"><span class="inline-block ml-6 font-bold">Urbanscapes</span><span class="absolute left-0 block w-4 h-4 transform -translate-y-1/2 bg-[#63D74B] top-1/2"></span></span><br>';
+                            return div;
+                        };
+                        legend.addTo(mymap2);
+                        let counter = 0;
+                        for (let i = 0; i < thedata.length; i++) {
+                            counter = counter + 1;
+                            mydata = thedata[i];
+                            mydatacat = mydata.category.toLowerCase();
+                            //mydatacat to lower case
+                            if (mydatacat == "masterplans") {
+                                mypics = mydata.image;
+                            } else {
+                                mypics = mydata.imagea;
+                            }
+                            category = mydata.category.toLowerCase();
+                            if (category == 'streetscapes') {
+                                cat = 1;
+                                icon = L.icon({
+                                    iconUrl: '/img/markers.png',
+                                    iconSize: [40, 40],
+                                    iconAnchor: [20, 40],
+                                    popupAnchor: [0, -40]
+                                });
+                            } else if (category == 'masterplans') {
+                                cat = 2;
+                                icon = L.icon({
+                                    iconUrl: '/img/markerm.png',
+                                    iconSize: [40, 40],
+                                    iconAnchor: [20, 40],
+                                    popupAnchor: [0, -40]
+                                });
+                            } else if (category == 'urbanscapes') {
+                                cat = 3;
+                                icon = L.icon({
+                                    iconUrl: '/img/markeru.png',
+                                    iconSize: [40, 40],
+                                    iconAnchor: [20, 40],
+                                    popupAnchor: [0, -40]
+                                });
+                            }
+
+                            mydataid = mydata.id;
+                            mydatacity = mydata.city;
+                            mydataname = mydata.title;
+                            mydataposition = mydata.location;
+                            var decimalStringa = [0, 0];
+                            if (mydataposition != null) {
+                                decimalStringa = mydataposition.split(',');
+                            }
+                            decimalStringa[0] = parseFloat(decimalStringa[0]).toFixed(6);
+                            decimalStringa[1] = parseFloat(decimalStringa[1]).toFixed(6);
+
+                            markera = L.marker([decimalStringa[0], decimalStringa[1]], {
+                                icon: icon
+                            }).addTo(mymap2).bindPopup(
+                                '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' +
+                                mydataid + ',' + cat +
+                                ')" class="mt-4" src="/storage/uploads/' + mydatacat + '/' + mypics +
+                                '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="mydatanom">' +
+                                mydataname +
+                                '</h1><h1 class="pb-4 mt-1 mb-2 text-xs text-gray-500" id="mydatacity">' +
+                                mydatacity + '</h1></div></div>'
+                            );
+                            amarkers[mydata.id] = markera;
                         }
-                        category = mydata.category.toLowerCase();
-                        if (category == 'streetscapes') {
-                            cat = 1;
-                            icon = L.icon({
-                                iconUrl: '/img/markers.png',
-                                iconSize: [40, 40],
-                                iconAnchor: [20, 40],
-                                popupAnchor: [0, -40]
-                            });
-                        } else if (category == 'masterplans') {
-                            cat = 2;
-                            icon = L.icon({
-                                iconUrl: '/img/markerm.png',
-                                iconSize: [40, 40],
-                                iconAnchor: [20, 40],
-                                popupAnchor: [0, -40]
-                            });
-                        } else if (category == 'urbanscapes') {
-                            cat = 3;
-                            icon = L.icon({
-                                iconUrl: '/img/markeru.png',
-                                iconSize: [40, 40],
-                                iconAnchor: [20, 40],
-                                popupAnchor: [0, -40]
-                            });
-                        }
-
-                        mydataid = mydata.id;
-                        mydatacity = mydata.city;
-                        mydataname = mydata.title;
-                        mydataposition = mydata.location;
-                        var decimalStringa = [0, 0];
-                        if (mydataposition != null) {
-                            decimalStringa = mydataposition.split(',');
-                        }
-                        decimalStringa[0] = parseFloat(decimalStringa[0]).toFixed(6);
-                        decimalStringa[1] = parseFloat(decimalStringa[1]).toFixed(6);
-
-                        markera = L.marker([decimalStringa[0], decimalStringa[1]], {
-                            icon: icon
-                        }).addTo(mymap2).bindPopup(
-                            '<div class="relative flex flex-col mappopup"><img onclick="myfunction(' +
-                            mydataid + ',' + cat +
-                            ')" class="mt-4" src="/storage/uploads/' + mydatacat + '/' + mypics +
-                            '" /><div class="flex justify-between"><h1 class="mt-1 mb-2 font-bold clamp" id="mydatanom">' +
-                            mydataname +
-                            '</h1><h1 class="pb-4 mt-1 mb-2 text-xs text-gray-500" id="mydatacity">' +
-                            mydatacity + '</h1></div></div>'
-                        );
-                        amarkers[mydata.id] = markera;
-                    }
-                })
-        });
-    </script>
-    <script defer src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
-    <script>
-        var $juxtapose = $('.juxtapose');
-
-        $juxtapose.each(function(index, element) {
-            var $juxtaposeContainer = $juxtapose.parent();
-            var juxtaposeRatio;
-
-            $(window).on('load', function(event) {
-                juxtaposeRatio = $(element).outerHeight() / $(element).outerWidth();
+                    })
             });
+        </script>
+        <script defer src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+        <script>
+            var $juxtapose = $('.juxtapose');
 
-            $(window).on('resize', function(event) {
-                var newWidth = $juxtaposeContainer.outerWidth();
-                var newHeight = newWidth * juxtaposeRatio;
-                $(element).css({
-                    width: newWidth,
-                    height: newHeight
+            $juxtapose.each(function(index, element) {
+                var $juxtaposeContainer = $juxtapose.parent();
+                var juxtaposeRatio;
+
+                $(window).on('load', function(event) {
+                    juxtaposeRatio = $(element).outerHeight() / $(element).outerWidth();
                 });
+
+                $(window).on('resize', function(event) {
+                    var newWidth = $juxtaposeContainer.outerWidth();
+                    var newHeight = newWidth * juxtaposeRatio;
+                    $(element).css({
+                        width: newWidth,
+                        height: newHeight
+                    });
+                });
+
             });
-
-        });
-    </script>
-@endpush
+        </script>
+    @endpush
 
 
-<style>
-    .clamp {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+    <style>
+        .clamp {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
 
-    }
-</style>
+        }
+    </style>

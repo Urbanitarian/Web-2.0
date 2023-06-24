@@ -1,16 +1,15 @@
 @extends('layouts.app')
 
 @section('main')
-    <div class="mx-[46px]">
+    <div class="md:mx-[46px] mx-[32px]">
         <div data-barba="container" class="bg-gradient-to-r from-white to-gray-100 ">
-            <div class="bg-contain bg-no-repeat	h-[540px]"
-                style="background-position: right; background-image: url('{{ asset('img/how-it-works/masterplans.png') }}')">
-                <h1 class="text-gray-800 py-4 font-bold line-clamp-3 text-5xl pt-[30px] leading-[140%]">
+            <div class="bg-contain bg-no-repeat bgimg bg-none	h-[540px]" style="">
+                <h1 class="text-gray-800 py-4 font-bold  md:text-5xl text-2xl pt-[30px] leading-[140%]">
                     Find practical urban design inspiration<br> from real projects that solve real<br> urban design
                     problems.
                 </h1>
                 <div class="flex flex-col gap-6">
-                    <span class="text-gray-700 text-xl font-semibold leading-[150%]">
+                    <span class="text-gray-700 md:text-xl text-md font-semibold leading-[150%]">
                         Save hours of research with our 500+ <br>
                         fully searchable urban design resources
 
@@ -20,7 +19,7 @@
                     </span>
                 </div>
 
-                <div class="flex pt-12 gap-1">
+                <div class="flex flex-wrap pt-12 gap-1">
                     <img src="{{ asset('img/how-it-works/FWF_Logo 1.png') }}" class="h-[46px] w-[167px]" alt="">
                     <img src="{{ asset('img/how-it-works/logo-lang-de 1.png') }}" class="h-[46px] w-[109px]" alt="">
                     <img src="{{ asset('img/how-it-works/IaaC 1.png') }}" class="h-[46px] w-[94px]" alt="">
@@ -38,25 +37,25 @@
         <section
             class="bg-gray-800 z-10 -mt-6  py-20 flex flex-col text-white justify-center items-center gap-8 rounded-3xl">
 
-            <h2 class="text-5xl font-bold text-center">
+            <h2 class="lg:text-5xl md:text-3xl text-xl font-bold text-center">
                 Urbanitarian is the world's largest urban design reference library.
             </h2>
 
-            <div class="flex pt-6 justify-center space-x-56 items-center">
+            <div class="flex md:flex-row flex-col pt-6 justify-center space-x-56 items-center">
                 <div class="flex flex-col justify-center items-center">
-                    <span class="text-7xl font-bold">500+</span>
+                    <span class="lg:text-7xl md:text-4xl text-2xl font-bold">500+</span>
                     <span class="text-gray-300 text-2xl font-semibold">
                         Masterplans
                     </span>
                 </div>
                 <div class="flex flex-col justify-center items-center">
-                    <span class="text-7xl font-bold">100+</span>
+                    <span class="lg:text-7xl md:text-4xl text-2xl font-bold">100+</span>
                     <span class="text-gray-300 text-2xl font-semibold">
                         Streetscapes
                     </span>
                 </div>
                 <div class="flex flex-col justify-center items-center">
-                    <span class="text-7xl font-bold">500+</span>
+                    <span class="lg:text-7xl md:text-4xl text-2xl font-bold">500+</span>
                     <span class="text-gray-300 text-2xl font-semibold">
                         Urbanscapes
                     </span>
@@ -93,7 +92,7 @@
                 </p>
 
                 <div class="pt-8">
-                    <img src="{{ asset('img/how-it-works/image 1.png') }}" class="pt-6 px-5"
+                    <img src="{{ asset('img/how-it-works/Screen Wrap.png') }}" class="pt-6 w-[150vh] px-5"
                         style="background: #000000;
                 border-radius: 22px 22px 0px 0px;" alt="">
                 </div>
@@ -125,9 +124,9 @@
                         </span>
 
                     </div>
-                    <div class="flex w-[600px]">
+                    <div class="flex float-right w-[600px]">
                         <img src="{{ asset('img/how-it-works/imagen 1.png') }}" class="pt-12 pl-16 ab" alt="">
-                        <img src="{{ asset('img/how-it-works/imagen 2.png') }}" class="z-10 -ml-[295px]" alt="">
+                        <img src="{{ asset('img/how-it-works/imagen 2.png') }}" class="z-10 md:-ml-[295px]" alt="">
                     </div>
 
                 </div>
@@ -135,9 +134,10 @@
         </section>
 
         <section class="pt-12">
-            <div class="flex gap-8">
-                <div class="">
-                    <img src="{{ asset('img/how-it-works/Group 618.png') }}" class="rounded-t-3xl" alt="">
+            <div class="flex justify-center items-center gap-8">
+                <div class=" max-w-[640px]">
+                    <img src="{{ asset('img/how-it-works/Group 618.png') }}" class="rounded-t-3xl w-[100vh] "
+                        alt="">
                     <div class="bg-gray-100 w-[640px] rounded-b-3xl py-6 px-12 ">
                         <h3 class="text-start leading-[140%] text-2xl font-bold text-gray-700">
                             Learn how to redefine streets with our<br> Streetscapes curated collection.
@@ -148,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="">
+                <div class=" max-w-[640px]">
 
                     <div class="bg-gray-100 w-[640px] rounded-t-3xl py-6 px-12 ">
                         <h3 class="text-start leading-[140%] text-2xl font-bold text-gray-700">
@@ -158,7 +158,8 @@
                             Take a deep-dive into some of the finest urban developments through our insightful articles.
                         </div>
                     </div>
-                    <img src="{{ asset('img/how-it-works/masterplans1.png') }}" class="rounded-b-3xl" alt="">
+                    <img src="{{ asset('img/how-it-works/masterplans1.png') }}" class="rounded-b-3xl w-[100vh]"
+                        alt="">
                 </div>
             </div>
 
@@ -212,4 +213,19 @@
 
         </section>
     </div>
+
+    <style>
+        .bgimg {
+            background-position: right;
+            background-image: url('img/how-it-works/masterplans.png');
+        }
+
+        @media (max-width: 1300px) {
+
+            .bgimg {
+                background-image: none;
+            }
+
+        }
+    </style>
 @endsection
