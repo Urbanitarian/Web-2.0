@@ -145,7 +145,7 @@
                             href="#resources">&nbsp;Resources</a>
                     </div>
                 </div>
-                <div class="cursor-pointer hidden md:block" @click="sideBar=!sideBar">
+                <div class="cursor-pointer hidden lg:block" @click="sideBar=!sideBar">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -163,7 +163,7 @@
             <section id="masterplan">
                 <div class="relative">
 
-                    <div class="grid grid-cols-1 md:grid-cols-12 border-t ">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 border-t ">
                         <div class="col-span-9" x-bind:class="{ 'col-span-12': !sideBar, 'col-span-9': sideBar }"
                             style="background: url({{ asset('img/Graphy.png') }}) repeat; background-size:cover;">
                             <div class="relative flex items-center justify-center w-full py-10">
@@ -222,7 +222,7 @@
                             </div>
 
                         </div>
-                        <div class="col-span-3 px-2 py-4 mx-2 bg-white border-b" x-show="sideBar==true">
+                        <div class="col-span-3 lg:px-2 px-8 py-4 mx-2 bg-white border-b" x-show="sideBar==true">
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-semibold text-gray-600">
                                     Details
@@ -426,7 +426,7 @@
                         @endphp
 
                         <ul
-                            class="flex flex-col text-gray-800 md:w-[915px] flex-wrap justify-center items-start text-base list-disc">
+                            class="flex flex-col text-gray-800 lg:w-[915px] flex-wrap justify-center items-start text-base list-disc">
                             {!! $des !!}
                         </ul>
 
@@ -664,7 +664,7 @@
                 <div class="w-full py-8">
                     <div class="flex items-center justify-start">
                         @php $credits = explode(',', $item->credits); @endphp
-                        <ul class="flex flex-col gap-2 text-base list-disc md:px-60 px-8  flex-wrap">
+                        <ul class="flex flex-col gap-2 text-base list-disc lg:px-60 md:px-20 px-8  flex-wrap">
                             @foreach ($credits as $source)
                                 <li class="py-2">
                                     <div class="flex gap-2">
@@ -702,6 +702,18 @@
                     centeredSlides: true,
                     breakpoints: {
                         640: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 0,
+                        },
+                        1024: {
+                            slidesPerView: 4,
+                            spaceBetween: 0,
+                        },
+                        1440: {
                             slidesPerView: 5,
                             spaceBetween: 0,
                         },

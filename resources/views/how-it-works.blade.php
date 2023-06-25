@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('main')
-    <div class="md:mx-[46px] mx-[32px]">
-        <div data-barba="container" class="bg-gradient-to-r from-white to-gray-100 ">
-            <div class="bg-contain bg-no-repeat bgimg bg-none	h-[540px]" style="">
-                <h1 class="text-gray-800 py-4 font-bold  md:text-5xl text-2xl pt-[30px] leading-[140%]">
+    <div class="md:mx-[46px] mx-[10px]">
+        <div data-barba="container" class="bg-gradient-to-r from-white to-gray-100">
+            <div class="bg-contain bg-no-repeat bgimg h-[540px]" style="">
+                <h1 class="text-gray-800 md:py-8 py-4 font-bold  md:text-5xl text-2xl pt-[30px] leading-[140%]">
                     Find practical urban design inspiration<br> from real projects that solve real<br> urban design
                     problems.
                 </h1>
@@ -19,7 +19,7 @@
                     </span>
                 </div>
 
-                <div class="flex flex-wrap pt-12 gap-1">
+                <div class="flex flex-wrap md:pt-16 pt-8 gap-1">
                     <img src="{{ asset('img/how-it-works/FWF_Logo 1.png') }}" class="h-[46px] w-[167px]" alt="">
                     <img src="{{ asset('img/how-it-works/logo-lang-de 1.png') }}" class="h-[46px] w-[109px]" alt="">
                     <img src="{{ asset('img/how-it-works/IaaC 1.png') }}" class="h-[46px] w-[94px]" alt="">
@@ -35,14 +35,14 @@
         </div>
 
         <section
-            class="bg-gray-800 z-10 -mt-6  py-20 flex flex-col text-white justify-center items-center gap-8 rounded-3xl">
+            class="bg-gray-800 z-10 -mt-6  md:py-20 py-6 flex flex-col text-white justify-center items-center gap-8 rounded-3xl">
 
             <h2 class="lg:text-5xl md:text-3xl text-xl font-bold text-center">
                 Urbanitarian is the world's largest urban design reference library.
             </h2>
 
-            <div class="flex md:flex-row flex-col pt-6 justify-center space-x-56 items-center">
-                <div class="flex flex-col justify-center items-center">
+            <div class="flex md:flex-row flex-col pt-6 justify-center md:space-x-56 space-x-0 gap-4 items-center">
+                <div class="flex md:flex-row flex-col justify-center items-center">
                     <span class="lg:text-7xl md:text-4xl text-2xl font-bold">500+</span>
                     <span class="text-gray-300 text-2xl font-semibold">
                         Masterplans
@@ -63,11 +63,11 @@
 
             </div>
 
-            <span class="text-4xl font-bold pt-6">
+            <span class="lg:text-4xl md:text-2xl text-lg mx-4 font-bold pt-6">
                 An ever-growing library, curated by experts.
             </span>
 
-            <p class="text-xl font-normal pt-6 text-center text-gray-300">
+            <p class="lg:text-xl md:text-lg text-base font-normal pt-6 text-center text-gray-300">
                 New Masterplans, Streetscapes and Urbanscapes are added to Urbanitarian<br> every week, and there's always
                 something new to check out.<br>
                 You will find the references you need, save time and get inspired.
@@ -76,11 +76,11 @@
         </section>
 
         <section class="pt-6">
-            <h1 class="text-gray-800 text-center py-6 font-bold text-5xl  leading-[140%]">
+            <h1 class="text-gray-800 text-center md:py-6 py-2 font-bold lg:text-5xl  md:text-2xl text-xl  leading-[140%]">
                 Solve specific urban design challenges
             </h1>
-            <div class="bg-gray-100 rounded-3xl pt-[70px] flex flex-col justify-center items-center">
-                <span class="text-4xl font-bold text-center text-gray-700 leading-[140%]">
+            <div class="bg-gray-100 rounded-3xl md:pt-[70px] pt-[30px] flex flex-col justify-center items-center">
+                <span class="lg:text-4xl md:text-2xl text-xl font-bold text-center text-gray-700 leading-[140%]">
                     Find your reference project<br>
                     with our rich search experience.
                 </span>
@@ -102,13 +102,15 @@
         </section>
 
         <section class="pt-12">
-            <div class="bg-gray-800 px-12  pt-20 flex flex-col text-white justify-start items-start gap-8 rounded-3xl">
-                <span class="text-4xl font-bold">
+            <div
+                class="bg-gray-800 md:px-12 px-6  md:pt-20 pt-10 flex flex-col text-white justify-start items-start gap-8 rounded-3xl">
+                <span class="lg:text-4xl md:text-2xl text-xl font-bold">
                     Compare by scales & data,<br>
                     deep-dive, read or measure.
                 </span>
-                <div class="flex justify-between">
-                    <div class="pt-6 flex flex-col gap-6 text-xl font-normal text-gray-300">
+                <div class="flex md:flex-row flex-col justify-between">
+                    <div
+                        class="md:pt-6 pt-2  pb-4 md:pb-0 flex flex-col md:gap-6 gap-3 md:text-xl text-base font-normal text-gray-300">
                         <span>
                             Filter 500 Masterplans by specific<br> categories such as tags sizes, status<br> and
                             location.<br></span>
@@ -124,9 +126,10 @@
                         </span>
 
                     </div>
-                    <div class="flex float-right w-[600px]">
+                    <div class="md:flex hidden float-right w-[600px]">
                         <img src="{{ asset('img/how-it-works/imagen 1.png') }}" class="pt-12 pl-16 ab" alt="">
-                        <img src="{{ asset('img/how-it-works/imagen 2.png') }}" class="z-10 md:-ml-[295px]" alt="">
+                        <img src="{{ asset('img/how-it-works/imagen 2.png') }}" class="z-10 md:-ml-[295px] -ml-[100]"
+                            alt="">
                     </div>
 
                 </div>
@@ -134,31 +137,31 @@
         </section>
 
         <section class="pt-12">
-            <div class="flex justify-center items-center gap-8">
-                <div class=" max-w-[640px]">
+            <div class="flex md:flex-row flex-col justify-center items-center gap-8">
+                <div class=" md:max-w-[640px] max-w-[300px]">
                     <img src="{{ asset('img/how-it-works/Group 618.png') }}" class="rounded-t-3xl w-[100vh] "
                         alt="">
-                    <div class="bg-gray-100 w-[640px] rounded-b-3xl py-6 px-12 ">
-                        <h3 class="text-start leading-[140%] text-2xl font-bold text-gray-700">
+                    <div class="bg-gray-100 md:w-[640px] w-[300px] rounded-b-3xl py-6 md:px-12 px-6 ">
+                        <h3 class="text-start leading-[140%] md:text-2xl text-xl font-bold text-gray-700">
                             Learn how to redefine streets with our<br> Streetscapes curated collection.
                         </h3>
-                        <div class="text-base font-normal text-justify text-gray-500 pt-6">
+                        <div class="md:text-base font-normal text-sm text-start md:text-justify text-gray-500 pt-6">
                             Our examples of Streetscapes are meticulously analized and explained by us with descriptions,
                             measures and solutions to incorporate in your designs.
                         </div>
                     </div>
                 </div>
-                <div class=" max-w-[640px]">
+                <div class="md:max-w-[640px] max-w-[300px]">
 
-                    <div class="bg-gray-100 w-[640px] rounded-t-3xl py-6 px-12 ">
-                        <h3 class="text-start leading-[140%] text-2xl font-bold text-gray-700">
+                    <div class="bg-gray-100 md:w-[640px] w-[300px] rounded-t-3xl py-6 px-12 ">
+                        <h3 class="text-start leading-[140%] md:text-2xl text-xl  font-bold text-gray-700">
                             Design the Future of Urban Living with our <br> ultimate resource for Urbanscapes.
                         </h3>
-                        <div class="text-base font-normal text-justify text-gray-500 py-6">
+                        <div class="md:text-basefont-normal text-sm text-start md:text-justify text-gray-500 py-6">
                             Take a deep-dive into some of the finest urban developments through our insightful articles.
                         </div>
                     </div>
-                    <img src="{{ asset('img/how-it-works/masterplans1.png') }}" class="rounded-b-3xl w-[100vh]"
+                    <img src="{{ asset('img/how-it-works/masterplans1.png') }}" class="rounded-b-3xl md:w-[100vh]"
                         alt="">
                 </div>
             </div>
@@ -167,14 +170,15 @@
 
         <section class="pt-6 pb-16">
 
-            <h1 class="text-gray-800 text-center py-6 font-bold line-clamp-3 text-5xl  leading-[140%]">
+            <h1 class="text-gray-800 text-center py-6 font-bold line-clamp-3  md:text-2xl text-xl  leading-[140%]">
                 Save references that inspire you
             </h1>
 
             <div class="bg-gray-100 pt-[60px] rounded-3xl">
                 <div class="flex justify-between">
                     <div class="">
-                        <ul class="text-3xl pl-24 w-[500px]  font-bold list-disc text-gray-700 leading-[150%]">
+                        <ul
+                            class="lg:text-3xl md:text-2xl text-xl pl-12  md:pl-24 md:w-[500px] w-[300px] font-bold list-disc text-gray-700 leading-[150%]">
                             <li>
                                 Copy
                                 Collect, Organize, and Create Your Ultimate Project Inspiration Lists</li>
@@ -185,14 +189,14 @@
                             </li>
                         </ul>
 
-                        <p class="text-base text-start pt-6 text-gray-500 pl-12">
+                        <p class="text-base text-start pt-6 pb-4 md:pb-0 text-gray-500 pl-12">
                             Create collections and bookmark your favorite Masterplans,<br> Streetscapes and Urbanscapes.
                             Share the collections with<br> your team for collaboration.
                         </p>
 
                     </div>
 
-                    <div class="pb-16">
+                    <div class="pb-16 md:block hidden">
                         <div class="pl-[180px]">
                             <img src="{{ asset('img/how-it-works/image 3.png') }}" class="w-[550px] pt-6 pl-5"
                                 style="background: #000000;

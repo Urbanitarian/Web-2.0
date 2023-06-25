@@ -139,7 +139,7 @@
                             href="#resources" @click="active = ec">&nbsp;Resources</a>
                     </div>
                 </div>
-                <div class="md:block hidden" @click="sideBar=!sideBar">
+                <div class="lg:block hidden" @click="sideBar=!sideBar">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -158,11 +158,12 @@
                 <div class="relative">
 
 
-                    <div class="grid grid-cols-1 md:grid-cols-12 border-t ">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 border-t ">
                         <div class="col-span-9" x-bind:class="{ 'col-span-12': !sideBar, 'col-span-9': sideBar }"
                             style="background: url({{ asset('img/Graphy.png') }}) repeat; background-size:cover;">
                             <div class="relative flex items-center justify-center w-full py-10">
-                                <div class="absolute left-0 flex flex-col ml-4 bg-white border rounded cursor-pointer">
+                                <div
+                                    class="absolute  hidden left-0 lg:flex flex-col ml-4 bg-white border rounded cursor-pointer">
                                     <div class="p-2 border-b" onclick="zoomIn()">
                                         {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="#667080" class="w-6 h-6">
@@ -217,7 +218,7 @@
                             </div>
 
                         </div>
-                        <div class="col-span-3 px-2 py-4 mx-2 bg-white border-b" x-show="sideBar==true">
+                        <div class="col-span-3 lg:px-2 px-4 py-4 mx-2 bg-white border-b" x-show="sideBar==true">
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-semibold text-gray-600">
                                     Details
@@ -313,13 +314,13 @@
                     <div class="text-2xl font-semibold text-gray-800">
                         Description
                     </div>
-                    <div class="flex items-center flex-wrap z-10 md:w-[915px] justify-center px-8 py-8">
+                    <div class="flex items-center flex-wrap z-10 lg:w-[915px] w-[800px] justify-center px-8 py-8">
 
                         <p class="flex flex-col items-start justify-center text-base text-gray-800 ">
                             {!! $item->descriptiona !!}
                         </p>
 
-                        <img id="img" class="object-cover py-4 z-50 w-[914px] max-h-[685]px] saturate-120"
+                        <img id="img" class="object-cover py-4 z-50 lg:w-[914px] w-[750px] saturate-120"
                             src="{{ asset('storage/uploads/urbanscapes/' . $item->imagea) }}"alt=""
                             onerror="this.src='./img/empty.png'" />
 
@@ -596,12 +597,24 @@
             <section class="bg-gray-100 border-t">
                 <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper($refs.container, {
                     loop: true,
-                    slidesPerView: 1,
+                    slidesPerView: 5,
                     spaceBetween: 0,
                     centeredSlides: true,
                     breakpoints: {
                         640: {
+                            slidesPerView: 3,
+                            spaceBetween: 0,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 0,
+                        },
+                        1024: {
                             slidesPerView: 4,
+                            spaceBetween: 0,
+                        },
+                        1440: {
+                            slidesPerView: 5,
                             spaceBetween: 0,
                         },
                 

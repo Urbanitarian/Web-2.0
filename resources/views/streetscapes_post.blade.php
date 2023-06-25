@@ -147,7 +147,7 @@
                             href="#resources" @click="active = ec">&nbsp;Resources</a>
                     </div>
                 </div>
-                <div class="md:block hidden" @click="sideBar=!sideBar">
+                <div class="lg:block hidden" @click="sideBar=!sideBar">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -166,7 +166,7 @@
             <section id="streetscaps">
                 <div class="relative">
 
-                    <div class="grid lg:grid-cols-12 sm:grid-cols-1 border-t ">
+                    <div class="grid lg:grid-cols-12 grid-cols-1 border-t ">
                         <div class="col-span-9" x-bind:class="{ 'col-span-12': !sideBar, 'col-span-9': sideBar }"
                             style="background: url({{ asset('img/Graphy.png') }}) repeat; background-size:cover;">
                             <div class="relative flex items-center justify-center w-full py-10">
@@ -190,7 +190,7 @@
                             </div>
 
                         </div>
-                        <div class="col-span-3 px-2 py-4 mx-2 bg-white border-b" x-show="sideBar==true">
+                        <div class="col-span-3 lg:px-2 px-8 py-4 mx-2 bg-white border-b" x-show="sideBar==true">
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-semibold text-gray-600">
                                     Details
@@ -568,7 +568,7 @@
                 <div class="w-full py-8">
                     <div class="flex items-center justify-start">
                         @php $credits = explode(',', $item->credits); @endphp
-                        <ul class="flex flex-col gap-2 text-base list-disc md:px-60 px-8  flex-wrap">
+                        <ul class="flex flex-col gap-2 text-base list-disc  lg:px-60 md:px-20 px-8  flex-wrap">
                             @foreach ($credits as $source)
                                 <li class="py-2">
                                     <div class="flex gap-2">
@@ -607,7 +607,19 @@
                     allowTouchMove: false,
                     breakpoints: {
                         640: {
-                            slidesPerView: 3,
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 0,
+                        },
+                        1024: {
+                            slidesPerView: 2,
+                            spaceBetween: 0,
+                        },
+                        1440: {
+                            slidesPerView: 2,
                             spaceBetween: 0,
                         },
                 
@@ -643,10 +655,10 @@
                                             <div class="juxtapose streetscapesJuxtapose w-full">
                                                 <img alt="Art"
                                                     src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $street->imagea) }}"alt=""
-                                                    class="object-cover saturate-120  md:h-[480px] h-[700px] w-full" />
+                                                    class="object-cover saturate-120  lg:h-[480px] h-[250px] w-full" />
                                                 <img alt="Art"
                                                     src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $street->imageb) }}"alt=""
-                                                    class="object-cover saturate-120  md:h-[480px] h-[700px] w-full" />
+                                                    class="object-cover saturate-120  lg:h-[480px] h-[250px] w-full" />
                                             </div>
 
                                             <div
@@ -781,7 +793,7 @@
 
 
 
-        @media(max-width: 786px) {
+        @media(min-width: 786px) {
             .swiper-st {
                 width: 400px;
             }
@@ -789,6 +801,17 @@
             .street-w {
                 width: 380px
             }
+        }
+
+        @media(max-width: 820) {
+            .swiper-st {
+                width: 500px;
+            }
+
+            .street-w {
+                width: 480px
+            }
+
 
 
         }
