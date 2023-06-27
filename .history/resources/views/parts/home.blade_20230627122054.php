@@ -46,7 +46,7 @@
                                         Get inspired and solve specific urban design challenges
                                     </h2>
                                     <p
-                                        class="md:text-xl font-semibold mt-6 sm:text-base text-gray-700 leading-[1.5] lg:w-[587px] md:w-[350px] sm:full xs:full">
+                                        class="md:text-xl font-semibold mt-6 sm:text-base text-gray-700 leading-[1.5]  lg:w-[484px] md:w-[350px] sm:w-[200] xs:w-[200px]">
                                         Save hours of research with our library of 500+ fully searchable urban design
                                         resources
                                     </p>
@@ -83,7 +83,7 @@
                                         Explore the database
                                     </h2>
                                     <p
-                                        class="md:text-xl font-semibold mt-6 sm:text-base text-gray-700 leading-[1.5] lg:w-[587px] md:w-[350px] sm:full xs:full">
+                                        class="md:text-xl font-semibold mt-6 sm:text-base text-gray-700 leading-[1.5] lg:w-[454px] md:w-[350px] sm:w-[200] xs:w-[200px]">
                                         Create collections and bookmark your favorite
                                         Masterplans, Streetscapes and Urbanscapes.
                                         Share it with your team for collaboration.
@@ -121,7 +121,7 @@
                                         Take a deep-dive & learn compare, measure and collect
                                     </h2>
                                     <p
-                                        class="md:text-xl font-semibold mt-6 sm:text-base text-gray-700 leading-[1.5] lg:w-[587px] md:w-[350px] sm:full xs:full">
+                                        class="md:text-xl font-semibold mt-6 sm:text-base text-gray-700 leading-[1.5] lg:w-[587px] md:w-[350px] sm:w-[200] xs:w-[200px]">
                                         Find your reference project with our rich search experience.
                                         Filter projects by specific categories such as tags, sizes,
                                         status and location.
@@ -1488,12 +1488,36 @@
 
     @media (max-width: 1300px) {
 
-        .bgimg0,.bgimg1,.bgimg2 {
+        .bgimg0 {
             background-size: cover;
             background-position: right;
         }
 
     }
 
-    
+    @media (max-width: 1300px) {
+
+        .bgimg1 {
+            background: none;
+            /* background-size: contain; */
+            /* background-repeat: repeat; */
+
+            /* background-color: rgba(0, 0, 0, 0.5); */
+
+        }
+
+    }
+
+    @media (max-width: 1300px) {
+
+        .bgimg2 {
+            /* background-size: contain; */
+            /* background-repeat: repeat; */
+            /* background: none; */
+
+            /* background-color: rgba(0, 0, 0, 0.5); */
+
+        }
+
+    }
 </style>
