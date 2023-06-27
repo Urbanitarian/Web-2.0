@@ -75,7 +75,8 @@
                                 </svg>
                                 <span class="text-sm whitespace-nowrap">Save to collection</span></button>
                         </div>
-                        <div x-show="showDropDown" id="" class="absolute z-50 top-16 right-12"
+                        <div x-show="showDropDown" id=""
+                            class="absolute z-50 lg:top-16 md:top-52 sm:top-28 lg:right-12 md:right-64"
                             style="display: none;">
 
 
@@ -120,7 +121,7 @@
             <div class="flex items-center justify-between px-8 py-3 shadow" x-data="{ active: 'ac' }">
                 <div class=""></div>
                 <div
-                    class="relative inset-x-0 top-0 z-50 flex items-center w-auto p-0 px-6 mt-0 transition-all duration-300 ease-in-out translate-x-0 bg-transparent shadow-none opacity-100 bg-gray-50">
+                    class="relative inset-x-0 top-0 z-40 flex items-center w-auto p-0 px-6 mt-0 transition-all duration-300 ease-in-out translate-x-0 bg-transparent shadow-none opacity-100 bg-gray-50">
                     <div
                         class="flex flex-wrap justify-center pb-4 mx-auto mt-0 align-baseline md:flex-row md:space-y-0 md:pb-0">
                         <a class="mx-2 text-base font-light cursor-pointer text-gray-400 duration-300 xl:mx-4 hover:text-black"
@@ -162,8 +163,7 @@
                         <div class="col-span-9" x-bind:class="{ 'col-span-12': !sideBar, 'col-span-9': sideBar }"
                             style="background: url({{ asset('img/Graphy.png') }}) repeat; background-size:cover;">
                             <div class="relative flex items-center justify-center w-full py-10">
-                                <div
-                                    class="absolute  hidden left-0 lg:flex flex-col ml-4 bg-white border rounded cursor-pointer">
+                                <div class="absolute  left-0 lg:flex flex-col ml-4 bg-white border rounded cursor-pointer">
                                     <div class="p-2 border-b" onclick="zoomIn()">
                                         {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="#667080" class="w-6 h-6">
@@ -564,7 +564,7 @@
                 <div class="w-full py-8">
                     <div class="flex items-center justify-start">
                         @php $credits = explode(',', $item->credits); @endphp
-                        <ul class="flex flex-col gap-2 text-base list-disc px-60">
+                        <ul class="flex flex-col gap-2 text-base list-disc lg:px-60 md:px-20 xs:px-8  flex-wrap">
                             @foreach ($credits as $source)
                                 <li class="py-2">
                                     <div class="flex gap-2">
@@ -597,16 +597,16 @@
             <section class="bg-gray-100 border-t">
                 <div class="" x-data="{ swiper: null }" x-init="swiper = new Swiper($refs.container, {
                     loop: true,
-                    slidesPerView: 5,
+                    slidesPerView: 1,
                     spaceBetween: 0,
                     centeredSlides: true,
                     breakpoints: {
                         640: {
-                            slidesPerView: 3,
+                            slidesPerView: 1,
                             spaceBetween: 0,
                         },
                         768: {
-                            slidesPerView: 3,
+                            slidesPerView: 2,
                             spaceBetween: 0,
                         },
                         1024: {

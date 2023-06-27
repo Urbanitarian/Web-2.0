@@ -23,12 +23,12 @@ class TestController extends Controller
 
 
 
-        dd(Streetscape::find(1)->masterplan);
+        //  dd(Streetscape::find(1)->masterplan);
 
 
-        // session()->forget('FRONT_USER_ID');
-        // session()->forget('FRONT_USER_LOGIN');
-        // session()->forget('FRONT_USER_NAME');
+        session()->forget('FRONT_USER_ID');
+        session()->forget('FRONT_USER_LOGIN');
+        session()->forget('FRONT_USER_NAME');
 
         // $masters = CollectionName::where('user_id', session()->get('FRONT_USER_ID'))->with('collections')->find(1);
 

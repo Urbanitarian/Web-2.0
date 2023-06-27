@@ -77,7 +77,8 @@
                                 </svg>
                                 <span class="text-sm whitespace-nowrap">Save to collection</span></button>
                         </div>
-                        <div x-show="showDropDown" id="" class="absolute z-50 top-16 right-12 "
+                        <div x-show="showDropDown" id=""
+                            class="absolute z-50 lg:top-16 md:top-52 sm:top-28 lg:right-12 md:right-64 "
                             style="display: none;">
 
 

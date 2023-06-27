@@ -36,7 +36,7 @@
                             Google</span>
                     </a>
 
-                    <div class="flex gap-4 mt-4">
+                    {{-- <div class="flex gap-4 mt-4">
                         <a type="button" href="{{ url('redirect/linkedin') }}"
                             class="md:px-[4rem] px-[2rem] flex gap-2 py-2 rounded text-gray-500 border-gray-200 border-2 hover:bg-gray-200 outline-2 focus:ring-2 outline-gray-300">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px" height="25px">
@@ -60,7 +60,7 @@
                             </svg>
                             <span>Twitter</span>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div class="flex items-center justify-center gap-3 mt-8">
@@ -70,20 +70,29 @@
 
                 <div class="flex flex-col my-6 mx-8 md:mx-0">
                     <form action="{{ url('user/login') }}" method="POST">
-                        @csrf
 
+                        @csrf
                         <div class="flex flex-col gap-2">
                             <div class="flex flex-col">
                                 <label for="">Email</label>
                                 <input type="email" name="email" class="px-2 py-2 border-2 border-gray-200 rounded "
                                     required />
+                                @error('email')
+                                    <span class="text-danger-500">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="flex flex-col">
                                 <label for="">Password</label>
                                 <input type="password" name="password" class="px-2 py-2 border-2 border-gray-200 rounded "
                                     required />
+                                @error('password')
+                                    <span class="text-danger-500">{{ $message }}</span>
+                                @enderror
                             </div>
 
+                            @if (session()->has('error'))
+                                <span class="text-danger-500">{{ session()->get('error') }}</span>
+                            @endif
                             <button
                                 class="md:px-32 px-12 py-2 text-white transition-all bg-gray-800 border-2 border-gray-900 rounded hover:bg-black outline-2 focus:ring-2 outline-gray-300">Continue
                                 with

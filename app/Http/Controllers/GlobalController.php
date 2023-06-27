@@ -250,12 +250,12 @@ class GlobalController extends Controller
     {
         $id = $request->id;
         $item = Neighbourhood::find($id);
-        $streetscapes = Streetscape::where('id',$item->masterplan_id)->get();
-        $master = Masterplan::where('id',$item->masterplan_id)->first();
+        $streetscapes = Streetscape::where('id', $item->masterplan_id)->get();
+        $master = Masterplan::where('id', $item->masterplan_id)->first();
         $urbanscapes = neighbourhood::where('id', '!=', null)
-        ->inRandomOrder()
-        ->take(12)
-        ->get();
+            ->inRandomOrder()
+            ->take(12)
+            ->get();
 
 
         views($item)->record();
@@ -264,14 +264,14 @@ class GlobalController extends Controller
 
 
         $next = Neighbourhood::where('id', '>', $item->id)
-        ->orderBy('id', 'asc')
-        ->select('id')
-        ->first();
+            ->orderBy('id', 'asc')
+            ->select('id')
+            ->first();
 
         if (!$next) {
             Neighbourhood::orderBy('id', 'asc')
-                    ->select('id')
-                    ->first();
+                ->select('id')
+                ->first();
         }
 
         $prev = Neighbourhood::where('id', '<', $item->id)
@@ -280,14 +280,14 @@ class GlobalController extends Controller
             ->first();
         if (!$prev) {
             $prev = Neighbourhood::orderBy('id', 'desc')
-                    ->select('id')
-                    ->first();
+                ->select('id')
+                ->first();
         }
-        $next_id= $next ? $next->id : null;
+        $next_id = $next ? $next->id : null;
         $prev_id = $prev ? $prev->id : null;
 
 
-        return view('neighbourhoods_post', compact('item','next_id','prev_id','streetscapes', 'master', 'collections', 'urbanscapes',  'id'));
+        return view('neighbourhoods_post', compact('item', 'next_id', 'prev_id', 'streetscapes', 'master', 'collections', 'urbanscapes',  'id'));
     }
 
     public function streetscapes(Request $request)
@@ -311,8 +311,8 @@ class GlobalController extends Controller
 
         $id = $request->id;
         $item = Streetscape::find($id);
-        $master = Masterplan::where('id',$item->masterplan_id)->first();
-        $urbanscapes =  Neighbourhood::where('id',$item->masterplan_id)->get();
+        $master = Masterplan::where('id', $item->masterplan_id)->first();
+        $urbanscapes =  Neighbourhood::where('id', $item->masterplan_id)->get();
         $streetscapes = Streetscape::where('id', '!=', null)
             ->inRandomOrder()
             ->take(12)
@@ -324,14 +324,14 @@ class GlobalController extends Controller
 
 
         $next = Streetscape::where('id', '>', $item->id)
-        ->orderBy('id', 'asc')
-        ->select('id')
-        ->first();
+            ->orderBy('id', 'asc')
+            ->select('id')
+            ->first();
 
         if (!$next) {
             Streetscape::orderBy('id', 'asc')
-                    ->select('id')
-                    ->first();
+                ->select('id')
+                ->first();
         }
 
         $prev = Streetscape::where('id', '<', $item->id)
@@ -340,15 +340,15 @@ class GlobalController extends Controller
             ->first();
         if (!$prev) {
             $prev = Streetscape::orderBy('id', 'desc')
-                    ->select('id')
-                    ->first();
+                ->select('id')
+                ->first();
         }
-        $next_id= $next ? $next->id : null;
+        $next_id = $next ? $next->id : null;
         $prev_id = $prev ? $prev->id : null;
 
 
 
-        return view('streetscapes_post', compact('item','master','next_id','prev_id','urbanscapes','streetscapes', 'collections', 'id'));
+        return view('streetscapes_post', compact('item', 'master', 'next_id', 'prev_id', 'urbanscapes', 'streetscapes', 'collections', 'id'));
     }
 
     public function masterplans(Request $request)
@@ -388,20 +388,20 @@ class GlobalController extends Controller
             ->inRandomOrder()
             ->take(12)
             ->get();
-        $streetscapes = Streetscape::where('masterplan_id',$item->id)->get();
-        $urbanscapes =  Neighbourhood::where('masterplan_id',$item->id)->get();
+        $streetscapes = Streetscape::where('masterplan_id', $item->id)->get();
+        $urbanscapes =  Neighbourhood::where('masterplan_id', $item->id)->get();
         views($item)->record();
         $collections = CollectionName::all();
 
         $next = Masterplan::where('id', '>', $item->id)
-        ->orderBy('id', 'asc')
-        ->select('id')
-        ->first();
+            ->orderBy('id', 'asc')
+            ->select('id')
+            ->first();
 
         if (!$next) {
             Masterplan::orderBy('id', 'asc')
-                    ->select('id')
-                    ->first();
+                ->select('id')
+                ->first();
         }
 
         $prev = Masterplan::where('id', '<', $item->id)
@@ -410,15 +410,15 @@ class GlobalController extends Controller
             ->first();
         if (!$prev) {
             $prev = Masterplan::orderBy('id', 'desc')
-                    ->select('id')
-                    ->first();
+                ->select('id')
+                ->first();
         }
-        $next_id= $next ? $next->id : null;
+        $next_id = $next ? $next->id : null;
         $prev_id = $prev ? $prev->id : null;
 
 
 
-        return view('masterplans_post', compact('item','next_id','prev_id','masterplans', 'collections', 'streetscapes', 'urbanscapes', 'id'));
+        return view('masterplans_post', compact('item', 'next_id', 'prev_id', 'masterplans', 'collections', 'streetscapes', 'urbanscapes', 'id'));
     }
 
     public function alldictionary()
@@ -607,17 +607,41 @@ class GlobalController extends Controller
 
     public function userLogin(Request $req)
     {
-        $user = User::where('email', $req->email)->orWhere('role', 'user')->first();
+
+
+
+        $user = User::where('email', $req->email)->where('role', 'user')->first();
+
         if ($user) {
-            if (Hash::make($user->password == $req->password)) {
+            if (Hash::check($req->password, $user->password)) {
                 $req->session()->put('FRONT_USER_LOGIN', true);
                 $req->session()->put('FRONT_USER_ID', $user->id);
                 $req->session()->put('FRONT_USER_NAME', $user->name);
                 return redirect('/');
+            } else {
+                // dd('sdsd');
+                return redirect()->back()->with(session()->flash('error', 'Password is incorrect'));
             }
         } else {
-            \Alert::error('User with this email does not exist.')->flash();
-            return redirect('/')->with('error', 'User with this email does not exist.');
+
+            $req->validate([
+                'email' => 'required|unique:users',
+                'password' => 'required'
+            ]);
+
+            $name = substr($req->email, 0, strpos($req->email, "@"));
+
+            $user = User::create([
+                'name' => $name,
+                'email' => $req->email,
+                'role' => 'user',
+                'password' => $req->password // On attribue un mot de passe
+            ]);
+
+            $req->session()->put('FRONT_USER_LOGIN', true);
+            $req->session()->put('FRONT_USER_ID', $user->id);
+            $req->session()->put('FRONT_USER_NAME', $user->name);
+            return redirect('/');
         }
     }
 

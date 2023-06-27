@@ -63,7 +63,8 @@
                             </span>
                         </a>
                         <div class="flex items-center justify-center w-8 p-1 text-white uppercase bg-gray-400 rounded-full"
-                            data-toggle="{{ session()->get('FRONT_USER_NAME') }}">
+                            data-te-toggle="tooltip" data-te-placement="bottom" data-te-ripple-init
+                            data-te-ripple-color="light" title="{{ session()->get('FRONT_USER_NAME') }}">
 
                             {{ substr(session()->get('FRONT_USER_NAME'), 0, 2) }}
 
@@ -124,7 +125,7 @@
                         @else
                             <div class="px-4 py-2">
                                 <a href="/login"
-                                    class="md:px-5 px-2 md:hidden block py-3 font-normal text-center text-white bg-gray-800 rounded shadow-lg hover:bg-black prevent group">
+                                    class="md:px-5 px-2 md:hidden block py-2 font-normal text-center text-white bg-gray-800 rounded shadow-lg hover:bg-black prevent group">
                                     <span class="text-sm">Log in or sign up</span>
                                 </a>
                             </div>

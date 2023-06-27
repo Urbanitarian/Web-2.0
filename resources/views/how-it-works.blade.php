@@ -4,7 +4,7 @@
     <div class="md:mx-[46px] mx-[10px]">
         <div data-barba="container" class="bg-gradient-to-r from-white to-gray-100">
             <div class="bg-contain bg-no-repeat bgimg h-[540px]" style="">
-                <h1 class="text-gray-800 md:py-8 py-4 font-bold  md:text-5xl text-2xl pt-[30px] leading-[140%]">
+                <h1 class="text-gray-800 md:py-8 py-4 font-bold  md:text-5xl text-2xl pt-[30px]" style="line-height: 140%">
                     Find practical urban design inspiration<br> from real projects that solve real<br> urban design
                     problems.
                 </h1>
@@ -19,7 +19,7 @@
                     </span>
                 </div>
 
-                <div class="flex flex-wrap md:pt-16 pt-8 gap-1">
+                <div class="flex flex-wrap md:pt-12 pt-8 gap-1">
                     <img src="{{ asset('img/how-it-works/FWF_Logo 1.png') }}" class="h-[46px] w-[167px]" alt="">
                     <img src="{{ asset('img/how-it-works/logo-lang-de 1.png') }}" class="h-[46px] w-[109px]" alt="">
                     <img src="{{ asset('img/how-it-works/IaaC 1.png') }}" class="h-[46px] w-[94px]" alt="">

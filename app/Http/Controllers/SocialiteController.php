@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Socialite;
-
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 class SocialiteController extends Controller
 {
@@ -43,14 +43,16 @@ class SocialiteController extends Controller
         if (in_array($provider, $this->providers)) {
 
             // Les informations provenant du provider
-            $user = Socialite::driver($provider)->stateless()->user();
+            $s_user = Socialite::driver($provider)->user();
+
 
             # Social login - register
-            $email = $user->getEmail(); // L'adresse email
-            $name = $user->getName(); // le nom
+            $email = $s_user->getEmail(); // L'adresse email
+            $name = $s_user->getName(); // le nom
 
             # 1. On récupère l'utilisateur à partir de l'adresse email
             $user = User::where("email", $email)->first();
+
             # 2. Si l'utilisateur existe
             if (isset($user)) {
 
@@ -64,7 +66,7 @@ class SocialiteController extends Controller
                 switch ($provider) {
                     case 'google':
                         $user = User::create([
-                            'google_id' => $user->id,
+                            'google_id' => $s_user->id,
                             'name' => $name,
                             'email' => $email,
                             'role' => 'user',
@@ -73,7 +75,7 @@ class SocialiteController extends Controller
                         break;
                     case 'twitter':
                         $user = User::create([
-                            'twitter_id' => $user->id,
+                            'twitter_id' => $s_user->id,
                             'name' => $name,
                             'email' => $email,
                             'role' => 'user',
@@ -83,7 +85,7 @@ class SocialiteController extends Controller
 
                     default:
                         $user = User::create([
-                            'linkedin_id' => $user->id,
+                            'linkedin_id' => $s_user->id,
                             'name' => $name,
                             'email' => $email,
                             'role' => 'user',
@@ -94,10 +96,16 @@ class SocialiteController extends Controller
             }
 
             # 4. On connecte l'utilisateur
-            backpack_auth()->login($user);
+            Auth::login($user);
 
             # 5. On redirige l'utilisateur vers /home
-            if (backpack_auth()->check()){};
+            if (Auth()->check()) {
+
+                $request->session()->put('FRONT_USER_LOGIN', true);
+                $request->session()->put('FRONT_USER_ID', $user->id);
+                $request->session()->put('FRONT_USER_NAME', $user->name);
+                return redirect('/');
+            };
         }
         abort(404);
     }
