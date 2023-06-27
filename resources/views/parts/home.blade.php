@@ -32,7 +32,7 @@
     })">
         <div class="swiper-container" x-ref="container"
             style="background-image: url('{{ asset('img/pattern.png') }}'); background-repeat: repeat; background-size: 100%; background-position: bottom;">
-            <div class="swiper-wrapper md:h-[512px] h-[570px]"
+            <div class="swiper-wrapper md:h-[512px] h-[590px]"
                 style="background-image: linear-gradient(90deg, #ffffff,70%, #f3f4f6);">
 
                 <div class="swiper-slide ">
@@ -41,11 +41,13 @@
 
                             <div class="flex items-center justify-start h-full md:p-[100px] p-[50px]  md:w-7/12 w-full">
                                 <div class="select-none">
-                                    <h2 class="md:text-5xl text-3xl font-bold text-gray-800 leading-snug">
+                                    <h2
+                                        class="lg:text-5xl md:text-4xl sm:text-3xl xs:text-3xl font-bold text-gray-800 leading-snug">
                                         Get inspired and solve specific urban design challenges
                                     </h2>
-                                    <p class="text-xl font-semibold mt-6 text-base text-gray-700 leading-[1.5]">
-                                        Save hours of research with our library of<br>500+ fully searchable urban design
+                                    <p
+                                        class="md:text-xl font-semibold mt-6 sm:text-base text-gray-700 leading-[1.5]  lg:w-[484px] md:w-[350px] sm:w-[200] xs:w-[200px]">
+                                        Save hours of research with our library of 500+ fully searchable urban design
                                         resources
                                     </p>
 
@@ -76,12 +78,14 @@
 
                             <div class="flex items-center justify-start h-full md:p-[100px] p-[50px]  md:w-7/12 w-full">
                                 <div class="select-none">
-                                    <h2 class="md:text-5xl text-3xl font-bold text-gray-800 leading-snug">
+                                    <h2
+                                        class="lg:text-5xl md:text-4xl sm:text-3xl xs:text-3xl font-bold text-gray-800 leading-snug">
                                         Explore the database
                                     </h2>
-                                    <p class="text-xl font-semibold mt-6 text-base text-gray-700 leading-[1.5]">
-                                        Create collections and bookmark your favorite<br>
-                                        Masterplans, Streetscapes and Urbanscapes.<br>
+                                    <p
+                                        class="md:text-xl font-semibold mt-6 sm:text-base text-gray-700 leading-[1.5] lg:w-[454px] md:w-[350px] sm:w-[200] xs:w-[200px]">
+                                        Create collections and bookmark your favorite
+                                        Masterplans, Streetscapes and Urbanscapes.
                                         Share it with your team for collaboration.
                                     </p>
 
@@ -112,12 +116,14 @@
 
                             <div class="flex items-center justify-start h-full md:p-[100px] p-[50px]  md:w-7/12 w-full">
                                 <div class="select-none">
-                                    <h2 class="md:text-5xl text-3xl font-bold text-gray-800 leading-snug">
+                                    <h2
+                                        class="lg:text-5xl md:text-4xl sm:text-3xl xs:text-3xl font-bold text-gray-800 leading-snug">
                                         Take a deep-dive & learn compare, measure and collect
                                     </h2>
-                                    <p class="text-xl font-semibold mt-6 text-base text-gray-700 leading-[1.5]">
-                                        Find your reference project with our rich search experience.<br>
-                                        Filter projects by specific categories such as tags, sizes,<br>
+                                    <p
+                                        class="md:text-xl font-semibold mt-6 sm:text-base text-gray-700 leading-[1.5] lg:w-[587px] md:w-[350px] sm:w-[200] xs:w-[200px]">
+                                        Find your reference project with our rich search experience.
+                                        Filter projects by specific categories such as tags, sizes,
                                         status and location.
                                     </p>
 
@@ -151,7 +157,7 @@
 <div class="relative z-50 ">
     <div id="mysearch" class="py-4 px-6 bg-white border-t shadow">
         <div class="flex flex-col flex-wrap gap-2 mx-4 md:mx-0" x-data="{ showFilter: true }">
-            <div class="flex items-center md:justify-between flex-col md:flex-row gap-4 md:gap-8">
+            <div class="flex items-center md:justify-between flex-col lg:flex-row gap-4 md:gap-8">
                 <fieldset class="flex flex-wrap gap-2 sm:justify-center  md:gap-4" name="category"
                     x-data="{ active: 'masterplan' }">
                     <button id="masterplans" name="category" value="Masterplans" @click="active='masterplan'">
@@ -217,7 +223,8 @@
 
             </div>
 
-            <div x-show="showFilter" class="grid sm:grid-cols-1 mt-4  gap-2 mx-4 md:grid-cols-5 md:mx-0">
+            <div x-show="showFilter"
+                class="grid transition-all ease-out duration-300 sm:grid-cols-1 mt-4  gap-2 mx-4 lg:grid-cols-5 md:mx-0">
                 <div class="block">
                     <label for="DeliveryStandard" class="flex justify-between text-sm">
                         <p class="pb-1 text-black">Tags</p>
@@ -431,7 +438,8 @@
 <div data-barba="container" class="mt-5">
     <section class="block px-6 pb-8 tabset ">
         <div class="relative mx-auto">
-            <div id="boucle" class="grid md:grid-cols-5 sm:grid-cols-2 xs:grid-cols-1  gap-5 mygrid">
+            <div id="boucle"
+                class="grid lg:grid-cols-5 md:grid-cols-5 sm:grid-cols-1 xs:grid-cols-1  gap-5 mygrid">
 
             </div>
 
@@ -1171,7 +1179,7 @@
 
     function resetLayout_1() {
 
-        $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("md:grid-cols-5").addClass(
+        $(".mygrid").addClass("lg:grid-cols-4").addClass("xl:grid-cols-5").addClass("md:grid-cols-1").addClass(
                 "grid-cols-1").addClass(
                 "gap-5").removeClass("lg:grid-cols-2").removeClass("xl:grid-cols-3").removeClass("grid-cols-2")
             .removeClass("grid-cols-1").removeClass("lg:grid-cols-1").removeClass("xl:grid-cols-1");
@@ -1481,7 +1489,12 @@
     @media (max-width: 1300px) {
 
         .bgimg0 {
-            background-image: none;
+            /* background-size: contain; */
+            /* background-repeat: no-repeat; */
+            /* background: none; */
+
+            /* background-color: rgba(0, 0, 0, 0.5); */
+
         }
 
     }
@@ -1489,7 +1502,12 @@
     @media (max-width: 1300px) {
 
         .bgimg1 {
-            background-image: none;
+            background: none;
+            /* background-size: contain; */
+            /* background-repeat: repeat; */
+
+            /* background-color: rgba(0, 0, 0, 0.5); */
+
         }
 
     }
@@ -1497,7 +1515,12 @@
     @media (max-width: 1300px) {
 
         .bgimg2 {
-            background-image: none;
+            /* background-size: contain; */
+            /* background-repeat: repeat; */
+            /* background: none; */
+
+            /* background-color: rgba(0, 0, 0, 0.5); */
+
         }
 
     }

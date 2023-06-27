@@ -75,7 +75,8 @@
                                 </svg>
                                 <span class="text-sm whitespace-nowrap">Save to collection</span></button>
                         </div>
-                        <div x-show="showDropDown" id="" class="absolute z-50 top-16 right-12"
+                        <div x-show="showDropDown" id=""
+                            class="absolute z-50 lg:top-16 md:top-52 sm:top-28 lg:right-12 md:right-64"
                             style="display: none;">
 
 
@@ -147,7 +148,7 @@
                             href="#resources" @click="active = ec">&nbsp;Resources</a>
                     </div>
                 </div>
-                <div class="md:block hidden" @click="sideBar=!sideBar">
+                <div class="lg:block hidden" @click="sideBar=!sideBar">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -166,20 +167,65 @@
             <section id="streetscaps">
                 <div class="relative">
 
-                    <div class="grid lg:grid-cols-12 sm:grid-cols-1 border-t ">
+                    <div class="grid lg:grid-cols-12 grid-cols-1 border-t ">
                         <div class="col-span-9" x-bind:class="{ 'col-span-12': !sideBar, 'col-span-9': sideBar }"
                             style="background: url({{ asset('img/Graphy.png') }}) repeat; background-size:cover;">
                             <div class="relative flex items-center justify-center w-full py-10">
 
+                                <div
+                                    class="absolute left-0 flex flex-col z-50 ml-4 bg-white border rounded cursor-pointer">
+                                    <div class="p-2 border-b" onclick="zoomIn()">
+                                        {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="#667080" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                                            </svg> --}}
+
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z"
+                                                stroke="#667080" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M17.5 17.5L13.875 13.875" stroke="#667080" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M9.16669 6.66675V11.6667" stroke="#667080" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M6.66669 9.16675H11.6667" stroke="#667080" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+
+                                    </div>
+                                    <div class="p-2" onclick="zoomOut()">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z"
+                                                stroke="#667080" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M17.5 17.5L13.875 13.875" stroke="#667080" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M6.66669 9.16675H11.6667" stroke="#667080" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+
+                                    </div>
+
+
+
+                                </div>
+
                                 @php $image0 =  $item->imagea ?? null; @endphp
                                 @php $image1 =  $item->imageb ?? null; @endphp
                                 <div class="">
-                                    <div class="juxtapose md:w-[970px] w-[400px] h-[480px] shadow-lg rounded"
-                                        style="">
-                                        <img id="img" class="object-cover z-30 h-[512px] border saturate-120"
+                                    <div class="juxtapose md:w-[970px] xs:w-[400px] md:h-[480px] xs:h-[200px] shadow-lg rounded"
+                                        id="street" style="">
+                                        <img id="img"
+                                            class="object-cover z-30 lg:h-[512px] md:h-[350px] xs:h-[200px] border saturate-120"
                                             src="{{ asset('storage/uploads/streetscapes/' . $image0) }}"alt=""
                                             style="border-radius: 4px" onerror="this.src='./img/empty.png'" />
-                                        <img id="img" class="object-cover z-30 h-[512px]  border saturate-120"
+                                        <img id="img"
+                                            class="object-cover z-30 lg:h-[512px] md:h-[350px] xs:h-[200px]  border saturate-120"
                                             src="{{ asset('storage/uploads/streetscapes/' . $image1) }}"alt=""
                                             style="border-radius: 4px" onerror="this.src='./img/empty.png'" />
 
@@ -190,7 +236,7 @@
                             </div>
 
                         </div>
-                        <div class="col-span-3 px-2 py-4 mx-2 bg-white border-b" x-show="sideBar==true">
+                        <div class="col-span-3 lg:px-2 px-8 py-4 mx-2 bg-white border-b" x-show="sideBar==true">
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-semibold text-gray-600">
                                     Details
@@ -568,7 +614,7 @@
                 <div class="w-full py-8">
                     <div class="flex items-center justify-start">
                         @php $credits = explode(',', $item->credits); @endphp
-                        <ul class="flex flex-col gap-2 text-base list-disc md:px-60 px-8  flex-wrap">
+                        <ul class="flex flex-col gap-2 text-base list-disc  lg:px-60 md:px-20 px-8  flex-wrap">
                             @foreach ($credits as $source)
                                 <li class="py-2">
                                     <div class="flex gap-2">
@@ -607,7 +653,19 @@
                     allowTouchMove: false,
                     breakpoints: {
                         640: {
-                            slidesPerView: 3,
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        },
+                        768: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        },
+                        1024: {
+                            slidesPerView: 2,
+                            spaceBetween: 0,
+                        },
+                        1440: {
+                            slidesPerView: 2,
                             spaceBetween: 0,
                         },
                 
@@ -643,10 +701,10 @@
                                             <div class="juxtapose streetscapesJuxtapose w-full">
                                                 <img alt="Art"
                                                     src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $street->imagea) }}"alt=""
-                                                    class="object-cover saturate-120  md:h-[480px] h-[700px] w-full" />
+                                                    class="object-cover saturate-120  lg:h-[480px] md:h-[350px] xs:[250px] w-full" />
                                                 <img alt="Art"
                                                     src="{{ asset('storage/uploads/thumbnails/streetscapes/' . $street->imageb) }}"alt=""
-                                                    class="object-cover saturate-120  md:h-[480px] h-[700px] w-full" />
+                                                    class="object-cover saturate-120  lg:h-[480px] md:h-[350px] xs:[250px] w-full" />
                                             </div>
 
                                             <div
@@ -757,7 +815,7 @@
         }
 
         .zoom {
-            transform: scale(1.3)
+            transform: scale(1.2)
         }
 
         #streetmap {
@@ -781,7 +839,7 @@
 
 
 
-        @media(max-width: 786px) {
+        @media(min-width: 786px) {
             .swiper-st {
                 width: 400px;
             }
@@ -789,6 +847,17 @@
             .street-w {
                 width: 380px
             }
+        }
+
+        @media(max-width: 820) {
+            .swiper-st {
+                width: 500px;
+            }
+
+            .street-w {
+                width: 480px
+            }
+
 
 
         }
@@ -901,13 +970,15 @@
         }
 
         function zoomOut() {
-            var img = document.getElementById('img');
+            var img = document.getElementById('street');
 
             img.classList.remove('zoom');
         }
 
         function zoomIn() {
-            var img = document.getElementById('img');
+
+            // alert('dsd');
+            var img = document.getElementById('street');
 
             img.classList.add('zoom');
         }

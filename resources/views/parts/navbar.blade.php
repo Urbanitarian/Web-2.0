@@ -63,7 +63,8 @@
                             </span>
                         </a>
                         <div class="flex items-center justify-center w-8 p-1 text-white uppercase bg-gray-400 rounded-full"
-                            data-toggle="{{ session()->get('FRONT_USER_NAME') }}">
+                            data-te-toggle="tooltip" data-te-placement="bottom" data-te-ripple-init
+                            data-te-ripple-color="light" title="{{ session()->get('FRONT_USER_NAME') }}">
 
                             {{ substr(session()->get('FRONT_USER_NAME'), 0, 2) }}
 
@@ -98,9 +99,11 @@
                     <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
                     {{-- <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
                         id="menu-item-0">Categories</a> --}}
-                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                    <a href="/blog" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                        id="menu-item-2">Blog</a>
+                    <a href="/collection" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
                         id="menu-item-1">Collections</a>
-                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                    <a href="/how-it-works" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
                         id="menu-item-2">How it works</a>
 
                     <div class="flex md:gap-6 gap-2">
@@ -122,7 +125,7 @@
                         @else
                             <div class="px-4 py-2">
                                 <a href="/login"
-                                    class="md:px-5 px-2 md:hidden block py-3 font-normal text-center text-white bg-gray-800 rounded shadow-lg hover:bg-black prevent group">
+                                    class="md:px-5 px-2 md:hidden block py-2 font-normal text-center text-white bg-gray-800 rounded shadow-lg hover:bg-black prevent group">
                                     <span class="text-sm">Log in or sign up</span>
                                 </a>
                             </div>
