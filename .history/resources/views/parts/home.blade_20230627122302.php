@@ -46,7 +46,7 @@
                                         Get inspired and solve specific urban design challenges
                                     </h2>
                                     <p
-                                        class="md:text-xl font-semibold mt-6 sm:text-base text-gray-700 leading-[1.5] lg:w-[587px] md:w-[350px] sm:full xs:full">
+                                        class="md:text-xl font-semibold mt-6 sm:text-base text-gray-700 leading-[1.5]  lg:w-[484px] md:w-[350px] sm:w-[200] xs:w-[200px]">
                                         Save hours of research with our library of 500+ fully searchable urban design
                                         resources
                                     </p>
@@ -83,7 +83,7 @@
                                         Explore the database
                                     </h2>
                                     <p
-                                        class="md:text-xl font-semibold mt-6 sm:text-base text-gray-700 leading-[1.5] lg:w-[587px] md:w-[350px] sm:full xs:full">
+                                        class="md:text-xl font-semibold mt-6 sm:text-base text-gray-700 leading-[1.5] lg:w-[454px] md:w-[350px] sm:w-[200] xs:w-[200px]">
                                         Create collections and bookmark your favorite
                                         Masterplans, Streetscapes and Urbanscapes.
                                         Share it with your team for collaboration.
